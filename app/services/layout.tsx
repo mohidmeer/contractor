@@ -1,0 +1,16 @@
+
+export const metadata = {
+    title: 'Our Services',
+  }
+
+export default function Layout({
+    children,
+}: {
+    children: React.ReactNode
+}) {
+    return (
+        <>
+            {children}
+        </>
+    )
+}

@@ -1,0 +1,116 @@
+import React from 'react';
+import Logo from './Logo';
+import Link from 'next/link';
+import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
+import { contactInfo, FooterData, navItems, socialLinks } from '@/data/constants';
+import { BsClock, BsFillTelephoneFill } from 'react-icons/bs';
+import { FaLocationDot } from 'react-icons/fa6';
+
+const Footer = () => {
+  const services = navItems.find(item => item.label === 'Services')?.children || [];
+  const projects = navItems.find(item => item.label === 'Projects')?.children || [];
+  const aboutLinks = navItems.filter(item =>
+    ['About Us', 'Contact Us', 'Blogs'].includes(item.label)
+  );
+
+  return (
+    <footer className="bg-primary text-white py-12">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+        {/* Logo + Tagline + Contact Info */}
+        <div className="flex flex-col justify-between">
+          <div>
+            <Logo />
+            <p className="mt-4 p2 text-base">{FooterData.tagline}</p>
+            <div className="mt-6 space-y-3 text-base">
+              <a href={contactInfo.phone.href} className="flex items-center gap-2">
+                <BsFillTelephoneFill size={20} className="text-primary" />
+                {contactInfo.phone.text}
+              </a>
+              <a href={contactInfo.mapEmbedUrl} className="flex items-center gap-2">
+                <FaLocationDot size={20} className="text-primary" />
+                {contactInfo.address}
+              </a>
+              <div className="flex items-center gap-2">
+                <BsClock size={20} className="text-primary" />
+                {contactInfo.workingHours}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Services */}
+        <div>
+          <h6 className="font-semibold mb-4 text-lg">Services</h6>
+          <ul className="space-y-2 text-base">
+            {services.map(service => (
+              <li key={service.href}>
+                <Link href={service.href} className="hover:underline">
+                  {service.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Projects */}
+        <div>
+          <h6 className="font-semibold mb-4 text-lg">Projects</h6>
+          <ul className="space-y-2 text-base">
+            {projects.map(project => (
+              <li key={project.href}>
+                <Link href={project.href} className="hover:underline">
+                  {project.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Company Info + Socials */}
+        <div>
+          <h6 className="font-semibold mb-4 text-lg">Company</h6>
+          <ul className="space-y-2 text-base">
+            {aboutLinks.map(link => (
+              <li key={link.href}>
+                <Link href={link.href} className="hover:underline">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="flex gap-4 mt-6">
+            <a
+              href={socialLinks.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition"
+              aria-label="Facebook"
+            >
+              <FaFacebookSquare size={26} />
+            </a>
+            <a
+              href={socialLinks.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition"
+              aria-label="Instagram"
+            >
+              <FaInstagramSquare size={26} />
+            </a>
+            <a
+              href={socialLinks.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition"
+              aria-label="Twitter"
+            >
+              <FaTwitterSquare size={26} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
