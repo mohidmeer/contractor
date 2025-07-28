@@ -1,14 +1,15 @@
 'use client';
 import React from 'react'
 import Logo from './Logo'
-import { navItems } from '@/data/constants'
+import { contactInfo, navItems } from '@/data/constants'
 import Link from 'next/link'
 import { FaAngleDown } from 'react-icons/fa6'
 import { usePathname } from 'next/navigation'
+import { BsFillTelephoneFill } from 'react-icons/bs';
 
 
 const NavBar = () => {
-  const pathname  = usePathname()
+  const pathname = usePathname()
   return (
     <nav className=' bg-primary w-full z-20'>
       <div className='container mx-auto w-full flex justify-between items-center '>
@@ -23,8 +24,8 @@ const NavBar = () => {
                     `flex items-center gap-2 py-2 px-3 md:p-0 text-white    md:hover:text-white `
                   }
                 >
-                  <span className={`${pathname==item.href && 'border-white border-b-2 '}`}> {item.label}</span>
-                  {item.hasChildrens && <span><FaAngleDown/></span>}
+                  <span className={`${pathname == item.href && 'border-white border-b-2 '}`}> {item.label}</span>
+                  {item.hasChildrens && <span><FaAngleDown /></span>}
                 </Link>
                 {item.hasChildrens && (
                   <ul className="absolute hidden group-hover:block bg-white text-black shadow-md  p-2 rounded whitespace-nowrap z-20">
@@ -44,9 +45,10 @@ const NavBar = () => {
             ))}
           </ul>
         </div>
-        <button className='btn-secondary'>
-          Get Instant Quote
-        </button>
+        <a href={contactInfo.phone.href} className='flex gap-2 btn-secondary'>
+          <BsFillTelephoneFill size={20} className='' />
+          {contactInfo.phone.text}
+        </a>
       </div>
     </nav>
   )

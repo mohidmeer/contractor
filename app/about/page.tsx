@@ -1,13 +1,16 @@
 import Header from '@/components/Header'
 import React from 'react'
+import GetToKnow from '../_components/GetToKnow'
+import FAQs from '@/components/Faqs'
+import Process from '../_components/Process'
 
 const page = () => {
   return (
     <main className='flex flex-col gap-10 '>
-      <Header desc='What we do ' title={'About Us'} />
-      <section>
-        dsad
-      </section>
+      <Header cta desc='' title={'About Us'} />
+      <GetToKnow />
+      <Process />
+      <FAQs />
     </main>
   )
 }

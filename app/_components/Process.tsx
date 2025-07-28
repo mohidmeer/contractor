@@ -1,40 +1,8 @@
+import { ourProcessData } from '@/data/constants';
 import React from 'react'
-import { FaCalendarAlt, FaCheckCircle, FaFileAlt, FaSearch } from 'react-icons/fa';
-import { FaComments, FaHammer } from 'react-icons/fa6';
+
 
 const Process = () => {
-    const processSteps = [
-        {
-            title: "Initial Consultation",
-            description: "We start by understanding your roofing needs, budget, and design preferences through a detailed consultation.",
-            icon: FaComments
-        },
-        {
-            title: "Roof Inspection",
-            description: "Our experts perform a thorough inspection to assess the current condition of your roof and identify potential issues.",
-            icon: FaSearch
-        },
-        {
-            title: "Custom Proposal",
-            description: "We provide a transparent and detailed proposal outlining materials, timelines, and pricing for your roofing project.",
-            icon: FaFileAlt
-        },
-        {
-            title: "Project Scheduling",
-            description: "Once approved, we schedule the project at your convenience and prepare everything for a smooth installation process.",
-            icon: FaCalendarAlt
-        },
-        {
-            title: "Roofing Installation",
-            description: "Our skilled team executes the roofing work with precision, using premium materials and following industry best practices.",
-            icon: FaHammer
-        },
-        {
-            title: "Final Inspection & Handover",
-            description: "We conduct a thorough quality check and final inspection to ensure your satisfaction before completing the project.",
-            icon: FaCheckCircle
-        }
-    ];
     return (
         <section className='grid grid-cols-3 h-[90vh]'>
             <div className=' flex items-center flex-col gap-2 border justify-center  bg-primary text-white'>
@@ -49,7 +17,7 @@ const Process = () => {
                 <div className='h-full '>
                     <div className='grid grid-cols-2 bg-white px-10'>
 
-                        {processSteps.map((feature, index) => {
+                        {ourProcessData.map((feature, index) => {
                             const Icon = feature.icon;
                             return (
                                 <div

@@ -4,27 +4,43 @@ import TopBar from "@/components/TopBar";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import GoogleMap from "@/components/GoogleMap";
+import { pages } from "@/data/constants";
 
 export const metadata: Metadata = {
   title: {
-    default: 'Total Care Services',
-    template: '%s | Total Care Services',
+    default: pages.landing.seo.title,
+    template: `%s | ${pages.landing.seo.title}`,
   },
-  description: 'Expert roofing and home services in Florida.',
+  description: pages.landing.seo.description,
   openGraph: {
-    title: 'Total Care Services',
-    description: 'Expert roofing and home services in Florida.',
-    url: 'https://totalcareservicesroofing.com',
-    siteName: 'Total Care Services',
+    title: pages.landing.seo.title,
+    description: pages.landing.seo.description,
+    url: pages.landing.seo.canonical,
+    siteName: pages.landing.seo.title,
     type: 'website',
+    images: [
+      {
+        url: pages.landing.seo.ogImage,
+        width: 1200,
+        height: 630,
+        alt: pages.landing.seo.title,
+      },
+    ],
+  },
+  alternates: {
+    canonical: pages.landing.seo.canonical,
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Total Care Services',
-    description: 'Expert roofing and home services in Florida.',
+    title: pages.landing.seo.title,
+    description: pages.landing.seo.description,
+    images: [pages.landing.seo.ogImage],
   },
 };
-
 
 
 export default async function RootLayout({

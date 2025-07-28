@@ -1,3 +1,7 @@
+export const metadata = {
+    title: 'Area Of Service',
+  }
+
 export default function Layout({
     children,
 }: {

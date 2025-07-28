@@ -46,7 +46,6 @@ const Services = () => {
             <div className="flex items-center  justify-center">
                 <ArrowLink label="View More" href="/services"></ArrowLink>
             </div>
-
         </section>
     )
 }

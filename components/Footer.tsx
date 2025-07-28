@@ -23,15 +23,15 @@ const Footer = () => {
             <p className="mt-4 p2 text-base">{FooterData.tagline}</p>
             <div className="mt-6 space-y-3 text-base">
               <a href={contactInfo.phone.href} className="flex items-center gap-2">
-                <BsFillTelephoneFill size={20} className="text-primary" />
+                <BsFillTelephoneFill size={20} className="text-white" />
                 {contactInfo.phone.text}
               </a>
               <a href={contactInfo.mapEmbedUrl} className="flex items-center gap-2">
-                <FaLocationDot size={20} className="text-primary" />
+                <FaLocationDot size={20} className="text-white" />
                 {contactInfo.address}
               </a>
               <div className="flex items-center gap-2">
-                <BsClock size={20} className="text-primary" />
+                <BsClock size={20} className="text-white" />
                 {contactInfo.workingHours}
               </div>
             </div>

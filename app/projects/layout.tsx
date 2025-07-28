@@ -1,7 +1,25 @@
+import { pages } from "@/data/constants"
 
 export const metadata = {
-    title: 'Our Projects',
+    title: pages.projects.seo.title,
+    description: pages.projects.seo.description,
+    alternates: {
+      canonical: pages.projects.seo.canonical,
+    },
+    openGraph: {
+      title: pages.projects.seo.title,
+      description: pages.projects.seo.description,
+      url: pages.projects.seo.canonical,
+      images: [pages.projects.seo.ogImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: pages.projects.seo.title,
+      description: pages.projects.seo.description,
+      images: [pages.projects.seo.ogImage],
+    },
   }
+
 
 export default function Layout({
     children,

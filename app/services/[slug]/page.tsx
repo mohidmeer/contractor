@@ -1,96 +1,118 @@
+import Process from '@/app/_components/Process';
+import Projects from '@/app/_components/Projects';
+import Testimonials from '@/app/_components/Testimonials';
+import FAQs from '@/components/Faqs';
+import Gallery from '@/components/Gallery';
 import Header from '@/components/Header'
-import Title from '@/components/inputs/Title'
+import WhyUS from '@/components/WhyUS';
+import { navItems } from '@/data/constants';
 import { servicesData } from '@/data/services'
+import Link from 'next/link';
 import { notFound } from 'next/navigation'
-import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt, FaSearch, FaFileAlt, FaCalendarAlt, FaCheckCircle } from "react-icons/fa";
-import { FaComments, FaHammer } from 'react-icons/fa6';
+import {  FaCheckSquare } from "react-icons/fa";
+import { FaCircle } from 'react-icons/fa6';
 
 export async function generateStaticParams() {
   return Object.keys(servicesData).map(slug => ({ slug }))
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const { slug } = params
+  const { slug } = await params
   const service = servicesData[slug]
 
   if (!service) return notFound()
 
 
-    const processSteps = [
-      {
-        title: "Initial Consultation",
-        description: "We start by understanding your roofing needs, budget, and design preferences through a detailed consultation.",
-        icon: FaComments
-      },
-      {
-        title: "Roof Inspection",
-        description: "Our experts perform a thorough inspection to assess the current condition of your roof and identify potential issues.",
-        icon: FaSearch
-      },
-      {
-        title: "Custom Proposal",
-        description: "We provide a transparent and detailed proposal outlining materials, timelines, and pricing for your roofing project.",
-        icon: FaFileAlt
-      },
-      {
-        title: "Project Scheduling",
-        description: "Once approved, we schedule the project at your convenience and prepare everything for a smooth installation process.",
-        icon: FaCalendarAlt
-      },
-      {
-        title: "Roofing Installation",
-        description: "Our skilled team executes the roofing work with precision, using premium materials and following industry best practices.",
-        icon: FaHammer
-      },
-      {
-        title: "Final Inspection & Handover",
-        description: "We conduct a thorough quality check and final inspection to ensure your satisfaction before completing the project.",
-        icon: FaCheckCircle
-      }
-    ];
+
+
+
   return (
     <main className="flex flex-col gap-20">
       <Header cta title={service.title} desc={service.description} />
-      <section >
-        <div className='flex items-center  flex-col justify-center'>
-        </div>
-        
+      <section className='container mx-auto w-full '>
+        <div className='grid-cols-4 grid gap-10 p-4'>
+          <div className='bg-white px-10 py-20 rounded-md flex-col gap-6 flex col-span-3'>
+            <h2 className='text-heading'>{service.label}</h2>
+            <p className='text-lg'>{service.content}</p>
+            <h3 className='text-heading'>
+              {service.typeOfSolutions.headings}
+            </h3>
+            <div className='grid grid-cols-2 '>
+              {
+               service.typeOfSolutions.types.map((i, z) => (
+                  <p className=' text-lg flex items-center gap-2' key={z}>
+                    <FaCircle size={10} className='text-primary' /> {i}
+                  </p>
+                ))
+              }
 
-      </section>
-      <section className='grid grid-cols-3 h-[90vh]'>
-          <div className=' flex items-center flex-col gap-2 border justify-center  bg-primary text-white'>
-            <h2 className="font-bold text-center">
-              Our Process
-            </h2>
-            <p className='text-lg text-center'>
-              From concept to completion, we make bathroom remodeling seamless and stress-free.
-            </p>
-          </div>
-          <div className='col-span-2 h-full py-32 '>
-            <div className='h-full '>
-              <div className='grid grid-cols-2 bg-white px-10'>
-                
-              {processSteps.map((feature, index) => {
-                    const Icon = feature.icon;
-                    return (
-                        <div
-                            key={index}
-                            className=" rounded-lg p-6 transition-shadow duration-300 cursor-pointer flex flex-col gap-4"
-                        >
-                         
-                            <Icon size={46} className="text-primary" />
-                            <h3 className="!text-2xl font-semibold  ">
-                            {index+1}. {feature.title}
-                            </h3>
-                            <p className="text-gray-600">{feature.description}</p>
-                        </div>
-                    );
-                })}
-              </div>
+            </div>
+
+            <h3 className='text-heading'>
+              Key Benefits
+            </h3>
+            <div className='grid grid-cols-1 gap-4 '>
+              {
+                service.benefitsOFChoosing.map((i, z) => (
+                  <div className="flex gap-2" key={z}>
+                    <FaCheckSquare size={20} className="text-primary mt-1 shrink-0" />
+                    <div>
+                      <h4 className="font-bold !text-xl text-heading">{i.title}</h4>
+                      <p className="">{i.description}</p>
+                    </div>
+                  </div>
+                ))
+              }
+
+
+
+            </div>
+
+            <div className=''>
+              <h3 className='text-heading my-10'>What our work look like </h3>
+              <Gallery images={['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']} />
             </div>
           </div>
-
-        </section>
+          <div className='h-fit flex flex-col gap-8'>
+            <div className='bg-white p-5'>
+            <h4 className='!text-xl font-bold'>Related Servives</h4>
+            <ul>
+              {navItems[1].children.map((child) => (
+                <li key={child.label}>
+                  <Link
+                    href={child.href}
+                    className="block  px-2 py-2 underline hover:text-primary"
+                  >
+                    {child.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            </div>
+            <div className='bg-white p-5'>
+            <h4 className='!text-xl font-bold'>Related Projects</h4>
+            <ul>
+              {navItems[2].children.map((child) => (
+                <li key={child.label}>
+                  <Link
+                    href={child.href}
+                    className="block  px-2 py-2 underline hover:text-primary"
+                  >
+                    {child.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            </div>
+           
+          </div>
+        </div>
+      </section>
+      <Process/>
+      <WhyUS />
+      <Projects />
+      <Testimonials />
+      <FAQs />
     </main>
   )
 }
