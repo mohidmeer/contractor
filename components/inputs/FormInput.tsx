@@ -15,7 +15,7 @@ const FormInput = ({ label, error, registration,placeholder ,...rest }: FormInpu
         {...registration}
         {...rest}
         placeholder={error ? error : placeholder}
-        className={`input ${
+        className={`input w-fit ${
           error ? 'border-red-500 focus:ring-red-500 placeholder:!text-red-500' : 'focus:ring-primary placeholder:text-gray-500'
         }`}
       />

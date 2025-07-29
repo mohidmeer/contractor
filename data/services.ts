@@ -49,8 +49,34 @@ export const servicesData = {
         title: 'Custom Roofing Options',
         description: 'Choose from asphalt shingles, metal roofs, tile roofs, and more to match your home’s style and budget.'
       }
-    ]
-
+    ] ,
+    faqs : [
+      {
+        question: "How long does a roofing project usually take?",
+        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+      },
+      {
+        question: "Do you offer free roof inspections?",
+        answer: "Yes, we provide free inspections and estimates for all our roofing services across Florida."
+      },
+      {
+        question: "What roofing materials do you use?",
+        answer: "We use premium materials such as asphalt shingles, metal roofing, and flat roofing systems from trusted manufacturers."
+      },
+      {
+        question: "Are your roofing services covered by warranty?",
+        answer: "Absolutely! All our roofing installations come with a material and workmanship warranty for your peace of mind."
+      },
+      {
+        question: "Do you provide emergency roof repair services?",
+        answer: "Yes, we offer 24/7 emergency roof repair services to handle storm damage and unexpected leaks."
+      },
+      {
+        question: "Are you licensed and insured?",
+        answer: "Yes, we are fully licensed and insured to perform roofing services in Florida, ensuring safety and compliance with local regulations."
+      }
+    ],
+    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
   },
   'roof-repair': {
     label: 'Roof Repair',
@@ -102,7 +128,34 @@ export const servicesData = {
         title: 'Custom Roofing Options',
         description: 'Choose from asphalt shingles, metal roofs, tile roofs, and more to match your home’s style and budget.'
       }
-    ]
+    ],
+    faqs : [
+      {
+        question: "How long does a roofing project usually take?",
+        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+      },
+      {
+        question: "Do you offer free roof inspections?",
+        answer: "Yes, we provide free inspections and estimates for all our roofing services across Florida."
+      },
+      {
+        question: "What roofing materials do you use?",
+        answer: "We use premium materials such as asphalt shingles, metal roofing, and flat roofing systems from trusted manufacturers."
+      },
+      {
+        question: "Are your roofing services covered by warranty?",
+        answer: "Absolutely! All our roofing installations come with a material and workmanship warranty for your peace of mind."
+      },
+      {
+        question: "Do you provide emergency roof repair services?",
+        answer: "Yes, we offer 24/7 emergency roof repair services to handle storm damage and unexpected leaks."
+      },
+      {
+        question: "Are you licensed and insured?",
+        answer: "Yes, we are fully licensed and insured to perform roofing services in Florida, ensuring safety and compliance with local regulations."
+      }
+    ],
+    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
   },
   'gutters': {
     label: 'Gutter Services',
@@ -154,7 +207,34 @@ export const servicesData = {
         title: 'Custom Roofing Options',
         description: 'Choose from asphalt shingles, metal roofs, tile roofs, and more to match your home’s style and budget.'
       }
-    ]
+    ],
+    faqs : [
+      {
+        question: "How long does a roofing project usually take?",
+        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+      },
+      {
+        question: "Do you offer free roof inspections?",
+        answer: "Yes, we provide free inspections and estimates for all our roofing services across Florida."
+      },
+      {
+        question: "What roofing materials do you use?",
+        answer: "We use premium materials such as asphalt shingles, metal roofing, and flat roofing systems from trusted manufacturers."
+      },
+      {
+        question: "Are your roofing services covered by warranty?",
+        answer: "Absolutely! All our roofing installations come with a material and workmanship warranty for your peace of mind."
+      },
+      {
+        question: "Do you provide emergency roof repair services?",
+        answer: "Yes, we offer 24/7 emergency roof repair services to handle storm damage and unexpected leaks."
+      },
+      {
+        question: "Are you licensed and insured?",
+        answer: "Yes, we are fully licensed and insured to perform roofing services in Florida, ensuring safety and compliance with local regulations."
+      }
+    ],
+    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
   },
   'roof-inspection': {
     label: 'Roof Inspection',
@@ -206,7 +286,34 @@ export const servicesData = {
         title: 'Custom Roofing Options',
         description: 'Choose from asphalt shingles, metal roofs, tile roofs, and more to match your home’s style and budget.'
       }
-    ]
+    ],
+    faqs : [
+      {
+        question: "How long does a roofing project usually take?",
+        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+      },
+      {
+        question: "Do you offer free roof inspections?",
+        answer: "Yes, we provide free inspections and estimates for all our roofing services across Florida."
+      },
+      {
+        question: "What roofing materials do you use?",
+        answer: "We use premium materials such as asphalt shingles, metal roofing, and flat roofing systems from trusted manufacturers."
+      },
+      {
+        question: "Are your roofing services covered by warranty?",
+        answer: "Absolutely! All our roofing installations come with a material and workmanship warranty for your peace of mind."
+      },
+      {
+        question: "Do you provide emergency roof repair services?",
+        answer: "Yes, we offer 24/7 emergency roof repair services to handle storm damage and unexpected leaks."
+      },
+      {
+        question: "Are you licensed and insured?",
+        answer: "Yes, we are fully licensed and insured to perform roofing services in Florida, ensuring safety and compliance with local regulations."
+      }
+    ],
+    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
   },
   'emergency-roof-repair': {
     label: 'Emergency Roof Repair',
@@ -258,7 +365,34 @@ export const servicesData = {
         title: 'Custom Roofing Options',
         description: 'Choose from asphalt shingles, metal roofs, tile roofs, and more to match your home’s style and budget.'
       }
-    ]
+    ],
+    faqs : [
+      {
+        question: "How long does a roofing project usually take?",
+        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+      },
+      {
+        question: "Do you offer free roof inspections?",
+        answer: "Yes, we provide free inspections and estimates for all our roofing services across Florida."
+      },
+      {
+        question: "What roofing materials do you use?",
+        answer: "We use premium materials such as asphalt shingles, metal roofing, and flat roofing systems from trusted manufacturers."
+      },
+      {
+        question: "Are your roofing services covered by warranty?",
+        answer: "Absolutely! All our roofing installations come with a material and workmanship warranty for your peace of mind."
+      },
+      {
+        question: "Do you provide emergency roof repair services?",
+        answer: "Yes, we offer 24/7 emergency roof repair services to handle storm damage and unexpected leaks."
+      },
+      {
+        question: "Are you licensed and insured?",
+        answer: "Yes, we are fully licensed and insured to perform roofing services in Florida, ensuring safety and compliance with local regulations."
+      }
+    ],
+    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
   },
 
   'flat-roofing': {
@@ -311,7 +445,35 @@ export const servicesData = {
         title: 'Custom Roofing Options',
         description: 'Choose from asphalt shingles, metal roofs, tile roofs, and more to match your home’s style and budget.'
       }
-    ]
+    ] ,
+    faqs : [
+      {
+        question: "How long does a roofing project usually take?",
+        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+      },
+      {
+        question: "Do you offer free roof inspections?",
+        answer: "Yes, we provide free inspections and estimates for all our roofing services across Florida."
+      },
+      {
+        question: "What roofing materials do you use?",
+        answer: "We use premium materials such as asphalt shingles, metal roofing, and flat roofing systems from trusted manufacturers."
+      },
+      {
+        question: "Are your roofing services covered by warranty?",
+        answer: "Absolutely! All our roofing installations come with a material and workmanship warranty for your peace of mind."
+      },
+      {
+        question: "Do you provide emergency roof repair services?",
+        answer: "Yes, we offer 24/7 emergency roof repair services to handle storm damage and unexpected leaks."
+      },
+      {
+        question: "Are you licensed and insured?",
+        answer: "Yes, we are fully licensed and insured to perform roofing services in Florida, ensuring safety and compliance with local regulations."
+      }
+    ],
+    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
+  
   },
 
   'metal-roofing': {
@@ -364,7 +526,34 @@ export const servicesData = {
         title: 'Custom Roofing Options',
         description: 'Choose from asphalt shingles, metal roofs, tile roofs, and more to match your home’s style and budget.'
       }
-    ]
+    ],
+    faqs : [
+      {
+        question: "How long does a roofing project usually take?",
+        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+      },
+      {
+        question: "Do you offer free roof inspections?",
+        answer: "Yes, we provide free inspections and estimates for all our roofing services across Florida."
+      },
+      {
+        question: "What roofing materials do you use?",
+        answer: "We use premium materials such as asphalt shingles, metal roofing, and flat roofing systems from trusted manufacturers."
+      },
+      {
+        question: "Are your roofing services covered by warranty?",
+        answer: "Absolutely! All our roofing installations come with a material and workmanship warranty for your peace of mind."
+      },
+      {
+        question: "Do you provide emergency roof repair services?",
+        answer: "Yes, we offer 24/7 emergency roof repair services to handle storm damage and unexpected leaks."
+      },
+      {
+        question: "Are you licensed and insured?",
+        answer: "Yes, we are fully licensed and insured to perform roofing services in Florida, ensuring safety and compliance with local regulations."
+      }
+    ],
+    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
   },
   'shingle-replacement': {
     label: 'Shingle Replacement',
@@ -416,7 +605,34 @@ export const servicesData = {
         title: 'Custom Roofing Options',
         description: 'Choose from asphalt shingles, metal roofs, tile roofs, and more to match your home’s style and budget.'
       }
-    ]
+    ],
+    faqs : [
+      {
+        question: "How long does a roofing project usually take?",
+        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+      },
+      {
+        question: "Do you offer free roof inspections?",
+        answer: "Yes, we provide free inspections and estimates for all our roofing services across Florida."
+      },
+      {
+        question: "What roofing materials do you use?",
+        answer: "We use premium materials such as asphalt shingles, metal roofing, and flat roofing systems from trusted manufacturers."
+      },
+      {
+        question: "Are your roofing services covered by warranty?",
+        answer: "Absolutely! All our roofing installations come with a material and workmanship warranty for your peace of mind."
+      },
+      {
+        question: "Do you provide emergency roof repair services?",
+        answer: "Yes, we offer 24/7 emergency roof repair services to handle storm damage and unexpected leaks."
+      },
+      {
+        question: "Are you licensed and insured?",
+        answer: "Yes, we are fully licensed and insured to perform roofing services in Florida, ensuring safety and compliance with local regulations."
+      }
+    ],
+    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
   },
 
   'skylight-installation': {
@@ -469,7 +685,34 @@ export const servicesData = {
         title: 'Custom Roofing Options',
         description: 'Choose from asphalt shingles, metal roofs, tile roofs, and more to match your home’s style and budget.'
       }
-    ]
+    ],
+    faqs : [
+      {
+        question: "How long does a roofing project usually take?",
+        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+      },
+      {
+        question: "Do you offer free roof inspections?",
+        answer: "Yes, we provide free inspections and estimates for all our roofing services across Florida."
+      },
+      {
+        question: "What roofing materials do you use?",
+        answer: "We use premium materials such as asphalt shingles, metal roofing, and flat roofing systems from trusted manufacturers."
+      },
+      {
+        question: "Are your roofing services covered by warranty?",
+        answer: "Absolutely! All our roofing installations come with a material and workmanship warranty for your peace of mind."
+      },
+      {
+        question: "Do you provide emergency roof repair services?",
+        answer: "Yes, we offer 24/7 emergency roof repair services to handle storm damage and unexpected leaks."
+      },
+      {
+        question: "Are you licensed and insured?",
+        answer: "Yes, we are fully licensed and insured to perform roofing services in Florida, ensuring safety and compliance with local regulations."
+      }
+    ],
+    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
   },
 
   'roof-ventilation': {
@@ -522,6 +765,34 @@ export const servicesData = {
         title: 'Custom Roofing Options',
         description: 'Choose from asphalt shingles, metal roofs, tile roofs, and more to match your home’s style and budget.'
       }
-    ]
+    ],
+    faqs : [
+      {
+        question: "How long does a roofing project usually take?",
+        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+      },
+      {
+        question: "Do you offer free roof inspections?",
+        answer: "Yes, we provide free inspections and estimates for all our roofing services across Florida."
+      },
+      {
+        question: "What roofing materials do you use?",
+        answer: "We use premium materials such as asphalt shingles, metal roofing, and flat roofing systems from trusted manufacturers."
+      },
+      {
+        question: "Are your roofing services covered by warranty?",
+        answer: "Absolutely! All our roofing installations come with a material and workmanship warranty for your peace of mind."
+      },
+      {
+        question: "Do you provide emergency roof repair services?",
+        answer: "Yes, we offer 24/7 emergency roof repair services to handle storm damage and unexpected leaks."
+      },
+      {
+        question: "Are you licensed and insured?",
+        answer: "Yes, we are fully licensed and insured to perform roofing services in Florida, ensuring safety and compliance with local regulations."
+      }
+    ],
+    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
+
   },
-};
+}

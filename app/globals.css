@@ -14,10 +14,10 @@
 
 
 @theme {
-  --color-primary: #ef0f3a;
-  --color-secondary: #010f34;
-  --color-heading: #010f34;
-  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #0d9488;
+  --color-secondary: #f97316;
+  --color-heading: #0f172a;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Navy + Gold */

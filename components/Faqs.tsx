@@ -1,33 +1,8 @@
+import { faqs } from '@/data/constants';
+import { FAQ } from '@/types';
 import { FaQuestionCircle } from 'react-icons/fa';
 
-const FAQs = () => {
-    const faqItems = [
-        {
-            question: "How long does a roofing project usually take?",
-            answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
-        },
-        {
-            question: "Do you offer free roof inspections?",
-            answer: "Yes, we provide free inspections and estimates for all our roofing services across Florida."
-        },
-        {
-            question: "What roofing materials do you use?",
-            answer: "We use premium materials such as asphalt shingles, metal roofing, and flat roofing systems from trusted manufacturers."
-        },
-        {
-            question: "Are your roofing services covered by warranty?",
-            answer: "Absolutely! All our roofing installations come with a material and workmanship warranty for your peace of mind."
-        },
-        {
-            question: "Do you provide emergency roof repair services?",
-            answer: "Yes, we offer 24/7 emergency roof repair services to handle storm damage and unexpected leaks."
-        },
-        {
-            question: "Are you licensed and insured?",
-            answer: "Yes, we are fully licensed and insured to perform roofing services in Florida, ensuring safety and compliance with local regulations."
-        }
-    ];
-
+const FAQs = ({faqItems=faqs}:{faqItems: FAQ[]} ) => {
     return (
         <section className="grid grid-cols-3 h-[90vh]">
             <div className="flex items-center flex-col gap-2 border justify-center bg-primary text-white p-2 order-2">

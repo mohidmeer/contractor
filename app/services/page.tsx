@@ -7,6 +7,9 @@ import React from 'react'
 import { MdArrowForward } from 'react-icons/md'
 import Process from '../_components/Process'
 import Projects from '../_components/Projects'
+import { JsonLdDataServices } from '@/data/constants'
+import JsonLd from '@/components/JsonLd'
+import FAQs from '@/components/Faqs'
 
 const page = () => {
   return (
@@ -21,7 +24,7 @@ const page = () => {
           {Object.entries(servicesData).map(([slug, i], z) => (
             <div className="text-heading cursor-pointer" key={slug}>
               <div className="h-full relative group  p-10 grid grid-cols-2   overflow-hidden">
-                <div className={`flex flex-col gap-4 bg-white p-4 ${z % 2 !== 0 ? 'order2 bg-white' : 'order-1'}`}>
+                <div className={`flex flex-col gap-4 bg-white shadow-lg p-4 ${z % 2 !== 0 ? 'order2 bg-white' : 'order-1'}`}>
                   <p className="text-xl font-bold text-primary">{z + 1}.</p>
                   <div className=" flex flex-col gap-4">
                     <h3 className="!text-2xl font-semibold">{i.title}</h3>
@@ -53,6 +56,8 @@ const page = () => {
       </section>
       <Projects />
       <Process />
+      <FAQs/>
+      <JsonLd data={JsonLdDataServices} />
     </main>
   )
 }

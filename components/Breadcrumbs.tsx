@@ -8,7 +8,7 @@ const Breadcrumbs = () => {
   const paths = pathname.split('/').filter(Boolean);
 
   return (
-    <nav className="my-4">
+    <nav className="my-3">
       <ol className="flex items-center space-x-2">
         <li>
           <Link href="/" className="hover:underline font-bold">

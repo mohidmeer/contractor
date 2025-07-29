@@ -5,7 +5,7 @@ import React from 'react'
 import { BsFillTelephoneFill } from 'react-icons/bs'
 import { FaCheckSquare } from 'react-icons/fa'
 
-const GetToKnow = () => {
+const GetToKnow = ({description=getToKnow.description}:{description:string}) => {
     return (
         <section className="bg-pattren">
             <div className='container mx-auto '>
@@ -16,7 +16,7 @@ const GetToKnow = () => {
                             {getToKnow.heading}
                         </h2>
                         <p className="p1">
-                           {getToKnow.description}
+                           {description}
                         </p>
                         <div className="space-y-4">
 

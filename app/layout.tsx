@@ -4,7 +4,8 @@ import TopBar from "@/components/TopBar";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import GoogleMap from "@/components/GoogleMap";
-import { pages } from "@/data/constants";
+import { JsonLdDataLanding, pages } from "@/data/constants";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: {
@@ -48,17 +49,17 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
       <body>
         <header>
-          <TopBar/>
-          <NavBar/>
+          <TopBar />
+          <NavBar />
         </header>
         {children}
-        <GoogleMap/>
-        <Footer/>
+        <GoogleMap />
+        <Footer />
+        <JsonLd data={JsonLdDataLanding} />
       </body>
     </html>
   );

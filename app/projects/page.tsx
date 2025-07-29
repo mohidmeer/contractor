@@ -11,8 +11,10 @@ import Link from 'next/link'
 import React from 'react'
 import { MdArrowForward } from 'react-icons/md'
 import Process from '../_components/Process';
+import { JsonLdDataProjects, pages } from '@/data/constants';
+import JsonLd from '@/components/JsonLd';
 
-const page = () => {
+const Page = () => {
 
     const [emblaRef] = useEmblaCarousel({ loop: true }, [
         AutoScroll({ playOnInit: true, speed: 0.3 })
@@ -22,7 +24,7 @@ const page = () => {
     ])
     return (
         <main className='flex flex-col gap-10 '>
-            <Header cta desc='See Our Recent Roofing Work Across Florida' title={'Our Projects'} />
+            <Header cta desc='' title={pages.projects.seo.title} />
             <section className="">
                 <div className="text-center flex items-center justify-center flex-col gap-2 mb-10">
                     <Title text={'Roofing Projects'} />
@@ -96,8 +98,9 @@ const page = () => {
             <WhyUS/>
             <Process/>
             <FAQs/>
+            <JsonLd data={JsonLdDataProjects} />
         </main>
     )
 }
 
-export default page
+export default Page

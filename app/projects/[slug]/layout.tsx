@@ -1,8 +1,3 @@
-
-export const metadata = {
-    title: 'Our Projects',
-  }
-
 export default function Layout({
     children,
 }: {

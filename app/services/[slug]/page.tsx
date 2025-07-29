@@ -4,8 +4,10 @@ import Testimonials from '@/app/_components/Testimonials';
 import FAQs from '@/components/Faqs';
 import Gallery from '@/components/Gallery';
 import Header from '@/components/Header'
+import Services from '@/components/Services';
+import SideBar from '@/components/SideBar';
 import WhyUS from '@/components/WhyUS';
-import { navItems } from '@/data/constants';
+import { navItems, siteUrl } from '@/data/constants';
 import { servicesData } from '@/data/services'
 import Link from 'next/link';
 import { notFound } from 'next/navigation'
@@ -16,6 +18,32 @@ export async function generateStaticParams() {
   return Object.keys(servicesData).map(slug => ({ slug }))
 }
 
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const { slug } = params
+  const service = servicesData[slug]
+
+   const canonical = `${siteUrl}projects/${slug}`
+  return {
+    title: service.title,
+    description: service.description,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title: service.title,
+      description: service.description,
+      url: canonical,
+      images: [service.image],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: service.title,
+      description: service.description,
+      images: [service.image],
+    },
+  }
+}
+
 export default async function Page({ params }: { params: { slug: string } }) {
   const { slug } = await params
   const service = servicesData[slug]
@@ -24,14 +52,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
 
 
-
-
   return (
     <main className="flex flex-col gap-20">
       <Header cta title={service.title} desc={service.description} />
       <section className='container mx-auto w-full '>
         <div className='grid-cols-4 grid gap-10 p-4'>
-          <div className='bg-white px-10 py-20 rounded-md flex-col gap-6 flex col-span-3'>
+          <div className='bg-white px-10 py-20 rounded-md flex-col gap-6 flex col-span-3  shadow-md'>
             <h2 className='text-heading'>{service.label}</h2>
             <p className='text-lg'>{service.content}</p>
             <h3 className='text-heading'>
@@ -74,37 +100,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </div>
           </div>
           <div className='h-fit flex flex-col gap-8'>
-            <div className='bg-white p-5'>
-            <h4 className='!text-xl font-bold'>Related Servives</h4>
-            <ul>
-              {navItems[1].children.map((child) => (
-                <li key={child.label}>
-                  <Link
-                    href={child.href}
-                    className="block  px-2 py-2 underline hover:text-primary"
-                  >
-                    {child.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            </div>
-            <div className='bg-white p-5'>
-            <h4 className='!text-xl font-bold'>Related Projects</h4>
-            <ul>
-              {navItems[2].children.map((child) => (
-                <li key={child.label}>
-                  <Link
-                    href={child.href}
-                    className="block  px-2 py-2 underline hover:text-primary"
-                  >
-                    {child.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            </div>
-           
+            <SideBar/>
           </div>
         </div>
       </section>
@@ -113,6 +109,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <Projects />
       <Testimonials />
       <FAQs />
+      
     </main>
   )
 }

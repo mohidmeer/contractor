@@ -4,16 +4,43 @@ import Testimonials from '@/app/_components/Testimonials'
 import FAQs from '@/components/Faqs'
 import Gallery from '@/components/Gallery'
 import Header from '@/components/Header'
+import SideBar from '@/components/SideBar'
 import WhyUS from '@/components/WhyUS'
-import { navItems } from '@/data/constants'
+import { navItems, siteUrl } from '@/data/constants'
 import { projectsData } from '@/data/projects'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { FaCircle  } from 'react-icons/fa6'
+import { FaCircle } from 'react-icons/fa6'
 import { MdLocationPin, MdTimelapse } from 'react-icons/md'
 
 export async function generateStaticParams() {
   return Object.keys(projectsData).map(slug => ({ slug }))
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const { slug } = params
+  const project = projectsData[slug]
+
+   const canonical = `${siteUrl}projects/${slug}`
+  return {
+    title: project.title,
+    description: project.description,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title: project.title,
+      description: project.description,
+      url: canonical,
+      images: [project.image],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: project.title,
+      description: project.description,
+      images: [project.image],
+    },
+  }
 }
 
 export default async function page({ params }: { params: { slug: string } }) {
@@ -27,7 +54,7 @@ export default async function page({ params }: { params: { slug: string } }) {
       <Header cta title={project.title} desc={project.description} />
       <section className='container mx-auto w-full '>
         <div className='grid-cols-4 grid gap-10 p-4'>
-          <div className='bg-white px-10 py-16 rounded-md flex-col gap-6 flex col-span-3'>
+          <div className='bg-white px-10 py-16 rounded-md flex-col gap-6 flex col-span-3 shadow-md '>
             <div className='flex items-center gap-6 '>
               <p className='flex items-center gap-1'><MdLocationPin size={24} className='text-primary' /> <span className='font-bold'>{project.location}</span></p>
               <p className='flex items-center gap-1'><MdTimelapse size={24} className='text-primary' /> <span className='font-bold'>{project.duration}</span></p>
@@ -56,49 +83,16 @@ export default async function page({ params }: { params: { slug: string } }) {
               <Gallery images={project.images} />
             </div>
           </div>
-
           <div className='h-fit flex flex-col gap-8'>
-            <div className='bg-white p-5'>
-              <h4 className='!text-xl font-bold'>Related Projects</h4>
-              <ul>
-                {navItems[2].children.map((child) => (
-                  <li key={child.label}>
-                    <Link
-                      href={child.href}
-                      className="block  px-2 py-2 underline hover:text-primary"
-                    >
-                      {child.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className='bg-white p-5'>
-              <h4 className='!text-xl font-bold'>Related Servives</h4>
-              <ul>
-                {navItems[1].children.map((child) => (
-                  <li key={child.label}>
-                    <Link
-                      href={child.href}
-                      className="block  px-2 py-2 underline hover:text-primary"
-                    >
-                      {child.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-
+           <SideBar/>
           </div>
-
         </div>
       </section>
-      <Process/>
+      <Process />
       <WhyUS />
       <Projects />
       <Testimonials />
-      <FAQs />
+      <FAQs  />
 
     </main>
   )
