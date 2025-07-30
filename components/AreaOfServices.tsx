@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "./inputs/Title";
 import { MdLocationPin } from "react-icons/md";
-import { serviceAreasData } from "@/data/constants";
+import { serviceAreasData } from "@/sites/roofing/constants";
 import Link from "next/link";
 
 const AreaOfServices = () => {

@@ -1,8 +1,8 @@
-import { faqs } from '@/data/constants';
+import { faqs } from '@/sites/roofing/constants';
 import { FAQ } from '@/types';
 import { FaQuestionCircle } from 'react-icons/fa';
 
-const FAQs = ({faqItems=faqs}:{faqItems?: FAQ[]} ) => {
+const FAQs = ({ faqItems = faqs }: { faqItems?: FAQ[] }) => {
     return (
         <section className="grid grid-cols-3 h-[90vh]">
             <div className="flex items-center flex-col gap-2 border justify-center bg-primary text-white p-2 order-2">

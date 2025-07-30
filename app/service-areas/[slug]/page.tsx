@@ -7,7 +7,7 @@ import FAQs from '@/components/Faqs';
 import Header from '@/components/Header';
 import Services from '@/components/Services';
 import WhyUS from '@/components/WhyUS';
-import { getToKnow, pages, serviceAreasData, siteName, siteUrl } from '@/data/constants';
+import { getToKnow, pages, serviceAreasData, siteName, siteUrl } from '@/sites/roofing/constants';
 import React from 'react';
 
 export async function generateStaticParams() {
@@ -19,9 +19,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { slug } = params
-  const cityData = serviceAreasData.find( area => area.href.split('/').pop() === slug);
-  if (!cityData) return {} 
-  
+  const cityData = serviceAreasData.find(area => area.href.split('/').pop() === slug);
+  if (!cityData) return {}
+
   const canonical = `${siteUrl}service-areas/${slug}`
 
   return {
@@ -64,13 +64,13 @@ export default async function Page({ params }) {
         desc={cityData.description}
         title={cityData.title}
       />
-      <GetToKnow description={cityData.content ||  getToKnow.description}/>
-      <Services/>
+      <GetToKnow description={cityData.content || getToKnow.description} />
+      <Services />
       <Process />
       <WhyUS />
       <FAQs />
-      <Projects/>
-      <Testimonials/>
+      <Projects />
+      <Testimonials />
       <AreaOfServices />
     </main>
   );

@@ -1,7 +1,7 @@
 import { getBlog } from "@/actions/blogs";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SideBar from "@/components/SideBar";
-import { siteName, siteUrl } from "@/data/constants";
+import { siteName, siteUrl } from "@/sites/roofing/constants";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MdCalendarMonth, MdTimer } from "react-icons/md";

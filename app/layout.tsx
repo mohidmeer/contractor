@@ -4,7 +4,7 @@ import TopBar from "@/components/TopBar";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import GoogleMap from "@/components/GoogleMap";
-import { JsonLdDataLanding, pages } from "@/data/constants";
+import { JsonLdDataLanding, pages } from "@/sites/roofing/constants";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {

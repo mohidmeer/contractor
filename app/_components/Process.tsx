@@ -1,4 +1,4 @@
-import { ourProcessData } from '@/data/constants';
+import { ourProcessData } from '@/sites/roofing/constants';
 import React from 'react'
 
 
@@ -38,7 +38,7 @@ const Process = () => {
             </div>
 
         </section>
-        )
+    )
 }
 
 export default Process

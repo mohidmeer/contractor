@@ -1,4 +1,4 @@
-import { contactInfo, pages, } from "@/data/constants";
+import { contactInfo, pages, } from "@/sites/roofing/constants";
 import Image from "next/image";
 import React from 'react'
 import { BsFillTelephoneFill } from "react-icons/bs";
@@ -12,7 +12,7 @@ const Hero = () => {
             <Image src={pages.landing.hero.backgroundImage} alt="total_care_hero_img" fill className="object-cover -z-10  " />
             <div className="container w-full  text-white mx-auto h-full flex flex-col justify-center items-">
                 <div className="flex flex-col md:w-1/2 gap-4 z-10 ba">
-                   <Title text="Total Care Services" />
+                    <Title text="Total Care Services" />
                     <h1>
                         {pages.landing.hero.title}
                     </h1>

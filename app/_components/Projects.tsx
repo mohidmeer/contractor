@@ -4,9 +4,9 @@ import Image from "next/image";
 import useEmblaCarousel from 'embla-carousel-react'
 import Link from "next/link";
 import { MdArrowForward } from "react-icons/md";
-import { projectsData } from "@/data/projects";
+import { projectsData } from "@/sites/roofing/projects";
 import AutoScroll from 'embla-carousel-auto-scroll'
-import { pages } from "@/data/constants";
+import { pages } from "@/sites/roofing/constants";
 
 const Projects = () => {
     const [emblaRef] = useEmblaCarousel({ loop: true }, [

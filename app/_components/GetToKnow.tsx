@@ -1,11 +1,11 @@
 import Title from '@/components/inputs/Title'
-import { contactInfo, getToKnow } from '@/data/constants'
+import { contactInfo, getToKnow } from '@/sites/roofing/constants'
 import Image from 'next/image'
 import React from 'react'
 import { BsFillTelephoneFill } from 'react-icons/bs'
 import { FaCheckSquare } from 'react-icons/fa'
 
-const GetToKnow = ({description=getToKnow.description}:{description?:string}) => {
+const GetToKnow = ({ description = getToKnow.description }: { description?: string }) => {
     return (
         <section className="bg-pattren">
             <div className='container mx-auto '>
@@ -16,7 +16,7 @@ const GetToKnow = ({description=getToKnow.description}:{description?:string}) =>
                             {getToKnow.heading}
                         </h2>
                         <p className="p1">
-                           {description}
+                            {description}
                         </p>
                         <div className="space-y-4">
 
@@ -33,7 +33,7 @@ const GetToKnow = ({description=getToKnow.description}:{description?:string}) =>
                                 ))
                             }
                         </div>
-                        
+
                         <div className="flex gap-10 items-center">
                             <a href={contactInfo.phone.href} className='flex gap-2 items-center text-heading text-4xl hover:scale-125 transition-all'>
                                 <BsFillTelephoneFill size={36} className='' />

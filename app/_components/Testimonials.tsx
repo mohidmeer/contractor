@@ -6,7 +6,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import AutoScroll from 'embla-carousel-auto-scroll';
 import { BsQuote } from "react-icons/bs";
 import { MdStar } from "react-icons/md";
-import { testimonialsData } from "@/data/testimonials";
+import { testimonialsData } from "@/sites/roofing/testimonials";
 
 
 const Testimonials = () => {

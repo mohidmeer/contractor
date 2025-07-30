@@ -7,8 +7,8 @@ import Header from '@/components/Header'
 import JsonLd from '@/components/JsonLd';
 import SideBar from '@/components/SideBar';
 import WhyUS from '@/components/WhyUS';
-import { siteLogo, siteName, siteUrl } from '@/data/constants';
-import { servicesData } from '@/data/services'
+import { siteLogo, siteName, siteUrl } from '@/sites/roofing/constants';
+import { servicesData } from '@/sites/roofing/services'
 import { notFound } from 'next/navigation'
 import { FaCheckSquare } from "react-icons/fa";
 import { FaCircle } from 'react-icons/fa6';
@@ -62,7 +62,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "@type": "Place",
       "name": "Florida"
     },
-    "url": `${siteUrl}/services/${slug}`,  
+    "url": `${siteUrl}/services/${slug}`,
     "mainEntityOfPage": `${siteUrl}/services/${slug}`,
   };
   return (

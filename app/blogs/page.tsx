@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import JsonLd from '@/components/JsonLd';
 import Pagination from '@/components/pagination';
 import SideBar from '@/components/SideBar';
-import { pages, siteName, siteUrl } from '@/data/constants';
+import { pages, siteName, siteUrl } from '@/sites/roofing/constants';
 import Link from 'next/link';
 import { MdCalendarMonth, MdTimer } from 'react-icons/md';
 
@@ -14,7 +14,7 @@ type Props = {
 };
 const page = async ({ searchParams }: Props) => {
   const currentPage = parseInt(searchParams.page || '1');
-  const { blogs , pagination } = await getAllBlogs(currentPage);
+  const { blogs, pagination } = await getAllBlogs(currentPage);
 
   const jsonLdData = {
     "@context": "https://schema.org",

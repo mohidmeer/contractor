@@ -1,9 +1,9 @@
 import Title from '@/components/inputs/Title';
-import { accomplishemntData, WhyUSData } from '@/data/constants';
+import { accomplishemntData, WhyUSData } from '@/sites/roofing/constants';
 
 
 const WhyUS = () => {
-   
+
     return (
         <section className="bg-pattren">
             <div className="text-center mb-10 flex items-center flex-col gap-2">
@@ -29,7 +29,7 @@ const WhyUS = () => {
                 })}
             </div>
             <div className='my-20 max-w-7xl mx-auto  grid-cols-4 grid gap-8 px-6'>
-                { accomplishemntData.map((item, index) => (
+                {accomplishemntData.map((item, index) => (
                     <div key={index} className="flex flex-col items-center gap-2 bg-white rounded-lg p-4 shadow-md  ">
                         <h3 className="!text-6xl font-bold text-primary">{item.number}+</h3>
                         <p className="text-lg font-bold">{item.title}</p>

@@ -3,7 +3,7 @@ import FAQs from '@/components/Faqs';
 import Header from '@/components/Header'
 import Title from '@/components/inputs/Title';
 import WhyUS from '@/components/WhyUS';
-import { projectsData } from '@/data/projects'
+import { projectsData } from '@/sites/roofing/projects'
 import AutoScroll from 'embla-carousel-auto-scroll'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image'
@@ -11,7 +11,7 @@ import Link from 'next/link'
 import React from 'react'
 import { MdArrowForward } from 'react-icons/md'
 import Process from '../_components/Process';
-import { JsonLdDataProjects, pages } from '@/data/constants';
+import { JsonLdDataProjects, pages } from '@/sites/roofing/constants';
 import JsonLd from '@/components/JsonLd';
 
 const Page = () => {
@@ -95,9 +95,9 @@ const Page = () => {
                     </div>
                 </div>
             </section>
-            <WhyUS/>
-            <Process/>
-            <FAQs/>
+            <WhyUS />
+            <Process />
+            <FAQs />
             <JsonLd data={JsonLdDataProjects} />
         </main>
     )
