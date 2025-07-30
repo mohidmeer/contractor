@@ -1,4 +1,4 @@
-import { contactInfo } from '@/sites/roofing/constants'
+import { contactInfo } from '@/data/constants'
 import React from 'react'
 import Title from './inputs/Title'
 

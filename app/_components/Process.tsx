@@ -1,4 +1,4 @@
-import { ourProcessData } from '@/sites/roofing/constants';
+import { ourProcessData } from '@/data/constants';
 import React from 'react'
 
 

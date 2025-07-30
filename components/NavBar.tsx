@@ -1,7 +1,7 @@
 'use client';
 import React from 'react'
 import Logo from './Logo'
-import { contactInfo, navItems } from '@/sites/roofing/constants'
+import { contactInfo, navItems } from '@/data/constants'
 import Link from 'next/link'
 import { FaAngleDown } from 'react-icons/fa6'
 import { usePathname } from 'next/navigation'

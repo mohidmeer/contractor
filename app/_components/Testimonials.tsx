@@ -6,11 +6,11 @@ import useEmblaCarousel from 'embla-carousel-react';
 import AutoScroll from 'embla-carousel-auto-scroll';
 import { BsQuote } from "react-icons/bs";
 import { MdStar } from "react-icons/md";
-import { testimonialsData } from "@/sites/roofing/testimonials";
+import { testimonialsData } from "@/data/testimonials";
 
 
 const Testimonials = () => {
-  
+
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
     AutoScroll({ playOnInit: true, speed: 0.5 })
   ])

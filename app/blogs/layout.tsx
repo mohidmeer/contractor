@@ -1,4 +1,4 @@
-import { pages } from "@/sites/roofing/constants"
+import { pages } from "@/data/constants"
 
 export const metadata = {
   title: pages.blog.seo.title,

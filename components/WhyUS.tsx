@@ -1,5 +1,5 @@
 import Title from '@/components/inputs/Title';
-import { accomplishemntData, WhyUSData } from '@/sites/roofing/constants';
+import { accomplishemntData, WhyUSData } from '@/data/constants';
 
 
 const WhyUS = () => {

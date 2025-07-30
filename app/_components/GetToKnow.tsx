@@ -1,5 +1,5 @@
 import Title from '@/components/inputs/Title'
-import { contactInfo, getToKnow } from '@/sites/roofing/constants'
+import { contactInfo, getToKnow } from '@/data/constants'
 import Image from 'next/image'
 import React from 'react'
 import { BsFillTelephoneFill } from 'react-icons/bs'

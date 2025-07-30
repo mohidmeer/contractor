@@ -1,4 +1,4 @@
-import { faqs } from '@/sites/roofing/constants';
+import { faqs } from '@/data/constants';
 import { FAQ } from '@/types';
 import { FaQuestionCircle } from 'react-icons/fa';
 

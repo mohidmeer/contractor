@@ -2,9 +2,9 @@ import Image from "next/image";
 import Title from "./inputs/Title"
 import Link from "next/link";
 import { MdArrowForward } from "react-icons/md";
-import { servicesData } from "@/sites/roofing/services";
+import { servicesData } from "@/data/services";
 import ArrowLink from "./inputs/ArrowLink";
-import { pages } from "@/sites/roofing/constants";
+import { pages } from "@/data/constants";
 
 
 const Services = () => {

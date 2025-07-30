@@ -1,4 +1,4 @@
-import { contactInfo, pages, } from "@/sites/roofing/constants";
+import { contactInfo, pages, } from "@/data/constants";
 import Image from "next/image";
 import React from 'react'
 import { BsFillTelephoneFill } from "react-icons/bs";

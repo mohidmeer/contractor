@@ -1,4 +1,4 @@
-import { navItems } from '@/sites/roofing/constants'
+import { navItems } from '@/data/constants'
 import Link from 'next/link'
 import React from 'react'
 

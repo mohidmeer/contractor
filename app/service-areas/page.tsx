@@ -4,7 +4,7 @@ import Header from '@/components/Header'
 import WhyUS from '@/components/WhyUS'
 import React from 'react'
 import Process from '../_components/Process'
-import { pages } from '@/sites/roofing/constants'
+import { pages } from '@/data/constants'
 
 const page = () => {
     return (

@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import JsonLd from '@/components/JsonLd';
 import Pagination from '@/components/pagination';
 import SideBar from '@/components/SideBar';
-import { pages, siteName, siteUrl } from '@/sites/roofing/constants';
+import { pages, siteName, siteUrl } from '@/data/constants';
 import Link from 'next/link';
 import { MdCalendarMonth, MdTimer } from 'react-icons/md';
 

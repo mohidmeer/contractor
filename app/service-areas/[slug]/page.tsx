@@ -7,7 +7,7 @@ import FAQs from '@/components/Faqs';
 import Header from '@/components/Header';
 import Services from '@/components/Services';
 import WhyUS from '@/components/WhyUS';
-import { getToKnow, pages, serviceAreasData, siteName, siteUrl } from '@/sites/roofing/constants';
+import { getToKnow, pages, serviceAreasData, siteName, siteUrl } from '@/data/constants';
 import React from 'react';
 
 export async function generateStaticParams() {
