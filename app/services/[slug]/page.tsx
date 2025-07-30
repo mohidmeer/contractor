@@ -1,6 +1,6 @@
 import Process from '@/app/_components/Process';
 import Projects from '@/app/_components/Projects';
-import Testimonials from '@/app/_components/Testimonials';
+import Testimonials from '@/app/_components/testimonials';
 import FAQs from '@/components/Faqs';
 import Gallery from '@/components/Gallery';
 import Header from '@/components/Header'
