@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     default: pages.landing.seo.title,
     template: `%s | ${pages.landing.seo.title}`,
   },
+  icons: {
+    icon: '/favicon.ico',
+  },
   description: pages.landing.seo.description,
   openGraph: {
     title: pages.landing.seo.title,
