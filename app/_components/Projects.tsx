@@ -6,6 +6,7 @@ import Link from "next/link";
 import { MdArrowForward } from "react-icons/md";
 import { projectsData } from "@/data/projects";
 import AutoScroll from 'embla-carousel-auto-scroll'
+import { pages } from "@/data/constants";
 
 const Projects = () => {
     const [emblaRef] = useEmblaCarousel({ loop: true }, [
@@ -16,7 +17,7 @@ const Projects = () => {
             <div className="text-center flex items-center justify-center flex-col gap-2 mb-10">
                 <Title text={'Roofing Projects'} />
                 <h2 className="text-heading">
-                    Roofs Transformed Across Florida
+                    {pages.landing.projects.heading}
                 </h2>
             </div>
             <div className="embla my-6" ref={emblaRef}>
@@ -32,7 +33,7 @@ const Projects = () => {
                                         href={`/projects/${slug}`}
                                         className="text-xl flex items-center gap-2 font-bold group"
                                     >
-                                        <p className="font-bold">Read More</p>
+                                        <p className="font-bold">Continue reading</p>
                                         <MdArrowForward className="group-hover:translate-x-6 transition-all" />
                                     </Link>
                                 </div>

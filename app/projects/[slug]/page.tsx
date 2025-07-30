@@ -4,11 +4,11 @@ import Testimonials from '@/app/_components/Testimonials'
 import FAQs from '@/components/Faqs'
 import Gallery from '@/components/Gallery'
 import Header from '@/components/Header'
+import JsonLd from '@/components/JsonLd'
 import SideBar from '@/components/SideBar'
 import WhyUS from '@/components/WhyUS'
-import { navItems, siteUrl } from '@/data/constants'
+import { siteLogo, siteName, siteUrl } from '@/data/constants'
 import { projectsData } from '@/data/projects'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { FaCircle } from 'react-icons/fa6'
 import { MdLocationPin, MdTimelapse } from 'react-icons/md'
@@ -20,34 +20,62 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { slug } = params
   const project = projectsData[slug]
-
-   const canonical = `${siteUrl}projects/${slug}`
+  const canonical = `${siteUrl}projects/${slug}`
   return {
-    title: project.title,
+    title: `${project.title} | ${siteName}`,
     description: project.description,
+  
     alternates: {
       canonical,
     },
+  
     openGraph: {
       title: project.title,
       description: project.description,
       url: canonical,
       images: [project.image],
     },
+  
     twitter: {
       card: 'summary_large_image',
       title: project.title,
       description: project.description,
       images: [project.image],
     },
+  
   }
 }
 
 export default async function page({ params }: { params: { slug: string } }) {
-  const { slug } = params
-  const project = projectsData[slug]
 
+  const { slug } = params
+  
+  const project = projectsData[slug]
+  
   if (!project) return notFound()
+    
+    const jsonLdData = {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": project.title,
+      "description": project.description,
+      "url": `${siteUrl}projects/${slug}`,
+      "mainEntityOfPage": `${siteUrl}projects/${slug}`,
+      "image": project.image, 
+      "author": {
+        "@type": "Organization",
+        "name": siteName,
+        "url": siteUrl
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": siteName,
+        "logo": {
+          "@type": "ImageObject",
+          "url": siteLogo
+        }
+      }
+    }
 
   return (
     <main className="flex flex-col gap-20">
@@ -92,8 +120,8 @@ export default async function page({ params }: { params: { slug: string } }) {
       <WhyUS />
       <Projects />
       <Testimonials />
-      <FAQs  />
-
+      <FAQs/>
+      <JsonLd data={jsonLdData}/>
     </main>
   )
 }

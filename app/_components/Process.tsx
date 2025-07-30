@@ -7,17 +7,17 @@ const Process = () => {
         <section className='grid grid-cols-3 h-[90vh]'>
             <div className=' flex items-center flex-col gap-2 border justify-center  bg-primary text-white'>
                 <h2 className="font-bold text-center">
-                    Our Process
+                    {ourProcessData.heading}
                 </h2>
                 <p className='text-lg text-center'>
-                    From concept to completion, we make bathroom remodeling seamless and stress-free.
+                    {ourProcessData.description}
                 </p>
             </div>
             <div className='col-span-2 h-full py-32 '>
                 <div className='h-full '>
                     <div className='grid grid-cols-2 bg-white px-10'>
 
-                        {ourProcessData.map((feature, index) => {
+                        {ourProcessData.list.map((feature, index) => {
                             const Icon = feature.icon;
                             return (
                                 <div

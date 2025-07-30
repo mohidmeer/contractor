@@ -28,14 +28,14 @@ const Gallery = ({ images }: { images: string[] }) => {
             {images.map((i, z) => (
                 <a
                     key={z}
-                    href={`/images/${i}`}
-                    data-src={`/images/${i}`}
-                    data-exthumbimage={`/images/${i}`}
+                    href={`/images${i}`}
+                    data-src={`/images${i}`}
+                    data-exthumbimage={`/images${i}`}
                     className="relative p-4 overflow-hidden h-50 "
                 > 
                     <Image
                         alt={`img_${z + 1}`}
-                        src={`/images/${i}`}
+                        src={`/images${i}`}
                         fill
                         className="object-cover overflow-hidden  hover:scale-125 transition-all "
                     />

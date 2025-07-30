@@ -5,14 +5,15 @@ import Image from "next/image";
 import useEmblaCarousel from 'embla-carousel-react';
 import AutoScroll from 'embla-carousel-auto-scroll';
 import { BsQuote } from "react-icons/bs";
-import { MdForward, MdStar } from "react-icons/md";
+import { MdStar } from "react-icons/md";
 import { testimonialsData } from "@/data/testimonials";
 
 
 const Testimonials = () => {
+  
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
     AutoScroll({ playOnInit: true, speed: 0.5 })
-  ]);
+  ])
 
   return (
     <section className="bg-pattren ">
@@ -32,9 +33,9 @@ const Testimonials = () => {
               <Image
                 src={testimonial.image}
                 alt={testimonial.name}
-                width={60}
-                height={60}
-                className="rounded-full object-cover bg-black"
+                width={80}
+                height={80}
+                className=" size-16  overflow-hidden shrink-0 rounded-full object-cover bg-black"
               />
               <div className="flex items-center">
                 <MdStar className='text-primary' />
@@ -45,7 +46,7 @@ const Testimonials = () => {
               </div>
               <div>
                 <h4 className="text-xl font-bold">{testimonial.name}</h4>
-                <p className="text-sm text-center opacity-80">{testimonial.role} | Florida</p>
+                <p className="text-sm text-center opacity-80">{testimonial.role}</p>
               </div>
               <p className="text-lg italic mb-6">
                 <BsQuote size={36} className="text-primary" />
@@ -59,12 +60,6 @@ const Testimonials = () => {
           ))}
         </div>
       </div>
-      {/* <div className="flex gap-4">
-        <button className="p-4 bg-primary text-white  rounded-full">
-          <MdForward />
-        </button>
-
-      </div> */}
     </section>
   );
 };

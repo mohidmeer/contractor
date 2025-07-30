@@ -22,10 +22,6 @@ const Hero = () => {
                             <BsFillTelephoneFill size={20} className='' />
                             {contactInfo.phone.text}
                         </a>
-                        {/* <button className="btn-secondary ">
-                            Get Quote
-                        </button> */}
-
                     </div>
                 </div>
             </div>
@@ -35,5 +31,4 @@ const Hero = () => {
         </section>
     )
 }
-
 export default Hero

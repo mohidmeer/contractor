@@ -2,11 +2,11 @@ import { FaCalendarAlt, FaCheckCircle, FaFileAlt, FaSearch } from 'react-icons/f
 import { FaComments, FaHammer } from 'react-icons/fa6';
 import { servicesData } from './services';
 import { projectsData } from './projects';
-
-
+import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } from "react-icons/fa";
 
 export const siteUrl = 'https://totalcareservicesroofing.com/'
 export const siteName = 'Total Care Roofing'
+export const siteLogo = `${siteUrl}images/logo.png`
 
 export const pages = {
   landing: {
@@ -23,13 +23,18 @@ export const pages = {
       ctaText: 'Request a Free Quote',
       ctaLink: '/contact',
     },
-
+    services: {
+      heading: 'Our Roofing Solutions'
+    },
+    projects:{
+      heading:'Roofs Transformed Across Florida'
+    }
   },
   services: {
     seo: {
-      title: 'Roofing Services',
+      title: 'Roofing Services In Florida',
       description: 'Explore our roofing services including roof installation, repairs, and inspections for Florida homes and businesses.',
-      ogImage: '/images/og-services.jpg',
+      ogImage: '/images/services/default.jpg',
       canonical: siteUrl + 'services',
     },
   },
@@ -37,7 +42,7 @@ export const pages = {
     seo: {
       title: 'Roofing Projects in Florida',
       description: 'See our completed roofing projects across Florida. High-quality roof installations and repairs for residential and commercial properties.',
-      ogImage: '/images/og-projects.jpg',
+      ogImage: '/images/projects/default.jpg',
       canonical: siteUrl + 'projects',
     },
   },
@@ -46,26 +51,32 @@ export const pages = {
       title: 'About Us',
       description: 'Learn more about Total Care Services, our mission, and why homeowners across Florida trust us for exceptional roofing solutions.',
       ogImage: '/images/og-about.jpg',
-      canonical: siteUrl + '/about',
+      canonical: siteUrl + 'about',
     },
   },
   contact: {
     seo: {
       title: 'Contact Us',
-      description:
-        'Get in touch with Total Care Services for expert roofing consultations, free quotes, or emergency repairs. Serving homes and businesses across Florida.',
+      description: 'Get in touch with Total Care Services for expert roofing consultations, free quotes, or emergency repairs. Serving homes and businesses across Florida.',
       ogImage: '/images/og-contact.jpg',
-      canonical: siteUrl + '/contact',
+      canonical: siteUrl + 'contact',
     },
   },
   blog: {
     seo: {
-      title: 'Roofing Tips & Insights',
-      description:
-        'Stay updated with the latest roofing tips, industry insights, and maintenance advice to keep your roof in top condition year-round.',
+      title: 'Roofing Tips & Insights Florida',
+      description: 'Stay updated with the latest roofing tips, industry insights, and maintenance advice to keep your roof in top condition year-round.',
       ogImage: '/images/og-blog.jpg',
-      canonical: siteUrl + '/blogs',
+      canonical: siteUrl+'blogs',
     },
+  },
+  service_area:{
+    seo:{
+      title: 'Roofing Services In Florida',
+      description: 'We provide top-quality residential and commercial roofing services across Florida, ensuring durability and excellence.',
+      ogImage: '/images/og-blog.jpg',
+      canonical: siteUrl+'service-areas',
+    }
   }
 };
 
@@ -120,38 +131,84 @@ export const faqs = [
   }
 ];
 
-export const ourProcessData = [
+export const ourProcessData = {
+
+  heading: 'Our Process',
+  description: 'From concept to completion, we make bathroom remodeling seamless and stress-free.',
+  list: [
+    {
+      title: "Initial Consultation",
+      description: "We start by understanding your roofing needs, budget, and design preferences through a detailed consultation.",
+      icon: FaComments
+    },
+    {
+      title: "Roof Inspection",
+      description: "Our experts perform a thorough inspection to assess the current condition of your roof and identify potential issues.",
+      icon: FaSearch
+    },
+    {
+      title: "Custom Proposal",
+      description: "We provide a transparent and detailed proposal outlining materials, timelines, and pricing for your roofing project.",
+      icon: FaFileAlt
+    },
+    {
+      title: "Project Scheduling",
+      description: "Once approved, we schedule the project at your convenience and prepare everything for a smooth installation process.",
+      icon: FaCalendarAlt
+    },
+    {
+      title: "Roofing Installation",
+      description: "Our skilled team executes the roofing work with precision, using premium materials and following industry best practices.",
+      icon: FaHammer
+    },
+    {
+      title: "Final Inspection & Handover",
+      description: "We conduct a thorough quality check and final inspection to ensure your satisfaction before completing the project.",
+      icon: FaCheckCircle
+    }
+  ]
+};
+
+export const WhyUSData = [
   {
-    title: "Initial Consultation",
-    description: "We start by understanding your roofing needs, budget, and design preferences through a detailed consultation.",
-    icon: FaComments
+      title: "Qualified Experts",
+      description: "Our team is made up of licensed and experienced professionals who bring unmatched expertise to every roofing project.",
+      icon: FaUserTie
   },
   {
-    title: "Roof Inspection",
-    description: "Our experts perform a thorough inspection to assess the current condition of your roof and identify potential issues.",
-    icon: FaSearch
+      title: "Workmanship Quality",
+      description: "We use the finest materials and industry-best practices to deliver exceptional workmanship on every job.",
+      icon: FaTools
   },
   {
-    title: "Custom Proposal",
-    description: "We provide a transparent and detailed proposal outlining materials, timelines, and pricing for your roofing project.",
-    icon: FaFileAlt
+      title: "Trusted & Reliable",
+      description: "We have built our reputation on trust by delivering projects on time, within budget, and to the highest standards.",
+      icon: FaHandshake
   },
   {
-    title: "Project Scheduling",
-    description: "Once approved, we schedule the project at your convenience and prepare everything for a smooth installation process.",
-    icon: FaCalendarAlt
+      title: "Affordable Pricing",
+      description: "We provide competitive pricing without compromising on quality, giving you the best value for your investment.",
+      icon: FaDollarSign
   },
   {
-    title: "Roofing Installation",
-    description: "Our skilled team executes the roofing work with precision, using premium materials and following industry best practices.",
-    icon: FaHammer
+      title: "Customer Satisfaction",
+      description: "Your satisfaction is our priority. We go above and beyond to ensure you are happy with the results.",
+      icon: FaSmile
   },
   {
-    title: "Final Inspection & Handover",
-    description: "We conduct a thorough quality check and final inspection to ensure your satisfaction before completing the project.",
-    icon: FaCheckCircle
+      title: "Safety & Compliance",
+      description: "We strictly adhere to safety regulations and building codes, ensuring every project is compliant and secure.",
+      icon: FaShieldAlt
   }
 ];
+
+export const accomplishemntData = [
+  { title: "Commercial Projects", number: 100 },
+  { title: "Residential Projects", number: 250 },
+  { title: "Hardworking Employees", number: 50 },
+  { title: "Happy Customers", number: 500 },
+];
+
 
 export const contactInfo = {
   phone: {
@@ -242,7 +299,7 @@ export const serviceAreasData = [
   {
     name: "Miami",
     href: "/service-areas/miami",
-    title: "Roofing Services in Miami, FL | Total Care Roofing",
+    title: "Roofing Services in Miami, FL ",
     description: "Professional roofing services in Miami, FL. Expert roof installation, repairs, and maintenance to protect your home from Florida weather.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
     image: '/images/hero_bg_1.jpg'
@@ -250,7 +307,7 @@ export const serviceAreasData = [
   {
     name: "Orlando",
     href: "/service-areas/orlando",
-    title: "Roofing Services in Orlando, FL | Total Care Roofing",
+    title: "Roofing Services in Orlando, FL ",
     description: "Trusted roofing company in Orlando, FL. Quality roof replacement, repairs, and maintenance with Florida code compliance.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
     image: '/images/hero_bg_1.jpg'
@@ -259,7 +316,7 @@ export const serviceAreasData = [
   {
     name: "Tampa",
     href: "/service-areas/tampa",
-    title: "Roofing Services in Tampa, FL | Total Care Roofing",
+    title: "Roofing Services in Tampa, FL ",
     description:
       "Reliable roofing solutions in Tampa, FL. Specializing in shingle, tile, and metal roof installations and repairs.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
@@ -268,14 +325,14 @@ export const serviceAreasData = [
   {
     name: "Jacksonville",
     href: "/service-areas/jacksonville",
-    title: "Roofing Services in Jacksonville, FL | Total Care Roofing",
+    title: "Roofing Services in Jacksonville, FL ",
     description:
       "Expert roofing services in Jacksonville, FL. From storm damage repairs to new roof installations, we’ve got you covered.",
   },
   {
     name: "Fort Lauderdale",
     href: "/service-areas/fort-lauderdale",
-    title: "Roofing Services in Fort Lauderdale, FL | Total Care Roofing",
+    title: "Roofing Services in Fort Lauderdale, FL ",
     description:
       "Fort Lauderdale’s trusted roofing company for durable and energy-efficient roofing solutions.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
@@ -284,7 +341,7 @@ export const serviceAreasData = [
   {
     name: "St. Petersburg",
     href: "/service-areas/st-petersburg",
-    title: "Roofing Services in St. Petersburg, FL | Total Care Roofing",
+    title: "Roofing Services in St. Petersburg, FL ",
     description:
       "Premium roofing services in St. Petersburg, FL. Quality repairs, installations, and maintenance for Florida homes.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
@@ -293,7 +350,7 @@ export const serviceAreasData = [
   {
     name: "Hialeah",
     href: "/service-areas/hialeah",
-    title: "Roofing Services in Hialeah, FL | Total Care Roofing",
+    title: "Roofing Services in Hialeah, FL ",
     description: "Affordable and reliable roofing solutions in Hialeah, FL. Get expert roof repair and installation today.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
     image: '/images/hero_bg_1.jpg'
@@ -301,7 +358,7 @@ export const serviceAreasData = [
   {
     name: "Tallahassee",
     href: "/service-areas/tallahassee",
-    title: "Roofing Services in Tallahassee, FL | Total Care Roofing",
+    title: "Roofing Services in Tallahassee, FL ",
     description:
       "Roofing experts serving Tallahassee, FL. Specializing in repairs, replacements, and maintenance for all roof types.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
@@ -310,7 +367,7 @@ export const serviceAreasData = [
   {
     name: "Cape Coral",
     href: "/service-areas/cape-coral",
-    title: "Roofing Services in Cape Coral, FL | Total Care Roofing",
+    title: "Roofing Services in Cape Coral, FL ",
     description:
       "Cape Coral roofing services for homes and businesses. Expert roof installation and repair for Florida’s coastal weather.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
@@ -319,7 +376,7 @@ export const serviceAreasData = [
   {
     name: "West Palm Beach",
     href: "/service-areas/west-palm-beach",
-    title: "Roofing Services in West Palm Beach, FL | Total Care Roofing",
+    title: "Roofing Services in West Palm Beach, FL ",
     description:
       "Professional roofing services in West Palm Beach, FL. Durable roofing systems built for Florida’s climate.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
@@ -328,7 +385,7 @@ export const serviceAreasData = [
   {
     name: "Naples",
     href: "/service-areas/naples",
-    title: "Roofing Services in Naples, FL | Total Care Roofing",
+    title: "Roofing Services in Naples, FL ",
     description: "Naples’ trusted roofing experts. Offering roof repairs, installations, and hurricane-resistant roofing solutions.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
     image: '/images/hero_bg_1.jpg'
@@ -336,7 +393,7 @@ export const serviceAreasData = [
   {
     name: "Sarasota",
     href: "/service-areas/sarasota",
-    title: "Roofing Services in Sarasota, FL | Total Care Roofing",
+    title: "Roofing Services in Sarasota, FL ",
     description: "Reliable roofing company in Sarasota, FL. Specializing in shingle, tile, and metal roofing systems.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
     image: '/images/hero_bg_1.jpg'
@@ -344,7 +401,7 @@ export const serviceAreasData = [
   {
     name: "Fort Myers",
     href: "/service-areas/fort-myers",
-    title: "Roofing Services in Fort Myers, FL | Total Care Roofing",
+    title: "Roofing Services in Fort Myers, FL ",
     description:
       "Roofing services in Fort Myers, FL. We provide roof replacements, leak repairs, and storm damage restoration.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
@@ -353,7 +410,7 @@ export const serviceAreasData = [
   {
     name: "Clearwater",
     href: "/service-areas/clearwater",
-    title: "Roofing Services in Clearwater, FL | Total Care Roofing",
+    title: "Roofing Services in Clearwater, FL ",
     description:
       "Clearwater roofing professionals delivering quality roof repairs and installations with top-rated materials.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
@@ -362,7 +419,7 @@ export const serviceAreasData = [
   {
     name: "Boca Raton",
     href: "/service-areas/boca-raton",
-    title: "Roofing Services in Boca Raton, FL | Total Care Roofing",
+    title: "Roofing Services in Boca Raton, FL ",
     description:
       "Trusted Boca Raton roofing contractor. Offering high-quality roofing installations and repairs.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
@@ -371,7 +428,7 @@ export const serviceAreasData = [
   {
     name: "Palm Beach",
     href: "/service-areas/palm-beach",
-    title: "Roofing Services in Palm Beach, FL | Total Care Roofing",
+    title: "Roofing Services in Palm Beach, FL ",
     description:
       "Palm Beach roofing experts for premium roofing systems that last. Call for a free estimate.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
@@ -380,7 +437,7 @@ export const serviceAreasData = [
   {
     name: "Pensacola",
     href: "/service-areas/pensacola",
-    title: "Roofing Services in Pensacola, FL | Total Care Roofing",
+    title: "Roofing Services in Pensacola, FL ",
     description:
       "Pensacola roofing contractor offering storm damage repairs, roof replacements, and maintenance services.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
@@ -389,7 +446,7 @@ export const serviceAreasData = [
   {
     name: "Daytona Beach",
     href: "/service-areas/daytona-beach",
-    title: "Roofing Services in Daytona Beach, FL | Total Care Roofing",
+    title: "Roofing Services in Daytona Beach, FL ",
     description:
       "Daytona Beach roofing services with hurricane-resistant solutions for Florida homes.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
@@ -453,7 +510,6 @@ export const JsonLdDataServices = {
   },
   "hasPart": services_has_part
 };
-
 const projects_has_part = Object.entries(projectsData).map(([key, project]) => ({
   "@type": "CreativeWork",
   "name": project.title,
@@ -478,7 +534,7 @@ export const JsonLdDataProjects = {
     "@type": ["LocalBusiness", "RoofingContractor"],
     "name": pages.landing.seo.title,
     "url": pages.landing.seo.canonical,
-    "logo": pages.landing.seo.ogImage
+    "logo": siteLogo
   },
   "hasPart": projects_has_part
 };

@@ -1,22 +1,21 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../app/generated/prisma"
+  output   = "./client"
 }
-
 datasource db {
     provider = "sqlite"
     url = "file:./data.db"
 }
-
-
 model Blog {
   id        Int      @id @default(autoincrement())
   title       String
   description String
+  seo_title String
+  read_time String
+  seo_description String
   slug      String   @unique
   content   Json    
   image     String?
-  author_name String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

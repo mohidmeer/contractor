@@ -4,11 +4,12 @@ import Header from '@/components/Header'
 import WhyUS from '@/components/WhyUS'
 import React from 'react'
 import Process from '../_components/Process'
+import { pages } from '@/data/constants'
 
 const page = () => {
     return (
         <main className="flex flex-col gap-20">
-            <Header cta={true} desc='We provide top-quality residential and commercial roofing services across Florida, ensuring durability and excellence.' title={'Roofing Services In Florida'} />
+            <Header cta={true} desc={pages.service_area.seo.description}  title={pages.service_area.seo.title} />
             <AreaOfServices />
             <Process />
             <WhyUS />

@@ -4,14 +4,13 @@ import Testimonials from '@/app/_components/Testimonials';
 import FAQs from '@/components/Faqs';
 import Gallery from '@/components/Gallery';
 import Header from '@/components/Header'
-import Services from '@/components/Services';
+import JsonLd from '@/components/JsonLd';
 import SideBar from '@/components/SideBar';
 import WhyUS from '@/components/WhyUS';
-import { navItems, siteUrl } from '@/data/constants';
+import { siteLogo, siteName, siteUrl } from '@/data/constants';
 import { servicesData } from '@/data/services'
-import Link from 'next/link';
 import { notFound } from 'next/navigation'
-import {  FaCheckSquare } from "react-icons/fa";
+import { FaCheckSquare } from "react-icons/fa";
 import { FaCircle } from 'react-icons/fa6';
 
 export async function generateStaticParams() {
@@ -22,9 +21,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const { slug } = params
   const service = servicesData[slug]
 
-   const canonical = `${siteUrl}projects/${slug}`
+  const canonical = `${siteUrl}projects/${slug}`
   return {
-    title: service.title,
+    title: `${service.title} | ${siteName}`,
     description: service.description,
     alternates: {
       canonical,
@@ -47,11 +46,25 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 export default async function Page({ params }: { params: { slug: string } }) {
   const { slug } = await params
   const service = servicesData[slug]
-
   if (!service) return notFound()
-
-
-
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.title,
+    "description": service.description,
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": siteName,
+      "url": siteUrl,
+      "image": siteLogo,
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": "Florida"
+    },
+    "url": `${siteUrl}/services/${slug}`,  
+    "mainEntityOfPage": `${siteUrl}/services/${slug}`,
+  };
   return (
     <main className="flex flex-col gap-20">
       <Header cta title={service.title} desc={service.description} />
@@ -65,15 +78,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </h3>
             <div className='grid grid-cols-2 '>
               {
-               service.typeOfSolutions.types.map((i, z) => (
+                service.typeOfSolutions.types.map((i, z) => (
                   <p className=' text-lg flex items-center gap-2' key={z}>
                     <FaCircle size={10} className='text-primary' /> {i}
                   </p>
                 ))
               }
-
             </div>
-
             <h3 className='text-heading'>
               Key Benefits
             </h3>
@@ -89,27 +100,23 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   </div>
                 ))
               }
-
-
-
             </div>
-
             <div className=''>
               <h3 className='text-heading my-10'>What our work look like </h3>
-              <Gallery images={['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']} />
+              <Gallery images={service.images} />
             </div>
           </div>
           <div className='h-fit flex flex-col gap-8'>
-            <SideBar/>
+            <SideBar />
           </div>
         </div>
       </section>
-      <Process/>
+      <Process />
       <WhyUS />
       <Projects />
       <Testimonials />
-      <FAQs />
-      
+      <FAQs faqItems={service.faqs} />
+      <JsonLd data={jsonLdData} />
     </main>
   )
 }

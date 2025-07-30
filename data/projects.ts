@@ -22,7 +22,7 @@ export const projectsData = {
       The client at Lakeview Villas wanted a durable and visually appealing roofing solution that could withstand Florida's harsh weather while maintaining the propertys luxury look.
       Our team recommended and installed GAF Timberline HDZ asphalt shingles, known for their strength and premium finish. We started by removing the old roofing system, preparing the deck, and adding a synthetic underlayment for extra protection against moisture.
       The installation was completed within one week, following strict safety standards and quality checks to ensure a flawless finish with minimal disruption to the residents`,
-    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
+    images: ['/projects/default.jpg' , '/projects/default.jpg' ,'/projects/default.jpg' , '/projects/default.jpg']
 
   
   
@@ -48,7 +48,7 @@ export const projectsData = {
     Our team installed a high-performance TPO roofing system with proper insulation and drainage solutions to meet modern energy standards.
     The project was completed in two weeks with minimal disruption to mall operations.
   ` ,
-    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
+    images: ['/projects/default.jpg' , '/projects/default.jpg' ,'/projects/default.jpg' , '/projects/default.jpg']
   },
 
   'coastal-homes-upgrade': {
@@ -72,7 +72,7 @@ export const projectsData = {
     We recommended and installed standing seam metal roofs, which offer exceptional corrosion resistance and long-lasting performance.
     The project was finished in 10 days, providing homeowners with peace of mind before the storm season.
   `,
-    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
+    images: ['/projects/default.jpg' , '/projects/default.jpg' ,'/projects/default.jpg' , '/projects/default.jpg']
   },
 
   'heritage-museum-restoration': {
@@ -95,7 +95,7 @@ export const projectsData = {
     Our team carefully removed damaged tiles and replaced them with historically accurate clay tiles, combined with modern underlayment for waterproofing.
     The project was completed in 12 days, maintaining the building’s original aesthetics and meeting preservation standards.
   `,
-    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
+    images: ['/projects/default.jpg' , '/projects/default.jpg' ,'/projects/default.jpg' , '/projects/default.jpg']
   },
 
   'sunset-condos-retrofit': {
@@ -119,7 +119,7 @@ export const projectsData = {
     The retrofit was completed in 14 days, resulting in improved energy efficiency and reduced maintenance costs for residents.
   `
     ,
-    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
+    images: ['/projects/default.jpg' , '/projects/default.jpg' ,'/projects/default.jpg' , '/projects/default.jpg']
   },
 
   'ocean-breeze-resort': {
@@ -143,7 +143,7 @@ export const projectsData = {
     The entire project was completed in 3 weeks, ensuring the resort was fully protected before the hurricane season.
   `
     ,
-    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
+    images: ['/projects/default.jpg' , '/projects/default.jpg' ,'/projects/default.jpg' , '/projects/default.jpg']
   },
 
   'greenwood-retirement-community': {
@@ -167,7 +167,7 @@ export const projectsData = {
     The upgrade was completed in two weeks, delivering a secure and comfortable environment for all residents.
   `
     ,
-    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
+    images: ['/projects/default.jpg' , '/projects/default.jpg' ,'/projects/default.jpg' , '/projects/default.jpg']
   },
 
   'palmetto-business-center': {
@@ -191,7 +191,7 @@ export const projectsData = {
     The renovation was completed in three weeks, resulting in reduced energy costs and enhanced durability for the entire facility.
   `
     ,
-    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
+    images: ['/projects/default.jpg' , '/projects/default.jpg' ,'/projects/default.jpg' , '/projects/default.jpg']
   },
 
   'coral-gables-luxury-homes': {
@@ -215,7 +215,7 @@ export const projectsData = {
     The installation was completed in four weeks, delivering a stylish, weather-resistant roofing system with timeless appeal.
   `
     ,
-    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
+    images: ['/projects/default.jpg' , '/projects/default.jpg' ,'/projects/default.jpg' , '/projects/default.jpg']
   },
   'seaside-shopping-plaza': {
     label: 'Seaside Shopping Plaza',
@@ -238,6 +238,6 @@ export const projectsData = {
     Our team installed a TPO roofing membrane with upgraded insulation and an advanced drainage system to ensure water is efficiently diverted away from retail spaces.
     The retrofit was completed in 3 weeks without disrupting daily business operations, resulting in a more durable and energy-saving roofing system for the plaza.
   `,
-    images: ['hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg', 'hero_bg_1.jpg', 'about_img_2.jpg', 'after_img_1.jpg', 'roof_inspection.jpg']
+    images: ['/projects/default.jpg' , '/projects/default.jpg' ,'/projects/default.jpg' , '/projects/default.jpg']
   },
 }
