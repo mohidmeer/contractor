@@ -16,7 +16,7 @@ const NavBar = () => {
   return (
     <nav className=' bg-primary w-full z-20 relative'>
       {/* Mobile Nav */}
-      {/* <div className={`absolute block lg:hidden inset-0 h-screen bg-black/50 z-50 ${menuOpen ? 'translate-x-0':'translate-x-full'}`}>
+      <div className={`absolute block lg:hidden inset-0 h-screen bg-black/50 z-50 ${menuOpen ? 'translate-x-0':'translate-x-full'}`}>
         <button className='text-white cursor-pointer absolute right-2 top-5' onClick={()=>{setMenuOpen(false)}}>
           <MdClose size={36}  />
         </button>
@@ -54,7 +54,7 @@ const NavBar = () => {
           </a>
 
         </div>
-      </div> */}
+      </div>
 
       <div className='xl:container mx-auto w-full flex justify-between items-center px-2'>
         <Logo />

@@ -14,24 +14,23 @@ const Footer = () => {
   );
 
   return (
-    <footer className="bg-primary text-white py-12">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
-        {/* Logo + Tagline + Contact Info */}
+    <footer className="bg-primary text-white py-12 px-2">
+      <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-10">
         <div className="flex flex-col justify-between">
           <div>
             <Logo />
             <p className="mt-4 p2 text-base">{FooterData.tagline}</p>
             <div className="mt-6 space-y-3 text-base">
               <a href={contactInfo.phone.href} className="flex items-center gap-2">
-                <BsFillTelephoneFill size={20} className="text-white" />
+                <BsFillTelephoneFill size={20} className="text-white shrink-0" />
                 {contactInfo.phone.text}
               </a>
               <a href={contactInfo.mapEmbedUrl} className="flex items-center gap-2">
-                <FaLocationDot size={20} className="text-white" />
+                <FaLocationDot size={20} className="text-white shrink-0" />
                 {contactInfo.address}
               </a>
               <div className="flex items-center gap-2">
-                <BsClock size={20} className="text-white" />
+                <BsClock size={20} className="text-white shrink-0" />
                 {contactInfo.workingHours}
               </div>
             </div>
@@ -40,8 +39,8 @@ const Footer = () => {
 
         {/* Services */}
         <div>
-          <h6 className="font-semibold mb-4 text-lg">Services</h6>
-          <ul className="space-y-2 text-base">
+          <h5 className="font-semibold mb-4 text-lg">Services</h5>
+          <ul className="space-y-2 text-sm">
             {services.map(service => (
               <li key={service.href}>
                 <Link href={service.href} className="hover:underline">
@@ -54,8 +53,8 @@ const Footer = () => {
 
         {/* Projects */}
         <div>
-          <h6 className="font-semibold mb-4 text-lg">Projects</h6>
-          <ul className="space-y-2 text-base">
+          <h5 className="font-semibold mb-4 text-lg">Projects</h5>
+          <ul className="space-y-2 text-sm">
             {projects.map(project => (
               <li key={project.href}>
                 <Link href={project.href} className="hover:underline">
@@ -68,8 +67,8 @@ const Footer = () => {
 
         {/* Company Info + Socials */}
         <div>
-          <h6 className="font-semibold mb-4 text-lg">Company</h6>
-          <ul className="space-y-2 text-base">
+          <h5 className="font-semibold mb-4 text-lg">Company</h5>
+          <ul className="space-y-2 text-sm">
             {aboutLinks.map(link => (
               <li key={link.href}>
                 <Link href={link.href} className="hover:underline">

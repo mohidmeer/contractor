@@ -38,7 +38,7 @@ const page = async ({ searchParams }: Props) => {
 
   return (
     <main className='flex flex-col gap-10'>
-      <Header cta={false} desc={''} title={'Our Blogs'} />
+      <Header cta={false} desc={pages.blog.seo.description} title={'Our Blogs'} />
       <section className='container w-full mx-auto p-4'>
         <div className='lg:grid-cols-4 grid gap-10 p-4'>
           <div className='col-span-3'>
@@ -48,6 +48,7 @@ const page = async ({ searchParams }: Props) => {
                   <article className='rounded-md shadow-sm  flex-col gap-4 bg-white p-4 card'>
                     <header className='mb-2'>
                       <h2 className='!text-xl font-semibold'>{blog.title}</h2>
+          
                       <div className="text-sm font-medium flex flex-wrap items-center gap-4 mt-2">
                         <span>By <span className="font-bold">{siteName}</span></span>
                         <span className="flex items-center gap-1">

@@ -11,7 +11,7 @@ const Breadcrumbs = () => {
     <nav className="my-3">
       <ol className="flex items-center space-x-2">
         <li>
-          <Link href="/" className="hover:underline font-bold">
+          <Link href="/" className="hover:underline font-bold p2">
             Home
           </Link>
         </li>
@@ -22,9 +22,9 @@ const Breadcrumbs = () => {
             <li key={index} className="flex items-center">
               <span className="mx-2">/</span>
               {isLast ? (
-                <span className="font-bold underline capitalize">{segment.replace(/-/g, ' ')}</span>
+                <span className="font-bold underline capitalize p2">{segment.replace(/-/g, ' ')}</span>
               ) : (
-                <Link href={href} className="hover:underline capitalize font-bold ">
+                <Link href={href} className="hover:underline capitalize font-bold p2 ">
                   {segment.replace(/-/g, ' ')}
                 </Link>
               )}

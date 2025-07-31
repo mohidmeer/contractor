@@ -10,7 +10,6 @@ import {  pages } from '@/data/constants'
 import JsonLd from '@/components/JsonLd'
 import FAQs from '@/components/Faqs'
 import AreaOfServices from '@/components/AreaOfServices'
-import GoogleMap from '@/components/GoogleMap'
 import { JsonLdDataServices } from '@/data/jsonld'
 
 const page = () => {
@@ -23,7 +22,7 @@ const page = () => {
             <div className="text-heading cursor-pointer" key={slug}>
               <div className="h-full  group sm:p-10 grid md:grid-cols-2 gap-4  overflow-hidden  bg-white shadow-md border border-primary/20 rounded-md">
                 <div className={`flex flex-col gap-4  justify-center p-4 ${z % 2 !== 0 ? 'order-2 ' : 'order-1'}`}>
-                  <p className="text-xl font-bold text-primary">{z + 1}.</p>
+                  <p className="text-3xl font-bold text-primary">{z + 1}.</p>
                   <div className=" flex flex-col gap-4">
                     <h3 className="!text-2xl font-semibold">{i.title}</h3>
                     <p className="text-lg">{i.description}</p>

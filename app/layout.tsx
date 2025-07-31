@@ -55,7 +55,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="">
+      <body className="overflow-x-hidden">
         <header className="">
           <TopBar />
           <NavBar />

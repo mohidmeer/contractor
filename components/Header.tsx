@@ -10,7 +10,7 @@ const Header = ({ title, desc, cta = true }: { title: string, desc: string | nul
             <Breadcrumbs />
             <Image src={'/images/hero_bg_2.jpg'} fill className=' object-cover -z-5' alt='header_section' />
             <h1 className='!text-5xl'>{title}</h1>
-            <p className='text-lg'>{desc}</p>
+            <p className='p1'>{desc}</p>
             {
                 cta &&
                 <div>

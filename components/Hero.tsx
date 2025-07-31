@@ -1,4 +1,4 @@
-import { contactInfo, pages, } from "@/data/constants";
+import { contactInfo, pages, siteName, } from "@/data/constants";
 import Image from "next/image";
 import React from 'react'
 import { BsFillTelephoneFill } from "react-icons/bs";
@@ -13,11 +13,11 @@ const Hero = () => {
             <div className="md:grid-cols-2 grid z-10 relative h-full container mx-auto w-full p-4" >
                 <div className="z-10 w-full  text-white mx-auto h-full flex flex-col justify-center">
                 <div className="flex flex-col gap-4 ">
-                    <Title text="Total Care Services" />
+                    <Title text={siteName} />
                     <h1>
                         {pages.landing.hero.title}
                     </h1>
-                    <p className="text-lg">{pages.landing.hero.description}</p>
+                    <p className="p1">{pages.landing.hero.description}</p>
                     <div className="flex items-center gap-6">
                         <a href={contactInfo.phone.href} className='flex gap-2 btn-primary'>
                             <BsFillTelephoneFill size={20} className='' />

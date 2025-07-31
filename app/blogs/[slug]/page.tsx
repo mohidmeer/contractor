@@ -56,10 +56,10 @@ export default async function page({ params }: { params: { slug: string } }) {
   return (
     <main className="flex flex-col gap-20">
       <article>
-        <header className="relative flex flex-col items-center justify-center text-white bg-primary gap-4 py-10">
+        <header className="relative flex flex-col items-center justify-center text-white bg-primary gap-4 py-10 px-4">
           <Breadcrumbs />
-          <h1 className="!text-5xl font-bold text-center container">{blog.title}</h1>
-          <p className="text-white/90 text-center max-w-3xl">
+          <h1 className=" font-bold text-center container">{blog.title}</h1>
+          <p className="text-white/90 text-center p1 max-w-3xl">
             {blog.seo_description}
           </p>
           <div className="text-sm font-medium text-white/80 flex flex-wrap justify-center items-center gap-4 mt-2">
@@ -72,9 +72,9 @@ export default async function page({ params }: { params: { slug: string } }) {
             </span>
           </div>
         </header>
-        <section className='xl:container mx-auto w-full '>
-          <div className='lg:grid-cols-4 grid gap-10 p-4'>
-            <div className='bg-white px-10 py-16 rounded-md flex-col gap-6 flex col-span-3 card'>
+        <section className='xl:container mx-auto w-full overflow-hidden '>
+          <div className=' grid-cols-1 lg:grid-cols-4 grid gap-10 p-4'>
+            <div className='bg-white px-4 md:px-10 py-2 md:py-16 rounded-md flex-col gap-6 flex col-span-3 card'>
               <figure className="w-full">
                 <div className="h-[500px] w-full relative">
                   <Image
@@ -113,8 +113,8 @@ export default async function page({ params }: { params: { slug: string } }) {
                   )}
 
                   {section.table && section.table.length > 0 && (
-                    <div className="overflow-auto mb-4">
-                      <table className="w-full border-collapse border border-gray-300">
+                    <div className="overflow-x-auto mb-4">
+                      <table className="min-w-full border-collapse border border-gray-300">
                         <tbody>
                           {section.table.map((row, rowIndex) => (
                             <tr key={rowIndex}>
