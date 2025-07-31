@@ -36,6 +36,7 @@ const Services = () => {
                             <Image
                                 src={i.image}
                                 fill
+                                 sizes="300px"
                                 className="-z-5 group-hover:scale-110 transition-all"
                                 style={{ objectFit: "cover" }}
                                 alt="service"

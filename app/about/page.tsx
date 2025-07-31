@@ -12,7 +12,7 @@ const page = () => {
   return (
     <main className='flex flex-col gap-10 '>
       <Header cta desc={pages.about.seo.description} title={pages.about.seo.title} />
-      <GetToKnow />
+      <GetToKnow description={pages.about.content} />
       {/* Socialsa lateron  */}
       <Process />
       <FAQs />
