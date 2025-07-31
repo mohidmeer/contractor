@@ -1,4 +1,8 @@
+import AreaOfServices from '@/components/AreaOfServices'
+import GoogleMap from '@/components/GoogleMap'
 import Header from '@/components/Header'
+import JsonLd from '@/components/JsonLd'
+import { JsonLdDataContact } from '@/data/jsonld'
 import React from 'react'
 
 const page = () => {
@@ -8,6 +12,9 @@ const page = () => {
       <section>
         dsad
       </section>
+      <AreaOfServices/>
+      <GoogleMap/>
+      <JsonLd data={JsonLdDataContact} />
     </main>
   )
 }

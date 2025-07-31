@@ -2,13 +2,16 @@
 
 import { useForm } from 'react-hook-form';
 import FormInput from './inputs/FormInput';
+import { siteName } from '@/data/constants';
 
 type FormData = {
     name: string;
     number: string;
+    address?:string;
+    site:string
 };
 
-const Inspection = () => {
+const HeroForm = () => {
     const {
         register,
         handleSubmit,
@@ -20,12 +23,13 @@ const Inspection = () => {
     };
 
     return (
-        <div className='max-w-5xl mx-auto bg-white p-6 rounded-sm shadow'>
+        <div className=' bg-white p-6 rounded-sm shadow overflow-hidden'>
             <h2 className='!text-xl mb-6'>Book a Free Consultation</h2>
-            <form onSubmit={handleSubmit(onSubmit)} className="  grid grid-cols-3 gap-10">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+                <input className='hidden' defaultValue={siteName}  {...register('site')}  />
                 <FormInput
                     label="Name"
-                    registration={register('name', { required: 'Name is required' })}
+                    registration={register('name', { required: 'Please fill out your name' })}
                     error={errors.name?.message}
                     placeholder="Enter your name"
                 />
@@ -42,7 +46,13 @@ const Inspection = () => {
                     placeholder="Enter your number"
                     type="tel"
                 />
-                <button type="submit" className="btn-primary w-full h-fit mt-auto mb-auto">
+                 <FormInput
+                    label="Address"
+                    registration={register('address',{required:'Address is required'} )}
+                    error={errors.address?.message}
+                    placeholder="Your Address"
+                />
+                <button type="submit" className="btn-primary w-full h-fit mt-auto mb-auto !scale-100">
                     Submit
                 </button>
             </form>
@@ -50,4 +60,4 @@ const Inspection = () => {
     );
 };
 
-export default Inspection;
+export default HeroForm;

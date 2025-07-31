@@ -1,8 +1,10 @@
 import Process from '@/app/_components/Process'
 import Projects from '@/app/_components/Projects'
 import Testimonials from '@/app/_components/testimonials'
+import AreaOfServices from '@/components/AreaOfServices'
 import FAQs from '@/components/Faqs'
 import Gallery from '@/components/Gallery'
+import GoogleMap from '@/components/GoogleMap'
 import Header from '@/components/Header'
 import JsonLd from '@/components/JsonLd'
 import SideBar from '@/components/SideBar'
@@ -80,8 +82,8 @@ export default async function page({ params }: { params: { slug: string } }) {
   return (
     <main className="flex flex-col gap-20">
       <Header cta title={project.title} desc={project.description} />
-      <section className='container mx-auto w-full '>
-        <div className='grid-cols-4 grid gap-10 p-4'>
+      <section className='xl:container mx-auto w-full '>
+        <div className='lg:grid-cols-4 grid gap-10 p-4'>
           <div className='bg-white px-10 py-16 rounded-md flex-col gap-6 flex col-span-3 shadow-md '>
             <div className='flex items-center gap-6 '>
               <p className='flex items-center gap-1'><MdLocationPin size={24} className='text-primary' /> <span className='font-bold'>{project.location}</span></p>
@@ -111,7 +113,7 @@ export default async function page({ params }: { params: { slug: string } }) {
               <Gallery images={project.images} />
             </div>
           </div>
-          <div className='h-fit flex flex-col gap-8'>
+          <div className="sr-only lg:not-sr-only md:flex md:flex-col h-fit gap-8">
             <SideBar />
           </div>
         </div>
@@ -121,6 +123,8 @@ export default async function page({ params }: { params: { slug: string } }) {
       <Projects />
       <Testimonials />
       <FAQs />
+      <AreaOfServices/>
+      <GoogleMap/>
       <JsonLd data={jsonLdData} />
     </main>
   )

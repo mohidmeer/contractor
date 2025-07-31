@@ -17,7 +17,7 @@ const WhyUS = () => {
                     return (
                         <div
                             key={index}
-                            className="bg-white shadow-md rounded-lg p-6  hover:shadow-lg transition-shadow duration-300 cursor-pointer flex flex-col gap-4"
+                            className="bg-white shadow-md rounded-lg p-6  hover:shadow-lg transition-shadow duration-300 cursor-pointer flex flex-col gap-4 card"
                         >
                             <Icon size={46} className="text-primary" />
                             <h3 className="!text-2xl font-semibold  ">
@@ -28,11 +28,11 @@ const WhyUS = () => {
                     );
                 })}
             </div>
-            <div className='my-20 max-w-7xl mx-auto  grid-cols-4 grid gap-8 px-6'>
+            <div className='my-20 max-w-7xl mx-auto  grid-cols-2 lg:grid-cols-4 grid gap-8 px-6'>
                 {accomplishemntData.map((item, index) => (
-                    <div key={index} className="flex flex-col items-center gap-2 bg-white rounded-lg p-4 shadow-md  ">
-                        <h3 className="!text-6xl font-bold text-primary">{item.number}+</h3>
-                        <p className="text-lg font-bold">{item.title}</p>
+                    <div key={index} className="flex flex-col items-center gap-2 bg-white rounded-lg p-4 shadow-md card  ">
+                        <h3 className="!text-4xl md:!text-6xl font-bold text-primary">{item.number}+</h3>
+                        <p className="text-lg font-bold  text-center">{item.title}</p>
                     </div>
                 ))}
             </div>

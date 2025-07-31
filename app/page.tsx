@@ -9,9 +9,10 @@ import Process from "./_components/Process";
 import FAQs from "@/components/Faqs";
 import AreaOfServices from "@/components/AreaOfServices";
 
+
 export default function Home() {
   return (
-    <main className="flex flex-col gap-20">
+    <main className="flex flex-col gap-20 ">
       <ThemeSwitcher />
       <Hero />
       <GetToKnow />

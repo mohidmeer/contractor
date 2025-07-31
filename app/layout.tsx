@@ -4,8 +4,9 @@ import TopBar from "@/components/TopBar";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import GoogleMap from "@/components/GoogleMap";
-import { JsonLdDataLanding, pages } from "@/data/constants";
+import {  pages } from "@/data/constants";
 import JsonLd from "@/components/JsonLd";
+import { JsonLdDataLanding } from "@/data/jsonld";
 
 export const metadata: Metadata = {
   title: {
@@ -54,8 +55,8 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <header>
+      <body className="">
+        <header className="">
           <TopBar />
           <NavBar />
         </header>

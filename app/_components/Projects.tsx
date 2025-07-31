@@ -22,8 +22,9 @@ const Projects = () => {
             </div>
             <div className="embla my-6" ref={emblaRef}>
                 <div className="embla__container flex gap-1">
+                    {/* lg:flex-[0_0_30%] xl:flex-[0_0_25%] */}
                     {Object.entries(projectsData).map(([slug, i], z) => (
-                        <div className="text-white cursor-pointer flex-[0_0_25%]" key={slug}>
+                        <div className="text-white cursor-pointer flex-[0_0_100%] sm:flex-[0_0_75%] md:flex-[0_0_50%] lg:flex-[0_0_25%] " key={slug}>
                             <div className="h-[500px] relative group flex flex-col p-10  hover:bg-black/90 transition-all bg-black/70 overflow-hidden">
                                 <p className="text-3xl font-bold">{z + 1}.</p>
                                 <div className="mt-auto flex flex-col gap-4">
@@ -32,6 +33,7 @@ const Projects = () => {
                                     <Link
                                         href={`/projects/${slug}`}
                                         className="text-xl flex items-center gap-2 font-bold group"
+                                        aria-label={`Continue reading :${i.title}`}
                                     >
                                         <p className="font-bold">Continue reading</p>
                                         <MdArrowForward className="group-hover:translate-x-6 transition-all" />

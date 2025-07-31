@@ -46,14 +46,12 @@ export default async function page({ params }: { params: { slug: string } }) {
       "@type": "Organization",
       name: siteName,
     },
-    datePublished: blog.createdAt,
+    datePublished: new Date(blog.createdAt).toISOString(),
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${siteUrl}/blogs/${blog.slug}`,
     },
   };
-
-
 
   return (
     <main className="flex flex-col gap-20">
@@ -74,9 +72,9 @@ export default async function page({ params }: { params: { slug: string } }) {
             </span>
           </div>
         </header>
-        <section className='container mx-auto w-full '>
-          <div className='grid-cols-4 grid gap-10 p-4'>
-            <div className='bg-white px-10 py-16 rounded-md flex-col gap-6 flex col-span-3 shadow-xl'>
+        <section className='xl:container mx-auto w-full '>
+          <div className='lg:grid-cols-4 grid gap-10 p-4'>
+            <div className='bg-white px-10 py-16 rounded-md flex-col gap-6 flex col-span-3 card'>
               <figure className="w-full">
                 <div className="h-[500px] w-full relative">
                   <Image
@@ -135,7 +133,7 @@ export default async function page({ params }: { params: { slug: string } }) {
               ))}
             </div>
             {/* SIDE BARE SECTION */}
-            <div className='h-fit flex flex-col gap-8'>
+            <div className='sr-only lg:not-sr-only md:flex md:flex-col h-fit gap-8'>
               <SideBar />
             </div>
           </div>

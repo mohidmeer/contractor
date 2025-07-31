@@ -1,8 +1,10 @@
 import Process from '@/app/_components/Process';
 import Projects from '@/app/_components/Projects';
 import Testimonials from '@/app/_components/testimonials';
+import AreaOfServices from '@/components/AreaOfServices';
 import FAQs from '@/components/Faqs';
 import Gallery from '@/components/Gallery';
+import GoogleMap from '@/components/GoogleMap';
 import Header from '@/components/Header'
 import JsonLd from '@/components/JsonLd';
 import SideBar from '@/components/SideBar';
@@ -68,9 +70,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <main className="flex flex-col gap-20">
       <Header cta title={service.title} desc={service.description} />
-      <section className='container mx-auto w-full '>
-        <div className='grid-cols-4 grid gap-10 p-4'>
-          <div className='bg-white px-10 py-20 rounded-md flex-col gap-6 flex col-span-3  shadow-md'>
+      <section className='lg:container mx-auto w-full '>
+        <div className='grid-cols-1 lg:grid-cols-4 grid gap-10 p-4'>
+          <div className='bg-white px-10 py-20 rounded-md flex-col gap-6 flex col-span-3  card'>
             <h2 className='text-heading'>{service.label}</h2>
             <p className='text-lg'>{service.content}</p>
             <h3 className='text-heading'>
@@ -78,7 +80,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </h3>
             <div className='grid grid-cols-2 '>
               {
-                service.typeOfSolutions.types.map((i, z) => (
+                service.typeOfSolutions.types.map((i, z:number) => (
                   <p className=' text-lg flex items-center gap-2' key={z}>
                     <FaCircle size={10} className='text-primary' /> {i}
                   </p>
@@ -106,7 +108,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               <Gallery images={service.images} />
             </div>
           </div>
-          <div className='h-fit flex flex-col gap-8'>
+          <div className='sr-only lg:not-sr-only md:flex md:flex-col h-fit gap-8'>
             <SideBar />
           </div>
         </div>
@@ -116,6 +118,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <Projects />
       <Testimonials />
       <FAQs faqItems={service.faqs} />
+      <AreaOfServices/>
       <JsonLd data={jsonLdData} />
     </main>
   )

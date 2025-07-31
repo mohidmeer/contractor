@@ -4,16 +4,17 @@ import { FaQuestionCircle } from 'react-icons/fa';
 
 const FAQs = ({ faqItems = faqs }: { faqItems?: FAQ[] }) => {
     return (
-        <section className="grid grid-cols-3 h-[90vh]">
-            <div className="flex items-center flex-col gap-2 border justify-center bg-primary text-white p-2 order-2">
+        <section className="grid grid-cols-1 xl:grid-cols-3 min-h-[90vh]">
+            
+            <div className="flex items-center flex-col gap-2 border justify-center bg-primary text-white p-2 xl:order-2 py-16 border-black w-full">
                 <h2 className="font-bold text-center">FAQs</h2>
                 <p className="text-lg text-center">
                     Common questions our customers ask before starting their roofing project.
                 </p>
             </div>
-            <div className="col-span-2 h-full py-32 order-1">
+            <div className="col-span-2 h-full lg:py-32 xl:order-1 ">
                 <div className="h-full">
-                    <div className="grid grid-cols-2 bg-white px-10">
+                    <div className="grid md:grid-cols-2 bg-white md:px-10 card ">
                         {faqItems.map((faq, index) => (
                             <div
                                 key={index}

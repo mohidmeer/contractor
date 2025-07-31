@@ -27,7 +27,7 @@ const Testimonials = () => {
         <div className="embla__container flex gap-4">
           {testimonialsData.map((testimonial, index) => (
             <div
-              className="flex-[0_0_40%] bg-white  rounded-lg p-6 cursor-pointer flex-col gap-6 flex items-center border-primary/20 border"
+              className="flex-[0_0_100%] sm:flex-[0_0_75%] md:flex-[0_0_50%] lg:flex-[0_0_25%] bg-white  rounded-lg p-6 cursor-pointer flex-col gap-6 flex items-center card"
               key={index}
             >
               <Image

@@ -5,6 +5,8 @@ import WhyUS from '@/components/WhyUS'
 import React from 'react'
 import Process from '../_components/Process'
 import { pages } from '@/data/constants'
+import JsonLd from '@/components/JsonLd'
+import { JsonLdDataServiceArea } from '@/data/jsonld'
 
 const page = () => {
     return (
@@ -14,6 +16,7 @@ const page = () => {
             <Process />
             <WhyUS />
             <FAQs />
+            <JsonLd data={JsonLdDataServiceArea} />
         </main>
     )
 }

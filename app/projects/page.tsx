@@ -11,8 +11,11 @@ import Link from 'next/link'
 import React from 'react'
 import { MdArrowForward } from 'react-icons/md'
 import Process from '../_components/Process';
-import { JsonLdDataProjects, pages } from '@/data/constants';
+import { pages } from '@/data/constants';
 import JsonLd from '@/components/JsonLd';
+import AreaOfServices from '@/components/AreaOfServices';
+import GoogleMap from '@/components/GoogleMap';
+import { JsonLdDataProjects } from '@/data/jsonld';
 
 const Page = () => {
 
@@ -35,7 +38,7 @@ const Page = () => {
                 <div className="embla my-6" ref={emblaRef}>
                     <div className="embla__container flex gap-1">
                         {Object.entries(projectsData).map(([slug, i], z) => (
-                            <div className="text-white cursor-pointer flex-[0_0_35%]" key={slug}>
+                            <div className="text-white cursor-pointer flex-[0_0_100%] sm:flex-[0_0_75%] md:flex-[0_0_50%] lg:flex-[0_0_25%]" key={slug}>
                                 <div className="h-[500px] relative group flex flex-col p-10  hover:bg-black/90 transition-all bg-black/70 overflow-hidden">
                                     <p className="text-3xl font-bold">{z + 1}.</p>
                                     <div className="mt-auto flex flex-col gap-4">
@@ -66,7 +69,7 @@ const Page = () => {
                 <div className="embla my-6" ref={emblaRef2}>
                     <div className="embla__container flex gap-1">
                         {Object.entries(projectsData).map(([slug, i], z) => (
-                            <div className="text-white cursor-pointer flex-[0_0_35%]" key={slug}>
+                            <div className="text-white cursor-pointer flex-[0_0_100%] sm:flex-[0_0_75%] md:flex-[0_0_50%] lg:flex-[0_0_25%]" key={slug}>
                                 <div className="h-[500px] relative group flex flex-col p-10  hover:bg-black/90 transition-all bg-black/70 overflow-hidden">
                                     <p className="text-3xl font-bold">{z + 1}.</p>
                                     <div className="mt-auto flex flex-col gap-4">
@@ -98,6 +101,8 @@ const Page = () => {
             <WhyUS />
             <Process />
             <FAQs />
+            <AreaOfServices />
+            <GoogleMap />
             <JsonLd data={JsonLdDataProjects} />
         </main>
     )

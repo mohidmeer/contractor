@@ -90,7 +90,17 @@ body {
 }
 
 
-h1 {
+@layer components {
+  .card {
+    @apply shadow-md border-primary/20 border 
+  }
+  .clip-diagonal {
+    clip-path: polygon(0 0, 61% 0, 44% 100%, 0 100%);
+  }
+  
+}
+
+/* h1 {
   @apply text-3xl md:text-6xl font-bold;
 }
 
@@ -124,28 +134,72 @@ h6 {
 
 .p3 {
   @apply text-xs md:text-sm leading-snug;
+} */
+
+h1 {
+  @apply font-bold;
+  font-size: clamp(1.75rem, 5vw, 3.75rem); /* ~text-3xl to text-6xl */
 }
+
+h2 {
+  @apply font-semibold;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem); /* ~text-2xl to text-4xl */
+}
+
+h3 {
+  @apply font-semibold;
+  font-size: clamp(1.25rem, 3vw, 1.875rem); /* ~text-xl to text-3xl */
+}
+
+h4 {
+  @apply font-medium;
+  font-size: clamp(1.125rem, 2.2vw, 1.5rem); /* ~text-lg to text-2xl */
+}
+
+h5 {
+  @apply font-medium;
+  font-size: clamp(1rem, 2vw, 1.25rem); /* ~text-base to text-xl */
+}
+
+h6 {
+  @apply font-medium;
+  font-size: clamp(0.875rem, 1.8vw, 1.125rem); /* ~text-sm to text-lg */
+}
+
+.p1 {
+  @apply leading-relaxed;
+  font-size: clamp(1rem, 1.5vw, 1.125rem); /* ~text-base to text-lg */
+}
+
+.p2 {
+  @apply leading-normal;
+  font-size: clamp(0.875rem, 1.3vw, 1rem); /* ~text-sm to text-base */
+}
+
+.p3 {
+  @apply leading-snug;
+  font-size: clamp(0.75rem, 1vw, 0.875rem); /* ~text-xs to text-sm */
+}
+
+
 
 .btn-secondary{
 
-  @apply bg-secondary px-8 py-3 text-white font-semibold cursor-pointer  ring-secondary/50 rounded-sm focus:ring-3 focus:ring-secondary/70 hover:scale-110 transition-all
+  @apply whitespace-nowrap bg-secondary px-8 py-3 text-white font-semibold cursor-pointer  ring-secondary/50 rounded-sm focus:ring-3 focus:ring-secondary/70 hover:scale-110 transition-all
 
 }
 
 .btn-primary{
 
-  @apply bg-primary px-8 py-3 text-white font-semibold cursor-pointer  ring-primary/50 rounded-sm focus:ring-3 focus:ring-primary/70  hover:scale-110 transition-all
+  @apply whitespace-nowrap bg-primary px-8 py-3 text-white font-semibold cursor-pointer  ring-primary/50 rounded-sm focus:ring-3 focus:ring-primary/70  hover:scale-110 transition-all
 
 }
 
 .input {
-  @apply w-full px-4 py-2 border  rounded-sm focus:outline-none focus:ring-2  transition-all placeholder:text-gray-500 bg-white ;
+  @apply w-full px-4 py-2 border border-primary/50  rounded-sm focus:outline-none focus:ring-2  transition-all placeholder:text-gray-500 bg-white ;
 }
 
 
-.clip-diagonal {
-  clip-path: polygon(0 0, 61% 0, 44% 100%, 0 100%);
-}
 
 
 /* .bg-pattren{

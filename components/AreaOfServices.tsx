@@ -6,10 +6,10 @@ import Link from "next/link";
 
 const AreaOfServices = () => {
   return (
-    <section className="grid grid-cols-3 h-[70vh]">
+    <section className="grid grid-cols-1 xl:grid-cols-3 min-h-[90vh]">
       {/* Left Column */}
-      <div className="flex items-center flex-col gap-4 border justify-center bg-primary text-white p-6 order-2">
-        <Title text="Locations" />
+      <div className="flex items-center flex-col gap-4 border justify-center bg-primary text-white p-16 xl:order-2">
+        <p className="font-bold">Locations</p>
         <h2 className="font-bold text-3xl text-center">
           Cities We Serve Across Florida
         </h2>
@@ -19,16 +19,16 @@ const AreaOfServices = () => {
       </div>
 
       {/* Right Column */}
-      <div className="col-span-2 h-full py-24 order-1">
-        <div className="h-full">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 px-10 bg-white">
+      <div className="col-span-2 h-full xl:py-24 order-1">
+        <div className="h-full flex items-center w-full flex-col justify-center bg-white card ">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6  w-full ">
             {serviceAreasData.map((city, index) => (
               <Link
                 key={index}
                 href={city.href}
                 className="rounded-lg p-4 bg-white hover:underline transition-all flex items-center gap-3 text-lg font-medium"
               >
-                <MdLocationPin className="text-primary text-2xl" />
+                <MdLocationPin className="text-primary text-2xl shrink-0" />
                 <span>{city.name}</span>
               </Link>
             ))}

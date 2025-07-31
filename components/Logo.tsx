@@ -3,16 +3,13 @@ import React from 'react'
 
 const Logo = () => {
     return (
-        <div className='w-fit flex items-centerflex-col'>
-            <div className="bg-primary p-4">
-                <Image
-                    src="/images/logo.png"
-                    alt="Total Care logo"
-                    width={180}
-                    height={80}
-                />
-            </div>
-
+        <div className='w-fit flex items-center flex-col shrink-0'>
+            <Image
+                src="/logo.png"
+                alt="Total Care logo"
+                width={180}
+                height={80}
+            />
         </div>
     )
 }

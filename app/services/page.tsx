@@ -6,20 +6,23 @@ import React from 'react'
 import { MdArrowForward } from 'react-icons/md'
 import Process from '../_components/Process'
 import Projects from '../_components/Projects'
-import { JsonLdDataServices, pages } from '@/data/constants'
+import {  pages } from '@/data/constants'
 import JsonLd from '@/components/JsonLd'
 import FAQs from '@/components/Faqs'
+import AreaOfServices from '@/components/AreaOfServices'
+import GoogleMap from '@/components/GoogleMap'
+import { JsonLdDataServices } from '@/data/jsonld'
 
 const page = () => {
   return (
     <main className="flex flex-col gap-20">
       <Header cta={true} desc={pages.services.seo.description} title={pages.services.seo.title} />
-      <section className=" p-2 mx-auto">
+      <section className="p-2 mx-auto">
         <div className="flex flex-col  my-10 container mx-auto gap-10">
           {Object.entries(servicesData).map(([slug, i], z) => (
             <div className="text-heading cursor-pointer" key={slug}>
-              <div className="h-full  group p-10 grid grid-cols-2 gap-4  overflow-hidden  bg-white shadow-md border border-primary/20 rounded-md">
-                <div className={`flex flex-col gap-4  p-4 ${z % 2 !== 0 ? 'order-2 ' : 'order-1'}`}>
+              <div className="h-full  group sm:p-10 grid md:grid-cols-2 gap-4  overflow-hidden  bg-white shadow-md border border-primary/20 rounded-md">
+                <div className={`flex flex-col gap-4  justify-center p-4 ${z % 2 !== 0 ? 'order-2 ' : 'order-1'}`}>
                   <p className="text-xl font-bold text-primary">{z + 1}.</p>
                   <div className=" flex flex-col gap-4">
                     <h3 className="!text-2xl font-semibold">{i.title}</h3>
@@ -35,7 +38,7 @@ const page = () => {
                   </div>
 
                 </div>
-                <div className={`relative overflow-hidden rounded-md ${z % 2 !== 0 ? 'order-1' : 'order-2'}`}>
+                <div className={`relative overflow-hidden md:h-[500px] rounded-md ${z % 2 !== 0 ? 'order-1' : 'order-2'}`}>
                   <Image
                     src={i.image}
                     fill
@@ -52,6 +55,7 @@ const page = () => {
       <Projects />
       <Process />
       <FAQs />
+      <AreaOfServices/>
       <JsonLd data={JsonLdDataServices} />
     </main>
   )

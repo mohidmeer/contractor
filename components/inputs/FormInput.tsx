@@ -7,17 +7,15 @@ type FormInputProps = {
   registration: UseFormRegisterReturn;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-const FormInput = ({ label, error, registration,placeholder ,...rest }: FormInputProps) => {
+const FormInput = ({ label, error, registration, ...rest }: FormInputProps) => {
   return (
     <div className="w-full">
-      <label className="hidden text-sm font-medium mb-1">{label}</label>
+      <label className={`text-sm  font-medium mb-1 ${error && '!text-red-600'}`} >{ error ? error  : label }</label>
       <input
         {...registration}
         {...rest}
-        placeholder={error ? error : placeholder}
-        className={`input w-fit ${
-          error ? 'border-red-500 focus:ring-red-500 placeholder:!text-red-500' : 'focus:ring-primary placeholder:text-gray-500'
-        }`}
+        className={`input w-fit ${error ? 'border-red-500 focus:ring-red-500 ' : 'focus:ring-primary placeholder:text-gray-500'
+          }`}
       />
     </div>
   );
