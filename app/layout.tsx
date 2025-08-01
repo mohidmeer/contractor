@@ -4,7 +4,7 @@ import TopBar from "@/components/TopBar";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import GoogleMap from "@/components/GoogleMap";
-import {  pages } from "@/data/constants";
+import {  pages, siteUrl } from "@/data/constants";
 import JsonLd from "@/components/JsonLd";
 import { JsonLdDataLanding } from "@/data/jsonld";
 import { GoogleAnalytics } from '@next/third-parties/google'
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: pages.landing.seo.ogImage,
+        url: siteUrl+pages.landing.seo.ogImage,
         width: 1200,
         height: 630,
         alt: pages.landing.seo.title,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: pages.landing.seo.title,
     description: pages.landing.seo.description,
-    images: [pages.landing.seo.ogImage],
+    images: [siteUrl+pages.landing.seo.ogImage],
   },
 };
 

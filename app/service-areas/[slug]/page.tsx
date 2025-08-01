@@ -40,13 +40,13 @@ export async function generateMetadata({ params }: Props) {
       title: cityData.title,
       description: cityData.description,
       url: canonical,
-      images: [cityData.image],
+      images: [siteUrl+cityData.image],
     },
     twitter: {
       card: 'summary_large_image',
       title: cityData.title,
       description: cityData.description,
-      images: [cityData.image],
+      images: [siteUrl+cityData.image],
     },
   }
 }

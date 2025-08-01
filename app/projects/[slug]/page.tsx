@@ -44,14 +44,14 @@ export async function generateMetadata({ params }: Props) {
       title: project.title,
       description: project.description,
       url: canonical,
-      images: [project.image],
+      images: [siteUrl+project.image],
     },
 
     twitter: {
       card: 'summary_large_image',
       title: project.title,
       description: project.description,
-      images: [project.image],
+      images: [siteUrl+project.image],
     },
 
   }

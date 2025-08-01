@@ -1,4 +1,4 @@
-import { pages } from "@/data/constants"
+import { pages, siteUrl } from "@/data/constants"
 
 export const metadata = {
   title: pages.services.seo.title,
@@ -10,13 +10,13 @@ export const metadata = {
     title: pages.services.seo.title,
     description: pages.services.seo.description,
     url: pages.services.seo.canonical,
-    images: [pages.services.seo.ogImage],
+    images: [siteUrl+pages.services.seo.ogImage],
   },
   twitter: {
     card: 'summary_large_image',
     title: pages.services.seo.title,
     description: pages.services.seo.description,
-    images: [pages.services.seo.ogImage],
+    images: [siteUrl+pages.landing.seo.ogImage],
   },
 }
 
