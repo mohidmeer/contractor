@@ -17,7 +17,7 @@ const NavBar = () => {
     <nav className=' bg-primary w-full z-20 relative'>
       {/* Mobile Nav */}
       <div className={`absolute block lg:hidden inset-0 h-screen bg-black/50 z-50 ${menuOpen ? 'translate-x-0':'translate-x-full'}`}>
-        <button className='text-white cursor-pointer absolute right-2 top-5' onClick={()=>{setMenuOpen(false)}}>
+        <button className='text-white cursor-pointer absolute right-2 top-5' onClick={()=>{setMenuOpen(false)}} aria-label="Sidebar Toggle">
           <MdClose size={36}  />
         </button>
         <div className=' h-full  bg-white  w-fit px-4'>
@@ -95,7 +95,7 @@ const NavBar = () => {
             <BsFillTelephoneFill size={20} className='' />
             {contactInfo.phone.text}
           </a>
-          <button className='text-white cursor-pointer lg:hidden' onClick={()=>{setMenuOpen(true)}}>
+          <button className='text-white cursor-pointer lg:hidden' aria-label="Sidebar Toggle" onClick={()=>{setMenuOpen(true)}}>
             <MdMenu size={36}  />
           </button>
         </div>

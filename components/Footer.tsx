@@ -39,7 +39,7 @@ const Footer = () => {
 
         {/* Services */}
         <div>
-          <h5 className="font-semibold mb-4 text-lg">Services</h5>
+          <h2 className="font-semibold mb-4 !text-xl">Services</h2>
           <ul className="space-y-2 text-sm">
             {services.map(service => (
               <li key={service.href}>
@@ -53,7 +53,7 @@ const Footer = () => {
 
         {/* Projects */}
         <div>
-          <h5 className="font-semibold mb-4 text-lg">Projects</h5>
+          <h2 className="font-semibold mb-4 !text-xl">Projects</h2>
           <ul className="space-y-2 text-sm">
             {projects.map(project => (
               <li key={project.href}>
@@ -67,7 +67,7 @@ const Footer = () => {
 
         {/* Company Info + Socials */}
         <div>
-          <h5 className="font-semibold mb-4 text-lg">Company</h5>
+          <h2 className="font-semibold mb-4 !text-xl">Company</h2>
           <ul className="space-y-2 text-sm">
             {aboutLinks.map(link => (
               <li key={link.href}>

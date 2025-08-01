@@ -1,13 +1,21 @@
 import { getBlog } from "@/actions/blogs";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import SideBar from "@/components/SideBar";
 import { siteName, siteUrl } from "@/data/constants";
+import { Blog } from "@/types";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MdCalendarMonth, MdTimer } from "react-icons/md";
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const { slug } = params
+
+type Props = {
+  params:  Promise<{slug:string}>;
+};
+
+//;
+export async function generateMetadata({ params }: Props ) {
+  const { slug } = await params
   const blog = await getBlog(slug)
   const canonical = `${siteUrl}blogs/${blog?.title}`
   return {
@@ -31,8 +39,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function page({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default async function page({ params }: Props) {
+
+  const { slug } = await params
   const blog = await getBlog(slug)
   if (!blog?.content) return notFound()
 
@@ -88,7 +97,7 @@ export default async function page({ params }: { params: { slug: string } }) {
                   {blog?.title}
                 </figcaption>
               </figure>
-              {blog.content.map((section, index) => (
+              {(blog.content as Blog['content']).map((section, index) => (
                 <section key={index} className="">
                   <h2 className="!text-2xl font-bold mb-4">{section.heading}</h2>
 
@@ -139,6 +148,7 @@ export default async function page({ params }: { params: { slug: string } }) {
           </div>
         </section>
       </article>
+      <JsonLd data={jsonLdData} />
     </main>
   )
 }

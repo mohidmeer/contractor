@@ -7,8 +7,14 @@ import FAQs from '@/components/Faqs';
 import Header from '@/components/Header';
 import Services from '@/components/Services';
 import WhyUS from '@/components/WhyUS';
-import { getToKnow, pages, serviceAreasData, siteName, siteUrl } from '@/data/constants';
+import { getToKnow, serviceAreasData, siteName, siteUrl } from '@/data/constants';
 import React from 'react';
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+
 
 export async function generateStaticParams() {
   return serviceAreasData.map(area => ({
@@ -17,8 +23,8 @@ export async function generateStaticParams() {
 }
 
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const { slug } = params
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params
   const cityData = serviceAreasData.find(area => area.href.split('/').pop() === slug);
   if (!cityData) return {}
 
@@ -46,8 +52,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 
-export default async function Page({ params }) {
-  const { slug } = params;
+export default async function Page({ params }:Props) {
+  const { slug } = await params;
 
   const cityData = serviceAreasData.find(
     area => area.href.split('/').pop() === slug

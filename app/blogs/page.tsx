@@ -9,13 +9,12 @@ import Link from 'next/link';
 import { MdCalendarMonth, MdTimer } from 'react-icons/md';
 
 type Props = {
-  searchParams: {
-    page?: string;
-  };
+  searchParams: Promise<{ page? : 1 }>
 };
 const page = async ({ searchParams }: Props) => {
-  const currentPage = parseInt(searchParams.page || '1');
-  const { blogs, pagination } = await getAllBlogs(currentPage);
+
+  const { page } = await searchParams
+  const { blogs, pagination } = await getAllBlogs(page || 1);
 
   const jsonLdData = {
     "@context": "https://schema.org",
@@ -43,7 +42,7 @@ const page = async ({ searchParams }: Props) => {
         <div className='lg:grid-cols-4 grid gap-10 p-4'>
           <div className='col-span-3'>
             <ul className='flex-col flex gap-6 '>
-              {blogs.map((blog: any) => (
+              {blogs.map((blog) => (
                 <li key={blog.id}>
                   <article className='rounded-md shadow-sm  flex-col gap-4 bg-white p-4 card'>
                     <header className='mb-2'>
@@ -62,7 +61,7 @@ const page = async ({ searchParams }: Props) => {
                       </div>
                     </header>
                     <div className='mb-2'>
-                      <p className='text-gray-700'>{blog.description}</p>
+                      <p className='text-gray-700'>{blog.seo_description}</p>
                     </div>
                     <Link href={`/blogs/${blog.slug}`} className='hover:underline text-primary font-bold'>Continue Reading</Link>
                   </article>

@@ -27,6 +27,7 @@ export default function ThemeSwitcher() {
       {/* Main Icon Button */}
       <button
         onClick={() => setOpen(!open)}
+        aria-label="Theme Toggle"
         className="w-10 h-10 flex items-center justify-center rounded-full bg-[var(--color-primary)] text-white shadow-lg"
       >
         <BiPalette size={20} />

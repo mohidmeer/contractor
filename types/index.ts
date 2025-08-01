@@ -59,14 +59,21 @@ export type NavItem = {
   children?: NavItem[];
 };
 
-export type BlogType = {
-  id: number;
+export type Blog = {
   title: string;
-  slug: string;
-  image?: string | null;
   read_time: string;
-  seo_title?: string;
-  seo_description: string;
-  content?:object;
-  createdAt: Date;
+  seo: {
+    title: string;
+    description: string;
+  };
+  image: string;
+  content: {
+    heading: string;
+    body: string | null;
+    listItems: string[] | null;
+    table: string[][] | null;
+    quote: string | null;
+  }[];
 };
+
+

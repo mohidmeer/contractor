@@ -8,7 +8,7 @@ import HeroForm from "./HeroForm";
 const Hero = () => {
     return (
         <section className="h-[90vh] relative select-none">
-            <div className="absolute inset-0  bg-black/20  sm:card backdrop-blur-sm" />
+            <div className="absolute inset-0  bg-black/20  clip-diagnol backdrop-blur-sm" />
             <Image src={pages.landing.hero.backgroundImage} alt="total_care_hero_img" fill className="object-cover -z-10  " sizes="(min-width: 1024px) 90vw, 100vw" />
             <div className="md:grid-cols-2 grid z-10 relative h-full container mx-auto w-full p-4" >
                 <div className="z-10 w-full  text-white mx-auto h-full flex flex-col justify-center">

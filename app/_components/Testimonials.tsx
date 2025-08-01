@@ -45,7 +45,7 @@ const Testimonials = () => {
                 <MdStar className='text-primary' />
               </div>
               <div>
-                <h4 className="text-xl font-bold">{testimonial.name}</h4>
+                <h3 className="text-xl font-bold">{testimonial.name}</h3>
                 <p className="text-sm text-center opacity-80">{testimonial.role}</p>
               </div>
               <p className="text-lg italic mb-6">

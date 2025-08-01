@@ -1,5 +1,4 @@
 import React from "react";
-import Title from "./inputs/Title";
 import { MdLocationPin } from "react-icons/md";
 import { serviceAreasData } from "@/data/constants";
 import Link from "next/link";
@@ -25,7 +24,7 @@ const AreaOfServices = () => {
             {serviceAreasData.map((city, index) => (
               <Link
                 key={index}
-                href={city.href}
+                href={'/service-areas/'+city.href}
                 className="rounded-lg p-4 bg-white hover:underline transition-all flex items-center gap-3 text-lg font-medium"
               >
                 <MdLocationPin className="text-primary text-2xl shrink-0" />

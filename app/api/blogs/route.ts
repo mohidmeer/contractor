@@ -3,7 +3,7 @@ import prisma from '@/lib/prisma';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from "zod";
 
-export const BlogContentSchema = z.object({
+const BlogContentSchema = z.object({
   title: z.string(),
   read_time: z.string(),
   seo: z.object({
@@ -22,7 +22,7 @@ export const BlogContentSchema = z.object({
   ),
 });
 
-export type BlogContentType = z.infer<typeof BlogContentSchema>;
+type BlogContentType = z.infer<typeof BlogContentSchema>;
 
 function slugify(text: string) {
   return text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
       }
   try {
     const body = await req.json();
-    const parsed = BlogContentSchema.parse(body); 
+    const parsed = body; 
 
 
     const baseSlug = slugify(parsed.title);

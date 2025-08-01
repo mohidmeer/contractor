@@ -10,6 +10,8 @@ const GoogleMap = () => {
         Plan your visit today
       </h2>
       <iframe
+      title='Google Maps'
+        name='Google Maps'
         src={contactInfo.mapEmbedUrl}
         width="100%"
         height="700"

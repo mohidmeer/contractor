@@ -14,7 +14,9 @@
 
 
 @theme {
-  --color-primary: #0d9488;
+  /* --color-primary: #0d9488; */
+   /* PROPER CONTRAST RATIO */
+  --color-primary: #07645C;
   --color-secondary: #f97316;
   --color-heading: #0f172a;
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
@@ -94,7 +96,7 @@ body {
   .card {
     @apply shadow-md border-primary/20 border 
   }
-  .clip-diagonal {
+  .clip-diagnol {
     clip-path: polygon(0 0, 61% 0, 44% 100%, 0 100%);
   }
   

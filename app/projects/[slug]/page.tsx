@@ -15,13 +15,22 @@ import { notFound } from 'next/navigation'
 import { FaCircle } from 'react-icons/fa6'
 import { MdLocationPin, MdTimelapse } from 'react-icons/md'
 
+
+type Props = {
+  params:  Promise<{slug:string}>;
+};
+
+type ProjectSlug = keyof typeof projectsData;
+
 export async function generateStaticParams() {
   return Object.keys(projectsData).map(slug => ({ slug }))
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const { slug } = params
-  const project = projectsData[slug]
+export async function generateMetadata({ params }: Props ) {
+  const { slug } = await params
+
+  const project = projectsData[slug as ProjectSlug];
+  
   const canonical = `${siteUrl}projects/${slug}`
   return {
     title: `${project.title} | ${siteName}`,
@@ -48,11 +57,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function page({ params }: { params: { slug: string } }) {
+export default async function page({ params }: Props ) {
 
-  const { slug } = params
+  const { slug } = await params
 
-  const project = projectsData[slug]
+  const project = projectsData[slug as ProjectSlug];
 
   if (!project) return notFound()
 

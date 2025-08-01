@@ -4,7 +4,6 @@ import Testimonials from '@/app/_components/testimonials';
 import AreaOfServices from '@/components/AreaOfServices';
 import FAQs from '@/components/Faqs';
 import Gallery from '@/components/Gallery';
-import GoogleMap from '@/components/GoogleMap';
 import Header from '@/components/Header'
 import JsonLd from '@/components/JsonLd';
 import SideBar from '@/components/SideBar';
@@ -15,13 +14,21 @@ import { notFound } from 'next/navigation'
 import { FaCheckSquare } from "react-icons/fa";
 import { FaCircle } from 'react-icons/fa6';
 
+type Props = {
+  params:  Promise<{slug:string}>;
+};
+
+type ServiceSlug = keyof typeof servicesData;
+
+
 export async function generateStaticParams() {
   return Object.keys(servicesData).map(slug => ({ slug }))
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const { slug } = params
-  const service = servicesData[slug]
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params
+
+  const service = servicesData[slug as ServiceSlug]
 
   const canonical = `${siteUrl}projects/${slug}`
   return {
@@ -45,9 +52,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: Props) {
   const { slug } = await params
-  const service = servicesData[slug]
+  const service = servicesData[slug as ServiceSlug]
   if (!service) return notFound()
   const jsonLdData = {
     "@context": "https://schema.org",
