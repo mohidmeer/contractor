@@ -7,6 +7,7 @@ import GoogleMap from "@/components/GoogleMap";
 import {  pages } from "@/data/constants";
 import JsonLd from "@/components/JsonLd";
 import { JsonLdDataLanding } from "@/data/jsonld";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: {
@@ -56,6 +57,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className="overflow-x-hidden">
+        <GoogleAnalytics gaId="G-XYZ" />
         <header className="">
           <TopBar />
           <NavBar />

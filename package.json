@@ -10,6 +10,7 @@
     "zip": "node build.cjs"
   },
   "dependencies": {
+    "@next/third-parties": "^15.4.5",
     "@prisma/client": "^6.13.0",
     "@prisma/extension-accelerate": "^2.0.2",
     "embla-carousel-auto-scroll": "^8.6.0",
