@@ -22,6 +22,8 @@ export default function ThemeSwitcher() {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
+  if (process.env.NODE_ENV != 'development') return;
+
   return (
     <div className="fixed top-10 right-4 z-50 shadow-2xl">
       {/* Main Icon Button */}
