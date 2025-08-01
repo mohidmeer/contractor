@@ -16,10 +16,28 @@
 @theme {
   /* --color-primary: #0d9488; */
    /* PROPER CONTRAST RATIO */
+   /* ROOFING */
   --color-primary: #07645C;
   --color-secondary: #f97316;
   --color-heading: #0f172a;
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+
+  /* PLUMBING */
+  /* --color-primary: #1e3a8a;
+  --color-secondary: #f59e0b;
+  --color-heading: #0f172a;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif; */
+
+
+  /* ELECTRICAL */
+
+  /* --color-primary: #1c1917;
+  --color-secondary: #CF9802;
+  --color-heading: #111827;
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif; */
+
+
 }
 
 /* Navy + Gold */

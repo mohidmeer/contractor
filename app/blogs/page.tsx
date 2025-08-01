@@ -16,6 +16,8 @@ const page = async ({ searchParams }: Props) => {
   const { page } = await searchParams
   const { blogs, pagination } = await getAllBlogs(page || 1);
 
+  console.log(pagination)
+
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -70,7 +72,7 @@ const page = async ({ searchParams }: Props) => {
             </ul>
 
             <div className='mt-8 flex justify-center bg-white shadow-md p-6 border-primary/30 border rounded-md'>
-              <Pagination totalPages={pagination.totalPages} currentPage={pagination.currentPage} />
+              <Pagination totalPages={pagination.totalPages} currentPage={pagination.currentPage as number} />
             </div>
           </div>
           <div className='sr-only lg:not-sr-only md:flex md:flex-col h-fit gap-8'>

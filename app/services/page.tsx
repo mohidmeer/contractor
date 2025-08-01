@@ -20,7 +20,7 @@ const page = () => {
         <div className="flex flex-col  my-10 container mx-auto gap-10">
           {Object.entries(servicesData).map(([slug, i], z) => (
             <div className="text-heading cursor-pointer" key={slug}>
-              <div className="h-full  group sm:p-10 grid md:grid-cols-2 gap-4  overflow-hidden  bg-white shadow-md border border-primary/20 rounded-md">
+              <div className="h-full group sm:p-10 grid md:grid-cols-2 gap-4  overflow-hidden  bg-white shadow-md border border-primary/20 rounded-md">
                 <div className={`flex flex-col gap-4  justify-center p-4 ${z % 2 !== 0 ? 'order-2 ' : 'order-1'}`}>
                   <p className="text-3xl font-bold text-primary">{z + 1}.</p>
                   <div className=" flex flex-col gap-4">

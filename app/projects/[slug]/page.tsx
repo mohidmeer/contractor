@@ -93,7 +93,7 @@ export default async function page({ params }: Props ) {
       <Header cta title={project.title} desc={project.description} />
       <section className='xl:container mx-auto w-full '>
         <div className='lg:grid-cols-4 grid gap-10 p-4'>
-          <div className='bg-white px-10 py-16 rounded-md flex-col gap-6 flex col-span-3 shadow-md '>
+          <div className='bg-white p-10  rounded-md flex-col gap-6 flex col-span-3 shadow-md card '>
             <div className='flex items-center gap-6 '>
               <p className='flex items-center gap-1'><MdLocationPin size={24} className='text-primary' /> <span className='font-bold'>{project.location}</span></p>
               <p className='flex items-center gap-1'><MdTimelapse size={24} className='text-primary' /> <span className='font-bold'>{project.duration}</span></p>

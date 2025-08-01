@@ -20,8 +20,8 @@ const Pagination = ({
       {/* Previous */}
       <Link href={`/blogs?page=${currentPage - 1}`} passHref>
         <button
-          disabled={currentPage === 1}
-          className={`btn-primary !px-3 ${currentPage === 1 ? 'cursor-not-allowed opacity-50 ' : ''}`}
+          disabled={Number(currentPage) === 1}
+          className={`btn-primary !px-3 ${Number(currentPage) === 1 ? 'cursor-not-allowed opacity-50 ' : ''}`}
         >
          <MdForward className='rotate-180'/>
         </button>
@@ -31,7 +31,7 @@ const Pagination = ({
         <Link key={page} href={`/blogs?page=${page}`}>
           <button
             className={`btn-primary !px-3 text-sm ${
-              page === currentPage
+              page == currentPage
                 ? 'bg-primary text-white'
                 : '!bg-white !text-primary border !border-primary'
             }`}
@@ -45,10 +45,10 @@ const Pagination = ({
         <span className='text-sm text-gray-500'>....</span>
       )}
       {/* Next */}
-      <Link href={`/blogs?page=${currentPage + 1}`} passHref>
+      <Link href={`/blogs?page=${Number(currentPage) + 1}`} >
         <button
-          disabled={currentPage === totalPages}
-          className={`btn-primary  !px-3 ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+          disabled={Number(currentPage) == totalPages}
+          className={`btn-primary  !px-3 ${Number(currentPage) == totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
         >
           <MdForward/>
         </button>

@@ -79,7 +79,7 @@ export default async function Page({ params }: Props) {
       <Header cta title={service.title} desc={service.description} />
       <section className='lg:container mx-auto w-full '>
         <div className='grid-cols-1 lg:grid-cols-4 grid gap-10 p-4'>
-          <div className='bg-white px-10 py-20 rounded-md flex-col gap-6 flex col-span-3  card'>
+          <div className='bg-white p-10  rounded-md flex-col gap-6 flex col-span-3  card'>
             <h2 className='text-heading'>{service.label}</h2>
             <p className='text-lg'>{service.content}</p>
             <h3 className='text-heading'>
