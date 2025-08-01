@@ -1,6 +1,6 @@
 import Process from '@/app/_components/Process';
 import Projects from '@/app/_components/Projects';
-import Testimonials from '@/app/_components/testimonials';
+import Testimonials from '@/app/_components/Testimonials';
 import AreaOfServices from '@/components/AreaOfServices';
 import FAQs from '@/components/Faqs';
 import Gallery from '@/components/Gallery';
@@ -15,7 +15,7 @@ import { FaCheckSquare } from "react-icons/fa";
 import { FaCircle } from 'react-icons/fa6';
 
 type Props = {
-  params:  Promise<{slug:string}>;
+  params: Promise<{ slug: string }>;
 };
 
 type ServiceSlug = keyof typeof servicesData;
@@ -87,7 +87,7 @@ export default async function Page({ params }: Props) {
             </h3>
             <div className='grid grid-cols-2 '>
               {
-                service.typeOfSolutions.types.map((i, z:number) => (
+                service.typeOfSolutions.types.map((i, z: number) => (
                   <p className=' text-lg flex items-center gap-2' key={z}>
                     <FaCircle size={10} className='text-primary' /> {i}
                   </p>
@@ -125,7 +125,7 @@ export default async function Page({ params }: Props) {
       <Projects />
       <Testimonials />
       <FAQs faqItems={service.faqs} />
-      <AreaOfServices/>
+      <AreaOfServices />
       <JsonLd data={jsonLdData} />
     </main>
   )

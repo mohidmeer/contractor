@@ -1,7 +1,7 @@
 import GetToKnow from '@/app/_components/GetToKnow';
 import Process from '@/app/_components/Process';
 import Projects from '@/app/_components/Projects';
-import Testimonials from '@/app/_components/testimonials';
+import Testimonials from '@/app/_components/Testimonials';
 import AreaOfServices from '@/components/AreaOfServices';
 import FAQs from '@/components/Faqs';
 import Header from '@/components/Header';
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 
-export default async function Page({ params }:Props) {
+export default async function Page({ params }: Props) {
   const { slug } = await params;
 
   const cityData = serviceAreasData.find(
@@ -76,7 +76,7 @@ export default async function Page({ params }:Props) {
       <WhyUS />
       <FAQs />
       <Projects />
-      <Testimonials />
+      <Testimonials/>
       <AreaOfServices />
     </main>
   );

@@ -1,6 +1,6 @@
 import Process from '@/app/_components/Process'
 import Projects from '@/app/_components/Projects'
-import Testimonials from '@/app/_components/testimonials'
+import Testimonials from '@/app/_components/Testimonials'
 import AreaOfServices from '@/components/AreaOfServices'
 import FAQs from '@/components/Faqs'
 import Gallery from '@/components/Gallery'
@@ -17,7 +17,7 @@ import { MdLocationPin, MdTimelapse } from 'react-icons/md'
 
 
 type Props = {
-  params:  Promise<{slug:string}>;
+  params: Promise<{ slug: string }>;
 };
 
 type ProjectSlug = keyof typeof projectsData;
@@ -26,11 +26,11 @@ export async function generateStaticParams() {
   return Object.keys(projectsData).map(slug => ({ slug }))
 }
 
-export async function generateMetadata({ params }: Props ) {
+export async function generateMetadata({ params }: Props) {
   const { slug } = await params
 
   const project = projectsData[slug as ProjectSlug];
-  
+
   const canonical = `${siteUrl}projects/${slug}`
   return {
     title: `${project.title} | ${siteName}`,
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: Props ) {
   }
 }
 
-export default async function page({ params }: Props ) {
+export default async function page({ params }: Props) {
 
   const { slug } = await params
 
@@ -132,8 +132,8 @@ export default async function page({ params }: Props ) {
       <Projects />
       <Testimonials />
       <FAQs />
-      <AreaOfServices/>
-      <GoogleMap/>
+      <AreaOfServices />
+      <GoogleMap />
       <JsonLd data={jsonLdData} />
     </main>
   )
