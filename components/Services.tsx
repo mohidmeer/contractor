@@ -19,7 +19,7 @@ const Services = () => {
             <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-1 my-10 p-2 transition-all">
                 {Object.entries(servicesData).splice(0, 8).map(([slug, i], z) => (
                     <div className="text-white cursor-pointer" key={slug}>
-                        <div className="h-[500px] relative group flex flex-col p-10  hover:bg-black/90 transition-all bg-black/70 overflow-hidden">
+                        <div className="h-[500px] relative group flex flex-col p-10  hover:bg-black/60 transition-all bg-black/50 overflow-hidden">
                             <p className="text-3xl font-bold">{z + 1}.</p>
                             <div className="mt-auto flex flex-col gap-4">
                                 <h3 className="text-2xl font-semibold">{i.title}</h3>
