@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "npm install -g pm2 && npm run build && pm2 delete my-app || true && pm2 start npm --name my-app -- start",
+    "deploy": "npm install && npx prisma generate && npx prisma migrate deploy &&  npm install -g pm2 && npm run build && pm2 delete my-app || true && pm2 start npm --name my-app -- start",
     "lint": "next lint",
     "zip": "node build.cjs"
   },
