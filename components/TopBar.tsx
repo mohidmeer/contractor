@@ -8,17 +8,17 @@ const TopBar = () => {
   return (
     <div className='bg-secondary p-4 flex items-center justify-center text-sm sm:text-base text-white gap-8 font-bold whitespace-nowrap'>
       <a href={contactInfo.phone.href} className='flex items-center gap-2 lg:ml-auto'>
-        <BsFillTelephoneFill size={20} className='text-primary' />
+        <BsFillTelephoneFill size={20} className='' />
         {contactInfo.phone.text}
       </a>
 
       <a href={contactInfo.mapEmbedUrl} className='flex items-center gap-2 '>
-        <FaLocationDot size={20} className='text-primary' />
+        <FaLocationDot size={20} className='' />
         Florida - United States
       </a>
       
       <div className="hidden md:flex items-center gap-2 ">
-        <BsClock size={20} className="text-primary" />
+        <BsClock size={20} className="" />
         {contactInfo.workingHours}
       </div>
 
