@@ -13,7 +13,7 @@ const AreaOfServices = () => {
           Cities We Serve Across Florida
         </h2>
         <p className="text-lg text-center">
-          Explore our service areas and find expert roofing solutions near you.
+          Explore our service areas and find expert solutions near you.
         </p>
       </div>
 

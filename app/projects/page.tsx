@@ -30,9 +30,9 @@ const Page = () => {
             <Header cta desc='' title={pages.projects.seo.title} />
             <section className="">
                 <div className="text-center flex items-center justify-center flex-col gap-2 mb-10">
-                    <Title text={'Roofing Projects'} />
+                    <Title text={'Our Projects'} />
                     <h2 className="text-heading">
-                        See How We’ve Transformed Roofs Across Florida
+                        {pages.projects.seo.title}
                     </h2>
                 </div>
                 <div className="embla my-6" ref={emblaRef}>
