@@ -5,11 +5,11 @@ const Logo = () => {
     return (
         <div className=''>
             <Image
-                src="/logo.png"
+                src="/logo.svg"
                 alt="Total Care logo"
-                width={200}
+                width={150}
                 height={120}
-                className='w-auto h-auto'
+                className='sm:w-[200px]'
             />
         </div>
     )
