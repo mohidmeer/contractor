@@ -102,7 +102,6 @@ const Page = () => {
             <Process />
             <FAQs />
             <AreaOfServices />
-            <GoogleMap />
             <JsonLd data={JsonLdDataProjects} />
         </main>
     )

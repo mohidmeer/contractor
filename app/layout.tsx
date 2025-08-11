@@ -4,14 +4,14 @@ import TopBar from "@/components/TopBar";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import GoogleMap from "@/components/GoogleMap";
-import {  pages, siteUrl } from "@/data/constants";
+import {  googleAnalyticId, pages, siteUrl } from "@/data/constants";
 import JsonLd from "@/components/JsonLd";
 import { JsonLdDataLanding } from "@/data/jsonld";
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: {
-    default: pages.landing.seo.title,
+    default: pages.landing.seo.title + ' Florida',
     template: `%s | ${pages.landing.seo.title}`,
   },
   icons: {
@@ -57,7 +57,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className="overflow-x-hidden">
-        <GoogleAnalytics gaId="G-XYZ" />
+        <GoogleAnalytics gaId={googleAnalyticId} />
         <header className="">
           <TopBar />
           <NavBar />
