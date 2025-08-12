@@ -1,22 +1,22 @@
-import { pages, siteUrl } from "@/data/constants"
+import {  servicesPage, siteUrl } from "@/data"
 
 export const metadata = {
-  title: pages.services.seo.title,
-  description: pages.services.seo.description,
+  title: servicesPage.seo.title,
+  description: servicesPage.seo.description,
   alternates: {
-    canonical: pages.services.seo.canonical,
+    canonical: servicesPage.seo.canonical,
   },
   openGraph: {
-    title: pages.services.seo.title,
-    description: pages.services.seo.description,
-    url: pages.services.seo.canonical,
-    images: [siteUrl+pages.services.seo.ogImage],
+    title: servicesPage.seo.title,
+    description: servicesPage.seo.description,
+    url: servicesPage.seo.canonical,
+    images: [siteUrl+servicesPage.seo.ogImage],
   },
   twitter: {
     card: 'summary_large_image',
-    title: pages.services.seo.title,
-    description: pages.services.seo.description,
-    images: [siteUrl+pages.landing.seo.ogImage],
+    title: servicesPage.seo.title,
+    description: servicesPage.seo.description,
+    images: [siteUrl+servicesPage.seo.ogImage],
   },
 }
 

@@ -1,22 +1,22 @@
-import { pages, siteUrl } from "@/data/constants"
+import { aboutPage ,siteUrl } from "@/data"
 
 export const metadata = {
-  title: pages.about.seo.title,
-  description: pages.about.seo.description,
+  title: aboutPage.seo.title,
+  description: aboutPage.seo.description,
   alternates: {
-    canonical: pages.about.seo.canonical,
+    canonical: aboutPage.seo.canonical,
   },
   openGraph: {
-    title: pages.about.seo.title,
-    description: pages.about.seo.description,
-    url: pages.about.seo.canonical,
-    images: [siteUrl+pages.about.seo.ogImage],
+    title: aboutPage.seo.title,
+    description: aboutPage.seo.description,
+    url: aboutPage.seo.canonical,
+    images: [siteUrl+aboutPage.seo.ogImage],
   },
   twitter: {
     card: 'summary_large_image',
-    title: pages.about.seo.title,
-    description: pages.about.seo.description,
-    images: [siteUrl+pages.about.seo.ogImage],
+    title: aboutPage.seo.title,
+    description: aboutPage.seo.description,
+    images: [siteUrl+aboutPage.seo.ogImage],
   },
 }
 

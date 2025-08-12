@@ -2,9 +2,9 @@ import Image from "next/image";
 import Title from "./inputs/Title"
 import Link from "next/link";
 import { MdArrowForward } from "react-icons/md";
-import { servicesData } from "@/data/services";
 import ArrowLink from "./inputs/ArrowLink";
-import { pages } from "@/data/constants";
+import { landingPage, servicesData } from "@/data";
+
 
 
 const Services = () => {
@@ -13,7 +13,7 @@ const Services = () => {
             <div className="text-center flex items-center justify-center flex-col gap-2">
                 <Title text={'What We Do'} />
                 <h2 className="text-heading">
-                    {pages.landing.services.heading}
+                    {landingPage.services.heading}
                 </h2>
             </div>
             <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-1 my-10 p-2 transition-all">

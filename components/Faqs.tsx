@@ -1,4 +1,4 @@
-import { faqs } from '@/data/constants';
+import { faqs } from '@/data';
 import { FAQ } from '@/types';
 import { FaQuestionCircle } from 'react-icons/fa';
 

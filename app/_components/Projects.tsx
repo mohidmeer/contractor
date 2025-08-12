@@ -4,9 +4,8 @@ import Image from "next/image";
 import useEmblaCarousel from 'embla-carousel-react'
 import Link from "next/link";
 import { MdArrowForward } from "react-icons/md";
-import { projectsData } from "@/data/projects";
+import { landingPage, projectsData } from "@/data";
 import AutoScroll from 'embla-carousel-auto-scroll'
-import { pages } from "@/data/constants";
 
 const Projects = () => {
     const [emblaRef] = useEmblaCarousel({ loop: true }, [
@@ -17,7 +16,7 @@ const Projects = () => {
             <div className="text-center flex items-center justify-center flex-col gap-2 mb-10">
                 <Title text={'Roofing Projects'} />
                 <h2 className="text-heading">
-                    {pages.landing.projects.heading}
+                    {landingPage.projects.heading}
                 </h2>
             </div>
             <div className="embla my-6" ref={emblaRef}>

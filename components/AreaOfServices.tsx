@@ -1,6 +1,6 @@
 import React from "react";
 import { MdLocationPin } from "react-icons/md";
-import { serviceAreasData } from "@/data/constants";
+import { serviceAreasData } from "@/data";
 import Link from "next/link";
 
 const AreaOfServices = () => {
@@ -39,38 +39,3 @@ const AreaOfServices = () => {
 };
 
 export default AreaOfServices;
-// import React from 'react'
-// import Title from './inputs/Title'
-// import { MdLocationPin } from 'react-icons/md'
-// import { serviceAreasData } from '@/data/constants'
-// import Link from 'next/link'
-
-// const AreaOfServices = () => {
-//     return (
-//         <section className="bg-white">
-//             <div className=' container mx-auto p-8 '>
-//                 <div className="text-center flex flex-col gap-2 mb-8 justify-center items-center">
-//                     <Title text="Locations" />
-//                     <h2 className="text-heading">
-//                         City we Serve in accross Florida
-//                     </h2>
-//                 </div>
-
-//                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-//                     {serviceAreasData.map((city, index) => (
-//                         <Link
-//                             key={index}
-//                             href={city.href}
-//                             className="flex items-center gap-2 text-lg font-medium hover:text-primary transition-all"
-//                         >
-//                             <MdLocationPin className="text-primary text-2xl" />
-//                             <span>{city.name}</span>
-//                         </Link>
-//                     ))}
-//                 </div>
-//             </div>
-//         </section>
-//     )
-// }
-
-// export default AreaOfServices

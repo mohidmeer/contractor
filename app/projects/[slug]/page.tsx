@@ -9,8 +9,9 @@ import Header from '@/components/Header'
 import JsonLd from '@/components/JsonLd'
 import SideBar from '@/components/SideBar'
 import WhyUS from '@/components/WhyUS'
-import { siteLogo, siteName, siteUrl } from '@/data/constants'
-import { projectsData } from '@/data/projects'
+import { siteLogo, siteName, siteUrl } from '@/data'
+import { projectsData } from '@/data'
+import { BUSINESS_ID } from '@/jsonld'
 import { notFound } from 'next/navigation'
 import { FaCircle } from 'react-icons/fa6'
 import { MdLocationPin, MdTimelapse } from 'react-icons/md'
@@ -65,28 +66,19 @@ export default async function page({ params }: Props) {
 
   if (!project) return notFound()
 
-  const jsonLdData = {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    "name": project.title,
-    "description": project.description,
-    "url": `${siteUrl}projects/${slug}`,
-    "mainEntityOfPage": `${siteUrl}projects/${slug}`,
-    "image": project.image,
-    "author": {
-      "@type": "Organization",
-      "name": siteName,
-      "url": siteUrl
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": siteName,
-      "logo": {
-        "@type": "ImageObject",
-        "url": siteLogo
+    const jsonLdData = {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      name: project.title,
+      description: project.description,
+      provider: { "@id": BUSINESS_ID }, 
+      url: `${siteUrl}/projects/${slug}`,
+      image: siteUrl + project.image,  
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `${siteUrl}/projects/${slug}`
       }
     }
-  }
 
   return (
     <main className="flex flex-col gap-20">

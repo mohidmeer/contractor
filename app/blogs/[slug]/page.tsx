@@ -2,7 +2,8 @@ import { getBlog } from "@/actions/blogs";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import SideBar from "@/components/SideBar";
-import { siteName, siteUrl } from "@/data/constants";
+import { siteName, siteUrl } from "@/data";
+import { BUSINESS_ID } from "@/jsonld";
 import { Blog } from "@/types";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -45,21 +46,21 @@ export default async function page({ params }: Props) {
   const blog = await getBlog(slug)
   if (!blog?.content) return notFound()
 
+
+  const postUrl = `${siteUrl}/blogs/${blog.slug}`;
+  const BLOG_ID = `${siteUrl}/blogs#blog`; 
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: blog.seo_title,
     description: blog.seo_description,
+    url: postUrl,
     image: blog.image,
-    author: {
-      "@type": "Organization",
-      name: siteName,
-    },
+    isPartOf: { "@type": "Blog", "@id": BLOG_ID },
+    author: { "@id": BUSINESS_ID },
+    publisher: { "@id": BUSINESS_ID },
     datePublished: new Date(blog.createdAt).toISOString(),
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${siteUrl}/blogs/${blog.slug}`,
-    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
   };
 
   return (

@@ -1,8 +1,7 @@
-import { pages } from "@/data/constants"
-
+import { serviceAreaPage } from "@/data"
 export const metadata = {
-    title: pages.service_area.seo.title,
-    description: pages.service_area.seo.description,
+    title: serviceAreaPage.seo.title,
+    description: serviceAreaPage.seo.description,
 }
 
 export default function Layout({

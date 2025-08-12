@@ -1,4 +1,4 @@
-import { contactInfo, socialLinks } from '@/data/constants';
+import { contactInfo, socialLinks } from '@/data';
 import React from 'react'
 import { FaLocationDot, } from "react-icons/fa6";
 import { BsClock, BsFillTelephoneFill } from "react-icons/bs";

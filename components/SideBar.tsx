@@ -1,4 +1,4 @@
-import { navItems } from '@/data/constants'
+import { navItems } from '@/data'
 import { NavItem } from '@/types'
 import Link from 'next/link'
 import React from 'react'

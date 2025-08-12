@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from './Logo';
 import Link from 'next/link';
 import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
-import { contactInfo, FooterData, navItems, socialLinks } from '@/data/constants';
+import { contactInfo, FooterData, navItems, socialLinks } from '@/data';
 import { BsClock, BsFillTelephoneFill } from 'react-icons/bs';
 import { FaLocationDot } from 'react-icons/fa6';
 

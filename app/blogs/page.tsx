@@ -4,7 +4,8 @@ import Header from '@/components/Header';
 import JsonLd from '@/components/JsonLd';
 import Pagination from '@/components/pagination';
 import SideBar from '@/components/SideBar';
-import { pages, siteName, siteUrl } from '@/data/constants';
+import { blogPage, siteName, siteUrl } from '@/data';
+import { BUSINESS_ID } from '@/jsonld';
 import Link from 'next/link';
 import { MdCalendarMonth, MdTimer } from 'react-icons/md';
 
@@ -18,28 +19,35 @@ const page = async ({ searchParams }: Props) => {
 
   console.log(pagination)
 
+  const BLOG_ID = `${siteUrl}/blogs#blog`; 
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: pages.blog.seo.title,
-    description: pages.blog.seo.description,
+    name: blogPage.seo.title,
+    description: blogPage.seo.description,
     url: siteUrl + 'blogs',
+    mainEntity: {
+      "@type": "Blog",
+      "@id": BLOG_ID,
+      name: blogPage.seo.title,
+      url: `${siteUrl}/blogs`,
+      publisher: { "@id": BUSINESS_ID }
+    },
     hasPart: blogs.map((blog) => ({
       "@type": "BlogPosting",
       headline: blog.seo_title,
       description: blog.seo_description,
       datePublished: blog.createdAt,
       url: `${siteUrl}blogs/${blog.slug}`,
-      author: {
-        "@type": "Organization",
-        name: siteName,
-      },
+      author: { "@id": BUSINESS_ID },
+      publisher: { "@id": BUSINESS_ID },
+      isPartOf: { "@id": BLOG_ID }
     })),
   };
 
   return (
     <main className='flex flex-col gap-10'>
-      <Header cta={false} desc={pages.blog.seo.description} title={'Our Blogs'} />
+      <Header cta={false} desc={blogPage.seo.description} title={'Our Blogs'} />
       <section className='container w-full mx-auto p-4'>
         <div className='lg:grid-cols-4 grid gap-10 p-4'>
           <div className='col-span-3'>

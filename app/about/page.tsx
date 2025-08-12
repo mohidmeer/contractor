@@ -4,19 +4,19 @@ import GetToKnow from '../_components/GetToKnow'
 import FAQs from '@/components/Faqs'
 import Process from '../_components/Process'
 import JsonLd from '@/components/JsonLd'
-import { JsonLdDataAbout } from '@/data/jsonld'
-import { pages } from '@/data/constants'
+import { JsonLdDataAbout } from '@/jsonld'
+import { aboutPage } from '@/data'
 import AreaOfServices from '@/components/AreaOfServices'
 
 const page = () => {
   return (
     <main className='flex flex-col gap-10 '>
-      <Header cta desc={pages.about.seo.description} title={pages.about.seo.title} />
-      <GetToKnow description={pages.about.content} />
+      <Header cta desc={aboutPage.seo.description} title={aboutPage.seo.title} />
+      <GetToKnow description={aboutPage.content} />
       {/* Socialsa lateron  */}
       <Process />
       <FAQs />
-      <AreaOfServices/>
+      <AreaOfServices />
       <JsonLd data={JsonLdDataAbout} />
     </main>
   )

@@ -1,4 +1,5 @@
-import { ourProcessData } from '@/data/constants';
+
+import { ourProcessData } from '@/data';
 import React from 'react'
 
 

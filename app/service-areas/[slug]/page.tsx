@@ -7,7 +7,7 @@ import FAQs from '@/components/Faqs';
 import Header from '@/components/Header';
 import Services from '@/components/Services';
 import WhyUS from '@/components/WhyUS';
-import { getToKnow, serviceAreasData, siteName, siteUrl } from '@/data/constants';
+import { getToKnow, serviceAreasData, siteName, siteUrl } from '@/data';
 import React from 'react';
 
 type Props = {

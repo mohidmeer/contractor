@@ -1,5 +1,5 @@
 import Title from '@/components/inputs/Title';
-import { accomplishmentData, WhyUSData } from '@/data/constants';
+import { accomplishmentData, WhyUSData } from '@/data';
 
 
 const WhyUS = () => {

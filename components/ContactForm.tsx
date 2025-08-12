@@ -2,7 +2,7 @@
 
 import { useForm } from 'react-hook-form';
 import FormInput from './inputs/FormInput';
-import { pages, siteName } from '@/data/constants';
+import { contactPage, siteName } from '@/data';
 
 type FormData = {
     name: string;
@@ -25,7 +25,7 @@ const ContactForm = () => {
 
     return (
         <div className=' bg-white p-6 rounded-sm shadow overflow-hidden card'>
-            <h2 className='!text-xl mb-6'>{pages.contact.form.heading}</h2>
+            <h2 className='!text-xl mb-6'>{contactPage.form.heading}</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
                 <input className='hidden' defaultValue={siteName}  {...register('site')} />
                 <FormInput
@@ -58,7 +58,7 @@ const ContactForm = () => {
                     textarea={true}
                     registration={register('address', { required: 'Address is required' })}
                     error={errors.address?.message}
-                    placeholder={pages.contact.form.messagePlaceholder}
+                    placeholder={contactPage.form.messagePlaceholder}
                 />
                 <button type="submit" className="btn-primary w-full h-fit mt-auto mb-auto !scale-100">
                     Submit

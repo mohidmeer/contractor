@@ -4,37 +4,37 @@ import TopBar from "@/components/TopBar";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import GoogleMap from "@/components/GoogleMap";
-import {  googleAnalyticId, pages, siteUrl } from "@/data/constants";
+import { googleAnalyticId, landingPage, siteUrl } from "@/data";
 import JsonLd from "@/components/JsonLd";
-import { JsonLdDataLanding } from "@/data/jsonld";
+import { JsonLdDataLanding } from "@/jsonld";
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: {
-    default: pages.landing.seo.title + ' Florida',
-    template: `%s | ${pages.landing.seo.title}`,
+    default: landingPage.seo.title + ' Florida',
+    template: `%s | ${landingPage.seo.title}`,
   },
   icons: {
     icon: '/favicon.ico',
   },
-  description: pages.landing.seo.description,
+  description: landingPage.seo.description,
   openGraph: {
-    title: pages.landing.seo.title,
-    description: pages.landing.seo.description,
-    url: pages.landing.seo.canonical,
-    siteName: pages.landing.seo.title,
+    title: landingPage.seo.title,
+    description: landingPage.seo.description,
+    url: landingPage.seo.canonical,
+    siteName: landingPage.seo.title,
     type: 'website',
     images: [
       {
-        url: siteUrl+pages.landing.seo.ogImage,
+        url: siteUrl + landingPage.seo.ogImage,
         width: 1200,
         height: 630,
-        alt: pages.landing.seo.title,
+        alt: landingPage.seo.title,
       },
     ],
   },
   alternates: {
-    canonical: pages.landing.seo.canonical,
+    canonical: landingPage.seo.canonical,
   },
   robots: {
     index: true,
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: pages.landing.seo.title,
-    description: pages.landing.seo.description,
-    images: [siteUrl+pages.landing.seo.ogImage],
+    title: landingPage.seo.title,
+    description: landingPage.seo.description,
+    images: [siteUrl + landingPage.seo.ogImage],
   },
 };
 

@@ -2,11 +2,11 @@ import AreaOfServices from '@/components/AreaOfServices'
 import ContactForm from '@/components/ContactForm'
 import Header from '@/components/Header'
 import JsonLd from '@/components/JsonLd'
-import { JsonLdDataContact } from '@/data/jsonld'
+import { JsonLdDataContact } from '@/jsonld'
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 
 import React from 'react'
-import { contactInfo } from '@/data/constants'
+import { contactInfo } from '@/data'
 import FAQs from '@/components/Faqs'
 import Process from '../_components/Process'
 
@@ -61,19 +61,12 @@ const page = () => {
             </div>
           </div>
           <div className=''>
-
-
-
             <ContactForm />
-
-
-
-
           </div>
         </div>
       </section>
-      <FAQs/>
-      <Process/>
+      <FAQs />
+      <Process />
       <AreaOfServices />
       <JsonLd data={JsonLdDataContact} />
     </main>

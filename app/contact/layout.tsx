@@ -1,22 +1,22 @@
-import { pages, siteUrl } from "@/data/constants"
+import { contactPage,siteUrl } from "@/data"
 
 export const metadata = {
-  title: pages.contact.seo.title,
-  description: pages.contact.seo.description,
+  title: contactPage.seo.title,
+  description: contactPage.seo.description,
   alternates: {
-    canonical: pages.contact.seo.canonical,
+    canonical: contactPage.seo.canonical,
   },
   openGraph: {
-    title: pages.contact.seo.title,
-    description: pages.contact.seo.description,
-    url: pages.contact.seo.canonical,
-    images: [siteUrl+pages.contact.seo.ogImage],
+    title: contactPage.seo.title,
+    description: contactPage.seo.description,
+    url: contactPage.seo.canonical,
+    images: [siteUrl+contactPage.seo.ogImage],
   },
   twitter: {
     card: 'summary_large_image',
-    title: pages.contact.seo.title,
-    description: pages.contact.seo.description,
-    images: [siteUrl+pages.contact.seo.ogImage],
+    title: contactPage.seo.title,
+    description: contactPage.seo.description,
+    images: [siteUrl+contactPage.seo.ogImage],
   },
 }
 

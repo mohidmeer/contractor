@@ -3,7 +3,7 @@ import FAQs from '@/components/Faqs';
 import Header from '@/components/Header'
 import Title from '@/components/inputs/Title';
 import WhyUS from '@/components/WhyUS';
-import { projectsData } from '@/data/projects'
+import { projectsData, projectsPage } from '@/data'
 import AutoScroll from 'embla-carousel-auto-scroll'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image'
@@ -11,11 +11,9 @@ import Link from 'next/link'
 import React from 'react'
 import { MdArrowForward } from 'react-icons/md'
 import Process from '../_components/Process';
-import { pages } from '@/data/constants';
 import JsonLd from '@/components/JsonLd';
 import AreaOfServices from '@/components/AreaOfServices';
-import GoogleMap from '@/components/GoogleMap';
-import { JsonLdDataProjects } from '@/data/jsonld';
+import { JsonLdDataProjects } from '@/jsonld';
 
 const Page = () => {
 
@@ -27,12 +25,12 @@ const Page = () => {
     ])
     return (
         <main className='flex flex-col gap-10 '>
-            <Header cta desc='' title={pages.projects.seo.title} />
+            <Header cta desc='' title={projectsPage.seo.title} />
             <section className="">
                 <div className="text-center flex items-center justify-center flex-col gap-2 mb-10">
                     <Title text={'Our Projects'} />
                     <h2 className="text-heading">
-                        {pages.projects.seo.title}
+                        {projectsPage.seo.title}
                     </h2>
                 </div>
                 <div className="embla my-6" ref={emblaRef}>

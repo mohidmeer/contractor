@@ -1,21 +1,20 @@
 import Header from '@/components/Header'
-import { servicesData } from '@/data/services'
+import { servicesData, servicesPage } from '@/data'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { MdArrowForward } from 'react-icons/md'
 import Process from '../_components/Process'
 import Projects from '../_components/Projects'
-import {  pages } from '@/data/constants'
 import JsonLd from '@/components/JsonLd'
 import FAQs from '@/components/Faqs'
 import AreaOfServices from '@/components/AreaOfServices'
-import { JsonLdDataServices } from '@/data/jsonld'
+import { JsonLdDataServices } from '@/jsonld'
 
 const page = () => {
   return (
     <main className="flex flex-col gap-20">
-      <Header cta={true} desc={pages.services.seo.description} title={pages.services.seo.title} />
+      <Header cta={true} desc={servicesPage.seo.description} title={servicesPage.seo.title} />
       <section className="p-2 mx-auto">
         <div className="flex flex-col  my-10 container mx-auto gap-10">
           {Object.entries(servicesData).map(([slug, i], z) => (
@@ -54,7 +53,7 @@ const page = () => {
       <Projects />
       <Process />
       <FAQs />
-      <AreaOfServices/>
+      <AreaOfServices />
       <JsonLd data={JsonLdDataServices} />
     </main>
   )

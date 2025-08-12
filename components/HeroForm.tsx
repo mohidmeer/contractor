@@ -2,7 +2,7 @@
 
 import { useForm } from 'react-hook-form';
 import FormInput from './inputs/FormInput';
-import { siteName } from '@/data/constants';
+import { siteName } from '@/data';
 
 type FormData = {
     name: string;

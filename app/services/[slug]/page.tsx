@@ -8,8 +8,9 @@ import Header from '@/components/Header'
 import JsonLd from '@/components/JsonLd';
 import SideBar from '@/components/SideBar';
 import WhyUS from '@/components/WhyUS';
-import { siteLogo, siteName, siteUrl } from '@/data/constants';
-import { servicesData } from '@/data/services'
+import {siteName, siteUrl } from '@/data';
+import { servicesData } from '@/data'
+import { BUSINESS_ID } from '@/jsonld';
 import { notFound } from 'next/navigation'
 import { FaCheckSquare } from "react-icons/fa";
 import { FaCircle } from 'react-icons/fa6';
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: Props) {
 
   const service = servicesData[slug as ServiceSlug]
 
-  const canonical = `${siteUrl}projects/${slug}`
+  const canonical = `${siteUrl}services/${slug}`
   return {
     title: `${service.title} | ${siteName}`,
     description: service.description,
@@ -61,16 +62,8 @@ export default async function Page({ params }: Props) {
     "@type": "Service",
     "name": service.title,
     "description": service.description,
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": siteName,
-      "url": siteUrl,
-      "image": siteLogo,
-    },
-    "areaServed": {
-      "@type": "Place",
-      "name": "Florida"
-    },
+    "image": siteUrl+service.image, 
+    "provider": { "@id": BUSINESS_ID },
     "url": `${siteUrl}/services/${slug}`,
     "mainEntityOfPage": `${siteUrl}/services/${slug}`,
   };
