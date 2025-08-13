@@ -29,8 +29,24 @@ export const businessEntity = {
   areaServed: serviceAreasData.map(city => ({
     "@type": "City",
     name: city.name
-  }))
+  })),
+  hasCredential: [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Professional License",
+      "name": "Florida Roofing Contractor License",
+      "identifier": "CCC1336268"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Professional License",
+      "name": "Florida General Contractor License",
+      "identifier": "CGC1535671"
+    }
+  ]
 };
+
+
 
 /* ------------------------
    Landing Page

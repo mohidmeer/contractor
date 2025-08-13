@@ -115,7 +115,7 @@ const Footer = () => {
       </div>
       <hr className='mt-10'/>
       <p className='text-center mt-4 '>
-        License #: CCC1234567 (Roofing) , CGC7654321 (General Contractor) | Insured | © {new Date().getFullYear()} {siteName}
+        License #:  CCC1336268 (Roofing) ,  CGC1535671 (General Contractor) | Insured | © {new Date().getFullYear()} {siteName}
       </p>
     </footer>
   );
