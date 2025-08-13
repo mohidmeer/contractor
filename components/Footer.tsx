@@ -1,10 +1,12 @@
+'use client';
 import React from 'react';
 import Logo from './Logo';
 import Link from 'next/link';
 import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
-import { contactInfo, FooterData, navItems, socialLinks } from '@/data';
+import { contactInfo, FooterData, navItems, siteName, socialLinks } from '@/data';
 import { BsClock, BsFillTelephoneFill } from 'react-icons/bs';
 import { FaLocationDot } from 'react-icons/fa6';
+import { trackCallClick } from '@/lib/analytics';
 
 const Footer = () => {
   const services = navItems.find(item => item.label === 'Services')?.children || [];
@@ -14,14 +16,15 @@ const Footer = () => {
   );
 
   return (
-    <footer className="bg-primary text-white py-12 px-2">
-      <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-10">
+    <footer className="bg-primary text-white pt-12 pb-6 ">
+      <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 px-2">
         <div className="flex flex-col justify-between">
           <div>
             <Logo />
             <p className="mt-4 p2 text-base">{FooterData.tagline}</p>
             <div className="mt-6 space-y-3 text-base">
-              <a href={contactInfo.phone.href} className="flex items-center gap-2">
+              
+              <a href={contactInfo.phone.href} onClick={trackCallClick('Footer')} className="flex items-center gap-2">
                 <BsFillTelephoneFill size={20} className="text-white shrink-0" />
                 {contactInfo.phone.text}
               </a>
@@ -34,6 +37,8 @@ const Footer = () => {
                 {contactInfo.workingHours}
               </div>
             </div>
+
+
           </div>
         </div>
 
@@ -108,6 +113,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <hr className='mt-10'/>
+      <p className='text-center mt-4 '>
+        License #: CCC1234567 (Roofing) , CGC7654321 (General Contractor) | Insured | © {new Date().getFullYear()} {siteName}
+      </p>
     </footer>
   );
 };

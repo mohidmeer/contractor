@@ -1,5 +1,7 @@
+'use client';
 import Title from '@/components/inputs/Title'
 import { contactInfo, getToKnow } from '@/data'
+import { trackCallClick } from '@/lib/analytics'
 import Image from 'next/image'
 import React from 'react'
 import { BsFillTelephoneFill } from 'react-icons/bs'
@@ -23,7 +25,7 @@ const GetToKnow = ({ description = getToKnow.description }: { description?: stri
                                 getToKnow.keyPoints.map((i, z) => (
 
                                     <div className="flex gap-2" key={z}>
-                                        <FaCheckSquare size={26} className="text-green-700 mt-2" />
+                                        <FaCheckSquare size={26} className="text-green-700 mt-2  shrink-0" />
                                         <div>
                                             <h3 className="font-semibold md:!text-2xl text-heading">{i.title}</h3>
                                             <p className="p1">{i.desc}</p>
@@ -34,7 +36,7 @@ const GetToKnow = ({ description = getToKnow.description }: { description?: stri
                         </div>
                         <div className="flex xl:flex-row flex-col gap-6 items-center">
                            
-                            <a href={contactInfo.phone.href} className='group flex gap-2 items-center text-heading text-[clamp(2rem,2vw,5rem)]  whitespace-nowrap hover:scale-125 transition-all'>
+                            <a onClick={trackCallClick('Get To Know Call Button')} href={contactInfo.phone.href} className='group flex gap-2 items-center text-heading text-[clamp(2rem,2vw,5rem)]  whitespace-nowrap hover:scale-125 transition-all'>
                                 <BsFillTelephoneFill size={36} className='group-hover:animate-spin' />
                                 {contactInfo.phone.text}
                             </a>

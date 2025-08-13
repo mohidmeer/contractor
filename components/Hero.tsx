@@ -1,9 +1,11 @@
+'use client';
 import Image from "next/image";
 import React from 'react'
 import { BsFillTelephoneFill } from "react-icons/bs";
 import Title from "./inputs/Title";
 import HeroForm from "./HeroForm";
 import { contactInfo, landingPage, siteName } from "@/data";
+import { trackCallClick } from "@/lib/analytics";
 
 const Hero = () => {
     return (
@@ -19,7 +21,7 @@ const Hero = () => {
                     </h1>
                     <p className="p1">{landingPage.hero.description}</p>
                     <div className="flex items-center gap-6">
-                        <a href={contactInfo.phone.href} className='flex gap-2 btn-primary'>
+                        <a href={contactInfo.phone.href} className='flex gap-2 btn-primary' onClick={trackCallClick('Hero Call Button')}>
                             <BsFillTelephoneFill size={20} className='' />
                             {contactInfo.phone.text}
                         </a>

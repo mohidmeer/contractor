@@ -1,8 +1,10 @@
+'use client';
 import { contactInfo } from '@/data'
 import Image from 'next/image'
 import React from 'react'
 import { BsFillTelephoneFill } from 'react-icons/bs'
 import Breadcrumbs from './Breadcrumbs'
+import { trackCallClick } from '@/lib/analytics'
 
 const Header = ({ title, desc, cta = true }: { title: string, desc: string | null, cta: boolean }) => {
     return (
@@ -14,7 +16,7 @@ const Header = ({ title, desc, cta = true }: { title: string, desc: string | nul
             {
                 cta &&
                 <div>
-                    <a href={contactInfo.phone.href} className='flex gap-2 btn-primary'>
+                    <a href={contactInfo.phone.href} className='flex gap-2 btn-primary' onClick={trackCallClick('Header Section')}>
                         <BsFillTelephoneFill size={20} className='' />
                         {contactInfo.phone.text}
                     </a>

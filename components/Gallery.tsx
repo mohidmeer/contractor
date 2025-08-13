@@ -17,7 +17,7 @@ const Gallery = ({ images }: { images: string[] }) => {
             plugins={[lgZoom, lgThumbnail]}
             mode="lg-fade"
             thumbnail={true}
-            elementClassNames="gallery"
+            elementClassNames={`grid ${images.length == 1 ? 'grid-cols-1':'grid-cols-3' } gap-2`}
             mobileSettings={{
                 controls: false,
                 showCloseIcon: false,
@@ -31,7 +31,7 @@ const Gallery = ({ images }: { images: string[] }) => {
                     href={`/images${i}`}
                     data-src={`/images${i}`}
                     data-exthumbimage={`/images${i}`}
-                    className="relative p-4 overflow-hidden h-50 "
+                    className="relative p-4 overflow-hidden h-[200px] "
                 > 
                     <Image
                         alt={`img_${z + 1}`}

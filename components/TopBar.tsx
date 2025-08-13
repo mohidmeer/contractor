@@ -1,24 +1,21 @@
+'use client';
 import { contactInfo, socialLinks } from '@/data';
-import React from 'react'
-import { FaLocationDot, } from "react-icons/fa6";
-import { BsClock, BsFillTelephoneFill } from "react-icons/bs";
+import React from 'react';
+import { BsClock } from "react-icons/bs";
 import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
-
 const TopBar = () => {
   return (
-    <div className='bg-secondary p-4 flex items-center justify-center text-sm sm:text-base text-white gap-8 font-bold whitespace-nowrap'>
-      <a href={contactInfo.phone.href} className='flex items-center gap-2 lg:ml-auto'>
-        <BsFillTelephoneFill size={20} className='' />
-        {contactInfo.phone.text}
-      </a>
+    <div className="bg-secondary p-4 flex flex-wrap items-center justify-center text-sm sm:text-base text-white gap-6 font-semibold whitespace-nowrap ">
+      <div className="hidden sm:flex items-center gap-2 ml-auto">
+        <span className="font-semibold">License #:</span>
+        <span className="font-bold">CCC1234567</span>
+        <span className=" text-gray-300">(Roofing)</span>,
+        <span className="font-bold">CGC7654321</span>
+        <span className=" text-gray-300">(General Contractor)</span>
+      </div>
 
-      <a href={contactInfo.mapEmbedUrl} className='flex items-center gap-2 '>
-        <FaLocationDot size={20} className='' />
-        Florida - United States
-      </a>
-      
-      <div className="hidden md:flex items-center gap-2 ">
-        <BsClock size={20} className="" />
+      <div className="flex items-center gap-2">
+        <BsClock size={20} />
         {contactInfo.workingHours}
       </div>
 
@@ -50,7 +47,7 @@ const TopBar = () => {
       </div>
 
     </div>
-  )
-}
+  );
+};
 
-export default TopBar
+export default TopBar;

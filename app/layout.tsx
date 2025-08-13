@@ -8,6 +8,7 @@ import { googleAnalyticId, landingPage, siteUrl } from "@/data";
 import JsonLd from "@/components/JsonLd";
 import { JsonLdDataLanding } from "@/jsonld";
 import { GoogleAnalytics } from '@next/third-parties/google'
+import CallButton from "@/components/CallButton";
 
 export const metadata: Metadata = {
   title: {
@@ -66,6 +67,7 @@ export default async function RootLayout({
         <GoogleMap />
         <Footer />
         <JsonLd data={JsonLdDataLanding} />
+        <CallButton/>
       </body>
     </html>
   );

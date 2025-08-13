@@ -7,6 +7,7 @@ import { FaAngleDown } from 'react-icons/fa6'
 import { usePathname } from 'next/navigation'
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { MdClose, MdMenu } from 'react-icons/md';
+import { trackCallClick } from '@/lib/analytics';
 
 
 const NavBar = () => {
@@ -16,9 +17,9 @@ const NavBar = () => {
   return (
     <nav className=' bg-primary w-full z-20 relative '>
       {/* Mobile Nav */}
-      <div className={`absolute block lg:hidden inset-0 h-screen bg-black/50 z-50 transition-all duration-500 ${menuOpen ? 'translate-x-0':'-translate-x-full opacity-0 pointer-events-none'}`}>
-        <button className='text-white cursor-pointer absolute right-2 top-5' onClick={()=>{setMenuOpen(false)}} aria-label="Sidebar Toggle">
-          <MdClose size={36}  />
+      <div className={`absolute block lg:hidden inset-0 h-screen bg-black/50 z-50 transition-all duration-500 ${menuOpen ? 'translate-x-0' : '-translate-x-full opacity-0 pointer-events-none'}`}>
+        <button className='text-white cursor-pointer absolute right-2 top-5' onClick={() => { setMenuOpen(false) }} aria-label="Sidebar Toggle">
+          <MdClose size={36} />
         </button>
         <div className=' h-full  bg-white  w-fit px-4'>
           <ul className="flex flex-col gap-4 p-4  font-bold ">
@@ -48,7 +49,7 @@ const NavBar = () => {
               </li>
             ))}
           </ul>
-          <a href={contactInfo.phone.href} className='btn-secondary flex items-center gap-2'>
+          <a href={contactInfo.phone.href} className='btn-secondary flex items-center gap-2' onClick={trackCallClick('Mobile Sidebar')} >
             <BsFillTelephoneFill />
             {contactInfo.phone.text}
           </a>
@@ -91,12 +92,12 @@ const NavBar = () => {
         </div>
 
         <div className='flex gap-2 items-center '>
-          <a href={contactInfo.phone.href} className='hidden sm:flex gap-2 btn-secondary'>
+          <a href={contactInfo.phone.href} className='hidden sm:flex gap-2 btn-secondary' onClick={trackCallClick('Navbar Call Button')} >
             <BsFillTelephoneFill size={20} className='' />
             {contactInfo.phone.text}
           </a>
-          <button className='text-white cursor-pointer lg:hidden' aria-label="Sidebar Toggle" onClick={()=>{setMenuOpen(true)}}>
-            <MdMenu size={36}  />
+          <button className='text-white cursor-pointer lg:hidden' aria-label="Sidebar Toggle" onClick={() => { setMenuOpen(true) }}>
+            <MdMenu size={36} />
           </button>
         </div>
 

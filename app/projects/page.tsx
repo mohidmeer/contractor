@@ -23,6 +23,17 @@ const Page = () => {
     const [emblaRef2] = useEmblaCarousel({ loop: true }, [
         AutoScroll({ playOnInit: true, speed: 0.3, direction: 'backward' })
     ])
+
+    const entries = Object.entries(projectsData);
+
+    // Find the midpoint
+    const mid = Math.ceil(entries.length / 2);
+
+    // Split into two halves
+    const firstHalf = entries.slice(0, mid);
+    const secondHalf = entries.slice(mid);
+
+
     return (
         <main className='flex flex-col gap-10 '>
             <Header cta desc='' title={projectsPage.seo.title} />
@@ -33,9 +44,10 @@ const Page = () => {
                         {projectsPage.seo.title}
                     </h2>
                 </div>
+
                 <div className="embla my-6" ref={emblaRef}>
                     <div className="embla__container flex gap-1">
-                        {Object.entries(projectsData).map(([slug, i], z) => (
+                        {firstHalf.map(([slug, i], z) => (
                             <div className="text-white cursor-pointer flex-[0_0_100%] sm:flex-[0_0_75%] md:flex-[0_0_50%] lg:flex-[0_0_25%]" key={slug}>
                                 <div className="h-[500px] relative group flex flex-col p-10  hover:bg-black/90 transition-all bg-black/70 overflow-hidden">
                                     <p className="text-3xl font-bold">{z + 1}.</p>
@@ -66,7 +78,7 @@ const Page = () => {
                 </div>
                 <div className="embla my-6" ref={emblaRef2}>
                     <div className="embla__container flex gap-1">
-                        {Object.entries(projectsData).map(([slug, i], z) => (
+                        {secondHalf.map(([slug, i], z) => (
                             <div className="text-white cursor-pointer flex-[0_0_100%] sm:flex-[0_0_75%] md:flex-[0_0_50%] lg:flex-[0_0_25%]" key={slug}>
                                 <div className="h-[500px] relative group flex flex-col p-10  hover:bg-black/90 transition-all bg-black/70 overflow-hidden">
                                     <p className="text-3xl font-bold">{z + 1}.</p>
@@ -95,6 +107,7 @@ const Page = () => {
 
                     </div>
                 </div>
+
             </section>
             <WhyUS />
             <Process />
