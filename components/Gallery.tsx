@@ -10,8 +10,6 @@ import Image from 'next/image';
 
 
 const Gallery = ({ images }: { images: string[] }) => {
-
-
     return (
         <LightGallery
             plugins={[lgZoom, lgThumbnail]}
@@ -31,7 +29,7 @@ const Gallery = ({ images }: { images: string[] }) => {
                     href={`/images${i}`}
                     data-src={`/images${i}`}
                     data-exthumbimage={`/images${i}`}
-                    className="relative p-4 overflow-hidden h-[200px] "
+                    className={`relative p-4 overflow-hidden  ${images.length == 1 ? 'h-[600px]':'h-[200px]' }`}
                 > 
                     <Image
                         alt={`img_${z + 1}`}
@@ -39,7 +37,6 @@ const Gallery = ({ images }: { images: string[] }) => {
                         fill
                         className="object-cover overflow-hidden  hover:scale-125 transition-all "
                     />
-                  
                 </a>
             ))}
         </LightGallery>

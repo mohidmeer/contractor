@@ -60,7 +60,7 @@ const GetToKnow = ({ description = getToKnow.description }: { description?: stri
                         </div>
                         <div className='relative  rounded-md border p-2 overflow-hidden card'>
                             <Image
-                                src={getToKnow.image1_url}
+                                src={getToKnow.image2_url}
                                 alt="Roof 2"
                                 fill
                                 className="object-cover  hover:scale-110 transition-all "
@@ -68,7 +68,7 @@ const GetToKnow = ({ description = getToKnow.description }: { description?: stri
                         </div>
                         <div className='relative  rounded-md border p-2 overflow-hidden card'>
                             <Image
-                                src={getToKnow.image1_url}
+                                src={getToKnow.image3_url}
                                 alt="Roof 2"
                                 fill
                                 className="object-cover  hover:scale-110 transition-all "
@@ -76,7 +76,7 @@ const GetToKnow = ({ description = getToKnow.description }: { description?: stri
                         </div>
                         <div className='relative  rounded-md border p-2 overflow-hidden card'>
                             <Image
-                                src={getToKnow.image1_url}
+                                src={getToKnow.image4_url}
                                 alt="Roof 2"
                                 fill
                                 className="object-cover  hover:scale-110 transition-all "

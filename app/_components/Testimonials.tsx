@@ -1,7 +1,7 @@
 'use client';
 
 import Title from "@/components/inputs/Title";
-import Image from "next/image";
+// import Image from "next/image";
 import useEmblaCarousel from 'embla-carousel-react';
 import AutoScroll from 'embla-carousel-auto-scroll';
 import { BsQuote } from "react-icons/bs";
@@ -30,13 +30,15 @@ const Testimonials = () => {
               className="flex-[0_0_100%] sm:flex-[0_0_75%] md:flex-[0_0_50%] lg:flex-[0_0_25%] bg-white  rounded-lg p-6 cursor-pointer flex-col gap-6 flex items-center card"
               key={index}
             >
-              <Image
+              {/* <Image
                 src={testimonial.image}
                 alt={testimonial.name}
                 width={80}
                 height={80}
                 className=" size-16  overflow-hidden shrink-0 rounded-full object-cover bg-black"
-              />
+              /> */}
+
+              <BsQuote size={52} className="text-primary" />
               <div className="flex items-center">
                 <MdStar className='text-primary' />
                 <MdStar className='text-primary' />
@@ -45,16 +47,13 @@ const Testimonials = () => {
                 <MdStar className='text-primary' />
               </div>
               <div>
-                <h3 className="text-xl font-bold">{testimonial.name}</h3>
+                <h3 className="text-xl font-bold text-center">{testimonial.name}</h3>
                 <p className="text-sm text-center opacity-80">{testimonial.role}</p>
               </div>
-              <p className="text-lg italic mb-6">
-                <BsQuote size={36} className="text-primary" />
+              <p className="text-lg italic mb-6 text-center">
                 {testimonial.feedback}
               </p>
               <div className="flex items-center gap-4 mt-auto">
-
-
               </div>
             </div>
           ))}

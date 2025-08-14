@@ -11,7 +11,7 @@ const Header = ({ title, desc, cta = true }: { title: string, desc: string | nul
         <section className=' relative flex flex-col items-center justify-center text-white bg-primary/30 gap-4 py-20 px-6'>
             <Breadcrumbs />
             <Image src={'/images/hero_bg_2.jpg'} fill className=' object-cover -z-5' alt='header_section' />
-            <h1 className='!text-5xl'>{title}</h1>
+            <h1 className=''>{title}</h1>
             <p className='p1'>{desc}</p>
             {
                 cta &&

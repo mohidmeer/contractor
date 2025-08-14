@@ -66,12 +66,11 @@ export default async function page({ params }: Props) {
   return (
     <main className="flex flex-col gap-20">
       <article>
-        <header className="relative flex flex-col items-center justify-center text-white bg-primary gap-4 py-10 px-4">
+        <header className="relative flex flex-col items-center justify-center text-white bg-primary/40 gap-4 py-10 px-4">
+           <Image src={'/images/hero_bg_2.jpg'} fill className=' object-cover -z-5' alt='header_section' />
           <Breadcrumbs />
-          <h1 className=" font-bold text-center container">{blog.title}</h1>
-          <p className="text-white/90 text-center p1 max-w-3xl">
-            {blog.seo_description}
-          </p>
+          <h1 className=" text-center container !font-semibold">{blog.title}</h1>
+          
           <div className="text-sm font-medium text-white/80 flex flex-wrap justify-center items-center gap-4 mt-2">
             <span>By <span className="font-bold text-white "> {siteName}</span></span>
             <span className="flex items-center gap-1 ">
@@ -84,14 +83,14 @@ export default async function page({ params }: Props) {
         </header>
         <section className='xl:container mx-auto w-full overflow-hidden '>
           <div className=' grid-cols-1 lg:grid-cols-4 grid gap-10 p-4'>
-            <div className='bg-white px-4 md:px-10 py-2 md:py-16 rounded-md flex-col gap-6 flex col-span-3 card'>
+            <div className='bg-white px-4 md:px-10 py-2 md:py-10 rounded-md flex-col gap-6 flex col-span-3 card'>
               <figure className="w-full">
                 <div className="h-[500px] w-full relative">
                   <Image
                     fill
                     className="object-cover rounded-md"
                     alt="Preventing Roof Leaks"
-                    src="/images/hero_bg_1.jpg"
+                    src={blog.image}
                   />
                 </div>
                 <figcaption className="text-sm text-center text-gray-500 mt-2">
