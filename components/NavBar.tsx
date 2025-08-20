@@ -15,7 +15,7 @@ const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className=' bg-primary w-full z-20 relative border-b border-white'>
+    <nav className=' bg-primary w-full z-20 relative'>
       {/* Mobile Nav */}
       <div className={`absolute block lg:hidden inset-0 h-screen bg-black/50 z-50 transition-all duration-500 ${menuOpen ? 'translate-x-0' : '-translate-x-full opacity-0 pointer-events-none'}`}>
         <button className='text-white cursor-pointer absolute right-2 top-5' onClick={() => { setMenuOpen(false) }} aria-label="Sidebar Toggle">
