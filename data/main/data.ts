@@ -5,9 +5,10 @@ import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } f
 /* ------------------------
    CONSTANTS 
 ------------------------ */
+export const static_assets = '/main'
 export const siteUrl = 'https://totalcareservicesmaintenance.com/';
 export const siteName = 'Total Care Maintainence';
-export const siteLogo = `/images/logo.png`;
+export const siteLogo = `${static_assets}/images/logo.png`;
 export const googleAnalyticId = 'G-5P8EQKYHJP';
 export const bussinessType = ["LocalBusiness", "HomeAndConstructionBusiness"]
 
@@ -37,13 +38,13 @@ export const landingPage = {
    seo: {
      title: 'Total Care Maintenance',
      description: 'Trusted home and commercial maintenance solutions including plumbing, electrical, HVAC, and general repairs. We ensure quality service and long-lasting results.',
-     ogImage: `/images/hero_bg_1.jpg`,
+     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
      canonical: siteUrl,
    },
    hero: {
      title: 'Reliable Maintenance for Home & Business',
      description: 'We handle plumbing, electrical, HVAC, and more — all with expert technicians and dependable service.',
-     backgroundImage: '/images/hero_bg_1.jpg',
+     backgroundImage: `${static_assets}/images/hero_bg_1.jpg`,
      ctaText: 'Schedule a Service',
      ctaLink: '/contact',
    },
@@ -59,7 +60,7 @@ export const servicesPage = {
    seo: {
      title: 'Comprehensive Maintenance Services',
      description: 'Explore our full range of services — plumbing, electrical, air conditioning, painting, repairs, and ongoing maintenance contracts.',
-     ogImage: `/images/services/default.jpg`,
+     ogImage: `${static_assets}/images/services/default.jpg`,
      canonical: siteUrl + 'services',
    },
  }
@@ -68,7 +69,7 @@ export const projectsPage = {
    seo: {
      title: 'Our Maintenance Work Portfolio',
      description: 'Browse our recent maintenance and repair jobs — professional, clean, and completed with care.',
-     ogImage: `/images/projects/default.jpg`,
+     ogImage: `${static_assets}/images/projects/default.jpg`,
      canonical: siteUrl + 'projects',
    },
  }
@@ -77,7 +78,7 @@ export const aboutPage = {
    seo: {
      title: 'About Total Care Maintenance',
      description: 'Learn more about our team’s experience in delivering timely, affordable, and quality maintenance services for homes and businesses.',
-     ogImage: `/images/hero_bg_1.jpg`,
+     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
      canonical: siteUrl + 'about',
    },
    content: 'Total Care Maintenance is your go-to solution for general maintenance, repairs, and upkeep. We work with residential and commercial clients to ensure everything functions smoothly — from electrical systems to plumbing, AC, and more.',
@@ -87,7 +88,7 @@ export const contactPage = {
    seo: {
      title: 'Contact Total Care Maintenance',
      description: 'Need a repair or regular maintenance? Contact us now for fast, friendly, and professional service.',
-     ogImage: `/images/hero_bg_1.jpg`,
+     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
      canonical: siteUrl + 'contact',
    },
    form: {
@@ -100,7 +101,7 @@ export const blogPage = {
    seo: {
      title: 'Home Maintenance Tips & Guides',
      description: 'Get expert advice on home upkeep, seasonal maintenance checklists, and repair tips.',
-     ogImage: `/images/hero_bg_1.jpg`,
+     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
      canonical: siteUrl + 'blogs',
    },
  }
@@ -109,7 +110,7 @@ export const serviceAreaPage = {
    seo: {
      title: 'Maintenance Services Near You',
      description: 'We serve homes and businesses across your area with fast and reliable maintenance solutions.',
-     ogImage: `/images/hero_bg_1.jpg`,
+     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
      canonical: siteUrl + 'service-areas',
    },
 }
@@ -136,10 +137,10 @@ export const getToKnow = {
        desc: 'From emergency calls to scheduled visits, we’re prompt and easy to book.',
      },
    ],
-   image1_url: '/images/hero_bg_1.jpg',
-   image2_url: '/images/hero_bg_1.jpg',
-   image3_url: '/images/hero_bg_1.jpg',
-   image4_url: '/images/hero_bg_1.jpg',
+   image1_url: `${static_assets}/images/projects/bathroom_1.jpg`,
+   image2_url: `${static_assets}/images/projects/central_ac.jpg`,
+   image3_url: `${static_assets}/images/projects/kitchen.jpg`,
+   image4_url: `${static_assets}/images/projects/maintainence.jpg`,
  };
  export const faqs = [
    {
@@ -320,7 +321,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Miami, FL",
      description: "Full-service maintenance in Miami — from plumbing and AC to electrical and emergency repairs.",
      content: "Total Care Maintenance keeps Miami properties running smoothly with reliable technicians and same-day service.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "Orlando",
@@ -328,7 +329,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Orlando, FL",
      description: "Trusted repair and maintenance services for homes and offices in Orlando.",
      content: "From quick fixes to full system overhauls, our Orlando team delivers fast, efficient, and professional maintenance.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "Tampa",
@@ -336,7 +337,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Tampa, FL",
      description: "Affordable and prompt home maintenance and repairs in Tampa, FL.",
      content: "We help Tampa residents with HVAC, plumbing, electrical, painting, and more — all done right the first time.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "Jacksonville",
@@ -344,7 +345,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Jacksonville, FL",
      description: "Expert home and commercial maintenance solutions in Jacksonville.",
      content: "From appliance repair to general handyman work, Jacksonville clients trust us for dependable and timely services.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "Fort Lauderdale",
@@ -352,7 +353,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Fort Lauderdale, FL",
      description: "Top-tier maintenance and repairs for homes and condos in Fort Lauderdale.",
      content: "Our Fort Lauderdale crew provides reliable electrical, HVAC, plumbing, and general services — on your schedule.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "St. Petersburg",
@@ -360,7 +361,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in St. Petersburg, FL",
      description: "Efficient property maintenance for St. Pete residents and businesses.",
      content: "We take care of St. Petersburg properties with trusted repair services and long-term maintenance solutions.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "Cape Coral",
@@ -368,7 +369,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Cape Coral, FL",
      description: "Routine and emergency maintenance in Cape Coral — fast and reliable.",
      content: "Our Cape Coral team handles repairs and maintenance with precision and care, no matter the task size.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "Hialeah",
@@ -376,7 +377,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Hialeah, FL",
      description: "Comprehensive home services in Hialeah — from leaks to lighting.",
      content: "Hialeah homeowners trust us for reliable plumbing, electrical, HVAC, and general upkeep services.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "Gainesville",
@@ -384,7 +385,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Gainesville, FL",
      description: "Top-rated maintenance for homes, rentals, and offices in Gainesville.",
      content: "Total Care Maintenance supports Gainesville clients with fast, affordable service that doesn’t cut corners.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "Naples",
@@ -392,7 +393,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Naples, FL",
      description: "High-end maintenance services for Naples homes and properties.",
      content: "Naples property owners rely on us for detailed maintenance, repairs, and custom service plans.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "Pensacola",
@@ -400,7 +401,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Pensacola, FL",
      description: "Experienced technicians providing home and office repairs in Pensacola.",
      content: "We support Pensacola clients with dependable, safe, and fast service — plumbing, AC, electrical, and more.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "West Palm Beach",
@@ -408,7 +409,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in West Palm Beach, FL",
      description: "Reliable upkeep and quick repairs for West Palm Beach properties.",
      content: "From beach homes to offices, our team offers consistent, high-quality maintenance services in West Palm.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "Lakeland",
@@ -416,7 +417,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Lakeland, FL",
      description: "Affordable general maintenance for Lakeland homes and businesses.",
      content: "Total Care Maintenance provides Lakeland residents with trusted plumbing, HVAC, and repair solutions.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "Ocala",
@@ -424,7 +425,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Ocala, FL",
      description: "Property care solutions in Ocala — prompt, professional, and complete.",
      content: "From rentals to family homes, Ocala property owners rely on our skilled technicians for all types of maintenance.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "Bradenton",
@@ -432,7 +433,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Bradenton, FL",
      description: "Trusted local maintenance service in Bradenton — on time, every time.",
      content: "We help Bradenton homeowners and landlords with AC repair, appliance maintenance, and general handyman work.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "Fort Myers",
@@ -440,7 +441,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Fort Myers, FL",
      description: "Home and business repair solutions throughout Fort Myers.",
      content: "Fort Myers residents choose us for professional, on-demand maintenance — from minor fixes to major work.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "Hollywood",
@@ -448,7 +449,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Hollywood, FL",
      description: "Hollywood’s go-to for responsive and professional repair services.",
      content: "From HVAC tune-ups to plumbing fixes, Hollywood clients rely on Total Care Maintenance for efficient service.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    },
    {
      name: "Boca Raton",
@@ -456,7 +457,7 @@ export const serviceAreasData = [
      title: "Maintenance Services in Boca Raton, FL",
      description: "Premium property care for Boca Raton residents and businesses.",
      content: "In Boca Raton, we specialize in white-glove maintenance and tailored service plans for upscale properties.",
-     image: "/images/areaofservices/default.jpg"
+     image: `${static_assets}/images/hero_bg_1.jpg`
    }
  ];
  
@@ -465,12 +466,12 @@ export const serviceAreasData = [
 ------------------------ */
 
 export const servicesData = {
-   'emergency-services': {
+ 'emergency-services': {
    label: 'Emergency Services',
    title: '24/7 Emergency Maintenance Services by Total Care Maintenance',
    description: 'Fast, reliable emergency repairs to protect your property and restore safety — any time, day or night.',
    content: `Emergencies don’t follow a schedule — that’s why Total Care Maintenance is available around the clock to respond when you need us most. Whether it's a burst pipe, electrical outage, gas leak, or structural damage, our emergency response team arrives quickly with the tools and experience to minimize damage and restore order. We serve both residential and commercial properties and coordinate with other professionals when needed to ensure everything is safe and functional. Don’t wait — call us any time, 24/7.`,
-   image: '/images/services/default.jpg',
+   image: `${static_assets}/images/services/emergency.jpg`,
    typeOfSolutions: {
      headings: 'Solutions we offer',
      types: [
@@ -534,14 +535,14 @@ export const servicesData = {
        answer: "Absolutely — all our technicians are certified and fully insured."
      }
    ],
-   images: ['/images/services/emergency.jpg', '/images/services/emergency2.jpg']
+   images: [`${static_assets}/images/services/emergency.jpg` ,`${static_assets}/images/services/emergency.jpg`]
  },
  'handyman': {
    label: 'General Handyman',
    title: 'Dependable General Handyman Services by Total Care Maintenance',
    description: 'From small fixes to home improvements, our skilled handymen are ready to help you tackle it all.',
    content: `Not every repair or upgrade needs a specialist — sometimes you just need a reliable handyman to get the job done right. Total Care Maintenance offers comprehensive general handyman services to keep your home or business in top shape. Whether it’s hanging shelves, fixing doors, patching drywall, or installing fixtures, we handle the tasks you don’t have time for. Our team is prompt, experienced, and equipped to take on a wide range of repairs and maintenance tasks with quality workmanship.`,
-   image: '/images/services/default.jpg',
+   image: `${static_assets}/images/services/default.jpg`,
    typeOfSolutions: {
      headings: 'Solutions we offer',
      types: [
@@ -605,14 +606,14 @@ export const servicesData = {
        answer: "Yes, we are licensed and insured for your peace of mind."
      }
    ],
-   images: ['/images/services/handyman.jpg', '/images/services/handyman2.jpg']
+   images: ['/images/services/default.jpg', '/images/services/default.jpg']
  },
  'appliance-repair': {
    label: 'Appliance Repair',
    title: 'Fast & Reliable Appliance Repair by Total Care Maintenance',
    description: 'Keep your appliances running smoothly with expert repairs for washers, dryers, ovens, refrigerators, and more.',
    content: `When appliances break down, it can disrupt your entire routine. That’s where we come in. Total Care Maintenance provides prompt, affordable, and dependable appliance repair services for residential and light commercial clients. From minor fixes to complex diagnostics, our technicians are trained to work on all major brands and models. Whether it's your fridge not cooling, your dryer not heating, or your dishwasher leaking — we’ll get it working again quickly and correctly.`,
-   image: '/images/services/default.jpg',
+   image: `${static_assets}/images/services/repair_man.jpg`,
    typeOfSolutions: {
      headings: 'Solutions we offer',
      types: [
@@ -676,14 +677,14 @@ export const servicesData = {
        answer: "Absolutely — we’re equipped to repair and configure smart-enabled devices."
      }
    ],
-   images: ['/images/services/appliances.jpg', '/images/services/appliances2.jpg']
+   images: [`${static_assets}/images/services/repair_man.jpg`]
  },
  'painting-drywall': {
    label: 'Painting & Drywall',
    title: 'Flawless Painting & Drywall Services by Total Care Maintenance',
    description: 'Give your space a fresh, professional look with expert drywall repairs and precision painting — inside and out.',
    content: `Whether you're renovating, fixing damage, or just refreshing your space, Total Care Maintenance delivers smooth drywall finishes and crisp paintwork every time. We handle everything from patching holes to complete wall replacements and high-quality painting services. Our team uses durable paints and materials to ensure long-lasting results with minimal mess or disruption. From homes to offices and commercial buildings, we help bring your vision to life — cleanly and professionally.`,
-   image: '/images/services/default.jpg',
+   image: `${static_assets}/images/services/painting.jpg`,
    typeOfSolutions: {
      headings: 'Solutions we offer',
      types: [
@@ -755,7 +756,7 @@ export const servicesData = {
    title: 'Year-Round HVAC Maintenance by Total Care Maintenance',
    description: 'Keep your home or business comfortable and energy-efficient with expert HVAC inspections, tune-ups, and repairs.',
    content: `Your heating and cooling system works hard all year long — let us help it run at peak performance. At Total Care Maintenance, we offer complete HVAC maintenance services to prevent breakdowns, reduce energy bills, and extend the life of your system. From seasonal tune-ups to filter replacements and ductwork inspections, we make sure your AC and heating units stay efficient and reliable. Whether it’s a small residential system or a large commercial setup, our technicians bring expert care to every visit.`,
-   image: '/images/services/default.jpg',
+   image: `${static_assets}/images/services/hvac.jpg`,
    typeOfSolutions: {
      headings: 'Solutions we offer',
      types: [
@@ -819,7 +820,7 @@ export const servicesData = {
        answer: "Our tune-ups cover inspection, cleaning, lubrication, filter change, and performance testing."
      }
    ],
-   images: ['/images/services/hvac.jpg', '/images/services/hvac2.jpg']
+   images: [`${static_assets}/images/services/hvac.jpg`]
  },
  
  'electrical-services': {
@@ -827,7 +828,7 @@ export const servicesData = {
    title: 'Safe & Professional Electrical Services by Total Care Maintenance',
    description: 'From minor fixes to major rewiring, our licensed electricians keep your home and business safe, efficient, and up to code.',
    content: `Electrical problems can be frustrating — and dangerous if ignored. At Total Care Maintenance, we provide reliable electrical services to handle everything from simple repairs to full installations. Our licensed electricians follow strict safety standards while delivering neat, efficient work. Whether you’re experiencing power outages, flickering lights, or planning a new lighting setup, we ensure every wire and outlet functions flawlessly. We also offer energy-saving upgrades, panel replacements, and inspections to keep your property running safely and efficiently.`,
-   image: '/images/services/default.jpg',
+   image: `${static_assets}/images/services/electrical.jpg`,
    typeOfSolutions: {
      headings: 'Solutions we offer',
      types: [
@@ -891,7 +892,7 @@ export const servicesData = {
        answer: "Yes, we offer emergency response for urgent electrical issues that need immediate attention."
      }
    ],
-   images: ['/images/services/electrical.jpg', '/images/services/electrical2.jpg']
+   images: [`${static_assets}/images/services/electrical.jpg`]
  },
  
  'plumbing-repair': {
@@ -899,7 +900,7 @@ export const servicesData = {
    title: 'Reliable & Fast Plumbing Repair by Total Care Maintenance',
    description: 'Restore your home’s water flow and fix leaks with expert plumbing repair services — available when you need them most.',
    content: `From dripping faucets to burst pipes, Total Care Maintenance provides professional plumbing repair services to get your system back in top shape. Our trained technicians diagnose issues quickly and use the latest tools and methods to fix leaks, clogs, and faulty fixtures. Whether it’s a small repair or an emergency response, we deliver efficient, lasting solutions. We also inspect for underlying issues that could lead to future damage, helping you avoid costly surprises. Our team respects your time, your home, and your budget — ensuring clean work, clear communication, and dependable results.`,
-   image: '/images/services/default.jpg',
+   image: `${static_assets}/images/services/plumbing.jpg`,
    typeOfSolutions: {
      headings: 'Solutions we offer',
      types: [
@@ -963,7 +964,7 @@ export const servicesData = {
        answer: "Yes, all our repairs come with a satisfaction guarantee for peace of mind."
      }
    ],
-   images: ['/images/services/plumbing.jpg', '/images/services/plumbing2.jpg']
+   images: [`${static_assets}/images/services/plumbing.jpg`]
  },
  
  
@@ -978,7 +979,7 @@ export const projectsData = {
      label: "Emergency Repair",
      title: "24/7 Emergency Repair for Residential Water Damage",
      description: "Rapid response and expert repair after a pipe burst caused major interior damage in a residential home.",
-     image: "/images/projects/default.jpg",
+     image: `${static_assets}/images/services/default.jpg`,
      location: "Private Residence, Sanford, FL",
      duration: "Completed in 48 hours",
      materials: [
@@ -1002,18 +1003,13 @@ export const projectsData = {
    
    This project showcases our commitment to fast, effective emergency services when they matter most.
      `,
-     images: [
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg"
-     ]
+   
    },
    "commercial-maintenance": {
      label: "Commercial Maintenance",
      title: "Full-Service Commercial Property Maintenance",
      description: "A comprehensive maintenance solution tailored for a commercial facility to ensure safety, aesthetics, and functionality year-round.",
-     image: "/images/projects/default.jpg",
+     image: `${static_assets}/images/projects/maintainence.jpg`,
      location: "Retail Plaza, Kissimmee, FL",
      duration: "Ongoing weekly service",
      materials: [
@@ -1037,18 +1033,13 @@ export const projectsData = {
    
    The client benefits from streamlined operations, improved safety compliance, and a consistent, polished appearance for all retail units.
      `,
-     images: [
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg"
-     ]
+   
    },
    "interior-painting": {
      label: "Interior Painting",
      title: "Fresh, Modern Interior Painting for Residential Remodel",
      description: "Complete interior repaint with high-durability, low-VOC paints to refresh living spaces and enhance home aesthetics.",
-     image: "/images/projects/default.jpg",
+     image: `${static_assets}/images/projects/painting.jpg`,
      location: "Single-Family Home, Tampa, FL",
      duration: "Completed in 4 days",
      materials: [
@@ -1072,18 +1063,13 @@ export const projectsData = {
    
    The project transformed the space, making it feel larger, fresher, and more cohesive while improving indoor air quality with eco-friendly products.
      `,
-     images: [
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg"
-     ]
+   
    },
    "plumbing-overhaul": {
      label: "Plumbing Overhaul",
      title: "Whole-Home Plumbing Overhaul with Modern Fixtures",
      description: "Replaced outdated galvanized plumbing with modern PEX systems, improving water pressure, efficiency, and long-term reliability.",
-     image: "/images/projects/default.jpg",
+     image: `${static_assets}/images/projects/plumbing.jpg`,
      location: "Two-Story Home, Kissimmee, FL",
      duration: "Completed in 7 days",
      materials: [
@@ -1107,18 +1093,13 @@ export const projectsData = {
    
    The result was a leak-free, code-compliant plumbing system delivering clean water and strong pressure to every tap.
      `,
-     images: [
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg"
-     ]
+   
    },
    "electrical-upgrade": {
      label: "Electrical Upgrade",
      title: "Full Electrical System Upgrade for Safety & Efficiency",
      description: "Rewired and upgraded the electrical system to meet modern safety standards, increase load capacity, and support smart home features.",
-     image: "/images/projects/default.jpg",
+     image: `${static_assets}/images/services/electrical.jpg`,
      location: "60s-Era Home, Winter Park, FL",
      duration: "Completed in 6 days",
      materials: [
@@ -1142,18 +1123,13 @@ export const projectsData = {
    
    This project not only enhanced the home’s safety but also boosted its readiness for future technologies.
      `,
-     images: [
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg"
-     ]
+   
    },
    "ac-installation": {
      label: "AC Installation",
      title: "Efficient Central AC Installation for Year-Round Comfort",
      description: "Installed a modern, energy-efficient air conditioning system to ensure reliable cooling and improved indoor air quality.",
-     image: "/images/projects/default.jpg",
+     image: `${static_assets}/images/projects/central_ac.jpg`,
      location: "Single-Family Home, Kissimmee, FL",
      duration: "Completed in 3 days",
      materials: [
@@ -1177,18 +1153,13 @@ export const projectsData = {
    
    Now, the homeowner enjoys quiet, consistent cooling and cleaner air — ready for the Florida heat.
      `,
-     images: [
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg"
-     ]
+   
    },
    "bathroom-repair": {
      label: "Bathroom Repair",
      title: "Complete Bathroom Repair for Functionality & Comfort",
      description: "A full bathroom refresh tackling leaks, worn-out surfaces, and outdated fixtures to restore a clean, modern feel.",
-     image: "/images/projects/default.jpg",
+     image: `${static_assets}/images/projects/bathroom_1.jpg`,
      location: "Apartment Unit, Orlando, FL",
      duration: "Completed in 10 days",
      materials: [
@@ -1212,18 +1183,13 @@ export const projectsData = {
    
    The project wrapped up with a clean, updated look and zero lingering issues — restoring both comfort and functionality for daily use.
      `,
-     images: [
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg"
-     ]
+   
    },
    "kitchen-renovation": {
      label: "Kitchen Renovation",
      title: "Contemporary Kitchen Renovation for Function & Style",
      description: "A complete kitchen transformation featuring modern design, optimized layout, and high-end finishes for a stylish cooking space.",
-     image: "/images/projects/default.jpg",
+     image: `${static_assets}/images/projects/kitchen.jpg`,
      location: "Residential Home, Orlando, FL",
      duration: "Completed in 3 weeks",
      materials: [
@@ -1247,25 +1213,20 @@ export const projectsData = {
    
    The result is a sleek, functional kitchen that aligns with today’s lifestyle needs and adds long-term value to the home.
      `,
-     images: [
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg",
-       "/projects/default.jpg"
-     ]
+   
    }
 }
 
 export const projectsImageGallery = [
-    '/projects/costal.jpg',
-    '/projects/buildings.jpg',
-    '/projects/condos.jpg',
-    '/projects/mall.jpg',
-    '/projects/luxry.jpg',
-    '/projects/lake-view.jpg',
-    '/projects/ocean-breeze.jpg',
-    '/projects/measueam.jpg',
-    '/services/metal.jpg',
+  `${static_assets}/images/projects/bathroom_1.jpg`,
+  `${static_assets}/images/projects/central_ac.jpg`,
+  `${static_assets}/images/projects/kitchen.jpg`,
+  `${static_assets}/images/projects/kitchen_plumbing.jpg`,
+  `${static_assets}/images/projects/maintainence.jpg`,
+  `${static_assets}/images/projects/painting.jpg`,
+  `${static_assets}/images/projects/plumbing.jpg`,
+  `${static_assets}/images/hero_bg_1.jpg`,
+  `${static_assets}/images/hero_bg_2.jpg`,
 ];
 /* ------------------------
    TESTIMONAILS START
@@ -1275,73 +1236,61 @@ export const testimonialsData = [
      name: "John Davis",
      role: "Homeowner | Plumbing",
      feedback: "Total Care Maintenance fixed a major plumbing issue in our home quickly and professionally. Everything works perfectly now.",
-     image: "/images/testimonials/default.jpg"
    },
    {
      name: "Rachel Green",
      role: "Property Manager",
      feedback: "They handle routine electrical and HVAC maintenance across our rental units. Always reliable and responsive when issues come up.",
-     image: "/images/testimonials/default.jpg"
    },
    {
      name: "Carlos Rivera",
      role: "Business Owner | Commercial Building",
      feedback: "Our office HVAC system was failing. Their team repaired and serviced it with minimal downtime—fantastic service.",
-     image: "/images/testimonials/default.jpg"
    },
    {
      name: "Lisa Turner",
      role: "Interior Designer",
      feedback: "They’ve supported several of my renovation projects with electrical and plumbing expertise. Dependable, skilled, and detail-oriented.",
-     image: "/images/testimonials/default.jpg"
    },
    {
      name: "Mark Johnson",
      role: "Hotel Manager",
      feedback: "They handled electrical upgrades and ongoing maintenance for our hotel. Guests noticed the improvements immediately.",
-     image: "/images/testimonials/default.jpg"
    },
    {
      name: "Emily Chen",
      role: "Homeowner | AC Repair",
      feedback: "Our AC stopped working in the middle of summer. Total Care Maintenance had it running again the same day!",
-     image: "/images/testimonials/default.jpg"
    },
    {
      name: "David Kim",
      role: "Real Estate Developer",
      feedback: "They manage maintenance across multiple properties—plumbing, HVAC, and electrical. Always on time and within budget.",
-     image: "/images/testimonials/default.jpg"
    },
    {
      name: "Sophia Allen",
      role: "Restaurant Owner",
      feedback: "Our kitchen plumbing and ventilation systems needed urgent repairs. Their technicians handled it all without disrupting business.",
-     image: "/images/testimonials/default.jpg"
    },
    {
      name: "Nathan Scott",
      role: "Construction Project Manager",
      feedback: "Brought them in for electrical and mechanical work on a high-rise project. Excellent communication and flawless execution.",
-     image: "/images/testimonials/default.jpg"
    },
    {
      name: "Olivia Perez",
      role: "Retail Store Owner",
      feedback: "We had frequent electrical issues in our shop. Total Care Maintenance diagnosed and fixed everything—no problems since.",
-     image: "/images/testimonials/default.jpg"
    },
    {
      name: "Jason Brooks",
      role: "Warehouse Operator",
      feedback: "They upgraded our lighting and repaired HVAC units in our warehouse. Energy bills are down and conditions are much better for staff.",
-     image: "/images/testimonials/default.jpg"
    },
    {
      name: "Mia Thompson",
      role: "Home Renovator",
      feedback: "During our home remodel, their team handled plumbing, electrical, and AC installs. Professional, efficient, and stress-free.",
-     image: "/images/testimonials/default.jpg"
    }
 ];
  

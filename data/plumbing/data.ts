@@ -5,9 +5,10 @@ import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } f
 /* ------------------------
    CONSTANTS 
 ------------------------ */
+export const static_assets = '/plumbing'
 export const siteUrl = 'https://totalcareservicesplumbing.com/'
 export const siteName = 'Total Care Plumbing'
-export const siteLogo = `/images/logo.png`
+export const siteLogo = `${static_assets}/images/logo.png`
 export const googleAnalyticId = 'G-S5WENH3ET7'
 export const bussinessType = ["LocalBusiness", "Plumber"]
 
@@ -38,13 +39,13 @@ export const landingPage = {
   seo: {
     title: 'Total Care Plumbing',
     description: 'Reliable plumbing services across Florida. From emergency repairs to complete system installations for homes and businesses.',
-    ogImage: `/images/hero_bg_1.jpg`,
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl,
   },
   hero: {
     title: 'Professional Plumbing Services You Can Rely On',
     description: 'Whether it’s a leaky faucet or a full plumbing system upgrade, our skilled technicians deliver fast, clean, and dependable service every time.',
-    backgroundImage: '/images/hero_bg_1.jpg',
+    backgroundImage: `${static_assets}/images/hero_bg_1.jpg`,
     ctaText: 'Schedule Your Service',
     ctaLink: '/contact',
   },
@@ -60,7 +61,7 @@ export const servicesPage = {
   seo: {
     title: 'Plumbing Services in Florida',
     description: 'Explore our plumbing services including pipe repairs, drain cleaning, water heater installations, and emergency plumbing for Florida homes and businesses.',
-    ogImage: `/images/services/default.jpg`,
+    ogImage: `${static_assets}/images/services/default.jpg`,
     canonical: siteUrl + 'services',
   },
 }
@@ -69,7 +70,7 @@ export const projectsPage = {
   seo: {
     title: 'Plumbing Projects in Florida',
     description: 'See our completed plumbing projects across Florida. From installations to emergency repairs for both homes and commercial properties.',
-    ogImage: `/images/projects/default.jpg`,
+    ogImage: `${static_assets}`,
     canonical: siteUrl + 'projects',
   },
 }
@@ -78,7 +79,7 @@ export const aboutPage = {
   seo: {
     title: 'About Us',
     description: 'Learn more about Total Care Services, our mission, and why homeowners across Florida trust us for reliable plumbing solutions.',
-    ogImage: `/images/hero_bg_1.jpg`,
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'about',
   },
   content: 'About Total Care Plumbing is a Florida-based company offering professional plumbing solutions with a focus on reliability, clear communication, and long-term value for every property we serve.'
@@ -88,7 +89,7 @@ export const contactPage = {
   seo: {
     title: 'Contact Us',
     description: 'Get in touch with Total Care Services for plumbing consultations, service requests, or emergency repairs. Serving homes and businesses across Florida.',
-    ogImage: `/images/hero_bg_1.jpg`,
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'contact',
   },
   form: {
@@ -101,7 +102,7 @@ export const blogPage = {
   seo: {
     title: 'Plumbing Tips & Insights Florida',
     description: 'Stay updated with plumbing tips, industry insights, and home maintenance advice to keep your plumbing system flowing smoothly year-round.',
-    ogImage: `/images/hero_bg_1.jpg`,
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'blogs',
   },
 }
@@ -110,7 +111,7 @@ export const serviceAreaPage = {
   seo: {
     title: 'Plumbing Services In Florida',
     description: 'We provide top-quality residential and commercial plumbing services across Florida, ensuring reliability and long-lasting solutions.',
-    ogImage: `/images/hero_bg_1.jpg`,
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'service-areas',
   }
 }
@@ -137,9 +138,10 @@ export const getToKnow = {
       desc: 'We finish quickly and leave your home or business spotless after each service.'
     }
   ],
-  image1_url: '/images/hero_bg_1.jpg',
-  image2_url: '/images/hero_bg_1.jpg',
-  image3_url: '/images/hero_bg_1.jpg',
+  image1_url: static_assets +'/images/services/water_filteration.jpg',
+  image2_url: static_assets +'/images/services/facuet.jpg',
+  image3_url: static_assets +'/images/services/pipe_installation.jpg',
+  image4_url: static_assets +'/images/services/water_heater.jpg',
 }
 
 
@@ -333,7 +335,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Miami, FL",
     description: "Professional plumbing services in Miami, FL. Expert leak repair, pipe installations, and drain cleaning to keep your home running smoothly.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "Orlando",
@@ -341,7 +343,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Orlando, FL",
     description: "Trusted plumbing company in Orlando, FL. Quality repairs, repiping, and maintenance with Florida code compliance.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "Tampa",
@@ -349,7 +351,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Tampa, FL",
     description: "Reliable plumbing solutions in Tampa, FL. Specializing in water heater installs, pipe repairs, and emergency services.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "Jacksonville",
@@ -357,7 +359,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Jacksonville, FL",
     description: "Expert plumbing services in Jacksonville, FL. From water leaks to sewer line repairs, we’ve got you covered.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "Fort Lauderdale",
@@ -365,7 +367,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Fort Lauderdale, FL",
     description: "Fort Lauderdale’s trusted plumbing company for durable and efficient home plumbing systems.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "St. Petersburg",
@@ -373,7 +375,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in St. Petersburg, FL",
     description: "Premium plumbing services in St. Petersburg, FL. Quality repairs, fixture installs, and maintenance for Florida homes.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "Hialeah",
@@ -381,7 +383,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Hialeah, FL",
     description: "Affordable and reliable plumbing solutions in Hialeah, FL. Get expert pipe repairs and installations today.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "Tallahassee",
@@ -389,7 +391,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Tallahassee, FL",
     description: "Plumbing experts serving Tallahassee, FL. Specializing in leak detection, pipe repair, and home plumbing upgrades.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "Cape Coral",
@@ -397,7 +399,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Cape Coral, FL",
     description: "Cape Coral plumbing services for homes and businesses. Expert fixture installation and emergency repairs.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "West Palm Beach",
@@ -405,7 +407,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in West Palm Beach, FL",
     description: "Professional plumbing services in West Palm Beach, FL. Fast, durable repairs built for Florida’s needs.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "Naples",
@@ -413,7 +415,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Naples, FL",
     description: "Naples’ trusted plumbing experts. Offering full-service plumbing and water-saving upgrades.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "Sarasota",
@@ -421,7 +423,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Sarasota, FL",
     description: "Reliable plumbing company in Sarasota, FL. Specializing in residential and commercial plumbing systems.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "Fort Myers",
@@ -429,7 +431,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Fort Myers, FL",
     description: "Plumbing services in Fort Myers, FL. We provide pipe replacement, clog removal, and water heater installation.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "Clearwater",
@@ -437,7 +439,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Clearwater, FL",
     description: "Clearwater plumbing professionals delivering quality repairs and installs with top-rated equipment.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "Boca Raton",
@@ -445,7 +447,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Boca Raton, FL",
     description: "Trusted Boca Raton plumbing contractor. Offering high-quality leak detection, drain cleaning, and repairs.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "Palm Beach",
@@ -453,7 +455,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Palm Beach, FL",
     description: "Palm Beach plumbing experts for reliable water and drainage systems. Call for a free estimate.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "Pensacola",
@@ -461,7 +463,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Pensacola, FL",
     description: "Pensacola plumbing contractor offering emergency repairs, installations, and inspections.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
   {
     name: "Daytona Beach",
@@ -469,7 +471,7 @@ export const serviceAreasData = [
     title: "Plumbing Services in Daytona Beach, FL",
     description: "Daytona Beach plumbing services built to handle Florida weather. Fast service and quality workmanship.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
-    image: `/images/areaofservices/default.jpg`
+    image: `${static_assets}/images/services/hero_bg_3.jpg`
   }
 ];
 
@@ -482,7 +484,7 @@ export const servicesData = {
     title: 'Expert Pipe Installation Services in Florida',
     description: 'Ensure reliable plumbing with our professional pipe installation services. We handle residential and commercial projects using durable, code-compliant materials.',
     content: `Proper pipe installation is the backbone of any efficient plumbing system. At Total Care Plumbing, we offer top-tier pipe installation services across Florida, ensuring water flows seamlessly through your home or business. Whether you're building a new property, remodeling, or replacing outdated pipes, our licensed plumbers provide accurate fittings, secure connections, and long-lasting materials. We work with PEX, copper, and PVC piping and ensure all installations meet Florida codes and standards. With our commitment to quality and precision, we prevent leaks, improve water pressure, and ensure a plumbing system built to last.`,
-    image: '/images/services/default.jpg',
+    image: static_assets +'/images/services/pipe_installation.jpg',
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -554,14 +556,14 @@ export const servicesData = {
         answer: "Yes, we offer workmanship warranties and use manufacturer-backed materials for added protection."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: [`${static_assets}/images/services/pipe_installation.jpg`]
   },
   'leak-repair': {
     label: 'Leak Repair',
     title: 'Reliable Leak Repair Services in Florida',
     description: 'We specialize in fast and accurate leak detection and repair, helping homeowners and businesses prevent water damage and costly utility bills.',
     content: `Water leaks can cause serious damage if left unaddressed. Our expert plumbers provide prompt and professional leak repair services throughout Florida. Whether it’s a dripping faucet, slab leak, hidden pipe leak, or water heater issue, we use advanced tools like acoustic sensors and thermal imaging to locate the source without tearing up your property. Once detected, we provide immediate and permanent solutions using quality materials and proven methods. Our team is trained to handle both residential and commercial leak repairs, ensuring your plumbing system runs smoothly and your property stays dry and damage-free.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/leak_repair.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -633,14 +635,14 @@ export const servicesData = {
         answer: "Absolutely! If you suspect a leak, we can perform a full system inspection to ensure no other hidden issues exist."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: [`${static_assets}/images/services/leak_repair.jpg`]
   },
   'drain-cleaning': {
     label: 'Drain Cleaning',
     title: 'Expert Drain Cleaning Services in Florida',
     description: 'We offer fast, affordable, and long-lasting drain cleaning services to keep your plumbing system flowing smoothly and prevent clogs.',
     content: `Clogged drains are not just inconvenient—they can lead to foul odors, slow drainage, and even pipe damage. Our Florida-based team provides comprehensive drain cleaning services for homes and businesses using advanced tools like hydro-jetting and motorized augers. Whether it’s a slow kitchen sink, backed-up toilet, or blocked main sewer line, we’ll clear it quickly and efficiently. We also provide video camera inspections to locate stubborn blockages deep in the system. With our proactive approach and expert technicians, you can prevent recurring clogs and protect your plumbing investment.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/drain_cleaning.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -712,14 +714,14 @@ export const servicesData = {
         answer: "Yes, we offer affordable maintenance plans to keep your drains clear year-round and prevent emergencies."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: [`${static_assets}/images/services/drain_cleaning.jpg`]
   },
   'water-heater-services': {
     label: 'Water Heater Services',
     title: 'Reliable Water Heater Services in Florida',
     description: 'We provide expert water heater installation, repair, and maintenance to ensure you have consistent hot water whenever you need it.',
     content: `A dependable water heater is essential for daily comfort—whether you're showering, washing dishes, or doing laundry. Our team offers comprehensive water heater services across Florida, including installation of new systems, emergency repairs, and routine maintenance. We work with both traditional tank-style heaters and energy-efficient tankless models. From diagnosing issues like strange noises or lack of hot water to full system replacements, we ensure your hot water supply is restored quickly and reliably. With our expert knowledge and high-quality equipment, we help Florida homeowners enjoy efficient, long-lasting water heater performance.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/water_heater.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -791,14 +793,14 @@ export const servicesData = {
         answer: "Absolutely! We’ll assess your home’s setup and recommend the best option for a seamless upgrade."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: [`${static_assets}/images/services/water_heater.jpg`]
   },
   'emergency-plumbing': {
     label: 'Emergency Plumbing',
     title: '24/7 Emergency Plumbing Services in Florida',
     description: 'When plumbing disasters strike, our emergency plumbers are ready around the clock to stop leaks, fix bursts, and restore flow fast.',
     content: `Plumbing emergencies can cause serious damage if not addressed immediately. That’s why we offer 24/7 emergency plumbing services throughout Florida. Whether it’s a burst pipe, a major leak, or a sewage backup, our experienced plumbers respond quickly with the right tools and parts to get things under control. We prioritize speed, safety, and quality repairs—restoring water flow and preventing further damage. With Total Care Plumbing, you don’t have to wait until morning to fix a flooded bathroom or overflowing sink. Call us any time, day or night, for immediate, professional service.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/emergency_plumbing.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -870,14 +872,14 @@ export const servicesData = {
         answer: "Yes, our team is available 24/7—including weekends and holidays—across Florida."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: [`${static_assets}/images/services/emergency_plumbing.jpg`]
   },
   'sewer-line-repair': {
     label: 'Sewer Line Repair',
     title: 'Reliable Sewer Line Repair Services in Florida',
     description: 'We specialize in fast, effective sewer line repair and replacement to resolve backups, odors, and pipe damage before they become bigger issues.',
     content: `Sewer line issues can be messy, stressful, and hazardous to your health. At Total Care Plumbing, we provide expert sewer line repair services across Florida to resolve blockages, root intrusion, pipe corrosion, and collapse. Our licensed plumbers use advanced diagnostic tools like camera inspections to pinpoint the problem and deliver precise, lasting repairs. Whether it’s a small clog or a full line replacement, we act fast to restore proper drainage and protect your home from sewage backups and contamination. Count on us for quality work, minimal disruption, and peace of mind.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/sewer_pipes.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -949,14 +951,14 @@ export const servicesData = {
         answer: "In most cases, yes. But don’t worry—we handle all permits and compliance for you."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: [`${static_assets}/images/services/sewer_pipes.jpg`]
   },
   'toilet-installation': {
     label: 'Toilet Installation',
     title: 'Expert Toilet Installation Services in Florida',
     description: 'We offer professional toilet installation with efficient, leak-free setup—perfect for remodels, upgrades, or new builds.',
     content: `Upgrading or replacing your toilet might seem simple, but a proper installation ensures long-term performance and avoids costly leaks or water damage. At Total Care Plumbing, we install all types of toilets—from standard models to low-flow and smart toilets—with precision and care. Our licensed plumbers handle everything, including removal of old units, secure fittings, wax seals, water connections, and flushing system tests. Whether you're remodeling a bathroom or fixing a broken unit, we provide fast, clean, and code-compliant installation across Florida.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/toilet.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -1028,14 +1030,14 @@ export const servicesData = {
         answer: "All our work is guaranteed. If there’s any issue, we’ll return promptly to fix it."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: [`${static_assets}/images/services/toilet.jpg`]
   },
   'faucet-fixture-repair': {
     label: 'Faucet & Fixture Repair',
     title: 'Reliable Faucet and Fixture Repair Services in Florida',
     description: 'We fix leaky faucets, dripping showerheads, and broken fixtures quickly and efficiently—saving you water, money, and stress.',
     content: `A dripping faucet or faulty fixture isn’t just annoying—it wastes water and can lead to higher bills or water damage. At Total Care Plumbing, we offer expert faucet and fixture repair services for kitchens, bathrooms, and outdoor spaces. Whether it's a worn-out washer, corroded valve, or loose handle, our plumbers diagnose the issue and make precision repairs on the spot. We service all major brands and can also upgrade outdated fixtures for improved performance and style. Trust us for fast, reliable, and mess-free plumbing solutions anywhere in Florida.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/facuet.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -1107,14 +1109,14 @@ export const servicesData = {
         answer: "Absolutely—all work is backed by our workmanship guarantee for your peace of mind."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: [`${static_assets}/images/services/facuet.jpg`]
   },
   'bathroom-plumbing': {
     label: 'Bathroom Plumbing',
     title: 'Expert Bathroom Plumbing Services in Florida',
     description: 'From leaky sinks to full bathroom plumbing upgrades, we handle it all with precision, professionalism, and care.',
     content: `Your bathroom is one of the most used areas in your home—don’t let plumbing problems disrupt your daily routine. At Total Care Plumbing, we provide comprehensive bathroom plumbing services across Florida, including repairs, installations, and upgrades. Whether it’s a clogged drain, faulty faucet, running toilet, or full fixture replacement, our licensed plumbers deliver fast and reliable service. We work with top-quality materials and modern tools to ensure long-lasting results. Trust us to keep your bathroom running smoothly, cleanly, and efficiently.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/bathroom_plumbing.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -1186,14 +1188,14 @@ export const servicesData = {
         answer: "Yes, we work with contractors and homeowners on full plumbing installations during renovations."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: [`${static_assets}/images/services/bathroom_plumbing.jpg`]
   },
   'water-filtration-systems': {
     label: 'Water Filtration Systems',
     title: 'Clean, Safe Water with Expert Filtration System Installation in Florida',
     description: 'We install advanced water filtration systems to remove contaminants and improve the taste, safety, and quality of your home’s water supply.',
     content: `If you’re concerned about the quality of your tap water, a professionally installed water filtration system can make a world of difference. At Total Care Plumbing, we offer whole-house and point-of-use filtration solutions tailored to Florida homes. From removing chlorine, heavy metals, and bacteria to softening hard water, we provide systems that improve water taste, clarity, and safety. Our team evaluates your water needs, recommends the best system, and handles the full installation. Enjoy cleaner showers, tastier drinking water, and longer-lasting appliances—all with our expert service.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/water_filteration.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -1265,7 +1267,7 @@ export const servicesData = {
         answer: "Absolutely—we offer filter replacement, inspections, and tune-ups for all systems we install."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: [`${static_assets}/images/services/water_filteration.jpg`]
   }
 }
 
@@ -1278,7 +1280,7 @@ export const projectsData = {
     label: 'Downtown Office Plumbing',
     title: 'Downtown Office Plumbing Project',
     description: 'Upgraded plumbing infrastructure for a multi-story office in downtown, enhancing efficiency and reliability for all occupants.',
-    image: `/images/projects/default.jpg`,
+    image: `${static_assets}/images/projects/office_plumbing.jpg`,
     location: 'Downtown, Miami, FL',
     duration: 'Completed in 2 weeks',
     materials: [
@@ -1298,13 +1300,12 @@ export const projectsData = {
       We began with a detailed assessment of the outdated piping systems and restrooms, followed by the installation of new PEX and copper lines to ensure reliability and durability.
       High-efficiency water heaters and ADA-compliant fixtures were also installed to improve comfort and meet regulatory standards.
       The work was completed in two weeks with minimal downtime, ensuring smooth day-to-day operations for all tenants and staff.`,
-    images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
   },
   'sunrise-apartments-upgrade': {
     label: 'Sunrise Apartments Upgrade',
     title: 'Sunrise Apartments Plumbing Upgrade',
     description: 'Modernized the plumbing systems of Sunrise Apartments to improve water flow, pressure, and long-term sustainability for residents.',
-    image: `/images/projects/default.jpg`,
+    image: `${static_assets}/images/projects/sunrise_appartment.jpg`,
     location: 'Sunrise Apartments, Orlando, FL',
     duration: 'Completed in 3 weeks',
     materials: [
@@ -1324,14 +1325,12 @@ export const projectsData = {
       Our team replaced the entire system using durable CPVC and PVC piping for clean water delivery and efficient waste management.
       We also added low-flow fixtures and a metering system to help residents monitor usage and reduce utility costs.
       The upgrade was completed smoothly in three weeks with minimal disruption to tenants, significantly improving the building’s plumbing reliability.`,
-    images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
   },
-
   'palm-heights-condos': {
     label: 'Palm Heights Condos',
     title: 'Palm Heights Condos Plumbing Renovation',
     description: 'Executed a comprehensive plumbing renovation at Palm Heights Condos to support modern living standards and improve system efficiency.',
-    image: `/images/projects/default.jpg`,
+    image: `${static_assets}/images/projects/plumbing_works.jpg`,
     location: 'Palm Heights Condos, Tampa, FL',
     duration: 'Completed in 4 weeks',
     materials: [
@@ -1351,13 +1350,12 @@ export const projectsData = {
       We implemented a PEX-based piping system with a centralized manifold for improved water distribution and ease of maintenance.
       New tankless water heaters and eco-friendly fixtures were installed throughout the units.
       The project was completed in 4 weeks and delivered a significant boost in water efficiency and tenant satisfaction.`,
-    images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
   },
   'city-mall-restrooms': {
     label: 'City Mall Restrooms',
     title: 'City Mall Restroom Plumbing Overhaul',
     description: 'Upgraded all restroom plumbing systems at City Mall to support high foot traffic with efficient and durable solutions.',
-    image: `/images/projects/default.jpg`,
+    image: `${static_assets}/images/projects/mall_bathrooms.jpg`,
     location: 'City Mall, Orlando, FL',
     duration: 'Completed in 3 weeks',
     materials: [
@@ -1377,13 +1375,12 @@ export const projectsData = {
       We installed commercial-grade fixtures with sensor-based systems for touchless operation, improving both user experience and water efficiency.
       The layout was re-piped using a mix of PVC and copper, and the drainage system was restructured for faster flow and reduced blockages.
       Completed in just 3 weeks with all work done after hours to avoid mall downtime.`,
-    images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
   },
   'heritage-hotel-plumbing': {
     label: 'Heritage Hotel Plumbing',
     title: 'Heritage Hotel Complete Plumbing Modernization',
     description: 'Modernized the entire plumbing infrastructure of the Heritage Hotel to improve guest comfort and water efficiency.',
-    image: `/images/projects/default.jpg`,
+    image: `${static_assets}/images/projects/kitchen_plumbing.jpg`,
     location: 'Heritage Hotel, St. Augustine, FL',
     duration: 'Completed in 5 weeks',
     materials: [
@@ -1404,14 +1401,12 @@ export const projectsData = {
       Each guest room was fitted with luxury showers, tankless heaters, and in-wall toilets for a sleek finish.
       A smart water management system was also installed to prevent leaks and improve maintenance oversight.
       The project was completed in 5 weeks with zero guest disruptions.`,
-    images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
   },
-
   'green-grove-villas': {
     label: 'Green Grove Villas',
     title: 'Green Grove Villas Plumbing Development',
     description: 'Installed a complete plumbing system for Green Grove Villas, focused on sustainability and long-term reliability.',
-    image: `/images/projects/default.jpg`,
+    image: `${static_assets}/images/projects/bathroom_plumbing.jpg`,
     location: 'Green Grove Villas, Orlando, FL',
     duration: 'Completed in 6 weeks',
     materials: [
@@ -1431,14 +1426,12 @@ export const projectsData = {
       We designed and installed a sustainable plumbing system that integrates rainwater harvesting for landscape irrigation and low-flow fixtures to minimize water usage.
       PEX-A piping ensured easy maintenance and a long lifespan, while smart irrigation controllers added efficiency to outdoor water use.
       The project was delivered in 6 weeks, on time and within budget, supporting the community’s green mission.`,
-    images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
   },
-
   'ocean-bay-resort': {
     label: 'Ocean Bay Resort',
     title: 'Ocean Bay Resort Plumbing Overhaul',
     description: 'Delivered a high-capacity plumbing system tailored for Ocean Bay Resort’s coastal environment and guest volume demands.',
-    image: `/images/projects/default.jpg`,
+    image: `${static_assets}/images/projects/bathroom_1.jpg`,
     location: 'Ocean Bay Resort, Clearwater, FL',
     duration: 'Completed in 7 weeks',
     materials: [
@@ -1459,13 +1452,12 @@ export const projectsData = {
       Salt-resistant fixtures and smart leak detection systems were installed to reduce corrosion and downtime.
       The system included booster pumps and pressure regulators to ensure optimal water pressure throughout the property.
       Completed in 7 weeks, the project significantly improved performance and reduced maintenance for the resort’s operations.`,
-    images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
   },
   'community-center-bathrooms': {
     label: 'Community Center Bathrooms',
     title: 'Community Center Bathrooms Revamp',
     description: 'Upgraded all restroom plumbing and fixtures at the Community Center to meet accessibility, hygiene, and water-efficiency standards.',
-    image: `/images/projects/default.jpg`,
+    image: `${static_assets}/images/projects/restrooms.jpg`,
     location: 'Community Center, Orlando, FL',
     duration: 'Completed in 3 weeks',
     materials: [
@@ -1485,13 +1477,12 @@ export const projectsData = {
       Our team removed the old systems and installed water-saving fixtures with motion sensors for improved hygiene.
       We upgraded the drainage and supply lines and ensured all installations complied with accessibility and local code standards.
       The project was completed in just 3 weeks, transforming the bathrooms into user-friendly and efficient spaces for all visitors.`,
-    images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
   },
   'eco-homes-plumbing': {
     label: 'Eco Homes Plumbing',
     title: 'Eco Homes Sustainable Plumbing Installation',
     description: 'Implemented a full eco-conscious plumbing system for Eco Homes, prioritizing water conservation and energy efficiency.',
-    image: `/images/projects/default.jpg`,
+    image: `${static_assets}/images/projects/eco_homes.jpg`,
     location: 'Eco Homes, Austin, TX',
     duration: 'Completed in 5 weeks',
     materials: [
@@ -1512,13 +1503,12 @@ export const projectsData = {
       Rainwater collection and greywater recycling systems were connected for landscape use and non-potable applications.
       All fixtures were chosen for water efficiency, and smart leak sensors were added to ensure long-term savings and safety.
       The project was successfully delivered in 5 weeks.`,
-    images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
   },
   'harbor-plaza-refit': {
     label: 'Harbor Plaza Refit',
     title: 'Harbor Plaza Commercial Plumbing Refit',
     description: 'Performed a full-scale plumbing refit for Harbor Plaza to upgrade outdated infrastructure and meet modern commercial standards.',
-    image: `/images/projects/default.jpg`,
+    image: `${static_assets}/images/projects/plumbing_works.jpg`,
     location: 'Harbor Plaza, San Diego, CA',
     duration: 'Completed in 6 weeks',
     materials: [
@@ -1538,21 +1528,23 @@ export const projectsData = {
       We replaced old piping with copper Type L pipes, added ADA-compliant fixtures, and installed new water heaters suitable for large commercial loads.
       Specialized grease traps were added for the food court, and sump pumps improved drainage in low-lying sections.
       Smart monitoring systems and backflow preventers enhanced safety and efficiency, all completed within 6 weeks with minimal disruption to businesses.`,
-    images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
   },
 
 }
 
 export const projectsImageGallery = [
-  '/projects/costal.jpg',
-  '/projects/buildings.jpg',
-  '/projects/condos.jpg',
-  '/projects/mall.jpg',
-  '/projects/luxry.jpg',
-  '/projects/lake-view.jpg',
-  '/projects/ocean-breeze.jpg',
-  '/projects/measueam.jpg',
-  '/services/metal.jpg',
+  `${static_assets}/images/projects/bath2.jpg`,
+  `${static_assets}/images/projects/bathroom_1.jpg`,
+  `${static_assets}/images/projects/eco_homes.jpg`,
+  `${static_assets}/images/projects/kitchen_plumbing.jpg`,
+  `${static_assets}/images/projects/mall_bathrooms.jpg`,
+  `${static_assets}/images/projects/office_plumbing.jpg`,
+  `${static_assets}/images/projects/plumbing_works.jpg`,
+  `${static_assets}/images/projects/restrooms.jpg`,
+  `${static_assets}/images/projects/sunrise_appartment.jpg`,
+  `${static_assets}/images/projects/villa_bathroom.jpg`,
+  `${static_assets}/images/services/toilet.jpg`,
+  `${static_assets}/images/services/facuet.jpg`,
 ];
 /* ------------------------
    TESTIMONAILS START
@@ -1562,72 +1554,60 @@ export const testimonialsData = [
     name: "Elizabet Keen",
     role: "Homeowner | Florida",
     feedback: "Total Care Plumbing fixed all our bathroom leaks and upgraded our fixtures flawlessly. Very professional team!",
-    image: "/images/testimonials/default.jpg",
   },
   {
     name: "Sarah Smith",
     role: "Property Manager",
     feedback: "They completely re-piped our entire apartment building without delays. Efficient and easy to work with.",
-    image: "/images/testimonials/default.jpg",
   },
   {
     name: "David Brown",
     role: "Architect | Florida",
     feedback: "High-quality plumbing installations that matched our luxury design specs. Very impressed!",
-    image: "/images/testimonials/default.jpg",
   },
   {
     name: "Emily Johnson",
     role: "Business Owner",
     feedback: "Fast response on a clogged drain emergency. Saved our business day with their quick service!",
-    image: "/images/testimonials/default.jpg",
   },
   {
     name: "Michael Carter",
     role: "Real Estate Developer | Florida",
     feedback: "Their plumbing work is always reliable and code-compliant. A trusted partner for our developments.",
-    image: "/images/testimonials/default.jpg",
   },
   {
     name: "Olivia Wilson",
     role: "Interior Designer",
     feedback: "Loved how they installed modern kitchen fixtures without damaging our new cabinetry. Very careful and skilled!",
-    image: "/images/testimonials/default.jpg",
   },
   {
     name: "James Anderson",
     role: "Hotel Manager | Florida",
     feedback: "Total Care Plumbing upgraded all guest room bathrooms efficiently. Clean work and minimal downtime.",
-    image: "/images/testimonials/default.jpg",
   },
   {
     name: "Sophia Martinez",
     role: "Homeowner | Florida",
     feedback: "We had multiple plumbing issues, and they fixed everything in one visit. Super organized team!",
-    image: "/images/testimonials/default.jpg",
   },
   {
     name: "Robert Lee",
     role: "Construction Contractor | Florida",
     feedback: "On every job site, they deliver solid plumbing work and smooth coordination. My go-to team.",
-    image: "/images/testimonials/default.jpg",
   },
   {
     name: "Isabella Taylor",
     role: "Retail Owner",
     feedback: "Had a burst pipe over the weekend—these guys were here fast and handled it like pros.",
-    image: "/images/testimonials/default.jpg",
   },
   {
     name: "William Harris",
     role: "Commercial Property Owner | Florida",
     feedback: "They modernized our entire plumbing system and improved water efficiency. Great investment.",
-    image: "/images/testimonials/default.jpg",
   },
   {
     name: "Emma Robinson",
     role: "Home Renovator | Florida",
     feedback: "They’re excellent at integrating plumbing into remodeling projects without delays or surprises.",
-    image: "/images/testimonials/default.jpg",
   }
 ];

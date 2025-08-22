@@ -49,7 +49,7 @@ const Page = () => {
                     <div className="embla__container flex gap-1">
                         {firstHalf.map(([slug, i], z) => (
                             <div className="text-white cursor-pointer flex-[0_0_100%] sm:flex-[0_0_75%] md:flex-[0_0_50%] lg:flex-[0_0_25%]" key={slug}>
-                                <div className="h-[500px] relative group flex flex-col p-10  hover:bg-black/90 transition-all bg-black/70 overflow-hidden">
+                                <div className="h-[500px] relative group flex flex-col p-10  hover:bg-black/50 transition-all bg-black/20 overflow-hidden">
                                     <p className="text-3xl font-bold">{z + 1}.</p>
                                     <div className="mt-auto flex flex-col gap-4">
                                         <h3 className="!text-2xl font-semibold">{i.title}</h3>

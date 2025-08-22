@@ -6,6 +6,7 @@ import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } f
    CONSTANTS 
 ------------------------ */
 
+export const static_assets = '/elec'
 export const siteUrl = 'https://totalcareserviceselectrical.com/'
 export const siteName = 'Total Care Electrical'
 export const siteLogo = `/images/logo.png`

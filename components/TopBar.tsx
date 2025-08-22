@@ -9,9 +9,9 @@ const TopBar = () => {
       <div className="hidden sm:flex items-center gap-2 ml-auto">
         <span className="font-semibold">License #:</span>
         <span className="font-bold">CCC1336268</span>
-        <span className=" text-gray-300">(Roofing)</span>,
+        <span className=" ">(Roofing)</span>,
         <span className="font-bold">CGC1535671</span>
-        <span className=" text-gray-300">(General Contractor)</span>
+        <span className=" ">(General Contractor)</span>
       </div>
 
       <div className="flex items-center gap-2">
