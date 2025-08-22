@@ -6,9 +6,10 @@ import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } f
    CONSTANTS 
 ------------------------ */
 
+export const static_assets = '/kitchens'
 export const siteUrl = 'https://totalcareserviceskitchens.com/';
 export const siteName = 'Total Care Kitchens';
-export const siteLogo = `/images/logo.png`;
+export const siteLogo = `${static_assets}/images/logo.png`;
 export const googleAnalyticId = 'G-ZV55L3X98B';
 export const bussinessType = ["LocalBusiness", "HomeAndConstructionBusiness"]
 
@@ -40,13 +41,13 @@ export const landingPage = {
     seo: {
         title: 'Total Care Kitchens',
         description: 'Expert kitchen renovation and installation services. From sleek upgrades to complete transformations — we bring beauty, function, and lasting value to your home.',
-        ogImage: `/images/hero_bg_1.jpg`,
+        ogImage: `${static_assets}/images/hero_bg_1.jpg`,
         canonical: siteUrl,
     },
     hero: {
         title: 'Transform Your Kitchen with Total Care',
         description: 'We specialize in elegant, efficient, and high-quality kitchen renovations tailored to your lifestyle and space.',
-        backgroundImage: '/images/hero_bg_1.jpg',
+        backgroundImage: `${static_assets}/images/hero_bg_1.jpg`,
         ctaText: 'Get a Free Quote',
         ctaLink: '/contact',
     },
@@ -62,7 +63,7 @@ export const servicesPage = {
     seo: {
         title: 'Kitchen Renovation Services',
         description: 'Explore our range of kitchen services including design, remodeling, cabinetry, countertops, and full kitchen makeovers.',
-        ogImage: `/images/services/default.jpg`,
+        ogImage: `${static_assets}/images/services/kitchen_reno.jpg`,
         canonical: siteUrl + 'services',
     },
 }
@@ -71,7 +72,7 @@ export const projectsPage = {
     seo: {
         title: 'Kitchen Renovation Projects',
         description: 'Take a look at our completed kitchen remodels — stylish, practical, and built to inspire.',
-        ogImage: `/images/projects/default.jpg`,
+        ogImage: `${static_assets}/images/services/kitchen_reno.jpg`,
         canonical: siteUrl + 'projects',
     },
 }
@@ -80,7 +81,7 @@ export const aboutPage = {
     seo: {
         title: 'About Total Care Kitchens',
         description: 'Learn about Total Care Kitchens and how we create stunning, stress-free kitchen renovations with expert craftsmanship.',
-        ogImage: `/images/hero_bg_1.jpg`,
+        ogImage: `${static_assets}/images/hero_bg_1.jpg`,
         canonical: siteUrl + 'about',
     },
     content: 'Total Care Kitchens is your go-to team for expert kitchen renovations. From concept to completion, we deliver custom designs, premium finishes, and seamless service to elevate your home’s heart.',
@@ -90,7 +91,7 @@ export const contactPage = {
     seo: {
         title: 'Contact Total Care Kitchens',
         description: 'Ready to upgrade your kitchen? Contact Total Care Kitchens to start planning your perfect space.',
-        ogImage: `/images/hero_bg_1.jpg`,
+        ogImage: `${static_assets}/images/hero_bg_1.jpg`,
         canonical: siteUrl + 'contact',
     },
     form: {
@@ -103,7 +104,7 @@ export const blogPage = {
     seo: {
         title: 'Kitchen Design Tips & Renovation Ideas',
         description: 'Get inspired with expert tips on kitchen trends, layout advice, maintenance tips, and more.',
-        ogImage: `/images/hero_bg_1.jpg`,
+        ogImage: `${static_assets}/images/hero_bg_1.jpg`,
         canonical: siteUrl + 'blogs',
     },
 }
@@ -112,7 +113,7 @@ export const serviceAreaPage = {
     seo: {
         title: 'Kitchen Renovation Services Near You',
         description: 'Proudly serving homeowners across your region with innovative kitchen design and remodeling services.',
-        ogImage: `/images/hero_bg_1.jpg`,
+        ogImage: `${static_assets}/images/hero_bg_1.jpg`,
         canonical: siteUrl + 'service-areas',
     }
 }
@@ -138,10 +139,11 @@ export const getToKnow = {
             desc: 'We prioritize tidiness and efficiency, completing your renovation with minimal mess and maximum care.',
         },
     ],
-    image1_url: '/images/hero_bg_1.jpg',
-    image2_url: '/images/hero_bg_1.jpg',
-    image3_url: '/images/hero_bg_1.jpg',
-    image4_url: '/images/hero_bg_1.jpg',
+    image1_url: `${static_assets}/images/projects/condo_kitchen.jpg`,
+    image2_url: `${static_assets}/images/services/kitchen_lights.jpg`,
+    image3_url: `${static_assets}/images/services/smart_kitchen.jpg`,
+    image4_url: `${static_assets}/images/services/kitchen_reno.jpg`,
+    
 };
 
 export const faqs = [
@@ -333,7 +335,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Miami, FL",
         description: "Modern kitchen remodeling in Miami, FL. Custom cabinets, countertops, and efficient layouts.",
         content: "Total Care Kitchens transforms Miami kitchens with sleek designs, functional storage, and premium materials for lasting value.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "Orlando",
@@ -341,7 +343,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Orlando, FL",
         description: "Orlando's trusted kitchen renovation experts. Elegant designs, expert craftsmanship, and on-time delivery.",
         content: "In Orlando, Total Care Kitchens delivers stylish kitchen upgrades with attention to space optimization, lighting, and durable finishes.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "Tampa",
@@ -349,7 +351,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Tampa, FL",
         description: "Tailored kitchen makeovers in Tampa, FL. From luxury islands to smart storage — we’ve got you covered.",
         content: "We help Tampa homeowners upgrade kitchens with creative layouts, quality cabinetry, and finishes that suit your lifestyle.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "Jacksonville",
@@ -357,7 +359,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Jacksonville, FL",
         description: "Elegant and functional kitchen renovations in Jacksonville, FL. Expertly crafted with your needs in mind.",
         content: "Total Care Kitchens brings modern kitchen transformations to Jacksonville with seamless planning and top-tier execution.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "Fort Lauderdale",
@@ -365,7 +367,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Fort Lauderdale, FL",
         description: "Upscale kitchen remodeling in Fort Lauderdale, FL. Premium finishes, custom solutions.",
         content: "We design and build dream kitchens in Fort Lauderdale with luxury detailing, efficient workflows, and timeless aesthetics.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "St. Petersburg",
@@ -373,7 +375,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in St. Petersburg, FL",
         description: "Creative kitchen remodeling in St. Pete, FL. Designed for beauty, built for function.",
         content: "From compact kitchens to open-concept spaces, Total Care Kitchens serves St. Petersburg with innovation and reliability.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "Cape Coral",
@@ -381,7 +383,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Cape Coral, FL",
         description: "Cape Coral’s go-to for kitchen makeovers. Clean lines, bold styles, and practical designs.",
         content: "We create kitchens that suit Cape Coral living — bright, functional, and crafted with lasting quality in mind.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "Hialeah",
@@ -389,7 +391,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Hialeah, FL",
         description: "Affordable kitchen upgrades in Hialeah, FL. Designed for comfort, priced for value.",
         content: "Total Care Kitchens helps Hialeah homeowners modernize their kitchens with smart planning and dependable execution.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "Gainesville",
@@ -397,7 +399,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Gainesville, FL",
         description: "Full-service kitchen remodeling in Gainesville. Quality work, modern finishes.",
         content: "We revamp Gainesville kitchens with a focus on open layouts, storage efficiency, and elegant finishes.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "Naples",
@@ -405,7 +407,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Naples, FL",
         description: "Luxury kitchen remodeling in Naples, FL. Coastal elegance, top-tier materials.",
         content: "Naples clients trust Total Care Kitchens for bespoke kitchens with sophisticated style and thoughtful design.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "Pensacola",
@@ -413,7 +415,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Pensacola, FL",
         description: "Expert kitchen remodeling in Pensacola. Durable builds, efficient layouts, modern appeal.",
         content: "We upgrade Pensacola homes with kitchens that combine utility and style, built to suit your daily life.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "West Palm Beach",
@@ -421,7 +423,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in West Palm Beach, FL",
         description: "Premium kitchen remodeling in West Palm Beach. Beauty meets functionality.",
         content: "Our team brings expert kitchen transformations to West Palm Beach with timeless elegance and modern technology.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "Lakeland",
@@ -429,7 +431,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Lakeland, FL",
         description: "Lakeland’s trusted team for kitchen remodels. On-time, on-budget, on-trend.",
         content: "Total Care Kitchens delivers high-impact kitchen upgrades in Lakeland with precision and flair.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "Ocala",
@@ -437,7 +439,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Ocala, FL",
         description: "Quality kitchen remodels in Ocala, FL. Function-forward and style-conscious designs.",
         content: "We serve Ocala homeowners with smart kitchen planning and high-end finishes for long-term satisfaction.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "Bradenton",
@@ -445,7 +447,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Bradenton, FL",
         description: "Bradenton’s go-to for stunning kitchen transformations. Designed to impress.",
         content: "Our kitchen remodeling in Bradenton blends practicality and style with high attention to detail.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "Fort Myers",
@@ -453,7 +455,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Fort Myers, FL",
         description: "Kitchen makeovers in Fort Myers, FL. Built around your lifestyle and aesthetic.",
         content: "We help Fort Myers homeowners create dream kitchens with clean lines, clever layouts, and premium materials.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "Hollywood",
@@ -461,7 +463,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Hollywood, FL",
         description: "Modern kitchen design and renovation in Hollywood, FL. Practical, polished, and personal.",
         content: "Hollywood homes shine with our expertly crafted kitchens, custom cabinetry, and elegant finishes.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
         name: "Boca Raton",
@@ -469,7 +471,7 @@ export const serviceAreasData = [
         title: "Kitchen Renovation Services in Boca Raton, FL",
         description: "Upscale kitchen remodeling in Boca Raton, FL. Refined details, elevated design.",
         content: "Boca Raton clients choose Total Care Kitchens for luxurious kitchens that blend timeless appeal with smart functionality.",
-        image: "/images/areaofservices/default.jpg"
+        image: `${static_assets}/images/hero_bg_1.jpg`
     }
 ];
 
@@ -484,7 +486,7 @@ export const servicesData = {
         title: 'Complete Kitchen Renovation Services by Total Care Kitchens',
         description: 'Revamp your entire kitchen with our end-to-end renovation services. From planning to installation, we create modern, efficient, and beautiful kitchen spaces.',
         content: `A full kitchen renovation is the key to elevating your home’s value and your cooking experience. At Total Care Kitchens, we turn outdated kitchens into inspiring spaces that blend style and practicality. It all starts with an in-depth consultation to understand your needs, preferences, and budget. Our expert team then handles everything—from designing layouts and selecting finishes to managing demolition, cabinetry, countertops, plumbing, lighting, and appliances. Every element is managed with precision and care. Whether you’re after a sleek contemporary kitchen or a warm traditional design, we bring your dream kitchen to life with minimal disruption and maximum quality.`,
-        image: '/images/services/default.jpg',
+        image: `${static_assets}/images/services/kitchen_reno.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
             types: [
@@ -548,14 +550,13 @@ export const servicesData = {
                 answer: "Yes, Total Care Kitchens is fully licensed and insured for your peace of mind."
             }
         ],
-        images: ['/services/default.jpg', '/services/default.jpg']
     },
     'cabinet-refacing-installation': {
         label: 'Cabinet Refacing & Installation',
-        title: 'Bathroom Cabinet Refacing & Installation',
-        description: 'Refresh your bathroom with stylish new cabinets or reface existing ones for a cost-effective upgrade. We offer expert installation and premium materials.',
-        content: `Upgrading your bathroom cabinetry can dramatically enhance both the appearance and storage functionality of your space. At Total Care Bathrooms, we specialize in professional cabinet refacing and new installations that reflect your style and optimize your bathroom layout. Refacing gives your existing cabinets a fresh, modern look by replacing doors, drawer fronts, and hardware — a budget-friendly option that doesn’t sacrifice quality. Alternatively, we can install brand-new custom cabinetry built to fit your needs. With a wide range of finishes, colors, and styles, we ensure your cabinetry matches your bathroom’s aesthetic and stands the test of time.`,
-        image: '/images/services/default.jpg',
+        title: 'kitchen Cabinet Refacing & Installation',
+        description: 'Refresh your kitchen with stylish new cabinets or reface existing ones for a cost-effective upgrade. We offer expert installation and premium materials.',
+        content: `Upgrading your kitchen cabinetry can dramatically enhance both the appearance and storage functionality of your space. At Total Care kitchens, we specialize in professional cabinet refacing and new installations that reflect your style and optimize your kitchen layout. Refacing gives your existing cabinets a fresh, modern look by replacing doors, drawer fronts, and hardware — a budget-friendly option that doesn’t sacrifice quality. Alternatively, we can install brand-new custom cabinetry built to fit your needs. With a wide range of finishes, colors, and styles, we ensure your cabinetry matches your kitchen’s aesthetic and stands the test of time.`,
+        image: `${static_assets}/images/services/kitchen_cabinet.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
             types: [
@@ -578,11 +579,11 @@ export const servicesData = {
             },
             {
                 title: 'Custom Installations',
-                description: 'We offer tailored cabinet solutions that fit your bathroom’s size and layout perfectly.'
+                description: 'We offer tailored cabinet solutions that fit your kitchen’s size and layout perfectly.'
             },
             {
                 title: 'High-Quality Materials',
-                description: 'Our cabinets are made from durable, water-resistant materials designed for bathroom environments.'
+                description: 'Our cabinets are made from durable, water-resistant materials designed for kitchen environments.'
             },
             {
                 title: 'Efficient Turnaround',
@@ -590,7 +591,7 @@ export const servicesData = {
             },
             {
                 title: 'Design Assistance',
-                description: 'Our team helps you choose styles, colors, and finishes that elevate your bathroom’s look.'
+                description: 'Our team helps you choose styles, colors, and finishes that elevate your kitchen’s look.'
             },
             {
                 title: 'Skilled Craftsmanship',
@@ -604,7 +605,7 @@ export const servicesData = {
             },
             {
                 question: "How long does cabinet refacing take?",
-                answer: "Most refacing jobs are completed within 2–3 days, depending on the bathroom size."
+                answer: "Most refacing jobs are completed within 2–3 days, depending on the kitchen size."
             },
             {
                 question: "Do you offer custom cabinet installation?",
@@ -612,21 +613,20 @@ export const servicesData = {
             },
             {
                 question: "What materials do you use for cabinets?",
-                answer: "We use moisture-resistant wood, MDF, and laminate options suitable for bathroom conditions."
+                answer: "We use moisture-resistant wood, MDF, and laminate options suitable for kitchen conditions."
             },
             {
                 question: "Can I choose cabinet colors and finishes?",
-                answer: "Absolutely — we offer a wide range of colors, textures, and finishes to match your bathroom style."
+                answer: "Absolutely — we offer a wide range of colors, textures, and finishes to match your kitchen style."
             }
         ],
-        images: ['/services/default.jpg', '/services/default.jpg']
     },
     'countertops-surfaces': {
         label: 'Countertops & Surfaces',
-        title: 'Premium Bathroom Countertops & Surfaces',
-        description: 'Upgrade your bathroom with stunning countertops and surface materials that combine durability, elegance, and easy maintenance.',
-        content: `Your bathroom surfaces set the tone for the entire space — combining form and function in one cohesive design. We provide expert installation of high-quality countertops and surfaces tailored to suit your style and practical needs. Choose from quartz, granite, marble, solid surface, or engineered stone options, each offering unique textures, durability, and aesthetic appeal. Whether you're modernizing a vanity top or refreshing an entire surface layout, our team ensures seamless installation with a flawless finish.`,
-        image: '/images/services/default.jpg',
+        title: 'Premium kitchen Countertops & Surfaces',
+        description: 'Upgrade your kitchen with stunning countertops and surface materials that combine durability, elegance, and easy maintenance.',
+        content: `Your kitchen surfaces set the tone for the entire space — combining form and function in one cohesive design. We provide expert installation of high-quality countertops and surfaces tailored to suit your style and practical needs. Choose from quartz, granite, marble, solid surface, or engineered stone options, each offering unique textures, durability, and aesthetic appeal. Whether you're modernizing a vanity top or refreshing an entire surface layout, our team ensures seamless installation with a flawless finish.`,
+        image: `${static_assets}/images/services/counter_top.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
             types: [
@@ -645,7 +645,7 @@ export const servicesData = {
         benefitsOFChoosing: [
             {
                 title: 'Elegant Material Selection',
-                description: 'Choose from a curated range of premium surfaces to enhance your bathroom’s look.'
+                description: 'Choose from a curated range of premium surfaces to enhance your kitchen’s look.'
             },
             {
                 title: 'Expert Craftsmanship',
@@ -657,7 +657,7 @@ export const servicesData = {
             },
             {
                 title: 'Custom Fit & Finish',
-                description: 'Every surface is measured and fabricated precisely to your bathroom’s layout.'
+                description: 'Every surface is measured and fabricated precisely to your kitchen’s layout.'
             },
             {
                 title: 'Fast & Clean Installation',
@@ -670,7 +670,7 @@ export const servicesData = {
         ],
         faqs: [
             {
-                question: "Which surface material is best for bathroom countertops?",
+                question: "Which surface material is best for kitchen countertops?",
                 answer: "Quartz is popular for its durability and low maintenance, but granite and solid surface options are also excellent."
             },
             {
@@ -690,13 +690,14 @@ export const servicesData = {
                 answer: "Yes, we seal natural stone and recommend maintenance tips to extend surface longevity."
             }
         ],
-        images: ['/services/default.jpg', '/services/default.jpg']
-    }, 'kitchen-tiling-backsplash': {
+        images: [`${static_assets}/images/services/counter_top.jpg`]
+    }, 
+    'kitchen-tiling-backsplash': {
         label: 'Kitchen Tiling & Backsplash',
         title: 'Expert Kitchen Tiling & Backsplash Installation',
         description: 'Enhance the visual appeal and functionality of your kitchen with expertly installed tiles and backsplashes tailored to your style.',
-        content: `At Total Care Bathrooms, we extend our craftsmanship beyond bathrooms to deliver exceptional kitchen tiling and backsplash services. Whether you're looking for a sleek modern subway tile or a bold patterned mosaic, our team brings precision and creativity to every project. We help you select the ideal materials and patterns to complement your kitchen's design, and we ensure each tile is installed with meticulous attention to detail. A professionally installed backsplash not only elevates your kitchen’s aesthetics but also protects your walls from spills and splatters — combining beauty with practicality.`,
-        image: '/images/services/default.jpg',
+        content: `At Total Care kitchens, we extend our craftsmanship beyond kitchens to deliver exceptional kitchen tiling and backsplash services. Whether you're looking for a sleek modern subway tile or a bold patterned mosaic, our team brings precision and creativity to every project. We help you select the ideal materials and patterns to complement your kitchen's design, and we ensure each tile is installed with meticulous attention to detail. A professionally installed backsplash not only elevates your kitchen’s aesthetics but also protects your walls from spills and splatters — combining beauty with practicality.`,
+        image: `${static_assets}/images/services/kitchen_tiling.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
             types: [
@@ -760,14 +761,13 @@ export const servicesData = {
                 answer: "Yes, we seal grout lines to prevent staining and ensure long-lasting results."
             }
         ],
-        images: ['/services/default.jpg', '/services/default.jpg']
     },
     'kitchen-plumbing': {
         label: 'Plumbing & Sink Install',
         title: 'Professional Kitchen Plumbing & Sink Installation Services',
         description: 'Ensure flawless water flow and efficient drainage with expert kitchen plumbing and sink installation tailored to your kitchen layout.',
-        content: `Total Care Bathrooms brings the same trusted expertise in plumbing to your kitchen renovations. Whether you’re replacing an old sink or reconfiguring your entire kitchen layout, our licensed professionals handle every detail with precision. We install and connect sinks, faucets, garbage disposals, and dishwashers while ensuring your plumbing system is leak-free and compliant with local codes. From basic hook-ups to complete re-routing of water lines, we prioritize functionality, cleanliness, and longevity in every installation.`,
-        image: '/images/services/default.jpg',
+        content: `Total Care kitchens brings the same trusted expertise in plumbing to your kitchen renovations. Whether you’re replacing an old sink or reconfiguring your entire kitchen layout, our licensed professionals handle every detail with precision. We install and connect sinks, faucets, garbage disposals, and dishwashers while ensuring your plumbing system is leak-free and compliant with local codes. From basic hook-ups to complete re-routing of water lines, we prioritize functionality, cleanliness, and longevity in every installation.`,
+        image: `${static_assets}/images/services/sink_installation.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
             types: [
@@ -831,14 +831,13 @@ export const servicesData = {
                 answer: "We sure can. We’re experienced with modern plumbing fixtures and smart kitchen upgrades."
             }
         ],
-        images: ['/services/default.jpg', '/services/default.jpg']
     },
     'lighting-appliances': {
         label: 'Lighting & Appliances',
         title: 'Kitchen Lighting and Appliance Installation Services',
         description: 'Illuminate your kitchen and streamline your cooking experience with expert lighting design and appliance setup services.',
-        content: `At Total Care Bathrooms, we understand that a well-lit, well-equipped kitchen is the heart of every home. That’s why we offer professional lighting and appliance installation services tailored to both style and function. Whether you’re upgrading to energy-efficient LED fixtures or installing built-in ovens, range hoods, or smart fridges, our team ensures safe and seamless integration. We also help design optimal lighting layouts—from task lighting under cabinets to ambient ceiling lights—so your kitchen not only works better, it looks amazing too.`,
-        image: '/images/services/default.jpg',
+        content: `At Total Care kitchens, we understand that a well-lit, well-equipped kitchen is the heart of every home. That’s why we offer professional lighting and appliance installation services tailored to both style and function. Whether you’re upgrading to energy-efficient LED fixtures or installing built-in ovens, range hoods, or smart fridges, our team ensures safe and seamless integration. We also help design optimal lighting layouts—from task lighting under cabinets to ambient ceiling lights—so your kitchen not only works better, it looks amazing too.`,
+        image: `${static_assets}/images/services/kitchen_lights.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
             types: [
@@ -902,14 +901,14 @@ export const servicesData = {
                 answer: "No problem—our licensed electricians can safely upgrade your wiring to support modern kitchen demands."
             }
         ],
-        images: ['/services/default.jpg', '/services/default.jpg']
+        images: []
     },
     'custom-pantries': {
         label: 'Custom Pantries',
         title: 'Tailored Kitchen Pantry Design & Installation Services',
         description: 'Maximize storage and organization with custom-built pantries designed to suit your kitchen layout and lifestyle.',
-        content: `Total Care Bathrooms offers personalized pantry solutions that bring order and elegance to your kitchen. Whether you need a walk-in pantry, pull-out shelves, or built-in cabinetry, our team designs and installs efficient storage systems tailored to your needs. We combine high-quality materials with clever design to create functional, clutter-free spaces. From dry goods to cookware, everything will have its place — all while matching your kitchen's style and flow.`,
-        image: '/images/services/default.jpg',
+        content: `Total Care kitchens offers personalized pantry solutions that bring order and elegance to your kitchen. Whether you need a walk-in pantry, pull-out shelves, or built-in cabinetry, our team designs and installs efficient storage systems tailored to your needs. We combine high-quality materials with clever design to create functional, clutter-free spaces. From dry goods to cookware, everything will have its place — all while matching your kitchen's style and flow.`,
+        image: `${static_assets}/images/services/pantry.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
             types: [
@@ -973,15 +972,15 @@ export const servicesData = {
                 answer: "Yes, we can include pull-outs, dividers, baskets, and even custom labeling for a fully organized setup."
             }
         ],
-        images: ['/services/default.jpg', '/services/default.jpg']
+        images: []
     }
     ,
     'smart-kitchens': {
         label: 'Smart Kitchen Solutions',
         title: 'Innovative Smart Kitchen Upgrades for Modern Living',
         description: 'Upgrade your kitchen with cutting-edge technology that enhances convenience, efficiency, and style.',
-        content: `At Total Care Bathrooms, we bring your kitchen into the future with smart technology that makes daily life easier and more enjoyable. From voice-controlled lighting and smart faucets to connected appliances and motion-sensing features, we design and install intelligent systems tailored to your needs. Our team helps you select the right tech solutions and ensures seamless integration with your existing kitchen design. With our smart kitchen services, your space becomes more functional, energy-efficient, and tailored to the pace of your life.`,
-        image: '/images/services/default.jpg',
+        content: `At Total Care kitchens, we bring your kitchen into the future with smart technology that makes daily life easier and more enjoyable. From voice-controlled lighting and smart faucets to connected appliances and motion-sensing features, we design and install intelligent systems tailored to your needs. Our team helps you select the right tech solutions and ensures seamless integration with your existing kitchen design. With our smart kitchen services, your space becomes more functional, energy-efficient, and tailored to the pace of your life.`,
+        image: `${static_assets}/images/services/smart_kitchen.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
             types: [
@@ -1045,14 +1044,14 @@ export const servicesData = {
                 answer: "Our solutions are fully customizable. You can pick only the smart features that suit your lifestyle."
             }
         ],
-        images: ['/services/default.jpg', '/services/default.jpg']
+        images: []
     },
     'eco-kitchen': {
         label: 'Eco-Friendly Kitchens',
         title: 'Sustainable Kitchen Renovations for a Greener Home',
         description: 'Design a stylish kitchen that’s kind to the planet with our eco-conscious materials and energy-saving solutions.',
-        content: `At Total Care Bathrooms, we believe that luxury and sustainability can go hand in hand. Our eco-friendly kitchen renovations focus on reducing environmental impact without compromising on function or design. We use responsibly sourced materials, install energy-efficient appliances, and incorporate water-saving features. From bamboo cabinetry to LED lighting and low-VOC finishes, every detail is chosen to support a greener future. Whether you want a fully sustainable kitchen or a few green upgrades, we’ll help you build a space that’s better for you and the planet.`,
-        image: '/images/services/default.jpg',
+        content: `At Total Care kitchens, we believe that luxury and sustainability can go hand in hand. Our eco-friendly kitchen renovations focus on reducing environmental impact without compromising on function or design. We use responsibly sourced materials, install energy-efficient appliances, and incorporate water-saving features. From bamboo cabinetry to LED lighting and low-VOC finishes, every detail is chosen to support a greener future. Whether you want a fully sustainable kitchen or a few green upgrades, we’ll help you build a space that’s better for you and the planet.`,
+        image: `${static_assets}/images/services/eco_kitchen.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
             types: [
@@ -1116,7 +1115,7 @@ export const servicesData = {
                 answer: "Yes! We provide guidance tailored to your budget, lifestyle, and environmental goals."
             }
         ],
-        images: ['/services/default.jpg', '/services/default.jpg']
+        images: []
     }
 
 
@@ -1134,7 +1133,7 @@ export const projectsData = {
         label: "Modern Open Kitchen",
         title: "Contemporary Open Concept Kitchen Remodel",
         description: "A sleek and functional open-concept kitchen designed for seamless entertaining and everyday living, blending modern aesthetics with smart utility.",
-        image: "/images/projects/default.jpg",
+        image: `${static_assets}/images/projects/open_kitchen.jpg`,
         location: "Urban Apartment, Orlando, FL",
         duration: "Completed in 5 weeks",
         materials: [
@@ -1152,22 +1151,16 @@ export const projectsData = {
         content: `
   This kitchen renovation was all about transforming a closed-off layout into a modern, open-concept space that flows effortlessly into the living and dining areas. The homeowners wanted a clean, bright aesthetic that didn’t sacrifice function — and that’s exactly what we delivered.
   
-  At Total Care Bathrooms, we opened up the layout by removing partition walls and expanding the kitchen footprint. A large quartz waterfall island became the centerpiece, offering a gathering space with built-in storage and seating. The cabinetry combined matte white fronts with warm wood tones to balance the modern with the inviting. Integrated appliances kept the lines sleek, while a classic subway tile backsplash added timeless appeal.
+  At Total Care kitchens, we opened up the layout by removing partition walls and expanding the kitchen footprint. A large quartz waterfall island became the centerpiece, offering a gathering space with built-in storage and seating. The cabinetry combined matte white fronts with warm wood tones to balance the modern with the inviting. Integrated appliances kept the lines sleek, while a classic subway tile backsplash added timeless appeal.
   
   Smart features like a touchless faucet, soft-close drawers, and efficient LED lighting elevated convenience. With strategic lighting, space-saving storage, and a minimalist vibe, this open kitchen is now the heart of the home — perfect for hosting or simply enjoying daily meals in style.
   `,
-        images: [
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg"
-        ]
     },
     "farmhouse-kitchen": {
         label: "Farmhouse Style Kitchen",
         title: "Charming Farmhouse Kitchen Renovation",
         description: "A warm, rustic kitchen remodel featuring classic farmhouse elements, natural materials, and cozy charm for a timeless cooking space.",
-        image: "/images/projects/default.jpg",
+        image: `${static_assets}/images/projects/farm_house_kitchen.jpg`,
         location: "Countryside Home, Winter Garden, FL",
         duration: "Completed in 6 weeks",
         materials: [
@@ -1183,24 +1176,18 @@ export const projectsData = {
             "Barn-style sliding door"
         ],
         content: `
-  This renovation brought farmhouse charm to life in a cozy countryside home. The homeowners envisioned a warm and welcoming kitchen that honored traditional design while integrating modern conveniences — and Total Care Bathrooms delivered just that.
+  This renovation brought farmhouse charm to life in a cozy countryside home. The homeowners envisioned a warm and welcoming kitchen that honored traditional design while integrating modern conveniences — and Total Care kitchens delivered just that.
   
   We used soft white shaker cabinets to create a bright foundation, paired with butcher block counters for that warm, earthy feel. A standout feature is the apron-front farmhouse sink, framed by a large window that fills the space with natural light. Bronze fixtures and wrought iron hardware added rustic contrast.
   
   Open shelving made from reclaimed wood offers both storage and character, while hand-scraped hardwood flooring and vintage lighting brought in texture and warmth. The barn-style door to the pantry completed the aesthetic. This kitchen now blends country charm with practical design — a space built for gathering, cooking, and making memories.
   `,
-        images: [
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg"
-        ]
     },
     "compact-condo-kitchen": {
         label: "Compact Condo Kitchen",
         title: "Stylish Compact Condo Kitchen Remodel",
         description: "A space-efficient kitchen transformation tailored for condo living, combining smart storage solutions, sleek finishes, and modern appliances.",
-        image: "/images/projects/default.jpg",
+        image: `${static_assets}/images/projects/condo_kitchen.jpg`,
         location: "Downtown Condo, Orlando, FL",
         duration: "Completed in 3 weeks",
         materials: [
@@ -1218,22 +1205,16 @@ export const projectsData = {
         content: `
   This compact condo kitchen project focused on maximizing function and style in a limited footprint. The client, a busy professional living in downtown Orlando, needed a modern, low-maintenance kitchen that didn’t sacrifice aesthetics for space.
   
-  Total Care Bathrooms delivered a clean, efficient layout with high-gloss cabinets that reflect light and visually expand the space. Quartz countertops were chosen for their durability and sleek appearance. We integrated a full set of compact stainless steel appliances, including a drawer-style microwave and a space-saving range hood.
+  Total Care kitchens delivered a clean, efficient layout with high-gloss cabinets that reflect light and visually expand the space. Quartz countertops were chosen for their durability and sleek appearance. We integrated a full set of compact stainless steel appliances, including a drawer-style microwave and a space-saving range hood.
   
   Storage was key in this design. A pull-out pantry, soft-close drawers, and floating shelves offered ample organization options without cluttering the room. Glass tile backsplash and under-cabinet lighting added a touch of sophistication while maintaining a bright, airy vibe. The result is a smart, functional kitchen that feels open and contemporary despite its smaller size.
   `,
-        images: [
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg"
-        ]
     },
     "luxury-chef-kitchen": {
         label: "Luxury Chef Kitchen",
         title: "High-End Chef's Kitchen Remodel",
         description: "A gourmet kitchen transformation featuring premium appliances, custom cabinetry, and professional-grade finishes designed for passionate home chefs.",
-        image: "/images/projects/default.jpg",
+        image: `${static_assets}/images/projects/chef_kitchen.jpg`,
         location: "Estate Home, Windermere, FL",
         duration: "Completed in 6 weeks",
         materials: [
@@ -1251,22 +1232,16 @@ export const projectsData = {
         content: `
   This luxury chef kitchen was designed for a culinary enthusiast looking to blend elegance with top-tier functionality. Located in a high-end Windermere estate, the space was completely reimagined to support serious cooking while offering the sophistication expected in a luxury home.
   
-  Total Care Bathrooms collaborated closely with the homeowner to craft a gourmet kitchen equipped with premium features. A 48" commercial gas range, double wall ovens, and built-in refrigeration units were seamlessly integrated into custom walnut cabinetry. The centerpiece is a massive marble-topped island that includes a prep sink and ample seating for casual dining and entertaining.
+  Total Care kitchens collaborated closely with the homeowner to craft a gourmet kitchen equipped with premium features. A 48" commercial gas range, double wall ovens, and built-in refrigeration units were seamlessly integrated into custom walnut cabinetry. The centerpiece is a massive marble-topped island that includes a prep sink and ample seating for casual dining and entertaining.
   
   Smart kitchen controls allow for convenient appliance management, lighting adjustment, and temperature monitoring. A dedicated walk-in pantry was added, complete with built-in organization for easy access to ingredients and tools. This transformation successfully delivers a luxurious culinary workspace tailored for hosting, entertaining, and everyday inspiration.
   `,
-        images: [
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg"
-        ]
     },
     "minimalist-kitchen": {
         label: "Minimalist Kitchen Upgrade",
         title: "Streamlined Minimalist Kitchen Remodel",
         description: "A clutter-free kitchen makeover with sleek cabinetry, neutral tones, and integrated appliances to embrace the beauty of simplicity and function.",
-        image: "/images/projects/default.jpg",
+        image: `${static_assets}/images/projects/minimal.jpg`,
         location: "Urban Apartment, Orlando, FL",
         duration: "Completed in 3 weeks",
         materials: [
@@ -1284,22 +1259,16 @@ export const projectsData = {
         content: `
   This minimalist kitchen upgrade focused on creating a serene, clutter-free environment that enhances both beauty and practicality. Designed for an urban apartment in Orlando, the project emphasized clean lines, neutral palettes, and maximum space efficiency.
   
-  Total Care Bathrooms implemented flat-panel cabinetry with a sleek matte finish, eliminating handles for a smooth, unbroken aesthetic. Quartz countertops with waterfall edges added sophistication, while integrated appliances maintained the streamlined look. A large-format tile backsplash in subtle tones completed the backdrop, enhancing the overall sense of calm.
+  Total Care kitchens implemented flat-panel cabinetry with a sleek matte finish, eliminating handles for a smooth, unbroken aesthetic. Quartz countertops with waterfall edges added sophistication, while integrated appliances maintained the streamlined look. A large-format tile backsplash in subtle tones completed the backdrop, enhancing the overall sense of calm.
   
   The design incorporated intelligent storage with soft-close drawers and hidden compartments, as well as open shelving for select display pieces. LED under-lighting and touchless fixtures added modern convenience to this effortlessly elegant space.
   `,
-        images: [
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg"
-        ]
     },
     "industrial-kitchen": {
         label: "Industrial Style Kitchen",
         title: "Bold Industrial Kitchen Transformation",
         description: "A raw and edgy kitchen design featuring exposed elements, metal finishes, and rugged textures to achieve a stylish industrial aesthetic.",
-        image: "/images/projects/default.jpg",
+        image: `${static_assets}/images/projects/industrial.jpg`,
         location: "Converted Loft, Tampa, FL",
         duration: "Completed in 4 weeks",
         materials: [
@@ -1317,22 +1286,16 @@ export const projectsData = {
         content: `
   This industrial kitchen project was designed for a converted loft in Tampa, FL, embracing the raw beauty of unfinished materials and bold textures. The homeowners wanted a space that balanced utility and modern design with a strong industrial vibe.
   
-  Total Care Bathrooms executed the vision by incorporating a mix of exposed brick, reclaimed wood, and metal elements. The layout included matte black cabinetry for contrast, paired with concrete-look quartz countertops that added durability and grit. Open shelving in black steel provided both functionality and urban charm.
+  Total Care kitchens executed the vision by incorporating a mix of exposed brick, reclaimed wood, and metal elements. The layout included matte black cabinetry for contrast, paired with concrete-look quartz countertops that added durability and grit. Open shelving in black steel provided both functionality and urban charm.
   
   Stainless steel appliances and industrial lighting fixtures brought sleek contrast to the rough textures, while the wood flooring introduced warmth. Iron piping was creatively used for hanging storage, reinforcing the loft-style aesthetic. The end result is a visually striking kitchen that combines modern convenience with industrial flair.
   `,
-        images: [
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg"
-        ]
     },
     "family-kitchen": {
         label: "Family-Friendly Kitchen",
         title: "Warm and Functional Family Kitchen Makeover",
         description: "A spacious, welcoming kitchen designed to accommodate the needs of a growing family—blending style, safety, and smart organization.",
-        image: "/images/projects/default.jpg",
+        image: `${static_assets}/images/projects/family.jpg`,
         location: "Single-Family Home, Winter Garden, FL",
         duration: "Completed in 5 weeks",
         materials: [
@@ -1348,24 +1311,18 @@ export const projectsData = {
             "Warm white and natural wood tones"
         ],
         content: `
-  Designed for a busy family in Winter Garden, this kitchen makeover by Total Care Bathrooms prioritized function, safety, and a warm, inviting atmosphere. The layout was optimized for meal prep, school lunches, and family dinners—all in one flexible space.
+  Designed for a busy family in Winter Garden, this kitchen makeover by Total Care kitchens prioritized function, safety, and a warm, inviting atmosphere. The layout was optimized for meal prep, school lunches, and family dinners—all in one flexible space.
   
   We installed soft-close cabinetry and quartz countertops with rounded edges to prevent accidents. A large island became the hub of activity, offering seating, storage, and prep space. Vinyl plank flooring was chosen for its durability and easy maintenance—perfect for spills and high traffic.
   
   The kitchen features built-in pantry cabinets and smart drawer organizers to keep everything tidy and accessible. Lighting was upgraded to include task-focused fixtures, making homework, cooking, and entertaining easier. The palette—warm whites, natural wood, and gentle contrasts—makes the space feel homey and timeless. This transformation proves that style and family functionality can go hand in hand.
   `,
-        images: [
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg"
-        ]
     },
     "coastal-kitchen": {
         label: "Coastal Kitchen Remodel",
         title: "Bright and Breezy Coastal Kitchen Transformation",
         description: "A serene kitchen remodel inspired by coastal living, featuring ocean hues, natural textures, and airy design elements for a relaxed and inviting space.",
-        image: "/images/projects/default.jpg",
+        image: `${static_assets}/images/projects/costal.jpg`,
         location: "Beachside Condo, Clearwater, FL",
         duration: "Completed in 4 weeks",
         materials: [
@@ -1381,32 +1338,25 @@ export const projectsData = {
             "Soft blue and sand-tone color palette"
         ],
         content: `
-  This coastal kitchen remodel, completed in a sunny Clearwater condo, brings the charm and tranquility of the ocean indoors. Total Care Bathrooms crafted a space that reflects laid-back beach living with refined functionality.
+  This coastal kitchen remodel, completed in a sunny Clearwater condo, brings the charm and tranquility of the ocean indoors. Total Care kitchens crafted a space that reflects laid-back beach living with refined functionality.
   
   The cabinetry was upgraded to classic white shaker style, paired with soft misty blue quartz countertops that mimic the calming hues of the sea. A sea glass tile backsplash adds a pop of texture and color, complemented by brushed nickel fixtures and rattan pendant lights that bring warmth and casual elegance.
   
   Light oak hardwood flooring ties the look together, while driftwood-accented open shelving offers both display space and a coastal vibe. Integrated under-cabinet lighting ensures the kitchen remains bright and welcoming day or night. The overall palette blends soft blues, whites, and sandy neutrals—evoking a beachy, timeless charm. This transformation created a refreshing space perfect for casual meals, entertaining, or simply enjoying a morning coffee by the shore.
   `,
-        images: [
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg",
-            "/projects/default.jpg"
-        ]
     },
 
 };
 
 export const projectsImageGallery = [
-    '/projects/costal.jpg',
-    '/projects/buildings.jpg',
-    '/projects/condos.jpg',
-    '/projects/mall.jpg',
-    '/projects/luxry.jpg',
-    '/projects/lake-view.jpg',
-    '/projects/ocean-breeze.jpg',
-    '/projects/measueam.jpg',
-    '/services/metal.jpg',
+  `${static_assets}/images/projects/chef_kitchen.jpg`,
+  `${static_assets}/images/projects/condo_kitchen.jpg`,
+  `${static_assets}/images/projects/costal.jpg`,
+  `${static_assets}/images/projects/family.jpg`,
+  `${static_assets}/images/projects/farm_house_kitchen.jpg`,
+  `${static_assets}/images/projects/industrial.jpg`,
+  `${static_assets}/images/projects/minimal.jpg`,
+  `${static_assets}/images/projects/open_kitchen.jpg`,
 ];
 /* ------------------------
    TESTIMONAILS START
@@ -1418,84 +1368,72 @@ export const testimonialsData = [
         "name": "John Davis",
         "role": "Homeowner | Kitchen Remodel",
         "feedback": "Total Care Kitchens completely transformed our outdated kitchen into a modern, functional space we love spending time in. The process was seamless and stress-free!",
-        "image": "/images/testimonials/default.jpg"
     },
 
     {
         "name": "Rachel Green",
         "role": "Property Manager",
         "feedback": "They handled kitchen upgrades across several rental units. Reliable, responsive, and the new kitchens have added tremendous value to our properties.",
-        "image": "/images/testimonials/default.jpg"
     },
 
     {
         "name": "Carlos Rivera",
         "role": "Restaurant Owner",
         "feedback": "Our commercial kitchen needed a serious upgrade. Total Care Kitchens delivered a sleek, efficient layout that boosted both workflow and aesthetics.",
-        "image": "/images/testimonials/default.jpg"
     },
 
     {
         "name": "Lisa Turner",
         "role": "Interior Designer",
         "feedback": "They flawlessly integrated custom kitchen cabinetry and countertops into our design projects. Their craftsmanship elevates every space we collaborate on.",
-        "image": "/images/testimonials/default.jpg"
     },
 
     {
         "name": "Mark Johnson",
         "role": "Hotel Manager",
         "feedback": "They renovated several of our suites’ kitchenettes with zero disruption to guests. Fast, clean, and professional from start to finish.",
-        "image": "/images/testimonials/default.jpg"
     },
 
     {
         "name": "Emily Chen",
         "role": "Homeowner | Full Remodel",
         "feedback": "Our old kitchen was cramped and dated. Total Care Kitchens opened up the space beautifully — it now feels like the heart of our home.",
-        "image": "/images/testimonials/default.jpg"
     },
 
     {
         "name": "David Kim",
         "role": "Real Estate Developer",
         "feedback": "They’ve remodeled kitchens across multiple properties for us. Always on time, on budget, and with finishes that wow potential buyers.",
-        "image": "/images/testimonials/default.jpg"
     },
 
     {
         "name": "Sophia Allen",
         "role": "Café Owner",
         "feedback": "The kitchen renovation they did for our café completely changed how we operate. More efficient, stylish, and customers love the new vibe.",
-        "image": "/images/testimonials/default.jpg"
     },
 
     {
         "name": "Nathan Scott",
         "role": "Construction Project Manager",
         "feedback": "Their team coordinated perfectly with our build schedule. The kitchens they installed in our high-rise development look incredible and function flawlessly.",
-        "image": "/images/testimonials/default.jpg"
     },
 
     {
         "name": "Olivia Perez",
         "role": "Retail Store Owner | Kitchenette",
         "feedback": "We needed a small staff kitchen refresh. Total Care Kitchens delivered smart storage solutions and a polished finish that exceeded expectations.",
-        "image": "/images/testimonials/default.jpg"
     },
 
     {
         "name": "Jason Brooks",
         "role": "Commercial Building Owner",
         "feedback": "They upgraded the communal kitchen areas in our offices with energy-efficient appliances and modern design. Our tenants couldn’t be happier.",
-        "image": "/images/testimonials/default.jpg"
     },
 
     {
         "name": "Mia Thompson",
         "role": "Home Renovator | Kitchen",
         "feedback": "Their attention to detail with cabinetry and countertops was exactly what I needed for my renovation project. Highly recommend their team!",
-        "image": "/images/testimonials/default.jpg"
     }
 
 ];

@@ -67,6 +67,10 @@ export default async function Page({ params }: Props) {
     "url": `${siteUrl}/services/${slug}`,
     "mainEntityOfPage": `${siteUrl}/services/${slug}`,
   };
+
+  const gallery_images = service.images || []
+  gallery_images.unshift(service.image)
+
   return (
     <main className="flex flex-col gap-20">
       <Header cta title={service.title} desc={service.description} />
@@ -108,7 +112,7 @@ export default async function Page({ params }: Props) {
             </div>
             <div className=''>
               <h3 className='text-heading my-10'>What our work look like </h3>
-              <Gallery images={service.images} />
+              <Gallery images={gallery_images} />
             </div>
           </div>
           <div className='sr-only lg:not-sr-only md:flex md:flex-col h-fit gap-8'>
