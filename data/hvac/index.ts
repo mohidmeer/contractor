@@ -6,9 +6,10 @@ import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } f
    CONSTANTS 
 ------------------------ */
 
+export const static_assets = '/hvac'
 export const siteUrl = 'https://totalcareservicesairconditioning.com/'
 export const siteName = 'Total Care Air Conditioning'
-export const siteLogo = `/images/logo.png`
+export const siteLogo = `${static_assets}/images/logo.png`
 export const googleAnalyticId = 'G-N50JQ785WT'
 export const bussinessType = ["LocalBusiness", "HVACBusiness"]
 
@@ -34,21 +35,17 @@ export const socialLinks = {
     PAGES  
 ------------------------ */
 
-/* ------------------------
-    PAGES  
------------------------- */
-
 export const landingPage = {
     seo: {
       title: 'Total Care Air Conditioning',
       description: 'Trusted air conditioning services across Florida. From emergency repairs to complete HVAC installations for residential and commercial properties.',
-      ogImage: `/images/hero_bg_1.jpg`,
+      ogImage: `${static_assets}/images/hero_bg_1.jpg`,
       canonical: siteUrl,
     },
     hero: {
       title: 'Stay Cool with Professional AC Services',
       description: 'From fast fixes to full AC system installations, our certified HVAC experts deliver reliable, energy-efficient climate control across Florida.',
-      backgroundImage: '/images/hero_bg_1.jpg',
+      backgroundImage: `${static_assets}/images/hero_bg_1.jpg`,
       ctaText: 'Book AC Service',
       ctaLink: '/contact',
     },
@@ -64,7 +61,7 @@ export const landingPage = {
     seo: {
       title: 'Air Conditioning Services in Florida',
       description: 'Explore our expert AC services including installations, maintenance, emergency repairs, smart thermostats, ductwork, and energy-efficient cooling upgrades across Florida.',
-      ogImage: `/images/services/default.jpg`,
+      ogImage: `${static_assets}`,
       canonical: siteUrl + 'services',
     },
 }
@@ -73,7 +70,7 @@ export const landingPage = {
     seo: {
       title: 'Air Conditioning Projects in Florida',
       description: 'Browse our portfolio of cooling projects — from home AC installations to large commercial HVAC solutions throughout Florida.',
-      ogImage: `/images/projects/default.jpg`,
+      ogImage: `${static_assets}/images/hero_bg_1.jpg`,
       canonical: siteUrl + 'projects',
     },
 }
@@ -82,7 +79,7 @@ export const landingPage = {
     seo: {
       title: 'About Us',
       description: 'Learn about Total Care Air Conditioning, our expert team, service approach, and why Florida homes and businesses trust us for their comfort needs.',
-      ogImage: `/images/hero_bg_1.jpg`,
+      ogImage: `${static_assets}/images/hero_bg_1.jpg`,
       canonical: siteUrl + 'about',
     },
     content: 'Total Care Air Conditioning is a Florida-based HVAC company dedicated to keeping homes and businesses cool and comfortable. We focus on efficiency, quality, and long-term climate control solutions backed by years of hands-on experience.',
@@ -92,7 +89,7 @@ export const landingPage = {
     seo: {
       title: 'Contact Us',
       description: 'Need help with your AC? Contact Total Care Air Conditioning for expert guidance, booking service, or emergency HVAC repairs in Florida.',
-      ogImage: `/images/hero_bg_1.jpg`,
+      ogImage: `${static_assets}/images/hero_bg_1.jpg`,
       canonical: siteUrl + 'contact',
     },
     form: {
@@ -105,7 +102,7 @@ export const landingPage = {
     seo: {
       title: 'Air Conditioning Tips & HVAC Insights - Florida',
       description: 'Stay cool and informed with expert advice on air conditioning maintenance, energy-saving tips, AC safety, and HVAC industry news.',
-      ogImage: `/images/hero_bg_1.jpg`,
+      ogImage: `${static_assets}/images/hero_bg_1.jpg`,
       canonical: siteUrl + 'blogs',
     },
 }
@@ -114,7 +111,7 @@ export const landingPage = {
     seo: {
       title: 'Air Conditioning Services In Florida',
       description: 'Serving all of Florida with expert air conditioning services — from minor tune-ups to complete HVAC installations.',
-      ogImage: `/images/hero_bg_1.jpg`,
+      ogImage: `${static_assets}/images/hero_bg_1.jpg`,
       canonical: siteUrl + 'service-areas',
     }
 }
@@ -141,9 +138,10 @@ export const getToKnow = {
         desc: 'Our team works neatly and efficiently, making sure your space is cool, comfortable, and compliant.',
       },
     ],
-    image1_url: '/images/hero_bg_1.jpg',
-    image2_url: '/images/hero_bg_1.jpg',
-    image3_url: '/images/hero_bg_1.jpg',
+    image1_url: `${static_assets}/images/services/ac_installation.jpg`,
+    image2_url: `${static_assets}/images/services/commercial_hvac.jpg`,
+    image3_url: `${static_assets}/images/services/smart_thermostat.jpg`,
+    image4_url: `${static_assets}/images/services/heat_pump.jpg`,
   };
   
   
@@ -294,8 +292,6 @@ export const navItems = [
         { label: 'Green Grove AC Setup', href: '/projects/green-grove-setup', hasChildrens: false },
         { label: 'Ocean Bay Resort HVAC Design', href: '/projects/ocean-bay-hvac', hasChildrens: false },
         { label: 'Community Center Cooling', href: '/projects/community-center-cooling', hasChildrens: false },
-        { label: 'Eco Homes Climate Control', href: '/projects/eco-homes-climate-control', hasChildrens: false },
-        { label: 'Harbor Plaza AC Fitout', href: '/projects/harbor-plaza-fitout', hasChildrens: false },
       ]
     },
     {
@@ -316,7 +312,7 @@ export const navItems = [
       external: false,
       hasChildrens: false,
     },
-  ];
+];
 
 
 /* ------------------------
@@ -326,7 +322,6 @@ export const navItems = [
 export const FooterData = {
     tagline: 'Cooling Florida with Efficient AC Installations, Fast Repairs, and Expert HVAC Solutions.',
   };
-  
 /* ------------------------
    AREAS OF SERVICES
 ------------------------ */
@@ -337,7 +332,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Miami, FL",
       description: "Trusted AC services in Miami, FL. Expert repairs, installations, and maintenance to keep your space cool year-round.",
       content: "Total Care Air Conditioning proudly serves Miami with dependable HVAC solutions built for Florida’s heat. We focus on efficiency, reliability, and customer comfort.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Orlando",
@@ -345,7 +340,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Orlando, FL",
       description: "Top-rated air conditioning services in Orlando, FL. From emergency repairs to full system installs — we’ve got you covered.",
       content: "In Orlando, Total Care Air Conditioning delivers cool comfort with fast, friendly, and professional HVAC services you can count on.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Tampa",
@@ -353,7 +348,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Tampa, FL",
       description: "Reliable AC solutions in Tampa, FL. Efficient repairs, installations, and clean air expertise for homes and businesses.",
       content: "Serving Tampa with care, Total Care Air Conditioning keeps your property comfortable with modern HVAC technology and energy-conscious service.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Jacksonville",
@@ -361,7 +356,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Jacksonville, FL",
       description: "Professional HVAC services in Jacksonville, FL. Specializing in AC installs, tune-ups, and indoor air quality improvements.",
       content: "Jacksonville homeowners rely on Total Care Air Conditioning for honest assessments, precision installs, and year-round comfort solutions.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Fort Lauderdale",
@@ -369,7 +364,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Fort Lauderdale, FL",
       description: "Efficient cooling solutions in Fort Lauderdale, FL. Full-service AC repairs, replacements, and maintenance.",
       content: "Total Care Air Conditioning helps Fort Lauderdale beat the heat with high-efficiency cooling systems and expert HVAC care.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "St. Petersburg",
@@ -377,7 +372,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in St. Petersburg, FL",
       description: "Reliable HVAC services in St. Pete. Prompt, affordable cooling services for homes and light commercial spaces.",
       content: "From quick fixes to full installations, Total Care Air Conditioning brings clean, cool air to every St. Petersburg job.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Cape Coral",
@@ -385,7 +380,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Cape Coral, FL",
       description: "Cape Coral’s trusted HVAC team. We handle everything from ductless mini-splits to central air installations.",
       content: "In Cape Coral, Total Care Air Conditioning brings expertise, energy efficiency, and friendly service to every home and business.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Hialeah",
@@ -393,7 +388,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Hialeah, FL",
       description: "Full-service AC repairs and installations in Hialeah, FL. Stay cool with trusted, local HVAC pros.",
       content: "Total Care Air Conditioning is Hialeah’s partner for responsive service, smart system upgrades, and year-round indoor comfort.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Gainesville",
@@ -401,7 +396,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Gainesville, FL",
       description: "Dependable HVAC services in Gainesville. From filter swaps to full replacements, we keep your system running smoothly.",
       content: "Gainesville homes and businesses rely on Total Care Air Conditioning for cool air, cleaner ventilation, and lower energy bills.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Naples",
@@ -409,7 +404,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Naples, FL",
       description: "Naples AC experts for cooling installations, maintenance, and smart thermostat solutions.",
       content: "Total Care Air Conditioning offers Naples residents efficient HVAC service designed for comfort, savings, and long-term reliability.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Pensacola",
@@ -417,7 +412,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Pensacola, FL",
       description: "Professional HVAC care in Pensacola. We handle residential cooling systems with speed and precision.",
       content: "From seasonal tune-ups to new system installs, Total Care Air Conditioning keeps Pensacola cool and energy-smart.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "West Palm Beach",
@@ -425,7 +420,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in West Palm Beach, FL",
       description: "Premier AC services in West Palm Beach. Repairs, installations, ductwork, and more — all in one place.",
       content: "West Palm Beach counts on Total Care Air Conditioning for modern cooling solutions with a focus on comfort and energy savings.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Lakeland",
@@ -433,7 +428,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Lakeland, FL",
       description: "Lakeland’s trusted HVAC service provider. Quick diagnostics, quality repairs, and long-lasting results.",
       content: "At Total Care Air Conditioning, we bring cool comfort to Lakeland with responsive service and attention to every detail.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Ocala",
@@ -441,7 +436,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Ocala, FL",
       description: "Affordable AC services in Ocala. Reliable repairs and installs to keep your space cool all year long.",
       content: "Serving Ocala with pride, Total Care Air Conditioning offers expert HVAC solutions tailored to Florida’s unique climate.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Bradenton",
@@ -449,7 +444,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Bradenton, FL",
       description: "Expert cooling services in Bradenton. Installations, tune-ups, and energy-saving upgrades done right.",
       content: "Bradenton residents turn to Total Care Air Conditioning for responsive service and long-term cooling comfort.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Fort Myers",
@@ -457,7 +452,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Fort Myers, FL",
       description: "Dependable HVAC contractors in Fort Myers. We specialize in efficient systems that last.",
       content: "Total Care Air Conditioning helps Fort Myers families and businesses stay cool with high-quality service and honest pricing.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Hollywood",
@@ -465,7 +460,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Hollywood, FL",
       description: "Hollywood, FL’s trusted HVAC experts. Cool your space with modern, energy-efficient systems.",
       content: "We proudly serve Hollywood with high-efficiency cooling and a commitment to customer satisfaction and comfort.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Boca Raton",
@@ -473,7 +468,7 @@ export const serviceAreasData = [
       title: "Air Conditioning Services in Boca Raton, FL",
       description: "Luxury AC service in Boca Raton. Perfect for elegant homes and high-end properties.",
       content: "Total Care Air Conditioning helps Boca Raton stay cool with discreet, powerful systems and reliable service tailored to upscale homes.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
     }
   ];
   
@@ -483,12 +478,12 @@ export const serviceAreasData = [
    SERVICES START
 ------------------------ */
 export const servicesData = {
-    'ac-installation': {
+  'ac-installation': {
       label: 'AC Installation',
       title: 'Expert Air Conditioning Installation Services in Florida',
       description: 'Stay cool year-round with our professional AC installation services. We install energy-efficient systems tailored to your property’s needs.',
       content: `A properly installed AC system is essential for comfort and energy savings in Florida’s heat. At Total Care Air Conditioning, we specialize in the professional installation of central air systems, ductless mini-splits, and high-efficiency HVAC units. Our experienced technicians evaluate your space, recommend the right system size and type, and ensure flawless installation. Whether it’s a new construction, renovation, or system replacement, we provide smooth, code-compliant installs that maximize performance and longevity.`,
-      image: '/images/services/default.jpg',
+      image: `${static_assets}/images/services/ac_installation.jpg`,
       typeOfSolutions: {
         headings: 'Solutions we offer',
         types: [
@@ -560,14 +555,13 @@ export const servicesData = {
           answer: "Absolutely. We handle safe removal and disposal of old units as part of our service."
         }
       ],
-      images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
-    },
-    'ac-repair': {
+  },
+  'ac-repair': {
     label: 'AC Repair',
     title: 'Fast & Reliable Air Conditioning Repair Services in Florida',
     description: 'Restore cool comfort fast with our expert AC repair services. We fix all makes and models with upfront pricing and no hidden fees.',
     content: `Don’t sweat it—Total Care Air Conditioning is here when your AC system breaks down. Our certified HVAC technicians diagnose and repair all types of cooling systems with speed and precision. Whether it’s weak airflow, strange noises, or complete failure, we’ll get your system back up and running in no time. We service central AC units, ductless mini-splits, heat pumps, and more. Our repairs are code-compliant, efficient, and backed by satisfaction guarantees. Same-day and emergency service available across Florida.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/ac_repair.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -639,14 +633,13 @@ export const servicesData = {
         answer: "Pricing varies by issue, but we always provide upfront estimates before work begins."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
   },
   'duct-cleaning': {
     label: 'Duct Cleaning',
     title: 'Professional Air Duct Cleaning Services in Florida',
     description: 'Improve your indoor air quality and HVAC efficiency with expert duct cleaning. We remove dust, debris, and allergens from your ductwork.',
     content: `Over time, dust, mold, pet dander, and other contaminants can build up in your air ducts — polluting your indoor air and reducing HVAC performance. At Total Care Air Conditioning, our duct cleaning services help restore clean airflow, improve system efficiency, and support healthier living. Using high-powered vacuums and safe techniques, we thoroughly clean every inch of your ductwork, vents, and returns. Whether it’s for allergy relief, energy savings, or peace of mind, our certified team ensures your ducts are spotless and functioning their best.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/duct_cleaning.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -718,14 +711,13 @@ export const servicesData = {
         answer: "Yes, we can apply safe antimicrobial treatments after cleaning to neutralize bacteria, mold, and odors."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
   },
   'thermostat-installation': {
     label: 'Thermostat Installation',
     title: 'Smart & Programmable Thermostat Installation Services in Florida',
     description: 'Upgrade your HVAC control with expert thermostat installation. We install and configure smart, programmable, and manual thermostats.',
     content: `Take control of your indoor climate and energy use with a professionally installed thermostat. At Total Care Air Conditioning, we install a wide range of thermostats — from basic programmable units to advanced smart thermostats with Wi-Fi connectivity and app control. Whether you're replacing an outdated model or integrating a thermostat with a new HVAC system, our technicians ensure it’s wired, configured, and optimized for your specific setup. Enjoy improved comfort, energy savings, and smart features that let you adjust temperatures from anywhere.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/smart_thermostat.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -804,7 +796,7 @@ export const servicesData = {
     title: 'Comprehensive HVAC Maintenance Services in Florida',
     description: 'Keep your HVAC system running efficiently year-round with our scheduled maintenance and tune-up services.',
     content: `Prevent unexpected breakdowns and extend the life of your heating and cooling systems with professional HVAC maintenance from Total Care Air Conditioning. Our technicians perform seasonal tune-ups, clean key components, check refrigerant levels, test safety systems, and inspect for wear and tear. Whether it’s a residential unit or a large commercial system, routine maintenance improves performance, lowers energy bills, and helps you avoid costly repairs. Stay comfortable all year with Florida’s trusted HVAC experts.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/hvac_maintainence.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -883,7 +875,7 @@ export const servicesData = {
     title: 'Indoor Air Quality Solutions in Florida',
     description: 'Breathe cleaner, healthier air with our air purification, filtration, and ventilation solutions tailored to Florida homes and businesses.',
     content: `Poor indoor air quality can trigger allergies, asthma, and long-term health issues. At Total Care Air Conditioning, we offer complete IAQ solutions to ensure your home or workspace has clean, healthy air. From high-efficiency filters and UV lights to air scrubbers and whole-home dehumidifiers, we tailor systems to your needs. Our team conducts thorough assessments and recommends improvements that target pollutants, humidity, mold, and stale air. Breathe easier with professional-grade air quality services trusted across Florida.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/indoor_quality.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -962,7 +954,7 @@ export const servicesData = {
     title: 'Expert Ductwork Installation & Repair Services in Florida',
     description: 'Efficient ductwork is key to proper airflow and energy savings. We design, install, and repair duct systems to ensure comfort and HVAC performance.',
     content: `Leaky or poorly designed ducts can waste energy and reduce indoor comfort. At Total Care Air Conditioning, we offer professional ductwork installation and repair services tailored to your property. Whether you need ducts for a new HVAC system or want to seal and optimize your current layout, our technicians ensure everything is properly sized, insulated, and sealed. From airflow balancing to fixing disconnected ducts, we guarantee improved efficiency, better air quality, and lower utility bills throughout Florida.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/duct_work.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -1041,7 +1033,7 @@ export const servicesData = {
     title: 'Air Balancing & Zoning Services for Comfortable Living in Florida',
     description: 'Achieve consistent temperatures in every room with expert air balancing and zoning solutions tailored to your home or business.',
     content: `Do some rooms feel too hot while others stay cold? Uneven airflow is a common HVAC issue, but Total Care Air Conditioning has the fix. Our air balancing and zoning services optimize your duct system to ensure even distribution of air throughout your property. Zoning allows you to control the temperature in different areas independently—perfect for multi-story homes or large office spaces. Whether you need better airflow, customized comfort, or energy savings, our solutions help you gain full control of your indoor environment.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/air_balance.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -1115,13 +1107,12 @@ export const servicesData = {
     ],
     images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
   },
-  
   'emergency-ac-services': {
     label: 'Emergency AC Services',
     title: '24/7 Emergency Air Conditioning Repair Services in Florida',
     description: 'Don’t sweat a breakdown—our emergency AC technicians are on call day and night to restore your comfort fast.',
     content: `Air conditioning issues don’t wait for convenient hours—and neither do we. At Total Care Air Conditioning, we provide 24/7 emergency AC repair across Florida. Whether your system stopped cooling, is making strange noises, or completely shut down during peak heat, our rapid-response team is ready to diagnose and fix the issue fast. We arrive fully equipped to handle common emergencies on the spot, restoring your cooling and comfort without delay. When your AC fails, trust our licensed techs to get things running again—any time, any day.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/emergency.jpg`,
     typeOfSolutions: {
       headings: 'Emergency Services We Provide',
       types: [
@@ -1195,91 +1186,12 @@ export const servicesData = {
     ],
     images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
   },
-  'thermostat-installation-repair': {
-    label: 'Thermostat Installation & Repair',
-    title: 'Smart Thermostat Installation & Repair Services in Florida',
-    description: 'Take control of your indoor comfort with expert thermostat installation, calibration, and repair services.',
-    content: `Your thermostat is the brain of your air conditioning system—when it fails, so does your comfort. At Total Care Air Conditioning, we install, repair, and upgrade all types of thermostats, from traditional models to advanced smart systems. Whether you're looking to increase energy efficiency, troubleshoot a faulty unit, or upgrade to a Wi-Fi-enabled thermostat, our licensed technicians ensure accurate setup and seamless integration. We help you choose the best model for your space and lifestyle, optimizing comfort and saving energy all year long.`,
-    image: '/images/services/default.jpg',
-    typeOfSolutions: {
-      headings: 'Thermostat Services We Offer',
-      types: [
-        'Smart Thermostat Installation (Nest, Ecobee, etc.)',
-        'Traditional Digital & Manual Thermostats',
-        'Thermostat Wiring & Rewiring',
-        'Wi-Fi Thermostat Setup & App Integration',
-        'Zoned HVAC System Controls',
-        'Thermostat Troubleshooting & Diagnostics',
-        'Battery & Sensor Replacement',
-        'Temperature Calibration',
-        'Thermostat Relocation',
-        'Compatibility Checks with HVAC Systems'
-      ]
-    },
-    benefitsOFChoosing: [
-      {
-        title: 'Smart Home Ready',
-        description: 'We install smart thermostats that connect to your phone, voice assistant, and home automation system.'
-      },
-      {
-        title: 'Accurate Temperature Control',
-        description: 'We ensure your thermostat is properly calibrated for consistent comfort and reduced energy waste.'
-      },
-      {
-        title: 'Energy Savings',
-        description: 'Modern thermostats can cut energy bills by learning your habits and optimizing cooling cycles.'
-      },
-      {
-        title: 'Quick Repairs & Replacements',
-        description: 'Faulty thermostat? We repair or replace it fast to restore control to your HVAC system.'
-      },
-      {
-        title: 'System Compatibility Checks',
-        description: 'We verify that your new thermostat works flawlessly with your existing AC or heat pump.'
-      },
-      {
-        title: 'Zoning Support',
-        description: 'We configure thermostats to work with zoned systems for multi-room temperature management.'
-      },
-      {
-        title: 'Clean, Professional Installation',
-        description: 'All work is performed by trained, licensed technicians with attention to detail and safety.'
-      }
-    ],
-    faqs: [
-      {
-        question: "How do I know if my thermostat is malfunctioning?",
-        answer: "If your AC won't turn on, turns off too early, or shows the wrong temperature, your thermostat might be to blame."
-      },
-      {
-        question: "Can I upgrade to a smart thermostat with my current AC?",
-        answer: "In most cases, yes. We’ll check compatibility and handle the installation and setup."
-      },
-      {
-        question: "Is thermostat installation DIY-friendly?",
-        answer: "Some models are DIY-friendly, but professional installation ensures proper wiring, setup, and avoids damage to your HVAC."
-      },
-      {
-        question: "Can a new thermostat lower my energy bills?",
-        answer: "Yes—especially smart thermostats that optimize operation based on your schedule and habits."
-      },
-      {
-        question: "Do you offer thermostat repair or only replacements?",
-        answer: "We do both. If it’s fixable, we’ll repair it. If not, we’ll recommend suitable replacement options."
-      },
-      {
-        question: "What thermostats do you recommend?",
-        answer: "We commonly install Nest, Ecobee, Honeywell, and other reliable brands depending on your system and preferences."
-      }
-    ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
-  },
   'commercial-hvac': {
     label: 'Commercial HVAC Solutions',
     title: 'Reliable Commercial HVAC Services Across Florida',
     description: 'Keep your business running efficiently with tailored heating, ventilation, and cooling solutions from experienced commercial HVAC pros.',
     content: `Commercial buildings require robust HVAC systems that can handle large spaces, variable occupancy, and long operating hours. At Total Care Air Conditioning, we design, install, maintain, and repair commercial-grade HVAC systems for offices, retail spaces, restaurants, warehouses, and more. Our team understands local regulations and energy efficiency requirements to ensure your system is not only effective but compliant and cost-efficient. From rooftop unit replacements to VRF system upgrades and regular maintenance contracts—we deliver comfort and reliability for your business.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/commercial_hvac.jpg`,
     typeOfSolutions: {
       headings: 'Commercial HVAC Services We Offer',
       types: [
@@ -1353,91 +1265,12 @@ export const servicesData = {
     ],
     images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
   },
-  'emergency-hvac-services': {
-    label: 'Emergency HVAC Services',
-    title: '24/7 Emergency HVAC Repair Services in Florida',
-    description: 'When your AC or heating fails unexpectedly, our emergency team is ready around the clock to restore comfort fast.',
-    content: `HVAC emergencies can strike at any time—especially in Florida’s extreme heat. Whether it’s a complete system breakdown, sudden leaks, or no airflow, Total Care Air Conditioning is here 24/7 to get your system back up and running. Our experienced technicians arrive promptly with the tools and parts needed to fix most issues on the spot. We handle residential and commercial emergencies with speed, skill, and total transparency. Your comfort and safety are our top priorities, no matter the hour.`,
-    image: '/images/services/default.jpg',
-    typeOfSolutions: {
-      headings: 'Emergency Services We Provide',
-      types: [
-        '24/7 AC Breakdown Repairs',
-        'Furnace & Heating Failure Repair',
-        'Refrigerant Leaks & Recharge',
-        'Clogged Drain Line & Water Damage Prevention',
-        'Blower Motor & Capacitor Replacement',
-        'No Cool Air or Poor Airflow Troubleshooting',
-        'Thermostat & Electrical Fault Repairs',
-        'Emergency System Diagnostics',
-        'Temporary Cooling/Heating Setup',
-        'Fast Part Replacement & Fixes'
-      ]
-    },
-    benefitsOFChoosing: [
-      {
-        title: '24/7 Availability',
-        description: 'We’re on call day and night—even weekends and holidays—to respond to HVAC emergencies.'
-      },
-      {
-        title: 'Fast Response Times',
-        description: 'Our mobile teams are strategically located across Florida for quick dispatch and arrival.'
-      },
-      {
-        title: 'Fully Stocked Vans',
-        description: 'We come prepared to fix most problems on the first visit, minimizing downtime.'
-      },
-      {
-        title: 'Clear Communication',
-        description: 'We explain the issue, provide honest repair options, and never push unnecessary replacements.'
-      },
-      {
-        title: 'Licensed & Insured Technicians',
-        description: 'You’re in safe hands with professionals trained to handle emergencies safely and effectively.'
-      },
-      {
-        title: 'Priority for Repeat Clients',
-        description: 'Maintenance plan members and past clients receive expedited emergency support.'
-      },
-      {
-        title: 'No Hidden Fees',
-        description: 'You’ll get upfront pricing—even during emergency service calls—with no surprise charges.'
-      }
-    ],
-    faqs: [
-      {
-        question: "What qualifies as an HVAC emergency?",
-        answer: "Complete system failures during extreme temperatures, leaks causing water damage, burning smells, or electrical faults all count as emergencies."
-      },
-      {
-        question: "How fast can you arrive?",
-        answer: "In most Florida areas, we can dispatch a technician within 1–2 hours, depending on location and traffic."
-      },
-      {
-        question: "Do you charge extra for after-hours service?",
-        answer: "We do charge a modest emergency service fee, but our pricing is always upfront and transparent."
-      },
-      {
-        question: "Can you handle commercial HVAC emergencies too?",
-        answer: "Yes, we’re equipped to address both residential and commercial urgent HVAC issues."
-      },
-      {
-        question: "What if the problem can’t be fixed right away?",
-        answer: "We’ll offer a temporary solution if needed and schedule a follow-up ASAP with required parts or system replacements."
-      },
-      {
-        question: "Do you offer emergency services during holidays?",
-        answer: "Yes, our team is available 365 days a year—including all major holidays."
-      }
-    ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
-  },
   'heat-pump-services': {
     label: 'Heat Pump Services',
     title: 'Reliable Heat Pump Installation & Repair Services in Florida',
     description: 'Stay comfortable year-round with energy-efficient heat pump systems, professionally installed and serviced by our Florida technicians.',
     content: `Heat pumps offer both heating and cooling in one efficient system—ideal for Florida's climate. At Total Care Air Conditioning, we provide expert installation, repair, and maintenance of all major heat pump brands. Whether you're replacing an old unit, upgrading for energy efficiency, or fixing performance issues, our team ensures seamless service and long-lasting comfort. From ducted systems to ductless mini-splits, we’ve got the experience to get it done right.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/heat_pump.jpg`,
     typeOfSolutions: {
       headings: 'Solutions We Offer',
       types: [
@@ -1516,7 +1349,7 @@ export const servicesData = {
     title: 'Energy Efficiency Upgrades for Air Conditioning in Florida',
     description: 'Reduce your energy bills and carbon footprint with smart AC upgrades tailored for Florida homes and businesses.',
     content: `Upgrading your air conditioning system for energy efficiency not only saves money but also contributes to a greener planet. At Total Care Air Conditioning, we assess your existing setup and recommend cost-effective upgrades—from high-SEER units to smart thermostats and insulation improvements. Our team ensures your system runs at peak efficiency, helping you lower utility bills while staying cool even in the Florida heat.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/energy_efficient.jpg`,
     typeOfSolutions: {
       headings: 'Solutions We Offer',
       types: [
@@ -1603,7 +1436,7 @@ export const projectsData = {
       label: 'Downtown Office Cooling',
       title: 'Downtown Office Air Conditioning Installation Project',
       description: 'Full-scale air conditioning system installation for a multi-floor downtown Miami office, designed for maximum cooling efficiency and minimal noise.',
-      image: `/images/projects/default.jpg`,
+      image: `${static_assets}/images/projects/office_cooling.jpg`,
       location: 'Downtown, Miami, FL',
       duration: 'Completed in 2 weeks',
       materials: [
@@ -1622,13 +1455,13 @@ export const projectsData = {
   This downtown Miami office cooling project involved the installation of a state-of-the-art central air conditioning system across five office floors. The existing HVAC infrastructure was outdated and unable to support the growing energy demands of the building, resulting in inconsistent temperatures and high energy consumption.
   Our team began with a full-site inspection and thermal mapping to design a zone-based cooling strategy. We replaced all old units with high-efficiency central AC units and integrated programmable thermostat controls on each floor for granular climate management. New air handlers and ductwork systems were custom-fitted to optimize airflow, while vibration dampeners were added to reduce operational noise.
   `,
-      images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
+      
     },
     'sunrise-apartments-upgrade': {
       label: 'Sunrise Apartments HVAC Upgrade',
       title: 'Sunrise Apartments HVAC System Upgrade Project',
       description: 'Comprehensive HVAC upgrade for a mid-rise residential complex, improving cooling performance and energy efficiency for tenants.',
-      image: `/images/projects/default.jpg`,
+      image: `${static_assets}/images/projects/high_rise.jpg`,
       location: 'Sunrise, FL',
       duration: 'Completed in 3 weeks',
       materials: [
@@ -1648,13 +1481,13 @@ export const projectsData = {
   
   We also improved insulation in existing ducts and added smart monitoring systems to track usage and detect maintenance needs proactively. The result was a quieter, more efficient, and tenant-friendly cooling solution that reduced monthly energy costs and increased long-term reliability.
   `,
-      images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
+      
     },
     'palm-heights-ac-installation': {
       label: 'Palm Heights AC Installation',
       title: 'Palm Heights Residential AC Installation Project',
       description: 'New AC system installation for a luxury apartment complex, focusing on quiet operation, comfort zoning, and energy efficiency.',
-      image: `/images/projects/default.jpg`,
+      image: `${static_assets}/images/projects/appartment_ac.jpg`,
       location: 'Palm Heights, FL',
       duration: 'Completed in 10 days',
       materials: [
@@ -1674,13 +1507,13 @@ export const projectsData = {
   
   Our team installed insulated ductwork and wall-mounted air handlers to ensure efficient cooling without compromising on interior design. We also added anti-vibration mounts and condensate pumps for silent performance and long-term reliability. The entire job was completed in just 10 days with minimal disruption to residents.
   `,
-      images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
+      
     },
     'city-mall-cooling': {
       label: 'City Mall Cooling System',
       title: 'City Mall Central Cooling System Installation',
       description: 'Designed and implemented a powerful central cooling system for a multi-level shopping mall, ensuring comfort and energy efficiency.',
-      image: `/images/projects/default.jpg`,
+      image: `${static_assets}/images/projects/mall_ac.jpg`,
       location: 'Orlando, FL',
       duration: 'Completed in 4 weeks',
       materials: [
@@ -1700,13 +1533,13 @@ export const projectsData = {
   
   Our engineers tailored the airflow strategy with VAV boxes for each retail zone, allowing independent climate control. To minimize energy waste, we used high-efficiency cooling towers and insulation throughout the duct network. The result was a consistent and comfortable shopping environment even during peak summer foot traffic.
   `,
-      images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
+      
     },
     'heritage-hotel-renovation': {
       label: 'Heritage Hotel Climate Renovation',
       title: 'Heritage Hotel HVAC Renovation Project',
       description: 'Upgraded the entire HVAC system of a historic hotel, blending modern efficiency with architectural preservation.',
-      image: `/images/projects/default.jpg`,
+      image: `${static_assets}/images/projects/hotel_ac.jpg`,
       location: 'St. Augustine, FL',
       duration: 'Completed in 3 weeks',
       materials: [
@@ -1723,13 +1556,13 @@ export const projectsData = {
       ],
       content: `The Heritage Hotel HVAC renovation required a delicate balance of modern climate control and historic preservation. Our team upgraded the full system with energy-efficient ductless mini-splits, chosen for their minimal visual impact and quiet performance.
       We installed custom air vents and concealed ductwork to maintain the building’s vintage aesthetic. New thermostats and humidity controls were added to improve guest comfort. Despite architectural challenges, we completed the project in 3 weeks without compromising the hotel's historic charm.`,
-      images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
+      
     },
     'green-grove-setup': {
       label: 'Green Grove AC Setup',
       title: 'Green Grove Residential AC System Setup',
       description: 'Installed high-efficiency AC systems across a newly developed residential community to ensure uniform comfort and long-term energy savings.',
-      image: `/images/projects/default.jpg`,
+      image: `${static_assets}/images/projects/ac_units.jpg`,
       location: 'Tampa, FL',
       duration: 'Completed in 4 weeks',
       materials: [
@@ -1749,13 +1582,13 @@ export const projectsData = {
   
   We installed programmable thermostats and zoned dampers for personalized climate control. The ductwork was precisely insulated, and outdoor units were equipped with mounts to reduce operational noise. The entire project was delivered on schedule and helped the development meet its sustainability goals.
   `,
-      images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
+      
     },
     'ocean-bay-hvac': {
       label: 'Ocean Bay Resort HVAC Design',
       title: 'Ocean Bay Resort HVAC Design & Installation',
       description: 'Custom HVAC design and installation for a beachfront resort, focused on humidity control, energy efficiency, and guest comfort.',
-      image: `/images/projects/default.jpg`,
+      image: `${static_assets}/images/projects/hvac.jpg`,
       location: 'Naples, FL',
       duration: 'Completed in 5 weeks',
       materials: [
@@ -1775,13 +1608,13 @@ export const projectsData = {
   
   Energy recovery ventilators and sealed air handlers helped improve indoor air quality while reducing costs. We also installed UV air purifiers and stainless ducting to combat mold and salt air exposure. All systems were networked into a smart control hub, giving staff total climate oversight.
   `,
-      images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
+      
     },
     'community-center-cooling': {
       label: 'Community Center Cooling',
       title: 'Community Center AC System Overhaul',
       description: 'Modernized the air conditioning system for a busy community center, improving comfort, airflow, and energy efficiency for large gatherings.',
-      image: `/images/projects/default.jpg`,
+      image: `${static_assets}/images/projects/commiunity.jpg`,
       location: 'Orlando, FL',
       duration: 'Completed in 2.5 weeks',
       materials: [
@@ -1801,70 +1634,19 @@ export const projectsData = {
   
   We installed rooftop HVAC units with zoning capabilities to control different halls separately. High-efficiency compressors, insulated ducts, and HEPA filters were added to improve performance and indoor air quality. Smart controllers allowed staff to adjust settings easily, while noise dampening ensured a quiet environment during public functions.
   `,
-      images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
+      
     },
-    'eco-homes-climate-control': {
-      label: 'Eco Homes Climate Control',
-      title: 'Eco Homes Energy-Efficient Climate Control Installation',
-      description: 'Installed a sustainable, smart HVAC system for a modern eco-friendly housing development focused on energy conservation and indoor air quality.',
-      image: `/images/projects/default.jpg`,
-      location: 'Gainesville, FL',
-      duration: 'Completed in 3 weeks',
-      materials: [
-        'Ductless Mini-Split Systems',
-        'Smart Wi-Fi Thermostats',
-        'Solar-Compatible HVAC Units',
-        'Energy Star Certified Components',
-        'Multi-Zone Temperature Control',
-        'Variable-Speed Compressors',
-        'Low-VOC Insulated Ducts',
-        'Air Quality Monitors',
-        'Programmable Vent Dampers',
-        'Advanced Filtration Systems'
-      ],
-      content: `
-  Eco Homes in Gainesville aimed to combine comfort with sustainability. Our team designed and implemented a custom HVAC solution using ductless mini-splits, solar-ready units, and smart thermostats to ensure low energy consumption and responsive climate control.
-  
-  With zone-based systems, residents can individually manage temperatures, while advanced air quality monitoring ensures a healthy indoor environment. The project delivered top-tier comfort without compromising the eco-conscious vision of the development.
-  `,
-      images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
-    },
-    'harbor-plaza-fitout': {
-      label: 'Harbor Plaza AC Fitout',
-      title: 'Harbor Plaza Full AC System Fitout',
-      description: 'Complete air conditioning system design and installation for a newly developed commercial plaza, focusing on efficiency and modular scalability.',
-      image: `/images/projects/default.jpg`,
-      location: 'Tampa Bay, FL',
-      duration: 'Completed in 4 weeks',
-      materials: [
-        'Split-System AC Units',
-        'Central Control Panels',
-        'Modular Duct Networks',
-        'High-Efficiency Air Handlers',
-        'Condensate Pumps',
-        'Return Air Grilles',
-        'Sound-Insulated Vents',
-        'Wi-Fi Enabled Thermostats',
-        'Energy-Efficient Coils',
-        'Commercial Roof Flashing Kits'
-      ],
-      content: `The Harbor Plaza project in Tampa Bay was a full-scale HVAC fitout for a newly constructed retail and office complex. Each tenant space required individualized climate zones while maintaining centralized control for building management.
-        We installed a series of modular split systems and energy-saving air handlers, integrating sound-insulated ducts and return grilles to maintain quiet operation. The design focused on flexibility, allowing future tenants to customize their HVAC setup without major retrofitting.`,
-      images: ['/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg', '/projects/default.jpg']
-    },
-  
   }
 
 export const projectsImageGallery = [
-  '/projects/costal.jpg',
-  '/projects/buildings.jpg',
-  '/projects/condos.jpg',
-  '/projects/mall.jpg',
-  '/projects/luxry.jpg',
-  '/projects/lake-view.jpg',
-  '/projects/ocean-breeze.jpg',
-  '/projects/measueam.jpg',
-  '/services/metal.jpg',
+    `${static_assets}/images/projects/ac_units.jpg`,
+    `${static_assets}/images/projects/appartment_ac.jpg`,
+    `${static_assets}/images/projects/commiunity.jpg`,
+    `${static_assets}/images/projects/high_rise.jpg`,
+    `${static_assets}/images/projects/hotel_ac.jpg`,
+    `${static_assets}/images/projects/hvac.jpg`,
+    `${static_assets}/images/projects/mall_ac.jpg`,
+    `${static_assets}/images/projects/office_cooling.jpg`,
 ];
 /* ------------------------
    TESTIMONAILS START
@@ -1875,73 +1657,61 @@ export const testimonialsData = [
       name: "John Davis",
       role: "Homeowner | Florida",
       feedback: "Total Care Air Conditioning installed a new central AC unit in our home—smooth process and great results!",
-      image: "/images/testimonials/default.jpg",
     },
     {
       name: "Rachel Green",
       role: "Property Manager",
       feedback: "They service all the HVAC systems in our apartment complex. Always reliable and responsive.",
-      image: "/images/testimonials/default.jpg",
     },
     {
       name: "Carlos Rivera",
       role: "Business Owner | Florida",
       feedback: "Our office was constantly overheating. Their zoning solution fixed everything. Professional from start to finish.",
-      image: "/images/testimonials/default.jpg",
     },
     {
       name: "Lisa Turner",
       role: "Interior Designer",
       feedback: "They managed to install sleek, ductless units in a modern remodel without impacting the design flow. Excellent team!",
-      image: "/images/testimonials/default.jpg",
     },
     {
       name: "Mark Johnson",
       role: "Hotel Manager",
       feedback: "Upgraded our hotel HVAC system with no downtime for guests. Fast, clean, and efficient.",
-      image: "/images/testimonials/default.jpg",
     },
     {
       name: "Emily Chen",
       role: "Homeowner | Florida",
       feedback: "Our old AC died in peak summer—Total Care got a new system up and running in just one day!",
-      image: "/images/testimonials/default.jpg",
     },
     {
       name: "David Kim",
       role: "Real Estate Developer",
       feedback: "They’ve handled HVAC installs across multiple properties. On-time, budget-friendly, and always to code.",
-      image: "/images/testimonials/default.jpg",
     },
     {
       name: "Sophia Allen",
       role: "Restaurant Owner",
       feedback: "The kitchen was unbearable before. Their commercial cooling system made a huge difference.",
-      image: "/images/testimonials/default.jpg",
     },
     {
       name: "Nathan Scott",
       role: "Construction Project Manager",
       feedback: "These guys know their stuff. Smooth HVAC integration on our high-rise project.",
-      image: "/images/testimonials/default.jpg",
     },
     {
       name: "Olivia Perez",
       role: "Retail Store Owner | Florida",
       feedback: "We had inconsistent cooling. Total Care diagnosed and fixed ducting issues quickly.",
-      image: "/images/testimonials/default.jpg",
     },
     {
       name: "Jason Brooks",
       role: "Commercial Building Owner",
       feedback: "Replaced our outdated rooftop units with high-efficiency ones. Lower energy bills already.",
-      image: "/images/testimonials/default.jpg",
     },
     {
       name: "Mia Thompson",
       role: "Home Renovator | Florida",
       feedback: "Their team handled HVAC design perfectly during our whole-house renovation. Highly recommend!",
-      image: "/images/testimonials/default.jpg",
     }
   ];
   
