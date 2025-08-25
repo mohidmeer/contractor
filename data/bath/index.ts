@@ -6,10 +6,11 @@ import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } f
    CONSTANTS 
 ------------------------ */
 
+export const static_assets = '/bath'
 export const siteUrl = 'https://totalcareservicesbathrooms.com/';
 export const siteName = 'Total Care Bathrooms';
 export const bussinessType = ["LocalBusiness", "HomeAndConstructionBusiness"]
-export const siteLogo = `/images/logo.png`;
+export const siteLogo = `${static_assets}/images/logo.png`;
 export const googleAnalyticId = 'G-79RRTN6VDP';
 
 export const contactInfo = {
@@ -36,13 +37,13 @@ export const landingPage = {
   seo: {
     title: 'Total Care Bathrooms',
     description: 'Expert bathroom renovation and installation services. From modern makeovers to full-scale remodeling — we bring style, comfort, and quality to your home.',
-    ogImage: `/images/hero_bg_1.jpg`,
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl,
   },
   hero: {
     title: 'Transform Your Bathroom with Total Care',
     description: 'We specialize in stylish, functional, and high-quality bathroom renovations tailored to your space and lifestyle.',
-    backgroundImage: '/images/hero_bg_1.jpg',
+    backgroundImage: `${static_assets}/images/hero_bg_1.jpg`,
     ctaText: 'Get a Free Quote',
     ctaLink: '/contact',
   },
@@ -58,7 +59,7 @@ export const servicesPage = {
   seo: {
     title: 'Bathroom Renovation Services',
     description: 'Discover our range of bathroom services including design, remodeling, tiling, plumbing, and complete bathroom transformations.',
-    ogImage: `/images/services/default.jpg`,
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'services',
   }
 }
@@ -67,7 +68,7 @@ export const projectsPage = {
   seo: {
     title: 'Bathroom Renovation Projects',
     description: 'View our portfolio of completed bathroom remodels — elegant, efficient, and designed to inspire.',
-    ogImage: `/images/projects/default.jpg`,
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'projects',
   },
 }
@@ -77,7 +78,7 @@ export const aboutPage = {
   seo: {
     title: 'About Total Care Bathrooms',
     description: 'Meet the team behind Total Care Bathrooms and learn how we deliver stunning and stress-free bathroom renovations.',
-    ogImage: `/images/hero_bg_1.jpg`,
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'about',
   },
   content: 'Total Care Bathrooms is a trusted provider of bathroom remodeling services. With a focus on quality craftsmanship, innovative design, and customer satisfaction, we transform outdated bathrooms into beautiful, modern spaces.',
@@ -87,7 +88,7 @@ export const contactPage = {
   seo: {
     title: 'Contact Total Care Bathrooms',
     description: 'Ready to renovate your bathroom? Reach out to Total Care Bathrooms to start planning your dream space.',
-    ogImage: `/images/hero_bg_1.jpg`,
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'contact',
   },
   form: {
@@ -100,7 +101,7 @@ export const blogPage = {
   seo: {
     title: 'Bathroom Design Ideas & Renovation Tips',
     description: 'Get inspired with expert tips on bathroom trends, remodeling advice, maintenance tricks, and more.',
-    ogImage: `/images/hero_bg_1.jpg`,
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'blogs',
   },
 }
@@ -109,7 +110,7 @@ export const serviceAreaPage = {
   seo: {
     title: 'Bathroom Renovation Services Near You',
     description: 'We proudly serve homeowners across your region with complete bathroom design and remodeling solutions.',
-    ogImage: `/images/hero_bg_1.jpg`,
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'service-areas',
   }
 }
@@ -135,12 +136,12 @@ export const getToKnow = {
       {
           title: 'Clean Work & Seamless Execution',
           desc: 'We keep your space tidy and disruption-free, delivering beautiful bathrooms with minimal mess or stress.',
-      },
+      }
   ],
-  image1_url: '/images/services/inspection.jpg',
-  image2_url: '/images/services/metal.jpg',
-  image3_url: '/images/projects/costal.jpg',
-  image4_url: '/images/services/skylight.jpg',
+  image1_url: `${static_assets}/images/projects/wet_room.jpg`,
+  image2_url: `${static_assets}/images/projects/master.jpg`,
+  image3_url: `${static_assets}/images/projects/coastal.jpg`,
+  image4_url: `${static_assets}/images/projects/commercial.jpg`,
 }
 export const faqs = [
   {
@@ -271,7 +272,6 @@ export const navItems = [
           { label: 'Luxury Spa Upgrades', href: '/services/luxury-spa-upgrades', hasChildrens: false },
           { label: 'Accessibility Solutions', href: '/services/accessible-bathrooms', hasChildrens: false },
           { label: 'Powder Room Updates', href: '/services/powder-room-upgrades', hasChildrens: false },
-          { label: 'Eco-Friendly Options', href: '/services/eco-friendly-bathrooms', hasChildrens: false },
       ]
   },
   {
@@ -328,7 +328,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Miami, FL",
       description: "Stylish bathroom remodeling in Miami, FL. From luxury upgrades to space-saving designs — we do it all.",
       content: "Total Care Bathrooms brings modern designs and expert craftsmanship to every Miami renovation project. We focus on elegance, functionality, and long-lasting quality.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "Orlando",
@@ -336,7 +336,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Orlando, FL",
       description: "Trusted bathroom renovation in Orlando, FL. High-end finishes, custom vanities, and expert tile work.",
       content: "In Orlando, Total Care Bathrooms delivers personalized renovations with attention to every detail — ensuring comfort, beauty, and durability.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "Tampa",
@@ -344,7 +344,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Tampa, FL",
       description: "Transform your bathroom in Tampa, FL. Full remodeling and partial upgrades tailored to your vision.",
       content: "We serve Tampa with premium materials and creative solutions to make your bathroom stylish, safe, and spa-like.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "Jacksonville",
@@ -352,7 +352,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Jacksonville, FL",
       description: "Expert bathroom remodeling in Jacksonville, FL. Custom showers, lighting, and smart storage included.",
       content: "Total Care Bathrooms helps Jacksonville homeowners upgrade their space with elegant designs and quality installations that last.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "Fort Lauderdale",
@@ -360,7 +360,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Fort Lauderdale, FL",
       description: "High-end bathroom renovation in Fort Lauderdale, FL. Bring a touch of luxury to your home.",
       content: "We bring sleek, modern finishes and luxury bathroom remodeling to Fort Lauderdale — with top-notch service from start to finish.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "St. Petersburg",
@@ -368,7 +368,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in St. Petersburg, FL",
       description: "Bathroom makeovers in St. Pete, FL. Elegant designs, walk-in showers, and efficient project delivery.",
       content: "From small powder rooms to master baths, Total Care Bathrooms transforms St. Petersburg homes with precision and creativity.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "Cape Coral",
@@ -376,7 +376,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Cape Coral, FL",
       description: "Cape Coral’s go-to team for bathroom remodels. Fresh layouts, quality materials, and expert finish.",
       content: "Cape Coral homeowners count on Total Care Bathrooms for sleek designs, efficient plumbing upgrades, and lasting beauty.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "Hialeah",
@@ -384,7 +384,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Hialeah, FL",
       description: "Affordable and stylish bathroom renovations in Hialeah, FL. Built to impress and built to last.",
       content: "In Hialeah, we help homeowners upgrade their bathrooms with quality craftsmanship and modern design tailored to your needs.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "Gainesville",
@@ -392,7 +392,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Gainesville, FL",
       description: "Full-service bathroom remodeling in Gainesville. Efficient, beautiful, and affordable transformations.",
       content: "Total Care Bathrooms improves Gainesville homes with creative bathroom designs and skilled renovation work that adds value.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "Naples",
@@ -400,7 +400,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Naples, FL",
       description: "Luxury bathroom remodeling in Naples, FL. Sophisticated designs for elegant coastal living.",
       content: "Naples homeowners choose Total Care Bathrooms for upscale remodels featuring premium finishes and thoughtful layouts.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "Pensacola",
@@ -408,7 +408,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Pensacola, FL",
       description: "Expert bathroom renovation in Pensacola. Clean lines, smart storage, and water-efficient upgrades.",
       content: "Total Care Bathrooms serves Pensacola with detail-focused remodels that enhance comfort and functionality.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "West Palm Beach",
@@ -416,7 +416,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in West Palm Beach, FL",
       description: "Premier bathroom remodeling in West Palm Beach. Modern designs and timeless craftsmanship.",
       content: "We help West Palm Beach clients achieve spa-worthy bathrooms with clean aesthetics and top-tier materials.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "Lakeland",
@@ -424,7 +424,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Lakeland, FL",
       description: "Trusted remodelers in Lakeland. Complete bathroom makeovers with efficient project timelines.",
       content: "Total Care Bathrooms transforms Lakeland bathrooms with smart planning, skilled labor, and elegant results.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "Ocala",
@@ -432,7 +432,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Ocala, FL",
       description: "Affordable upgrades and full bathroom remodels in Ocala, FL. Always on time, always quality work.",
       content: "Ocala homes shine with new bathroom styles, tilework, and fixtures installed by our dedicated renovation team.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "Bradenton",
@@ -440,7 +440,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Bradenton, FL",
       description: "Bradenton’s top bathroom renovation service. Clean finishes, luxury details, and fair pricing.",
       content: "We bring beautiful transformations to Bradenton bathrooms with custom solutions and dependable execution.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "Fort Myers",
@@ -448,7 +448,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Fort Myers, FL",
       description: "Stylish and practical bathroom upgrades in Fort Myers. Designed for comfort and built to last.",
       content: "Fort Myers residents trust Total Care Bathrooms to deliver clean, modern, and functional bathrooms with smooth project flow.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "Hollywood",
@@ -456,7 +456,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Hollywood, FL",
       description: "Modern bathroom remodeling in Hollywood, FL. Personal style, expert quality.",
       content: "We help Hollywood homeowners elevate their bathrooms with sleek designs, functional features, and premium materials.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
       name: "Boca Raton",
@@ -464,7 +464,7 @@ export const serviceAreasData = [
       title: "Bathroom Renovation Services in Boca Raton, FL",
       description: "High-end bathroom design and remodeling in Boca Raton. Luxury finishes, refined taste.",
       content: "Boca Raton clients choose Total Care Bathrooms for timeless elegance, upscale hardware, and flawless execution in every bathroom remodel.",
-      image: "/images/areaofservices/default.jpg"
+      image: `${static_assets}/images/hero_bg_1.jpg`
   }
 ];
 
@@ -477,7 +477,7 @@ export const servicesData = {
     title: 'Complete Bathroom Renovation Services by Total Care Bathrooms',
     description: 'Transform your entire bathroom into a luxurious and functional space with our comprehensive renovation services. From design to installation, we handle every detail.',
     content: `A full bathroom renovation is an investment in your home's comfort, value, and aesthetic appeal. At Total Care Bathrooms, we specialize in delivering bespoke bathroom transformations that reflect your style and meet your functional needs. Our process begins with a detailed consultation to understand your vision, followed by expert design planning, material selection, and professional installation. We manage every aspect of the project, including demolition, plumbing, electrical work, tiling, and fixture installation, ensuring a seamless and stress-free experience. Our commitment to quality craftsmanship and attention to detail guarantees a stunning outcome that you'll cherish for years to come.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/renovation.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -541,7 +541,6 @@ export const servicesData = {
         answer: "Absolutely. Total Care Bathrooms is fully licensed and insured, providing you with peace of mind throughout the renovation process."
       }
     ],
-    images: ['/services/default.jpg','/services/default.jpg']
   },
 
   'shower-tub-installation': {
@@ -549,7 +548,7 @@ export const servicesData = {
     title: 'Professional Shower and Bathtub Installation Services',
     description: 'Upgrade your bathing experience with our expert shower and tub installation services. We offer a wide range of styles and configurations to fit your needs.',
     content: `Whether you're looking to replace an old, worn-out tub, install a new walk-in shower, or create a luxurious spa-like retreat, Total Care Bathrooms provides professional shower and tub installation services. We work with all types of materials and designs, from standard acrylic units to custom tile showers and freestanding bathtubs. Our experienced technicians ensure precise installation, proper waterproofing, and seamless integration with your existing bathroom design. We focus on durability, functionality, and aesthetics to deliver a bathing solution that enhances your daily routine and adds value to your home.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/shower_tub.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -613,7 +612,6 @@ export const servicesData = {
         answer: "You can, or we can assist you in sourcing high-quality fixtures from our trusted suppliers, often at competitive prices."
       }
     ],
-    images: ['/services/default.jpg','/services/default.jpg']
   },
 
   'custom-vanities': {
@@ -621,7 +619,7 @@ export const servicesData = {
     title: 'Bespoke Custom Vanity Design and Installation Services',
     description: 'Elevate your bathroom with a custom-designed vanity that perfectly combines style, storage, and functionality. Tailored to your exact specifications.',
     content: `A custom vanity is the centerpiece of any well-designed bathroom, offering both aesthetic appeal and essential storage. At Total Care Bathrooms, we specialize in creating bespoke vanities that fit your space, style, and storage needs precisely. From selecting the finest materials like natural stone, quartz, or custom wood finishes, to integrating sinks, faucets, and intelligent storage solutions, our team works closely with you. We ensure every detail, from the height and depth to the drawer configurations and hardware, is meticulously crafted to deliver a unique and highly functional piece that enhances your bathroom's overall design and utility.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/vanity.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -685,7 +683,6 @@ export const servicesData = {
         answer: "Absolutely. Our designers work to ensure your new custom vanity seamlessly integrates with your bathroom's current aesthetic, or helps define a new one."
       }
     ],
-    images: ['/services/default.jpg','/services/default.jpg']
   },
 
   'tiling-waterproofing': {
@@ -693,7 +690,7 @@ export const servicesData = {
     title: 'Expert Bathroom Tiling and Waterproofing Services',
     description: 'Ensure the longevity and beauty of your bathroom with our professional tiling and waterproofing services. We provide durable, stylish, and leak-proof solutions.',
     content: `Tiling is a critical element in any bathroom, defining its aesthetic and protecting its structure. At Total Care Bathrooms, we specialize in expert tile installation for floors, walls, showers, and backsplashes, using a wide range of materials including ceramic, porcelain, natural stone, and mosaic. Crucially, our services extend to comprehensive waterproofing, a vital step often overlooked but essential for preventing water damage, mold, and mildew. We utilize advanced waterproofing membranes and techniques to create an impenetrable barrier, ensuring your bathroom remains beautiful and structurally sound for years to come. Our meticulous approach guarantees a flawless finish and lasting protection.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/tiling.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -759,7 +756,6 @@ export const servicesData = {
         answer: "Absolutely. Proper subfloor preparation and leveling are crucial for a durable tile installation, and we handle all necessary steps."
       }
     ],
-    images: ['/services/default.jpg','/services/default.jpg']
   },
 
   'bathroom-plumbing': {
@@ -767,7 +763,7 @@ export const servicesData = {
     title: 'Reliable Bathroom Plumbing Services for Renovations and Repairs',
     description: 'From new installations to complex repairs, our certified plumbers ensure your bathroom plumbing is efficient, reliable, and up to code.',
     content: `Efficient and reliable plumbing is the backbone of any functional bathroom. Total Care Bathrooms offers comprehensive plumbing services, whether you're undertaking a full renovation or need expert repairs. Our licensed plumbers are proficient in installing new pipes, fixtures, and drainage systems, as well as diagnosing and fixing leaks, clogs, and low water pressure issues. We ensure all plumbing work adheres to the highest standards of safety and local building codes, providing you with peace of mind and a perfectly functioning bathroom. We handle everything from rough-ins to final fixture connections, ensuring seamless integration with your overall bathroom design.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/plumbing.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -832,7 +828,6 @@ export const servicesData = {
         answer: "We use high-quality materials, precise installation techniques, and thorough testing to ensure all connections are secure and leak-free."
       }
     ],
-    images: ['/services/default.jpg','/services/default.jpg']
   },
 
   'lighting-mirrors': {
@@ -840,7 +835,7 @@ export const servicesData = {
     title: 'Bathroom Lighting and Mirror Installation Services',
     description: 'Illuminate your bathroom and enhance its aesthetics with our professional lighting and mirror installation services. We offer solutions that combine functionality with style.',
     content: `Proper lighting and strategically placed mirrors are crucial for both the functionality and ambiance of a bathroom. At Total Care Bathrooms, we provide expert installation of a wide range of lighting fixtures, including vanity lights, recessed lighting, task lighting, and ambient lighting, all designed to create the perfect atmosphere. We also specialize in installing various types of mirrors, from standard wall-mounted options to custom-cut, backlit, or smart mirrors. Our team ensures safe electrical connections and precise placement, transforming your bathroom into a brighter, more spacious, and visually appealing area. We help you choose solutions that not only meet your practical needs but also complement your bathroom's overall design.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/light.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -906,7 +901,6 @@ export const servicesData = {
         answer: "Yes, our design team can help you plan a lighting scheme that enhances both the functionality and aesthetics of your bathroom."
       }
     ],
-    images: ['/services/default.jpg','/services/default.jpg']
   },
 
   'luxury-spa-upgrades': {
@@ -914,7 +908,7 @@ export const servicesData = {
     title: 'Transform Your Bathroom into a Luxury Spa Retreat',
     description: 'Indulge in ultimate relaxation with our luxury spa upgrade services. We bring high-end features and sophisticated designs to your private oasis.',
     content: `Elevate your daily routine into a luxurious spa experience with Total Care Bathrooms' exclusive upgrade services. We specialize in integrating premium features that transform your ordinary bathroom into a serene and indulgent sanctuary. From therapeutic jetted tubs and steam showers to heated flooring and chromotherapy lighting, we offer a curated selection of high-end amenities. Our design team works with you to select sophisticated materials, advanced technologies, and elegant finishes that create a cohesive and opulent environment. Experience unparalleled comfort and rejuvenation right in your home with our bespoke luxury spa upgrades.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/luxry.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -979,7 +973,6 @@ export const servicesData = {
         answer: "Costs vary significantly based on the features selected and the extent of the renovation. We provide detailed, transparent quotes after a consultation."
       }
     ],
-    images: ['/services/default.jpg','/services/default.jpg']
   },
 
   'accessible-bathrooms': {
@@ -987,7 +980,7 @@ export const servicesData = {
     title: 'Accessible Bathroom Design and Installation Services',
     description: 'Create a safe, comfortable, and independent bathing environment with our specialized accessibility solutions. Designed for all ages and abilities.',
     content: `At Total Care Bathrooms, we believe that every bathroom should be accessible and safe for everyone, regardless of age or mobility. Our accessibility solutions are thoughtfully designed to provide comfort, independence, and peace of mind. We specialize in installing features such as walk-in tubs, roll-in showers, grab bars, comfort-height toilets, and non-slip flooring. Our team works closely with you to understand your specific needs and create a customized bathroom layout that is both functional and aesthetically pleasing. We ensure all installations meet ADA compliance standards where applicable, providing a secure and dignified bathing experience for years to come.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/accessible.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -1052,7 +1045,6 @@ export const servicesData = {
         answer: "Yes, we provide and install a range of non-slip flooring materials that are safe and durable for accessible bathrooms."
       }
     ],
-    images: ['/services/default.jpg','/services/default.jpg']
   },
 
   'powder-room-upgrades': {
@@ -1060,7 +1052,7 @@ export const servicesData = {
     title: 'Stylish Powder Room Upgrade and Renovations',
     description: 'Refresh your powder room with our efficient and stylish update services. A small space can make a big impression with the right design.',
     content: `A powder room, though small, offers a significant opportunity to make a design statement and enhance your home's overall aesthetic. Total Care Bathrooms specializes in efficient and impactful powder room updates that transform these compact spaces into stylish and inviting areas. We focus on maximizing functionality and visual appeal within limited square footage, offering services from new vanity and toilet installations to updated lighting, mirrors, and flooring. Whether you desire a modern, classic, or eclectic look, our team works to create a cohesive design that reflects your taste and leaves a lasting impression on your guests. We ensure quick turnaround times and minimal disruption, delivering a refreshed space that adds value and charm to your home.`,
-    image: '/images/services/default.jpg',
+    image: `${static_assets}/images/services/powder_room.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
       types: [
@@ -1124,80 +1116,8 @@ export const servicesData = {
         answer: "Costs vary based on the extent of the update and chosen materials. We provide a detailed estimate after understanding your vision."
       }
     ],
-    images: ['/services/default.jpg','/services/default.jpg']
   },
 
-  'eco-friendly-bathrooms': {
-    label: 'Eco-Friendly Options',
-    title: 'Sustainable and Eco-Friendly Bathroom Solutions',
-    description: 'Design a bathroom that is kind to the planet and your wallet with our eco-friendly options. We offer sustainable materials and water-saving fixtures.',
-    content: `At Total Care Bathrooms, we are committed to providing sustainable solutions that reduce environmental impact without compromising on style or functionality. Our eco-friendly bathroom options focus on water conservation, energy efficiency, and the use of sustainable materials. We offer a range of low-flow toilets, water-saving showerheads, and efficient faucets that significantly reduce water consumption. Additionally, we can incorporate recycled or sustainably sourced materials for countertops, flooring, and cabinetry. By choosing eco-friendly upgrades, you not only contribute to a healthier planet but also enjoy long-term savings on your utility bills. Let us help you create a beautiful, green bathroom that aligns with your values.`,
-    image: '/images/services/default.jpg',
-    typeOfSolutions: {
-      headings: 'Solutions we offer',
-      types: [
-        'Low-Flow Toilet Installation',
-        'Water-Saving Showerhead Installation',
-        'Efficient Faucet Installation',
-        'Recycled Material Countertops',
-        'Sustainable Flooring Options (Bamboo, Cork, Recycled Tile)',
-        'Energy-Efficient Lighting (LED)',
-        'Water-Efficient Appliance Integration',
-        'Non-Toxic & Low-VOC Paints',
-        'Reclaimed Wood Vanities',
-        'Greywater Recycling Systems (Consultation)'
-      ]
-    },
-    benefitsOFChoosing: [
-      {
-        title: 'Reduced Water Consumption',
-        description: 'Install low-flow fixtures and smart technologies to significantly cut down on water usage and utility bills.'
-      },
-      {
-        title: 'Lower Energy Costs',
-        description: 'Utilize energy-efficient lighting and appliances to decrease electricity consumption in your bathroom.'
-      },
-      {
-        title: 'Sustainable Material Choices',
-        description: 'Opt for recycled, reclaimed, or sustainably sourced materials that are environmentally responsible and durable.'
-      },
-      {
-        title: 'Healthier Indoor Environment',
-        description: 'Use non-toxic and low-VOC (Volatile Organic Compound) materials to improve air quality in your home.'
-      },
-      {
-        title: 'Increased Home Value',
-        description: 'Eco-friendly features are increasingly sought after, adding significant appeal and value to your property.'
-      },
-      {
-        title: 'Contribution to Environmental Protection',
-        description: 'Make a positive impact on the environment by choosing sustainable and responsible bathroom solutions.'
-      }
-    ],
-    faqs: [
-      {
-        question: "What makes a bathroom eco-friendly?",
-        answer: "An eco-friendly bathroom incorporates water-saving fixtures, energy-efficient lighting, and materials that are recycled, renewable, or have a low environmental impact."
-      },
-      {
-        question: "How much water can I save with low-flow fixtures?",
-        answer: "Low-flow toilets and showerheads can reduce water consumption by 20-60% compared to older models, leading to significant savings."
-      },
-      {
-        question: "Are eco-friendly materials durable?",
-        answer: "Absolutely. Many sustainable materials like bamboo, cork, and recycled glass tiles are highly durable and designed for long-term performance."
-      },
-      {
-        question: "Can you help me choose the right eco-friendly options for my budget?",
-        answer: "Yes, we offer a range of eco-friendly solutions to fit various budgets, and our team will guide you through the best options for your home."
-      },
-      {
-        question: "Do you offer greywater recycling systems?",
-        answer: "We can provide consultation and integrate greywater recycling systems into your bathroom design, allowing you to reuse water for non-potable purposes."
-      }
-    ],
-    images: ['/services/default.jpg','/services/default.jpg']
-  }
 };
 
 /* ------------------------
@@ -1208,7 +1128,7 @@ export const projectsData = {
     label: "Modern Master Bathroom",
     title: "Sleek Modern Master Bathroom Renovation",
     description: "A complete overhaul of a master bathroom, transforming it into a luxurious, minimalist, and highly functional space with contemporary fixtures and finishes.",
-    image: "/projects/default.jpg",
+    image: `${static_assets}/images/projects/master.jpg`,
     location: "Suburban Home, Bath, UK",
     duration: "Completed in 4 weeks",
     materials: [
@@ -1230,14 +1150,13 @@ We began by reconfiguring the layout to optimize space and flow, relocating the 
 
 The project emphasized smart solutions, including a smart toilet with bidet functionality and integrated storage solutions to maintain the minimalist design. The result is a stunning, highly functional master bathroom that serves as a tranquil sanctuary for the homeowners.
 `,
-    images: ["/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg"]
   },
 
   "luxury-spa-ensuite": {
     label: "Luxury Spa Ensuite",
     title: "Opulent Luxury Spa Ensuite Creation",
     description: "Designing and building a lavish spa-inspired ensuite bathroom, featuring high-end amenities, therapeutic elements, and bespoke finishes for ultimate relaxation.",
-    image: "/projects/default.jpg",
+    image: `${static_assets}/images/projects/spa.jpg`,
     location: "High-End Residence, Bath, UK",
     duration: "Completed in 6 weeks",
     materials: [
@@ -1259,14 +1178,13 @@ The design focused on creating a serene atmosphere, beginning with the installat
 
 Smart technology played a key role, with an integrated lighting system offering chromotherapy options and a hidden sound system providing ambient music. A bespoke double vanity, crafted from premium wood and topped with matching marble, provided ample space and storage. Every detail, from the designer fixtures to the heated towel warmer, was carefully selected to contribute to the opulent spa experience. The result is an unparalleled personal sanctuary that offers both indulgence and tranquility.
 `,
-    images: ["/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg"]
   },
 
   "small-bathroom-makeover": {
     label: "Small Bathroom Makeover",
     title: "Efficient Small Bathroom Makeover for Maximized Space",
     description: "A clever renovation of a compact bathroom, focusing on space-saving solutions, bright aesthetics, and enhanced functionality to make the most of a small area.",
-    image: "/projects/default.jpg",
+    image: `${static_assets}/images/projects/small.jpg`,
     location: "City Apartment, Bath, UK",
     duration: "Completed in 2 weeks",
     materials: [
@@ -1288,14 +1206,13 @@ We started by replacing the bulky traditional vanity with a sleek, compact wall-
 
 Strategic lighting was crucial; recessed LED lights were installed to provide ample illumination without visual clutter. A large mirror, extending across the vanity, was chosen to reflect light and expand the room visually, and it included hidden storage. To save space at the entrance, a stylish sliding barn door was fitted. The overall design focused on clean lines, bright colors, and smart storage solutions, resulting in a small bathroom that feels surprisingly spacious and inviting.
 `,
-    images: ["/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg"]
   },
 
   "accessible-bathroom": {
     label: "Accessible Bathroom Upgrade",
     title: "Comprehensive Accessible Bathroom Renovation",
     description: "Creating a safe, comfortable, and fully accessible bathroom designed for ease of use and independence for individuals with mobility challenges.",
-    image: "/projects/default.jpg",
+    image: `${static_assets}/images/projects/accessible.jpg`,
     location: "Residential Home, Bath, UK",
     duration: "Completed in 3 weeks",
     materials: [
@@ -1317,14 +1234,13 @@ The most significant modification was the installation of a roll-in shower with 
 
 A custom-built vanity with an open knee space was designed to allow for wheelchair access, and all faucets were replaced with easy-to-operate lever handles. A handheld shower head was installed for added convenience. Where necessary, the doorway was widened to accommodate a wheelchair. All wall areas where grab bars were installed or might be installed in the future were reinforced with blocking to ensure maximum security. The result is a beautifully designed, highly functional, and safe bathroom that enhances the homeowner\'s quality of life.
 `,
-    images: ["/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg"]
   },
 
   "downtown-condo": {
     label: "Downtown Condo Renovation",
     title: "Chic Downtown Condo Bathroom Renovation",
     description: "A modern and space-efficient bathroom renovation for a downtown condominium, focusing on contemporary design, smart storage, and high-end finishes suitable for urban living.",
-    image: "/projects/default.jpg",
+    image: `${static_assets}/images/projects/small.jpg`,
     location: "Downtown, Bath, UK",
     duration: "Completed in 3.5 weeks",
     materials: [
@@ -1346,14 +1262,13 @@ The existing layout was reconfigured to accommodate a more open and efficient de
 
 The shower area was transformed into a stylish walk-in shower, featuring a linear drain and a frameless glass enclosure to maintain an open feel. A rainfall shower head combined with a thermostatic mixer offered a luxurious and consistent showering experience. Integrated LED lighting, including recessed ceiling lights and subtle vanity lighting, enhanced the ambiance. A backlit mirror with a demister pad added both functionality and a touch of modern elegance. Smart storage solutions, such as pull-out drawers and hidden cabinets, were incorporated to keep the space tidy and organized. The result is a highly functional, visually stunning bathroom that perfectly complements the urban lifestyle of the condominium.
 `,
-    images: ["/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg"]
   },
 
   "family-bathroom": {
     label: "Suburban Family Bath",
     title: "Durable and Functional Suburban Family Bathroom Renovation",
     description: "A practical and stylish renovation of a family bathroom in a suburban home, designed to withstand daily use while offering comfort and ample storage for a busy household.",
-    image: "/projects/default.jpg",
+    image: `${static_assets}/images/projects/family.jpg`,
     location: "Suburban Home, Bath, UK",
     duration: "Completed in 3 weeks",
     materials: [
@@ -1375,14 +1290,13 @@ We selected durable ceramic tiles for the floor and shower surround, known for t
 
 Bright LED lighting was integrated throughout the bathroom to ensure excellent visibility, and a large mirror was placed above the vanity. To maximize storage, a built-in linen closet was added, providing convenient access to towels and toiletries. All fixtures were chosen for their child-friendly design and robust construction. The design also incorporated a dedicated non-slip area near the bath for added safety. The result is a highly functional, comfortable, and attractive family bathroom that can stand up to the rigors of everyday family life.
 `,
-    images: ["/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg"]
   },
 
   "commercial-washroom": {
     label: "Commercial Washroom Fitout",
     title: "Modern Commercial Washroom Fitout for Office Building",
     description: "A complete fitout of commercial washrooms in an office building, focusing on durability, hygiene, and modern aesthetics to accommodate high traffic and professional standards.",
-    image: "/projects/default.jpg",
+    image: `${static_assets}/images/projects/commercial.jpg`,
     location: "Office Building, City Centre, Bath, UK",
     duration: "Completed in 5 weeks",
     materials: [
@@ -1404,14 +1318,13 @@ We installed heavy-duty porcelain tiles on both the floors and walls, chosen for
 
 Stainless steel fixtures were used throughout for their longevity and sleek, professional look. High-efficiency hand dryers were installed to minimize waste. Custom-designed commercial-grade vanity units provided ample space and integrated waste disposal. The lighting was upgraded to bright, energy-efficient LED panels, ensuring excellent illumination. Anti-slip flooring was a critical safety feature, and robust partition systems were installed for privacy and durability. The result is a series of modern, highly functional, and low-maintenance commercial washrooms that meet the highest standards of cleanliness and design.
 `,
-    images: ["/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg"]
   },
 
   "guest-bathroom-remodel": {
     label: "Guest Bathroom Remodel",
     title: "Inviting Guest Bathroom Remodel with Modern Touches",
     description: "A complete remodel of a guest bathroom, focusing on creating a welcoming and stylish space with updated fixtures, finishes, and improved functionality for visitors.",
-    image: "/projects/default.jpg",
+    image: `${static_assets}/images/projects/guest.jpg`,
     location: "Residential Home, Bath, UK",
     duration: "Completed in 2.5 weeks",
     materials: [
@@ -1433,14 +1346,13 @@ We began by removing all old fixtures and finishes. For the shower walls, classi
 
 The old shower/tub combination was replaced with a new, more efficient unit, complete with updated fixtures for a better showering experience. A vanity mirror with integrated LED lighting was installed, providing excellent illumination for grooming. Modern wall sconces were added to complement the overall lighting scheme. The walls were painted in light, neutral tones to create a bright and airy atmosphere. All hardware was updated to chrome or brushed nickel, tying the modern elements together. The result is a beautifully refreshed guest bathroom that is both comfortable and stylish, ensuring a pleasant experience for any visitor.
 `,
-    images: ["/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg"]
   },
 
   "coastal-style-bathroom": {
     label: "Coastal Style Bathroom",
     title: "Serene Coastal Style Bathroom Renovation",
     description: "Transforming a bathroom into a tranquil coastal retreat, featuring light colors, natural textures, and elements inspired by the sea for a relaxed and airy ambiance.",
-    image: "/projects/default.jpg",
+    image: `${static_assets}/images/projects/coastal.jpg`,
     location: "Seaside Property, Bath, UK",
     duration: "Completed in 3 weeks",
     materials: [
@@ -1462,14 +1374,13 @@ Light blue ceramic tiles were chosen for the shower walls, evoking the calm of t
 
 The shower floor was laid with pebble-look tiles, offering a tactile connection to the beach. A freestanding clawfoot tub was installed for a touch of vintage elegance and relaxation, though a walk-in shower with clear glass could also fit the aesthetic. Brushed nickel fixtures were selected to complete the look. Nautical-themed lighting, such as lantern-style sconces, and subtle rope and driftwood accents were incorporated to enhance the coastal theme. A large round mirror, reminiscent of a ship\'s porthole, was mounted above the vanity. The result is a tranquil and inviting coastal-style bathroom that feels like a permanent vacation.
 `,
-    images: ["/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg"]
   },
 
   "minimalist-wet-room": {
     label: "Minimalist Wet Room",
     title: "Sleek Minimalist Wet Room Design and Installation",
     description: "Creating a contemporary and highly functional wet room with a minimalist aesthetic, emphasizing seamless transitions, open space, and sophisticated drainage solutions.",
-    image: "/projects/default.jpg",
+    image: `${static_assets}/images/projects/wet_room.jpg`,
     location: "Modern Home, Bath, UK",
     duration: "Completed in 4 weeks",
     materials: [
@@ -1491,51 +1402,42 @@ The core of the wet room design was the use of large-format concrete-effect porc
 
 To maintain the minimalist aesthetic, a wall-mounted toilet and bidet were installed, freeing up floor space and simplifying cleaning. A sleek floating vanity with an integrated sink was chosen, further contributing to the open feel. All fixtures were selected in a minimalist black finish to provide a striking contrast against the light grey tiles. Integrated LED strip lighting was used to create subtle illumination and highlight the architectural features of the room. Underfloor heating was installed for comfort, and a robust waterproof membrane system was applied beneath all surfaces to ensure complete water containment. An optional frameless glass screen was installed to define the shower area without visually closing off the space. The result is a sophisticated, easy-to-maintain wet room that embodies modern minimalism and offers a luxurious showering experience.
 `,
-    images: ["/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg", "/projects/default.jpg"]
   }
 };
 
 export const projectsImageGallery = [
-  '/projects/costal.jpg',
-  '/projects/buildings.jpg',
-  '/projects/condos.jpg',
-  '/projects/mall.jpg',
-  '/projects/luxry.jpg',
-  '/projects/lake-view.jpg',
-  '/projects/ocean-breeze.jpg',
-  '/projects/measueam.jpg',
-  '/services/metal.jpg',
+  `${static_assets}/images/projects/accessible.jpg`,
+  `${static_assets}/images/projects/coastal.jpg`,
+  `${static_assets}/images/projects/commercial.jpg`,
+  `${static_assets}/images/projects/compact.jpg`,
+  `${static_assets}/images/projects/family.jpg`,
+  `${static_assets}/images/projects/guest.jpg`,
+  `${static_assets}/images/projects/master.jpg`,
+  `${static_assets}/images/projects/small.jpg`,
+  `${static_assets}/images/projects/spa.jpg`,
+  `${static_assets}/images/projects/wet_room.jpg`,
 ];
 /* ------------------------
    TESTIMONAILS START
 ------------------------ */
 export const testimonialsData = [
 
-
-
   {
     "name": "John Davis",
     "role": "Homeowner | Bath",
     "feedback": "Total Care Bathrooms transformed our old bathroom into a modern oasis—smooth process and stunning results!",
-    "image": "/images/testimonials/default.jpg"
   },
-
-
 
   {
     "name": "Rachel Green",
     "role": "Property Manager",
     "feedback": "They handled the renovation of multiple bathrooms in our properties. Always reliable and responsive, delivering high-quality work.",
-    "image": "/images/testimonials/default.jpg"
   },
-
-
 
   {
     "name": "Carlos Rivera",
     "role": "Business Owner | Bath",
     "feedback": "Our commercial washrooms were outdated. Their renovation solution made a huge difference. Professional from start to finish.",
-    "image": "/images/testimonials/default.jpg"
   },
 
 
@@ -1544,7 +1446,6 @@ export const testimonialsData = [
     "name": "Lisa Turner",
     "role": "Interior Designer",
     "feedback": "They managed to integrate sleek, modern bathroom designs into our projects without impacting the overall aesthetic. Excellent team!",
-    "image": "/images/testimonials/default.jpg"
   },
 
 
@@ -1553,7 +1454,6 @@ export const testimonialsData = [
     "name": "Mark Johnson",
     "role": "Hotel Manager",
     "feedback": "Upgraded our hotel bathrooms with no downtime for guests. Fast, clean, and efficient.",
-    "image": "/images/testimonials/default.jpg"
   },
 
 
@@ -1562,7 +1462,6 @@ export const testimonialsData = [
     "name": "Emily Chen",
     "role": "Homeowner | Bath",
     "feedback": "Our old bathroom was a disaster—Total Care got a new one up and running in just a few weeks!",
-    "image": "/images/testimonials/default.jpg"
   },
 
 
@@ -1571,7 +1470,6 @@ export const testimonialsData = [
     "name": "David Kim",
     "role": "Real Estate Developer",
     "feedback": "They’ve handled bathroom renovations across multiple properties. On-time, budget-friendly, and always to code.",
-    "image": "/images/testimonials/default.jpg"
   },
 
 
@@ -1580,7 +1478,6 @@ export const testimonialsData = [
     "name": "Sophia Allen",
     "role": "Restaurant Owner",
     "feedback": "The customer washrooms were uninviting before. Their renovation made a huge difference to our business.",
-    "image": "/images/testimonials/default.jpg"
   },
 
 
@@ -1589,7 +1486,6 @@ export const testimonialsData = [
     "name": "Nathan Scott",
     "role": "Construction Project Manager",
     "feedback": "These guys know their stuff. Smooth bathroom renovation integration on our high-rise project.",
-    "image": "/images/testimonials/default.jpg"
   },
 
 
@@ -1598,7 +1494,6 @@ export const testimonialsData = [
     "name": "Olivia Perez",
     "role": "Retail Store Owner | Bath",
     "feedback": "We had outdated restrooms. Total Care diagnosed and fixed plumbing issues quickly, and updated the space beautifully.",
-    "image": "/images/testimonials/default.jpg"
   },
 
 
@@ -1607,7 +1502,6 @@ export const testimonialsData = [
     "name": "Jason Brooks",
     "role": "Commercial Building Owner",
     "feedback": "Replaced our outdated washroom fixtures with high-efficiency ones. Lower water bills already.",
-    "image": "/images/testimonials/default.jpg"
   },
 
 
@@ -1616,6 +1510,5 @@ export const testimonialsData = [
     "name": "Mia Thompson",
     "role": "Home Renovator | Bath",
     "feedback": "Their team handled bathroom design perfectly during our whole-house renovation. Highly recommend!",
-    "image": "/images/testimonials/default.jpg"
   }
 ];

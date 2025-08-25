@@ -486,7 +486,6 @@ export const servicesData = {
         { question: 'Can you replace windows during winter?', answer: 'Absolutely — we use efficient processes to minimize exposure and heat loss.' },
         { question: 'Do you handle disposal of old windows?', answer: 'Yes, we remove and dispose of old materials as part of our service.' }
     ],
-    images: [`${static_assets}/images/services/window_installation.jpg`]
 },
 'glass-replacement': {
     label: 'Glass Replacement',
@@ -519,7 +518,7 @@ export const servicesData = {
         { question: 'Do you offer same-day service for broken glass?', answer: 'In many cases, yes. Emergency glass replacement is available.' },
         { question: 'Can you upgrade my current glass to energy-efficient options?', answer: 'Absolutely — we provide low-E and insulated glass replacements.' }
     ],
-    images: ['/images/services/glass1.jpg', '/images/services/glass2.jpg']
+    
 },
 'window-sealing': {
     label: 'Window Sealing & Caulking',
@@ -551,7 +550,7 @@ export const servicesData = {
         { question: 'Do you use weather-resistant caulking?', answer: 'Yes, we only use premium, long-lasting sealing products.' },
         { question: 'Will sealing make my windows more soundproof?', answer: 'Yes, better seals can reduce outside noise levels significantly.' }
     ],
-    images: ['/images/services/sealing1.jpg', '/images/services/sealing2.jpg']
+    
 },
 'window-tinting': {
     label: 'Window Tinting & Films',
@@ -584,7 +583,7 @@ export const servicesData = {
         { question: 'Can tint be applied to existing windows?', answer: 'Yes, films can be installed on most glass types.' },
         { question: 'Does tinting help with fading furniture?', answer: 'Absolutely — by blocking UV rays, it protects floors, fabrics, and artwork.' }
     ],
-    images: ['/images/services/tinting1.jpg', '/images/services/tinting2.jpg']
+
 },
 'maintenance-repair': {
     label: 'Maintenance & Repair',
@@ -617,7 +616,7 @@ export const servicesData = {
         { question: 'Do you replace broken parts?', answer: 'Yes, we source high-quality replacement parts for all brands.' },
         { question: 'How often should I schedule window maintenance?', answer: 'Annually is recommended for optimal performance.' }
     ],
-    images: [`${static_assets}/images/services/window_repair.jpg`,]
+ 
 },
 'residential-cleaning': {
     label: 'Residential Window Cleaning',
@@ -649,7 +648,7 @@ export const servicesData = {
         { question: 'Is your cleaning solution safe for pets?', answer: 'Absolutely — we use eco-friendly, non-toxic products.' },
         { question: 'Do you clean skylights too?', answer: 'Yes, skylights are included as part of our service options.' }
     ],
-    images: [`${static_assets}/images/services/window_cleaning.jpg`]
+  
 },
 'commercial-cleaning': {
     label: 'Commercial Window Cleaning',
@@ -681,7 +680,7 @@ export const servicesData = {
         { question: 'Are you insured for commercial properties?', answer: 'Absolutely — we are fully licensed and insured.' },
         { question: 'Do you handle post-renovation cleaning?', answer: 'Yes, we specialize in removing dust and debris from new builds or remodels.' }
     ],
-    images: ['/images/services/commercial1.jpg', '/images/services/commercial2.jpg']
+   
 },
 'screen-repair': {
     label: 'Screen Repair & Replacement',
@@ -714,7 +713,7 @@ export const servicesData = {
         { question: 'Can I get a custom screen for odd-sized windows?', answer: 'Absolutely — we build custom frames and mesh to size.' },
         { question: 'How long does screen replacement take?', answer: 'Most jobs are completed in a single visit.' }
     ],
-    images: ['/images/services/screen1.jpg', '/images/services/screen2.jpg']
+   
 },
 'storm-windows': {
     label: 'Storm Window Installation',
@@ -746,7 +745,7 @@ export const servicesData = {
         { question: 'Do they reduce outside noise?', answer: 'Yes, they add an extra sound barrier.' },
         { question: 'Can storm windows be customized?', answer: 'Yes, we provide custom-fit options to match your existing windows.' }
     ],
-    images: ['/images/services/storm1.jpg', '/images/services/storm2.jpg']
+
 },
 'skylight-cleaning': {
     label: 'Skylight Cleaning & Care',
@@ -777,7 +776,7 @@ export const servicesData = {
         { question: 'Can you clean acrylic skylights?', answer: 'Absolutely — we use safe products designed for acrylic surfaces.' },
         { question: 'Is skylight cleaning safe?', answer: 'Yes, we use professional safety equipment to reach and clean skylights securely.' }
     ],
-    images: ['/images/services/skylight1.jpg', '/images/services/skylight2.jpg']
+
 },
 'solar-cleaning': {
     label: 'Solar Panel Cleaning',
@@ -809,7 +808,7 @@ export const servicesData = {
         { question: 'Is cleaning safe for the panels?', answer: 'Absolutely. We use gentle, manufacturer-approved cleaning methods.' },
         { question: 'Can you clean commercial solar farms?', answer: 'Yes, we service both residential and large-scale commercial installations.' }
     ],
-    images: [`${static_assets}/images/services/solar_cleaning.jpg`]
+    
 }};
 /* ------------------------
    PROJECTS START 

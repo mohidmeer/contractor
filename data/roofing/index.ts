@@ -525,7 +525,7 @@ export const servicesData = {
         answer: "Yes, we are fully licensed and insured to perform roofing services in Florida, ensuring safety and compliance with local regulations."
       }
     ],
-    images: [`${static_assets}/images/services/roofers-installation.jpg`, `${static_assets}/images/services/metal.jpg`]
+    images: [ `${static_assets}/images/services/metal.jpg`]
   },
   'roof-repair': {
     label: 'Roof Repair',
@@ -583,7 +583,7 @@ export const servicesData = {
         answer: "Yes, we are fully licensed and insured to perform roofing services in Florida, ensuring safety and compliance with local regulations."
       }
     ],
-    images: [`${static_assets}/images/services/roof-repair.jpg`, `${static_assets}/images/services/flat.jpg`]
+    images: [ `${static_assets}/images/services/flat.jpg`]
   },
   'gutters': {
     label: 'Gutter Services',
@@ -641,7 +641,7 @@ export const servicesData = {
         answer: "Yes, we are fully licensed and insured to perform roofing services in Florida, ensuring safety and compliance with local regulations."
       }
     ],
-    images: [`${static_assets}/images/services/gutters.jpg`, `${static_assets}/images/services/replacement.jpg`, `${static_assets}/images/services/skylight.jpg`]
+    images: [`${static_assets}/images/services/replacement.jpg`, `${static_assets}/images/services/skylight.jpg`]
   },
   'roof-inspection': {
     label: 'Roof Inspection',
