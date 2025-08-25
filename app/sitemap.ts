@@ -1,6 +1,6 @@
-import { serviceAreasData, siteUrl } from '@/data/constants'
-import { projectsData } from '@/data/projects';
-import { servicesData } from '@/data/services'
+import { serviceAreasData, siteUrl } from '@/data'
+import { projectsData } from '@/data';
+import { servicesData } from '@/data'
 import type { MetadataRoute } from 'next'
 import prisma from '@/lib/prisma'
 
