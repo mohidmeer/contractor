@@ -89,8 +89,8 @@ export default async function page({ params }: Props) {
                   <Image
                     fill
                     className="object-cover rounded-md"
-                    alt="Preventing Roof Leaks"
-                    src={blog.image}
+                    alt={blog?.title}
+                    src={blog.image || ''}
                   />
                 </div>
                 <figcaption className="text-sm text-center text-gray-500 mt-2">
