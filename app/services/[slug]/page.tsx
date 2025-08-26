@@ -68,10 +68,8 @@ export default async function Page({ params }: Props) {
     "mainEntityOfPage": `${siteUrl}/services/${slug}`,
   };
 
-  const gallery_images = service.images ?? []
-
-  
-  gallery_images.unshift(service.image)
+  const gallery_images: string[] = [...(service.images ?? [])];
+  gallery_images.unshift(service.image);
 
   return (
     <main className="flex flex-col gap-20">

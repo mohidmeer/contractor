@@ -980,8 +980,7 @@ export const servicesData = {
             }
         ],
         images: []
-    }
-    ,
+    },
     'smart-kitchens': {
         label: 'Smart Kitchen Solutions',
         title: 'Innovative Smart Kitchen Upgrades for Modern Living',
@@ -1126,9 +1125,6 @@ export const servicesData = {
         ],
         images: []
     }
-
-
-
 };
 
 
