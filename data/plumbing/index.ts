@@ -290,7 +290,6 @@ export const navItems = [
       { label: 'Palm Heights Condos', href: '/projects/palm-heights-condos', hasChildrens: false },
       { label: 'City Mall Restrooms', href: '/projects/city-mall-restrooms', hasChildrens: false },
       { label: 'Heritage Hotel Plumbing', href: '/projects/heritage-hotel-plumbing', hasChildrens: false },
-      { label: 'Green Grove Villas', href: '/projects/green-grove-villas', hasChildrens: false },
       { label: 'Ocean Bay Resort', href: '/projects/ocean-bay-resort', hasChildrens: false },
       { label: 'Community Center Bathrooms', href: '/projects/community-center-bathrooms', hasChildrens: false },
       { label: 'Eco Homes Plumbing', href: '/projects/eco-homes-plumbing', hasChildrens: false },
@@ -1401,31 +1400,6 @@ export const projectsData = {
       Each guest room was fitted with luxury showers, tankless heaters, and in-wall toilets for a sleek finish.
       A smart water management system was also installed to prevent leaks and improve maintenance oversight.
       The project was completed in 5 weeks with zero guest disruptions.`,
-  },
-  'green-grove-villas': {
-    label: 'Green Grove Villas',
-    title: 'Green Grove Villas Plumbing Development',
-    description: 'Installed a complete plumbing system for Green Grove Villas, focused on sustainability and long-term reliability.',
-    image: `${static_assets}/images/projects/bathroom_plumbing.jpg`,
-    location: 'Green Grove Villas, Orlando, FL',
-    duration: 'Completed in 6 weeks',
-    materials: [
-      'PEX-A Water Lines',
-      'Rainwater Harvesting Integration',
-      'Dual-Flush Toilets',
-      'Low-Flow Faucets & Showerheads',
-      'Mainline Water Softeners',
-      'Subsurface Drainage System',
-      'Stainless Steel Fixtures',
-      'Smart Irrigation Controllers',
-      'Isolation Valves for Every Unit',
-      'Hot Water Recirculation Lines'
-    ],
-    content: `
-      Green Grove Villas was a new development with a strong focus on eco-conscious living.
-      We designed and installed a sustainable plumbing system that integrates rainwater harvesting for landscape irrigation and low-flow fixtures to minimize water usage.
-      PEX-A piping ensured easy maintenance and a long lifespan, while smart irrigation controllers added efficiency to outdoor water use.
-      The project was delivered in 6 weeks, on time and within budget, supporting the community’s green mission.`,
   },
   'ocean-bay-resort': {
     label: 'Ocean Bay Resort',
