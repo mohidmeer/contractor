@@ -715,6 +715,7 @@ export const servicesData = {
         answer: "Yes, we can apply safe antimicrobial treatments after cleaning to neutralize bacteria, mold, and odors."
       }
     ],
+    images: []
   },
   'thermostat-installation': {
     label: 'Thermostat Installation',
