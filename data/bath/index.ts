@@ -979,6 +979,7 @@ export const servicesData = {
         answer: "Costs vary significantly based on the features selected and the extent of the renovation. We provide detailed, transparent quotes after a consultation."
       }
     ],
+    images: []
   },
 
   'accessible-bathrooms': {
