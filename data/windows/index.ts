@@ -480,12 +480,14 @@ export const servicesData = {
         { title: 'Professional Installation', description: 'Our experts ensure perfect fit and finish every time.' },
         { title: 'Value Increase', description: 'Improve property value with upgraded windows.' }
     ],
+    images:[],
     faqs: [
         { question: 'How long does window installation take?', answer: 'Most standard installations take 1–2 days depending on window type and project size.' },
         { question: 'Do you install custom-sized windows?', answer: 'Yes, we provide custom measurements and fittings to ensure a perfect match.' },
         { question: 'Can you replace windows during winter?', answer: 'Absolutely — we use efficient processes to minimize exposure and heat loss.' },
         { question: 'Do you handle disposal of old windows?', answer: 'Yes, we remove and dispose of old materials as part of our service.' }
     ],
+    
 },
 'glass-replacement': {
     label: 'Glass Replacement',
@@ -512,6 +514,7 @@ export const servicesData = {
         { title: 'Quick Turnaround', description: 'Fast service to restore your property’s safety and appearance.' },
         { title: 'Custom Fit', description: 'Glass is measured and cut to fit perfectly in your frames.' }
     ],
+    images:[],
     faqs: [
         { question: 'Can you replace just the glass without the entire window?', answer: 'Yes, if the frame is intact, we can replace just the glass panel.' },
         { question: 'What causes foggy windows?', answer: 'Moisture trapped between panes due to seal failure — which we can replace with new insulated glass.' },
@@ -544,6 +547,7 @@ export const servicesData = {
         { title: 'Long-Term Durability', description: 'Extend window lifespan with proper sealing maintenance.' },
         { title: 'Professional Finish', description: 'Clean, seamless application improves window appearance.' }
     ],
+    images:[],
     faqs: [
         { question: 'How often should windows be resealed?', answer: 'Typically every 5–10 years, depending on climate and material wear.' },
         { question: 'Can sealing fix condensation issues?', answer: 'It can reduce drafts, but failed glass seals may require glass replacement.' },
@@ -577,6 +581,7 @@ export const servicesData = {
         { title: 'Improved Comfort', description: 'Reduce glare and maintain balanced indoor temperatures.' },
         { title: 'Stylish Appearance', description: 'Add a modern touch with decorative film options.' }
     ],
+    images:[],
     faqs: [
         { question: 'How long does window tinting last?', answer: 'With professional installation, films can last 10–15 years depending on conditions.' },
         { question: 'Will tinting make my home too dark?', answer: 'No, we offer a range of shades that balance natural light and privacy.' },
@@ -610,6 +615,7 @@ export const servicesData = {
         { title: 'Professional Care', description: 'Expert technicians handle all types of repairs.' },
         { title: 'Peace of Mind', description: 'Reliable service ensures your windows work smoothly.' }
     ],
+    images:[],
     faqs: [
         { question: 'Do you repair all types of windows?', answer: 'Yes, we service sliding, casement, bay, and more.' },
         { question: 'Can maintenance improve insulation?', answer: 'Absolutely — sealing and repairs prevent energy loss.' },
@@ -642,6 +648,7 @@ export const servicesData = {
         { title: 'Time-Saving', description: 'Save hours of work with our efficient team.' },
         { title: 'Curb Appeal', description: 'Enhance your home’s appearance instantly.' }
     ],
+    images:[],
     faqs: [
         { question: 'Do you clean hard-to-reach windows?', answer: 'Yes, we have professional equipment for high or awkward windows.' },
         { question: 'How often should I schedule window cleaning?', answer: 'Most homeowners choose seasonal or biannual cleanings.' },
@@ -674,6 +681,7 @@ export const servicesData = {
         { title: 'Consistent Results', description: 'We provide regular cleaning contracts for reliability.' },
         { title: 'Scalable Service', description: 'We handle everything from small shops to high-rise offices.' }
     ],
+    images:[],
     faqs: [
         { question: 'Do you work outside business hours?', answer: 'Yes, we offer flexible scheduling, including early mornings and weekends.' },
         { question: 'Do you offer service contracts?', answer: 'Yes, we provide regular service agreements for ongoing cleaning.' },
@@ -707,6 +715,7 @@ export const servicesData = {
         { title: 'Quick Service', description: 'Most screen repairs and replacements are done same day.' },
         { title: 'Affordable Fixes', description: 'Cost-effective service to restore window function.' }
     ],
+    images:[],
     faqs: [
         { question: 'Can you repair sliding door screens?', answer: 'Yes, we repair and replace patio and sliding door screens.' },
         { question: 'Do you offer pet-resistant screens?', answer: 'Yes, we provide heavy-duty mesh designed for pets.' },
@@ -739,6 +748,7 @@ export const servicesData = {
         { title: 'Custom Fit', description: 'Tailored installations for any window size or style.' },
         { title: 'Year-Round Comfort', description: 'Maintain consistent indoor temperatures and comfort.' }
     ],
+    images:[],
     faqs: [
         { question: 'Do storm windows improve energy efficiency?', answer: 'Yes, they provide insulation and reduce heat transfer.' },
         { question: 'Are storm windows permanent?', answer: 'They can be permanent or removable depending on your preference.' },
@@ -770,6 +780,7 @@ export const servicesData = {
         { title: 'Glass & Acrylic Care', description: 'We handle all skylight types with proper techniques.' },
         { title: 'Enhanced Aesthetics', description: 'Spotless skylights brighten your interiors.' }
     ],
+    images:[],
     faqs: [
         { question: 'How often should skylights be cleaned?', answer: 'We recommend cleaning at least twice a year for best results.' },
         { question: 'Do you repair skylight leaks?', answer: 'Yes, we inspect and reseal skylights to stop leaks.' },
@@ -802,6 +813,7 @@ export const servicesData = {
         { title: 'Safety Guaranteed', description: 'We use professional equipment to clean hard-to-reach rooftop panels safely.' },
         { title: 'Cost Savings', description: 'Increased efficiency means lower energy bills and faster ROI.' }
     ],
+    images:[],
     faqs: [
         { question: 'How often should solar panels be cleaned?', answer: 'We recommend every 6–12 months depending on local dust, pollen, and weather conditions.' },
         { question: 'Do dirty panels really lose efficiency?', answer: 'Yes — buildup can reduce energy production by 20–30%.' },

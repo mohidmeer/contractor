@@ -528,6 +528,7 @@ export const servicesData = {
                 description: 'Clear pricing, no surprises — you’ll know exactly what to expect.'
             }
         ],
+        images:[],
         faqs: [
             {
                 question: "How long does a full kitchen renovation take?",
@@ -598,6 +599,7 @@ export const servicesData = {
                 description: 'Our installers ensure precise fitting and finish for long-lasting beauty and function.'
             }
         ],
+        images:[],
         faqs: [
             {
                 question: "Is cabinet refacing better than replacing?",
@@ -668,6 +670,7 @@ export const servicesData = {
                 description: 'We help match surfaces with cabinetry, tiles, and fixtures for a cohesive finish.'
             }
         ],
+        images:[],
         faqs: [
             {
                 question: "Which surface material is best for kitchen countertops?",
@@ -739,6 +742,7 @@ export const servicesData = {
                 description: 'Not sure what to choose? We guide you through textures, colors, and finishes.'
             }
         ],
+        images:[],
         faqs: [
             {
                 question: "Which tiles are best for kitchen backsplashes?",
@@ -809,6 +813,7 @@ export const servicesData = {
                 description: 'Upfront quotes with no hidden charges. Just honest service and great results.'
             }
         ],
+        images:[],
         faqs: [
             {
                 question: "Do I need to move plumbing lines for a new sink?",
@@ -879,6 +884,7 @@ export const servicesData = {
                 description: 'Our installations are quick, clean, and scheduled to minimize interference with your daily routine.'
             }
         ],
+        images:[],
         faqs: [
             {
                 question: "Can I add under-cabinet lighting to my existing setup?",
@@ -950,6 +956,7 @@ export const servicesData = {
                 description: 'Our team installs your pantry efficiently with minimal disruption to your home.'
             }
         ],
+        images:[],
         faqs: [
             {
                 question: "Can you design a pantry for small kitchens?",
@@ -1022,6 +1029,7 @@ export const servicesData = {
                 description: 'Stay ahead with scalable technology that adapts as your smart home grows.'
             }
         ],
+        images:[],
         faqs: [
             {
                 question: "Can smart kitchen devices work with Alexa or Google Assistant?",
@@ -1093,6 +1101,7 @@ export const servicesData = {
                 description: 'Our team stays informed on green building trends to deliver truly sustainable solutions.'
             }
         ],
+        images:[],
         faqs: [
             {
                 question: "Is an eco-friendly kitchen more expensive?",

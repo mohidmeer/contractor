@@ -541,6 +541,7 @@ export const servicesData = {
         answer: "Absolutely. Total Care Bathrooms is fully licensed and insured, providing you with peace of mind throughout the renovation process."
       }
     ],
+    images:[],
   },
 
   'shower-tub-installation': {
@@ -612,6 +613,7 @@ export const servicesData = {
         answer: "You can, or we can assist you in sourcing high-quality fixtures from our trusted suppliers, often at competitive prices."
       }
     ],
+    images:[],
   },
 
   'custom-vanities': {
@@ -683,6 +685,7 @@ export const servicesData = {
         answer: "Absolutely. Our designers work to ensure your new custom vanity seamlessly integrates with your bathroom's current aesthetic, or helps define a new one."
       }
     ],
+    images:[],
   },
 
   'tiling-waterproofing': {
@@ -756,6 +759,7 @@ export const servicesData = {
         answer: "Absolutely. Proper subfloor preparation and leveling are crucial for a durable tile installation, and we handle all necessary steps."
       }
     ],
+    images:[],
   },
 
   'bathroom-plumbing': {
@@ -828,6 +832,7 @@ export const servicesData = {
         answer: "We use high-quality materials, precise installation techniques, and thorough testing to ensure all connections are secure and leak-free."
       }
     ],
+    images:[],
   },
 
   'lighting-mirrors': {
@@ -901,6 +906,7 @@ export const servicesData = {
         answer: "Yes, our design team can help you plan a lighting scheme that enhances both the functionality and aesthetics of your bathroom."
       }
     ],
+    images:[],
   },
 
   'luxury-spa-upgrades': {
@@ -1045,6 +1051,7 @@ export const servicesData = {
         answer: "Yes, we provide and install a range of non-slip flooring materials that are safe and durable for accessible bathrooms."
       }
     ],
+    images:[],
   },
 
   'powder-room-upgrades': {
@@ -1116,6 +1123,7 @@ export const servicesData = {
         answer: "Costs vary based on the extent of the update and chosen materials. We provide a detailed estimate after understanding your vision."
       }
     ],
+    images:[],
   },
 
 };

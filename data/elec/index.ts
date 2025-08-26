@@ -552,6 +552,7 @@ export const servicesData = {
         answer: "Absolutely. We offer partial rewiring for kitchens, bathrooms, additions, or problem areas."
       }
     ],
+    images:[],
 
   },
   'panel-upgrades': {
@@ -631,6 +632,7 @@ export const servicesData = {
         answer: "Definitely. A modern panel adds value, appeal to buyers, and prepares your home for future tech."
       }
     ],
+    images:[],
 
   },
   'lighting-installation': {
@@ -710,9 +712,9 @@ export const servicesData = {
         answer: "Absolutely! We handle lighting installations for offices, retail, warehouses, and hospitality venues."
       }
     ],
+    images:[],
 
   },
-
   'emergency-repairs': {
     label: 'Emergency Repairs',
     title: '24/7 Emergency Electrical Repair Services in Florida',
@@ -790,9 +792,8 @@ export const servicesData = {
         answer: "Turn off the main breaker if it’s safe to do so, avoid touching exposed wires, and keep the area clear."
       }
     ],
-
+    images:[],
   },
-
   'ev-charger-installation': {
     label: 'EV Charger Installation',
     title: 'Professional EV Charger Installation Services in Florida',
@@ -870,9 +871,9 @@ export const servicesData = {
         answer: "Yes, we offer troubleshooting, repair, and maintenance services for existing EV chargers."
       }
     ],
+    images:[],
 
   },
-
   'generator-installation': {
     label: 'Generator Installation',
     title: 'Reliable Generator Installation Services in Florida',
@@ -950,6 +951,7 @@ export const servicesData = {
         answer: "We offer emergency repair services and support to get your generator running as quickly as possible."
       }
     ],
+    images:[],
   },
   'smart-home-wiring': {
     label: 'Smart Home Wiring',
@@ -1028,6 +1030,7 @@ export const servicesData = {
         answer: "Absolutely. We build with scalability in mind so you can add new devices without rewiring."
       }
     ],
+    images:[],
   },
   'surge-protection': {
     label: 'Surge Protection',
@@ -1106,6 +1109,7 @@ export const servicesData = {
         answer: "It won’t reduce consumption but prevents costly repairs and replacement of damaged devices."
       }
     ],
+    images:[],
   },
   'outlet-switch-installation': {
     label: 'Outlet & Switch Installation',
@@ -1184,8 +1188,8 @@ export const servicesData = {
         answer: "Yes, we install weatherproof covers and ground-fault protection for outdoor safety."
       }
     ],
+    images:[],
   },
-
   'ceiling-fan-installation': {
     label: 'Ceiling Fan Installation',
     title: 'Professional Ceiling Fan Installation in Florida',
@@ -1261,7 +1265,8 @@ export const servicesData = {
       {
         question: "How long does installation take?",
         answer: "Most installations take 1–2 hours depending on wiring and ceiling type."
-      }]
+      }],
+    images:[],
   }
 }
 

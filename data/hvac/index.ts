@@ -529,6 +529,7 @@ export const servicesData = {
           description: 'No surprises. We give clear, honest estimates and guide you through the process from start to finish.'
         }
       ],
+      
       faqs: [
         {
           question: "How do I know which AC system is right for my home?",
@@ -555,6 +556,7 @@ export const servicesData = {
           answer: "Absolutely. We handle safe removal and disposal of old units as part of our service."
         }
       ],
+      images:[]
   },
   'ac-repair': {
     label: 'AC Repair',
@@ -633,6 +635,7 @@ export const servicesData = {
         answer: "Pricing varies by issue, but we always provide upfront estimates before work begins."
       }
     ],
+    images:[],
   },
   'duct-cleaning': {
     label: 'Duct Cleaning',
@@ -685,6 +688,7 @@ export const servicesData = {
         description: 'We only recommend duct cleaning when it’s actually needed — no scare tactics.'
       }
     ],
+    
     faqs: [
       {
         question: "How often should air ducts be cleaned?",
@@ -763,6 +767,7 @@ export const servicesData = {
         description: 'Most installations are completed in under an hour — no major disruptions.'
       }
     ],
+    
     faqs: [
       {
         question: "Can I install a smart thermostat myself?",
@@ -789,7 +794,7 @@ export const servicesData = {
         answer: "Yes, we can link your thermostat with Google Assistant, Alexa, or Apple HomeKit if supported."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: []
   },
   'hvac-maintenance': {
     label: 'HVAC Maintenance',
@@ -842,6 +847,7 @@ export const servicesData = {
         description: 'After every visit, we share a full report with recommendations and system status.'
       }
     ],
+    
     faqs: [
       {
         question: "How often should I service my HVAC system?",
@@ -868,7 +874,7 @@ export const servicesData = {
         answer: "Definitely. Clean, calibrated systems operate more efficiently and use less electricity."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: []
   },
   'indoor-air-quality': {
     label: 'Indoor Air Quality',
@@ -921,6 +927,7 @@ export const servicesData = {
         description: 'We install IAQ systems that work in harmony with your existing HVAC setup.'
       }
     ],
+    
     faqs: [
       {
         question: "What are signs of poor indoor air quality?",
@@ -947,7 +954,7 @@ export const servicesData = {
         answer: "Typically every 1–3 months, depending on system type, usage, and home environment."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: []
   },
   'ductwork-installation-repair': {
     label: 'Ductwork Installation & Repair',
@@ -1000,6 +1007,7 @@ export const servicesData = {
         description: 'Our technicians complete the job efficiently while respecting your property.'
       }
     ],
+    
     faqs: [
       {
         question: "How do I know if my ducts need repair?",
@@ -1026,7 +1034,7 @@ export const servicesData = {
         answer: "Absolutely. We provide full duct layout and installation for homes and commercial builds."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: []
   },
   'air-balancing-zoning': {
     label: 'Air Balancing & Zoning',
@@ -1079,6 +1087,7 @@ export const servicesData = {
         description: 'We use precise tools to assess airflow, pressure, and duct performance before adjustment.'
       }
     ],
+    
     faqs: [
       {
         question: "What is HVAC zoning?",
@@ -1105,7 +1114,7 @@ export const servicesData = {
         answer: "Not necessarily, but smart thermostats enhance control and scheduling across zones."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: []
   },
   'emergency-ac-services': {
     label: 'Emergency AC Services',
@@ -1158,6 +1167,7 @@ export const servicesData = {
         description: 'We don’t just patch issues—we check your full system and offer tips to avoid repeat failures.'
       }
     ],
+    
     faqs: [
       {
         question: "What qualifies as an AC emergency?",
@@ -1184,7 +1194,7 @@ export const servicesData = {
         answer: "Not necessarily. Most emergencies are repairable unless the system is very old or severely damaged."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: []
   },
   'commercial-hvac': {
     label: 'Commercial HVAC Solutions',
@@ -1237,6 +1247,7 @@ export const servicesData = {
         description: 'Our solutions grow with your business—from single-site operations to multi-location enterprises.'
       }
     ],
+    
     faqs: [
       {
         question: "What types of commercial buildings do you service?",
@@ -1263,7 +1274,7 @@ export const servicesData = {
         answer: "Yes—through system upgrades, smart controls, proper zoning, and routine maintenance."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: []
   },
   'heat-pump-services': {
     label: 'Heat Pump Services',
@@ -1316,6 +1327,7 @@ export const servicesData = {
         description: 'No hidden costs—just honest estimates and quality service every step of the way.'
       }
     ],
+    
     faqs: [
       {
         question: "What is a heat pump and how does it work?",
@@ -1342,7 +1354,7 @@ export const servicesData = {
         answer: "Yes, we offer 24/7 emergency services across Florida."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: []
   },
   'energy-efficiency': {
     label: 'Energy Efficiency Upgrades',
@@ -1395,6 +1407,7 @@ export const servicesData = {
         description: 'We help you qualify for local energy rebates and utility incentives when available.'
       }
     ],
+    
     faqs: [
       {
         question: "What’s the best way to make my AC more energy efficient?",
@@ -1421,7 +1434,7 @@ export const servicesData = {
         answer: "Yes, we conduct detailed audits to identify inefficiencies and suggest solutions."
       }
     ],
-    images: ['/services/default.jpg', '/services/default.jpg', '/services/default.jpg', '/services/default.jpg']
+    images: []
   }
   
   }

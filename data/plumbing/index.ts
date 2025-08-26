@@ -555,7 +555,7 @@ export const servicesData = {
         answer: "Yes, we offer workmanship warranties and use manufacturer-backed materials for added protection."
       }
     ],
-    images: [`${static_assets}/images/services/pipe_installation.jpg`]
+    images: []
   },
   'leak-repair': {
     label: 'Leak Repair',
@@ -634,7 +634,7 @@ export const servicesData = {
         answer: "Absolutely! If you suspect a leak, we can perform a full system inspection to ensure no other hidden issues exist."
       }
     ],
-    images: [`${static_assets}/images/services/leak_repair.jpg`]
+    images: []
   },
   'drain-cleaning': {
     label: 'Drain Cleaning',
@@ -713,7 +713,7 @@ export const servicesData = {
         answer: "Yes, we offer affordable maintenance plans to keep your drains clear year-round and prevent emergencies."
       }
     ],
-    images: [`${static_assets}/images/services/drain_cleaning.jpg`]
+    images: []
   },
   'water-heater-services': {
     label: 'Water Heater Services',
@@ -792,7 +792,7 @@ export const servicesData = {
         answer: "Absolutely! We’ll assess your home’s setup and recommend the best option for a seamless upgrade."
       }
     ],
-    images: [`${static_assets}/images/services/water_heater.jpg`]
+    images: []
   },
   'emergency-plumbing': {
     label: 'Emergency Plumbing',

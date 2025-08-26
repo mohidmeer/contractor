@@ -545,7 +545,7 @@ export const servicesData = {
         answer: "Absolutely! We offer decorative finishes like stamping, coloring, and borders to suit your style."
       }
     ],
-    images: ['/images/services/driveway.jpg', '/images/services/driveway2.jpg']
+    images: []
   },
   'concrete-slabs': {
     label: 'Concrete Slabs',
@@ -616,7 +616,7 @@ export const servicesData = {
         answer: "Yes, we assist with permits and coordinate inspections as needed for your municipality."
       }
     ],
-    images: ['/images/services/concrete-slabs.jpg', '/images/services/slab-pour.jpg']
+    images: []
   },
   'patios-walkways': {
     label: 'Patios & Walkways',
@@ -687,7 +687,7 @@ export const servicesData = {
         answer: "Yes, we incorporate grading and optional drainage systems to prevent water pooling."
       }
     ],
-    images: ['/images/services/patios.jpg', '/images/services/walkway.jpg']
+    images: []
   },
   'foundation-work': {
     label: 'Foundation Work',
@@ -758,7 +758,7 @@ export const servicesData = {
         answer: "Yes, we work seamlessly with other trades to align timelines and requirements."
       }
     ],
-    images: [`${static_assets}/images/services/driveway.jpg`, `${static_assets}/images/services/driveway.jpg`]
+    images: []
   },
   'garage-flooring': {
     label: 'Garage Flooring',
@@ -829,7 +829,7 @@ export const servicesData = {
         answer: "Just occasional mopping or sweeping—no special cleaners required."
       }
     ],
-    images: [`${static_assets}/images/services/driveway.jpg`, `${static_assets}/images/services/driveway.jpg`]
+    images: []
   },
   'retaining-walls': {
     label: 'Retaining Walls',
@@ -900,7 +900,7 @@ export const servicesData = {
         answer: "For walls over a certain height (typically 4 feet), local permits and engineering may be required. We assist with this process."
       }
     ],
-    images: [`${static_assets}/images/services/driveway.jpg`, `${static_assets}/images/services/driveway.jpg`]
+    images: []
   },
   'concrete-repair': {
     label: 'Concrete Repair & Resurfacing',
@@ -971,7 +971,7 @@ export const servicesData = {
         answer: "Yes, we can apply stamped overlays or colored finishes as part of the resurfacing process."
       }
     ],
-    images: [`${static_assets}/images/services/driveway.jpg`, `${static_assets}/images/services/driveway.jpg`]
+    images: []
   },
   'commercial-concrete': {
     label: 'Commercial Concrete Services',
@@ -1042,7 +1042,7 @@ export const servicesData = {
         answer: "Yes, we offer flexible scheduling to minimize disruption to your business operations."
       }
     ],
-    images: [`${static_assets}/images/services/driveway.jpg`, `${static_assets}/images/services/driveway.jpg`]
+    images: []
   },
   'stamped-concrete': {
     label: 'Stamped Concrete',
@@ -1113,7 +1113,7 @@ export const servicesData = {
         answer: "Yes, stamped concrete typically costs less than natural stone or paver installations."
       }
     ],
-    images: [`${static_assets}/images/services/driveway.jpg`, `${static_assets}/images/services/driveway.jpg`]
+    images: []
   }
 
 };
@@ -1320,9 +1320,7 @@ export const projectsData = {
    We began by preparing a properly sloped sub-base to encourage runoff, then reinforced the area with a rebar grid for load-bearing support. Concrete was poured in large sections, with expansion and control joints carefully placed to prevent cracking.
    
    Once cured and sealed, we applied clear markings for traffic flow, accessible spots, and fire lanes. The result is a commercial-grade surface that looks professional, lasts long, and meets all safety and zoning requirements for heavy daily use.
-   `,
-  
-  },
+   `},
   "stamped-patio": {
     label: "Stamped Patio",
     title: "Decorative Stamped Concrete Patio with Natural Stone Finish",
