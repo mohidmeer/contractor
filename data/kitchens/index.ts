@@ -528,7 +528,7 @@ export const servicesData = {
                 description: 'Clear pricing, no surprises — you’ll know exactly what to expect.'
             }
         ],
-        images:[],
+       
         faqs: [
             {
                 question: "How long does a full kitchen renovation take?",
@@ -551,6 +551,7 @@ export const servicesData = {
                 answer: "Yes, Total Care Kitchens is fully licensed and insured for your peace of mind."
             }
         ],
+        images:[],
     },
     'cabinet-refacing-installation': {
         label: 'Cabinet Refacing & Installation',
@@ -670,7 +671,6 @@ export const servicesData = {
                 description: 'We help match surfaces with cabinetry, tiles, and fixtures for a cohesive finish.'
             }
         ],
-        images:[],
         faqs: [
             {
                 question: "Which surface material is best for kitchen countertops?",
@@ -907,7 +907,7 @@ export const servicesData = {
                 answer: "No problem—our licensed electricians can safely upgrade your wiring to support modern kitchen demands."
             }
         ],
-        images: []
+       
     },
     'custom-pantries': {
         label: 'Custom Pantries',
@@ -956,7 +956,7 @@ export const servicesData = {
                 description: 'Our team installs your pantry efficiently with minimal disruption to your home.'
             }
         ],
-        images:[],
+   
         faqs: [
             {
                 question: "Can you design a pantry for small kitchens?",
@@ -1052,7 +1052,7 @@ export const servicesData = {
                 answer: "Our solutions are fully customizable. You can pick only the smart features that suit your lifestyle."
             }
         ],
-        images: []
+
     },
     'eco-kitchen': {
         label: 'Eco-Friendly Kitchens',
@@ -1101,7 +1101,7 @@ export const servicesData = {
                 description: 'Our team stays informed on green building trends to deliver truly sustainable solutions.'
             }
         ],
-        images:[],
+
         faqs: [
             {
                 question: "Is an eco-friendly kitchen more expensive?",
