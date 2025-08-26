@@ -15,6 +15,15 @@ export * from "@/data/${SITE}";
 
 const nextConfig: NextConfig = {
 
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'media.totalcareservicesfl.com',
+      },
+    ],
+  },
+
 
 };
 
