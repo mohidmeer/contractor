@@ -68,7 +68,7 @@ export default async function Page({ params }: Props) {
     "mainEntityOfPage": `${siteUrl}/services/${slug}`,
   };
 
-  const gallery_images = service.images || []
+  const gallery_images = service?.images ?? []
   gallery_images.unshift(service.image)
 
   return (
