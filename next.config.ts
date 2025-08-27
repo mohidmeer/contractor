@@ -21,6 +21,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'media.totalcareservicesfl.com',
       },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
     ],
   },
 

@@ -78,13 +78,16 @@ const page = async ({ searchParams }: Props) => {
                 </li>
               ))}
             </ul>
-
-            {
-              pagination.totalPages != 1 && 
+            {pagination.totalItems === 0 && (
+              <div className="mt-8 text-center text-gray-500 text-2xl">
+                No Blogs Published Yet
+              </div>
+            )}
+            {pagination.totalItems > pagination.pageSize && (
               <div className='mt-8 flex justify-center bg-white shadow-md p-6 border-primary/30 border rounded-md'>
                 <Pagination totalPages={pagination.totalPages} currentPage={pagination.currentPage as number} />
               </div>
-            }
+            )}
           </div>
           <div className='sr-only lg:not-sr-only md:flex md:flex-col h-fit gap-8'>
             <SideBar />

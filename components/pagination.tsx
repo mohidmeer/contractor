@@ -9,10 +9,12 @@ const Pagination = ({
   totalPages: number;
 }) => {
   const visiblePages = () => {
+    const page = Number(currentPage); // ensure it's a number
+  
     if (totalPages <= 5) return Array.from({ length: totalPages }, (_, i) => i + 1);
-    if (currentPage <= 3) return [1, 2, 3];
-    if (currentPage >= totalPages - 2) return [totalPages - 2, totalPages - 1, totalPages];
-    return [currentPage - 1, currentPage, currentPage + 1];
+    if (page <= 3) return [1, 2, 3];
+    if (page >= totalPages - 2) return [totalPages - 2, totalPages - 1, totalPages];
+    return [page - 1, page, page + 1];
   };
 
   return (
@@ -21,7 +23,7 @@ const Pagination = ({
       <Link href={`/blogs?page=${currentPage - 1}`} passHref>
         <button
           disabled={Number(currentPage) === 1}
-          className={`btn-primary !px-3 ${Number(currentPage) === 1 ? 'cursor-not-allowed opacity-50 ' : ''}`}
+          className={`border border-primary text-primary cursor-pointer  p-3 ${Number(currentPage) === 1 ? 'cursor-not-allowed opacity-50 ' : ''}`}
         >
          <MdForward className='rotate-180'/>
         </button>
@@ -48,7 +50,7 @@ const Pagination = ({
       <Link href={`/blogs?page=${Number(currentPage) + 1}`} >
         <button
           disabled={Number(currentPage) == totalPages}
-          className={`btn-primary  !px-3 ${Number(currentPage) == totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+          className={`border border-primary text-primary cursor-pointer  p-3 ${Number(currentPage) == totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
         >
           <MdForward/>
         </button>

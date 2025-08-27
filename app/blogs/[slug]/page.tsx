@@ -47,6 +47,7 @@ export default async function page({ params }: Props) {
   if (!blog?.content) return notFound()
 
 
+
   const postUrl = `${siteUrl}/blogs/${blog.slug}`;
   const BLOG_ID = `${siteUrl}/blogs#blog`; 
   const jsonLdData = {
