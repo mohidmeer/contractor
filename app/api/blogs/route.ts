@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
 
   } catch (error: unknown) {
 
-    console.log(error.message)
+    console.log(error)
     return NextResponse.json({ error }, { status: 400 });
 
   }
