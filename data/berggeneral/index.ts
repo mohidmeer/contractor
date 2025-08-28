@@ -9,7 +9,7 @@ import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } f
 export const static_assets = '/berggeneral'
 export const siteUrl = 'https://berggeneralcontractors.com/';
 export const siteName = 'Berg General Contractors';
-export const businessType = [ "LocalBusiness","HomeAndConstructionBusiness","GeneralContractor"];
+export const bussinessType = ["LocalBusiness","HomeAndConstructionBusiness","GeneralContractor"];
 export const siteLogo = `${static_assets}/images/logo.png`;
 export const googleAnalyticId = 'nil';
 
