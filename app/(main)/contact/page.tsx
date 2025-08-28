@@ -8,7 +8,7 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa'
 import React from 'react'
 import { contactInfo } from '@/data'
 import FAQs from '@/components/Faqs'
-import Process from '../_components/Process'
+import Process from '@/app/_components/Process'
 
 const page = () => {
   return (

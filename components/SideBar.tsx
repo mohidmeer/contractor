@@ -21,7 +21,7 @@ const SideBar = () => {
                     ))}
                 </ul>
             </div>
-
+            {Array.isArray(navItems[2]?.children) && navItems[2].children.length > 0 && (
             <div className='bg-white p-5 shadow-md border border-primary/30 rounded-md'>
                 <h4 className='!text-xl font-bold'>Our Projects</h4>
                 <ul className='list-disc  marker:bg-primary pl-4 marker:text-primary'>
@@ -36,7 +36,7 @@ const SideBar = () => {
                         </li>
                     ))}
                 </ul>
-            </div>
+            </div>)}
 
         </>
 

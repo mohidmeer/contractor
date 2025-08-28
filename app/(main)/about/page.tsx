@@ -1,12 +1,12 @@
 import Header from '@/components/Header'
 import React from 'react'
-import GetToKnow from '../_components/GetToKnow'
 import FAQs from '@/components/Faqs'
-import Process from '../_components/Process'
 import JsonLd from '@/components/JsonLd'
 import { JsonLdDataAbout } from '@/jsonld'
 import { aboutPage } from '@/data'
 import AreaOfServices from '@/components/AreaOfServices'
+import GetToKnow from '@/app/_components/GetToKnow'
+import Process from '@/app/_components/Process'
 
 const page = () => {
   return (

@@ -4,12 +4,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { MdArrowForward } from 'react-icons/md'
-import Process from '../_components/Process'
-import Projects from '../_components/Projects'
 import JsonLd from '@/components/JsonLd'
 import FAQs from '@/components/Faqs'
 import AreaOfServices from '@/components/AreaOfServices'
 import { JsonLdDataServices } from '@/jsonld'
+import Projects from '@/app/_components/Projects'
+import Process from '@/app/_components/Process'
 
 const page = () => {
   return (

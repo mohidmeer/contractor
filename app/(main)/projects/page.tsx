@@ -10,7 +10,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { MdArrowForward } from 'react-icons/md'
-import Process from '../_components/Process';
+import Process from '@/app/_components/Process';
 import JsonLd from '@/components/JsonLd';
 import AreaOfServices from '@/components/AreaOfServices';
 import { JsonLdDataProjects } from '@/jsonld';
@@ -30,7 +30,7 @@ const Page = () => {
     const mid = Math.ceil(entries.length / 2);
 
     // Split into two halves
-    const firstHalf = entries.slice(0, mid);
+    const firstHalf = entries.slice(0, mid).length < 5 ? entries : entries.slice(0, mid)  ;
     const secondHalf = entries.slice(mid);
 
 
@@ -76,7 +76,9 @@ const Page = () => {
 
                     </div>
                 </div>
-                <div className="embla my-6" ref={emblaRef2}>
+                {
+                    entries.length > 5 &&
+                    <div className="embla my-6" ref={emblaRef2}>
                     <div className="embla__container flex gap-1">
                         {secondHalf.map(([slug, i], z) => (
                             <div className="text-white cursor-pointer flex-[0_0_100%] sm:flex-[0_0_75%] md:flex-[0_0_50%] lg:flex-[0_0_25%]" key={slug}>
@@ -103,11 +105,9 @@ const Page = () => {
                                 </div>
                             </div>
                         ))}
-
-
                     </div>
                 </div>
-
+                }
             </section>
             <WhyUS />
             <Process />

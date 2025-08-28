@@ -3,10 +3,11 @@ import FAQs from '@/components/Faqs'
 import Header from '@/components/Header'
 import WhyUS from '@/components/WhyUS'
 import React from 'react'
-import Process from '../_components/Process'
+
 import { serviceAreaPage } from '@/data'
 import JsonLd from '@/components/JsonLd'
 import { JsonLdDataServiceArea } from '@/jsonld'
+import Process from '@/app/_components/Process'
 
 const page = () => {
     return (
