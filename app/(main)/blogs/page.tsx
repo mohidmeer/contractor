@@ -17,7 +17,6 @@ const page = async ({ searchParams }: Props) => {
   const { page } = await searchParams
   const { blogs, pagination } = await getAllBlogs(page || 1);
 
-  console.log(pagination)
 
   const BLOG_ID = `${siteUrl}/blogs#blog`;
   const jsonLdData = {

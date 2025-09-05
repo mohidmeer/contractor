@@ -23,8 +23,6 @@ export async function getAllBlogs(currentPage:number) {
   ]);
 
   const totalPages = Math.ceil(total / pageSize);
-  console.log(blogs.length)
-  console.log(currentPage)
   return {
     blogs,
     pagination: {
