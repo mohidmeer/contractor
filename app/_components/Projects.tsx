@@ -14,7 +14,7 @@ const Projects = () => {
     return (
         <section className="bg-white py-20 shadow-md ">
             <div className="text-center flex items-center justify-center flex-col gap-2 mb-10">
-                <Title text={'Roofing Projects'} />
+                <Title text={'Our Projects'} />
                 <h2 className="text-heading">
                     {landingPage.projects.heading}
                 </h2>
