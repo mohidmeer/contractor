@@ -69,7 +69,7 @@ export type Blog = {
   image: string;
   content: {
     heading: string;
-    body: string | null;
+    paragraph: string | null;
     listItems: string[] | null;
     table: string[][] | null;
     quote: string | null;

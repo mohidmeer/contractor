@@ -102,9 +102,9 @@ export default async function page({ params }: Props) {
                 <section key={index} className="">
                   <h2 className="!text-2xl font-bold mb-4">{section.heading}</h2>
 
-                  {section.body && (
+                  {section.paragraph && (
                     <p className="text-base leading-relaxed mb-4">
-                      {section.body}
+                      {section.paragraph}
                     </p>
                   )}
 
