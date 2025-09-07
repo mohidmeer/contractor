@@ -3,7 +3,7 @@ import { z } from "zod";
 
 export const BlogBlockSchema = z.object({
   heading: z.string(),
-  body: z.string().nullable().optional(),
+  paragraph: z.string().nullable().optional(),
   listItems: z.array(z.string()).nullable().optional(),
   table: z.array(z.array(z.string())).nullable().optional(),
   quote: z.string().nullable().optional(),
