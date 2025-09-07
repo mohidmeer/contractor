@@ -70,6 +70,7 @@ export type Blog = {
   content: {
     heading: string;
     paragraph: string | null;
+    body: string | null;
     listItems: string[] | null;
     table: string[][] | null;
     quote: string | null;

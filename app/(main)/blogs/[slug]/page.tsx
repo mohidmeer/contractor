@@ -102,11 +102,12 @@ export default async function page({ params }: Props) {
                 <section key={index} className="">
                   <h2 className="!text-2xl font-bold mb-4">{section.heading}</h2>
 
-                  {section.paragraph && (
+                  {section.paragraph || section.body && (
                     <p className="text-base leading-relaxed mb-4">
-                      {section.paragraph}
+                      {section.paragraph ?? section.body}
                     </p>
                   )}
+                  
 
                   {section.listItems && section.listItems.length > 0 && (
                     <ul className="list-disc pl-6 mb-4  decoration-amber-600">
