@@ -24,9 +24,12 @@ const ContactForm = () => {
     };
 
     return (
-        <div className=' bg-white p-6 rounded-sm shadow overflow-hidden card'>
-            <h2 className='!text-xl mb-6'>{contactPage.form.heading}</h2>
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+        <div className='bg-white p-8 rounded-xl shadow-lg hover:shadow-xl border border-primary/10 hover:border-primary/30 transition-all duration-300'>
+            <div className="mb-8">
+                <h2 className='text-3xl font-bold text-heading mb-2'>{contactPage.form.heading}</h2>
+                <p className="text-gray-600">Fill out the form below and we&apos;ll get back to you as soon as possible.</p>
+            </div>
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
                 <input className='hidden' defaultValue={siteName}  {...register('site')} />
                 <FormInput
                     label="Name"
@@ -56,11 +59,11 @@ const ContactForm = () => {
                 <FormInput
                     label="Message"
                     textarea={true}
-                    registration={register('address', { required: 'Address is required' })}
-                    error={errors.address?.message}
+                    registration={register('message', { required: 'Message is required' })}
+                    error={errors.message?.message}
                     placeholder={contactPage.form.messagePlaceholder}
                 />
-                <button type="submit" className="btn-primary w-full h-fit mt-auto mb-auto !scale-100">
+                <button type="submit" className="btn-primary w-full h-fit mt-2 hover:scale-105 transition-transform duration-300">
                     Submit
                 </button>
             </form>

@@ -16,33 +16,41 @@ const Services = () => {
                     {landingPage.services.heading}
                 </h2>
             </div>
-            <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-1 my-10 p-2 transition-all">
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 my-10 p-2 transition-all">
                 {Object.entries(servicesData).splice(0, 8).map(([slug, i], z) => (
-                    <div className="text-white cursor-pointer" key={slug}>
-                        <div className="h-[500px] relative group flex flex-col p-10  hover:bg-black/50 transition-all bg-black/30 overflow-hidden">
-                            <p className="text-3xl font-bold">{z + 1}.</p>
-                            <div className="mt-auto flex flex-col gap-4">
-                                <h3 className="text-2xl font-semibold  text-shadow-2xs">{i.title}</h3>
-                                <p className="text-lg">{i.description}</p>
-                                <Link
-                                    href={`/services/${slug}`}
-                                    className="text-xl flex items-center gap-2 font-bold group"
-                                    aria-label={`Continue reading :${i.title}`}
-                                >
-                                    <p className="font-bold">Continue reading</p>
-                                    <MdArrowForward className="group-hover:translate-x-6 transition-all" />
-                                </Link>
-                            </div>
+                    <Link
+                        href={`/services/${slug}`}
+                        className="group cursor-pointer bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-primary/10 hover:border-primary/30"
+                        key={slug}
+                    >
+                        {/* Image Section */}
+                        <div className="relative h-[280px] overflow-hidden">
                             <Image
                                 src={i.image}
                                 fill
-                                 sizes="300px"
-                                className="-z-5 group-hover:scale-110 transition-all"
-                                style={{ objectFit: "cover" }}
-                                alt="service"
+                                sizes="300px"
+                                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                alt={i.title}
                             />
+                            <div className="absolute top-4 left-4 bg-primary text-white text-2xl font-bold w-10 h-10 rounded-full flex items-center justify-center shadow-lg">
+                                {z + 1}
+                            </div>
                         </div>
-                    </div>
+
+                        {/* Content Section */}
+                        <div className="p-6 flex flex-col gap-4">
+                            <h3 className="text-heading text-xl font-semibold group-hover:text-primary transition-colors leading-tight">
+                                {i.title}
+                            </h3>
+                            <p className="text-gray-600 text-base leading-relaxed line-clamp-3">
+                                {i.description}
+                            </p>
+                            <div className="flex items-center gap-2 text-primary font-semibold mt-2 group-hover:gap-4 transition-all">
+                                <span>Continue reading</span>
+                                <MdArrowForward className="group-hover:translate-x-2 transition-transform" />
+                            </div>
+                        </div>
+                    </Link>
                 ))}
             </div>
             <div className="flex items-center  justify-center">

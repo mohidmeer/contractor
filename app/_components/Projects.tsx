@@ -12,7 +12,7 @@ const Projects = () => {
         AutoScroll({ playOnInit: true, speed: 0.5 })
     ])
     return (
-        <section className="bg-white py-20 shadow-md ">
+        <section className="py-20  ">
             <div className="text-center flex items-center justify-center flex-col gap-2 mb-10">
                 <Title text={'Our Projects'} />
                 <h2 className="text-heading">
@@ -20,32 +20,41 @@ const Projects = () => {
                 </h2>
             </div>
             <div className="embla my-6" ref={emblaRef}>
-                <div className="embla__container flex gap-1">
-                    {/* lg:flex-[0_0_30%] xl:flex-[0_0_25%] */}
+                <div className="embla__container flex gap-6 px-2">
                     {Object.entries(projectsData).map(([slug, i], z) => (
-                        <div className="text-white cursor-pointer flex-[0_0_100%] sm:flex-[0_0_75%] md:flex-[0_0_50%] lg:flex-[0_0_25%] " key={slug}>
-                            <div className="h-[500px] relative group flex flex-col p-10  hover:bg-black/50 transition-all bg-black/20 overflow-hidden">
-                                <p className="text-3xl font-bold">{z + 1}.</p>
-                                <div className="mt-auto flex flex-col gap-4">
-                                    <h3 className="text-2xl font-semibold">{i.title}</h3>
-                                    <p className="text-lg">{i.description}</p>
-                                    <Link
-                                        href={`/projects/${slug}`}
-                                        className="text-xl flex items-center gap-2 font-bold group"
-                                        aria-label={`Continue reading :${i.title}`}
-                                    >
-                                        <p className="font-bold">Continue reading</p>
-                                        <MdArrowForward className="group-hover:translate-x-6 transition-all" />
-                                    </Link>
+                        <div className="flex-[0_0_100%] sm:flex-[0_0_75%] md:flex-[0_0_50%] lg:flex-[0_0_25%]" key={slug}>
+                            <Link
+                                href={`/projects/${slug}`}
+                                className="group cursor-pointer bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-primary/10 hover:border-primary/30 block h-full"
+                                aria-label={`Continue reading :${i.title}`}
+                            >
+                                {/* Image Section */}
+                                <div className="relative h-[280px] overflow-hidden">
+                                    <Image
+                                        src={i.image}
+                                        fill
+                                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                        alt={i.title}
+                                    />
+                                    <div className="absolute top-4 left-4 bg-primary text-white text-2xl font-bold w-10 h-10 rounded-full flex items-center justify-center shadow-lg">
+                                        {z + 1}
+                                    </div>
                                 </div>
-                                <Image
-                                    src={i.image}
-                                    fill
-                                    className="-z-5 group-hover:scale-110 transition-all"
-                                    style={{ objectFit: "cover" }}
-                                    alt="service"
-                                />
-                            </div>
+
+                                {/* Content Section */}
+                                <div className="p-6 flex flex-col gap-4">
+                                    <h3 className="text-heading text-xl font-semibold group-hover:text-primary transition-colors leading-tight">
+                                        {i.title}
+                                    </h3>
+                                    <p className="text-gray-600 text-base leading-relaxed line-clamp-3">
+                                        {i.description}
+                                    </p>
+                                    <div className="flex items-center gap-2 text-primary font-semibold mt-2 group-hover:gap-4 transition-all">
+                                        <span>Continue reading</span>
+                                        <MdArrowForward className="group-hover:translate-x-2 transition-transform" />
+                                    </div>
+                                </div>
+                            </Link>
                         </div>
                     ))}
 

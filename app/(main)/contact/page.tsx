@@ -14,53 +14,63 @@ const page = () => {
   return (
     <main className='flex flex-col gap-10 '>
       <Header cta desc='' title={'Contact Us'} />
-      <section className='container mx-auto'>
-        <div className='grid sm:grid-cols-2 gap-5'>
-
-          <div className="w-full h-full flex flex-col items-center justify-center ">
-            <div className="flex flex-col gap-6 w-full bg-white ">
+      <section className='container mx-auto px-4'>
+        <div className='grid lg:grid-cols-2 gap-8 lg:gap-12'>
+          {/* Contact Information Cards */}
+          <div className="w-full flex flex-col justify-center">
+            <div className="flex flex-col gap-6">
               {/* Phone */}
-              <div className=" card rounded-sm h-fit p-4 flex items-start gap-4 ">
-                <FaPhoneAlt className="text-primary mt-1" size={22} />
-                <div>
-                  <p className="p1 font-medium">Phone</p>
-                  <a href={contactInfo.phone.href} className="text-base ">
+              <div className="group bg-white rounded-xl shadow-md hover:shadow-xl border border-primary/10 hover:border-primary/30 p-6 flex items-start gap-5 transition-all duration-300 hover:-translate-y-1">
+                <div className="bg-gradient-to-br from-primary to-primary/80 p-4 rounded-xl text-white shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <FaPhoneAlt size={24} />
+                </div>
+                <div className="flex-1">
+                  <p className="text-lg font-semibold text-heading mb-2">Phone</p>
+                  <a href={contactInfo.phone.href} className="text-base text-gray-700 hover:text-primary transition-colors">
                     {contactInfo.phone.text}
                   </a>
                 </div>
               </div>
 
               {/* Email */}
-              <div className=" card rounded-sm h-fit p-4 flex items-start gap-4 ">
-                <FaEnvelope className="text-primary mt-1 shrink-0" size={22} />
-                <div>
-                  <p className="p1 font-medium">Email</p>
-                  <a href={`mailto:${contactInfo.email}`} className="p2 ">
+              <div className="group bg-white rounded-xl shadow-md hover:shadow-xl border border-primary/10 hover:border-primary/30 p-6 flex items-start gap-5 transition-all duration-300 hover:-translate-y-1">
+                <div className="bg-gradient-to-br from-primary to-primary/80 p-4 rounded-xl text-white shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <FaEnvelope size={24} />
+                </div>
+                <div className="flex-1">
+                  <p className="text-lg font-semibold text-heading mb-2">Email</p>
+                  <a href={`mailto:${contactInfo.email}`} className="text-base text-gray-700 hover:text-primary transition-colors break-all">
                     {contactInfo.email}
                   </a>
                 </div>
               </div>
 
               {/* Address */}
-              <div className=" card rounded-sm  p-4 flex items-start gap-4 ">
-                <FaMapMarkerAlt className="text-primary mt-1" size={22} />
-                <div>
-                  <p className="p1 font-medium">Address</p>
-                  <p className="p2">{contactInfo.address}</p>
+              <div className="group bg-white rounded-xl shadow-md hover:shadow-xl border border-primary/10 hover:border-primary/30 p-6 flex items-start gap-5 transition-all duration-300 hover:-translate-y-1">
+                <div className="bg-gradient-to-br from-primary to-primary/80 p-4 rounded-xl text-white shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <FaMapMarkerAlt size={24} />
+                </div>
+                <div className="flex-1">
+                  <p className="text-lg font-semibold text-heading mb-2">Address</p>
+                  <p className="text-base text-gray-700 leading-relaxed">{contactInfo.address}</p>
                 </div>
               </div>
 
               {/* Working Hours */}
-              <div className=" card rounded-sm  p-4 flex items-start gap-4 ">
-                <FaClock className="text-primary mt-1" size={22} />
-                <div>
-                  <p className="p1 font-medium">Working Hours</p>
-                  <p className="p2">{contactInfo.workingHours}</p>
+              <div className="group bg-white rounded-xl shadow-md hover:shadow-xl border border-primary/10 hover:border-primary/30 p-6 flex items-start gap-5 transition-all duration-300 hover:-translate-y-1">
+                <div className="bg-gradient-to-br from-primary to-primary/80 p-4 rounded-xl text-white shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <FaClock size={24} />
+                </div>
+                <div className="flex-1">
+                  <p className="text-lg font-semibold text-heading mb-2">Working Hours</p>
+                  <p className="text-base text-gray-700">{contactInfo.workingHours}</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className=''>
+
+          {/* Contact Form */}
+          <div className='w-full'>
             <ContactForm />
           </div>
         </div>
