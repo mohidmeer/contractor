@@ -6,9 +6,9 @@ import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } f
    CONSTANTS 
 ------------------------ */
 
-export const static_assets = '/kitchens'
-export const siteUrl = 'https://kitchens.berggc.com/';
-export const siteName = 'Berg General Contractor Kitchens';
+export const static_assets = '/bath'
+export const siteUrl = 'https://bathrooms.berggc.com/';
+export const siteName = 'Berg General Contractor Bathrooms';
 export const siteLogo = `${static_assets}/images/logo.png`;
 export const googleAnalyticId = 'G-ZV55L3X98B';
 export const bussinessType = ["LocalBusiness", "HomeAndConstructionBusiness"]
@@ -23,7 +23,7 @@ export const contactInfo = {
     address: '300 SW 1st Avenue Ste 155, Fort Lauderdale, FL 33301',
     mapEmbedUrl: "https://maps.app.goo.gl/rDGBNQRu5YWHo6329",
 
-    email: 'support@kitchens.berggc.com',
+    email: 'support@bathrooms.berggc.com',
     workingHours: 'Mon–Sat: 8:00 AM – 6:00 PM'
 };
 export const socialLinks = {
@@ -39,7 +39,7 @@ export const socialLinks = {
 
 export const landingPage = {
     seo: {
-        title: 'Berg General Contractor Kitchens',
+        title: 'Berg General Contractor Bathrooms',
         description: 'Expert kitchen renovation and installation services. From sleek upgrades to complete transformations — we bring beauty, function, and lasting value to your home.',
         ogImage: `${static_assets}/images/hero_bg_1.jpg`,
         canonical: siteUrl,
@@ -79,18 +79,18 @@ export const projectsPage = {
 
 export const aboutPage = {
     seo: {
-        title: 'About Berg General Contractor Kitchens',
-        description: 'Learn about Berg General Contractor Kitchens and how we create stunning, stress-free kitchen renovations with expert craftsmanship.',
+        title: 'About Berg General Contractor Bathrooms',
+        description: 'Learn about Berg General Contractor Bathrooms and how we create stunning, stress-free bathroom renovations with expert craftsmanship.',
         ogImage: `${static_assets}/images/hero_bg_1.jpg`,
         canonical: siteUrl + 'about',
     },
-    content: 'Berg General Contractor Kitchens is your go-to team for expert kitchen renovations. From concept to completion, we deliver custom designs, premium finishes, and seamless service to elevate your home’s heart.',
+    content: 'Berg General Contractor Bathrooms is your go-to team for expert bathroom renovations. From concept to completion, we deliver custom designs, premium finishes, and seamless service to elevate your home\'s comfort.',
 }
 
 export const contactPage = {
     seo: {
-        title: 'Contact Berg General Contractor Kitchens',
-        description: 'Ready to upgrade your kitchen? Contact Berg General Contractor Kitchens to start planning your perfect space.',
+        title: 'Contact Berg General Contractor Bathrooms',
+        description: 'Ready to upgrade your bathroom? Contact Berg General Contractor Bathrooms to start planning your perfect space.',
         ogImage: `${static_assets}/images/hero_bg_1.jpg`,
         canonical: siteUrl + 'contact',
     },
@@ -124,7 +124,7 @@ export const getToKnow = {
     title: 'GET TO KNOW',
     heading: 'Kitchen Renovations with Precision, Style, and Lasting Value',
     description:
-        'Berg General Contractor Kitchens is your trusted partner for transforming kitchens into stunning, functional spaces. We combine expert craftsmanship, modern design, and respectful service to deliver kitchens you’ll love.',
+        'Berg General Contractor Bathrooms is your trusted partner for transforming kitchens into stunning, functional spaces. We combine expert craftsmanship, modern design, and respectful service to deliver kitchens you’ll love.',
     keyPoints: [
         {
             title: 'Expert Kitchen Renovators',
@@ -334,7 +334,7 @@ export const serviceAreasData = [
         href: "/miami",
         title: "Kitchen Renovation Services in Miami, FL",
         description: "Modern kitchen remodeling in Miami, FL. Custom cabinets, countertops, and efficient layouts.",
-        content: "Berg General Contractor Kitchens transforms Miami kitchens with sleek designs, functional storage, and premium materials for lasting value.",
+        content: "Berg General Contractor Bathrooms transforms Miami kitchens with sleek designs, functional storage, and premium materials for lasting value.",
         image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
@@ -342,7 +342,7 @@ export const serviceAreasData = [
         href: "/orlando",
         title: "Kitchen Renovation Services in Orlando, FL",
         description: "Orlando's trusted kitchen renovation experts. Elegant designs, expert craftsmanship, and on-time delivery.",
-        content: "In Orlando, Berg General Contractor Kitchens delivers stylish kitchen upgrades with attention to space optimization, lighting, and durable finishes.",
+        content: "In Orlando, Berg General Contractor Bathrooms delivers stylish kitchen upgrades with attention to space optimization, lighting, and durable finishes.",
         image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
@@ -358,7 +358,7 @@ export const serviceAreasData = [
         href: "/jacksonville",
         title: "Kitchen Renovation Services in Jacksonville, FL",
         description: "Elegant and functional kitchen renovations in Jacksonville, FL. Expertly crafted with your needs in mind.",
-        content: "Berg General Contractor Kitchens brings modern kitchen transformations to Jacksonville with seamless planning and top-tier execution.",
+        content: "Berg General Contractor Bathrooms brings modern kitchen transformations to Jacksonville with seamless planning and top-tier execution.",
         image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
@@ -374,7 +374,7 @@ export const serviceAreasData = [
         href: "/st-petersburg",
         title: "Kitchen Renovation Services in St. Petersburg, FL",
         description: "Creative kitchen remodeling in St. Pete, FL. Designed for beauty, built for function.",
-        content: "From compact kitchens to open-concept spaces, Berg General Contractor Kitchens serves St. Petersburg with innovation and reliability.",
+        content: "From compact kitchens to open-concept spaces, Berg General Contractor Bathrooms serves St. Petersburg with innovation and reliability.",
         image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
@@ -390,7 +390,7 @@ export const serviceAreasData = [
         href: "/hialeah",
         title: "Kitchen Renovation Services in Hialeah, FL",
         description: "Affordable kitchen upgrades in Hialeah, FL. Designed for comfort, priced for value.",
-        content: "Berg General Contractor Kitchens helps Hialeah homeowners modernize their kitchens with smart planning and dependable execution.",
+        content: "Berg General Contractor Bathrooms helps Hialeah homeowners modernize their kitchens with smart planning and dependable execution.",
         image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
@@ -406,7 +406,7 @@ export const serviceAreasData = [
         href: "/naples",
         title: "Kitchen Renovation Services in Naples, FL",
         description: "Luxury kitchen remodeling in Naples, FL. Coastal elegance, top-tier materials.",
-        content: "Naples clients trust Berg General Contractor Kitchens for bespoke kitchens with sophisticated style and thoughtful design.",
+        content: "Naples clients trust Berg General Contractor Bathrooms for bespoke kitchens with sophisticated style and thoughtful design.",
         image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
@@ -430,7 +430,7 @@ export const serviceAreasData = [
         href: "/lakeland",
         title: "Kitchen Renovation Services in Lakeland, FL",
         description: "Lakeland’s trusted team for kitchen remodels. On-time, on-budget, on-trend.",
-        content: "Berg General Contractor Kitchens delivers high-impact kitchen upgrades in Lakeland with precision and flair.",
+        content: "Berg General Contractor Bathrooms delivers high-impact kitchen upgrades in Lakeland with precision and flair.",
         image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
@@ -470,7 +470,7 @@ export const serviceAreasData = [
         href: "/boca-raton",
         title: "Kitchen Renovation Services in Boca Raton, FL",
         description: "Upscale kitchen remodeling in Boca Raton, FL. Refined details, elevated design.",
-        content: "Boca Raton clients choose Berg General Contractor Kitchens for luxurious kitchens that blend timeless appeal with smart functionality.",
+        content: "Boca Raton clients choose Berg General Contractor Bathrooms for luxurious kitchens that blend timeless appeal with smart functionality.",
         image: `${static_assets}/images/hero_bg_1.jpg`
     }
 ];
@@ -483,9 +483,9 @@ export const serviceAreasData = [
 export const servicesData = {
     'full-kitchen-renovation': {
         label: 'Full Kitchen Renovation',
-        title: 'Complete Kitchen Renovation Services by Berg General Contractor Kitchens',
+        title: 'Complete Kitchen Renovation Services by Berg General Contractor Bathrooms',
         description: 'Revamp your entire kitchen with our end-to-end renovation services. From planning to installation, we create modern, efficient, and beautiful kitchen spaces.',
-        content: `A full kitchen renovation is the key to elevating your home’s value and your cooking experience. At Berg General Contractor Kitchens, we turn outdated kitchens into inspiring spaces that blend style and practicality. It all starts with an in-depth consultation to understand your needs, preferences, and budget. Our expert team then handles everything—from designing layouts and selecting finishes to managing demolition, cabinetry, countertops, plumbing, lighting, and appliances. Every element is managed with precision and care. Whether you’re after a sleek contemporary kitchen or a warm traditional design, we bring your dream kitchen to life with minimal disruption and maximum quality.`,
+        content: `A full kitchen renovation is the key to elevating your home’s value and your cooking experience. At Berg General Contractor Bathrooms, we turn outdated kitchens into inspiring spaces that blend style and practicality. It all starts with an in-depth consultation to understand your needs, preferences, and budget. Our expert team then handles everything—from designing layouts and selecting finishes to managing demolition, cabinetry, countertops, plumbing, lighting, and appliances. Every element is managed with precision and care. Whether you’re after a sleek contemporary kitchen or a warm traditional design, we bring your dream kitchen to life with minimal disruption and maximum quality.`,
         image: `${static_assets}/images/services/kitchen_reno.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -548,7 +548,7 @@ export const servicesData = {
             },
             {
                 question: "Are your services licensed and insured?",
-                answer: "Yes, Berg General Contractor Kitchens is fully licensed and insured for your peace of mind."
+                answer: "Yes, Berg General Contractor Bathrooms is fully licensed and insured for your peace of mind."
             }
         ],
         images:[],
@@ -557,7 +557,7 @@ export const servicesData = {
         label: 'Cabinet Refacing & Installation',
         title: 'kitchen Cabinet Refacing & Installation',
         description: 'Refresh your kitchen with stylish new cabinets or reface existing ones for a cost-effective upgrade. We offer expert installation and premium materials.',
-        content: `Upgrading your kitchen cabinetry can dramatically enhance both the appearance and storage functionality of your space. At Berg General Contractor Kitchens, we specialize in professional cabinet refacing and new installations that reflect your style and optimize your kitchen layout. Refacing gives your existing cabinets a fresh, modern look by replacing doors, drawer fronts, and hardware — a budget-friendly option that doesn’t sacrifice quality. Alternatively, we can install brand-new custom cabinetry built to fit your needs. With a wide range of finishes, colors, and styles, we ensure your cabinetry matches your kitchen’s aesthetic and stands the test of time.`,
+        content: `Upgrading your kitchen cabinetry can dramatically enhance both the appearance and storage functionality of your space. At Berg General Contractor Bathrooms, we specialize in professional cabinet refacing and new installations that reflect your style and optimize your kitchen layout. Refacing gives your existing cabinets a fresh, modern look by replacing doors, drawer fronts, and hardware — a budget-friendly option that doesn’t sacrifice quality. Alternatively, we can install brand-new custom cabinetry built to fit your needs. With a wide range of finishes, colors, and styles, we ensure your cabinetry matches your kitchen’s aesthetic and stands the test of time.`,
         image: `${static_assets}/images/services/kitchen_cabinet.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -699,7 +699,7 @@ export const servicesData = {
         label: 'Kitchen Tiling & Backsplash',
         title: 'Expert Kitchen Tiling & Backsplash Installation',
         description: 'Enhance the visual appeal and functionality of your kitchen with expertly installed tiles and backsplashes tailored to your style.',
-        content: `At Berg General Contractor Kitchens, we extend our craftsmanship beyond kitchens to deliver exceptional kitchen tiling and backsplash services. Whether you're looking for a sleek modern subway tile or a bold patterned mosaic, our team brings precision and creativity to every project. We help you select the ideal materials and patterns to complement your kitchen's design, and we ensure each tile is installed with meticulous attention to detail. A professionally installed backsplash not only elevates your kitchen’s aesthetics but also protects your walls from spills and splatters — combining beauty with practicality.`,
+        content: `At Berg General Contractor Bathrooms, we extend our craftsmanship beyond kitchens to deliver exceptional kitchen tiling and backsplash services. Whether you're looking for a sleek modern subway tile or a bold patterned mosaic, our team brings precision and creativity to every project. We help you select the ideal materials and patterns to complement your kitchen's design, and we ensure each tile is installed with meticulous attention to detail. A professionally installed backsplash not only elevates your kitchen’s aesthetics but also protects your walls from spills and splatters — combining beauty with practicality.`,
         image: `${static_assets}/images/services/kitchen_tiling.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -770,7 +770,7 @@ export const servicesData = {
         label: 'Plumbing & Sink Install',
         title: 'Professional Kitchen Plumbing & Sink Installation Services',
         description: 'Ensure flawless water flow and efficient drainage with expert kitchen plumbing and sink installation tailored to your kitchen layout.',
-        content: `Berg General Contractor Kitchens brings the same trusted expertise in plumbing to your kitchen renovations. Whether you’re replacing an old sink or reconfiguring your entire kitchen layout, our licensed professionals handle every detail with precision. We install and connect sinks, faucets, garbage disposals, and dishwashers while ensuring your plumbing system is leak-free and compliant with local codes. From basic hook-ups to complete re-routing of water lines, we prioritize functionality, cleanliness, and longevity in every installation.`,
+        content: `Berg General Contractor Bathrooms brings the same trusted expertise in plumbing to your kitchen renovations. Whether you’re replacing an old sink or reconfiguring your entire kitchen layout, our licensed professionals handle every detail with precision. We install and connect sinks, faucets, garbage disposals, and dishwashers while ensuring your plumbing system is leak-free and compliant with local codes. From basic hook-ups to complete re-routing of water lines, we prioritize functionality, cleanliness, and longevity in every installation.`,
         image: `${static_assets}/images/services/sink_installation.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -841,7 +841,7 @@ export const servicesData = {
         label: 'Lighting & Appliances',
         title: 'Kitchen Lighting and Appliance Installation Services',
         description: 'Illuminate your kitchen and streamline your cooking experience with expert lighting design and appliance setup services.',
-        content: `At Berg General Contractor Kitchens, we understand that a well-lit, well-equipped kitchen is the heart of every home. That’s why we offer professional lighting and appliance installation services tailored to both style and function. Whether you’re upgrading to energy-efficient LED fixtures or installing built-in ovens, range hoods, or smart fridges, our team ensures safe and seamless integration. We also help design optimal lighting layouts—from task lighting under cabinets to ambient ceiling lights—so your kitchen not only works better, it looks amazing too.`,
+        content: `At Berg General Contractor Bathrooms, we understand that a well-lit, well-equipped kitchen is the heart of every home. That’s why we offer professional lighting and appliance installation services tailored to both style and function. Whether you’re upgrading to energy-efficient LED fixtures or installing built-in ovens, range hoods, or smart fridges, our team ensures safe and seamless integration. We also help design optimal lighting layouts—from task lighting under cabinets to ambient ceiling lights—so your kitchen not only works better, it looks amazing too.`,
         image: `${static_assets}/images/services/kitchen_lights.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -913,7 +913,7 @@ export const servicesData = {
         label: 'Custom Pantries',
         title: 'Tailored Kitchen Pantry Design & Installation Services',
         description: 'Maximize storage and organization with custom-built pantries designed to suit your kitchen layout and lifestyle.',
-        content: `Berg General Contractor Kitchens offers personalized pantry solutions that bring order and elegance to your kitchen. Whether you need a walk-in pantry, pull-out shelves, or built-in cabinetry, our team designs and installs efficient storage systems tailored to your needs. We combine high-quality materials with clever design to create functional, clutter-free spaces. From dry goods to cookware, everything will have its place — all while matching your kitchen's style and flow.`,
+        content: `Berg General Contractor Bathrooms offers personalized pantry solutions that bring order and elegance to your kitchen. Whether you need a walk-in pantry, pull-out shelves, or built-in cabinetry, our team designs and installs efficient storage systems tailored to your needs. We combine high-quality materials with clever design to create functional, clutter-free spaces. From dry goods to cookware, everything will have its place — all while matching your kitchen's style and flow.`,
         image: `${static_assets}/images/services/pantry.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -985,7 +985,7 @@ export const servicesData = {
         label: 'Smart Kitchen Solutions',
         title: 'Innovative Smart Kitchen Upgrades for Modern Living',
         description: 'Upgrade your kitchen with cutting-edge technology that enhances convenience, efficiency, and style.',
-        content: `At Berg General Contractor Kitchens, we bring your kitchen into the future with smart technology that makes daily life easier and more enjoyable. From voice-controlled lighting and smart faucets to connected appliances and motion-sensing features, we design and install intelligent systems tailored to your needs. Our team helps you select the right tech solutions and ensures seamless integration with your existing kitchen design. With our smart kitchen services, your space becomes more functional, energy-efficient, and tailored to the pace of your life.`,
+        content: `At Berg General Contractor Bathrooms, we bring your kitchen into the future with smart technology that makes daily life easier and more enjoyable. From voice-controlled lighting and smart faucets to connected appliances and motion-sensing features, we design and install intelligent systems tailored to your needs. Our team helps you select the right tech solutions and ensures seamless integration with your existing kitchen design. With our smart kitchen services, your space becomes more functional, energy-efficient, and tailored to the pace of your life.`,
         image: `${static_assets}/images/services/smart_kitchen.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -1057,7 +1057,7 @@ export const servicesData = {
         label: 'Eco-Friendly Kitchens',
         title: 'Sustainable Kitchen Renovations for a Greener Home',
         description: 'Design a stylish kitchen that’s kind to the planet with our eco-conscious materials and energy-saving solutions.',
-        content: `At Berg General Contractor Kitchens, we believe that luxury and sustainability can go hand in hand. Our eco-friendly kitchen renovations focus on reducing environmental impact without compromising on function or design. We use responsibly sourced materials, install energy-efficient appliances, and incorporate water-saving features. From bamboo cabinetry to LED lighting and low-VOC finishes, every detail is chosen to support a greener future. Whether you want a fully sustainable kitchen or a few green upgrades, we’ll help you build a space that’s better for you and the planet.`,
+        content: `At Berg General Contractor Bathrooms, we believe that luxury and sustainability can go hand in hand. Our eco-friendly kitchen renovations focus on reducing environmental impact without compromising on function or design. We use responsibly sourced materials, install energy-efficient appliances, and incorporate water-saving features. From bamboo cabinetry to LED lighting and low-VOC finishes, every detail is chosen to support a greener future. Whether you want a fully sustainable kitchen or a few green upgrades, we’ll help you build a space that’s better for you and the planet.`,
         image: `${static_assets}/images/services/eco_kitchen.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -1156,7 +1156,7 @@ export const projectsData = {
         content: `
   This kitchen renovation was all about transforming a closed-off layout into a modern, open-concept space that flows effortlessly into the living and dining areas. The homeowners wanted a clean, bright aesthetic that didn’t sacrifice function — and that’s exactly what we delivered.
   
-  At Berg General Contractor Kitchens, we opened up the layout by removing partition walls and expanding the kitchen footprint. A large quartz waterfall island became the centerpiece, offering a gathering space with built-in storage and seating. The cabinetry combined matte white fronts with warm wood tones to balance the modern with the inviting. Integrated appliances kept the lines sleek, while a classic subway tile backsplash added timeless appeal.
+  At Berg General Contractor Bathrooms, we opened up the layout by removing partition walls and expanding the kitchen footprint. A large quartz waterfall island became the centerpiece, offering a gathering space with built-in storage and seating. The cabinetry combined matte white fronts with warm wood tones to balance the modern with the inviting. Integrated appliances kept the lines sleek, while a classic subway tile backsplash added timeless appeal.
   
   Smart features like a touchless faucet, soft-close drawers, and efficient LED lighting elevated convenience. With strategic lighting, space-saving storage, and a minimalist vibe, this open kitchen is now the heart of the home — perfect for hosting or simply enjoying daily meals in style.
   `,
@@ -1181,7 +1181,7 @@ export const projectsData = {
             "Barn-style sliding door"
         ],
         content: `
-  This renovation brought farmhouse charm to life in a cozy countryside home. The homeowners envisioned a warm and welcoming kitchen that honored traditional design while integrating modern conveniences — and Berg General Contractor Kitchens delivered just that.
+  This renovation brought farmhouse charm to life in a cozy countryside home. The homeowners envisioned a warm and welcoming kitchen that honored traditional design while integrating modern conveniences — and Berg General Contractor Bathrooms delivered just that.
   
   We used soft white shaker cabinets to create a bright foundation, paired with butcher block counters for that warm, earthy feel. A standout feature is the apron-front farmhouse sink, framed by a large window that fills the space with natural light. Bronze fixtures and wrought iron hardware added rustic contrast.
   
@@ -1210,7 +1210,7 @@ export const projectsData = {
         content: `
   This compact condo kitchen project focused on maximizing function and style in a limited footprint. The client, a busy professional living in downtown Orlando, needed a modern, low-maintenance kitchen that didn’t sacrifice aesthetics for space.
   
-  Berg General Contractor Kitchens delivered a clean, efficient layout with high-gloss cabinets that reflect light and visually expand the space. Quartz countertops were chosen for their durability and sleek appearance. We integrated a full set of compact stainless steel appliances, including a drawer-style microwave and a space-saving range hood.
+  Berg General Contractor Bathrooms delivered a clean, efficient layout with high-gloss cabinets that reflect light and visually expand the space. Quartz countertops were chosen for their durability and sleek appearance. We integrated a full set of compact stainless steel appliances, including a drawer-style microwave and a space-saving range hood.
   
   Storage was key in this design. A pull-out pantry, soft-close drawers, and floating shelves offered ample organization options without cluttering the room. Glass tile backsplash and under-cabinet lighting added a touch of sophistication while maintaining a bright, airy vibe. The result is a smart, functional kitchen that feels open and contemporary despite its smaller size.
   `,
@@ -1237,7 +1237,7 @@ export const projectsData = {
         content: `
   This luxury chef kitchen was designed for a culinary enthusiast looking to blend elegance with top-tier functionality. Located in a high-end Windermere estate, the space was completely reimagined to support serious cooking while offering the sophistication expected in a luxury home.
   
-  Berg General Contractor Kitchens collaborated closely with the homeowner to craft a gourmet kitchen equipped with premium features. A 48" commercial gas range, double wall ovens, and built-in refrigeration units were seamlessly integrated into custom walnut cabinetry. The centerpiece is a massive marble-topped island that includes a prep sink and ample seating for casual dining and entertaining.
+  Berg General Contractor Bathrooms collaborated closely with the homeowner to craft a gourmet kitchen equipped with premium features. A 48" commercial gas range, double wall ovens, and built-in refrigeration units were seamlessly integrated into custom walnut cabinetry. The centerpiece is a massive marble-topped island that includes a prep sink and ample seating for casual dining and entertaining.
   
   Smart kitchen controls allow for convenient appliance management, lighting adjustment, and temperature monitoring. A dedicated walk-in pantry was added, complete with built-in organization for easy access to ingredients and tools. This transformation successfully delivers a luxurious culinary workspace tailored for hosting, entertaining, and everyday inspiration.
   `,
@@ -1264,7 +1264,7 @@ export const projectsData = {
         content: `
   This minimalist kitchen upgrade focused on creating a serene, clutter-free environment that enhances both beauty and practicality. Designed for an urban apartment in Orlando, the project emphasized clean lines, neutral palettes, and maximum space efficiency.
   
-  Berg General Contractor Kitchens implemented flat-panel cabinetry with a sleek matte finish, eliminating handles for a smooth, unbroken aesthetic. Quartz countertops with waterfall edges added sophistication, while integrated appliances maintained the streamlined look. A large-format tile backsplash in subtle tones completed the backdrop, enhancing the overall sense of calm.
+  Berg General Contractor Bathrooms implemented flat-panel cabinetry with a sleek matte finish, eliminating handles for a smooth, unbroken aesthetic. Quartz countertops with waterfall edges added sophistication, while integrated appliances maintained the streamlined look. A large-format tile backsplash in subtle tones completed the backdrop, enhancing the overall sense of calm.
   
   The design incorporated intelligent storage with soft-close drawers and hidden compartments, as well as open shelving for select display pieces. LED under-lighting and touchless fixtures added modern convenience to this effortlessly elegant space.
   `,
@@ -1291,7 +1291,7 @@ export const projectsData = {
         content: `
   This industrial kitchen project was designed for a converted loft in Tampa, FL, embracing the raw beauty of unfinished materials and bold textures. The homeowners wanted a space that balanced utility and modern design with a strong industrial vibe.
   
-  Berg General Contractor Kitchens executed the vision by incorporating a mix of exposed brick, reclaimed wood, and metal elements. The layout included matte black cabinetry for contrast, paired with concrete-look quartz countertops that added durability and grit. Open shelving in black steel provided both functionality and urban charm.
+  Berg General Contractor Bathrooms executed the vision by incorporating a mix of exposed brick, reclaimed wood, and metal elements. The layout included matte black cabinetry for contrast, paired with concrete-look quartz countertops that added durability and grit. Open shelving in black steel provided both functionality and urban charm.
   
   Stainless steel appliances and industrial lighting fixtures brought sleek contrast to the rough textures, while the wood flooring introduced warmth. Iron piping was creatively used for hanging storage, reinforcing the loft-style aesthetic. The end result is a visually striking kitchen that combines modern convenience with industrial flair.
   `,
@@ -1316,7 +1316,7 @@ export const projectsData = {
             "Warm white and natural wood tones"
         ],
         content: `
-  Designed for a busy family in Winter Garden, this kitchen makeover by Berg General Contractor Kitchens prioritized function, safety, and a warm, inviting atmosphere. The layout was optimized for meal prep, school lunches, and family dinners—all in one flexible space.
+  Designed for a busy family in Winter Garden, this kitchen makeover by Berg General Contractor Bathrooms prioritized function, safety, and a warm, inviting atmosphere. The layout was optimized for meal prep, school lunches, and family dinners—all in one flexible space.
   
   We installed soft-close cabinetry and quartz countertops with rounded edges to prevent accidents. A large island became the hub of activity, offering seating, storage, and prep space. Vinyl plank flooring was chosen for its durability and easy maintenance—perfect for spills and high traffic.
   
@@ -1343,7 +1343,7 @@ export const projectsData = {
             "Soft blue and sand-tone color palette"
         ],
         content: `
-  This coastal kitchen remodel, completed in a sunny Clearwater condo, brings the charm and tranquility of the ocean indoors. Berg General Contractor Kitchens crafted a space that reflects laid-back beach living with refined functionality.
+  This coastal kitchen remodel, completed in a sunny Clearwater condo, brings the charm and tranquility of the ocean indoors. Berg General Contractor Bathrooms crafted a space that reflects laid-back beach living with refined functionality.
   
   The cabinetry was upgraded to classic white shaker style, paired with soft misty blue quartz countertops that mimic the calming hues of the sea. A sea glass tile backsplash adds a pop of texture and color, complemented by brushed nickel fixtures and rattan pendant lights that bring warmth and casual elegance.
   
@@ -1372,7 +1372,7 @@ export const testimonialsData = [
     {
         "name": "John Davis",
         "role": "Homeowner | Kitchen Remodel",
-        "feedback": "Berg General Contractor Kitchens completely transformed our outdated kitchen into a modern, functional space we love spending time in. The process was seamless and stress-free!",
+        "feedback": "Berg General Contractor Bathrooms completely transformed our outdated kitchen into a modern, functional space we love spending time in. The process was seamless and stress-free!",
     },
 
     {
@@ -1384,7 +1384,7 @@ export const testimonialsData = [
     {
         "name": "Carlos Rivera",
         "role": "Restaurant Owner",
-        "feedback": "Our commercial kitchen needed a serious upgrade. Berg General Contractor Kitchens delivered a sleek, efficient layout that boosted both workflow and aesthetics.",
+        "feedback": "Our commercial kitchen needed a serious upgrade. Berg General Contractor Bathrooms delivered a sleek, efficient layout that boosted both workflow and aesthetics.",
     },
 
     {
@@ -1402,7 +1402,7 @@ export const testimonialsData = [
     {
         "name": "Emily Chen",
         "role": "Homeowner | Full Remodel",
-        "feedback": "Our old kitchen was cramped and dated. Berg General Contractor Kitchens opened up the space beautifully — it now feels like the heart of our home.",
+        "feedback": "Our old kitchen was cramped and dated. Berg General Contractor Bathrooms opened up the space beautifully — it now feels like the heart of our home.",
     },
 
     {
@@ -1426,7 +1426,7 @@ export const testimonialsData = [
     {
         "name": "Olivia Perez",
         "role": "Retail Store Owner | Kitchenette",
-        "feedback": "We needed a small staff kitchen refresh. Berg General Contractor Kitchens delivered smart storage solutions and a polished finish that exceeded expectations.",
+        "feedback": "We needed a small staff kitchen refresh. Berg General Contractor Bathrooms delivered smart storage solutions and a polished finish that exceeded expectations.",
     },
 
     {
