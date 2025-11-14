@@ -9,1437 +9,1515 @@ import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } f
 export const static_assets = '/bath'
 export const siteUrl = 'https://bathrooms.berggc.com/';
 export const siteName = 'Berg General Contractor Bathrooms';
-export const siteLogo = `${static_assets}/images/logo.png`;
-export const googleAnalyticId = 'G-ZV55L3X98B';
 export const bussinessType = ["LocalBusiness", "HomeAndConstructionBusiness"]
-
+export const siteLogo = `${static_assets}/images/logo.png`;
+export const googleAnalyticId = 'G-79RRTN6VDP';
 
 export const contactInfo = {
-    phone: {
-        text: '(561) 899-8926',
-        href: 'tel:+15618998926',
-        number: '+15618998926'
-    },
-    address: '300 SW 1st Avenue Ste 155, Fort Lauderdale, FL 33301',
-    mapEmbedUrl: "https://maps.app.goo.gl/rDGBNQRu5YWHo6329",
+  phone: {
+    text: '(561) 899-8926',
+    href: 'tel:+15618998926',
+    number: '+15618998926'
+  },
+  address: '300 SW 1st Avenue Ste 155, Fort Lauderdale, FL 33301',
+  mapEmbedUrl: "https://maps.app.goo.gl/rDGBNQRu5YWHo6329",
 
-    email: 'support@bathrooms.berggc.com',
-    workingHours: 'Mon–Sat: 8:00 AM – 6:00 PM'
+  email: 'support@bathrooms.berggc.com',
+  workingHours: 'Mon–Sat: 8:00 AM – 6:00 PM'
 };
 export const socialLinks = {
-    facebook: 'https://www.facebook.com/profile.php?id=61579296842520',
-    instagram: 'https://www.facebook.com/profile.php?id=61579296842520',
-    twitter: 'https://www.facebook.com/profile.php?id=61579296842520',
+  facebook: 'https://www.facebook.com/profile.php?id=61579296842520',
+  instagram: 'https://www.facebook.com/profile.php?id=61579296842520',
+  twitter: 'https://www.facebook.com/profile.php?id=61579296842520',
 };
-
-
 /* ------------------------
     PAGES  
 ------------------------ */
-
 export const landingPage = {
-    seo: {
-        title: 'Berg General Contractor Bathrooms',
-        description: 'Expert kitchen renovation and installation services. From sleek upgrades to complete transformations — we bring beauty, function, and lasting value to your home.',
-        ogImage: `${static_assets}/images/hero_bg_1.jpg`,
-        canonical: siteUrl,
-    },
-    hero: {
-        title: 'Transform Your Kitchen with Berg General Contractor',
-        description: 'We specialize in elegant, efficient, and high-quality kitchen renovations tailored to your lifestyle and space.',
-        backgroundImage: `${static_assets}/images/hero_bg_1.jpg`,
-        ctaText: 'Get a Free Quote',
-        ctaLink: '/contact',
-    },
-    services: {
-        heading: 'Our Kitchen Services',
-    },
-    projects: {
-        heading: 'Recent Kitchen Renovations',
-    },
+  seo: {
+    title: 'Berg General Contractor Bathrooms',
+    description: 'Expert bathroom renovation and installation services. From modern makeovers to full-scale remodeling — we bring style, comfort, and quality to your home.',
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
+    canonical: siteUrl,
+  },
+  hero: {
+    title: 'Transform Your Bathroom with Berg General Contractor',
+    description: 'We specialize in stylish, functional, and high-quality bathroom renovations tailored to your space and lifestyle.',
+    backgroundImage: `${static_assets}/images/hero_bg_1.jpg`,
+    ctaText: 'Get a Free Quote',
+    ctaLink: '/contact',
+  },
+  services: {
+    heading: 'Our Bathroom Services',
+  },
+  projects: {
+    heading: 'Recent Bathroom Renovations',
+  },
 }
 
 export const servicesPage = {
-    seo: {
-        title: 'Kitchen Renovation Services',
-        description: 'Explore our range of kitchen services including design, remodeling, cabinetry, countertops, and full kitchen makeovers.',
-        ogImage: `${static_assets}/images/services/kitchen_reno.jpg`,
-        canonical: siteUrl + 'services',
-    },
+  seo: {
+    title: 'Bathroom Renovation Services',
+    description: 'Discover our range of bathroom services including design, remodeling, tiling, plumbing, and complete bathroom transformations.',
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
+    canonical: siteUrl + 'services',
+  }
 }
 
 export const projectsPage = {
-    seo: {
-        title: 'Kitchen Renovation Projects',
-        description: 'Take a look at our completed kitchen remodels — stylish, practical, and built to inspire.',
-        ogImage: `${static_assets}/images/services/kitchen_reno.jpg`,
-        canonical: siteUrl + 'projects',
-    },
+  seo: {
+    title: 'Bathroom Renovation Projects',
+    description: 'View our portfolio of completed bathroom remodels — elegant, efficient, and designed to inspire.',
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
+    canonical: siteUrl + 'projects',
+  },
 }
 
+
 export const aboutPage = {
-    seo: {
-        title: 'About Berg General Contractor Bathrooms',
-        description: 'Learn about Berg General Contractor Bathrooms and how we create stunning, stress-free bathroom renovations with expert craftsmanship.',
-        ogImage: `${static_assets}/images/hero_bg_1.jpg`,
-        canonical: siteUrl + 'about',
-    },
-    content: 'Berg General Contractor Bathrooms is your go-to team for expert bathroom renovations. From concept to completion, we deliver custom designs, premium finishes, and seamless service to elevate your home\'s comfort.',
+  seo: {
+    title: 'About Berg General Contractor Bathrooms',
+    description: 'Meet the team behind Berg General Contractor Bathrooms and learn how we deliver stunning and stress-free bathroom renovations.',
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
+    canonical: siteUrl + 'about',
+  },
+  content: 'Berg General Contractor Bathrooms is a trusted provider of bathroom remodeling services. With a focus on quality craftsmanship, innovative design, and customer satisfaction, we transform outdated bathrooms into beautiful, modern spaces.',
 }
 
 export const contactPage = {
-    seo: {
-        title: 'Contact Berg General Contractor Bathrooms',
-        description: 'Ready to upgrade your bathroom? Contact Berg General Contractor Bathrooms to start planning your perfect space.',
-        ogImage: `${static_assets}/images/hero_bg_1.jpg`,
-        canonical: siteUrl + 'contact',
-    },
-    form: {
-        heading: 'Get In Touch',
-        messagePlaceholder: "Tell us about your kitchen goals — we’re ready to make them a reality.",
-    },
+  seo: {
+    title: 'Contact Berg General Contractor Bathrooms',
+    description: 'Ready to renovate your bathroom? Reach out to Berg General Contractor Bathrooms to start planning your dream space.',
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
+    canonical: siteUrl + 'contact',
+  },
+  form: {
+    heading: 'Get In Touch',
+    messagePlaceholder: "Tell us about your bathroom goals — we're ready to bring them to life.",
+  }
 }
 
 export const blogPage = {
-    seo: {
-        title: 'Kitchen Design Tips & Renovation Ideas',
-        description: 'Get inspired with expert tips on kitchen trends, layout advice, maintenance tips, and more.',
-        ogImage: `${static_assets}/images/hero_bg_1.jpg`,
-        canonical: siteUrl + 'blogs',
-    },
+  seo: {
+    title: 'Bathroom Design Ideas & Renovation Tips',
+    description: 'Get inspired with expert tips on bathroom trends, remodeling advice, maintenance tricks, and more.',
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
+    canonical: siteUrl + 'blogs',
+  },
 }
 
 export const serviceAreaPage = {
-    seo: {
-        title: 'Kitchen Renovation Services Near You',
-        description: 'Proudly serving homeowners across your region with innovative kitchen design and remodeling services.',
-        ogImage: `${static_assets}/images/hero_bg_1.jpg`,
-        canonical: siteUrl + 'service-areas',
-    }
+  seo: {
+    title: 'Bathroom Renovation Services Near You',
+    description: 'We proudly serve homeowners across your region with complete bathroom design and remodeling solutions.',
+    ogImage: `${static_assets}/images/hero_bg_1.jpg`,
+    canonical: siteUrl + 'service-areas',
+  }
 }
+
+
 /* ------------------------
    COMPONENTS 
 ------------------------ */
 export const getToKnow = {
-    title: 'GET TO KNOW',
-    heading: 'Kitchen Renovations with Precision, Style, and Lasting Value',
-    description:
-        'Berg General Contractor Bathrooms is your trusted partner for transforming kitchens into stunning, functional spaces. We combine expert craftsmanship, modern design, and respectful service to deliver kitchens you’ll love.',
-    keyPoints: [
-        {
-            title: 'Expert Kitchen Renovators',
-            desc: 'Our team brings experience in cabinetry, countertops, plumbing, and finishes — ensuring sleek, professional results.',
-        },
-        {
-            title: 'High-Quality Materials & Fixtures',
-            desc: 'We source premium-grade cabinets, countertops, appliances, and hardware built for beauty and durability.',
-        },
-        {
-            title: 'Clean, Hassle-Free Process',
-            desc: 'We prioritize tidiness and efficiency, completing your renovation with minimal mess and maximum care.',
-        },
-    ],
-    image1_url: `${static_assets}/images/projects/condo_kitchen.jpg`,
-    image2_url: `${static_assets}/images/services/kitchen_lights.jpg`,
-    image3_url: `${static_assets}/images/services/smart_kitchen.jpg`,
-    image4_url: `${static_assets}/images/services/kitchen_reno.jpg`,
-    
-};
-
+  title: 'GET TO KNOW',
+  heading: 'Bathroom Renovations with Comfort, Craftsmanship, and Care',
+  description:
+      'Berg General Contractor Bathrooms is your trusted partner for bathroom transformations. We focus on high-quality design, expert installation, and treating every space with precision and respect.',
+  keyPoints: [
+      {
+          title: 'Skilled & Experienced Renovators',
+          desc: 'Our team is trained in modern bathroom construction, tiling, plumbing, and finishing — ensuring professional results.',
+      },
+      {
+          title: 'Premium Fixtures & Materials',
+          desc: 'We source and install top-grade fittings, tiles, and vanities that blend style with long-term durability.',
+      },
+      {
+          title: 'Clean Work & Seamless Execution',
+          desc: 'We keep your space tidy and disruption-free, delivering beautiful bathrooms with minimal mess or stress.',
+      }
+  ],
+  image1_url: `${static_assets}/images/projects/wet_room.jpg`,
+  image2_url: `${static_assets}/images/projects/master.jpg`,
+  image3_url: `${static_assets}/images/projects/coastal.jpg`,
+  image4_url: `${static_assets}/images/projects/commercial.jpg`,
+}
 export const faqs = [
-    {
-        question: "Do you offer free kitchen renovation quotes?",
-        answer: "Yes, we provide free consultations and estimates tailored to your kitchen needs and vision."
-    },
-    {
-        question: "What kitchen services do you provide?",
-        answer: "We handle full remodels, custom cabinetry, countertops, lighting, backsplash installation, and more."
-    },
-    {
-        question: "Are your renovators licensed and insured?",
-        answer: "Yes, our team is fully licensed, insured, and follows all local codes and industry best practices."
-    },
-    {
-        question: "Can you handle small kitchen upgrades too?",
-        answer: "Absolutely. We take on projects of all sizes — from quick updates to full-scale renovations."
-    },
-    {
-        question: "How long does a typical kitchen renovation take?",
-        answer: "It depends on the scope, but most projects are completed within 2–4 weeks."
-    },
-    {
-        question: "Do you work on both residential and commercial kitchens?",
-        answer: "Yes, we service both homes and commercial properties such as offices, cafés, and more."
-    }
+  {
+      question: "Do you offer free bathroom renovation quotes?",
+      answer: "Yes, we provide free consultations and quotes for all bathroom renovation and installation projects."
+  },
+  {
+      question: "What bathroom services do you provide?",
+      answer: "We handle full renovations, tiling, plumbing, lighting, shower and tub installations, and custom vanity work."
+  },
+  {
+      question: "Are your renovators certified and insured?",
+      answer: "Absolutely. Our team is licensed, insured, and trained to meet all building codes and quality standards."
+  },
+  {
+      question: "Can you help with small bathroom updates too?",
+      answer: "Yes, whether it’s a minor refresh or a complete remodel, we tailor our services to your needs and budget."
+  },
+  {
+      question: "How long does a typical bathroom remodel take?",
+      answer: "Most projects take 1–3 weeks depending on scope, materials, and customization."
+  },
+  {
+      question: "Do you work on both residential and commercial bathrooms?",
+      answer: "Yes, we service both homes and commercial properties like offices, clinics, and salons."
+  }
 ];
 
 export const ourProcessData = {
-    heading: 'Our Process',
-    description: 'From the first sketch to the final screw, we make kitchen renovations smooth, efficient, and stress-free.',
-    list: [
-        {
-            title: "Initial Consultation",
-            description: "We discuss your kitchen goals, layout preferences, and budget to craft the ideal plan.",
-            icon: FaComments
-        },
-        {
-            title: "On-Site Assessment",
-            description: "Our team evaluates your space, utilities, and design potential during an in-person visit.",
-            icon: FaSearch
-        },
-        {
-            title: "Custom Design & Proposal",
-            description: "We present a personalized renovation plan with materials, timelines, and transparent pricing.",
-            icon: FaFileAlt
-        },
-        {
-            title: "Project Scheduling",
-            description: "We coordinate a timeline that fits your schedule to minimize disruption.",
-            icon: FaCalendarAlt
-        },
-        {
-            title: "Kitchen Renovation",
-            description: "From cabinetry to plumbing, our pros handle every detail with skill and care.",
-            icon: FaHammer
-        },
-        {
-            title: "Final Walkthrough & Handover",
-            description: "We inspect everything together, make sure you’re happy, and leave your new kitchen spotless.",
-            icon: FaCheckCircle
-        }
-    ]
+  heading: 'Our Process',
+  description: 'From consultation to the final tile, we make bathroom renovations smooth, efficient, and stress-free.',
+  list: [
+      {
+          title: "Initial Consultation",
+          description: "We discuss your bathroom goals, style preferences, and budget in detail.",
+          icon: FaComments
+      },
+      {
+          title: "On-Site Assessment",
+          description: "Our team visits your property to evaluate space, plumbing, and design opportunities.",
+          icon: FaSearch
+      },
+      {
+          title: "Custom Design & Proposal",
+          description: "We provide a tailored renovation plan with a clear estimate, materials, and timeline.",
+          icon: FaFileAlt
+      },
+      {
+          title: "Scheduling the Project",
+          description: "We schedule the renovation at your convenience with minimal disruption to your routine.",
+          icon: FaCalendarAlt
+      },
+      {
+          title: "Renovation Execution",
+          description: "Our expert team handles all installation work—tiling, fixtures, plumbing, and finishes.",
+          icon: FaHammer
+      },
+      {
+          title: "Final Inspection & Walkthrough",
+          description: "We review everything with you, ensure quality, and leave your space spotless and ready.",
+          icon: FaCheckCircle
+      }
+  ]
 };
-
 export const WhyUSData = [
-    {
-        title: "Certified Kitchen Experts",
-        description: "Our team brings expertise in cabinetry, electrical, plumbing, and custom installations.",
-        icon: FaUserTie
-    },
-    {
-        title: "Built to Last",
-        description: "We use high-quality materials and craftsmanship that stand up to daily kitchen use.",
-        icon: FaTools
-    },
-    {
-        title: "Communication is Key",
-        description: "You’ll stay informed at every step with clear updates and responsive support.",
-        icon: FaHandshake
-    },
-    {
-        title: "No Hidden Costs",
-        description: "We offer honest, upfront pricing with options to suit your budget.",
-        icon: FaDollarSign
-    },
-    {
-        title: "Tailored for You",
-        description: "Every design decision is guided by your taste, lifestyle, and goals.",
-        icon: FaSmile
-    },
-    {
-        title: "Code-Compliant & Safe",
-        description: "We follow all safety regulations and building codes for peace of mind.",
-        icon: FaShieldAlt
-    }
+  {
+      title: "Certified Bathroom Specialists",
+      description: "Our skilled team is trained and experienced in delivering top-tier bathroom renovations.",
+      icon: FaUserTie
+  },
+  {
+      title: "Craftsmanship You Can Trust",
+      description: "We use durable materials and proven methods to ensure every detail is built to last.",
+      icon: FaTools
+  },
+  {
+      title: "Clear, Consistent Communication",
+      description: "We keep you in the loop from start to finish — no confusion, no surprises.",
+      icon: FaHandshake
+  },
+  {
+      title: "Upfront, Honest Pricing",
+      description: "Our quotes are transparent and customized to fit your vision and your budget.",
+      icon: FaDollarSign
+  },
+  {
+      title: "Client-Centered Approach",
+      description: "We’re focused on your comfort, style, and satisfaction — down to the final tile.",
+      icon: FaSmile
+  },
+  {
+      title: "Safety & Compliance Guaranteed",
+      description: "We follow all building codes and safety standards to ensure a worry-free renovation.",
+      icon: FaShieldAlt
+  }
 ];
+
 
 export const accomplishmentData = [
-    { title: "Kitchens Renovated", number: 250 },
-    { title: "Residential Projects", number: 400 },
-    { title: "Skilled Craftsmen", number: 30 },
-    { title: "Happy Clients", number: 600 },
+  { title: "Bathrooms Renovated", number: 250 },
+  { title: "Residential Projects", number: 400 },
+  { title: "Skilled Renovators", number: 30 },
+  { title: "Happy Clients", number: 600 },
 ];
-
 
 /* ------------------------
    NAVITEMS START
 ------------------------ */
-
 export const navItems = [
-    {
-        label: 'Home',
-        href: '/',
-        external: false,
-        hasChildrens: false,
-    },
-    {
-        label: 'Services',
-        href: '/services',
-        external: false,
-        hasChildrens: true,
-        children: [
-            { label: 'Full Kitchen Renovation', href: '/services/full-kitchen-renovation', hasChildrens: false },
-            { label: 'Cabinet Refacing & Installation', href: '/services/cabinet-refacing-installation', hasChildrens: false },
-            { label: 'Countertops & Surfaces', href: '/services/countertops-surfaces', hasChildrens: false },
-            { label: 'Kitchen Tiling & Backsplash', href: '/services/kitchen-tiling-backsplash', hasChildrens: false },
-            { label: 'Plumbing & Sink Install', href: '/services/kitchen-plumbing', hasChildrens: false },
-            { label: 'Lighting & Appliances', href: '/services/lighting-appliances', hasChildrens: false },
-            { label: 'Custom Pantries', href: '/services/custom-pantries', hasChildrens: false },
-            { label: 'Smart Kitchen Solutions', href: '/services/smart-kitchens', hasChildrens: false },
-            { label: 'Eco-Friendly Kitchens', href: '/services/eco-kitchen', hasChildrens: false },
-        ]
-    },
-    {
-        label: 'Projects',
-        href: '/projects',
-        external: false,
-        hasChildrens: true,
-        children: [
-            { label: 'Modern Open Kitchen', href: '/projects/modern-open-kitchen', hasChildrens: false },
-            { label: 'Farmhouse Style Kitchen', href: '/projects/farmhouse-kitchen', hasChildrens: false },
-            { label: 'Compact Condo Kitchen', href: '/projects/compact-condo-kitchen', hasChildrens: false },
-            { label: 'Luxury Chef Kitchen', href: '/projects/luxury-chef-kitchen', hasChildrens: false },
-            { label: 'Minimalist Kitchen Upgrade', href: '/projects/minimalist-kitchen', hasChildrens: false },
-            { label: 'Industrial Style Kitchen', href: '/projects/industrial-kitchen', hasChildrens: false },
-            { label: 'Family-Friendly Kitchen', href: '/projects/family-kitchen', hasChildrens: false },
-            { label: 'Coastal Kitchen Remodel', href: '/projects/coastal-kitchen', hasChildrens: false },
-        ]
-    },
-    {
-        label: 'Contact Us',
-        href: '/contact',
-        external: false,
-        hasChildrens: false,
-    },
-    {
-        label: 'About Us',
-        href: '/about',
-        external: false,
-        hasChildrens: false,
-    },
-    {
-        label: 'Blogs',
-        href: '/blogs',
-        external: false,
-        hasChildrens: false,
-    },
+  {
+      label: 'Home',
+      href: '/',
+      external: false,
+      hasChildrens: false,
+  },
+  {
+      label: 'Services',
+      href: '/services',
+      external: false,
+      hasChildrens: true,
+      children: [
+          { label: 'Full Bathroom Renovation', href: '/services/full-bathroom-renovation', hasChildrens: false },
+          { label: 'Shower & Tub Installation', href: '/services/shower-tub-installation', hasChildrens: false },
+          { label: 'Custom Vanities', href: '/services/custom-vanities', hasChildrens: false },
+          { label: 'Tiling & Waterproofing', href: '/services/tiling-waterproofing', hasChildrens: false },
+          { label: 'Bathroom Plumbing', href: '/services/bathroom-plumbing', hasChildrens: false },
+          { label: 'Lighting & Mirrors', href: '/services/lighting-mirrors', hasChildrens: false },
+          { label: 'Luxury Spa Upgrades', href: '/services/luxury-spa-upgrades', hasChildrens: false },
+          { label: 'Accessibility Solutions', href: '/services/accessible-bathrooms', hasChildrens: false },
+          { label: 'Powder Room Updates', href: '/services/powder-room-upgrades', hasChildrens: false },
+      ]
+  },
+  {
+      label: 'Projects',
+      href: '/projects',
+      external: false,
+      hasChildrens: true,
+      children: [
+          { label: 'Modern Master Bathroom', href: '/projects/modern-master-bathroom', hasChildrens: false },
+          { label: 'Luxury Spa Ensuite', href: '/projects/luxury-spa-ensuite', hasChildrens: false },
+          { label: 'Small Bathroom Makeover', href: '/projects/small-bathroom-makeover', hasChildrens: false },
+          { label: 'Accessible Bathroom Upgrade', href: '/projects/accessible-bathroom', hasChildrens: false },
+          { label: 'Downtown Condo Renovation', href: '/projects/downtown-condo', hasChildrens: false },
+          { label: 'Suburban Family Bath', href: '/projects/family-bathroom', hasChildrens: false },
+          { label: 'Commercial Washroom Fitout', href: '/projects/commercial-washroom', hasChildrens: false },
+          { label: 'Guest Bathroom Remodel', href: '/projects/guest-bathroom-remodel', hasChildrens: false },
+          { label: 'Coastal Style Bathroom', href: '/projects/coastal-style-bathroom', hasChildrens: false },
+          { label: 'Minimalist Wet Room', href: '/projects/minimalist-wet-room', hasChildrens: false },
+      ]
+  },
+  {
+      label: 'Contact Us',
+      href: '/contact',
+      external: false,
+      hasChildrens: false,
+  },
+  {
+      label: 'About Us',
+      href: '/about',
+      external: false,
+      hasChildrens: false,
+  },
+  {
+      label: 'Blogs',
+      href: '/blogs',
+      external: false,
+      hasChildrens: false,
+  },
 ];
-
-
 /* ------------------------
    NAVITEMS FOOTER 
 ------------------------ */
 export const FooterData = {
-    tagline: 'Redefining Florida kitchens with elegant renovations, custom cabinetry, and expert craftsmanship.',
+  tagline: 'Transforming Florida bathrooms with stylish renovations, quality fittings, and expert craftsmanship.',
 };
-
 
 /* ------------------------
    AREAS OF SERVICES
 ------------------------ */
-
 export const serviceAreasData = [
-    {
-        name: "Miami",
-        href: "/miami",
-        title: "Kitchen Renovation Services in Miami, FL",
-        description: "Modern kitchen remodeling in Miami, FL. Custom cabinets, countertops, and efficient layouts.",
-        content: "Berg General Contractor Bathrooms transforms Miami kitchens with sleek designs, functional storage, and premium materials for lasting value.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "Orlando",
-        href: "/orlando",
-        title: "Kitchen Renovation Services in Orlando, FL",
-        description: "Orlando's trusted kitchen renovation experts. Elegant designs, expert craftsmanship, and on-time delivery.",
-        content: "In Orlando, Berg General Contractor Bathrooms delivers stylish kitchen upgrades with attention to space optimization, lighting, and durable finishes.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "Tampa",
-        href: "/tampa",
-        title: "Kitchen Renovation Services in Tampa, FL",
-        description: "Tailored kitchen makeovers in Tampa, FL. From luxury islands to smart storage — we’ve got you covered.",
-        content: "We help Tampa homeowners upgrade kitchens with creative layouts, quality cabinetry, and finishes that suit your lifestyle.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "Jacksonville",
-        href: "/jacksonville",
-        title: "Kitchen Renovation Services in Jacksonville, FL",
-        description: "Elegant and functional kitchen renovations in Jacksonville, FL. Expertly crafted with your needs in mind.",
-        content: "Berg General Contractor Bathrooms brings modern kitchen transformations to Jacksonville with seamless planning and top-tier execution.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "Fort Lauderdale",
-        href: "/fort-lauderdale",
-        title: "Kitchen Renovation Services in Fort Lauderdale, FL",
-        description: "Upscale kitchen remodeling in Fort Lauderdale, FL. Premium finishes, custom solutions.",
-        content: "We design and build dream kitchens in Fort Lauderdale with luxury detailing, efficient workflows, and timeless aesthetics.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "St. Petersburg",
-        href: "/st-petersburg",
-        title: "Kitchen Renovation Services in St. Petersburg, FL",
-        description: "Creative kitchen remodeling in St. Pete, FL. Designed for beauty, built for function.",
-        content: "From compact kitchens to open-concept spaces, Berg General Contractor Bathrooms serves St. Petersburg with innovation and reliability.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "Cape Coral",
-        href: "/cape-coral",
-        title: "Kitchen Renovation Services in Cape Coral, FL",
-        description: "Cape Coral’s go-to for kitchen makeovers. Clean lines, bold styles, and practical designs.",
-        content: "We create kitchens that suit Cape Coral living — bright, functional, and crafted with lasting quality in mind.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "Hialeah",
-        href: "/hialeah",
-        title: "Kitchen Renovation Services in Hialeah, FL",
-        description: "Affordable kitchen upgrades in Hialeah, FL. Designed for comfort, priced for value.",
-        content: "Berg General Contractor Bathrooms helps Hialeah homeowners modernize their kitchens with smart planning and dependable execution.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "Gainesville",
-        href: "/gainesville",
-        title: "Kitchen Renovation Services in Gainesville, FL",
-        description: "Full-service kitchen remodeling in Gainesville. Quality work, modern finishes.",
-        content: "We revamp Gainesville kitchens with a focus on open layouts, storage efficiency, and elegant finishes.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "Naples",
-        href: "/naples",
-        title: "Kitchen Renovation Services in Naples, FL",
-        description: "Luxury kitchen remodeling in Naples, FL. Coastal elegance, top-tier materials.",
-        content: "Naples clients trust Berg General Contractor Bathrooms for bespoke kitchens with sophisticated style and thoughtful design.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "Pensacola",
-        href: "/pensacola",
-        title: "Kitchen Renovation Services in Pensacola, FL",
-        description: "Expert kitchen remodeling in Pensacola. Durable builds, efficient layouts, modern appeal.",
-        content: "We upgrade Pensacola homes with kitchens that combine utility and style, built to suit your daily life.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "West Palm Beach",
-        href: "/west-palm-beach",
-        title: "Kitchen Renovation Services in West Palm Beach, FL",
-        description: "Premium kitchen remodeling in West Palm Beach. Beauty meets functionality.",
-        content: "Our team brings expert kitchen transformations to West Palm Beach with timeless elegance and modern technology.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "Lakeland",
-        href: "/lakeland",
-        title: "Kitchen Renovation Services in Lakeland, FL",
-        description: "Lakeland’s trusted team for kitchen remodels. On-time, on-budget, on-trend.",
-        content: "Berg General Contractor Bathrooms delivers high-impact kitchen upgrades in Lakeland with precision and flair.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "Ocala",
-        href: "/ocala",
-        title: "Kitchen Renovation Services in Ocala, FL",
-        description: "Quality kitchen remodels in Ocala, FL. Function-forward and style-conscious designs.",
-        content: "We serve Ocala homeowners with smart kitchen planning and high-end finishes for long-term satisfaction.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "Bradenton",
-        href: "/bradenton",
-        title: "Kitchen Renovation Services in Bradenton, FL",
-        description: "Bradenton’s go-to for stunning kitchen transformations. Designed to impress.",
-        content: "Our kitchen remodeling in Bradenton blends practicality and style with high attention to detail.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "Fort Myers",
-        href: "/fort-myers",
-        title: "Kitchen Renovation Services in Fort Myers, FL",
-        description: "Kitchen makeovers in Fort Myers, FL. Built around your lifestyle and aesthetic.",
-        content: "We help Fort Myers homeowners create dream kitchens with clean lines, clever layouts, and premium materials.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "Hollywood",
-        href: "/hollywood",
-        title: "Kitchen Renovation Services in Hollywood, FL",
-        description: "Modern kitchen design and renovation in Hollywood, FL. Practical, polished, and personal.",
-        content: "Hollywood homes shine with our expertly crafted kitchens, custom cabinetry, and elegant finishes.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    },
-    {
-        name: "Boca Raton",
-        href: "/boca-raton",
-        title: "Kitchen Renovation Services in Boca Raton, FL",
-        description: "Upscale kitchen remodeling in Boca Raton, FL. Refined details, elevated design.",
-        content: "Boca Raton clients choose Berg General Contractor Bathrooms for luxurious kitchens that blend timeless appeal with smart functionality.",
-        image: `${static_assets}/images/hero_bg_1.jpg`
-    }
+  {
+      name: "Miami",
+      href: "/miami",
+      title: "Bathroom Renovation Services in Miami, FL",
+      description: "Stylish bathroom remodeling in Miami, FL. From luxury upgrades to space-saving designs — we do it all.",
+      content: "Berg General Contractor Bathrooms brings modern designs and expert craftsmanship to every Miami renovation project. We focus on elegance, functionality, and long-lasting quality.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "Orlando",
+      href: "/orlando",
+      title: "Bathroom Renovation Services in Orlando, FL",
+      description: "Trusted bathroom renovation in Orlando, FL. High-end finishes, custom vanities, and expert tile work.",
+      content: "In Orlando, Berg General Contractor Bathrooms delivers personalized renovations with attention to every detail — ensuring comfort, beauty, and durability.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "Tampa",
+      href: "/tampa",
+      title: "Bathroom Renovation Services in Tampa, FL",
+      description: "Transform your bathroom in Tampa, FL. Full remodeling and partial upgrades tailored to your vision.",
+      content: "We serve Tampa with premium materials and creative solutions to make your bathroom stylish, safe, and spa-like.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "Jacksonville",
+      href: "/jacksonville",
+      title: "Bathroom Renovation Services in Jacksonville, FL",
+      description: "Expert bathroom remodeling in Jacksonville, FL. Custom showers, lighting, and smart storage included.",
+      content: "Berg General Contractor Bathrooms helps Jacksonville homeowners upgrade their space with elegant designs and quality installations that last.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "Fort Lauderdale",
+      href: "/fort-lauderdale",
+      title: "Bathroom Renovation Services in Fort Lauderdale, FL",
+      description: "High-end bathroom renovation in Fort Lauderdale, FL. Bring a touch of luxury to your home.",
+      content: "We bring sleek, modern finishes and luxury bathroom remodeling to Fort Lauderdale — with top-notch service from start to finish.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "St. Petersburg",
+      href: "/st-petersburg",
+      title: "Bathroom Renovation Services in St. Petersburg, FL",
+      description: "Bathroom makeovers in St. Pete, FL. Elegant designs, walk-in showers, and efficient project delivery.",
+      content: "From small powder rooms to master baths, Berg General Contractor Bathrooms transforms St. Petersburg homes with precision and creativity.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "Cape Coral",
+      href: "/cape-coral",
+      title: "Bathroom Renovation Services in Cape Coral, FL",
+      description: "Cape Coral’s go-to team for bathroom remodels. Fresh layouts, quality materials, and expert finish.",
+      content: "Cape Coral homeowners count on Berg General Contractor Bathrooms for sleek designs, efficient plumbing upgrades, and lasting beauty.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "Hialeah",
+      href: "/hialeah",
+      title: "Bathroom Renovation Services in Hialeah, FL",
+      description: "Affordable and stylish bathroom renovations in Hialeah, FL. Built to impress and built to last.",
+      content: "In Hialeah, we help homeowners upgrade their bathrooms with quality craftsmanship and modern design tailored to your needs.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "Gainesville",
+      href: "/gainesville",
+      title: "Bathroom Renovation Services in Gainesville, FL",
+      description: "Full-service bathroom remodeling in Gainesville. Efficient, beautiful, and affordable transformations.",
+      content: "Berg General Contractor Bathrooms improves Gainesville homes with creative bathroom designs and skilled renovation work that adds value.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "Naples",
+      href: "/naples",
+      title: "Bathroom Renovation Services in Naples, FL",
+      description: "Luxury bathroom remodeling in Naples, FL. Sophisticated designs for elegant coastal living.",
+      content: "Naples homeowners choose Berg General Contractor Bathrooms for upscale remodels featuring premium finishes and thoughtful layouts.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "Pensacola",
+      href: "/pensacola",
+      title: "Bathroom Renovation Services in Pensacola, FL",
+      description: "Expert bathroom renovation in Pensacola. Clean lines, smart storage, and water-efficient upgrades.",
+      content: "Berg General Contractor Bathrooms serves Pensacola with detail-focused remodels that enhance comfort and functionality.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "West Palm Beach",
+      href: "/west-palm-beach",
+      title: "Bathroom Renovation Services in West Palm Beach, FL",
+      description: "Premier bathroom remodeling in West Palm Beach. Modern designs and timeless craftsmanship.",
+      content: "We help West Palm Beach clients achieve spa-worthy bathrooms with clean aesthetics and top-tier materials.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "Lakeland",
+      href: "/lakeland",
+      title: "Bathroom Renovation Services in Lakeland, FL",
+      description: "Trusted remodelers in Lakeland. Complete bathroom makeovers with efficient project timelines.",
+      content: "Berg General Contractor Bathrooms transforms Lakeland bathrooms with smart planning, skilled labor, and elegant results.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "Ocala",
+      href: "/ocala",
+      title: "Bathroom Renovation Services in Ocala, FL",
+      description: "Affordable upgrades and full bathroom remodels in Ocala, FL. Always on time, always quality work.",
+      content: "Ocala homes shine with new bathroom styles, tilework, and fixtures installed by our dedicated renovation team.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "Bradenton",
+      href: "/bradenton",
+      title: "Bathroom Renovation Services in Bradenton, FL",
+      description: "Bradenton’s top bathroom renovation service. Clean finishes, luxury details, and fair pricing.",
+      content: "We bring beautiful transformations to Bradenton bathrooms with custom solutions and dependable execution.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "Fort Myers",
+      href: "/fort-myers",
+      title: "Bathroom Renovation Services in Fort Myers, FL",
+      description: "Stylish and practical bathroom upgrades in Fort Myers. Designed for comfort and built to last.",
+      content: "Fort Myers residents trust Berg General Contractor Bathrooms to deliver clean, modern, and functional bathrooms with smooth project flow.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "Hollywood",
+      href: "/hollywood",
+      title: "Bathroom Renovation Services in Hollywood, FL",
+      description: "Modern bathroom remodeling in Hollywood, FL. Personal style, expert quality.",
+      content: "We help Hollywood homeowners elevate their bathrooms with sleek designs, functional features, and premium materials.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  },
+  {
+      name: "Boca Raton",
+      href: "/boca-raton",
+      title: "Bathroom Renovation Services in Boca Raton, FL",
+      description: "High-end bathroom design and remodeling in Boca Raton. Luxury finishes, refined taste.",
+      content: "Boca Raton clients choose Berg General Contractor Bathrooms for timeless elegance, upscale hardware, and flawless execution in every bathroom remodel.",
+      image: `${static_assets}/images/hero_bg_1.jpg`
+  }
 ];
-
-
 
 /* ------------------------
    SERVICES START
 ------------------------ */
 export const servicesData = {
-    'full-kitchen-renovation': {
-        label: 'Full Kitchen Renovation',
-        title: 'Complete Kitchen Renovation Services by Berg General Contractor Bathrooms',
-        description: 'Revamp your entire kitchen with our end-to-end renovation services. From planning to installation, we create modern, efficient, and beautiful kitchen spaces.',
-        content: `A full kitchen renovation is the key to elevating your home’s value and your cooking experience. At Berg General Contractor Bathrooms, we turn outdated kitchens into inspiring spaces that blend style and practicality. It all starts with an in-depth consultation to understand your needs, preferences, and budget. Our expert team then handles everything—from designing layouts and selecting finishes to managing demolition, cabinetry, countertops, plumbing, lighting, and appliances. Every element is managed with precision and care. Whether you’re after a sleek contemporary kitchen or a warm traditional design, we bring your dream kitchen to life with minimal disruption and maximum quality.`,
-        image: `${static_assets}/images/services/kitchen_reno.jpg`,
-        typeOfSolutions: {
-            headings: 'Solutions we offer',
-            types: [
-                'Custom Kitchen Design',
-                'Cabinet Installation & Refacing',
-                'Countertop Fabrication & Installation',
-                'Plumbing Upgrades & Sink Installation',
-                'Electrical & Lighting Enhancements',
-                'Tile Flooring & Backsplash Installation',
-                'Appliance Setup & Integration',
-                'Pantry Construction & Storage Solutions',
-                'Smart Kitchen Features',
-                'Painting & Finishing Touches'
-            ]
-        },
-        benefitsOFChoosing: [
-            {
-                title: 'Comprehensive Service',
-                description: 'From design to installation, we handle every detail of your renovation project.'
-            },
-            {
-                title: 'Tailored Design',
-                description: 'We craft custom kitchen layouts that align with your lifestyle and cooking needs.'
-            },
-            {
-                title: 'Premium Materials',
-                description: 'Only top-grade materials and finishes are used to ensure lasting beauty and functionality.'
-            },
-            {
-                title: 'Skilled Professionals',
-                description: 'Our experienced team guarantees expert craftsmanship and precise execution.'
-            },
-            {
-                title: 'Time-Conscious Delivery',
-                description: 'We deliver projects on schedule, minimizing disruption to your daily life.'
-            },
-            {
-                title: 'Transparent Quotes',
-                description: 'Clear pricing, no surprises — you’ll know exactly what to expect.'
-            }
-        ],
-       
-        faqs: [
-            {
-                question: "How long does a full kitchen renovation take?",
-                answer: "Most full renovations take between 4-6 weeks, depending on the scope and material availability."
-            },
-            {
-                question: "Do you help with kitchen layout and design?",
-                answer: "Yes, our team works closely with you to plan a layout that suits your style and functional needs."
-            },
-            {
-                question: "Can I use my kitchen during the renovation?",
-                answer: "There may be limited access during critical phases, but we work to minimize downtime."
-            },
-            {
-                question: "What’s included in a full kitchen renovation?",
-                answer: "Everything from demolition, design, cabinets, countertops, plumbing, lighting, to appliance installation."
-            },
-            {
-                question: "Are your services licensed and insured?",
-                answer: "Yes, Berg General Contractor Bathrooms is fully licensed and insured for your peace of mind."
-            }
-        ],
-        images:[],
+  'full-bathroom-renovation': {
+    label: 'Full Bathroom Renovation',
+    title: 'Complete Bathroom Renovation Services by Berg General Contractor Bathrooms',
+    description: 'Transform your entire bathroom into a luxurious and functional space with our comprehensive renovation services. From design to installation, we handle every detail.',
+    content: `A full bathroom renovation is an investment in your home's comfort, value, and aesthetic appeal. At Berg General Contractor Bathrooms, we specialize in delivering bespoke bathroom transformations that reflect your style and meet your functional needs. Our process begins with a detailed consultation to understand your vision, followed by expert design planning, material selection, and professional installation. We manage every aspect of the project, including demolition, plumbing, electrical work, tiling, and fixture installation, ensuring a seamless and stress-free experience. Our commitment to quality craftsmanship and attention to detail guarantees a stunning outcome that you'll cherish for years to come.`,
+    image: `${static_assets}/images/services/renovation.jpg`,
+    typeOfSolutions: {
+      headings: 'Solutions we offer',
+      types: [
+        'Custom Bathroom Design',
+        'Demolition and Waste Removal',
+        'Plumbing System Upgrades',
+        'Electrical Wiring and Lighting',
+        'Flooring and Wall Tiling',
+        'Shower and Bathtub Installation',
+        'Vanity and Countertop Installation',
+        'Toilet and Fixture Installation',
+        'Ventilation System Integration',
+        'Painting and Finishing Touches'
+      ]
     },
-    'cabinet-refacing-installation': {
-        label: 'Cabinet Refacing & Installation',
-        title: 'kitchen Cabinet Refacing & Installation',
-        description: 'Refresh your kitchen with stylish new cabinets or reface existing ones for a cost-effective upgrade. We offer expert installation and premium materials.',
-        content: `Upgrading your kitchen cabinetry can dramatically enhance both the appearance and storage functionality of your space. At Berg General Contractor Bathrooms, we specialize in professional cabinet refacing and new installations that reflect your style and optimize your kitchen layout. Refacing gives your existing cabinets a fresh, modern look by replacing doors, drawer fronts, and hardware — a budget-friendly option that doesn’t sacrifice quality. Alternatively, we can install brand-new custom cabinetry built to fit your needs. With a wide range of finishes, colors, and styles, we ensure your cabinetry matches your kitchen’s aesthetic and stands the test of time.`,
-        image: `${static_assets}/images/services/kitchen_cabinet.jpg`,
-        typeOfSolutions: {
-            headings: 'Solutions we offer',
-            types: [
-                'Cabinet Door & Drawer Front Replacement',
-                'Hardware Upgrade (Handles, Knobs, Hinges)',
-                'Custom Vanity Cabinet Installation',
-                'Built-in Storage Cabinetry',
-                'Floating Cabinets for Modern Aesthetics',
-                'Moisture-Resistant Material Options',
-                'Cabinet Lighting Integration',
-                'Soft-Close Drawer & Door Systems',
-                'Color & Finish Matching',
-                'Full Cabinet Design & Fabrication'
-            ]
-        },
-        benefitsOFChoosing: [
-            {
-                title: 'Cost-Effective Makeover',
-                description: 'Refacing provides a fresh new look without the expense of full cabinet replacement.'
-            },
-            {
-                title: 'Custom Installations',
-                description: 'We offer tailored cabinet solutions that fit your kitchen’s size and layout perfectly.'
-            },
-            {
-                title: 'High-Quality Materials',
-                description: 'Our cabinets are made from durable, water-resistant materials designed for kitchen environments.'
-            },
-            {
-                title: 'Efficient Turnaround',
-                description: 'Most cabinet refacing projects are completed quickly, minimizing disruption.'
-            },
-            {
-                title: 'Design Assistance',
-                description: 'Our team helps you choose styles, colors, and finishes that elevate your kitchen’s look.'
-            },
-            {
-                title: 'Skilled Craftsmanship',
-                description: 'Our installers ensure precise fitting and finish for long-lasting beauty and function.'
-            }
-        ],
-        images:[],
-        faqs: [
-            {
-                question: "Is cabinet refacing better than replacing?",
-                answer: "Refacing is a more affordable and faster option if your existing cabinet boxes are in good condition."
-            },
-            {
-                question: "How long does cabinet refacing take?",
-                answer: "Most refacing jobs are completed within 2–3 days, depending on the kitchen size."
-            },
-            {
-                question: "Do you offer custom cabinet installation?",
-                answer: "Yes, we design and install custom cabinetry tailored to your space and storage needs."
-            },
-            {
-                question: "What materials do you use for cabinets?",
-                answer: "We use moisture-resistant wood, MDF, and laminate options suitable for kitchen conditions."
-            },
-            {
-                question: "Can I choose cabinet colors and finishes?",
-                answer: "Absolutely — we offer a wide range of colors, textures, and finishes to match your kitchen style."
-            }
-        ],
-    },
-    'countertops-surfaces': {
-        label: 'Countertops & Surfaces',
-        title: 'Premium kitchen Countertops & Surfaces',
-        description: 'Upgrade your kitchen with stunning countertops and surface materials that combine durability, elegance, and easy maintenance.',
-        content: `Your kitchen surfaces set the tone for the entire space — combining form and function in one cohesive design. We provide expert installation of high-quality countertops and surfaces tailored to suit your style and practical needs. Choose from quartz, granite, marble, solid surface, or engineered stone options, each offering unique textures, durability, and aesthetic appeal. Whether you're modernizing a vanity top or refreshing an entire surface layout, our team ensures seamless installation with a flawless finish.`,
-        image: `${static_assets}/images/services/counter_top.jpg`,
-        typeOfSolutions: {
-            headings: 'Solutions we offer',
-            types: [
-                'Custom Vanity Countertop Installation',
-                'Quartz, Granite, and Marble Options',
-                'Solid Surface and Engineered Stone',
-                'Integrated Sink and Countertop Designs',
-                'Heat and Moisture Resistant Materials',
-                'Color and Pattern Matching',
-                'Edge Profile Customization',
-                'Surface Sealing and Protection',
-                'Backsplash Installation',
-                'Professional Measuring and Fitting'
-            ]
-        },
-        benefitsOFChoosing: [
-            {
-                title: 'Elegant Material Selection',
-                description: 'Choose from a curated range of premium surfaces to enhance your kitchen’s look.'
-            },
-            {
-                title: 'Expert Craftsmanship',
-                description: 'We deliver seamless cuts, edges, and finishes for a high-end, professional appearance.'
-            },
-            {
-                title: 'Durability & Functionality',
-                description: 'Our surfaces are built to withstand heat, moisture, and everyday use with minimal maintenance.'
-            },
-            {
-                title: 'Custom Fit & Finish',
-                description: 'Every surface is measured and fabricated precisely to your kitchen’s layout.'
-            },
-            {
-                title: 'Fast & Clean Installation',
-                description: 'We minimize downtime with efficient installations that leave your space spotless.'
-            },
-            {
-                title: 'Design Coordination',
-                description: 'We help match surfaces with cabinetry, tiles, and fixtures for a cohesive finish.'
-            }
-        ],
-        faqs: [
-            {
-                question: "Which surface material is best for kitchen countertops?",
-                answer: "Quartz is popular for its durability and low maintenance, but granite and solid surface options are also excellent."
-            },
-            {
-                question: "Can you install a countertop with an integrated sink?",
-                answer: "Yes, we offer integrated sink solutions for a sleek and easy-to-clean surface."
-            },
-            {
-                question: "Do you provide backsplash options too?",
-                answer: "Absolutely — we can install matching or complementary backsplashes to complete the look."
-            },
-            {
-                question: "How long does surface installation take?",
-                answer: "Most installations are completed within 1–2 days, depending on scope and material availability."
-            },
-            {
-                question: "Are the surfaces sealed for protection?",
-                answer: "Yes, we seal natural stone and recommend maintenance tips to extend surface longevity."
-            }
-        ],
-        images: [`${static_assets}/images/services/counter_top.jpg`]
-    }, 
-    'kitchen-tiling-backsplash': {
-        label: 'Kitchen Tiling & Backsplash',
-        title: 'Expert Kitchen Tiling & Backsplash Installation',
-        description: 'Enhance the visual appeal and functionality of your kitchen with expertly installed tiles and backsplashes tailored to your style.',
-        content: `At Berg General Contractor Bathrooms, we extend our craftsmanship beyond kitchens to deliver exceptional kitchen tiling and backsplash services. Whether you're looking for a sleek modern subway tile or a bold patterned mosaic, our team brings precision and creativity to every project. We help you select the ideal materials and patterns to complement your kitchen's design, and we ensure each tile is installed with meticulous attention to detail. A professionally installed backsplash not only elevates your kitchen’s aesthetics but also protects your walls from spills and splatters — combining beauty with practicality.`,
-        image: `${static_assets}/images/services/kitchen_tiling.jpg`,
-        typeOfSolutions: {
-            headings: 'Solutions we offer',
-            types: [
-                'Backsplash Tile Installation',
-                'Wall & Floor Tiling for Kitchens',
-                'Custom Mosaic Designs',
-                'Subway, Hexagon, and Geometric Tiles',
-                'Grouting and Sealing Services',
-                'Heat & Moisture Resistant Tiles',
-                'Under-Cabinet Backsplash Tiling',
-                'Tile Repair and Replacement',
-                'Material Guidance (Ceramic, Porcelain, Glass)',
-                'Design Consultation and Layout Planning'
-            ]
-        },
-        benefitsOFChoosing: [
-            {
-                title: 'Customized Designs',
-                description: 'From minimalist to bold, we help create a tiling scheme that fits your vision.'
-            },
-            {
-                title: 'Expert Installation',
-                description: 'Our team ensures perfect alignment, spacing, and finishing on every tile.'
-            },
-            {
-                title: 'Durability & Easy Maintenance',
-                description: 'We use high-quality tiles and grout that resist stains, moisture, and wear.'
-            },
-            {
-                title: 'Fast Turnaround',
-                description: 'We deliver timely service without compromising on craftsmanship.'
-            },
-            {
-                title: 'Enhanced Protection',
-                description: 'Backsplashes shield your walls from cooking messes, extending the life of your kitchen.'
-            },
-            {
-                title: 'Material Selection Help',
-                description: 'Not sure what to choose? We guide you through textures, colors, and finishes.'
-            }
-        ],
-        images:[],
-        faqs: [
-            {
-                question: "Which tiles are best for kitchen backsplashes?",
-                answer: "Ceramic, porcelain, and glass tiles are top choices for their durability and wide style range."
-            },
-            {
-                question: "Can you replace my old backsplash?",
-                answer: "Yes, we offer removal and full replacement services with minimal mess or disruption."
-            },
-            {
-                question: "Do you provide custom patterns or layouts?",
-                answer: "Absolutely. We can install mosaics, herringbone, chevron, and other custom layouts."
-            },
-            {
-                question: "How long does installation take?",
-                answer: "Most backsplash installations are completed in 1–2 days, depending on complexity."
-            },
-            {
-                question: "Is the grout sealed after tiling?",
-                answer: "Yes, we seal grout lines to prevent staining and ensure long-lasting results."
-            }
-        ],
-    },
-    'kitchen-plumbing': {
-        label: 'Plumbing & Sink Install',
-        title: 'Professional Kitchen Plumbing & Sink Installation Services',
-        description: 'Ensure flawless water flow and efficient drainage with expert kitchen plumbing and sink installation tailored to your kitchen layout.',
-        content: `Berg General Contractor Bathrooms brings the same trusted expertise in plumbing to your kitchen renovations. Whether you’re replacing an old sink or reconfiguring your entire kitchen layout, our licensed professionals handle every detail with precision. We install and connect sinks, faucets, garbage disposals, and dishwashers while ensuring your plumbing system is leak-free and compliant with local codes. From basic hook-ups to complete re-routing of water lines, we prioritize functionality, cleanliness, and longevity in every installation.`,
-        image: `${static_assets}/images/services/sink_installation.jpg`,
-        typeOfSolutions: {
-            headings: 'Solutions we offer',
-            types: [
-                'Sink & Faucet Installation',
-                'Garbage Disposal Connection',
-                'Dishwasher Hook-up',
-                'Water Line Rerouting',
-                'Leak Detection & Repair',
-                'Drainage System Optimization',
-                'Trap and Vent Installations',
-                'Shut-off Valve Installations',
-                'Hot & Cold Water Line Setup',
-                'Code-Compliant Plumbing Work'
-            ]
-        },
-        benefitsOFChoosing: [
-            {
-                title: 'Licensed Plumbing Professionals',
-                description: 'Our team ensures all installations meet the highest safety and code standards.'
-            },
-            {
-                title: 'Comprehensive Installations',
-                description: 'We handle every fixture and connection so you don’t have to worry about a thing.'
-            },
-            {
-                title: 'Durable Materials & Parts',
-                description: 'We use high-quality pipes, connectors, and valves to avoid future issues.'
-            },
-            {
-                title: 'Seamless Sink Upgrades',
-                description: 'Whether you’re adding a farmhouse sink or upgrading to stainless steel, we’ve got it covered.'
-            },
-            {
-                title: 'Fast Service with Minimal Disruption',
-                description: 'We work around your schedule and ensure your kitchen is back in action quickly.'
-            },
-            {
-                title: 'Transparent Pricing',
-                description: 'Upfront quotes with no hidden charges. Just honest service and great results.'
-            }
-        ],
-        images:[],
-        faqs: [
-            {
-                question: "Do I need to move plumbing lines for a new sink?",
-                answer: "Only if the sink’s position is changing. We can assess and reroute as needed for the new layout."
-            },
-            {
-                question: "Can you install sinks into existing countertops?",
-                answer: "Yes, we fit new sinks into current countertops, provided the space and cutout are compatible."
-            },
-            {
-                question: "Are all installations up to code?",
-                answer: "Absolutely. We adhere strictly to plumbing codes for safety and compliance."
-            },
-            {
-                question: "Do you offer warranty on plumbing work?",
-                answer: "Yes, our plumbing installations come with a workmanship warranty for added peace of mind."
-            },
-            {
-                question: "Can you install touchless faucets or smart sinks?",
-                answer: "We sure can. We’re experienced with modern plumbing fixtures and smart kitchen upgrades."
-            }
-        ],
-    },
-    'lighting-appliances': {
-        label: 'Lighting & Appliances',
-        title: 'Kitchen Lighting and Appliance Installation Services',
-        description: 'Illuminate your kitchen and streamline your cooking experience with expert lighting design and appliance setup services.',
-        content: `At Berg General Contractor Bathrooms, we understand that a well-lit, well-equipped kitchen is the heart of every home. That’s why we offer professional lighting and appliance installation services tailored to both style and function. Whether you’re upgrading to energy-efficient LED fixtures or installing built-in ovens, range hoods, or smart fridges, our team ensures safe and seamless integration. We also help design optimal lighting layouts—from task lighting under cabinets to ambient ceiling lights—so your kitchen not only works better, it looks amazing too.`,
-        image: `${static_assets}/images/services/kitchen_lights.jpg`,
-        typeOfSolutions: {
-            headings: 'Solutions we offer',
-            types: [
-                'Overhead & Ambient Lighting Setup',
-                'Under-Cabinet Task Lighting',
-                'Pendant Light Installation',
-                'LED Strip & Accent Lighting',
-                'Recessed Lighting Design',
-                'Built-In Appliance Installations',
-                'Cooktop & Oven Hook-ups',
-                'Range Hood Venting & Wiring',
-                'Refrigerator and Dishwasher Installation',
-                'Smart Appliance Integration'
-            ]
-        },
-        benefitsOFChoosing: [
-            {
-                title: 'Safe & Certified Installations',
-                description: 'All electrical and appliance installations are performed by licensed professionals to meet safety standards.'
-            },
-            {
-                title: 'Energy-Efficient Lighting Solutions',
-                description: 'Upgrade to LED and smart lighting systems to reduce energy consumption and enhance ambiance.'
-            },
-            {
-                title: 'Complete Appliance Setup',
-                description: 'From unpacking to full hookup, we handle every step so your kitchen is ready to use immediately.'
-            },
-            {
-                title: 'Custom Lighting Design',
-                description: 'We design lighting plans that balance beauty with functionality in every corner of your kitchen.'
-            },
-            {
-                title: 'Modern & Smart Upgrades',
-                description: 'Install the latest kitchen tech with confidence—touchscreen ovens, app-connected fridges, and more.'
-            },
-            {
-                title: 'Minimal Disruption',
-                description: 'Our installations are quick, clean, and scheduled to minimize interference with your daily routine.'
-            }
-        ],
-        images:[],
-        faqs: [
-            {
-                question: "Can I add under-cabinet lighting to my existing setup?",
-                answer: "Yes, we can retrofit LED task lighting without extensive modifications."
-            },
-            {
-                question: "Do you install appliances I’ve purchased myself?",
-                answer: "Absolutely. We’re happy to install appliances from any retailer, as long as they meet installation requirements."
-            },
-            {
-                question: "Can you help with smart kitchen setup?",
-                answer: "Yes, we install and configure smart lighting, appliances, and voice-controlled systems."
-            },
-            {
-                question: "Are lighting designs included in your service?",
-                answer: "Yes, we provide custom lighting layouts as part of the service to enhance both function and style."
-            },
-            {
-                question: "What if my kitchen needs new wiring for lighting or appliances?",
-                answer: "No problem—our licensed electricians can safely upgrade your wiring to support modern kitchen demands."
-            }
-        ],
-       
-    },
-    'custom-pantries': {
-        label: 'Custom Pantries',
-        title: 'Tailored Kitchen Pantry Design & Installation Services',
-        description: 'Maximize storage and organization with custom-built pantries designed to suit your kitchen layout and lifestyle.',
-        content: `Berg General Contractor Bathrooms offers personalized pantry solutions that bring order and elegance to your kitchen. Whether you need a walk-in pantry, pull-out shelves, or built-in cabinetry, our team designs and installs efficient storage systems tailored to your needs. We combine high-quality materials with clever design to create functional, clutter-free spaces. From dry goods to cookware, everything will have its place — all while matching your kitchen's style and flow.`,
-        image: `${static_assets}/images/services/pantry.jpg`,
-        typeOfSolutions: {
-            headings: 'Solutions we offer',
-            types: [
-                'Walk-In Pantry Construction',
-                'Built-In Cabinet Pantries',
-                'Pull-Out Shelving Systems',
-                'Corner Pantry Units',
-                'Adjustable Shelf Installations',
-                'Custom Drawer and Basket Inserts',
-                'Integrated Lighting in Pantry Spaces',
-                'Pantry Door Upgrades & Design',
-                'Appliance Storage Compartments',
-                'Custom Labeling & Organization Solutions'
-            ]
-        },
-        benefitsOFChoosing: [
-            {
-                title: 'Tailored Designs for Any Space',
-                description: 'We create pantry solutions that perfectly fit your kitchen layout and lifestyle needs.'
-            },
-            {
-                title: 'Optimized Storage Capacity',
-                description: 'Make the most of every inch with smart shelving and organization systems.'
-            },
-            {
-                title: 'Stylish & Seamless Integration',
-                description: 'Our custom pantries match your kitchen’s design, maintaining a unified aesthetic.'
-            },
-            {
-                title: 'Easy Access & Visibility',
-                description: 'No more digging through clutter—our designs make everything easy to find and reach.'
-            },
-            {
-                title: 'High-Quality Materials',
-                description: 'We use durable, easy-to-clean materials to ensure long-lasting performance and hygiene.'
-            },
-            {
-                title: 'Fast & Professional Installation',
-                description: 'Our team installs your pantry efficiently with minimal disruption to your home.'
-            }
-        ],
-   
-        faqs: [
-            {
-                question: "Can you design a pantry for small kitchens?",
-                answer: "Yes, we specialize in space-saving pantry solutions for kitchens of all sizes."
-            },
-            {
-                question: "Do you offer walk-in pantry installations?",
-                answer: "Absolutely. We can build walk-in pantries that are both beautiful and highly functional."
-            },
-            {
-                question: "Will my pantry match my existing kitchen design?",
-                answer: "Yes, we match finishes, hardware, and styling to ensure a cohesive look."
-            },
-            {
-                question: "What materials do you use for pantry shelving?",
-                answer: "We offer a range including wood, laminate, and wire — all durable and customizable to your needs."
-            },
-            {
-                question: "Do you provide organization accessories?",
-                answer: "Yes, we can include pull-outs, dividers, baskets, and even custom labeling for a fully organized setup."
-            }
-        ],
-        images: []
-    },
-    'smart-kitchens': {
-        label: 'Smart Kitchen Solutions',
-        title: 'Innovative Smart Kitchen Upgrades for Modern Living',
-        description: 'Upgrade your kitchen with cutting-edge technology that enhances convenience, efficiency, and style.',
-        content: `At Berg General Contractor Bathrooms, we bring your kitchen into the future with smart technology that makes daily life easier and more enjoyable. From voice-controlled lighting and smart faucets to connected appliances and motion-sensing features, we design and install intelligent systems tailored to your needs. Our team helps you select the right tech solutions and ensures seamless integration with your existing kitchen design. With our smart kitchen services, your space becomes more functional, energy-efficient, and tailored to the pace of your life.`,
-        image: `${static_assets}/images/services/smart_kitchen.jpg`,
-        typeOfSolutions: {
-            headings: 'Solutions we offer',
-            types: [
-                'Smart Lighting Systems',
-                'Voice-Activated Controls',
-                'Wi-Fi Enabled Ovens & Refrigerators',
-                'Motion Sensor Faucets & Dispensers',
-                'Automated Blinds & Ventilation',
-                'Touchless Trash & Recycling Systems',
-                'Smart Home Hub Integration',
-                'Connected Cooking & Recipe Displays',
-                'Remote Temperature Monitoring',
-                'Custom App-Controlled Appliances'
-            ]
-        },
-        benefitsOFChoosing: [
-            {
-                title: 'Tech That Simplifies Life',
-                description: 'Control your kitchen environment with voice commands, apps, and automation for ultimate ease.'
-            },
-            {
-                title: 'Energy-Efficient Features',
-                description: 'Smart devices help you reduce power and water usage without sacrificing performance.'
-            },
-            {
-                title: 'Seamless Integration',
-                description: 'We ensure smart upgrades complement your existing kitchen layout and decor.'
-            },
-            {
-                title: 'Hands-Free Convenience',
-                description: 'Touchless faucets and appliances keep your kitchen cleaner and more hygienic.'
-            },
-            {
-                title: 'Custom-Fitted Solutions',
-                description: 'We tailor every installation to match your preferences, lifestyle, and usage patterns.'
-            },
-            {
-                title: 'Future-Ready Upgrades',
-                description: 'Stay ahead with scalable technology that adapts as your smart home grows.'
-            }
-        ],
-        images:[],
-        faqs: [
-            {
-                question: "Can smart kitchen devices work with Alexa or Google Assistant?",
-                answer: "Yes, most of our systems integrate with popular smart home assistants for seamless control."
-            },
-            {
-                question: "Do I need new appliances for a smart kitchen?",
-                answer: "Not always — we can upgrade specific components or add smart adapters to compatible existing units."
-            },
-            {
-                question: "Will smart features increase my energy bill?",
-                answer: "On the contrary, many smart devices help reduce energy and water usage, lowering long-term costs."
-            },
-            {
-                question: "Is the tech difficult to use?",
-                answer: "We set everything up and provide easy-to-use interfaces, plus training so you’re fully comfortable."
-            },
-            {
-                question: "Can I choose specific features, or is it a full package?",
-                answer: "Our solutions are fully customizable. You can pick only the smart features that suit your lifestyle."
-            }
-        ],
+    benefitsOFChoosing: [
+      {
+        title: 'End-to-End Project Management',
+        description: 'We oversee every phase of your renovation, ensuring a smooth process from concept to completion.'
+      },
+      {
+        title: 'Experienced Design Team',
+        description: 'Our designers work with you to create a personalized bathroom layout that maximizes space and style.'
+      },
+      {
+        title: 'Quality Craftsmanship',
+        description: 'Our skilled tradespeople use only the highest quality materials and proven techniques for lasting results.'
+      },
+      {
+        title: 'Timely Completion',
+        description: 'We adhere to agreed-upon timelines, minimizing disruption to your daily life.'
+      },
+      {
+        title: 'Transparent Pricing',
+        description: 'Receive a detailed, upfront estimate with no hidden costs, ensuring complete financial clarity.'
+      },
+      {
+        title: 'Customer Satisfaction Guaranteed',
+        description: 'Your satisfaction is our priority. We strive to exceed expectations with every project.'
+      }
+    ],
+    faqs: [
+      {
+        question: "How long does a full bathroom renovation typically take?",
+        answer: "The duration varies based on complexity, but most full renovations are completed within 2-4 weeks."
+      },
+      {
+        question: "Do you help with material selection?",
+        answer: "Yes, our design team will guide you through selecting the best tiles, fixtures, and finishes to match your vision and budget."
+      },
+      {
+        question: "Can I stay in my home during the renovation?",
+        answer: "In most cases, yes. We work efficiently to minimize disruption, though access to the bathroom will be limited during certain phases."
+      },
+      {
+        question: "What is the typical cost of a full bathroom renovation?",
+        answer: "Costs vary widely depending on size, materials, and scope. We provide a detailed quote after our initial consultation."
+      },
+      {
+        question: "Are your services insured and licensed?",
+        answer: "Absolutely. Berg General Contractor Bathrooms is fully licensed and insured, providing you with peace of mind throughout the renovation process."
+      }
+    ],
+    images:[],
+  },
 
+  'shower-tub-installation': {
+    label: 'Shower & Tub Installation',
+    title: 'Professional Shower and Bathtub Installation Services',
+    description: 'Upgrade your bathing experience with our expert shower and tub installation services. We offer a wide range of styles and configurations to fit your needs.',
+    content: `Whether you're looking to replace an old, worn-out tub, install a new walk-in shower, or create a luxurious spa-like retreat, Berg General Contractor Bathrooms provides professional shower and tub installation services. We work with all types of materials and designs, from standard acrylic units to custom tile showers and freestanding bathtubs. Our experienced technicians ensure precise installation, proper waterproofing, and seamless integration with your existing bathroom design. We focus on durability, functionality, and aesthetics to deliver a bathing solution that enhances your daily routine and adds value to your home.`,
+    image: `${static_assets}/images/services/shower_tub.jpg`,
+    typeOfSolutions: {
+      headings: 'Solutions we offer',
+      types: [
+        'Walk-in Shower Installation',
+        'Bathtub Replacement',
+        'Freestanding Tub Installation',
+        'Custom Tile Showers',
+        'Shower Pan Installation',
+        'Shower Door & Enclosure Installation',
+        'Tub-to-Shower Conversions',
+        'Accessibility Showers & Tubs',
+        'Jetted Tub Installation',
+        'Waterproofing & Sealing'
+      ]
     },
-    'eco-kitchen': {
-        label: 'Eco-Friendly Kitchens',
-        title: 'Sustainable Kitchen Renovations for a Greener Home',
-        description: 'Design a stylish kitchen that’s kind to the planet with our eco-conscious materials and energy-saving solutions.',
-        content: `At Berg General Contractor Bathrooms, we believe that luxury and sustainability can go hand in hand. Our eco-friendly kitchen renovations focus on reducing environmental impact without compromising on function or design. We use responsibly sourced materials, install energy-efficient appliances, and incorporate water-saving features. From bamboo cabinetry to LED lighting and low-VOC finishes, every detail is chosen to support a greener future. Whether you want a fully sustainable kitchen or a few green upgrades, we’ll help you build a space that’s better for you and the planet.`,
-        image: `${static_assets}/images/services/eco_kitchen.jpg`,
-        typeOfSolutions: {
-            headings: 'Solutions we offer',
-            types: [
-                'Sustainable Cabinetry & Materials',
-                'Energy-Efficient Appliances',
-                'Water-Saving Faucets & Fixtures',
-                'Recycled & Reclaimed Surfaces',
-                'LED & Natural Lighting Integration',
-                'Low-VOC Paints & Finishes',
-                'Composting & Waste Separation Systems',
-                'Eco-Friendly Flooring Options',
-                'Smart Power Usage Controls',
-                'Green Design Consultations'
-            ]
-        },
-        benefitsOFChoosing: [
-            {
-                title: 'Lower Environmental Impact',
-                description: 'Reduce your carbon footprint with sustainable materials and energy-saving solutions.'
-            },
-            {
-                title: 'Healthier Indoor Air Quality',
-                description: 'Use low-toxicity products that create a cleaner, safer living space for your family.'
-            },
-            {
-                title: 'Reduced Utility Costs',
-                description: 'Energy-efficient systems help you save money over time on electricity and water bills.'
-            },
-            {
-                title: 'Durable & Renewable Materials',
-                description: 'We select materials that are long-lasting and responsibly harvested or recycled.'
-            },
-            {
-                title: 'Waste Reduction Practices',
-                description: 'We follow eco-friendly disposal and recycling during demolition and installation.'
-            },
-            {
-                title: 'Eco-Conscious Expertise',
-                description: 'Our team stays informed on green building trends to deliver truly sustainable solutions.'
-            }
-        ],
+    benefitsOFChoosing: [
+      {
+        title: 'Expert Installation',
+        description: 'Our skilled installers ensure a perfect fit and finish, preventing leaks and ensuring longevity.'
+      },
+      {
+        title: 'Wide Selection',
+        description: 'Choose from a vast array of shower and tub styles, materials, and features to match your vision.'
+      },
+      {
+        title: 'Enhanced Functionality',
+        description: 'We help you select options that improve accessibility, water efficiency, and overall bathing comfort.'
+      },
+      {
+        title: 'Increased Home Value',
+        description: 'A modern, well-installed shower or tub can significantly boost your bathrooms appeal and resale value.'
+      },
+      {
+        title: 'Efficient Project Completion',
+        description: 'We work diligently to complete your installation quickly and with minimal disruption to your home.'
+      },
+      {
+        title: 'Guaranteed Satisfaction',
+        description: 'We stand behind our work with comprehensive warranties and a commitment to your complete satisfaction.'
+      }
+    ],
+    faqs: [
+      {
+        question: "How long does shower or tub installation take?",
+        answer: "Most installations can be completed within 1-3 days, depending on the complexity and any necessary plumbing adjustments."
+      },
+      {
+        question: "Can you convert my tub into a shower?",
+        answer: "Yes, tub-to-shower conversions are a popular service we offer, providing a more accessible and modern bathing solution."
+      },
+      {
+        question: "Do you handle custom tile showers?",
+        answer: "Absolutely. We specialize in custom tile showers, allowing for unique designs and personalized finishes."
+      },
+      {
+        question: "What kind of warranty do you offer on installations?",
+        answer: "We provide a comprehensive warranty on both materials and labor, ensuring peace of mind for your investment."
+      },
+      {
+        question: "Do I need to purchase the shower or tub myself?",
+        answer: "You can, or we can assist you in sourcing high-quality fixtures from our trusted suppliers, often at competitive prices."
+      }
+    ],
+    images:[],
+  },
 
-        faqs: [
-            {
-                question: "Is an eco-friendly kitchen more expensive?",
-                answer: "Some green options may have a higher upfront cost, but they often lead to long-term savings on energy and maintenance."
-            },
-            {
-                question: "Do I have to replace all my appliances?",
-                answer: "Not necessarily — we’ll assess your current setup and suggest replacements only where they make the most impact."
-            },
-            {
-                question: "What qualifies as an eco-friendly material?",
-                answer: "Materials that are recycled, rapidly renewable, locally sourced, or produced with minimal environmental impact."
-            },
-            {
-                question: "Can eco-kitchens still look modern and stylish?",
-                answer: "Absolutely. Sustainability and aesthetics go hand-in-hand in our custom designs."
-            },
-            {
-                question: "Will you help me choose the right green upgrades?",
-                answer: "Yes! We provide guidance tailored to your budget, lifestyle, and environmental goals."
-            }
-        ],
-        images: []
-    }
+  'custom-vanities': {
+    label: 'Custom Vanities',
+    title: 'Bespoke Custom Vanity Design and Installation Services',
+    description: 'Elevate your bathroom with a custom-designed vanity that perfectly combines style, storage, and functionality. Tailored to your exact specifications.',
+    content: `A custom vanity is the centerpiece of any well-designed bathroom, offering both aesthetic appeal and essential storage. At Berg General Contractor Bathrooms, we specialize in creating bespoke vanities that fit your space, style, and storage needs precisely. From selecting the finest materials like natural stone, quartz, or custom wood finishes, to integrating sinks, faucets, and intelligent storage solutions, our team works closely with you. We ensure every detail, from the height and depth to the drawer configurations and hardware, is meticulously crafted to deliver a unique and highly functional piece that enhances your bathroom's overall design and utility.`,
+    image: `${static_assets}/images/services/vanity.jpg`,
+    typeOfSolutions: {
+      headings: 'Solutions we offer',
+      types: [
+        'Personalized Vanity Design',
+        'Material Selection (Wood, Laminate, Stone, etc.)',
+        'Integrated Sink Options (Undermount, Vessel, Integrated)',
+        'Custom Countertop Fabrication',
+        'Drawer and Cabinetry Configuration',
+        'Hardware Selection and Installation',
+        'Lighting Integration',
+        'Mirror and Medicine Cabinet Coordination',
+        'Space-Saving Vanity Solutions',
+        'Double Vanity Installations'
+      ]
+    },
+    benefitsOFChoosing: [
+      {
+        title: 'Tailored to Your Space',
+        description: 'Maximize your bathrooms potential with a vanity designed to fit its exact dimensions and layout.'
+      },
+      {
+        title: 'Unique Aesthetic Appeal',
+        description: 'Create a one-of-a-kind look that reflects your personal style and complements your bathroom décor.'
+      },
+      {
+        title: 'Optimized Storage Solutions',
+        description: 'Enjoy smart storage options, including custom drawers, shelving, and pull-outs for ultimate organization.'
+      },
+      {
+        title: 'High-Quality Materials',
+        description: 'We use durable, premium materials that ensure longevity and withstand the demands of a bathroom environment.'
+      },
+      {
+        title: 'Increased Home Value',
+        description: 'A custom vanity is a significant upgrade that enhances your bathrooms functionality and boosts your propertys resale value.'
+      },
+      {
+        title: 'Expert Craftsmanship',
+        description: 'Our skilled artisans and installers deliver precision and quality in every aspect of your custom vanity project.'
+      }
+    ],
+    faqs: [
+      {
+        question: "How long does it take to design and install a custom vanity?",
+        answer: "The process typically takes 3-6 weeks, depending on the complexity of the design, material availability, and installation requirements."
+      },
+      {
+        question: "Can I choose any material for my custom vanity?",
+        answer: "Yes, we offer a wide range of materials for both cabinetry and countertops, including various wood types, laminates, quartz, granite, and marble."
+      },
+      {
+        question: "Do you include sinks and faucets with the custom vanity?",
+        answer: "We can integrate sinks and faucets of your choice into the design, or you can provide your own. We ensure perfect compatibility and installation."
+      },
+      {
+        question: "What kind of storage options are available for custom vanities?",
+        answer: "We can design vanities with various storage solutions, including soft-close drawers, pull-out shelves, hidden compartments, and open shelving."
+      },
+      {
+        question: "Can you match the custom vanity to my existing bathroom style?",
+        answer: "Absolutely. Our designers work to ensure your new custom vanity seamlessly integrates with your bathroom's current aesthetic, or helps define a new one."
+      }
+    ],
+    images:[],
+  },
+
+  'tiling-waterproofing': {
+    label: 'Tiling & Waterproofing',
+    title: 'Expert Bathroom Tiling and Waterproofing Services',
+    description: 'Ensure the longevity and beauty of your bathroom with our professional tiling and waterproofing services. We provide durable, stylish, and leak-proof solutions.',
+    content: `Tiling is a critical element in any bathroom, defining its aesthetic and protecting its structure. At Berg General Contractor Bathrooms, we specialize in expert tile installation for floors, walls, showers, and backsplashes, using a wide range of materials including ceramic, porcelain, natural stone, and mosaic. Crucially, our services extend to comprehensive waterproofing, a vital step often overlooked but essential for preventing water damage, mold, and mildew. We utilize advanced waterproofing membranes and techniques to create an impenetrable barrier, ensuring your bathroom remains beautiful and structurally sound for years to come. Our meticulous approach guarantees a flawless finish and lasting protection.`,
+    image: `${static_assets}/images/services/tiling.jpg`,
+    typeOfSolutions: {
+      headings: 'Solutions we offer',
+      types: [
+        'Floor Tiling Installation',
+        'Wall Tiling Installation',
+        'Shower & Bathtub Surround Tiling',
+        'Backsplash Tiling',
+        'Mosaic & Decorative Tiling',
+        'Natural Stone Tiling (Marble, Granite, Travertine)',
+        'Porcelain & Ceramic Tiling',
+        'Waterproofing Membrane Installation',
+        'Shower Pan Waterproofing',
+        'Subfloor Preparation & Leveling',
+        'Grouting & Sealing',
+        'Tile Repair & Regrouting'
+      ]
+    },
+    benefitsOFChoosing: [
+      {
+        title: 'Superior Waterproofing',
+        description: 'Our advanced waterproofing techniques protect your home from water damage, mold, and mildew, ensuring a healthy environment.'
+      },
+      {
+        title: 'Flawless Tile Installation',
+        description: 'Our experienced tilers ensure precise cuts, perfect alignment, and a smooth, durable finish for all tile types.'
+      },
+      {
+        title: 'Wide Material Selection',
+        description: 'Choose from an extensive range of high-quality tiles and materials to match your design vision and budget.'
+      },
+      {
+        title: 'Enhanced Durability & Longevity',
+        description: 'Proper tiling and waterproofing significantly extend the lifespan of your bathroom surfaces and structure.'
+      },
+      {
+        title: 'Increased Property Value',
+        description: 'Beautifully tiled and well-protected bathrooms are a significant asset, enhancing your homes appeal and resale value.'
+      },
+      {
+        title: 'Meticulous Attention to Detail',
+        description: 'We pride ourselves on our precision and thoroughness, ensuring every aspect of the tiling and waterproofing is executed to perfection.'
+      }
+    ],
+    faqs: [
+      {
+        question: "Why is waterproofing so important in a bathroom?",
+        answer: "Waterproofing prevents water from seeping into walls and floors, which can cause structural damage, rot, and mold growth, protecting your investment."
+      },
+      {
+        question: "What types of tiles do you work with?",
+        answer: "We work with all major tile types, including ceramic, porcelain, natural stone (marble, granite, travertine), mosaic, and glass tiles."
+      },
+      {
+        question: "How long does tiling and waterproofing take?",
+        answer: "The duration depends on the size of the area and complexity of the design, but typically ranges from 3-7 days for a standard bathroom."
+      },
+      {
+        question: "Can you repair existing tile or grout?",
+        answer: "Yes, we offer tile repair, regrouting, and resealing services to refresh and extend the life of your current bathroom surfaces."
+      },
+      {
+        question: "Do you handle subfloor preparation before tiling?",
+        answer: "Absolutely. Proper subfloor preparation and leveling are crucial for a durable tile installation, and we handle all necessary steps."
+      }
+    ],
+    images:[],
+  },
+
+  'bathroom-plumbing': {
+    label: 'Bathroom Plumbing',
+    title: 'Reliable Bathroom Plumbing Services for Renovations and Repairs',
+    description: 'From new installations to complex repairs, our certified plumbers ensure your bathroom plumbing is efficient, reliable, and up to code.',
+    content: `Efficient and reliable plumbing is the backbone of any functional bathroom. Berg General Contractor Bathrooms offers comprehensive plumbing services, whether you're undertaking a full renovation or need expert repairs. Our licensed plumbers are proficient in installing new pipes, fixtures, and drainage systems, as well as diagnosing and fixing leaks, clogs, and low water pressure issues. We ensure all plumbing work adheres to the highest standards of safety and local building codes, providing you with peace of mind and a perfectly functioning bathroom. We handle everything from rough-ins to final fixture connections, ensuring seamless integration with your overall bathroom design.`,
+    image: `${static_assets}/images/services/plumbing.jpg`,
+    typeOfSolutions: {
+      headings: 'Solutions we offer',
+      types: [
+        'New Plumbing Installation',
+        'Fixture Installation (Sinks, Toilets, Showers, Tubs)',
+        'Pipe Replacement & Repair',
+        'Drainage System Installation & Repair',
+        'Water Heater Installation & Service',
+        'Leak Detection & Repair',
+        'Clog Removal',
+        'Water Pressure Adjustments',
+        'Rough-in Plumbing',
+        'Final Fixture Connections',
+        'Code Compliance Upgrades'
+      ]
+    },
+    benefitsOFChoosing: [
+      {
+        title: 'Certified & Experienced Plumbers',
+        description: 'Our team consists of licensed professionals with extensive experience in all aspects of bathroom plumbing.'
+      },
+      {
+        title: 'Reliable & Efficient Systems',
+        description: 'We install and repair plumbing systems designed for optimal performance and longevity, minimizing future issues.'
+      },
+      {
+        title: 'Code Compliant Work',
+        description: 'All our plumbing services strictly adhere to local building codes and safety regulations, ensuring your peace of mind.'
+      },
+      {
+        title: 'Prompt & Professional Service',
+        description: 'We pride ourselves on timely arrivals, efficient work, and clear communication throughout the project.'
+      },
+      {
+        title: 'Advanced Diagnostic Tools',
+        description: 'We use modern equipment to accurately diagnose plumbing issues, leading to effective and lasting solutions.'
+      },
+      {
+        title: 'Comprehensive Solutions',
+        description: 'From minor repairs to complete system overhauls, we offer a full range of plumbing services to meet your needs.'
+      }
+    ],
+    faqs: [
+      {
+        question: "Do you handle both new plumbing installations and repairs?",
+        answer: "Yes, we offer a full spectrum of bathroom plumbing services, including new installations for renovations and expert repairs for existing systems."
+      },
+      {
+        question: "Are your plumbers licensed and insured?",
+        answer: "Absolutely. All our plumbers are fully licensed, insured, and highly trained to provide safe and reliable services."
+      },
+      {
+        question: "Can you help with low water pressure issues?",
+        answer: "Yes, we can diagnose the cause of low water pressure and implement effective solutions to restore optimal flow."
+      },
+      {
+        question: "What types of fixtures do you install?",
+        answer: "We install all types of bathroom fixtures, including sinks, faucets, toilets, showers, bathtubs, and bidets."
+      },
+      {
+        question: "How do you prevent leaks during installation?",
+        answer: "We use high-quality materials, precise installation techniques, and thorough testing to ensure all connections are secure and leak-free."
+      }
+    ],
+    images:[],
+  },
+
+  'lighting-mirrors': {
+    label: 'Lighting & Mirrors',
+    title: 'Bathroom Lighting and Mirror Installation Services',
+    description: 'Illuminate your bathroom and enhance its aesthetics with our professional lighting and mirror installation services. We offer solutions that combine functionality with style.',
+    content: `Proper lighting and strategically placed mirrors are crucial for both the functionality and ambiance of a bathroom. At Berg General Contractor Bathrooms, we provide expert installation of a wide range of lighting fixtures, including vanity lights, recessed lighting, task lighting, and ambient lighting, all designed to create the perfect atmosphere. We also specialize in installing various types of mirrors, from standard wall-mounted options to custom-cut, backlit, or smart mirrors. Our team ensures safe electrical connections and precise placement, transforming your bathroom into a brighter, more spacious, and visually appealing area. We help you choose solutions that not only meet your practical needs but also complement your bathroom's overall design.`,
+    image: `${static_assets}/images/services/light.jpg`,
+    typeOfSolutions: {
+      headings: 'Solutions we offer',
+      types: [
+        'Vanity Lighting Installation',
+        'Recessed Lighting Installation',
+        'Task Lighting Solutions',
+        'Ambient Lighting Design',
+        'LED Lighting Upgrades',
+        'Dimmer Switch Installation',
+        'Custom Mirror Installation',
+        'Backlit Mirror Installation',
+        'Smart Mirror Integration',
+        'Medicine Cabinet with Mirror Installation',
+        'Electrical Wiring for Lighting',
+        'Fixture Selection & Placement'
+      ]
+    },
+    benefitsOFChoosing: [
+      {
+        title: 'Enhanced Ambiance',
+        description: 'Create a welcoming and relaxing atmosphere with expertly designed and installed lighting solutions.'
+      },
+      {
+        title: 'Improved Functionality',
+        description: 'Ensure optimal visibility for daily tasks with well-placed task and vanity lighting.'
+      },
+      {
+        title: 'Increased Perceived Space',
+        description: 'Mirrors are strategically placed to make your bathroom feel larger and more open.'
+      },
+      {
+        title: 'Energy Efficiency',
+        description: 'Upgrade to energy-efficient LED lighting to reduce electricity consumption and save on utility bills.'
+      },
+      {
+        title: 'Modern Aesthetic',
+        description: 'Modern lighting and mirror designs can significantly update the look and feel of your bathroom.'
+      },
+      {
+        title: 'Professional Installation',
+        description: 'Our skilled technicians ensure safe, secure, and aesthetically pleasing installation of all fixtures and mirrors.'
+      }
+    ],
+    faqs: [
+      {
+        question: "What types of lighting are best for a bathroom?",
+        answer: "A combination of vanity lighting for tasks, recessed lighting for general illumination, and accent lighting for ambiance is usually ideal."
+      },
+      {
+        question: "Can you install smart mirrors?",
+        answer: "Yes, we can install smart mirrors with features like integrated lighting, defoggers, and digital displays."
+      },
+      {
+        question: "Do you handle the electrical wiring for new lighting?",
+        answer: "Absolutely. Our team includes qualified electricians who ensure all wiring is safely and correctly installed and meets code requirements."
+      },
+      {
+        question: "How do I choose the right size mirror for my vanity?",
+        answer: "Generally, the mirror should be slightly narrower than your vanity, or the same width, for a balanced look. We can advise on the best size during consultation."
+      },
+      {
+        question: "Can you help with lighting design?",
+        answer: "Yes, our design team can help you plan a lighting scheme that enhances both the functionality and aesthetics of your bathroom."
+      }
+    ],
+    images:[],
+  },
+
+  'luxury-spa-upgrades': {
+    label: 'Luxury Spa Upgrades',
+    title: 'Transform Your Bathroom into a Luxury Spa Retreat',
+    description: 'Indulge in ultimate relaxation with our luxury spa upgrade services. We bring high-end features and sophisticated designs to your private oasis.',
+    content: `Elevate your daily routine into a luxurious spa experience with Berg General Contractor Bathrooms' exclusive upgrade services. We specialize in integrating premium features that transform your ordinary bathroom into a serene and indulgent sanctuary. From therapeutic jetted tubs and steam showers to heated flooring and chromotherapy lighting, we offer a curated selection of high-end amenities. Our design team works with you to select sophisticated materials, advanced technologies, and elegant finishes that create a cohesive and opulent environment. Experience unparalleled comfort and rejuvenation right in your home with our bespoke luxury spa upgrades.`,
+    image: `${static_assets}/images/services/luxry.jpg`,
+    typeOfSolutions: {
+      headings: 'Solutions we offer',
+      types: [
+        'Jetted & Soaking Tub Installation',
+        'Steam Shower & Sauna Installation',
+        'Heated Flooring Systems',
+        'Chromotherapy & Mood Lighting',
+        'Rainfall Shower Heads & Body Jets',
+        'Smart Bathroom Technology Integration',
+        'Custom Sound Systems',
+        'High-End Fixtures & Finishes',
+        'Towel Warmers',
+        'Integrated Vanities & Storage',
+        'Aromatherapy Systems'
+      ]
+    },
+    benefitsOFChoosing: [
+      {
+        title: 'Ultimate Relaxation & Wellness',
+        description: 'Create a personal haven for unwinding and de-stressing with therapeutic features and serene ambiance.'
+      },
+      {
+        title: 'Increased Home Value & Appeal',
+        description: "Luxury upgrades significantly enhance your property's market value and appeal to discerning buyers."
+      },
+      {
+        title: 'Bespoke Design & Customization',
+        description: 'Every upgrade is tailored to your preferences, ensuring a unique and personalized spa experience.'
+      },
+      {
+        title: 'Premium Quality & Durability',
+        description: 'We use only the finest materials and advanced technologies for lasting beauty and performance.'
+      },
+      {
+        title: 'Expert Installation & Integration',
+        description: 'Our specialists ensure seamless installation and perfect integration of all luxury features into your existing space.'
+      },
+      {
+        title: 'Enhanced Lifestyle',
+        description: 'Transform your daily routine into an indulgent ritual, promoting well-being and comfort.'
+      }
+    ],
+    faqs: [
+      {
+        question: "What are some popular luxury spa upgrades?",
+        answer: "Popular upgrades include jetted tubs, steam showers, heated floors, smart mirrors, chromotherapy lighting, and integrated sound systems."
+      },
+      {
+        question: "Can these upgrades be integrated into an existing bathroom?",
+        answer: "Yes, many luxury features can be seamlessly integrated into your current bathroom layout, depending on space and existing plumbing/electrical."
+      },
+      {
+        question: "How long does a luxury spa upgrade project take?",
+        answer: "The timeline varies based on the scope and complexity of the upgrades, but typically ranges from 2-6 weeks."
+      },
+      {
+        question: "Do you offer smart bathroom technology integration?",
+        answer: "Absolutely. We can integrate smart features like voice-activated controls, digital shower systems, and smart lighting."
+      },
+      {
+        question: "What is the cost range for luxury spa upgrades?",
+        answer: "Costs vary significantly based on the features selected and the extent of the renovation. We provide detailed, transparent quotes after a consultation."
+      }
+    ],
+    images: []
+  },
+
+  'accessible-bathrooms': {
+    label: 'Accessibility Solutions',
+    title: 'Accessible Bathroom Design and Installation Services',
+    description: 'Create a safe, comfortable, and independent bathing environment with our specialized accessibility solutions. Designed for all ages and abilities.',
+    content: `At Berg General Contractor Bathrooms, we believe that every bathroom should be accessible and safe for everyone, regardless of age or mobility. Our accessibility solutions are thoughtfully designed to provide comfort, independence, and peace of mind. We specialize in installing features such as walk-in tubs, roll-in showers, grab bars, comfort-height toilets, and non-slip flooring. Our team works closely with you to understand your specific needs and create a customized bathroom layout that is both functional and aesthetically pleasing. We ensure all installations meet ADA compliance standards where applicable, providing a secure and dignified bathing experience for years to come.`,
+    image: `${static_assets}/images/services/accessible.jpg`,
+    typeOfSolutions: {
+      headings: 'Solutions we offer',
+      types: [
+        'Walk-in Tub Installation',
+        'Roll-in Shower Installation',
+        'Grab Bar Installation',
+        'Comfort-Height Toilet Installation',
+        'Non-Slip Flooring Solutions',
+        'Wider Doorways & Entryways',
+        'Accessible Vanity & Sink Design',
+        'Handheld Shower Heads',
+        'Shower Seats & Benches',
+        'Ramps & Level Entryways',
+        'ADA Compliant Designs'
+      ]
+    },
+    benefitsOFChoosing: [
+      {
+        title: 'Enhanced Safety & Independence',
+        description: 'Reduce the risk of falls and allow for easier, more independent use of the bathroom for individuals with mobility challenges.'
+      },
+      {
+        title: 'Increased Comfort & Convenience',
+        description: 'Enjoy a more comfortable and user-friendly bathroom experience tailored to specific physical needs.'
+      },
+      {
+        title: 'Improved Quality of Life',
+        description: 'Maintain dignity and privacy with a bathroom designed to support daily routines without assistance.'
+      },
+      {
+        title: 'Future-Proofing Your Home',
+        description: 'Invest in a bathroom that adapts to changing needs, allowing you to age in place comfortably and safely.'
+      },
+      {
+        title: 'Expert Design & Installation',
+        description: 'Our specialists are trained in accessible design principles and ensure all installations are secure and compliant.'
+      },
+      {
+        title: 'Increased Home Value',
+        description: 'Accessible features can add significant value to your home, appealing to a broader range of potential buyers.'
+      }
+    ],
+    faqs: [
+      {
+        question: "What is a walk-in tub and how does it benefit me?",
+        answer: "A walk-in tub has a watertight door, allowing easy entry without stepping over a high ledge, ideal for those with limited mobility or a risk of falls."
+      },
+      {
+        question: "Can you convert my existing shower into a roll-in shower?",
+        answer: "Yes, we specialize in converting traditional showers into barrier-free, roll-in showers for wheelchair accessibility."
+      },
+      {
+        question: "Are your accessible bathroom solutions ADA compliant?",
+        answer: "We design and install solutions that meet or exceed ADA guidelines, ensuring maximum safety and functionality."
+      },
+      {
+        question: "What types of grab bars do you install?",
+        answer: "We install various types of grab bars, including wall-mounted, floor-to-ceiling, and fold-down options, strategically placed for optimal support."
+      },
+      {
+        question: "Do you offer non-slip flooring options?",
+        answer: "Yes, we provide and install a range of non-slip flooring materials that are safe and durable for accessible bathrooms."
+      }
+    ],
+    images:[],
+  },
+
+  'powder-room-upgrades': {
+    label: 'Powder Room Upgrade',
+    title: 'Stylish Powder Room Upgrade and Renovations',
+    description: 'Refresh your powder room with our efficient and stylish update services. A small space can make a big impression with the right design.',
+    content: `A powder room, though small, offers a significant opportunity to make a design statement and enhance your home's overall aesthetic. Berg General Contractor Bathrooms specializes in efficient and impactful powder room updates that transform these compact spaces into stylish and inviting areas. We focus on maximizing functionality and visual appeal within limited square footage, offering services from new vanity and toilet installations to updated lighting, mirrors, and flooring. Whether you desire a modern, classic, or eclectic look, our team works to create a cohesive design that reflects your taste and leaves a lasting impression on your guests. We ensure quick turnaround times and minimal disruption, delivering a refreshed space that adds value and charm to your home.`,
+    image: `${static_assets}/images/services/powder_room.jpg`,
+    typeOfSolutions: {
+      headings: 'Solutions we offer',
+      types: [
+        'Vanity & Sink Replacement',
+        'Toilet Upgrades',
+        'Lighting Fixture Installation',
+        'Mirror & Decor Updates',
+        'Flooring Installation',
+        'Wall Treatment (Paint, Wallpaper, Paneling)',
+        'Faucet & Hardware Replacement',
+        'Space-Saving Solutions',
+        'Accent Lighting',
+        'Small Bathroom Design Consultation'
+      ]
+    },
+    benefitsOFChoosing: [
+      {
+        title: 'High Impact, Low Footprint',
+        description: 'Powder room updates offer a significant aesthetic return with a relatively small investment of time and resources.'
+      },
+      {
+        title: 'Enhanced Guest Experience',
+        description: 'A beautifully updated powder room leaves a positive impression on visitors and reflects your attention to detail.'
+      },
+      {
+        title: 'Increased Home Value',
+        description: 'Even small renovations can boost your home appeal and market value, especially in high-traffic areas like powder rooms.'
+      },
+      {
+        title: 'Efficient & Quick Turnaround',
+        description: 'Our streamlined process ensures your powder room update is completed efficiently, minimizing disruption to your home.'
+      },
+      {
+        title: 'Customized Design',
+        description: 'We tailor every aspect of the update to your personal style and the existing decor of your home.'
+      },
+      {
+        title: 'Expert Craftsmanship',
+        description: 'Our skilled team ensures every detail, from installation to finishing touches, is executed with precision and quality.'
+      }
+    ],
+    faqs: [
+      {
+        question: "How long does a powder room update typically take?",
+        answer: "Most powder room updates can be completed within 1-3 days, depending on the scope of work and material availability."
+      },
+      {
+        question: "What are some popular trends for powder rooms?",
+        answer: "Popular trends include bold wallpaper, unique lighting fixtures, statement mirrors, floating vanities, and decorative sinks."
+      },
+      {
+        question: "Can you help with small space design challenges?",
+        answer: "Absolutely. We specialize in maximizing space and functionality in compact areas, offering smart storage and layout solutions."
+      },
+      {
+        question: "Do I need to replace everything in my powder room?",
+        answer: "Not necessarily. We can focus on key elements like the vanity, toilet, and lighting to achieve a fresh look without a full overhaul."
+      },
+      {
+        question: "What is the cost range for a powder room update?",
+        answer: "Costs vary based on the extent of the update and chosen materials. We provide a detailed estimate after understanding your vision."
+      }
+    ],
+    images:[],
+  },
+
 };
-
-
 
 /* ------------------------
    PROJECTS START 
 ------------------------ */
-
 export const projectsData = {
-    "modern-open-kitchen": {
-        label: "Modern Open Kitchen",
-        title: "Contemporary Open Concept Kitchen Remodel",
-        description: "A sleek and functional open-concept kitchen designed for seamless entertaining and everyday living, blending modern aesthetics with smart utility.",
-        image: `${static_assets}/images/projects/open_kitchen.jpg`,
-        location: "Urban Apartment, Orlando, FL",
-        duration: "Completed in 5 weeks",
-        materials: [
-            "Quartz waterfall island countertop",
-            "Matte white and wood-grain cabinetry",
-            "Integrated energy-efficient appliances",
-            "Subway tile backsplash",
-            "Recessed ceiling and under-cabinet lighting",
-            "Engineered hardwood flooring",
-            "Touchless faucet system",
-            "Open shelving accents",
-            "Minimalist pendant lighting",
-            "Pull-out pantry system"
-        ],
-        content: `
-  This kitchen renovation was all about transforming a closed-off layout into a modern, open-concept space that flows effortlessly into the living and dining areas. The homeowners wanted a clean, bright aesthetic that didn’t sacrifice function — and that’s exactly what we delivered.
-  
-  At Berg General Contractor Bathrooms, we opened up the layout by removing partition walls and expanding the kitchen footprint. A large quartz waterfall island became the centerpiece, offering a gathering space with built-in storage and seating. The cabinetry combined matte white fronts with warm wood tones to balance the modern with the inviting. Integrated appliances kept the lines sleek, while a classic subway tile backsplash added timeless appeal.
-  
-  Smart features like a touchless faucet, soft-close drawers, and efficient LED lighting elevated convenience. With strategic lighting, space-saving storage, and a minimalist vibe, this open kitchen is now the heart of the home — perfect for hosting or simply enjoying daily meals in style.
-  `,
-    },
-    "farmhouse-kitchen": {
-        label: "Farmhouse Style Kitchen",
-        title: "Charming Farmhouse Kitchen Renovation",
-        description: "A warm, rustic kitchen remodel featuring classic farmhouse elements, natural materials, and cozy charm for a timeless cooking space.",
-        image: `${static_assets}/images/projects/farm_house_kitchen.jpg`,
-        location: "Countryside Home, Winter Garden, FL",
-        duration: "Completed in 6 weeks",
-        materials: [
-            "Butcher block countertops",
-            "Shaker-style cabinetry in soft white",
-            "Farmhouse apron-front sink",
-            "Bronze and wrought iron fixtures",
-            "Open reclaimed wood shelving",
-            "Natural stone backsplash",
-            "Vintage-style pendant lights",
-            "Hand-scraped hardwood flooring",
-            "Built-in plate racks and pantry cabinetry",
-            "Barn-style sliding door"
-        ],
-        content: `
-  This renovation brought farmhouse charm to life in a cozy countryside home. The homeowners envisioned a warm and welcoming kitchen that honored traditional design while integrating modern conveniences — and Berg General Contractor Bathrooms delivered just that.
-  
-  We used soft white shaker cabinets to create a bright foundation, paired with butcher block counters for that warm, earthy feel. A standout feature is the apron-front farmhouse sink, framed by a large window that fills the space with natural light. Bronze fixtures and wrought iron hardware added rustic contrast.
-  
-  Open shelving made from reclaimed wood offers both storage and character, while hand-scraped hardwood flooring and vintage lighting brought in texture and warmth. The barn-style door to the pantry completed the aesthetic. This kitchen now blends country charm with practical design — a space built for gathering, cooking, and making memories.
-  `,
-    },
-    "compact-condo-kitchen": {
-        label: "Compact Condo Kitchen",
-        title: "Stylish Compact Condo Kitchen Remodel",
-        description: "A space-efficient kitchen transformation tailored for condo living, combining smart storage solutions, sleek finishes, and modern appliances.",
-        image: `${static_assets}/images/projects/condo_kitchen.jpg`,
-        location: "Downtown Condo, Orlando, FL",
-        duration: "Completed in 3 weeks",
-        materials: [
-            "High-gloss flat-panel cabinets",
-            "Quartz countertops",
-            "Pull-out pantry system",
-            "Compact stainless steel appliances",
-            "Glass tile backsplash",
-            "Under-cabinet LED lighting",
-            "Slim-profile range hood",
-            "Soft-close drawers",
-            "Integrated microwave drawer",
-            "Floating shelves"
-        ],
-        content: `
-  This compact condo kitchen project focused on maximizing function and style in a limited footprint. The client, a busy professional living in downtown Orlando, needed a modern, low-maintenance kitchen that didn’t sacrifice aesthetics for space.
-  
-  Berg General Contractor Bathrooms delivered a clean, efficient layout with high-gloss cabinets that reflect light and visually expand the space. Quartz countertops were chosen for their durability and sleek appearance. We integrated a full set of compact stainless steel appliances, including a drawer-style microwave and a space-saving range hood.
-  
-  Storage was key in this design. A pull-out pantry, soft-close drawers, and floating shelves offered ample organization options without cluttering the room. Glass tile backsplash and under-cabinet lighting added a touch of sophistication while maintaining a bright, airy vibe. The result is a smart, functional kitchen that feels open and contemporary despite its smaller size.
-  `,
-    },
-    "luxury-chef-kitchen": {
-        label: "Luxury Chef Kitchen",
-        title: "High-End Chef's Kitchen Remodel",
-        description: "A gourmet kitchen transformation featuring premium appliances, custom cabinetry, and professional-grade finishes designed for passionate home chefs.",
-        image: `${static_assets}/images/projects/chef_kitchen.jpg`,
-        location: "Estate Home, Windermere, FL",
-        duration: "Completed in 6 weeks",
-        materials: [
-            "Custom walnut cabinetry",
-            "Marble countertops and backsplash",
-            "48\" commercial gas range",
-            "Double wall ovens",
-            "Built-in refrigerator and wine cooler",
-            "Oversized kitchen island with prep sink",
-            "Pot filler faucet",
-            "Designer pendant lighting",
-            "Walk-in pantry with custom shelving",
-            "Integrated smart kitchen controls"
-        ],
-        content: `
-  This luxury chef kitchen was designed for a culinary enthusiast looking to blend elegance with top-tier functionality. Located in a high-end Windermere estate, the space was completely reimagined to support serious cooking while offering the sophistication expected in a luxury home.
-  
-  Berg General Contractor Bathrooms collaborated closely with the homeowner to craft a gourmet kitchen equipped with premium features. A 48" commercial gas range, double wall ovens, and built-in refrigeration units were seamlessly integrated into custom walnut cabinetry. The centerpiece is a massive marble-topped island that includes a prep sink and ample seating for casual dining and entertaining.
-  
-  Smart kitchen controls allow for convenient appliance management, lighting adjustment, and temperature monitoring. A dedicated walk-in pantry was added, complete with built-in organization for easy access to ingredients and tools. This transformation successfully delivers a luxurious culinary workspace tailored for hosting, entertaining, and everyday inspiration.
-  `,
-    },
-    "minimalist-kitchen": {
-        label: "Minimalist Kitchen Upgrade",
-        title: "Streamlined Minimalist Kitchen Remodel",
-        description: "A clutter-free kitchen makeover with sleek cabinetry, neutral tones, and integrated appliances to embrace the beauty of simplicity and function.",
-        image: `${static_assets}/images/projects/minimal.jpg`,
-        location: "Urban Apartment, Orlando, FL",
-        duration: "Completed in 3 weeks",
-        materials: [
-            "Flat-panel matte white cabinets",
-            "Quartz countertops with waterfall edge",
-            "Handle-less cabinet systems",
-            "Built-in induction cooktop and oven",
-            "Integrated refrigerator and dishwasher",
-            "Large format tile backsplash",
-            "Minimalist pendant lighting",
-            "Soft-close drawer mechanisms",
-            "Open shelving with LED under-lighting",
-            "Touchless faucet"
-        ],
-        content: `
-  This minimalist kitchen upgrade focused on creating a serene, clutter-free environment that enhances both beauty and practicality. Designed for an urban apartment in Orlando, the project emphasized clean lines, neutral palettes, and maximum space efficiency.
-  
-  Berg General Contractor Bathrooms implemented flat-panel cabinetry with a sleek matte finish, eliminating handles for a smooth, unbroken aesthetic. Quartz countertops with waterfall edges added sophistication, while integrated appliances maintained the streamlined look. A large-format tile backsplash in subtle tones completed the backdrop, enhancing the overall sense of calm.
-  
-  The design incorporated intelligent storage with soft-close drawers and hidden compartments, as well as open shelving for select display pieces. LED under-lighting and touchless fixtures added modern convenience to this effortlessly elegant space.
-  `,
-    },
-    "industrial-kitchen": {
-        label: "Industrial Style Kitchen",
-        title: "Bold Industrial Kitchen Transformation",
-        description: "A raw and edgy kitchen design featuring exposed elements, metal finishes, and rugged textures to achieve a stylish industrial aesthetic.",
-        image: `${static_assets}/images/projects/industrial.jpg`,
-        location: "Converted Loft, Tampa, FL",
-        duration: "Completed in 4 weeks",
-        materials: [
-            "Exposed brick backsplash",
-            "Concrete-look quartz countertops",
-            "Open metal shelving",
-            "Matte black lower cabinets",
-            "Stainless steel appliances",
-            "Industrial pendant lighting",
-            "Reclaimed wood accents",
-            "Iron pipe pot racks",
-            "Rustic wood flooring",
-            "Brushed metal bar stools"
-        ],
-        content: `
-  This industrial kitchen project was designed for a converted loft in Tampa, FL, embracing the raw beauty of unfinished materials and bold textures. The homeowners wanted a space that balanced utility and modern design with a strong industrial vibe.
-  
-  Berg General Contractor Bathrooms executed the vision by incorporating a mix of exposed brick, reclaimed wood, and metal elements. The layout included matte black cabinetry for contrast, paired with concrete-look quartz countertops that added durability and grit. Open shelving in black steel provided both functionality and urban charm.
-  
-  Stainless steel appliances and industrial lighting fixtures brought sleek contrast to the rough textures, while the wood flooring introduced warmth. Iron piping was creatively used for hanging storage, reinforcing the loft-style aesthetic. The end result is a visually striking kitchen that combines modern convenience with industrial flair.
-  `,
-    },
-    "family-kitchen": {
-        label: "Family-Friendly Kitchen",
-        title: "Warm and Functional Family Kitchen Makeover",
-        description: "A spacious, welcoming kitchen designed to accommodate the needs of a growing family—blending style, safety, and smart organization.",
-        image: `${static_assets}/images/projects/family.jpg`,
-        location: "Single-Family Home, Winter Garden, FL",
-        duration: "Completed in 5 weeks",
-        materials: [
-            "Soft-close cabinetry",
-            "Quartz countertops with rounded edges",
-            "Durable vinyl plank flooring",
-            "Large central island with seating",
-            "Built-in pantry storage",
-            "Energy-efficient appliances",
-            "Child-safe drawer locks",
-            "Adjustable task lighting",
-            "Subway tile backsplash",
-            "Warm white and natural wood tones"
-        ],
-        content: `
-  Designed for a busy family in Winter Garden, this kitchen makeover by Berg General Contractor Bathrooms prioritized function, safety, and a warm, inviting atmosphere. The layout was optimized for meal prep, school lunches, and family dinners—all in one flexible space.
-  
-  We installed soft-close cabinetry and quartz countertops with rounded edges to prevent accidents. A large island became the hub of activity, offering seating, storage, and prep space. Vinyl plank flooring was chosen for its durability and easy maintenance—perfect for spills and high traffic.
-  
-  The kitchen features built-in pantry cabinets and smart drawer organizers to keep everything tidy and accessible. Lighting was upgraded to include task-focused fixtures, making homework, cooking, and entertaining easier. The palette—warm whites, natural wood, and gentle contrasts—makes the space feel homey and timeless. This transformation proves that style and family functionality can go hand in hand.
-  `,
-    },
-    "coastal-kitchen": {
-        label: "Coastal Kitchen Remodel",
-        title: "Bright and Breezy Coastal Kitchen Transformation",
-        description: "A serene kitchen remodel inspired by coastal living, featuring ocean hues, natural textures, and airy design elements for a relaxed and inviting space.",
-        image: `${static_assets}/images/projects/costal.jpg`,
-        location: "Beachside Condo, Clearwater, FL",
-        duration: "Completed in 4 weeks",
-        materials: [
-            "White shaker cabinets",
-            "Sea glass tile backsplash",
-            "Light oak hardwood flooring",
-            "Quartz countertops in misty blue",
-            "Brushed nickel fixtures",
-            "Rattan pendant lighting",
-            "Open shelving with driftwood accents",
-            "Integrated under-cabinet lighting",
-            "Coastal-inspired hardware",
-            "Soft blue and sand-tone color palette"
-        ],
-        content: `
-  This coastal kitchen remodel, completed in a sunny Clearwater condo, brings the charm and tranquility of the ocean indoors. Berg General Contractor Bathrooms crafted a space that reflects laid-back beach living with refined functionality.
-  
-  The cabinetry was upgraded to classic white shaker style, paired with soft misty blue quartz countertops that mimic the calming hues of the sea. A sea glass tile backsplash adds a pop of texture and color, complemented by brushed nickel fixtures and rattan pendant lights that bring warmth and casual elegance.
-  
-  Light oak hardwood flooring ties the look together, while driftwood-accented open shelving offers both display space and a coastal vibe. Integrated under-cabinet lighting ensures the kitchen remains bright and welcoming day or night. The overall palette blends soft blues, whites, and sandy neutrals—evoking a beachy, timeless charm. This transformation created a refreshing space perfect for casual meals, entertaining, or simply enjoying a morning coffee by the shore.
-  `,
-    },
+  "modern-master-bathroom": {
+    label: "Modern Master Bathroom",
+    title: "Sleek Modern Master Bathroom Renovation",
+    description: "A complete overhaul of a master bathroom, transforming it into a luxurious, minimalist, and highly functional space with contemporary fixtures and finishes.",
+    image: `${static_assets}/images/projects/master.jpg`,
+    location: "Suburban Home, Bath, UK",
+    duration: "Completed in 4 weeks",
+    materials: [
+      "Large-format porcelain tiles",
+      "Floating double vanity with quartz countertop",
+      "Frameless glass shower enclosure",
+      "Rainfall shower head and body jets",
+      "Smart toilet with bidet function",
+      "Recessed LED lighting",
+      "Heated towel rail",
+      "Underfloor heating system",
+      "Matte black fixtures",
+      "Custom built-in storage"
+    ],
+    content: `
+This project involved the comprehensive renovation of a master bathroom in a suburban home, aiming to create a modern, spa-like retreat. The client desired a minimalist aesthetic with clean lines, high-end finishes, and smart technology integration.
 
+We began by reconfiguring the layout to optimize space and flow, relocating the shower and vanity areas. Large-format porcelain tiles were selected for both the floor and shower walls, providing a seamless and expansive feel. A custom-built floating double vanity with a sleek quartz countertop was installed, offering ample storage and a contemporary look. The shower was transformed into a spacious wet room with a frameless glass enclosure, complete with a rainfall shower head and integrated body jets for a luxurious bathing experience. Underfloor heating was installed for added comfort, and all lighting was upgraded to energy-efficient recessed LEDs, complemented by a heated towel rail.
+
+The project emphasized smart solutions, including a smart toilet with bidet functionality and integrated storage solutions to maintain the minimalist design. The result is a stunning, highly functional master bathroom that serves as a tranquil sanctuary for the homeowners.
+`,
+  },
+
+  "luxury-spa-ensuite": {
+    label: "Luxury Spa Ensuite",
+    title: "Opulent Luxury Spa Ensuite Creation",
+    description: "Designing and building a lavish spa-inspired ensuite bathroom, featuring high-end amenities, therapeutic elements, and bespoke finishes for ultimate relaxation.",
+    image: `${static_assets}/images/projects/spa.jpg`,
+    location: "High-End Residence, Bath, UK",
+    duration: "Completed in 6 weeks",
+    materials: [
+      "Italian marble tiling",
+      "Custom-built steam shower with aromatherapy",
+      "Freestanding jetted bathtub",
+      "Heated natural stone flooring",
+      "Integrated smart lighting system (chromotherapy)",
+      "Custom double vanity with integrated sinks",
+      "Designer fixtures and fittings",
+      "Sound system with waterproof speakers",
+      "Towel warmer",
+      "Bespoke storage solutions"
+    ],
+    content: `
+This ambitious project involved transforming an existing ensuite into a luxurious, private spa retreat. The client envisioned a space dedicated to relaxation and rejuvenation, incorporating advanced therapeutic features and the finest materials.
+
+The design focused on creating a serene atmosphere, beginning with the installation of exquisite Italian marble on all floor and wall surfaces. A custom-built steam shower, complete with aromatherapy and multiple body jets, became a central feature. Adjacent to it, a stunning freestanding jetted bathtub was positioned to offer a focal point for relaxation. Underfoot, natural stone flooring was installed with an integrated heating system for year-round comfort.
+
+Smart technology played a key role, with an integrated lighting system offering chromotherapy options and a hidden sound system providing ambient music. A bespoke double vanity, crafted from premium wood and topped with matching marble, provided ample space and storage. Every detail, from the designer fixtures to the heated towel warmer, was carefully selected to contribute to the opulent spa experience. The result is an unparalleled personal sanctuary that offers both indulgence and tranquility.
+`,
+  },
+
+  "small-bathroom-makeover": {
+    label: "Small Bathroom Makeover",
+    title: "Efficient Small Bathroom Makeover for Maximized Space",
+    description: "A clever renovation of a compact bathroom, focusing on space-saving solutions, bright aesthetics, and enhanced functionality to make the most of a small area.",
+    image: `${static_assets}/images/projects/small.jpg`,
+    location: "City Apartment, Bath, UK",
+    duration: "Completed in 2 weeks",
+    materials: [
+      "Compact vanity with integrated sink",
+      "Wall-mounted toilet",
+      "Corner shower unit",
+      "Large format light-colored tiles",
+      "Recessed lighting",
+      "Large mirror with integrated storage",
+      "Sliding barn door (for entry)",
+      "Floating shelves",
+      "Bright paint colors",
+      "Chrome fixtures"
+    ],
+    content: `
+This project tackled the challenge of transforming a small, outdated bathroom in a city apartment into a bright, modern, and highly functional space. The primary goal was to maximize the perception of space and improve usability without expanding the room\'s footprint.
+
+We started by replacing the bulky traditional vanity with a sleek, compact wall-mounted unit that included an integrated sink, freeing up valuable floor space. A wall-mounted toilet was installed, further enhancing the open feel and making cleaning easier. For the shower, a custom corner unit with a clear glass enclosure was chosen to fit snugly into the available space, providing a comfortable showering area without overwhelming the room. Large format, light-colored porcelain tiles were used on both the floor and walls to create a seamless look and reflect light, making the room appear larger.
+
+Strategic lighting was crucial; recessed LED lights were installed to provide ample illumination without visual clutter. A large mirror, extending across the vanity, was chosen to reflect light and expand the room visually, and it included hidden storage. To save space at the entrance, a stylish sliding barn door was fitted. The overall design focused on clean lines, bright colors, and smart storage solutions, resulting in a small bathroom that feels surprisingly spacious and inviting.
+`,
+  },
+
+  "accessible-bathroom": {
+    label: "Accessible Bathroom Upgrade",
+    title: "Comprehensive Accessible Bathroom Renovation",
+    description: "Creating a safe, comfortable, and fully accessible bathroom designed for ease of use and independence for individuals with mobility challenges.",
+    image: `${static_assets}/images/projects/accessible.jpg`,
+    location: "Residential Home, Bath, UK",
+    duration: "Completed in 3 weeks",
+    materials: [
+      "Roll-in shower with zero-threshold entry",
+      "Fold-down shower seat",
+      "Strategically placed grab bars (ADA compliant)",
+      "Comfort-height toilet",
+      "Non-slip porcelain tiles",
+      "Adjustable height vanity with open knee space",
+      "Lever handle faucets",
+      "Handheld shower head",
+      "Wider doorway (if required)",
+      "Reinforced wall blocking for future grab bar installation"
+    ],
+    content: `
+This project focused on transforming an existing bathroom into a fully accessible space, ensuring safety, comfort, and independence for a homeowner with mobility needs. The design prioritized universal design principles, making the bathroom functional for all users.
+
+The most significant modification was the installation of a roll-in shower with a zero-threshold entry, eliminating any barriers for wheelchair access. A durable, fold-down shower seat was integrated, along with multiple ADA-compliant grab bars strategically placed within the shower and around the toilet area. The toilet was replaced with a comfort-height model for easier use. Non-slip porcelain tiles were installed throughout the bathroom to prevent falls, even when wet.
+
+A custom-built vanity with an open knee space was designed to allow for wheelchair access, and all faucets were replaced with easy-to-operate lever handles. A handheld shower head was installed for added convenience. Where necessary, the doorway was widened to accommodate a wheelchair. All wall areas where grab bars were installed or might be installed in the future were reinforced with blocking to ensure maximum security. The result is a beautifully designed, highly functional, and safe bathroom that enhances the homeowner\'s quality of life.
+`,
+  },
+
+  "downtown-condo": {
+    label: "Downtown Condo Renovation",
+    title: "Chic Downtown Condo Bathroom Renovation",
+    description: "A modern and space-efficient bathroom renovation for a downtown condominium, focusing on contemporary design, smart storage, and high-end finishes suitable for urban living.",
+    image: `${static_assets}/images/projects/small.jpg`,
+    location: "Downtown, Bath, UK",
+    duration: "Completed in 3.5 weeks",
+    materials: [
+      "Porcelain large-format tiles (floor and walls)",
+      "Floating vanity with integrated sink",
+      "Quartz countertop",
+      "Wall-mounted toilet",
+      "Walk-in shower with linear drain and frameless glass",
+      "Rainfall shower head and thermostatic mixer",
+      "Integrated LED lighting (recessed and vanity)",
+      "Backlit mirror with demister pad",
+      "Compact heated towel rail",
+      "Smart storage solutions (e.g., pull-out drawers, hidden cabinets)"
+    ],
+    content: `
+This project involved the complete renovation of a compact bathroom within a bustling downtown condominium. The client sought a sophisticated, contemporary design that maximized every inch of space while incorporating luxurious touches and smart functionality.
+
+The existing layout was reconfigured to accommodate a more open and efficient design. Large-format porcelain tiles were chosen for both the floor and shower walls, creating a seamless and expansive feel, ideal for smaller spaces. A sleek floating vanity with an integrated sink and quartz countertop was installed, providing a clean aesthetic and practical storage without cluttering the floor. A wall-mounted toilet further contributed to the minimalist look and made cleaning easier.
+
+The shower area was transformed into a stylish walk-in shower, featuring a linear drain and a frameless glass enclosure to maintain an open feel. A rainfall shower head combined with a thermostatic mixer offered a luxurious and consistent showering experience. Integrated LED lighting, including recessed ceiling lights and subtle vanity lighting, enhanced the ambiance. A backlit mirror with a demister pad added both functionality and a touch of modern elegance. Smart storage solutions, such as pull-out drawers and hidden cabinets, were incorporated to keep the space tidy and organized. The result is a highly functional, visually stunning bathroom that perfectly complements the urban lifestyle of the condominium.
+`,
+  },
+
+  "family-bathroom": {
+    label: "Suburban Family Bath",
+    title: "Durable and Functional Suburban Family Bathroom Renovation",
+    description: "A practical and stylish renovation of a family bathroom in a suburban home, designed to withstand daily use while offering comfort and ample storage for a busy household.",
+    image: `${static_assets}/images/projects/family.jpg`,
+    location: "Suburban Home, Bath, UK",
+    duration: "Completed in 3 weeks",
+    materials: [
+      "Durable ceramic or porcelain tiles",
+      "Double vanity with ample storage",
+      "Quartz or solid surface countertop",
+      "Combination shower/bathtub unit",
+      "Water-efficient toilet",
+      "Bright LED lighting",
+      "Large mirror",
+      "Built-in shelving or linen closet",
+      "Child-friendly fixtures",
+      "Non-slip bath mat area"
+    ],
+    content: `
+This project focused on renovating a family bathroom in a suburban home, with a strong emphasis on durability, functionality, and ease of maintenance to accommodate the demands of a busy family with children. The goal was to create a space that was both aesthetically pleasing and highly practical.
+
+We selected durable ceramic tiles for the floor and shower surround, known for their resistance to wear and tear and ease of cleaning. A large double vanity with extensive storage was installed, featuring a resilient quartz countertop to withstand daily use and provide ample space for multiple users. A combination shower/bathtub unit was chosen to cater to both quick showers and relaxing baths for children. A water-efficient toilet was installed to reduce water consumption.
+
+Bright LED lighting was integrated throughout the bathroom to ensure excellent visibility, and a large mirror was placed above the vanity. To maximize storage, a built-in linen closet was added, providing convenient access to towels and toiletries. All fixtures were chosen for their child-friendly design and robust construction. The design also incorporated a dedicated non-slip area near the bath for added safety. The result is a highly functional, comfortable, and attractive family bathroom that can stand up to the rigors of everyday family life.
+`,
+  },
+
+  "commercial-washroom": {
+    label: "Commercial Washroom Fitout",
+    title: "Modern Commercial Washroom Fitout for Office Building",
+    description: "A complete fitout of commercial washrooms in an office building, focusing on durability, hygiene, and modern aesthetics to accommodate high traffic and professional standards.",
+    image: `${static_assets}/images/projects/commercial.jpg`,
+    location: "Office Building, City Centre, Bath, UK",
+    duration: "Completed in 5 weeks",
+    materials: [
+      "Heavy-duty porcelain tiles (floor and walls)",
+      "Solid surface countertops",
+      "Sensor-activated faucets and soap dispensers",
+      "Water-efficient toilets with automatic flush",
+      "Durable stainless steel fixtures",
+      "High-efficiency hand dryers",
+      "Commercial-grade vanity units",
+      "LED panel lighting",
+      "Anti-slip flooring",
+      "Robust partition systems"
+    ],
+    content: `
+This project involved the comprehensive fitout of multiple commercial washrooms within a newly constructed office building in the city center. The client required washrooms that were not only aesthetically pleasing but also highly durable, easy to maintain, and hygienic, capable of handling significant daily traffic.
+
+We installed heavy-duty porcelain tiles on both the floors and walls, chosen for their extreme durability, ease of cleaning, and modern appearance. Solid surface countertops were selected for their seamless finish and resistance to stains and bacteria. To promote hygiene and reduce water consumption, all faucets and soap dispensers were sensor-activated, and toilets were replaced with water-efficient models featuring automatic flush mechanisms.
+
+Stainless steel fixtures were used throughout for their longevity and sleek, professional look. High-efficiency hand dryers were installed to minimize waste. Custom-designed commercial-grade vanity units provided ample space and integrated waste disposal. The lighting was upgraded to bright, energy-efficient LED panels, ensuring excellent illumination. Anti-slip flooring was a critical safety feature, and robust partition systems were installed for privacy and durability. The result is a series of modern, highly functional, and low-maintenance commercial washrooms that meet the highest standards of cleanliness and design.
+`,
+  },
+
+  "guest-bathroom-remodel": {
+    label: "Guest Bathroom Remodel",
+    title: "Inviting Guest Bathroom Remodel with Modern Touches",
+    description: "A complete remodel of a guest bathroom, focusing on creating a welcoming and stylish space with updated fixtures, finishes, and improved functionality for visitors.",
+    image: `${static_assets}/images/projects/guest.jpg`,
+    location: "Residential Home, Bath, UK",
+    duration: "Completed in 2.5 weeks",
+    materials: [
+      "Ceramic subway tiles (shower walls)",
+      "Hexagonal mosaic floor tiles",
+      "Floating single vanity with ceramic sink",
+      "Quartz countertop",
+      "Low-flow toilet",
+      "Combination shower/tub with new fixtures",
+      "Vanity mirror with integrated LED lighting",
+      "Modern wall sconces",
+      "Fresh paint (light, neutral tones)",
+      "Chrome or brushed nickel hardware"
+    ],
+    content: `
+This project involved remodeling a guest bathroom to create a more inviting, functional, and aesthetically pleasing space for visitors. The existing bathroom was outdated and lacked modern amenities.
+
+We began by removing all old fixtures and finishes. For the shower walls, classic ceramic subway tiles were chosen, providing a clean and timeless look. The floor was updated with hexagonal mosaic tiles, adding a touch of contemporary design and visual interest. A new floating single vanity with a ceramic sink and a durable quartz countertop was installed, offering a sleek appearance and practical storage for guest essentials. A low-flow toilet was chosen for water efficiency.
+
+The old shower/tub combination was replaced with a new, more efficient unit, complete with updated fixtures for a better showering experience. A vanity mirror with integrated LED lighting was installed, providing excellent illumination for grooming. Modern wall sconces were added to complement the overall lighting scheme. The walls were painted in light, neutral tones to create a bright and airy atmosphere. All hardware was updated to chrome or brushed nickel, tying the modern elements together. The result is a beautifully refreshed guest bathroom that is both comfortable and stylish, ensuring a pleasant experience for any visitor.
+`,
+  },
+
+  "coastal-style-bathroom": {
+    label: "Coastal Style Bathroom",
+    title: "Serene Coastal Style Bathroom Renovation",
+    description: "Transforming a bathroom into a tranquil coastal retreat, featuring light colors, natural textures, and elements inspired by the sea for a relaxed and airy ambiance.",
+    image: `${static_assets}/images/projects/coastal.jpg`,
+    location: "Seaside Property, Bath, UK",
+    duration: "Completed in 3 weeks",
+    materials: [
+      "Light blue or sandy tone ceramic tiles",
+      "White shiplap wall paneling",
+      "Distressed wood vanity with open shelving",
+      "Quartz or light granite countertop",
+      "Pebble-look shower floor tiles",
+      "Freestanding clawfoot tub or walk-in shower with clear glass",
+      "Brushed nickel or chrome fixtures",
+      "Nautical-themed lighting (e.g., lantern-style sconces)",
+      "Rope or driftwood accents",
+      "Large round mirror (porthole style)"
+    ],
+    content: `
+This project aimed to infuse a bathroom in a seaside property with a serene coastal style, creating a light, airy, and relaxed atmosphere reminiscent of a beach house. The design focused on natural elements, soft colors, and subtle nautical touches.
+
+Light blue ceramic tiles were chosen for the shower walls, evoking the calm of the ocean, while sandy-toned tiles were used for the main floor to mimic beach sand. White shiplap paneling was installed on the lower half of the walls, adding a classic coastal charm. A distressed wood vanity with open shelving was custom-built, providing a rustic yet elegant focal point and ample storage for towels and decorative items. A light quartz countertop complemented the vanity perfectly.
+
+The shower floor was laid with pebble-look tiles, offering a tactile connection to the beach. A freestanding clawfoot tub was installed for a touch of vintage elegance and relaxation, though a walk-in shower with clear glass could also fit the aesthetic. Brushed nickel fixtures were selected to complete the look. Nautical-themed lighting, such as lantern-style sconces, and subtle rope and driftwood accents were incorporated to enhance the coastal theme. A large round mirror, reminiscent of a ship\'s porthole, was mounted above the vanity. The result is a tranquil and inviting coastal-style bathroom that feels like a permanent vacation.
+`,
+  },
+
+  "minimalist-wet-room": {
+    label: "Minimalist Wet Room",
+    title: "Sleek Minimalist Wet Room Design and Installation",
+    description: "Creating a contemporary and highly functional wet room with a minimalist aesthetic, emphasizing seamless transitions, open space, and sophisticated drainage solutions.",
+    image: `${static_assets}/images/projects/wet_room.jpg`,
+    location: "Modern Home, Bath, UK",
+    duration: "Completed in 4 weeks",
+    materials: [
+      "Large-format concrete-effect porcelain tiles (floor and walls)",
+      "Linear shower drain",
+      "Recessed shower niche",
+      "Wall-mounted toilet and bidet",
+      "Floating vanity with integrated sink",
+      "Minimalist black or chrome fixtures",
+      "Integrated LED strip lighting",
+      "Underfloor heating",
+      "Waterproof membrane system",
+      "Frameless glass screen (optional)"
+    ],
+    content: `
+This project involved the design and installation of a minimalist wet room, transforming a conventional bathroom into an open, seamless, and highly functional space. The client desired a contemporary aesthetic with clean lines and an uncluttered feel.
+
+The core of the wet room design was the use of large-format concrete-effect porcelain tiles applied consistently across both the floor and walls, creating a continuous, monolithic look. A linear shower drain was seamlessly integrated into the floor, ensuring efficient water runoff without disrupting the visual flow. A recessed shower niche was built into the wall for discreet storage of toiletries.
+
+To maintain the minimalist aesthetic, a wall-mounted toilet and bidet were installed, freeing up floor space and simplifying cleaning. A sleek floating vanity with an integrated sink was chosen, further contributing to the open feel. All fixtures were selected in a minimalist black finish to provide a striking contrast against the light grey tiles. Integrated LED strip lighting was used to create subtle illumination and highlight the architectural features of the room. Underfloor heating was installed for comfort, and a robust waterproof membrane system was applied beneath all surfaces to ensure complete water containment. An optional frameless glass screen was installed to define the shower area without visually closing off the space. The result is a sophisticated, easy-to-maintain wet room that embodies modern minimalism and offers a luxurious showering experience.
+`,
+  }
 };
 
 export const projectsImageGallery = [
-  `${static_assets}/images/projects/chef_kitchen.jpg`,
-  `${static_assets}/images/projects/condo_kitchen.jpg`,
-  `${static_assets}/images/projects/costal.jpg`,
+  `${static_assets}/images/projects/accessible.jpg`,
+  `${static_assets}/images/projects/coastal.jpg`,
+  `${static_assets}/images/projects/commercial.jpg`,
+  `${static_assets}/images/projects/compact.jpg`,
   `${static_assets}/images/projects/family.jpg`,
-  `${static_assets}/images/projects/farm_house_kitchen.jpg`,
-  `${static_assets}/images/projects/industrial.jpg`,
-  `${static_assets}/images/projects/minimal.jpg`,
-  `${static_assets}/images/projects/open_kitchen.jpg`,
+  `${static_assets}/images/projects/guest.jpg`,
+  `${static_assets}/images/projects/master.jpg`,
+  `${static_assets}/images/projects/small.jpg`,
+  `${static_assets}/images/projects/spa.jpg`,
+  `${static_assets}/images/projects/wet_room.jpg`,
 ];
 /* ------------------------
    TESTIMONAILS START
 ------------------------ */
-
 export const testimonialsData = [
 
-    {
-        "name": "John Davis",
-        "role": "Homeowner | Kitchen Remodel",
-        "feedback": "Berg General Contractor Bathrooms completely transformed our outdated kitchen into a modern, functional space we love spending time in. The process was seamless and stress-free!",
-    },
+  {
+    "name": "John Davis",
+    "role": "Homeowner | Bath",
+    "feedback": "Berg General Contractor Bathrooms transformed our old bathroom into a modern oasis—smooth process and stunning results!",
+  },
 
-    {
-        "name": "Rachel Green",
-        "role": "Property Manager",
-        "feedback": "They handled kitchen upgrades across several rental units. Reliable, responsive, and the new kitchens have added tremendous value to our properties.",
-    },
+  {
+    "name": "Rachel Green",
+    "role": "Property Manager",
+    "feedback": "They handled the renovation of multiple bathrooms in our properties. Always reliable and responsive, delivering high-quality work.",
+  },
 
-    {
-        "name": "Carlos Rivera",
-        "role": "Restaurant Owner",
-        "feedback": "Our commercial kitchen needed a serious upgrade. Berg General Contractor Bathrooms delivered a sleek, efficient layout that boosted both workflow and aesthetics.",
-    },
+  {
+    "name": "Carlos Rivera",
+    "role": "Business Owner | Bath",
+    "feedback": "Our commercial washrooms were outdated. Their renovation solution made a huge difference. Professional from start to finish.",
+  },
 
-    {
-        "name": "Lisa Turner",
-        "role": "Interior Designer",
-        "feedback": "They flawlessly integrated custom kitchen cabinetry and countertops into our design projects. Their craftsmanship elevates every space we collaborate on.",
-    },
 
-    {
-        "name": "Mark Johnson",
-        "role": "Hotel Manager",
-        "feedback": "They renovated several of our suites’ kitchenettes with zero disruption to guests. Fast, clean, and professional from start to finish.",
-    },
 
-    {
-        "name": "Emily Chen",
-        "role": "Homeowner | Full Remodel",
-        "feedback": "Our old kitchen was cramped and dated. Berg General Contractor Bathrooms opened up the space beautifully — it now feels like the heart of our home.",
-    },
+  {
+    "name": "Lisa Turner",
+    "role": "Interior Designer",
+    "feedback": "They managed to integrate sleek, modern bathroom designs into our projects without impacting the overall aesthetic. Excellent team!",
+  },
 
-    {
-        "name": "David Kim",
-        "role": "Real Estate Developer",
-        "feedback": "They’ve remodeled kitchens across multiple properties for us. Always on time, on budget, and with finishes that wow potential buyers.",
-    },
 
-    {
-        "name": "Sophia Allen",
-        "role": "Café Owner",
-        "feedback": "The kitchen renovation they did for our café completely changed how we operate. More efficient, stylish, and customers love the new vibe.",
-    },
 
-    {
-        "name": "Nathan Scott",
-        "role": "Construction Project Manager",
-        "feedback": "Their team coordinated perfectly with our build schedule. The kitchens they installed in our high-rise development look incredible and function flawlessly.",
-    },
+  {
+    "name": "Mark Johnson",
+    "role": "Hotel Manager",
+    "feedback": "Upgraded our hotel bathrooms with no downtime for guests. Fast, clean, and efficient.",
+  },
 
-    {
-        "name": "Olivia Perez",
-        "role": "Retail Store Owner | Kitchenette",
-        "feedback": "We needed a small staff kitchen refresh. Berg General Contractor Bathrooms delivered smart storage solutions and a polished finish that exceeded expectations.",
-    },
 
-    {
-        "name": "Jason Brooks",
-        "role": "Commercial Building Owner",
-        "feedback": "They upgraded the communal kitchen areas in our offices with energy-efficient appliances and modern design. Our tenants couldn’t be happier.",
-    },
 
-    {
-        "name": "Mia Thompson",
-        "role": "Home Renovator | Kitchen",
-        "feedback": "Their attention to detail with cabinetry and countertops was exactly what I needed for my renovation project. Highly recommend their team!",
-    }
+  {
+    "name": "Emily Chen",
+    "role": "Homeowner | Bath",
+    "feedback": "Our old bathroom was a disaster—Berg General Contractor got a new one up and running in just a few weeks!",
+  },
 
+
+
+  {
+    "name": "David Kim",
+    "role": "Real Estate Developer",
+    "feedback": "They’ve handled bathroom renovations across multiple properties. On-time, budget-friendly, and always to code.",
+  },
+
+
+
+  {
+    "name": "Sophia Allen",
+    "role": "Restaurant Owner",
+    "feedback": "The customer washrooms were uninviting before. Their renovation made a huge difference to our business.",
+  },
+
+
+
+  {
+    "name": "Nathan Scott",
+    "role": "Construction Project Manager",
+    "feedback": "These guys know their stuff. Smooth bathroom renovation integration on our high-rise project.",
+  },
+
+
+
+  {
+    "name": "Olivia Perez",
+    "role": "Retail Store Owner | Bath",
+    "feedback": "We had outdated restrooms. Berg General Contractor diagnosed and fixed plumbing issues quickly, and updated the space beautifully.",
+  },
+
+
+
+  {
+    "name": "Jason Brooks",
+    "role": "Commercial Building Owner",
+    "feedback": "Replaced our outdated washroom fixtures with high-efficiency ones. Lower water bills already.",
+  },
+
+
+
+  {
+    "name": "Mia Thompson",
+    "role": "Home Renovator | Bath",
+    "feedback": "Their team handled bathroom design perfectly during our whole-house renovation. Highly recommend!",
+  }
 ];
-
