@@ -23,7 +23,7 @@ const Footer = () => {
             <Logo />
             <p className="mt-4 p2 text-base">{FooterData.tagline}</p>
             <div className="mt-6 space-y-3 text-base">
-              
+
               <a href={contactInfo.phone.href} onClick={trackCallClick('Footer')} className="flex items-center gap-2">
                 <BsFillTelephoneFill size={20} className="text-white shrink-0" />
                 {contactInfo.phone.text}
@@ -57,18 +57,22 @@ const Footer = () => {
         </div>
 
         {/* Projects */}
-        <div>
-          <h2 className="font-semibold mb-4 !text-xl">Projects</h2>
-          <ul className="space-y-2 text-sm">
-            {projects.map(project => (
-              <li key={project.href}>
-                <Link href={project.href} className="hover:underline">
-                  {project.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {
+          projects.length > 0 && (
+            <div>
+              <h2 className="font-semibold mb-4 !text-xl">Projects</h2>
+              <ul className="space-y-2 text-sm">
+                {projects.map(project => (
+                  <li key={project.href}>
+                    <Link href={project.href} className="hover:underline">
+                      {project.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
 
         {/* Company Info + Socials */}
         <div>
@@ -82,7 +86,47 @@ const Footer = () => {
               </li>
             ))}
           </ul>
-          <div className="flex gap-4 mt-6">
+
+          {
+            (projects.length ) > 0 && (
+              <div className="flex gap-4 mt-6">
+                <a
+                  href={socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition"
+                  aria-label="Facebook"
+                >
+                  <FaFacebookSquare size={26} />
+                </a>
+                <a
+                  href={socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition"
+                  aria-label="Instagram"
+                >
+                  <FaInstagramSquare size={26} />
+                </a>
+                <a
+                  href={socialLinks.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition"
+                  aria-label="Twitter"
+                >
+                  <FaTwitterSquare size={26} />
+                </a>
+              </div>
+            )
+          }
+
+        </div>
+        {
+          (projects.length ) === 0 && (
+            <div> 
+              <h2 className="font-semibold mb-4 !text-xl">Socials</h2>
+            <div className="flex gap-4 mt-6">
             <a
               href={socialLinks.facebook}
               target="_blank"
@@ -111,9 +155,11 @@ const Footer = () => {
               <FaTwitterSquare size={26} />
             </a>
           </div>
-        </div>
+          </div>
+          )
+        }
       </div>
-      <hr className='mt-10'/>
+      <hr className='mt-10' />
       <p className='text-center mt-4 '>
         License #:  CCC1336268 (Roofing) ,  CGC1535671 (General Contractor) | Insured | © {new Date().getFullYear()} {siteName}
       </p>
