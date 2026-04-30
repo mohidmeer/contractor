@@ -6,9 +6,9 @@ import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } f
    CONSTANTS 
 ------------------------ */
 
-export const static_assets = '/conc'
-export const siteUrl = 'https://totalcareservicesconcrete.com/';
-export const siteName = 'Total Care Concrete';
+export const static_assets = '/costal'
+export const siteUrl = 'https://www.costalcw.net/';
+export const siteName = 'Costal Concrete';
 export const siteLogo = `${static_assets}/images/logo.png`;
 export const googleAnalyticId = 'G-4Z16WS61D0';
 export const bussinessType = ["LocalBusiness", "ConcreteContractor"]
@@ -16,14 +16,14 @@ export const bussinessType = ["LocalBusiness", "ConcreteContractor"]
 
 export const contactInfo = {
   phone: {
-    text: '(561) 899-8926',
-    href: 'tel:+15618998926',
-    number: '+15618998926'
+    text: '(561) 213-2221',
+    href: 'tel:+15612132221',
+    number: '+15612132221'
   },
   address: '300 SW 1st Avenue Ste 155, Fort Lauderdale, FL 33301',
   mapEmbedUrl: "https://maps.app.goo.gl/rDGBNQRu5YWHo6329",
 
-  email: 'support@totalcareservicesconcrete.com',
+  email: 'support@costalcw.net',
   workingHours: 'Mon–Sat: 8:00 AM – 6:00 PM'
 };
 export const socialLinks = {
@@ -32,8 +32,8 @@ export const socialLinks = {
   twitter: 'https://www.facebook.com/profile.php?id=61579296842520',
 };
 export const licenses = [
-  { number: 'CCC1336268', label: 'Roofing' },
-  { number: 'CGC1535671', label: 'General Contractor' },
+  { number: 'CCC1336631', label: 'Concrete' },
+  { number: 'CGC1538336', label: 'Concrete Contractor' },
 ];
 /* ------------------------
     PAGES  
@@ -42,13 +42,13 @@ export const licenses = [
 
 export const landingPage = {
   seo: {
-    title: 'Total Care Concrete',
+    title: 'Costal Concrete',
     description: 'Reliable concrete services including driveways, patios, sidewalks, and more. We bring durability, precision, and value to every concrete project.',
     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl,
   },
   hero: {
-    title: 'Durable Concrete Solutions by Total Care Concrete',
+    title: 'Durable Concrete Solutions by Costal Concrete',
     description: 'We specialize in expert concrete installations tailored to residential and commercial needs.',
     backgroundImage: `${static_assets}/images/hero_bg_1.jpg`,
     ctaText: 'Get a Free Estimate',
@@ -82,18 +82,18 @@ export const projectsPage = {
 
 export const aboutPage = {
   seo: {
-    title: 'About Total Care Concrete',
+    title: 'About Costal Concrete',
     description: 'Learn about our team’s experience delivering high-quality concrete solutions with professionalism and precision.',
     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'about',
   },
-  content: 'Total Care Concrete delivers durable, attractive, and long-lasting concrete installations for residential and commercial clients. We combine craftsmanship with efficiency to ensure every project exceeds expectations.',
+  content: 'Costal Concrete delivers durable, attractive, and long-lasting concrete installations for residential and commercial clients. We combine craftsmanship with efficiency to ensure every project exceeds expectations.',
 }
 
 export const contactPage = {
   seo: {
-    title: 'Contact Total Care Concrete',
-    description: 'Need concrete services? Reach out to Total Care Concrete for expert consultation and reliable service.',
+    title: 'Contact Costal Concrete',
+    description: 'Need concrete services? Reach out to Costal Concrete for expert consultation and reliable service.',
     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'contact',
   },
@@ -131,7 +131,7 @@ export const getToKnow = {
   title: 'GET TO KNOW',
   heading: 'Concrete Work Built for Strength, Style, and Longevity',
   description:
-    'Total Care Concrete is your trusted partner for delivering expertly crafted concrete work. Whether it’s a patio, driveway, or foundation, we bring skill and care to every pour.',
+    'Costal Concrete is your trusted partner for delivering expertly crafted concrete work. Whether it’s a patio, driveway, or foundation, we bring skill and care to every pour.',
   keyPoints: [
     {
       title: 'Skilled Concrete Professionals',
@@ -334,7 +334,7 @@ export const serviceAreasData = [
     href: "/miami",
     title: "Concrete Services in Miami, FL",
     description: "Professional concrete solutions in Miami. From driveways to patios — durable and stylish.",
-    content: "Total Care Concrete enhances Miami properties with expert concrete work, decorative finishes, and solid foundations.",
+    content: "Costal Concrete enhances Miami properties with expert concrete work, decorative finishes, and solid foundations.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
@@ -342,7 +342,7 @@ export const serviceAreasData = [
     href: "/orlando",
     title: "Concrete Services in Orlando, FL",
     description: "Top-quality concrete construction in Orlando. Poured to perfection, built to last.",
-    content: "Orlando clients rely on Total Care Concrete for smooth installations, stamped designs, and reliable concrete foundations.",
+    content: "Orlando clients rely on Costal Concrete for smooth installations, stamped designs, and reliable concrete foundations.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
@@ -358,7 +358,7 @@ export const serviceAreasData = [
     href: "/jacksonville",
     title: "Concrete Services in Jacksonville, FL",
     description: "Expert concrete services in Jacksonville — for homes, businesses, and more.",
-    content: "Total Care Concrete delivers durable slabs, walkways, and foundations in Jacksonville with top-tier materials and workmanship.",
+    content: "Costal Concrete delivers durable slabs, walkways, and foundations in Jacksonville with top-tier materials and workmanship.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
@@ -374,7 +374,7 @@ export const serviceAreasData = [
     href: "/st-petersburg",
     title: "Concrete Services in St. Petersburg, FL",
     description: "Versatile concrete work in St. Pete — from resurfacing to new pours.",
-    content: "Total Care Concrete serves St. Petersburg with decorative concrete, smooth installations, and repair services.",
+    content: "Costal Concrete serves St. Petersburg with decorative concrete, smooth installations, and repair services.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
@@ -390,7 +390,7 @@ export const serviceAreasData = [
     href: "/hialeah",
     title: "Concrete Services in Hialeah, FL",
     description: "Affordable and efficient concrete services in Hialeah — functional and neat.",
-    content: "From driveway repairs to new slab pours, Total Care Concrete brings reliability and value to every Hialeah project.",
+    content: "From driveway repairs to new slab pours, Costal Concrete brings reliability and value to every Hialeah project.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
@@ -398,7 +398,7 @@ export const serviceAreasData = [
     href: "/gainesville",
     title: "Concrete Services in Gainesville, FL",
     description: "Stamped concrete, driveways, and slab work in Gainesville, FL.",
-    content: "Total Care Concrete improves Gainesville homes and businesses with clean designs and dependable surfaces.",
+    content: "Costal Concrete improves Gainesville homes and businesses with clean designs and dependable surfaces.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
@@ -430,7 +430,7 @@ export const serviceAreasData = [
     href: "/lakeland",
     title: "Concrete Services in Lakeland, FL",
     description: "Your local concrete experts in Lakeland — budget-friendly and dependable.",
-    content: "Lakeland homeowners trust Total Care Concrete for concrete resurfacing, new installs, and decorative finishes.",
+    content: "Lakeland homeowners trust Costal Concrete for concrete resurfacing, new installs, and decorative finishes.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
@@ -446,7 +446,7 @@ export const serviceAreasData = [
     href: "/bradenton",
     title: "Concrete Services in Bradenton, FL",
     description: "Top-rated concrete services in Bradenton — built to last.",
-    content: "Total Care Concrete upgrades Bradenton spaces with strong structures, modern textures, and expert finishes.",
+    content: "Costal Concrete upgrades Bradenton spaces with strong structures, modern textures, and expert finishes.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
@@ -482,9 +482,9 @@ export const serviceAreasData = [
 export const servicesData = {
   'driveway-installation': {
     label: 'Driveway Installation',
-    title: 'Durable & Stylish Driveway Installation by Total Care Concrete',
+    title: 'Durable & Stylish Driveway Installation by Costal Concrete',
     description: 'Upgrade your property’s curb appeal and functionality with expertly installed concrete driveways tailored to your needs.',
-    content: `Your driveway is more than just a path to your garage — it’s the first impression of your home or business. At Total Care Concrete, we specialize in custom driveway installations that blend form and function. Whether you need a traditional flat concrete driveway or a decorative stamped finish, our team ensures every project is built to last. We begin with a thorough site assessment, proper base preparation, and reinforcement for long-term durability. Our driveways are engineered to handle daily wear, extreme weather, and heavy vehicle loads without cracking or fading. We also offer design consultations to align with your aesthetic preferences and property layout.`,
+    content: `Your driveway is more than just a path to your garage — it’s the first impression of your home or business. At Costal Concrete, we specialize in custom driveway installations that blend form and function. Whether you need a traditional flat concrete driveway or a decorative stamped finish, our team ensures every project is built to last. We begin with a thorough site assessment, proper base preparation, and reinforcement for long-term durability. Our driveways are engineered to handle daily wear, extreme weather, and heavy vehicle loads without cracking or fading. We also offer design consultations to align with your aesthetic preferences and property layout.`,
     image: `${static_assets}/images/services/driveway.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -553,9 +553,9 @@ export const servicesData = {
   },
   'concrete-slabs': {
     label: 'Concrete Slabs',
-    title: 'Precision Concrete Slab Installation by Total Care Concrete',
+    title: 'Precision Concrete Slab Installation by Costal Concrete',
     description: 'Strong, stable, and durable concrete slabs for residential and commercial foundations, pads, and more.',
-    content: `Concrete slabs form the backbone of countless structures—from homes and garages to patios and sheds. At Total Care Concrete, we specialize in expertly poured slabs that meet structural codes, offer long-term durability, and serve as reliable foundations for your projects. Whether you’re building a new home, installing a shed, or preparing for a commercial setup, our team ensures accurate grading, formwork, reinforcement, and curing. We use premium materials and advanced techniques to prevent cracks, settlement, and drainage issues. Our process is fast, clean, and customized for your specific site conditions and project requirements.`,
+    content: `Concrete slabs form the backbone of countless structures—from homes and garages to patios and sheds. At Costal Concrete, we specialize in expertly poured slabs that meet structural codes, offer long-term durability, and serve as reliable foundations for your projects. Whether you’re building a new home, installing a shed, or preparing for a commercial setup, our team ensures accurate grading, formwork, reinforcement, and curing. We use premium materials and advanced techniques to prevent cracks, settlement, and drainage issues. Our process is fast, clean, and customized for your specific site conditions and project requirements.`,
     image: `${static_assets}/images/services/slab.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -624,9 +624,9 @@ export const servicesData = {
   },
   'patios-walkways': {
     label: 'Patios & Walkways',
-    title: 'Custom Concrete Patios & Walkways by Total Care Concrete',
+    title: 'Custom Concrete Patios & Walkways by Costal Concrete',
     description: 'Transform your outdoor spaces with beautifully designed and expertly installed concrete patios and walkways.',
-    content: `Well-crafted patios and walkways enhance your property’s functionality, safety, and curb appeal. At Total Care Concrete, we design and build custom outdoor surfaces that blend seamlessly with your landscape and architectural style. Whether you prefer a clean modern slab, decorative stamped patterns, or textured finishes for grip, our team delivers with attention to detail and precision. From backyard patios perfect for gatherings to walkways that guide guests with elegance and ease, we use high-quality materials and proven techniques to ensure long-lasting results. Every step—from grading and forming to finishing and sealing—is handled professionally to bring your vision to life.`,
+    content: `Well-crafted patios and walkways enhance your property’s functionality, safety, and curb appeal. At Costal Concrete, we design and build custom outdoor surfaces that blend seamlessly with your landscape and architectural style. Whether you prefer a clean modern slab, decorative stamped patterns, or textured finishes for grip, our team delivers with attention to detail and precision. From backyard patios perfect for gatherings to walkways that guide guests with elegance and ease, we use high-quality materials and proven techniques to ensure long-lasting results. Every step—from grading and forming to finishing and sealing—is handled professionally to bring your vision to life.`,
     image: `${static_assets}/images/services/patio.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -695,9 +695,9 @@ export const servicesData = {
   },
   'foundation-work': {
     label: 'Foundation Work',
-    title: 'Reliable Concrete Foundation Services by Total Care Concrete',
+    title: 'Reliable Concrete Foundation Services by Costal Concrete',
     description: 'Ensure the structural integrity of your property with our expert concrete foundation solutions.',
-    content: `A strong, stable foundation is the most critical part of any construction project. At Total Care Concrete, we specialize in creating durable, precise foundations that serve as the solid base for homes, garages, additions, and commercial structures. Whether you need a new foundation, underpinning, or repairs to an existing slab, our experienced team delivers results you can trust. We handle every phase—excavation, forming, reinforcement, pouring, and finishing—with careful planning and engineering expertise to meet local building codes and withstand Florida’s challenging soil conditions. Trust us to keep your project grounded—literally.`,
+    content: `A strong, stable foundation is the most critical part of any construction project. At Costal Concrete, we specialize in creating durable, precise foundations that serve as the solid base for homes, garages, additions, and commercial structures. Whether you need a new foundation, underpinning, or repairs to an existing slab, our experienced team delivers results you can trust. We handle every phase—excavation, forming, reinforcement, pouring, and finishing—with careful planning and engineering expertise to meet local building codes and withstand Florida’s challenging soil conditions. Trust us to keep your project grounded—literally.`,
     image: `${static_assets}/images/services/foundation.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -766,9 +766,9 @@ export const servicesData = {
   },
   'garage-flooring': {
     label: 'Garage Flooring',
-    title: 'Durable & Stylish Garage Flooring Solutions by Total Care Concrete',
+    title: 'Durable & Stylish Garage Flooring Solutions by Costal Concrete',
     description: 'Upgrade your garage with professional concrete flooring that’s tough, clean, and built to last.',
-    content: `Total Care Concrete delivers garage flooring that’s not only tough but visually appealing. Whether you're turning your garage into a showroom, workshop, or storage space, we install high-performance concrete floors designed for heavy loads and high traffic. Our flooring systems resist stains, cracks, moisture, and chemicals, making them ideal for residential and commercial use. Choose from polished concrete, epoxy coatings, or textured finishes for improved traction and a clean, professional appearance. We handle surface prep, leveling, sealing, and finishing to ensure a long-lasting result that transforms your garage into a functional and beautiful extension of your home.`,
+    content: `Costal Concrete delivers garage flooring that’s not only tough but visually appealing. Whether you're turning your garage into a showroom, workshop, or storage space, we install high-performance concrete floors designed for heavy loads and high traffic. Our flooring systems resist stains, cracks, moisture, and chemicals, making them ideal for residential and commercial use. Choose from polished concrete, epoxy coatings, or textured finishes for improved traction and a clean, professional appearance. We handle surface prep, leveling, sealing, and finishing to ensure a long-lasting result that transforms your garage into a functional and beautiful extension of your home.`,
     image: `${static_assets}/images/services/flooring.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -837,9 +837,9 @@ export const servicesData = {
   },
   'retaining-walls': {
     label: 'Retaining Walls',
-    title: 'Expertly Built Retaining Walls by Total Care Concrete',
+    title: 'Expertly Built Retaining Walls by Costal Concrete',
     description: 'Ensure structural stability and enhance your landscape with professionally engineered concrete retaining walls.',
-    content: `Retaining walls are essential for managing sloped terrain, preventing soil erosion, and adding dimension to your outdoor space. At Total Care Concrete, we design and construct retaining walls that are as strong as they are attractive. Whether it's a functional barrier for water runoff or an aesthetic feature in your garden, our walls are built to last. We work with poured concrete, concrete blocks, and decorative finishes to match your property’s needs. Every project begins with proper assessment and engineering, followed by precise excavation, drainage solutions, and expert installation. Our walls are built with both structural integrity and curb appeal in mind.`,
+    content: `Retaining walls are essential for managing sloped terrain, preventing soil erosion, and adding dimension to your outdoor space. At Costal Concrete, we design and construct retaining walls that are as strong as they are attractive. Whether it's a functional barrier for water runoff or an aesthetic feature in your garden, our walls are built to last. We work with poured concrete, concrete blocks, and decorative finishes to match your property’s needs. Every project begins with proper assessment and engineering, followed by precise excavation, drainage solutions, and expert installation. Our walls are built with both structural integrity and curb appeal in mind.`,
     image: `${static_assets}/images/services/retaining.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -909,7 +909,7 @@ export const servicesData = {
   'concrete-repair': {
     label: 'Concrete Repair & Resurfacing',
     title: 'Professional Concrete Repair & Resurfacing Services',
-    description: 'Restore the strength and appearance of your concrete surfaces with expert repair and resurfacing solutions from Total Care Concrete.',
+    description: 'Restore the strength and appearance of your concrete surfaces with expert repair and resurfacing solutions from Costal Concrete.',
     content: `Cracked, chipped, or stained concrete can affect both safety and curb appeal. Our concrete repair and resurfacing services provide an affordable way to restore functionality and aesthetics without full replacement. Whether it's a worn-out driveway, spalling patio, or chipped walkway, we assess the damage and apply targeted solutions. Our techniques include crack filling, resurfacing overlays, grinding, patching, and sealing. We also offer decorative finishes to give old surfaces a refreshed, modern look. With advanced tools and materials, our team ensures that repairs blend seamlessly and last for years.`,
     image: `${static_assets}/images/services/concrete.jpg`,
     typeOfSolutions: {
@@ -981,7 +981,7 @@ export const servicesData = {
     label: 'Commercial Concrete Services',
     title: 'Reliable Commercial Concrete Services for Florida Businesses',
     description: 'From warehouses to storefronts, our commercial concrete services are tailored to meet high-volume, code-compliant construction needs.',
-    content: `At Total Care Concrete, we understand the unique demands of commercial concrete projects—whether you're developing new structures or maintaining existing ones. Our team delivers durable, code-compliant concrete work that supports heavy traffic and long-term performance. We handle everything from foundations and parking lots to sidewalks, ramps, and slab work. Our commercial-grade equipment, experienced crews, and adherence to strict timelines ensure your project stays on track. We also collaborate with contractors, property managers, and business owners to develop efficient solutions that minimize downtime and support business operations.`,
+    content: `At Costal Concrete, we understand the unique demands of commercial concrete projects—whether you're developing new structures or maintaining existing ones. Our team delivers durable, code-compliant concrete work that supports heavy traffic and long-term performance. We handle everything from foundations and parking lots to sidewalks, ramps, and slab work. Our commercial-grade equipment, experienced crews, and adherence to strict timelines ensure your project stays on track. We also collaborate with contractors, property managers, and business owners to develop efficient solutions that minimize downtime and support business operations.`,
     image: `${static_assets}/images/services/commercial.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -1052,7 +1052,7 @@ export const servicesData = {
     label: 'Stamped Concrete',
     title: 'Stylish & Durable Stamped Concrete Solutions',
     description: 'Add texture and personality to your concrete surfaces with our custom stamped concrete services.',
-    content: `Stamped concrete is the perfect choice when you want the durability of concrete with the beauty of stone, brick, tile, or even wood textures. At Total Care Concrete, we specialize in stamped concrete installations that elevate the curb appeal of driveways, patios, walkways, and pool decks. You can choose from a wide range of patterns, textures, and color finishes to match your home’s style. Our experts ensure precise stamping and sealing techniques for a long-lasting, low-maintenance finish that resists weathering and fading. Whether you're aiming for a rustic stone look or a modern geometric pattern, stamped concrete brings elegance without the high cost of natural materials.`,
+    content: `Stamped concrete is the perfect choice when you want the durability of concrete with the beauty of stone, brick, tile, or even wood textures. At Costal Concrete, we specialize in stamped concrete installations that elevate the curb appeal of driveways, patios, walkways, and pool decks. You can choose from a wide range of patterns, textures, and color finishes to match your home’s style. Our experts ensure precise stamping and sealing techniques for a long-lasting, low-maintenance finish that resists weathering and fading. Whether you're aiming for a rustic stone look or a modern geometric pattern, stamped concrete brings elegance without the high cost of natural materials.`,
     image: `${static_assets}/images/services/stamped.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -1376,7 +1376,7 @@ export const testimonialsData = [
   {
     name: "John Davis",
     role: "Homeowner | Driveway",
-    feedback: "Total Care Concrete replaced our cracked driveway with a stunning stamped finish. Great craftsmanship and attention to detail!",
+    feedback: "Costal Concrete replaced our cracked driveway with a stunning stamped finish. Great craftsmanship and attention to detail!",
   },
   {
     name: "Rachel Green",
@@ -1406,7 +1406,7 @@ export const testimonialsData = [
   {
     name: "David Kim",
     role: "Real Estate Developer",
-    feedback: "Total Care Concrete handled foundation pours for our new builds—accurate, clean, and always to spec.",
+    feedback: "Costal Concrete handled foundation pours for our new builds—accurate, clean, and always to spec.",
   },
   {
     name: "Sophia Allen",
@@ -1426,7 +1426,7 @@ export const testimonialsData = [
   {
     name: "Jason Brooks",
     role: "Warehouse Operator",
-    feedback: "Our new concrete flooring handles forklift traffic without issue. Great job from Total Care Concrete.",
+    feedback: "Our new concrete flooring handles forklift traffic without issue. Great job from Costal Concrete.",
   },
   {
     name: "Mia Thompson",

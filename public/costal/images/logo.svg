@@ -1,0 +1,18 @@
+<svg width="500" height="200" viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
+<rect width="680" height="260" fill="white" rx="0"/>
+<line x1="60" y1="20" x2="90" y2="20" stroke="#2C3E50" stroke-width="2.5"/>
+<line x1="60" y1="20" x2="60" y2="50" stroke="#2C3E50" stroke-width="2.5"/>
+<line x1="590" y1="20" x2="620" y2="20" stroke="#2C3E50" stroke-width="2.5"/>
+<line x1="620" y1="20" x2="620" y2="50" stroke="#2C3E50" stroke-width="2.5"/>
+<line x1="60" y1="240" x2="90" y2="240" stroke="#2C3E50" stroke-width="2.5"/>
+<line x1="60" y1="240" x2="60" y2="210" stroke="#2C3E50" stroke-width="2.5"/>
+<line x1="590" y1="240" x2="620" y2="240" stroke="#2C3E50" stroke-width="2.5"/>
+<line x1="620" y1="240" x2="620" y2="210" stroke="#2C3E50" stroke-width="2.5"/>
+<text x="340" y="82" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="300" letter-spacing="10" fill="#3B4D5C">COASTAL</text>
+<text x="340" y="132" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="58" font-weight="800" letter-spacing="4" fill="#1E2D3A">CONCRETE</text>
+<line x1="140" y1="152" x2="305" y2="152" stroke="#5CB8D6" stroke-width="2"/>
+<line x1="375" y1="152" x2="540" y2="152" stroke="#5CB8D6" stroke-width="2"/>
+<path d="M340 148 Q340 148 340 148 L340 150 Q348 165 348 175 Q348 183 340 187 Q332 183 332 175 Q332 165 340 150 Z" fill="#5CB8D6"/>
+<ellipse cx="338" cy="174" rx="3" ry="4.5" fill="white" opacity="0.6"/>
+<text x="340" y="225" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="300" letter-spacing="8" fill="#3B4D5C">WATERPROOFING</text>
+</svg>

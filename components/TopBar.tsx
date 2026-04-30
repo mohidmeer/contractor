@@ -1,18 +1,23 @@
 'use client';
-import { contactInfo, socialLinks } from '@/data';
+import { contactInfo, licenses, socialLinks } from '@/data';
 import React from 'react';
 import { BsClock } from "react-icons/bs";
 import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
 const TopBar = () => {
   return (
     <div className="bg-secondary p-4 flex flex-wrap items-center justify-center text-sm sm:text-base text-white gap-6 font-semibold whitespace-nowrap ">
-      <div className="hidden sm:flex items-center gap-2 ml-auto">
-        <span className="font-semibold">License #:</span>
-        <span className="font-bold">CCC1336268</span>
-        <span className=" ">(Roofing)</span>,
-        <span className="font-bold">CGC1535671</span>
-        <span className=" ">(General Contractor)</span>
-      </div>
+      {licenses.length > 0 && (
+        <div className="hidden sm:flex items-center gap-2 ml-auto">
+          <span className="font-semibold">License #:</span>
+          {licenses.map((license, index) => (
+            <React.Fragment key={license.number}>
+              <span className="font-bold">{license.number}</span>
+              {license.label && <span>({license.label})</span>}
+              {index < licenses.length - 1 && <span>,</span>}
+            </React.Fragment>
+          ))}
+        </div>
+      )}
 
       <div className="flex items-center gap-2">
         <BsClock size={20} />

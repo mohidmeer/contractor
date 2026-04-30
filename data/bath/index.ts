@@ -30,6 +30,10 @@ export const socialLinks = {
   instagram: 'https://www.facebook.com/profile.php?id=61579296842520',
   twitter: 'https://www.facebook.com/profile.php?id=61579296842520',
 };
+export const licenses = [
+  { number: 'CCC1336268', label: 'Roofing' },
+  { number: 'CGC1535671', label: 'General Contractor' },
+];
 /* ------------------------
     PAGES  
 ------------------------ */
