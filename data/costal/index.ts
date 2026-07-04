@@ -7,7 +7,7 @@ import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } f
 ------------------------ */
 
 export const static_assets = '/costal'
-export const siteUrl = 'https://www.costalcw.net/';
+export const siteUrl = 'https://coastalcw.net/';
 export const siteName = 'Costal Concrete';
 export const siteLogo = `${static_assets}/images/logo.png`;
 export const googleAnalyticId = 'G-4Z16WS61D0';
