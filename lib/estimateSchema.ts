@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { toMediaPath } from "@/lib/media";
 import { isValidYouTubeUrl } from "@/lib/youtube";
 
 export const EstimateStatusSchema = z.enum([
@@ -37,6 +38,7 @@ export const EstimateBodySchema = z.object({
     .refine((value) => isValidYouTubeUrl(value), {
       message: "Enter a valid YouTube video link",
     }),
+  images: z.array(z.string().min(1)).default([]),
   status: EstimateStatusSchema.default("DRAFT"),
   items: z.array(EstimateItemSchema).min(1, "At least one line item is required"),
 });
@@ -54,6 +56,9 @@ export function normalizeEstimateBody(data: EstimateBody) {
     description: data.description?.trim() || null,
     notes: data.notes?.trim() || null,
     youtubeUrl: data.youtubeUrl?.trim() || null,
+    images: (data.images ?? [])
+      .map((image) => toMediaPath(image))
+      .filter(Boolean),
     status: data.status,
     items: data.items.map((item, index) => ({
       name: item.name.trim(),
@@ -63,4 +68,23 @@ export function normalizeEstimateBody(data: EstimateBody) {
       sortOrder: item.sortOrder ?? index,
     })),
   };
+}
+
+export function parseEstimateImages(value: unknown): string[] {
+  if (!value) return [];
+  if (Array.isArray(value)) {
+    return value
+      .filter((item): item is string => typeof item === "string")
+      .map((item) => toMediaPath(item))
+      .filter(Boolean);
+  }
+  if (typeof value === "string") {
+    try {
+      return parseEstimateImages(JSON.parse(value));
+    } catch {
+      const path = toMediaPath(value);
+      return path ? [path] : [];
+    }
+  }
+  return [];
 }

@@ -22,6 +22,7 @@ import { computeEstimateTotal, formatCurrency } from "@/lib/utils";
 import CopyEstimateLink, {
   getEstimatePublicUrl,
 } from "./CopyEstimateLink";
+import EstimateImagesField from "./EstimateImagesField";
 
 type LineItem = {
   name: string;
@@ -39,6 +40,7 @@ export type EstimateFormValues = {
   description?: string | null;
   notes?: string | null;
   youtubeUrl?: string | null;
+  images?: string[];
   status: EstimateStatus;
   items: LineItem[];
 };
@@ -69,6 +71,7 @@ function buildInitialState(initialValues?: EstimateFormValues) {
     description: initialValues?.description ?? "",
     notes: initialValues?.notes ?? "",
     youtubeUrl: initialValues?.youtubeUrl ?? "",
+    images: initialValues?.images ?? [],
     status: (initialValues?.status ?? "DRAFT") as EstimateStatus,
     items: initialValues?.items?.length
       ? initialValues.items.map((item, index) => ({
@@ -97,6 +100,7 @@ export default function EstimateForm({
   const [description, setDescription] = useState(initial.description);
   const [notes, setNotes] = useState(initial.notes);
   const [youtubeUrl, setYoutubeUrl] = useState(initial.youtubeUrl);
+  const [images, setImages] = useState<string[]>(initial.images);
   const [status, setStatus] = useState<EstimateStatus>(initial.status);
   const [items, setItems] = useState<LineItem[]>(initial.items);
 
@@ -109,6 +113,7 @@ export default function EstimateForm({
     setDescription(next.description);
     setNotes(next.notes);
     setYoutubeUrl(next.youtubeUrl);
+    setImages(next.images);
     setStatus(next.status);
     setItems(next.items);
   }, [initialValues, mode, estimateId]);
@@ -157,6 +162,7 @@ export default function EstimateForm({
       description: description || null,
       notes: notes || null,
       youtubeUrl: youtubeUrl || null,
+      images,
       status,
       items: items.map((item, index) => ({
         name: item.name,
@@ -281,6 +287,7 @@ export default function EstimateForm({
             rows={2}
           />
         </div>
+        <EstimateImagesField images={images} onChange={setImages} />
         <div className="space-y-2 md:col-span-2">
           <Label htmlFor="youtubeUrl">YouTube video link</Label>
           <Input

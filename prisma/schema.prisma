@@ -30,6 +30,7 @@ model Estimate {
   description String?
   notes       String?
   youtubeUrl  String?
+  images      Json           @default("[]")
   status      EstimateStatus @default(DRAFT)
   items       EstimateItem[]
   createdAt   DateTime       @default(now())

@@ -1,3 +1,4 @@
+import { parseEstimateImages } from "@/lib/estimateSchema";
 import { computeEstimateTotal } from "@/lib/utils";
 
 type ItemLike = {
@@ -34,6 +35,7 @@ export function serializeEstimate<
     description: string | null;
     notes: string | null;
     youtubeUrl?: string | null;
+    images?: unknown;
     status: string;
     createdAt: Date;
     updatedAt: Date;
@@ -54,6 +56,7 @@ export function serializeEstimate<
     description: estimate.description,
     notes: estimate.notes,
     youtubeUrl: estimate.youtubeUrl ?? null,
+    images: parseEstimateImages(estimate.images),
     status: estimate.status,
     items,
     total: computeEstimateTotal(items),

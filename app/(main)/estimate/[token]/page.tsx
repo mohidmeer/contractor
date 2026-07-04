@@ -14,6 +14,7 @@ import prisma from "@/lib/prisma";
 import { contactInfo, enable_estimates, siteName } from "@/data";
 import { serializeEstimate } from "@/lib/estimateHelpers";
 import DownloadEstimatePdfButton from "@/components/DownloadEstimatePdfButton";
+import { toMediaUrl } from "@/lib/media";
 import {
   getYouTubeEmbedUrl,
   getYouTubeThumbnailUrl,
@@ -90,6 +91,9 @@ export default async function PublicEstimatePage({ params }: Props) {
   const youtubeEmbedUrl = getYouTubeEmbedUrl(estimate.youtubeUrl);
   const youtubeWatchUrl = getYouTubeWatchUrl(estimate.youtubeUrl);
   const youtubeThumbnailUrl = getYouTubeThumbnailUrl(estimate.youtubeUrl);
+  const estimateImages = (estimate.images ?? [])
+    .map((image) => toMediaUrl(image))
+    .filter(Boolean);
 
   return (
     <main className="flex flex-col gap-8 pb-12 pt-6 sm:pt-10">
@@ -285,6 +289,43 @@ export default async function PublicEstimatePage({ params }: Props) {
               )}
             </div>
 
+            {estimateImages.length > 0 && (
+              <div className="card overflow-hidden rounded-xl bg-white p-6 sm:p-8">
+                <div className="mb-5 border-b border-primary/10 pb-4">
+                  <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+                    Project photos
+                  </p>
+                  <h2 className="mt-1 text-heading text-2xl">Gallery</h2>
+                </div>
+                <div
+                  className={`grid gap-4 ${
+                    estimateImages.length === 1
+                      ? "grid-cols-1"
+                      : estimateImages.length === 2
+                        ? "grid-cols-1 sm:grid-cols-2"
+                        : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                  }`}
+                >
+                  {estimateImages.map((src, index) => (
+                    <div
+                      key={`${src}-${index}`}
+                      className="overflow-hidden rounded-xl border border-primary/10 bg-secondary/5"
+                    >
+                      {/* Use native img so PDF capture includes remote media reliably */}
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={src}
+                        alt={`${estimate.title} photo ${index + 1}`}
+                        className="h-56 w-full object-cover sm:h-64"
+                        crossOrigin="anonymous"
+                        loading="eager"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {youtubeEmbedUrl && youtubeWatchUrl && youtubeThumbnailUrl && (
               <div
                 id="estimate-video-hotspot"
@@ -317,6 +358,8 @@ export default async function PublicEstimatePage({ params }: Props) {
                     src={youtubeThumbnailUrl}
                     alt="YouTube video thumbnail"
                     className="absolute inset-0 h-full w-full object-cover"
+                    crossOrigin="anonymous"
+                    loading="eager"
                   />
                   <div className="absolute inset-0 flex items-center justify-center bg-heading/30">
                     <span className="flex h-16 w-16 items-center justify-center rounded-full bg-red-600 text-white shadow-lg">

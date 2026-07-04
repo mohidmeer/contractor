@@ -80,6 +80,24 @@ function getHotspotRect(root: HTMLElement, hotspot: HTMLElement) {
   };
 }
 
+async function waitForImages(root: HTMLElement) {
+  const images = Array.from(root.querySelectorAll("img"));
+  await Promise.all(
+    images.map(
+      (img) =>
+        new Promise<void>((resolve) => {
+          if (img.complete && img.naturalWidth > 0) {
+            resolve();
+            return;
+          }
+          const done = () => resolve();
+          img.addEventListener("load", done, { once: true });
+          img.addEventListener("error", done, { once: true });
+        })
+    )
+  );
+}
+
 /** Map a DOM hotspot onto PDF pages and attach a clickable URL annotation. */
 function addYoutubeLinkAnnotations(
   pdf: jsPDF,
@@ -156,6 +174,8 @@ export default function DownloadEstimatePdfButton({
         import("html2canvas-pro"),
         import("jspdf"),
       ]);
+
+      await waitForImages(element);
 
       const videoHotspot = document.getElementById(videoHotspotId);
       const hotspotRect =
