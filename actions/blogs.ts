@@ -16,6 +16,7 @@ export async function getAllBlogs(currentPage:number) {
         seo_description: true,
         seo_title:true,
         read_time: true,
+        image: true,
         createdAt: true,
       },
     }),

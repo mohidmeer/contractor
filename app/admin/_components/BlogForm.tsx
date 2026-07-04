@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import MediaForm from "./MediaForm";
 import { BlogContentSchema } from "@/lib/blogSchema";
+import { toMediaPath } from "@/lib/media";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -85,10 +86,12 @@ export default function BlogForm({ mode, blogId }: BlogFormProps) {
 
   const handleImageUploaded = (url: string) => {
     try {
+      // Persist only the path after the first slash, e.g. media/costal/file.png
+      const imagePath = toMediaPath(url);
       const current = JSON.parse(jsonText);
-      const updated = { ...current, image: url };
+      const updated = { ...current, image: imagePath };
       setJsonText(JSON.stringify(updated, null, 2));
-      setImageUrl(url);
+      setImageUrl(imagePath);
       setError(null);
     } catch {
       setError("JSON is invalid; fix it before setting image.");
@@ -115,6 +118,9 @@ export default function BlogForm({ mode, blogId }: BlogFormProps) {
 
     try {
       const parsedJson = JSON.parse(jsonText);
+      if (typeof parsedJson.image === "string") {
+        parsedJson.image = toMediaPath(parsedJson.image);
+      }
       const result = BlogContentSchema.safeParse(parsedJson);
       if (!result.success) {
         setError(

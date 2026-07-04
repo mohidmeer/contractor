@@ -6,6 +6,8 @@ import Pagination from '@/components/pagination';
 import SideBar from '@/components/SideBar';
 import { blogPage, siteName, siteUrl } from '@/data';
 import { BUSINESS_ID } from '@/jsonld';
+import { toMediaUrl } from '@/lib/media';
+import Image from 'next/image';
 import Link from 'next/link';
 import { MdCalendarMonth, MdTimer } from 'react-icons/md';
 
@@ -51,9 +53,23 @@ const page = async ({ searchParams }: Props) => {
         <div className='lg:grid-cols-4 grid gap-10 p-4'>
           <div className='col-span-3'>
             <ul className='flex-col flex gap-6 '>
-              {blogs.map((blog) => (
+              {blogs.map((blog) => {
+                const imageUrl = toMediaUrl(blog.image);
+                return (
                 <li key={blog.id}>
-                  <article className='rounded-md shadow-sm  flex-col gap-4 bg-white p-4 card'>
+                  <article className='rounded-md shadow-sm flex flex-col gap-4 bg-white p-4 card sm:flex-row'>
+                    {imageUrl && (
+                      <div className="relative h-40 w-full shrink-0 overflow-hidden rounded-md sm:h-32 sm:w-48">
+                        <Image
+                          src={imageUrl}
+                          alt={blog.title}
+                          fill
+                          className="object-cover"
+                          unoptimized
+                        />
+                      </div>
+                    )}
+                    <div className="min-w-0 flex-1">
                     <header className='mb-2'>
                       <h2 className='!text-xl font-semibold'>{blog.title}</h2>
 
@@ -73,9 +89,10 @@ const page = async ({ searchParams }: Props) => {
                       <p className='text-gray-700'>{blog.seo_description}</p>
                     </div>
                     <Link href={`/blogs/${blog.slug}`} className='hover:underline text-primary font-bold'>Continue Reading</Link>
+                    </div>
                   </article>
                 </li>
-              ))}
+              )})}
             </ul>
             {pagination.totalItems === 0 && (
               <div className="mt-8 text-center text-gray-500 text-2xl">

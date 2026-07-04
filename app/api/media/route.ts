@@ -29,5 +29,6 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: "Upload failed", details: errText }, { status: 500 });
     }
     const data = await mediaRes.json();
-    return NextResponse.json({ url: data.url });
+    // Prefer returning the full URL from the media server; clients persist only the path.
+    return NextResponse.json({ url: data.url, path: data.path });
 }

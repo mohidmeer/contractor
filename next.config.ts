@@ -14,12 +14,15 @@ export * from "@/data/${SITE}";
 );
 
 const nextConfig: NextConfig = {
-
+  env: {
+    // Expose media base to client components (admin upload preview)
+    MEDIA_SERVER_URL: process.env.MEDIA_SERVER_URL ?? "",
+  },
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'media.totalcareservicesfl.com',
+        hostname: 'media.coastalcw.net',
       },
       {
         protocol: 'http',
@@ -27,8 +30,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-
-
 };
 
 export default nextConfig;

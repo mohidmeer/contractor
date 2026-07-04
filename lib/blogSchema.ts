@@ -16,7 +16,8 @@ export const BlogContentSchema = z.object({
     title: z.string().min(1),
     description: z.string().min(1),
   }),
-  image: z.string().url().or(z.string().startsWith("/")),
+  // Stored as a media path (e.g. media/costal/file.png), not a full URL
+  image: z.string().min(1),
   content: z.array(BlogBlockSchema).min(1),
 });
 

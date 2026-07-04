@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { isAuthorized } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { BlogContentSchema } from "@/lib/blogSchema";
+import { toMediaPath } from "@/lib/media";
 
 export async function GET(req: NextRequest) {
   if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
@@ -63,7 +64,7 @@ export async function POST(req: NextRequest) {
         seo_title: parsed.seo.title,
         seo_description: parsed.seo.description,
         slug: uniqueSlug,
-        image: parsed.image,
+        image: toMediaPath(parsed.image),
         content: parsed.content,
       },
     });

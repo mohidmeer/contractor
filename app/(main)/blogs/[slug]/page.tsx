@@ -4,6 +4,7 @@ import JsonLd from "@/components/JsonLd";
 import SideBar from "@/components/SideBar";
 import { siteName, siteUrl } from "@/data";
 import { BUSINESS_ID } from "@/jsonld";
+import { toMediaUrl } from "@/lib/media";
 import { Blog } from "@/types";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -14,11 +15,12 @@ type Props = {
   params:  Promise<{slug:string}>;
 };
 
-//;
+
 export async function generateMetadata({ params }: Props ) {
   const { slug } = await params
   const blog = await getBlog(slug)
   const canonical = `${siteUrl}blogs/${blog?.title}`
+  const imageUrl = toMediaUrl(blog?.image)
   return {
     title: blog?.seo_title,
     description: blog?.seo_description,
@@ -29,13 +31,13 @@ export async function generateMetadata({ params }: Props ) {
       title: blog?.seo_title,
       description: blog?.seo_description,
       url: canonical,
-      images: [blog?.image],
+      images: imageUrl ? [imageUrl] : [],
     },
     twitter: {
       card: 'summary_large_image',
       title: blog?.seo_title,
       description: blog?.seo_description,
-      images: [blog?.image],
+      images: imageUrl ? [imageUrl] : [],
     },
   }
 }
@@ -49,14 +51,15 @@ export default async function page({ params }: Props) {
 
 
   const postUrl = `${siteUrl}/blogs/${blog.slug}`;
-  const BLOG_ID = `${siteUrl}/blogs#blog`; 
+  const BLOG_ID = `${siteUrl}/blogs#blog`;
+  const imageUrl = toMediaUrl(blog.image);
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: blog.seo_title,
     description: blog.seo_description,
     url: postUrl,
-    image: blog.image,
+    image: imageUrl,
     isPartOf: { "@type": "Blog", "@id": BLOG_ID },
     author: { "@id": BUSINESS_ID },
     publisher: { "@id": BUSINESS_ID },
@@ -85,19 +88,22 @@ export default async function page({ params }: Props) {
         <section className='xl:container mx-auto w-full overflow-hidden '>
           <div className=' grid-cols-1 lg:grid-cols-4 grid gap-10 p-4'>
             <div className='bg-white px-4 md:px-10 py-2 md:py-10 rounded-md flex-col gap-6 flex col-span-3 card'>
-              <figure className="w-full">
-                <div className="h-[500px] w-full relative">
-                  <Image
-                    fill
-                    className="object-cover rounded-md"
-                    alt={blog?.title}
-                    src={blog.image || ''}
-                  />
-                </div>
-                <figcaption className="text-sm text-center text-gray-500 mt-2">
-                  {blog?.title}
-                </figcaption>
-              </figure>
+              {imageUrl && (
+                <figure className="w-full">
+                  <div className="h-[500px] w-full relative">
+                    <Image
+                      fill
+                      className="object-cover rounded-md"
+                      alt={blog?.title}
+                      src={imageUrl}
+                      unoptimized
+                    />
+                  </div>
+                  <figcaption className="text-sm text-center text-gray-500 mt-2">
+                    {blog?.title}
+                  </figcaption>
+                </figure>
+              )}
               {(blog.content as Blog['content']).map((section, index) => (
                 <section key={index} className="">
                   <h2 className="!text-2xl font-bold mb-4">{section.heading}</h2>
