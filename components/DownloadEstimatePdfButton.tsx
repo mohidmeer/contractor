@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import { FaDownload, FaSpinner } from "react-icons/fa";
+import type { jsPDF } from "jspdf";
 
 type DownloadEstimatePdfButtonProps = {
   targetId?: string;
+  videoHotspotId?: string;
   fileName: string;
+  youtubeUrl?: string | null;
 };
 
 function slugify(value: string) {
@@ -65,9 +68,81 @@ function applyResolvedColors(originalRoot: HTMLElement, clonedRoot: HTMLElement)
   });
 }
 
+function getHotspotRect(root: HTMLElement, hotspot: HTMLElement) {
+  const rootRect = root.getBoundingClientRect();
+  const hotspotRect = hotspot.getBoundingClientRect();
+
+  return {
+    left: hotspotRect.left - rootRect.left + root.scrollLeft,
+    top: hotspotRect.top - rootRect.top + root.scrollTop,
+    width: hotspotRect.width,
+    height: hotspotRect.height,
+  };
+}
+
+/** Map a DOM hotspot onto PDF pages and attach a clickable URL annotation. */
+function addYoutubeLinkAnnotations(
+  pdf: jsPDF,
+  options: {
+    youtubeUrl: string;
+    hotspot: { left: number; top: number; width: number; height: number };
+    elementWidth: number;
+    canvasWidth: number;
+    canvasHeight: number;
+    margin: number;
+    contentWidth: number;
+    pageContentHeight: number;
+  }
+) {
+  const {
+    youtubeUrl,
+    hotspot,
+    elementWidth,
+    canvasWidth,
+    canvasHeight,
+    margin,
+    contentWidth,
+    pageContentHeight,
+  } = options;
+
+  const pxPerCssPx = canvasWidth / elementWidth;
+  const pxPerMm = canvasWidth / contentWidth;
+  const pageHeightPx = pageContentHeight * pxPerMm;
+
+  const linkLeftPx = hotspot.left * pxPerCssPx;
+  const linkTopPx = hotspot.top * pxPerCssPx;
+  const linkWidthPx = hotspot.width * pxPerCssPx;
+  const linkHeightPx = hotspot.height * pxPerCssPx;
+  const linkBottomPx = linkTopPx + linkHeightPx;
+
+  const startPage = Math.floor(linkTopPx / pageHeightPx);
+  const endPage = Math.floor((linkBottomPx - 1) / pageHeightPx);
+  const totalPages = pdf.getNumberOfPages();
+
+  for (let pageIndex = startPage; pageIndex <= endPage; pageIndex += 1) {
+    if (pageIndex < 0 || pageIndex >= totalPages) continue;
+
+    const pageTopPx = pageIndex * pageHeightPx;
+    const pageBottomPx = Math.min(pageTopPx + pageHeightPx, canvasHeight);
+    const visibleTopPx = Math.max(linkTopPx, pageTopPx);
+    const visibleBottomPx = Math.min(linkBottomPx, pageBottomPx);
+    if (visibleBottomPx <= visibleTopPx) continue;
+
+    const x = margin + linkLeftPx / pxPerMm;
+    const y = margin + (visibleTopPx - pageTopPx) / pxPerMm;
+    const w = linkWidthPx / pxPerMm;
+    const h = (visibleBottomPx - visibleTopPx) / pxPerMm;
+
+    pdf.setPage(pageIndex + 1);
+    pdf.link(x, y, w, h, { url: youtubeUrl });
+  }
+}
+
 export default function DownloadEstimatePdfButton({
   targetId = "estimate-document",
+  videoHotspotId = "estimate-video-hotspot",
   fileName,
+  youtubeUrl,
 }: DownloadEstimatePdfButtonProps) {
   const [loading, setLoading] = useState(false);
 
@@ -81,6 +156,12 @@ export default function DownloadEstimatePdfButton({
         import("html2canvas-pro"),
         import("jspdf"),
       ]);
+
+      const videoHotspot = document.getElementById(videoHotspotId);
+      const hotspotRect =
+        youtubeUrl && videoHotspot
+          ? getHotspotRect(element, videoHotspot)
+          : null;
 
       const canvas = await html2canvas(element, {
         scale: 2,
@@ -115,7 +196,6 @@ export default function DownloadEstimatePdfButton({
       const pageContentHeight = pageHeight - margin * 2;
       const imgHeight = (canvas.height * contentWidth) / canvas.width;
 
-      // Single page if it fits; otherwise slice across pages.
       if (imgHeight <= pageContentHeight) {
         pdf.addImage(
           imgData,
@@ -177,6 +257,19 @@ export default function DownloadEstimatePdfButton({
           renderedHeight += sliceHeight;
           pageIndex += 1;
         }
+      }
+
+      if (youtubeUrl && hotspotRect) {
+        addYoutubeLinkAnnotations(pdf, {
+          youtubeUrl,
+          hotspot: hotspotRect,
+          elementWidth: element.scrollWidth,
+          canvasWidth: canvas.width,
+          canvasHeight: canvas.height,
+          margin,
+          contentWidth,
+          pageContentHeight,
+        });
       }
 
       const safeName = slugify(fileName) || "estimate";
