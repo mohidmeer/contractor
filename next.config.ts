@@ -23,10 +23,13 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'media.coastalcw.net',
+        pathname: '/media/**',
       },
       {
         protocol: 'http',
         hostname: 'localhost',
+        port: '4000',
+        pathname: '/media/**',
       },
     ],
   },

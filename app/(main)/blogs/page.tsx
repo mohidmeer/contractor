@@ -65,7 +65,8 @@ const page = async ({ searchParams }: Props) => {
                           alt={blog.title}
                           fill
                           className="object-cover"
-                          unoptimized
+                          sizes="(max-width: 640px) 100vw, 192px"
+                          quality={70}
                         />
                       </div>
                     )}
