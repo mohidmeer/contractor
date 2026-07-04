@@ -1,16 +1,17 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import {
+  FaCalendarAlt,
   FaEnvelope,
   FaFileInvoiceDollar,
   FaPhoneAlt,
   FaUser,
 } from "react-icons/fa";
 import { BsFillTelephoneFill } from "react-icons/bs";
-import Header from "@/components/Header";
 import prisma from "@/lib/prisma";
 import { contactInfo, enable_estimates, siteName } from "@/data";
 import { serializeEstimate } from "@/lib/estimateHelpers";
+import DownloadEstimatePdfButton from "@/components/DownloadEstimatePdfButton";
 
 type Props = {
   params: Promise<{ token: string }>;
@@ -71,148 +72,210 @@ export default async function PublicEstimatePage({ params }: Props) {
 
   const statusLabel =
     estimate.status.charAt(0) + estimate.status.slice(1).toLowerCase();
+  const createdLabel = new Date(estimate.createdAt).toLocaleDateString(
+    "en-US",
+    {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }
+  );
 
   return (
-    <main className="flex flex-col gap-10">
-      <Header
-        cta={false}
-        title="Your Estimate"
-        desc={`Prepared by ${siteName} for ${estimate.clientName}`}
-      />
-
-      <section className="container mx-auto px-4 pb-12">
-        <div className="mx-auto flex max-w-5xl flex-col gap-8">
-          {/* Summary cards */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="group flex items-start gap-4 rounded-xl border border-primary/10 bg-white p-5 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl">
-              <div className="shrink-0 rounded-xl bg-gradient-to-br from-primary to-primary/80 p-3 text-white shadow-lg transition-transform duration-300 group-hover:scale-110">
-                <FaFileInvoiceDollar size={22} />
-              </div>
-              <div>
-                <p className="mb-1 text-sm font-medium text-gray-500">Project</p>
-                <p className="text-lg font-semibold text-heading">
-                  {estimate.title}
-                </p>
-              </div>
+    <main className="flex flex-col gap-8 pb-12 pt-6 sm:pt-10">
+      <section className="container mx-auto px-4">
+        <div className="mx-auto flex max-w-5xl flex-col gap-6">
+          {/* Prominent download action — outside PDF capture */}
+          <div className="card flex flex-col gap-4 rounded-2xl bg-white p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+            <div>
+              <p className="text-lg font-semibold text-heading">
+                Save this estimate
+              </p>
+              <p className="mt-1 text-sm text-gray-600">
+                Download an exact PDF copy of this estimate for your records.
+              </p>
             </div>
-
-            <div className="group flex items-start gap-4 rounded-xl border border-primary/10 bg-white p-5 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl">
-              <div className="shrink-0 rounded-xl bg-gradient-to-br from-primary to-primary/80 p-3 text-white shadow-lg transition-transform duration-300 group-hover:scale-110">
-                <FaUser size={22} />
-              </div>
-              <div>
-                <p className="mb-1 text-sm font-medium text-gray-500">
-                  Prepared for
-                </p>
-                <p className="text-lg font-semibold text-heading">
-                  {estimate.clientName}
-                </p>
-                {estimate.clientEmail && (
-                  <p className="mt-1 break-all text-sm text-gray-600">
-                    {estimate.clientEmail}
-                  </p>
-                )}
-                {estimate.clientPhone && (
-                  <p className="mt-1 text-sm text-gray-600">
-                    {estimate.clientPhone}
-                  </p>
-                )}
-              </div>
-            </div>
-
-            <div className="group flex items-start gap-4 rounded-xl border border-primary/10 bg-white p-5 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl sm:col-span-2 lg:col-span-1">
-              <div className="shrink-0 rounded-xl bg-gradient-to-br from-primary to-primary/80 p-3 text-white shadow-lg transition-transform duration-300 group-hover:scale-110">
-                <FaFileInvoiceDollar size={22} />
-              </div>
-              <div>
-                <p className="mb-1 text-sm font-medium text-gray-500">Status</p>
-                <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
-                  {statusLabel}
-                </span>
-                <p className="mt-2 text-sm text-gray-600">
-                  {new Date(estimate.createdAt).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </p>
-              </div>
-            </div>
+            <DownloadEstimatePdfButton
+              fileName={`${estimate.title}-estimate`}
+            />
           </div>
 
-          {/* Estimate details card */}
-          <div className="card rounded-xl bg-white p-6 sm:p-8">
-            <div className="mb-6 border-b border-primary/10 pb-6">
-              <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-                Estimate details
-              </p>
-              <h2 className="mt-2 text-heading">{estimate.title}</h2>
-              {estimate.description && (
-                <p className="p1 mt-3 whitespace-pre-wrap text-gray-700">
-                  {estimate.description}
+          {/* Captured in PDF: header through notes only */}
+          <div
+            id="estimate-document"
+            className="flex flex-col gap-6 bg-white p-1"
+          >
+            {/* Estimate document header */}
+            <div className="card overflow-hidden rounded-2xl bg-white">
+              <div className="bg-primary px-6 py-8 text-white sm:px-8 sm:py-10">
+                <div className="min-w-0">
+                  <div className="mb-4">
+                    <p className="text-sm font-medium text-white/80">
+                      {siteName}
+                    </p>
+                    <p className="text-xs uppercase tracking-[0.2em] text-white/70">
+                      Project estimate
+                    </p>
+                  </div>
+
+                  <h1 className="max-w-2xl text-3xl font-bold leading-tight sm:text-4xl">
+                    {estimate.title}
+                  </h1>
+
+                  {estimate.description && (
+                    <p className="mt-3 max-w-2xl text-base leading-relaxed text-white/85">
+                      {estimate.description}
+                    </p>
+                  )}
+
+                  <div className="mt-5 flex flex-wrap items-center gap-3">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1.5 text-sm font-medium ring-1 ring-white/20">
+                      <FaUser size={12} />
+                      {estimate.clientName}
+                    </span>
+                    <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1.5 text-sm font-medium ring-1 ring-white/20">
+                      <FaCalendarAlt size={12} />
+                      {createdLabel}
+                    </span>
+                    <span className="inline-flex rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-primary">
+                      {statusLabel}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid gap-4 border-t border-primary/10 bg-secondary/5 px-6 py-5 sm:grid-cols-3 sm:px-8">
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2.5 text-primary">
+                    <FaUser size={16} />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                      Prepared for
+                    </p>
+                    <p className="font-semibold text-heading">
+                      {estimate.clientName}
+                    </p>
+                    {estimate.clientEmail && (
+                      <p className="mt-0.5 truncate text-sm text-gray-600">
+                        {estimate.clientEmail}
+                      </p>
+                    )}
+                    {estimate.clientPhone && (
+                      <p className="mt-0.5 text-sm text-gray-600">
+                        {estimate.clientPhone}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2.5 text-primary">
+                    <FaFileInvoiceDollar size={16} />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                      Prepared by
+                    </p>
+                    <p className="font-semibold text-heading">{siteName}</p>
+                    <p className="mt-0.5 text-sm text-gray-600">
+                      {contactInfo.phone.text}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="rounded-lg bg-primary/10 p-2.5 text-primary">
+                    <FaCalendarAlt size={16} />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                      Issued on
+                    </p>
+                    <p className="font-semibold text-heading">{createdLabel}</p>
+                    <p className="mt-0.5 text-sm text-gray-600">
+                      Status: {statusLabel}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Line items */}
+            <div className="card rounded-xl bg-white p-6 sm:p-8">
+              <div className="mb-6 flex items-center justify-between gap-3 border-b border-primary/10 pb-4">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+                    Line items
+                  </p>
+                  <h2 className="mt-1 text-heading text-2xl">Scope of work</h2>
+                </div>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[560px] text-left">
+                  <thead>
+                    <tr className="border-b border-primary/15 text-heading">
+                      <th className="px-3 py-3 text-sm font-semibold">Item</th>
+                      <th className="px-3 py-3 text-sm font-semibold">Qty</th>
+                      <th className="px-3 py-3 text-sm font-semibold">
+                        Unit price
+                      </th>
+                      <th className="px-3 py-3 text-right text-sm font-semibold">
+                        Total
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {estimate.items.map((item) => (
+                      <tr
+                        key={item.id}
+                        className="border-b border-gray-100 last:border-b-0"
+                      >
+                        <td className="px-3 py-4 align-top">
+                          <p className="font-semibold text-heading">
+                            {item.name}
+                          </p>
+                          {item.description && (
+                            <p className="mt-1 text-sm text-gray-600">
+                              {item.description}
+                            </p>
+                          )}
+                        </td>
+                        <td className="px-3 py-4 align-top text-gray-700">
+                          {item.quantity}
+                        </td>
+                        <td className="px-3 py-4 align-top text-gray-700">
+                          {formatMoney(item.unitPrice)}
+                        </td>
+                        <td className="px-3 py-4 text-right align-top font-semibold text-heading">
+                          {formatMoney(item.subtotal)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="mt-6 flex flex-col gap-2 rounded-xl bg-primary/5 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-lg font-semibold text-heading">Grand total</p>
+                <p className="text-3xl font-bold text-primary">
+                  {formatMoney(estimate.total)}
                 </p>
+              </div>
+
+              {estimate.notes && (
+                <div className="mt-6 rounded-xl border border-primary/10 bg-secondary/5 p-5">
+                  <p className="mb-2 font-semibold text-heading">Notes</p>
+                  <p className="whitespace-pre-wrap text-gray-700">
+                    {estimate.notes}
+                  </p>
+                </div>
               )}
             </div>
-
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[560px] text-left">
-                <thead>
-                  <tr className="border-b border-primary/15 text-heading">
-                    <th className="px-3 py-3 text-sm font-semibold">Item</th>
-                    <th className="px-3 py-3 text-sm font-semibold">Qty</th>
-                    <th className="px-3 py-3 text-sm font-semibold">Unit price</th>
-                    <th className="px-3 py-3 text-right text-sm font-semibold">
-                      Total
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {estimate.items.map((item) => (
-                    <tr
-                      key={item.id}
-                      className="border-b border-gray-100 last:border-b-0"
-                    >
-                      <td className="px-3 py-4 align-top">
-                        <p className="font-semibold text-heading">{item.name}</p>
-                        {item.description && (
-                          <p className="mt-1 text-sm text-gray-600">
-                            {item.description}
-                          </p>
-                        )}
-                      </td>
-                      <td className="px-3 py-4 align-top text-gray-700">
-                        {item.quantity}
-                      </td>
-                      <td className="px-3 py-4 align-top text-gray-700">
-                        {formatMoney(item.unitPrice)}
-                      </td>
-                      <td className="px-3 py-4 text-right align-top font-semibold text-heading">
-                        {formatMoney(item.subtotal)}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="mt-6 flex flex-col gap-2 rounded-xl bg-primary/5 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-lg font-semibold text-heading">Grand total</p>
-              <p className="text-3xl font-bold text-primary">
-                {formatMoney(estimate.total)}
-              </p>
-            </div>
-
-            {estimate.notes && (
-              <div className="mt-6 rounded-xl border border-primary/10 bg-secondary/5 p-5">
-                <p className="mb-2 font-semibold text-heading">Notes</p>
-                <p className="whitespace-pre-wrap text-gray-700">
-                  {estimate.notes}
-                </p>
-              </div>
-            )}
           </div>
 
-          {/* Contact CTA — same public theme patterns */}
+          {/* Contact CTA — not included in PDF */}
           <div className="grid gap-4 md:grid-cols-2">
             <div className="group flex items-start gap-4 rounded-xl border border-primary/10 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl">
               <div className="shrink-0 rounded-xl bg-gradient-to-br from-primary to-primary/80 p-4 text-white shadow-lg transition-transform duration-300 group-hover:scale-110">
