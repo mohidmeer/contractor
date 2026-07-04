@@ -32,7 +32,7 @@ function formatMoney(value: number) {
   }).format(value);
 }
 
-async function getPublicEstimate(token: string) {
+async function loadPublicEstimate(token: string, markViewed = false) {
   if (!enable_estimates) return null;
 
   const estimate = await prisma.estimate.findUnique({
@@ -42,7 +42,7 @@ async function getPublicEstimate(token: string) {
 
   if (!estimate || estimate.status === "DRAFT") return null;
 
-  if (estimate.status === "SENT") {
+  if (markViewed && estimate.status === "SENT") {
     try {
       await prisma.estimate.update({
         where: { id: estimate.id },
@@ -59,22 +59,44 @@ async function getPublicEstimate(token: string) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { token } = await params;
-  const estimate = await getPublicEstimate(token);
+  const estimate = await loadPublicEstimate(token, false);
 
   if (!estimate) {
-    return { title: "Estimate Not Found" };
+    return {
+      title: {
+        absolute: `Estimate Not Found | ${siteName}`,
+      },
+      robots: { index: false, follow: false },
+    };
   }
 
+  const title = `${estimate.title} | Estimate`;
+  const description =
+    estimate.description ||
+    `Project estimate for ${estimate.clientName} from ${siteName}`;
+
   return {
-    title: estimate.title,
-    description: estimate.description || `Estimate from ${siteName}`,
+    title: {
+      absolute: `${title} | ${siteName}`,
+    },
+    description,
+    openGraph: {
+      title: `${title} | ${siteName}`,
+      description,
+      type: "website",
+    },
+    twitter: {
+      card: "summary",
+      title: `${title} | ${siteName}`,
+      description,
+    },
     robots: { index: false, follow: false },
   };
 }
 
 export default async function PublicEstimatePage({ params }: Props) {
   const { token } = await params;
-  const estimate = await getPublicEstimate(token);
+  const estimate = await loadPublicEstimate(token, true);
 
   if (!estimate) notFound();
 
