@@ -21,7 +21,7 @@ export const contactInfo = {
   mapEmbedUrl: "https://maps.app.goo.gl/rDGBNQRu5YWHo6329",
 
   email: 'support@totalcareservicesroofing.com',
-  workingHours: 'Mon–Sat: 8:00 AM – 6:00 PM'
+  workingHours: 'Monâ€“Sat: 8:00 AM â€“ 6:00 PM'
 };
 export const socialLinks = {
   facebook: 'https://www.facebook.com/profile.php?id=61579296842520',
@@ -32,6 +32,7 @@ export const licenses = [
   { number: 'CCC1336268', label: 'Roofing' },
   { number: 'CGC1535671', label: 'General Contractor' },
 ];
+export const enable_estimates = true;
 /* ------------------------
     PAGES  
 ------------------------ */
@@ -90,7 +91,7 @@ export const contactPage = {
   },
   form: {
     heading: 'Contact Us',
-    messagePlaceholder: "Tell us what your roof's been up to — we’ve heard it all."
+    messagePlaceholder: "Tell us what your roof's been up to â€” weâ€™ve heard it all."
   }
 }
 export const blogPage = {
@@ -123,7 +124,7 @@ export const getToKnow = {
     },
     {
       title: 'Premium Materials',
-      desc: 'We install only top-tier shingles, tile, metal, and flat roofing systems, ensuring long-lasting durability in Florida’s demanding climate.'
+      desc: 'We install only top-tier shingles, tile, metal, and flat roofing systems, ensuring long-lasting durability in Floridaâ€™s demanding climate.'
     },
     {
       title: 'Clean & Efficient',
@@ -138,7 +139,7 @@ export const getToKnow = {
 export const faqs = [
   {
     question: "How long does a roofing project usually take?",
-    answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+    answer: "Most residential roofing projects are completed within 1â€“3 days, depending on the size and complexity of the roof."
   },
   {
     question: "Do you offer free roof inspections?",
@@ -343,14 +344,14 @@ export const serviceAreasData = [
     href: "/jacksonville",
     title: "Roofing Services in Jacksonville, FL ",
     description:
-      "Expert roofing services in Jacksonville, FL. From storm damage repairs to new roof installations, we’ve got you covered.",
+      "Expert roofing services in Jacksonville, FL. From storm damage repairs to new roof installations, weâ€™ve got you covered.",
   },
   {
     name: "Fort Lauderdale",
     href: "/fort-lauderdale",
     title: "Roofing Services in Fort Lauderdale, FL ",
     description:
-      "Fort Lauderdale’s trusted roofing company for durable and energy-efficient roofing solutions.",
+      "Fort Lauderdaleâ€™s trusted roofing company for durable and energy-efficient roofing solutions.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
     image: `${static_assets}/images/areaofservices/default.jpg`
   },
@@ -385,7 +386,7 @@ export const serviceAreasData = [
     href: "/cape-coral",
     title: "Roofing Services in Cape Coral, FL ",
     description:
-      "Cape Coral roofing services for homes and businesses. Expert roof installation and repair for Florida’s coastal weather.",
+      "Cape Coral roofing services for homes and businesses. Expert roof installation and repair for Floridaâ€™s coastal weather.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
     image: `${static_assets}/images/areaofservices/default.jpg`
   },
@@ -394,7 +395,7 @@ export const serviceAreasData = [
     href: "/west-palm-beach",
     title: "Roofing Services in West Palm Beach, FL ",
     description:
-      "Professional roofing services in West Palm Beach, FL. Durable roofing systems built for Florida’s climate.",
+      "Professional roofing services in West Palm Beach, FL. Durable roofing systems built for Floridaâ€™s climate.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
     image: `${static_assets}/images/areaofservices/default.jpg`
   },
@@ -402,7 +403,7 @@ export const serviceAreasData = [
     name: "Naples",
     href: "/naples",
     title: "Roofing Services in Naples, FL ",
-    description: "Naples’ trusted roofing experts. Offering roof repairs, installations, and hurricane-resistant roofing solutions.",
+    description: "Naplesâ€™ trusted roofing experts. Offering roof repairs, installations, and hurricane-resistant roofing solutions.",
     content: 'Total Care Roofing is a locally rooted company providing dependable roofing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
     image: `${static_assets}/images/areaofservices/default.jpg`
   },
@@ -477,7 +478,7 @@ export const servicesData = {
     label: 'Roof Installation',
     title: 'Professional Roof Installation Services in Florida',
     description: 'Our expert team provides top-quality roof installation services using durable materials to ensure long-lasting protection for your home or business.',
-    content: `When it comes to roof installation in Florida, choosing the right roofing contractor is critical. Our team specializes in installing high-quality roofing systems that can withstand Florida’s harsh weather conditions, including heavy rain, strong winds, and extreme heat. We work with top-grade materials like asphalt shingles, metal roofing, and flat roofing solutions to ensure durability and energy efficiency. From new home construction to replacing old roofs, we provide a seamless process, transparent pricing, and guaranteed workmanship. With our professional roof installation services, you can protect your home, improve curb appeal, and increase property value.`,
+    content: `When it comes to roof installation in Florida, choosing the right roofing contractor is critical. Our team specializes in installing high-quality roofing systems that can withstand Floridaâ€™s harsh weather conditions, including heavy rain, strong winds, and extreme heat. We work with top-grade materials like asphalt shingles, metal roofing, and flat roofing solutions to ensure durability and energy efficiency. From new home construction to replacing old roofs, we provide a seamless process, transparent pricing, and guaranteed workmanship. With our professional roof installation services, you can protect your home, improve curb appeal, and increase property value.`,
     image: `${static_assets}/images/services/roofers-installation.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -496,17 +497,17 @@ export const servicesData = {
     },
     benefitsOFChoosing: [
       { title: 'Code-Compliant Installations', description: 'Permits handled and installs meet or exceed Florida Building Code and manufacturer specs.' },
-      { title: 'Manufacturer-Certified Crew', description: 'Installed by certified pros so you’re eligible for extended manufacturer warranties.' },
+      { title: 'Manufacturer-Certified Crew', description: 'Installed by certified pros so youâ€™re eligible for extended manufacturer warranties.' },
       { title: 'Weather-Ready Systems', description: 'Assemblies engineered for high wind uplift and heavy rain common across Florida.' },
       { title: 'Energy-Smart Options', description: 'Cool roofs, proper ventilation, and underlayments to cut attic heat and AC load.' },
       { title: 'Clean, On-Schedule Projects', description: 'Tight timelines, daily cleanup, magnetic nail sweep, and respectful crews.' },
-      { title: 'Transparent, Fixed Pricing', description: 'Clear proposals with no surprises—scope, materials, and timelines spelled out.' },
+      { title: 'Transparent, Fixed Pricing', description: 'Clear proposals with no surprisesâ€”scope, materials, and timelines spelled out.' },
       { title: 'Post-Install Quality Check', description: 'Final walkthrough with photos and warranty registration handled for you.' },
     ],
     faqs: [
       {
         question: "How long does a roofing project usually take?",
-        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+        answer: "Most residential roofing projects are completed within 1â€“3 days, depending on the size and complexity of the roof."
       },
       {
         question: "Do you offer free roof inspections?",
@@ -535,7 +536,7 @@ export const servicesData = {
     label: 'Roof Repair',
     title: 'Reliable Roof Repair Solutions in Florida',
     description: 'We specialize in repairing all types of roof damage, from leaks to broken shingles, restoring the integrity of your roof quickly and effectively.',
-    content: `Our roof repair services in Florida are designed to handle any type of roofing damage, whether it’s caused by storms, hurricanes, or everyday wear and tear. We quickly identify leaks, damaged shingles, and structural issues to prevent further damage to your home. Timely repairs can save you from costly replacements, so our team responds promptly and uses high-quality materials to restore your roof’s strength. Whether it’s a small repair or an extensive fix, we ensure your roof remains weatherproof, energy-efficient, and ready to handle Florida’s unpredictable climate.`,
+    content: `Our roof repair services in Florida are designed to handle any type of roofing damage, whether itâ€™s caused by storms, hurricanes, or everyday wear and tear. We quickly identify leaks, damaged shingles, and structural issues to prevent further damage to your home. Timely repairs can save you from costly replacements, so our team responds promptly and uses high-quality materials to restore your roofâ€™s strength. Whether itâ€™s a small repair or an extensive fix, we ensure your roof remains weatherproof, energy-efficient, and ready to handle Floridaâ€™s unpredictable climate.`,
     image: `${static_assets}/images/services/roof-repair.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -557,14 +558,14 @@ export const servicesData = {
       { title: 'Cost-Effective Fixes', description: 'Targeted repairs extend roof life without the cost of full replacement.' },
       { title: 'Storm Damage Specialists', description: 'Shingle resets, flashing rebuilds, and membrane patches for wind/hail events.' },
       { title: 'Upfront Findings', description: 'Photo-documented issues and clear options before any work begins.' },
-      { title: 'Quality Materials, Matched', description: 'Repairs blend with existing roof—profile, color, and manufacturer.' },
+      { title: 'Quality Materials, Matched', description: 'Repairs blend with existing roofâ€”profile, color, and manufacturer.' },
       { title: 'Workmanship Warranty', description: 'Backed repairs with fair, written coverage.' },
       { title: 'Preventive Maintenance Plans', description: 'Optional tune-ups to reduce future leaks and surprises.' },
     ],
     faqs: [
       {
         question: "How long does a roofing project usually take?",
-        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+        answer: "Most residential roofing projects are completed within 1â€“3 days, depending on the size and complexity of the roof."
       },
       {
         question: "Do you offer free roof inspections?",
@@ -593,7 +594,7 @@ export const servicesData = {
     label: 'Gutter Services',
     title: 'Comprehensive Gutter Services in Florida',
     description: 'Keep your roof drainage system efficient with our gutter installation, cleaning, and repair services to protect your property from water damage.',
-    content: `Our gutter services in Florida are designed to keep your property safe from water damage caused by heavy rain and storms. We provide professional gutter installation using durable materials that withstand Florida’s harsh weather conditions. In addition, we offer routine gutter cleaning to prevent blockages and overflow, as well as expert repairs for damaged or leaking gutters. A properly functioning gutter system is essential for protecting your roof, foundation, and landscaping. Trust our team to deliver reliable solutions that maintain the safety and value of your home year-round.`,
+    content: `Our gutter services in Florida are designed to keep your property safe from water damage caused by heavy rain and storms. We provide professional gutter installation using durable materials that withstand Floridaâ€™s harsh weather conditions. In addition, we offer routine gutter cleaning to prevent blockages and overflow, as well as expert repairs for damaged or leaking gutters. A properly functioning gutter system is essential for protecting your roof, foundation, and landscaping. Trust our team to deliver reliable solutions that maintain the safety and value of your home year-round.`,
     image: `${static_assets}/images/services/gutters.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -622,7 +623,7 @@ export const servicesData = {
     faqs: [
       {
         question: "How long does a roofing project usually take?",
-        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+        answer: "Most residential roofing projects are completed within 1â€“3 days, depending on the size and complexity of the roof."
       },
       {
         question: "Do you offer free roof inspections?",
@@ -669,7 +670,7 @@ export const servicesData = {
       ]
     },
     benefitsOFChoosing: [
-      { title: 'Early Problem Detection', description: 'Catch small issues—loose flashing, nail pops, failing sealant—before they escalate.' },
+      { title: 'Early Problem Detection', description: 'Catch small issuesâ€”loose flashing, nail pops, failing sealantâ€”before they escalate.' },
   { title: 'Comprehensive Reporting', description: 'Photo-rich report with condition grades and prioritized actions.' },
   { title: 'Insurance-Ready Documentation', description: 'Evidence you can use for claims after storms or when selling.' },
   { title: 'Ventilation & Moisture Check', description: 'Attic assessment to spot heat buildup, mold risk, or inadequate airflow.' },
@@ -680,7 +681,7 @@ export const servicesData = {
     faqs: [
       {
         question: "How long does a roofing project usually take?",
-        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+        answer: "Most residential roofing projects are completed within 1â€“3 days, depending on the size and complexity of the roof."
       },
       {
         question: "Do you offer free roof inspections?",
@@ -709,7 +710,7 @@ export const servicesData = {
     label: 'Emergency Roof Repair',
     title: '24/7 Emergency Roof Repair Services in Florida',
     description: 'We offer fast, reliable emergency roof repair to protect your property during storms or unexpected damage.',
-    content: `When severe storms or unexpected damage strike, you need a roofing team you can count on. Our emergency roof repair services in Florida are available 24/7 to protect your home or business from further harm. Whether you’re dealing with leaks, missing shingles, or storm-related structural issues, we respond quickly and efficiently to restore your roof’s integrity. Florida’s unpredictable weather makes immediate action critical, and our experienced team uses high-quality materials to ensure lasting repairs. With our emergency services, you can minimize damage, avoid costly replacements, and keep your property safe at all times.`,
+    content: `When severe storms or unexpected damage strike, you need a roofing team you can count on. Our emergency roof repair services in Florida are available 24/7 to protect your home or business from further harm. Whether youâ€™re dealing with leaks, missing shingles, or storm-related structural issues, we respond quickly and efficiently to restore your roofâ€™s integrity. Floridaâ€™s unpredictable weather makes immediate action critical, and our experienced team uses high-quality materials to ensure lasting repairs. With our emergency services, you can minimize damage, avoid costly replacements, and keep your property safe at all times.`,
     image: `${static_assets}/images/services/emergency.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -738,7 +739,7 @@ export const servicesData = {
     faqs: [
       {
         question: "How long does a roofing project usually take?",
-        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+        answer: "Most residential roofing projects are completed within 1â€“3 days, depending on the size and complexity of the roof."
       },
       {
         question: "Do you offer free roof inspections?",
@@ -768,7 +769,7 @@ export const servicesData = {
     label: 'Flat Roofing',
     title: 'Specialized Flat Roofing Services in Florida',
     description: 'We provide installation, maintenance, and repair for flat roofing systems, ensuring proper sealing and durability for your structure.',
-    content: `Flat roofing is a popular choice for many commercial and residential buildings in Florida, and our team specializes in installing and maintaining these systems to perfection. We offer professional flat roof installation using premium materials designed to resist water pooling and withstand Florida’s heavy rains and high humidity. Our maintenance and repair services ensure your flat roof remains leak-free and energy-efficient. From waterproof membranes to advanced sealing techniques, we provide solutions that extend the life of your flat roof and keep your property protected year-round.`,
+    content: `Flat roofing is a popular choice for many commercial and residential buildings in Florida, and our team specializes in installing and maintaining these systems to perfection. We offer professional flat roof installation using premium materials designed to resist water pooling and withstand Floridaâ€™s heavy rains and high humidity. Our maintenance and repair services ensure your flat roof remains leak-free and energy-efficient. From waterproof membranes to advanced sealing techniques, we provide solutions that extend the life of your flat roof and keep your property protected year-round.`,
     image: `${static_assets}/images/services/flat.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -790,14 +791,14 @@ export const servicesData = {
       { title: 'High-Performance Membranes', description: 'TPO, PVC, and EPDM options with heat-welded seams for durability.' },
       { title: 'Cool Roof Efficiency', description: 'Reflective surfaces that reduce heat gain and energy costs.' },
       { title: 'Low-Odor Install Options', description: 'Adhesive and mechanically-fastened systems for occupied buildings.' },
-      { title: 'Long Commercial Warranties', description: 'Up to 20–30 year manufacturer coverage when eligible.' },
+      { title: 'Long Commercial Warranties', description: 'Up to 20â€“30 year manufacturer coverage when eligible.' },
       { title: 'Equipment Coordination', description: 'Curbs and penetrations flashed around HVAC and solar correctly.' },
       { title: 'Minimal Downtime', description: 'Phased work plans to keep your operation running.' },
     ],
     faqs: [
       {
         question: "How long does a roofing project usually take?",
-        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+        answer: "Most residential roofing projects are completed within 1â€“3 days, depending on the size and complexity of the roof."
       },
       {
         question: "Do you offer free roof inspections?",
@@ -827,7 +828,7 @@ export const servicesData = {
     label: 'Metal Roofing',
     title: 'Durable Metal Roofing Solutions in Florida',
     description: 'Our metal roofing services deliver strength, energy efficiency, and modern aesthetics for residential and commercial properties.',
-    content: `Metal roofing is one of the most durable and energy-efficient roofing options for Florida homes and businesses. Our expert team provides professional metal roof installation and replacement services that enhance both protection and aesthetics. Metal roofs are highly resistant to hurricanes, heavy rains, and extreme heat, making them ideal for Florida’s climate. In addition to superior strength, metal roofs can help reduce cooling costs by reflecting sunlight. We offer a variety of colors and styles to match your property’s design, ensuring a long-lasting and visually appealing roofing solution.`,
+    content: `Metal roofing is one of the most durable and energy-efficient roofing options for Florida homes and businesses. Our expert team provides professional metal roof installation and replacement services that enhance both protection and aesthetics. Metal roofs are highly resistant to hurricanes, heavy rains, and extreme heat, making them ideal for Floridaâ€™s climate. In addition to superior strength, metal roofs can help reduce cooling costs by reflecting sunlight. We offer a variety of colors and styles to match your propertyâ€™s design, ensuring a long-lasting and visually appealing roofing solution.`,
     image: `${static_assets}/images/services/metal.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -847,7 +848,7 @@ export const servicesData = {
     benefitsOFChoosing: [
       { title: 'Hurricane-Ready Strength', description: 'High wind-rated panels and secure fastening systems.' },
       { title: 'Energy Savings', description: 'Reflective finishes and proper underlayment reduce cooling loads.' },
-      { title: 'Decades of Service Life', description: 'Metal roofs often outlast shingles by 2–3x with low maintenance.' },
+      { title: 'Decades of Service Life', description: 'Metal roofs often outlast shingles by 2â€“3x with low maintenance.' },
       { title: 'Modern Curb Appeal', description: 'Standing seam and textured profiles in a range of colors.' },
       { title: 'Fire & Impact Resistance', description: 'Non-combustible and resilient against debris.' },
       { title: 'Quiet, Comfortable Interiors', description: 'Underlayments and decking that dampen rain noise.' },
@@ -856,7 +857,7 @@ export const servicesData = {
     faqs: [
       {
         question: "How long does a roofing project usually take?",
-        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+        answer: "Most residential roofing projects are completed within 1â€“3 days, depending on the size and complexity of the roof."
       },
       {
         question: "Do you offer free roof inspections?",
@@ -884,8 +885,8 @@ export const servicesData = {
   'shingle-replacement': {
     label: 'Shingle Replacement',
     title: 'Expert Shingle Replacement Services in Florida',
-    description: 'We replace damaged or aging shingles to maintain your roof’s protection and curb appeal with high-quality materials.',
-    content: `Shingle roofs are common in Florida, but over time, harsh sunlight, heavy rains, and strong winds can cause shingles to crack, curl, or fall off. Our shingle replacement services in Florida ensure your roof stays strong, weather-resistant, and visually appealing. We use premium shingles designed to withstand Florida’s unique climate, preventing leaks and structural damage. Whether you need partial replacement or a complete re-roofing project, our experienced team delivers precise installation, boosting your home’s protection and curb appeal while extending the lifespan of your roof.`,
+    description: 'We replace damaged or aging shingles to maintain your roofâ€™s protection and curb appeal with high-quality materials.',
+    content: `Shingle roofs are common in Florida, but over time, harsh sunlight, heavy rains, and strong winds can cause shingles to crack, curl, or fall off. Our shingle replacement services in Florida ensure your roof stays strong, weather-resistant, and visually appealing. We use premium shingles designed to withstand Floridaâ€™s unique climate, preventing leaks and structural damage. Whether you need partial replacement or a complete re-roofing project, our experienced team delivers precise installation, boosting your homeâ€™s protection and curb appeal while extending the lifespan of your roof.`,
     image: `${static_assets}/images/services/replacement.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -907,14 +908,14 @@ export const servicesData = {
       { title: 'Wind-Rated Shingles', description: 'High-performance shingles with enhanced seal strips for Florida winds.' },
       { title: 'Leak-Stopping Underlayments', description: 'Premium waterproof underlayment and flashing at valleys and penetrations.' },
       { title: 'Ventilation Upgrades', description: 'Ridge/soffit improvements that extend shingle life and improve comfort.' },
-      { title: 'Fast, Tidy Turnaround', description: 'Tear-off, replacement, and full cleanup—usually within days.' },
+      { title: 'Fast, Tidy Turnaround', description: 'Tear-off, replacement, and full cleanupâ€”usually within days.' },
       { title: 'Manufacturer Backed', description: 'Eligibility for extended system warranties with certified installs.' },
       { title: 'Responsible Disposal', description: 'Old shingles hauled and recycled where available.' },
     ],
     faqs: [
       {
         question: "How long does a roofing project usually take?",
-        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+        answer: "Most residential roofing projects are completed within 1â€“3 days, depending on the size and complexity of the roof."
       },
       {
         question: "Do you offer free roof inspections?",
@@ -943,7 +944,7 @@ export const servicesData = {
     label: 'Skylight Installation',
     title: 'Professional Skylight Installation Services in Florida',
     description: 'Add natural light and style to your space with our expert skylight installation, ensuring proper sealing and energy efficiency.',
-    content: `Brighten your home with our professional skylight installation services in Florida. Skylights are a great way to bring natural light into your living spaces while reducing energy costs. Our team ensures flawless installation with proper sealing to prevent leaks and improve energy efficiency, even during Florida’s rainy seasons. We offer various skylight designs to match your home’s style, enhancing both beauty and comfort. Whether you want a simple fixed skylight or an advanced vented option, we guarantee a secure and long-lasting installation.`,
+    content: `Brighten your home with our professional skylight installation services in Florida. Skylights are a great way to bring natural light into your living spaces while reducing energy costs. Our team ensures flawless installation with proper sealing to prevent leaks and improve energy efficiency, even during Floridaâ€™s rainy seasons. We offer various skylight designs to match your homeâ€™s style, enhancing both beauty and comfort. Whether you want a simple fixed skylight or an advanced vented option, we guarantee a secure and long-lasting installation.`,
     image: `${static_assets}/images/services/skylight.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -966,13 +967,13 @@ export const servicesData = {
       { title: 'Energy-Efficient Glazing', description: 'Low-E, laminated glass options that cut heat gain and UV.' },
       { title: 'Custom Placement & Shafting', description: 'Designed for ideal angles, room use, and roof structure.' },
       { title: 'Vented & Smart Options', description: 'Manual/electric venting, blinds, and rain sensors available.' },
-      { title: 'Clean Interior Finishes', description: 'Drywall, trims, and paint matched to your room’s style.' },
+      { title: 'Clean Interior Finishes', description: 'Drywall, trims, and paint matched to your roomâ€™s style.' },
       { title: 'Warranty & Compliance', description: 'Products and installs that meet codes and carry strong warranties.' },
     ],
     faqs: [
       {
         question: "How long does a roofing project usually take?",
-        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+        answer: "Most residential roofing projects are completed within 1â€“3 days, depending on the size and complexity of the roof."
       },
       {
         question: "Do you offer free roof inspections?",
@@ -1000,8 +1001,8 @@ export const servicesData = {
   'roof-ventilation': {
     label: 'Roof Ventilation',
     title: 'Efficient Roof Ventilation Services in Florida',
-    description: 'Improve your attic airflow and extend your roof’s lifespan with our professional roof ventilation solutions.',
-    content: `Proper roof ventilation is essential for homes in Florida to prevent heat buildup, moisture issues, and structural damage. Our roof ventilation services ensure balanced airflow in your attic, which helps regulate indoor temperatures and reduce energy costs. By preventing trapped heat and moisture, we protect your roof from mold, rot, and premature aging. Our team installs and maintains ventilation systems that work effectively in Florida’s hot and humid climate, giving your home long-term protection and improved energy efficiency.`,
+    description: 'Improve your attic airflow and extend your roofâ€™s lifespan with our professional roof ventilation solutions.',
+    content: `Proper roof ventilation is essential for homes in Florida to prevent heat buildup, moisture issues, and structural damage. Our roof ventilation services ensure balanced airflow in your attic, which helps regulate indoor temperatures and reduce energy costs. By preventing trapped heat and moisture, we protect your roof from mold, rot, and premature aging. Our team installs and maintains ventilation systems that work effectively in Floridaâ€™s hot and humid climate, giving your home long-term protection and improved energy efficiency.`,
     image: `${static_assets}/images/services/ventilation.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -1025,12 +1026,12 @@ export const servicesData = {
       { title: 'Right-Sized System Design', description: 'Calculated NFA with ridge, soffit, and baffle choices that fit your roof.' },
       { title: 'Quiet, Low-Profile Hardware', description: 'Attractive vents that perform without being an eyesore.' },
       { title: 'Sealed to Stay Leak-Free', description: 'Flashing and fasteners installed to withstand severe weather.' },
-      { title: 'Energy Savings', description: 'Improved attic conditions reduce cooling costs in Florida’s heat.' },
+      { title: 'Energy Savings', description: 'Improved attic conditions reduce cooling costs in Floridaâ€™s heat.' },
     ],
     faqs: [
       {
         question: "How long does a roofing project usually take?",
-        answer: "Most residential roofing projects are completed within 1–3 days, depending on the size and complexity of the roof."
+        answer: "Most residential roofing projects are completed within 1â€“3 days, depending on the size and complexity of the roof."
       },
       {
         question: "Do you offer free roof inspections?",
@@ -1144,7 +1145,7 @@ export const projectsData = {
     content: `
       The Heritage Museum needed a roofing restoration that preserved its historical character while ensuring structural safety.
       Our team carefully removed damaged tiles and replaced them with historically accurate clay tiles, combined with modern underlayment for waterproofing.
-      The project was completed in 12 days, maintaining the building’s original aesthetics and meeting preservation standards.`,
+      The project was completed in 12 days, maintaining the buildingâ€™s original aesthetics and meeting preservation standards.`,
 
   },
   'sunset-condos-retrofit': {
@@ -1172,7 +1173,7 @@ export const projectsData = {
   'ocean-breeze-resort': {
     label: 'Ocean Breeze Resort',
     title: 'Ocean Breeze Resort Roofing Project',
-    description: 'Installed a high-performance roofing system for Ocean Breeze Resort, designed to handle Florida’s coastal weather conditions while adding a modern aesthetic.',
+    description: 'Installed a high-performance roofing system for Ocean Breeze Resort, designed to handle Floridaâ€™s coastal weather conditions while adding a modern aesthetic.',
     image: `${static_assets}/images/projects/ocean-breeze.jpg`,
     location: 'Key West, FL',
     dateCompleted: 'July 8, 2025',
@@ -1236,7 +1237,7 @@ export const projectsData = {
   'coral-gables-luxury-homes': {
     label: 'Coral Gables Luxury Homes',
     title: 'Coral Gables Luxury Homes Roofing Installation',
-    description: 'Installed premium tile roofing for Coral Gables luxury homes, combining elegant design with superior protection against Florida’s tropical climate.',
+    description: 'Installed premium tile roofing for Coral Gables luxury homes, combining elegant design with superior protection against Floridaâ€™s tropical climate.',
     image: `${static_assets}/images/projects/default.jpg`,
     location: 'Coral Gables, FL',
     dateCompleted: 'October 2, 2025',
@@ -1249,7 +1250,7 @@ export const projectsData = {
       'Ridge Caps & Decorative Elements'
     ],
     content: `
-      The homeowners in Coral Gables wanted a roofing solution that matched the elegance of their luxury properties while offering strong protection against Florida’s tropical climate.
+      The homeowners in Coral Gables wanted a roofing solution that matched the elegance of their luxury properties while offering strong protection against Floridaâ€™s tropical climate.
       Our team installed high-end clay barrel tiles, supported by a waterproof underlayment and copper flashing for long-term durability.
       The installation was completed in four weeks, delivering a stylish, weather-resistant roofing system with timeless appeal.
     `
@@ -1330,7 +1331,7 @@ export const testimonialsData = [
   {
     name: "Sophia Martinez",
     role: "Homeowner  | Florida",
-    feedback: "They transformed our old, leaking roof into a strong and beautiful structure. Couldn’t be happier with the results.",
+    feedback: "They transformed our old, leaking roof into a strong and beautiful structure. Couldnâ€™t be happier with the results.",
   },
   {
     name: "Robert Lee",
@@ -1345,7 +1346,7 @@ export const testimonialsData = [
   {
     name: "William Harris",
     role: "Commercial Property Owner  | Florida",
-    feedback: "From start to finish, the team was reliable, professional, and transparent. Best roofing company we’ve worked with.",
+    feedback: "From start to finish, the team was reliable, professional, and transparent. Best roofing company weâ€™ve worked with.",
   },
   {
     name: "Emma Robinson",

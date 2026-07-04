@@ -24,7 +24,7 @@ export const contactInfo = {
     mapEmbedUrl: "https://maps.app.goo.gl/rDGBNQRu5YWHo6329",
 
     email: 'support@kitchens.berggc.com',
-    workingHours: 'Mon–Sat: 8:00 AM – 6:00 PM'
+    workingHours: 'Monâ€“Sat: 8:00 AM â€“ 6:00 PM'
 };
 export const socialLinks = {
     facebook: 'https://www.facebook.com/profile.php?id=61579296842520',
@@ -35,6 +35,7 @@ export const licenses = [
   { number: 'CCC1336268', label: 'Roofing' },
   { number: 'CGC1535671', label: 'General Contractor' },
 ];
+export const enable_estimates = true;
 
 
 /* ------------------------
@@ -44,7 +45,7 @@ export const licenses = [
 export const landingPage = {
     seo: {
         title: 'Berg General Contractor Kitchens',
-        description: 'Expert kitchen renovation and installation services. From sleek upgrades to complete transformations — we bring beauty, function, and lasting value to your home.',
+        description: 'Expert kitchen renovation and installation services. From sleek upgrades to complete transformations â€” we bring beauty, function, and lasting value to your home.',
         ogImage: `${static_assets}/images/hero_bg_1.jpg`,
         canonical: siteUrl,
     },
@@ -75,7 +76,7 @@ export const servicesPage = {
 export const projectsPage = {
     seo: {
         title: 'Kitchen Renovation Projects',
-        description: 'Take a look at our completed kitchen remodels — stylish, practical, and built to inspire.',
+        description: 'Take a look at our completed kitchen remodels â€” stylish, practical, and built to inspire.',
         ogImage: `${static_assets}/images/services/kitchen_reno.jpg`,
         canonical: siteUrl + 'projects',
     },
@@ -88,7 +89,7 @@ export const aboutPage = {
         ogImage: `${static_assets}/images/hero_bg_1.jpg`,
         canonical: siteUrl + 'about',
     },
-    content: 'Berg General Contractor Kitchens is your go-to team for expert kitchen renovations. From concept to completion, we deliver custom designs, premium finishes, and seamless service to elevate your home’s heart.',
+    content: 'Berg General Contractor Kitchens is your go-to team for expert kitchen renovations. From concept to completion, we deliver custom designs, premium finishes, and seamless service to elevate your homeâ€™s heart.',
 }
 
 export const contactPage = {
@@ -100,7 +101,7 @@ export const contactPage = {
     },
     form: {
         heading: 'Get In Touch',
-        messagePlaceholder: "Tell us about your kitchen goals — we’re ready to make them a reality.",
+        messagePlaceholder: "Tell us about your kitchen goals â€” weâ€™re ready to make them a reality.",
     },
 }
 
@@ -128,11 +129,11 @@ export const getToKnow = {
     title: 'GET TO KNOW',
     heading: 'Kitchen Renovations with Precision, Style, and Lasting Value',
     description:
-        'Berg General Contractor Kitchens is your trusted partner for transforming kitchens into stunning, functional spaces. We combine expert craftsmanship, modern design, and respectful service to deliver kitchens you’ll love.',
+        'Berg General Contractor Kitchens is your trusted partner for transforming kitchens into stunning, functional spaces. We combine expert craftsmanship, modern design, and respectful service to deliver kitchens youâ€™ll love.',
     keyPoints: [
         {
             title: 'Expert Kitchen Renovators',
-            desc: 'Our team brings experience in cabinetry, countertops, plumbing, and finishes — ensuring sleek, professional results.',
+            desc: 'Our team brings experience in cabinetry, countertops, plumbing, and finishes â€” ensuring sleek, professional results.',
         },
         {
             title: 'High-Quality Materials & Fixtures',
@@ -165,15 +166,15 @@ export const faqs = [
     },
     {
         question: "Can you handle small kitchen upgrades too?",
-        answer: "Absolutely. We take on projects of all sizes — from quick updates to full-scale renovations."
+        answer: "Absolutely. We take on projects of all sizes â€” from quick updates to full-scale renovations."
     },
     {
         question: "How long does a typical kitchen renovation take?",
-        answer: "It depends on the scope, but most projects are completed within 2–4 weeks."
+        answer: "It depends on the scope, but most projects are completed within 2â€“4 weeks."
     },
     {
         question: "Do you work on both residential and commercial kitchens?",
-        answer: "Yes, we service both homes and commercial properties such as offices, cafés, and more."
+        answer: "Yes, we service both homes and commercial properties such as offices, cafÃ©s, and more."
     }
 ];
 
@@ -208,7 +209,7 @@ export const ourProcessData = {
         },
         {
             title: "Final Walkthrough & Handover",
-            description: "We inspect everything together, make sure you’re happy, and leave your new kitchen spotless.",
+            description: "We inspect everything together, make sure youâ€™re happy, and leave your new kitchen spotless.",
             icon: FaCheckCircle
         }
     ]
@@ -227,7 +228,7 @@ export const WhyUSData = [
     },
     {
         title: "Communication is Key",
-        description: "You’ll stay informed at every step with clear updates and responsive support.",
+        description: "Youâ€™ll stay informed at every step with clear updates and responsive support.",
         icon: FaHandshake
     },
     {
@@ -353,7 +354,7 @@ export const serviceAreasData = [
         name: "Tampa",
         href: "/tampa",
         title: "Kitchen Renovation Services in Tampa, FL",
-        description: "Tailored kitchen makeovers in Tampa, FL. From luxury islands to smart storage — we’ve got you covered.",
+        description: "Tailored kitchen makeovers in Tampa, FL. From luxury islands to smart storage â€” weâ€™ve got you covered.",
         content: "We help Tampa homeowners upgrade kitchens with creative layouts, quality cabinetry, and finishes that suit your lifestyle.",
         image: `${static_assets}/images/hero_bg_1.jpg`
     },
@@ -385,8 +386,8 @@ export const serviceAreasData = [
         name: "Cape Coral",
         href: "/cape-coral",
         title: "Kitchen Renovation Services in Cape Coral, FL",
-        description: "Cape Coral’s go-to for kitchen makeovers. Clean lines, bold styles, and practical designs.",
-        content: "We create kitchens that suit Cape Coral living — bright, functional, and crafted with lasting quality in mind.",
+        description: "Cape Coralâ€™s go-to for kitchen makeovers. Clean lines, bold styles, and practical designs.",
+        content: "We create kitchens that suit Cape Coral living â€” bright, functional, and crafted with lasting quality in mind.",
         image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
@@ -433,7 +434,7 @@ export const serviceAreasData = [
         name: "Lakeland",
         href: "/lakeland",
         title: "Kitchen Renovation Services in Lakeland, FL",
-        description: "Lakeland’s trusted team for kitchen remodels. On-time, on-budget, on-trend.",
+        description: "Lakelandâ€™s trusted team for kitchen remodels. On-time, on-budget, on-trend.",
         content: "Berg General Contractor Kitchens delivers high-impact kitchen upgrades in Lakeland with precision and flair.",
         image: `${static_assets}/images/hero_bg_1.jpg`
     },
@@ -449,7 +450,7 @@ export const serviceAreasData = [
         name: "Bradenton",
         href: "/bradenton",
         title: "Kitchen Renovation Services in Bradenton, FL",
-        description: "Bradenton’s go-to for stunning kitchen transformations. Designed to impress.",
+        description: "Bradentonâ€™s go-to for stunning kitchen transformations. Designed to impress.",
         content: "Our kitchen remodeling in Bradenton blends practicality and style with high attention to detail.",
         image: `${static_assets}/images/hero_bg_1.jpg`
     },
@@ -489,7 +490,7 @@ export const servicesData = {
         label: 'Full Kitchen Renovation',
         title: 'Complete Kitchen Renovation Services by Berg General Contractor Kitchens',
         description: 'Revamp your entire kitchen with our end-to-end renovation services. From planning to installation, we create modern, efficient, and beautiful kitchen spaces.',
-        content: `A full kitchen renovation is the key to elevating your home’s value and your cooking experience. At Berg General Contractor Kitchens, we turn outdated kitchens into inspiring spaces that blend style and practicality. It all starts with an in-depth consultation to understand your needs, preferences, and budget. Our expert team then handles everything—from designing layouts and selecting finishes to managing demolition, cabinetry, countertops, plumbing, lighting, and appliances. Every element is managed with precision and care. Whether you’re after a sleek contemporary kitchen or a warm traditional design, we bring your dream kitchen to life with minimal disruption and maximum quality.`,
+        content: `A full kitchen renovation is the key to elevating your homeâ€™s value and your cooking experience. At Berg General Contractor Kitchens, we turn outdated kitchens into inspiring spaces that blend style and practicality. It all starts with an in-depth consultation to understand your needs, preferences, and budget. Our expert team then handles everythingâ€”from designing layouts and selecting finishes to managing demolition, cabinetry, countertops, plumbing, lighting, and appliances. Every element is managed with precision and care. Whether youâ€™re after a sleek contemporary kitchen or a warm traditional design, we bring your dream kitchen to life with minimal disruption and maximum quality.`,
         image: `${static_assets}/images/services/kitchen_reno.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -529,7 +530,7 @@ export const servicesData = {
             },
             {
                 title: 'Transparent Quotes',
-                description: 'Clear pricing, no surprises — you’ll know exactly what to expect.'
+                description: 'Clear pricing, no surprises â€” youâ€™ll know exactly what to expect.'
             }
         ],
        
@@ -547,7 +548,7 @@ export const servicesData = {
                 answer: "There may be limited access during critical phases, but we work to minimize downtime."
             },
             {
-                question: "What’s included in a full kitchen renovation?",
+                question: "Whatâ€™s included in a full kitchen renovation?",
                 answer: "Everything from demolition, design, cabinets, countertops, plumbing, lighting, to appliance installation."
             },
             {
@@ -561,7 +562,7 @@ export const servicesData = {
         label: 'Cabinet Refacing & Installation',
         title: 'kitchen Cabinet Refacing & Installation',
         description: 'Refresh your kitchen with stylish new cabinets or reface existing ones for a cost-effective upgrade. We offer expert installation and premium materials.',
-        content: `Upgrading your kitchen cabinetry can dramatically enhance both the appearance and storage functionality of your space. At Berg General Contractor Kitchens, we specialize in professional cabinet refacing and new installations that reflect your style and optimize your kitchen layout. Refacing gives your existing cabinets a fresh, modern look by replacing doors, drawer fronts, and hardware — a budget-friendly option that doesn’t sacrifice quality. Alternatively, we can install brand-new custom cabinetry built to fit your needs. With a wide range of finishes, colors, and styles, we ensure your cabinetry matches your kitchen’s aesthetic and stands the test of time.`,
+        content: `Upgrading your kitchen cabinetry can dramatically enhance both the appearance and storage functionality of your space. At Berg General Contractor Kitchens, we specialize in professional cabinet refacing and new installations that reflect your style and optimize your kitchen layout. Refacing gives your existing cabinets a fresh, modern look by replacing doors, drawer fronts, and hardware â€” a budget-friendly option that doesnâ€™t sacrifice quality. Alternatively, we can install brand-new custom cabinetry built to fit your needs. With a wide range of finishes, colors, and styles, we ensure your cabinetry matches your kitchenâ€™s aesthetic and stands the test of time.`,
         image: `${static_assets}/images/services/kitchen_cabinet.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -585,7 +586,7 @@ export const servicesData = {
             },
             {
                 title: 'Custom Installations',
-                description: 'We offer tailored cabinet solutions that fit your kitchen’s size and layout perfectly.'
+                description: 'We offer tailored cabinet solutions that fit your kitchenâ€™s size and layout perfectly.'
             },
             {
                 title: 'High-Quality Materials',
@@ -597,7 +598,7 @@ export const servicesData = {
             },
             {
                 title: 'Design Assistance',
-                description: 'Our team helps you choose styles, colors, and finishes that elevate your kitchen’s look.'
+                description: 'Our team helps you choose styles, colors, and finishes that elevate your kitchenâ€™s look.'
             },
             {
                 title: 'Skilled Craftsmanship',
@@ -612,7 +613,7 @@ export const servicesData = {
             },
             {
                 question: "How long does cabinet refacing take?",
-                answer: "Most refacing jobs are completed within 2–3 days, depending on the kitchen size."
+                answer: "Most refacing jobs are completed within 2â€“3 days, depending on the kitchen size."
             },
             {
                 question: "Do you offer custom cabinet installation?",
@@ -624,7 +625,7 @@ export const servicesData = {
             },
             {
                 question: "Can I choose cabinet colors and finishes?",
-                answer: "Absolutely — we offer a wide range of colors, textures, and finishes to match your kitchen style."
+                answer: "Absolutely â€” we offer a wide range of colors, textures, and finishes to match your kitchen style."
             }
         ],
     },
@@ -632,7 +633,7 @@ export const servicesData = {
         label: 'Countertops & Surfaces',
         title: 'Premium kitchen Countertops & Surfaces',
         description: 'Upgrade your kitchen with stunning countertops and surface materials that combine durability, elegance, and easy maintenance.',
-        content: `Your kitchen surfaces set the tone for the entire space — combining form and function in one cohesive design. We provide expert installation of high-quality countertops and surfaces tailored to suit your style and practical needs. Choose from quartz, granite, marble, solid surface, or engineered stone options, each offering unique textures, durability, and aesthetic appeal. Whether you're modernizing a vanity top or refreshing an entire surface layout, our team ensures seamless installation with a flawless finish.`,
+        content: `Your kitchen surfaces set the tone for the entire space â€” combining form and function in one cohesive design. We provide expert installation of high-quality countertops and surfaces tailored to suit your style and practical needs. Choose from quartz, granite, marble, solid surface, or engineered stone options, each offering unique textures, durability, and aesthetic appeal. Whether you're modernizing a vanity top or refreshing an entire surface layout, our team ensures seamless installation with a flawless finish.`,
         image: `${static_assets}/images/services/counter_top.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -652,7 +653,7 @@ export const servicesData = {
         benefitsOFChoosing: [
             {
                 title: 'Elegant Material Selection',
-                description: 'Choose from a curated range of premium surfaces to enhance your kitchen’s look.'
+                description: 'Choose from a curated range of premium surfaces to enhance your kitchenâ€™s look.'
             },
             {
                 title: 'Expert Craftsmanship',
@@ -664,7 +665,7 @@ export const servicesData = {
             },
             {
                 title: 'Custom Fit & Finish',
-                description: 'Every surface is measured and fabricated precisely to your kitchen’s layout.'
+                description: 'Every surface is measured and fabricated precisely to your kitchenâ€™s layout.'
             },
             {
                 title: 'Fast & Clean Installation',
@@ -686,11 +687,11 @@ export const servicesData = {
             },
             {
                 question: "Do you provide backsplash options too?",
-                answer: "Absolutely — we can install matching or complementary backsplashes to complete the look."
+                answer: "Absolutely â€” we can install matching or complementary backsplashes to complete the look."
             },
             {
                 question: "How long does surface installation take?",
-                answer: "Most installations are completed within 1–2 days, depending on scope and material availability."
+                answer: "Most installations are completed within 1â€“2 days, depending on scope and material availability."
             },
             {
                 question: "Are the surfaces sealed for protection?",
@@ -703,7 +704,7 @@ export const servicesData = {
         label: 'Kitchen Tiling & Backsplash',
         title: 'Expert Kitchen Tiling & Backsplash Installation',
         description: 'Enhance the visual appeal and functionality of your kitchen with expertly installed tiles and backsplashes tailored to your style.',
-        content: `At Berg General Contractor Kitchens, we extend our craftsmanship beyond kitchens to deliver exceptional kitchen tiling and backsplash services. Whether you're looking for a sleek modern subway tile or a bold patterned mosaic, our team brings precision and creativity to every project. We help you select the ideal materials and patterns to complement your kitchen's design, and we ensure each tile is installed with meticulous attention to detail. A professionally installed backsplash not only elevates your kitchen’s aesthetics but also protects your walls from spills and splatters — combining beauty with practicality.`,
+        content: `At Berg General Contractor Kitchens, we extend our craftsmanship beyond kitchens to deliver exceptional kitchen tiling and backsplash services. Whether you're looking for a sleek modern subway tile or a bold patterned mosaic, our team brings precision and creativity to every project. We help you select the ideal materials and patterns to complement your kitchen's design, and we ensure each tile is installed with meticulous attention to detail. A professionally installed backsplash not only elevates your kitchenâ€™s aesthetics but also protects your walls from spills and splatters â€” combining beauty with practicality.`,
         image: `${static_assets}/images/services/kitchen_tiling.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -762,7 +763,7 @@ export const servicesData = {
             },
             {
                 question: "How long does installation take?",
-                answer: "Most backsplash installations are completed in 1–2 days, depending on complexity."
+                answer: "Most backsplash installations are completed in 1â€“2 days, depending on complexity."
             },
             {
                 question: "Is the grout sealed after tiling?",
@@ -774,7 +775,7 @@ export const servicesData = {
         label: 'Plumbing & Sink Install',
         title: 'Professional Kitchen Plumbing & Sink Installation Services',
         description: 'Ensure flawless water flow and efficient drainage with expert kitchen plumbing and sink installation tailored to your kitchen layout.',
-        content: `Berg General Contractor Kitchens brings the same trusted expertise in plumbing to your kitchen renovations. Whether you’re replacing an old sink or reconfiguring your entire kitchen layout, our licensed professionals handle every detail with precision. We install and connect sinks, faucets, garbage disposals, and dishwashers while ensuring your plumbing system is leak-free and compliant with local codes. From basic hook-ups to complete re-routing of water lines, we prioritize functionality, cleanliness, and longevity in every installation.`,
+        content: `Berg General Contractor Kitchens brings the same trusted expertise in plumbing to your kitchen renovations. Whether youâ€™re replacing an old sink or reconfiguring your entire kitchen layout, our licensed professionals handle every detail with precision. We install and connect sinks, faucets, garbage disposals, and dishwashers while ensuring your plumbing system is leak-free and compliant with local codes. From basic hook-ups to complete re-routing of water lines, we prioritize functionality, cleanliness, and longevity in every installation.`,
         image: `${static_assets}/images/services/sink_installation.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -798,7 +799,7 @@ export const servicesData = {
             },
             {
                 title: 'Comprehensive Installations',
-                description: 'We handle every fixture and connection so you don’t have to worry about a thing.'
+                description: 'We handle every fixture and connection so you donâ€™t have to worry about a thing.'
             },
             {
                 title: 'Durable Materials & Parts',
@@ -806,7 +807,7 @@ export const servicesData = {
             },
             {
                 title: 'Seamless Sink Upgrades',
-                description: 'Whether you’re adding a farmhouse sink or upgrading to stainless steel, we’ve got it covered.'
+                description: 'Whether youâ€™re adding a farmhouse sink or upgrading to stainless steel, weâ€™ve got it covered.'
             },
             {
                 title: 'Fast Service with Minimal Disruption',
@@ -821,7 +822,7 @@ export const servicesData = {
         faqs: [
             {
                 question: "Do I need to move plumbing lines for a new sink?",
-                answer: "Only if the sink’s position is changing. We can assess and reroute as needed for the new layout."
+                answer: "Only if the sinkâ€™s position is changing. We can assess and reroute as needed for the new layout."
             },
             {
                 question: "Can you install sinks into existing countertops?",
@@ -837,7 +838,7 @@ export const servicesData = {
             },
             {
                 question: "Can you install touchless faucets or smart sinks?",
-                answer: "We sure can. We’re experienced with modern plumbing fixtures and smart kitchen upgrades."
+                answer: "We sure can. Weâ€™re experienced with modern plumbing fixtures and smart kitchen upgrades."
             }
         ],
     },
@@ -845,7 +846,7 @@ export const servicesData = {
         label: 'Lighting & Appliances',
         title: 'Kitchen Lighting and Appliance Installation Services',
         description: 'Illuminate your kitchen and streamline your cooking experience with expert lighting design and appliance setup services.',
-        content: `At Berg General Contractor Kitchens, we understand that a well-lit, well-equipped kitchen is the heart of every home. That’s why we offer professional lighting and appliance installation services tailored to both style and function. Whether you’re upgrading to energy-efficient LED fixtures or installing built-in ovens, range hoods, or smart fridges, our team ensures safe and seamless integration. We also help design optimal lighting layouts—from task lighting under cabinets to ambient ceiling lights—so your kitchen not only works better, it looks amazing too.`,
+        content: `At Berg General Contractor Kitchens, we understand that a well-lit, well-equipped kitchen is the heart of every home. Thatâ€™s why we offer professional lighting and appliance installation services tailored to both style and function. Whether youâ€™re upgrading to energy-efficient LED fixtures or installing built-in ovens, range hoods, or smart fridges, our team ensures safe and seamless integration. We also help design optimal lighting layoutsâ€”from task lighting under cabinets to ambient ceiling lightsâ€”so your kitchen not only works better, it looks amazing too.`,
         image: `${static_assets}/images/services/kitchen_lights.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -881,7 +882,7 @@ export const servicesData = {
             },
             {
                 title: 'Modern & Smart Upgrades',
-                description: 'Install the latest kitchen tech with confidence—touchscreen ovens, app-connected fridges, and more.'
+                description: 'Install the latest kitchen tech with confidenceâ€”touchscreen ovens, app-connected fridges, and more.'
             },
             {
                 title: 'Minimal Disruption',
@@ -895,8 +896,8 @@ export const servicesData = {
                 answer: "Yes, we can retrofit LED task lighting without extensive modifications."
             },
             {
-                question: "Do you install appliances I’ve purchased myself?",
-                answer: "Absolutely. We’re happy to install appliances from any retailer, as long as they meet installation requirements."
+                question: "Do you install appliances Iâ€™ve purchased myself?",
+                answer: "Absolutely. Weâ€™re happy to install appliances from any retailer, as long as they meet installation requirements."
             },
             {
                 question: "Can you help with smart kitchen setup?",
@@ -908,7 +909,7 @@ export const servicesData = {
             },
             {
                 question: "What if my kitchen needs new wiring for lighting or appliances?",
-                answer: "No problem—our licensed electricians can safely upgrade your wiring to support modern kitchen demands."
+                answer: "No problemâ€”our licensed electricians can safely upgrade your wiring to support modern kitchen demands."
             }
         ],
        
@@ -917,7 +918,7 @@ export const servicesData = {
         label: 'Custom Pantries',
         title: 'Tailored Kitchen Pantry Design & Installation Services',
         description: 'Maximize storage and organization with custom-built pantries designed to suit your kitchen layout and lifestyle.',
-        content: `Berg General Contractor Kitchens offers personalized pantry solutions that bring order and elegance to your kitchen. Whether you need a walk-in pantry, pull-out shelves, or built-in cabinetry, our team designs and installs efficient storage systems tailored to your needs. We combine high-quality materials with clever design to create functional, clutter-free spaces. From dry goods to cookware, everything will have its place — all while matching your kitchen's style and flow.`,
+        content: `Berg General Contractor Kitchens offers personalized pantry solutions that bring order and elegance to your kitchen. Whether you need a walk-in pantry, pull-out shelves, or built-in cabinetry, our team designs and installs efficient storage systems tailored to your needs. We combine high-quality materials with clever design to create functional, clutter-free spaces. From dry goods to cookware, everything will have its place â€” all while matching your kitchen's style and flow.`,
         image: `${static_assets}/images/services/pantry.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -945,11 +946,11 @@ export const servicesData = {
             },
             {
                 title: 'Stylish & Seamless Integration',
-                description: 'Our custom pantries match your kitchen’s design, maintaining a unified aesthetic.'
+                description: 'Our custom pantries match your kitchenâ€™s design, maintaining a unified aesthetic.'
             },
             {
                 title: 'Easy Access & Visibility',
-                description: 'No more digging through clutter—our designs make everything easy to find and reach.'
+                description: 'No more digging through clutterâ€”our designs make everything easy to find and reach.'
             },
             {
                 title: 'High-Quality Materials',
@@ -976,7 +977,7 @@ export const servicesData = {
             },
             {
                 question: "What materials do you use for pantry shelving?",
-                answer: "We offer a range including wood, laminate, and wire — all durable and customizable to your needs."
+                answer: "We offer a range including wood, laminate, and wire â€” all durable and customizable to your needs."
             },
             {
                 question: "Do you provide organization accessories?",
@@ -1040,7 +1041,7 @@ export const servicesData = {
             },
             {
                 question: "Do I need new appliances for a smart kitchen?",
-                answer: "Not always — we can upgrade specific components or add smart adapters to compatible existing units."
+                answer: "Not always â€” we can upgrade specific components or add smart adapters to compatible existing units."
             },
             {
                 question: "Will smart features increase my energy bill?",
@@ -1048,7 +1049,7 @@ export const servicesData = {
             },
             {
                 question: "Is the tech difficult to use?",
-                answer: "We set everything up and provide easy-to-use interfaces, plus training so you’re fully comfortable."
+                answer: "We set everything up and provide easy-to-use interfaces, plus training so youâ€™re fully comfortable."
             },
             {
                 question: "Can I choose specific features, or is it a full package?",
@@ -1060,8 +1061,8 @@ export const servicesData = {
     'eco-kitchen': {
         label: 'Eco-Friendly Kitchens',
         title: 'Sustainable Kitchen Renovations for a Greener Home',
-        description: 'Design a stylish kitchen that’s kind to the planet with our eco-conscious materials and energy-saving solutions.',
-        content: `At Berg General Contractor Kitchens, we believe that luxury and sustainability can go hand in hand. Our eco-friendly kitchen renovations focus on reducing environmental impact without compromising on function or design. We use responsibly sourced materials, install energy-efficient appliances, and incorporate water-saving features. From bamboo cabinetry to LED lighting and low-VOC finishes, every detail is chosen to support a greener future. Whether you want a fully sustainable kitchen or a few green upgrades, we’ll help you build a space that’s better for you and the planet.`,
+        description: 'Design a stylish kitchen thatâ€™s kind to the planet with our eco-conscious materials and energy-saving solutions.',
+        content: `At Berg General Contractor Kitchens, we believe that luxury and sustainability can go hand in hand. Our eco-friendly kitchen renovations focus on reducing environmental impact without compromising on function or design. We use responsibly sourced materials, install energy-efficient appliances, and incorporate water-saving features. From bamboo cabinetry to LED lighting and low-VOC finishes, every detail is chosen to support a greener future. Whether you want a fully sustainable kitchen or a few green upgrades, weâ€™ll help you build a space thatâ€™s better for you and the planet.`,
         image: `${static_assets}/images/services/eco_kitchen.jpg`,
         typeOfSolutions: {
             headings: 'Solutions we offer',
@@ -1112,7 +1113,7 @@ export const servicesData = {
             },
             {
                 question: "Do I have to replace all my appliances?",
-                answer: "Not necessarily — we’ll assess your current setup and suggest replacements only where they make the most impact."
+                answer: "Not necessarily â€” weâ€™ll assess your current setup and suggest replacements only where they make the most impact."
             },
             {
                 question: "What qualifies as an eco-friendly material?",
@@ -1158,11 +1159,11 @@ export const projectsData = {
             "Pull-out pantry system"
         ],
         content: `
-  This kitchen renovation was all about transforming a closed-off layout into a modern, open-concept space that flows effortlessly into the living and dining areas. The homeowners wanted a clean, bright aesthetic that didn’t sacrifice function — and that’s exactly what we delivered.
+  This kitchen renovation was all about transforming a closed-off layout into a modern, open-concept space that flows effortlessly into the living and dining areas. The homeowners wanted a clean, bright aesthetic that didnâ€™t sacrifice function â€” and thatâ€™s exactly what we delivered.
   
   At Berg General Contractor Kitchens, we opened up the layout by removing partition walls and expanding the kitchen footprint. A large quartz waterfall island became the centerpiece, offering a gathering space with built-in storage and seating. The cabinetry combined matte white fronts with warm wood tones to balance the modern with the inviting. Integrated appliances kept the lines sleek, while a classic subway tile backsplash added timeless appeal.
   
-  Smart features like a touchless faucet, soft-close drawers, and efficient LED lighting elevated convenience. With strategic lighting, space-saving storage, and a minimalist vibe, this open kitchen is now the heart of the home — perfect for hosting or simply enjoying daily meals in style.
+  Smart features like a touchless faucet, soft-close drawers, and efficient LED lighting elevated convenience. With strategic lighting, space-saving storage, and a minimalist vibe, this open kitchen is now the heart of the home â€” perfect for hosting or simply enjoying daily meals in style.
   `,
     },
     "farmhouse-kitchen": {
@@ -1185,11 +1186,11 @@ export const projectsData = {
             "Barn-style sliding door"
         ],
         content: `
-  This renovation brought farmhouse charm to life in a cozy countryside home. The homeowners envisioned a warm and welcoming kitchen that honored traditional design while integrating modern conveniences — and Berg General Contractor Kitchens delivered just that.
+  This renovation brought farmhouse charm to life in a cozy countryside home. The homeowners envisioned a warm and welcoming kitchen that honored traditional design while integrating modern conveniences â€” and Berg General Contractor Kitchens delivered just that.
   
   We used soft white shaker cabinets to create a bright foundation, paired with butcher block counters for that warm, earthy feel. A standout feature is the apron-front farmhouse sink, framed by a large window that fills the space with natural light. Bronze fixtures and wrought iron hardware added rustic contrast.
   
-  Open shelving made from reclaimed wood offers both storage and character, while hand-scraped hardwood flooring and vintage lighting brought in texture and warmth. The barn-style door to the pantry completed the aesthetic. This kitchen now blends country charm with practical design — a space built for gathering, cooking, and making memories.
+  Open shelving made from reclaimed wood offers both storage and character, while hand-scraped hardwood flooring and vintage lighting brought in texture and warmth. The barn-style door to the pantry completed the aesthetic. This kitchen now blends country charm with practical design â€” a space built for gathering, cooking, and making memories.
   `,
     },
     "compact-condo-kitchen": {
@@ -1212,7 +1213,7 @@ export const projectsData = {
             "Floating shelves"
         ],
         content: `
-  This compact condo kitchen project focused on maximizing function and style in a limited footprint. The client, a busy professional living in downtown Orlando, needed a modern, low-maintenance kitchen that didn’t sacrifice aesthetics for space.
+  This compact condo kitchen project focused on maximizing function and style in a limited footprint. The client, a busy professional living in downtown Orlando, needed a modern, low-maintenance kitchen that didnâ€™t sacrifice aesthetics for space.
   
   Berg General Contractor Kitchens delivered a clean, efficient layout with high-gloss cabinets that reflect light and visually expand the space. Quartz countertops were chosen for their durability and sleek appearance. We integrated a full set of compact stainless steel appliances, including a drawer-style microwave and a space-saving range hood.
   
@@ -1303,7 +1304,7 @@ export const projectsData = {
     "family-kitchen": {
         label: "Family-Friendly Kitchen",
         title: "Warm and Functional Family Kitchen Makeover",
-        description: "A spacious, welcoming kitchen designed to accommodate the needs of a growing family—blending style, safety, and smart organization.",
+        description: "A spacious, welcoming kitchen designed to accommodate the needs of a growing familyâ€”blending style, safety, and smart organization.",
         image: `${static_assets}/images/projects/family.jpg`,
         location: "Single-Family Home, Winter Garden, FL",
         duration: "Completed in 5 weeks",
@@ -1320,11 +1321,11 @@ export const projectsData = {
             "Warm white and natural wood tones"
         ],
         content: `
-  Designed for a busy family in Winter Garden, this kitchen makeover by Berg General Contractor Kitchens prioritized function, safety, and a warm, inviting atmosphere. The layout was optimized for meal prep, school lunches, and family dinners—all in one flexible space.
+  Designed for a busy family in Winter Garden, this kitchen makeover by Berg General Contractor Kitchens prioritized function, safety, and a warm, inviting atmosphere. The layout was optimized for meal prep, school lunches, and family dinnersâ€”all in one flexible space.
   
-  We installed soft-close cabinetry and quartz countertops with rounded edges to prevent accidents. A large island became the hub of activity, offering seating, storage, and prep space. Vinyl plank flooring was chosen for its durability and easy maintenance—perfect for spills and high traffic.
+  We installed soft-close cabinetry and quartz countertops with rounded edges to prevent accidents. A large island became the hub of activity, offering seating, storage, and prep space. Vinyl plank flooring was chosen for its durability and easy maintenanceâ€”perfect for spills and high traffic.
   
-  The kitchen features built-in pantry cabinets and smart drawer organizers to keep everything tidy and accessible. Lighting was upgraded to include task-focused fixtures, making homework, cooking, and entertaining easier. The palette—warm whites, natural wood, and gentle contrasts—makes the space feel homey and timeless. This transformation proves that style and family functionality can go hand in hand.
+  The kitchen features built-in pantry cabinets and smart drawer organizers to keep everything tidy and accessible. Lighting was upgraded to include task-focused fixtures, making homework, cooking, and entertaining easier. The paletteâ€”warm whites, natural wood, and gentle contrastsâ€”makes the space feel homey and timeless. This transformation proves that style and family functionality can go hand in hand.
   `,
     },
     "coastal-kitchen": {
@@ -1351,7 +1352,7 @@ export const projectsData = {
   
   The cabinetry was upgraded to classic white shaker style, paired with soft misty blue quartz countertops that mimic the calming hues of the sea. A sea glass tile backsplash adds a pop of texture and color, complemented by brushed nickel fixtures and rattan pendant lights that bring warmth and casual elegance.
   
-  Light oak hardwood flooring ties the look together, while driftwood-accented open shelving offers both display space and a coastal vibe. Integrated under-cabinet lighting ensures the kitchen remains bright and welcoming day or night. The overall palette blends soft blues, whites, and sandy neutrals—evoking a beachy, timeless charm. This transformation created a refreshing space perfect for casual meals, entertaining, or simply enjoying a morning coffee by the shore.
+  Light oak hardwood flooring ties the look together, while driftwood-accented open shelving offers both display space and a coastal vibe. Integrated under-cabinet lighting ensures the kitchen remains bright and welcoming day or night. The overall palette blends soft blues, whites, and sandy neutralsâ€”evoking a beachy, timeless charm. This transformation created a refreshing space perfect for casual meals, entertaining, or simply enjoying a morning coffee by the shore.
   `,
     },
 
@@ -1400,25 +1401,25 @@ export const testimonialsData = [
     {
         "name": "Mark Johnson",
         "role": "Hotel Manager",
-        "feedback": "They renovated several of our suites’ kitchenettes with zero disruption to guests. Fast, clean, and professional from start to finish.",
+        "feedback": "They renovated several of our suitesâ€™ kitchenettes with zero disruption to guests. Fast, clean, and professional from start to finish.",
     },
 
     {
         "name": "Emily Chen",
         "role": "Homeowner | Full Remodel",
-        "feedback": "Our old kitchen was cramped and dated. Berg General Contractor Kitchens opened up the space beautifully — it now feels like the heart of our home.",
+        "feedback": "Our old kitchen was cramped and dated. Berg General Contractor Kitchens opened up the space beautifully â€” it now feels like the heart of our home.",
     },
 
     {
         "name": "David Kim",
         "role": "Real Estate Developer",
-        "feedback": "They’ve remodeled kitchens across multiple properties for us. Always on time, on budget, and with finishes that wow potential buyers.",
+        "feedback": "Theyâ€™ve remodeled kitchens across multiple properties for us. Always on time, on budget, and with finishes that wow potential buyers.",
     },
 
     {
         "name": "Sophia Allen",
-        "role": "Café Owner",
-        "feedback": "The kitchen renovation they did for our café completely changed how we operate. More efficient, stylish, and customers love the new vibe.",
+        "role": "CafÃ© Owner",
+        "feedback": "The kitchen renovation they did for our cafÃ© completely changed how we operate. More efficient, stylish, and customers love the new vibe.",
     },
 
     {
@@ -1436,7 +1437,7 @@ export const testimonialsData = [
     {
         "name": "Jason Brooks",
         "role": "Commercial Building Owner",
-        "feedback": "They upgraded the communal kitchen areas in our offices with energy-efficient appliances and modern design. Our tenants couldn’t be happier.",
+        "feedback": "They upgraded the communal kitchen areas in our offices with energy-efficient appliances and modern design. Our tenants couldnâ€™t be happier.",
     },
 
     {

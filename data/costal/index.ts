@@ -122,8 +122,6 @@ export const serviceAreaPage = {
 }
 
 
-
-
 /* ------------------------
    COMPONENTS 
 ------------------------ */
@@ -1434,3 +1432,5 @@ export const testimonialsData = [
     feedback: "We had them refinish a cracked garage floor—smooth finish, sealed, and looks brand new!",
   }
 ];
+
+export const enable_estimates = true;

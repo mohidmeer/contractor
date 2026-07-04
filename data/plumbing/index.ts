@@ -23,7 +23,7 @@ export const contactInfo = {
   mapEmbedUrl: "https://maps.app.goo.gl/rDGBNQRu5YWHo6329",
 
   email: 'support@totalcareservicesplumbing.com',
-  workingHours: 'Mon–Sat: 8:00 AM – 6:00 PM'
+  workingHours: 'Monâ€“Sat: 8:00 AM â€“ 6:00 PM'
 };
 export const socialLinks = {
   facebook: 'https://www.facebook.com/profile.php?id=61579296842520',
@@ -34,6 +34,7 @@ export const licenses = [
   { number: 'CCC1336268', label: 'Roofing' },
   { number: 'CGC1535671', label: 'General Contractor' },
 ];
+export const enable_estimates = true;
 
 /* ------------------------
     PAGES  
@@ -48,7 +49,7 @@ export const landingPage = {
   },
   hero: {
     title: 'Professional Plumbing Services You Can Rely On',
-    description: 'Whether it’s a leaky faucet or a full plumbing system upgrade, our skilled technicians deliver fast, clean, and dependable service every time.',
+    description: 'Whether itâ€™s a leaky faucet or a full plumbing system upgrade, our skilled technicians deliver fast, clean, and dependable service every time.',
     backgroundImage: `${static_assets}/images/hero_bg_1.jpg`,
     ctaText: 'Schedule Your Service',
     ctaLink: '/contact',
@@ -98,7 +99,7 @@ export const contactPage = {
   },
   form: {
     heading: 'Contact Us',
-    messagePlaceholder: "Tell us what your pipes have been up to — we’ve seen it all."
+    messagePlaceholder: "Tell us what your pipes have been up to â€” weâ€™ve seen it all."
   }
 }
 
@@ -160,11 +161,11 @@ export const faqs = [
   },
   {
     question: "Are your plumbers licensed and insured?",
-    answer: "Absolutely. All our plumbers are licensed, insured, and trained to meet Florida’s safety and code standards."
+    answer: "Absolutely. All our plumbers are licensed, insured, and trained to meet Floridaâ€™s safety and code standards."
   },
   {
     question: "Do you offer emergency plumbing services?",
-    answer: "Yes, we’re available 24/7 for emergency plumbing issues like burst pipes, overflowing toilets, and major leaks."
+    answer: "Yes, weâ€™re available 24/7 for emergency plumbing issues like burst pipes, overflowing toilets, and major leaks."
   },
   {
     question: "How quickly can you respond to a service call?",
@@ -227,17 +228,17 @@ export const WhyUSData = [
   },
   {
     title: "Trusted & Reliable",
-    description: "We show up on time, do the job right, and keep you informed every step of the way — no surprises.",
+    description: "We show up on time, do the job right, and keep you informed every step of the way â€” no surprises.",
     icon: FaHandshake
   },
   {
     title: "Affordable Pricing",
-    description: "We offer transparent, competitive pricing with no hidden fees — just honest work at a fair price.",
+    description: "We offer transparent, competitive pricing with no hidden fees â€” just honest work at a fair price.",
     icon: FaDollarSign
   },
   {
     title: "Customer Satisfaction",
-    description: "We’re not done until you’re happy. Our friendly team makes sure you’re confident in the results.",
+    description: "Weâ€™re not done until youâ€™re happy. Our friendly team makes sure youâ€™re confident in the results.",
     icon: FaSmile
   },
   {
@@ -360,7 +361,7 @@ export const serviceAreasData = [
     name: "Jacksonville",
     href: "/jacksonville",
     title: "Plumbing Services in Jacksonville, FL",
-    description: "Expert plumbing services in Jacksonville, FL. From water leaks to sewer line repairs, we’ve got you covered.",
+    description: "Expert plumbing services in Jacksonville, FL. From water leaks to sewer line repairs, weâ€™ve got you covered.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
     image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
@@ -368,7 +369,7 @@ export const serviceAreasData = [
     name: "Fort Lauderdale",
     href: "/fort-lauderdale",
     title: "Plumbing Services in Fort Lauderdale, FL",
-    description: "Fort Lauderdale’s trusted plumbing company for durable and efficient home plumbing systems.",
+    description: "Fort Lauderdaleâ€™s trusted plumbing company for durable and efficient home plumbing systems.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
     image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
@@ -408,7 +409,7 @@ export const serviceAreasData = [
     name: "West Palm Beach",
     href: "/west-palm-beach",
     title: "Plumbing Services in West Palm Beach, FL",
-    description: "Professional plumbing services in West Palm Beach, FL. Fast, durable repairs built for Florida’s needs.",
+    description: "Professional plumbing services in West Palm Beach, FL. Fast, durable repairs built for Floridaâ€™s needs.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
     image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
@@ -416,7 +417,7 @@ export const serviceAreasData = [
     name: "Naples",
     href: "/naples",
     title: "Plumbing Services in Naples, FL",
-    description: "Naples’ trusted plumbing experts. Offering full-service plumbing and water-saving upgrades.",
+    description: "Naplesâ€™ trusted plumbing experts. Offering full-service plumbing and water-saving upgrades.",
     content: 'Total Care Plumbing is a locally rooted company providing dependable plumbing solutions across Florida. We focus on quality craftsmanship, clear communication, and treating every home with genuine care.',
     image: `${static_assets}/images/services/hero_bg_3.jpg`
   },
@@ -544,7 +545,7 @@ export const servicesData = {
       },
       {
         question: "How long does a pipe installation take?",
-        answer: "Most residential pipe installations or re-piping projects are completed in 1–3 days depending on the scope."
+        answer: "Most residential pipe installations or re-piping projects are completed in 1â€“3 days depending on the scope."
       },
       {
         question: "Is your work insured and licensed?",
@@ -565,7 +566,7 @@ export const servicesData = {
     label: 'Leak Repair',
     title: 'Reliable Leak Repair Services in Florida',
     description: 'We specialize in fast and accurate leak detection and repair, helping homeowners and businesses prevent water damage and costly utility bills.',
-    content: `Water leaks can cause serious damage if left unaddressed. Our expert plumbers provide prompt and professional leak repair services throughout Florida. Whether it’s a dripping faucet, slab leak, hidden pipe leak, or water heater issue, we use advanced tools like acoustic sensors and thermal imaging to locate the source without tearing up your property. Once detected, we provide immediate and permanent solutions using quality materials and proven methods. Our team is trained to handle both residential and commercial leak repairs, ensuring your plumbing system runs smoothly and your property stays dry and damage-free.`,
+    content: `Water leaks can cause serious damage if left unaddressed. Our expert plumbers provide prompt and professional leak repair services throughout Florida. Whether itâ€™s a dripping faucet, slab leak, hidden pipe leak, or water heater issue, we use advanced tools like acoustic sensors and thermal imaging to locate the source without tearing up your property. Once detected, we provide immediate and permanent solutions using quality materials and proven methods. Our team is trained to handle both residential and commercial leak repairs, ensuring your plumbing system runs smoothly and your property stays dry and damage-free.`,
     image: `${static_assets}/images/services/leak_repair.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -644,7 +645,7 @@ export const servicesData = {
     label: 'Drain Cleaning',
     title: 'Expert Drain Cleaning Services in Florida',
     description: 'We offer fast, affordable, and long-lasting drain cleaning services to keep your plumbing system flowing smoothly and prevent clogs.',
-    content: `Clogged drains are not just inconvenient—they can lead to foul odors, slow drainage, and even pipe damage. Our Florida-based team provides comprehensive drain cleaning services for homes and businesses using advanced tools like hydro-jetting and motorized augers. Whether it’s a slow kitchen sink, backed-up toilet, or blocked main sewer line, we’ll clear it quickly and efficiently. We also provide video camera inspections to locate stubborn blockages deep in the system. With our proactive approach and expert technicians, you can prevent recurring clogs and protect your plumbing investment.`,
+    content: `Clogged drains are not just inconvenientâ€”they can lead to foul odors, slow drainage, and even pipe damage. Our Florida-based team provides comprehensive drain cleaning services for homes and businesses using advanced tools like hydro-jetting and motorized augers. Whether itâ€™s a slow kitchen sink, backed-up toilet, or blocked main sewer line, weâ€™ll clear it quickly and efficiently. We also provide video camera inspections to locate stubborn blockages deep in the system. With our proactive approach and expert technicians, you can prevent recurring clogs and protect your plumbing investment.`,
     image: `${static_assets}/images/services/drain_cleaning.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -698,7 +699,7 @@ export const servicesData = {
       },
       {
         question: "Is hydro-jetting safe for old pipes?",
-        answer: "Yes, but we inspect your pipes first to ensure they're strong enough. If not, we’ll use alternative methods like snaking."
+        answer: "Yes, but we inspect your pipes first to ensure they're strong enough. If not, weâ€™ll use alternative methods like snaking."
       },
       {
         question: "Do you use chemical drain cleaners?",
@@ -723,7 +724,7 @@ export const servicesData = {
     label: 'Water Heater Services',
     title: 'Reliable Water Heater Services in Florida',
     description: 'We provide expert water heater installation, repair, and maintenance to ensure you have consistent hot water whenever you need it.',
-    content: `A dependable water heater is essential for daily comfort—whether you're showering, washing dishes, or doing laundry. Our team offers comprehensive water heater services across Florida, including installation of new systems, emergency repairs, and routine maintenance. We work with both traditional tank-style heaters and energy-efficient tankless models. From diagnosing issues like strange noises or lack of hot water to full system replacements, we ensure your hot water supply is restored quickly and reliably. With our expert knowledge and high-quality equipment, we help Florida homeowners enjoy efficient, long-lasting water heater performance.`,
+    content: `A dependable water heater is essential for daily comfortâ€”whether you're showering, washing dishes, or doing laundry. Our team offers comprehensive water heater services across Florida, including installation of new systems, emergency repairs, and routine maintenance. We work with both traditional tank-style heaters and energy-efficient tankless models. From diagnosing issues like strange noises or lack of hot water to full system replacements, we ensure your hot water supply is restored quickly and reliably. With our expert knowledge and high-quality equipment, we help Florida homeowners enjoy efficient, long-lasting water heater performance.`,
     image: `${static_assets}/images/services/water_heater.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -743,7 +744,7 @@ export const servicesData = {
     benefitsOFChoosing: [
       {
         title: 'Fast Hot Water Restoration',
-        description: 'We repair and replace water heaters quickly, so you’re never without hot water for long.'
+        description: 'We repair and replace water heaters quickly, so youâ€™re never without hot water for long.'
       },
       {
         title: 'Expert Diagnosis & Repair',
@@ -773,7 +774,7 @@ export const servicesData = {
     faqs: [
       {
         question: "How long does a water heater typically last?",
-        answer: "Traditional tank heaters last 8–12 years, while tankless models can last up to 20 years with proper care."
+        answer: "Traditional tank heaters last 8â€“12 years, while tankless models can last up to 20 years with proper care."
       },
       {
         question: "Do you install both gas and electric models?",
@@ -793,7 +794,7 @@ export const servicesData = {
       },
       {
         question: "Can I switch from tank to tankless?",
-        answer: "Absolutely! We’ll assess your home’s setup and recommend the best option for a seamless upgrade."
+        answer: "Absolutely! Weâ€™ll assess your homeâ€™s setup and recommend the best option for a seamless upgrade."
       }
     ],
     images: []
@@ -802,7 +803,7 @@ export const servicesData = {
     label: 'Emergency Plumbing',
     title: '24/7 Emergency Plumbing Services in Florida',
     description: 'When plumbing disasters strike, our emergency plumbers are ready around the clock to stop leaks, fix bursts, and restore flow fast.',
-    content: `Plumbing emergencies can cause serious damage if not addressed immediately. That’s why we offer 24/7 emergency plumbing services throughout Florida. Whether it’s a burst pipe, a major leak, or a sewage backup, our experienced plumbers respond quickly with the right tools and parts to get things under control. We prioritize speed, safety, and quality repairs—restoring water flow and preventing further damage. With Total Care Plumbing, you don’t have to wait until morning to fix a flooded bathroom or overflowing sink. Call us any time, day or night, for immediate, professional service.`,
+    content: `Plumbing emergencies can cause serious damage if not addressed immediately. Thatâ€™s why we offer 24/7 emergency plumbing services throughout Florida. Whether itâ€™s a burst pipe, a major leak, or a sewage backup, our experienced plumbers respond quickly with the right tools and parts to get things under control. We prioritize speed, safety, and quality repairsâ€”restoring water flow and preventing further damage. With Total Care Plumbing, you donâ€™t have to wait until morning to fix a flooded bathroom or overflowing sink. Call us any time, day or night, for immediate, professional service.`,
     image: `${static_assets}/images/services/emergency_plumbing.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -822,7 +823,7 @@ export const servicesData = {
     benefitsOFChoosing: [
       {
         title: '24/7 Availability',
-        description: 'We’re always on call—day, night, weekends, and holidays—to respond to urgent plumbing problems.'
+        description: 'Weâ€™re always on callâ€”day, night, weekends, and holidaysâ€”to respond to urgent plumbing problems.'
       },
       {
         title: 'Fast Emergency Response',
@@ -846,7 +847,7 @@ export const servicesData = {
       },
       {
         title: 'Peace of Mind Anytime',
-        description: 'You can count on us in any crisis—we’ve got your back when plumbing goes wrong.'
+        description: 'You can count on us in any crisisâ€”weâ€™ve got your back when plumbing goes wrong.'
       }
     ],
     faqs: [
@@ -856,7 +857,7 @@ export const servicesData = {
       },
       {
         question: "How fast can you arrive during an emergency?",
-        answer: "In most Florida areas, we can dispatch a plumber within 30–60 minutes."
+        answer: "In most Florida areas, we can dispatch a plumber within 30â€“60 minutes."
       },
       {
         question: "Do you charge extra for nights or weekends?",
@@ -864,7 +865,7 @@ export const servicesData = {
       },
       {
         question: "Should I shut off my water before you arrive?",
-        answer: "Yes—if possible, turn off your main water supply to minimize damage until we get there."
+        answer: "Yesâ€”if possible, turn off your main water supply to minimize damage until we get there."
       },
       {
         question: "Can you fix water heater emergencies too?",
@@ -872,7 +873,7 @@ export const servicesData = {
       },
       {
         question: "Are emergency services available on holidays?",
-        answer: "Yes, our team is available 24/7—including weekends and holidays—across Florida."
+        answer: "Yes, our team is available 24/7â€”including weekends and holidaysâ€”across Florida."
       }
     ],
     images: [`${static_assets}/images/services/emergency_plumbing.jpg`]
@@ -881,7 +882,7 @@ export const servicesData = {
     label: 'Sewer Line Repair',
     title: 'Reliable Sewer Line Repair Services in Florida',
     description: 'We specialize in fast, effective sewer line repair and replacement to resolve backups, odors, and pipe damage before they become bigger issues.',
-    content: `Sewer line issues can be messy, stressful, and hazardous to your health. At Total Care Plumbing, we provide expert sewer line repair services across Florida to resolve blockages, root intrusion, pipe corrosion, and collapse. Our licensed plumbers use advanced diagnostic tools like camera inspections to pinpoint the problem and deliver precise, lasting repairs. Whether it’s a small clog or a full line replacement, we act fast to restore proper drainage and protect your home from sewage backups and contamination. Count on us for quality work, minimal disruption, and peace of mind.`,
+    content: `Sewer line issues can be messy, stressful, and hazardous to your health. At Total Care Plumbing, we provide expert sewer line repair services across Florida to resolve blockages, root intrusion, pipe corrosion, and collapse. Our licensed plumbers use advanced diagnostic tools like camera inspections to pinpoint the problem and deliver precise, lasting repairs. Whether itâ€™s a small clog or a full line replacement, we act fast to restore proper drainage and protect your home from sewage backups and contamination. Count on us for quality work, minimal disruption, and peace of mind.`,
     image: `${static_assets}/images/services/sewer_pipes.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -913,7 +914,7 @@ export const servicesData = {
       },
       {
         title: 'Long-Term Solutions',
-        description: 'We don’t just patch—it’s about lasting fixes with high-quality materials and workmanship.'
+        description: 'We donâ€™t just patchâ€”itâ€™s about lasting fixes with high-quality materials and workmanship.'
       },
       {
         title: 'Licensed & Insured Team',
@@ -921,7 +922,7 @@ export const servicesData = {
       },
       {
         title: 'Fast & Clean Work',
-        description: 'We respect your home—no mess left behind, and repairs done right the first time.'
+        description: 'We respect your homeâ€”no mess left behind, and repairs done right the first time.'
       },
       {
         title: 'Emergency Services Available',
@@ -943,15 +944,15 @@ export const servicesData = {
       },
       {
         question: "Can tree roots damage sewer lines?",
-        answer: "Absolutely—roots are a major cause of cracked and blocked lines. We remove them and reinforce your pipes."
+        answer: "Absolutelyâ€”roots are a major cause of cracked and blocked lines. We remove them and reinforce your pipes."
       },
       {
         question: "How long does sewer line repair take?",
-        answer: "Most repairs are completed in 1–2 days, depending on severity and repair method."
+        answer: "Most repairs are completed in 1â€“2 days, depending on severity and repair method."
       },
       {
         question: "Do I need a permit for sewer line work?",
-        answer: "In most cases, yes. But don’t worry—we handle all permits and compliance for you."
+        answer: "In most cases, yes. But donâ€™t worryâ€”we handle all permits and compliance for you."
       }
     ],
     images: [`${static_assets}/images/services/sewer_pipes.jpg`]
@@ -959,8 +960,8 @@ export const servicesData = {
   'toilet-installation': {
     label: 'Toilet Installation',
     title: 'Expert Toilet Installation Services in Florida',
-    description: 'We offer professional toilet installation with efficient, leak-free setup—perfect for remodels, upgrades, or new builds.',
-    content: `Upgrading or replacing your toilet might seem simple, but a proper installation ensures long-term performance and avoids costly leaks or water damage. At Total Care Plumbing, we install all types of toilets—from standard models to low-flow and smart toilets—with precision and care. Our licensed plumbers handle everything, including removal of old units, secure fittings, wax seals, water connections, and flushing system tests. Whether you're remodeling a bathroom or fixing a broken unit, we provide fast, clean, and code-compliant installation across Florida.`,
+    description: 'We offer professional toilet installation with efficient, leak-free setupâ€”perfect for remodels, upgrades, or new builds.',
+    content: `Upgrading or replacing your toilet might seem simple, but a proper installation ensures long-term performance and avoids costly leaks or water damage. At Total Care Plumbing, we install all types of toiletsâ€”from standard models to low-flow and smart toiletsâ€”with precision and care. Our licensed plumbers handle everything, including removal of old units, secure fittings, wax seals, water connections, and flushing system tests. Whether you're remodeling a bathroom or fixing a broken unit, we provide fast, clean, and code-compliant installation across Florida.`,
     image: `${static_assets}/images/services/toilet.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -992,7 +993,7 @@ export const servicesData = {
       },
       {
         title: 'Quick Turnaround',
-        description: 'Most toilet installs are completed within an hour or two—no hassle, no delays.'
+        description: 'Most toilet installs are completed within an hour or twoâ€”no hassle, no delays.'
       },
       {
         title: 'Clean & Respectful Service',
@@ -1010,11 +1011,11 @@ export const servicesData = {
     faqs: [
       {
         question: "How long does toilet installation take?",
-        answer: "Usually around 1–2 hours depending on the existing plumbing and toilet type."
+        answer: "Usually around 1â€“2 hours depending on the existing plumbing and toilet type."
       },
       {
         question: "Can I supply my own toilet?",
-        answer: "Yes! We’re happy to install any unit you provide, or we can help you choose the right model."
+        answer: "Yes! Weâ€™re happy to install any unit you provide, or we can help you choose the right model."
       },
       {
         question: "Do you remove and dispose of old toilets?",
@@ -1022,15 +1023,15 @@ export const servicesData = {
       },
       {
         question: "Is it worth upgrading to a low-flow toilet?",
-        answer: "Yes—low-flow toilets can save thousands of gallons of water per year without compromising performance."
+        answer: "Yesâ€”low-flow toilets can save thousands of gallons of water per year without compromising performance."
       },
       {
         question: "Do you install toilets in commercial buildings?",
         answer: "Yes, we serve both residential and commercial properties across Florida."
       },
       {
-        question: "What if there’s a leak after installation?",
-        answer: "All our work is guaranteed. If there’s any issue, we’ll return promptly to fix it."
+        question: "What if thereâ€™s a leak after installation?",
+        answer: "All our work is guaranteed. If thereâ€™s any issue, weâ€™ll return promptly to fix it."
       }
     ],
     images: [`${static_assets}/images/services/toilet.jpg`]
@@ -1038,8 +1039,8 @@ export const servicesData = {
   'faucet-fixture-repair': {
     label: 'Faucet & Fixture Repair',
     title: 'Reliable Faucet and Fixture Repair Services in Florida',
-    description: 'We fix leaky faucets, dripping showerheads, and broken fixtures quickly and efficiently—saving you water, money, and stress.',
-    content: `A dripping faucet or faulty fixture isn’t just annoying—it wastes water and can lead to higher bills or water damage. At Total Care Plumbing, we offer expert faucet and fixture repair services for kitchens, bathrooms, and outdoor spaces. Whether it's a worn-out washer, corroded valve, or loose handle, our plumbers diagnose the issue and make precision repairs on the spot. We service all major brands and can also upgrade outdated fixtures for improved performance and style. Trust us for fast, reliable, and mess-free plumbing solutions anywhere in Florida.`,
+    description: 'We fix leaky faucets, dripping showerheads, and broken fixtures quickly and efficientlyâ€”saving you water, money, and stress.',
+    content: `A dripping faucet or faulty fixture isnâ€™t just annoyingâ€”it wastes water and can lead to higher bills or water damage. At Total Care Plumbing, we offer expert faucet and fixture repair services for kitchens, bathrooms, and outdoor spaces. Whether it's a worn-out washer, corroded valve, or loose handle, our plumbers diagnose the issue and make precision repairs on the spot. We service all major brands and can also upgrade outdated fixtures for improved performance and style. Trust us for fast, reliable, and mess-free plumbing solutions anywhere in Florida.`,
     image: `${static_assets}/images/services/facuet.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -1093,11 +1094,11 @@ export const servicesData = {
       },
       {
         question: "Can you repair all faucet brands?",
-        answer: "Yes—we’re experienced with all major brands like Moen, Delta, Kohler, American Standard, and more."
+        answer: "Yesâ€”weâ€™re experienced with all major brands like Moen, Delta, Kohler, American Standard, and more."
       },
       {
         question: "Should I repair or replace a fixture?",
-        answer: "We’ll advise you based on cost and condition. In some cases, replacing saves more in the long run."
+        answer: "Weâ€™ll advise you based on cost and condition. In some cases, replacing saves more in the long run."
       },
       {
         question: "Do you offer same-day repairs?",
@@ -1109,7 +1110,7 @@ export const servicesData = {
       },
       {
         question: "Will my repair come with a warranty?",
-        answer: "Absolutely—all work is backed by our workmanship guarantee for your peace of mind."
+        answer: "Absolutelyâ€”all work is backed by our workmanship guarantee for your peace of mind."
       }
     ],
     images: [`${static_assets}/images/services/facuet.jpg`]
@@ -1118,7 +1119,7 @@ export const servicesData = {
     label: 'Bathroom Plumbing',
     title: 'Expert Bathroom Plumbing Services in Florida',
     description: 'From leaky sinks to full bathroom plumbing upgrades, we handle it all with precision, professionalism, and care.',
-    content: `Your bathroom is one of the most used areas in your home—don’t let plumbing problems disrupt your daily routine. At Total Care Plumbing, we provide comprehensive bathroom plumbing services across Florida, including repairs, installations, and upgrades. Whether it’s a clogged drain, faulty faucet, running toilet, or full fixture replacement, our licensed plumbers deliver fast and reliable service. We work with top-quality materials and modern tools to ensure long-lasting results. Trust us to keep your bathroom running smoothly, cleanly, and efficiently.`,
+    content: `Your bathroom is one of the most used areas in your homeâ€”donâ€™t let plumbing problems disrupt your daily routine. At Total Care Plumbing, we provide comprehensive bathroom plumbing services across Florida, including repairs, installations, and upgrades. Whether itâ€™s a clogged drain, faulty faucet, running toilet, or full fixture replacement, our licensed plumbers deliver fast and reliable service. We work with top-quality materials and modern tools to ensure long-lasting results. Trust us to keep your bathroom running smoothly, cleanly, and efficiently.`,
     image: `${static_assets}/images/services/bathroom_plumbing.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -1138,7 +1139,7 @@ export const servicesData = {
     benefitsOFChoosing: [
       {
         title: 'Complete Bathroom Coverage',
-        description: 'We handle all bathroom plumbing needs—from minor repairs to full fixture upgrades.'
+        description: 'We handle all bathroom plumbing needsâ€”from minor repairs to full fixture upgrades.'
       },
       {
         title: 'Licensed & Insured Professionals',
@@ -1162,7 +1163,7 @@ export const servicesData = {
       },
       {
         title: 'Customized Plumbing Solutions',
-        description: 'Whether it’s for a family home or rental property, we tailor our work to your needs.'
+        description: 'Whether itâ€™s for a family home or rental property, we tailor our work to your needs.'
       }
     ],
     faqs: [
@@ -1172,7 +1173,7 @@ export const servicesData = {
       },
       {
         question: "Do you install new bathroom fixtures?",
-        answer: "Absolutely—we install sinks, faucets, toilets, bathtubs, and more, including upgrades."
+        answer: "Absolutelyâ€”we install sinks, faucets, toilets, bathtubs, and more, including upgrades."
       },
       {
         question: "Is bathroom plumbing covered under your warranty?",
@@ -1184,7 +1185,7 @@ export const servicesData = {
       },
       {
         question: "Can you help with low water pressure in the shower?",
-        answer: "Definitely—we’ll identify the cause and restore proper water flow quickly."
+        answer: "Definitelyâ€”weâ€™ll identify the cause and restore proper water flow quickly."
       },
       {
         question: "Do you handle bathroom remodel plumbing?",
@@ -1196,8 +1197,8 @@ export const servicesData = {
   'water-filtration-systems': {
     label: 'Water Filtration Systems',
     title: 'Clean, Safe Water with Expert Filtration System Installation in Florida',
-    description: 'We install advanced water filtration systems to remove contaminants and improve the taste, safety, and quality of your home’s water supply.',
-    content: `If you’re concerned about the quality of your tap water, a professionally installed water filtration system can make a world of difference. At Total Care Plumbing, we offer whole-house and point-of-use filtration solutions tailored to Florida homes. From removing chlorine, heavy metals, and bacteria to softening hard water, we provide systems that improve water taste, clarity, and safety. Our team evaluates your water needs, recommends the best system, and handles the full installation. Enjoy cleaner showers, tastier drinking water, and longer-lasting appliances—all with our expert service.`,
+    description: 'We install advanced water filtration systems to remove contaminants and improve the taste, safety, and quality of your homeâ€™s water supply.',
+    content: `If youâ€™re concerned about the quality of your tap water, a professionally installed water filtration system can make a world of difference. At Total Care Plumbing, we offer whole-house and point-of-use filtration solutions tailored to Florida homes. From removing chlorine, heavy metals, and bacteria to softening hard water, we provide systems that improve water taste, clarity, and safety. Our team evaluates your water needs, recommends the best system, and handles the full installation. Enjoy cleaner showers, tastier drinking water, and longer-lasting appliancesâ€”all with our expert service.`,
     image: `${static_assets}/images/services/water_filteration.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -1221,7 +1222,7 @@ export const servicesData = {
       },
       {
         title: 'Customized to Your Home',
-        description: 'We analyze your water supply and install the right system for your household’s needs.'
+        description: 'We analyze your water supply and install the right system for your householdâ€™s needs.'
       },
       {
         title: 'Better Tasting Water',
@@ -1233,7 +1234,7 @@ export const servicesData = {
       },
       {
         title: 'Professional Installation',
-        description: 'We handle everything—from system selection to flawless installation and testing.'
+        description: 'We handle everythingâ€”from system selection to flawless installation and testing.'
       },
       {
         title: 'Eco-Friendly Options',
@@ -1246,16 +1247,16 @@ export const servicesData = {
     ],
     faqs: [
       {
-        question: "What’s the best water filtration system for my home?",
+        question: "Whatâ€™s the best water filtration system for my home?",
         answer: "It depends on your water quality and usage. We test your water and recommend a system tailored to your needs."
       },
       {
         question: "Do you install both whole-house and under-sink filters?",
-        answer: "Yes, we install all types—from small filters to full-home systems."
+        answer: "Yes, we install all typesâ€”from small filters to full-home systems."
       },
       {
         question: "How long do water filters last?",
-        answer: "It varies by system, but most require replacement every 3–12 months. We offer easy maintenance plans."
+        answer: "It varies by system, but most require replacement every 3â€“12 months. We offer easy maintenance plans."
       },
       {
         question: "Can filtration help with hard water?",
@@ -1267,7 +1268,7 @@ export const servicesData = {
       },
       {
         question: "Do you provide maintenance for installed systems?",
-        answer: "Absolutely—we offer filter replacement, inspections, and tune-ups for all systems we install."
+        answer: "Absolutelyâ€”we offer filter replacement, inspections, and tune-ups for all systems we install."
       }
     ],
     images: [`${static_assets}/images/services/water_filteration.jpg`]
@@ -1327,7 +1328,7 @@ export const projectsData = {
       Sunrise Apartments required a full-scale plumbing overhaul to address recurring issues with water pressure, outdated fixtures, and inconsistent flow in multiple units.
       Our team replaced the entire system using durable CPVC and PVC piping for clean water delivery and efficient waste management.
       We also added low-flow fixtures and a metering system to help residents monitor usage and reduce utility costs.
-      The upgrade was completed smoothly in three weeks with minimal disruption to tenants, significantly improving the building’s plumbing reliability.`,
+      The upgrade was completed smoothly in three weeks with minimal disruption to tenants, significantly improving the buildingâ€™s plumbing reliability.`,
   },
   'palm-heights-condos': {
     label: 'Palm Heights Condos',
@@ -1374,7 +1375,7 @@ export const projectsData = {
       'Pressure-Assisted Toilet Systems'
     ],
     content: `
-      City Mall’s restrooms were due for a full-scale plumbing renovation to handle increasing visitor volume and improve hygiene standards.
+      City Mallâ€™s restrooms were due for a full-scale plumbing renovation to handle increasing visitor volume and improve hygiene standards.
       We installed commercial-grade fixtures with sensor-based systems for touchless operation, improving both user experience and water efficiency.
       The layout was re-piped using a mix of PVC and copper, and the drainage system was restructured for faster flow and reduced blockages.
       Completed in just 3 weeks with all work done after hours to avoid mall downtime.`,
@@ -1408,7 +1409,7 @@ export const projectsData = {
   'ocean-bay-resort': {
     label: 'Ocean Bay Resort',
     title: 'Ocean Bay Resort Plumbing Overhaul',
-    description: 'Delivered a high-capacity plumbing system tailored for Ocean Bay Resort’s coastal environment and guest volume demands.',
+    description: 'Delivered a high-capacity plumbing system tailored for Ocean Bay Resortâ€™s coastal environment and guest volume demands.',
     image: `${static_assets}/images/projects/bathroom_1.jpg`,
     location: 'Ocean Bay Resort, Clearwater, FL',
     duration: 'Completed in 7 weeks',
@@ -1429,7 +1430,7 @@ export const projectsData = {
       We implemented a hybrid piping system combining copper and PEX to provide both durability and flexibility.
       Salt-resistant fixtures and smart leak detection systems were installed to reduce corrosion and downtime.
       The system included booster pumps and pressure regulators to ensure optimal water pressure throughout the property.
-      Completed in 7 weeks, the project significantly improved performance and reduced maintenance for the resort’s operations.`,
+      Completed in 7 weeks, the project significantly improved performance and reduced maintenance for the resortâ€™s operations.`,
   },
   'community-center-bathrooms': {
     label: 'Community Center Bathrooms',
@@ -1576,7 +1577,7 @@ export const testimonialsData = [
   {
     name: "Isabella Taylor",
     role: "Retail Owner",
-    feedback: "Had a burst pipe over the weekend—these guys were here fast and handled it like pros.",
+    feedback: "Had a burst pipe over the weekendâ€”these guys were here fast and handled it like pros.",
   },
   {
     name: "William Harris",
@@ -1586,6 +1587,6 @@ export const testimonialsData = [
   {
     name: "Emma Robinson",
     role: "Home Renovator | Florida",
-    feedback: "They’re excellent at integrating plumbing into remodeling projects without delays or surprises.",
+    feedback: "Theyâ€™re excellent at integrating plumbing into remodeling projects without delays or surprises.",
   }
 ];

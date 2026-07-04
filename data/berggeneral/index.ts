@@ -22,7 +22,7 @@ export const contactInfo = {
   address: '300 SW 1st Avenue Ste 155, Fort Lauderdale, FL 33301',
   mapEmbedUrl: "https://maps.app.goo.gl/rDGBNQRu5YWHo6329",
   email: 'support@berggeneralcontractors.com',
-  workingHours: 'Mon–Sat: 8:00 AM – 6:00 PM'
+  workingHours: 'Monâ€“Sat: 8:00 AM â€“ 6:00 PM'
 };
 export const socialLinks = {
   facebook: 'https://www.facebook.com/profile.php?id=61579296842520',
@@ -33,6 +33,7 @@ export const licenses = [
   { number: 'CCC1336268', label: 'Roofing' },
   { number: 'CGC1535671', label: 'General Contractor' },
 ];
+export const enable_estimates = true;
 /* ------------------------
     PAGES  
 ------------------------ */
@@ -70,7 +71,7 @@ export const servicesPage = {
 export const projectsPage = {
   seo: {
     title: 'Our Construction & Remodeling Projects',
-    description: 'Take a look at our completed office, industrial, and general contracting projects across Florida — reliable, modern, and built to last.',
+    description: 'Take a look at our completed office, industrial, and general contracting projects across Florida â€” reliable, modern, and built to last.',
     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'projects',
   },
@@ -95,7 +96,7 @@ export const contactPage = {
   },
   form: {
     heading: 'Get In Touch',
-    messagePlaceholder: "Tell us about your project goals — we’re here to build your vision.",
+    messagePlaceholder: "Tell us about your project goals â€” weâ€™re here to build your vision.",
   }
 }
 
@@ -128,7 +129,7 @@ export const getToKnow = {
   keyPoints: [
       {
           title: 'Experienced General Contractors',
-          desc: 'Our team brings years of expertise in office, industrial, and commercial construction — ensuring every project is completed to the highest standards.',
+          desc: 'Our team brings years of expertise in office, industrial, and commercial construction â€” ensuring every project is completed to the highest standards.',
       },
       {
           title: 'Quality Materials & Workmanship',
@@ -160,7 +161,7 @@ export const faqs = [
   },
   {
     question: "Do you take on both small updates and large-scale projects?",
-    answer: "Yes, whether it’s a minor remodel, a full-scale office buildout, or an industrial upgrade, we tailor our services to your needs and budget."
+    answer: "Yes, whether itâ€™s a minor remodel, a full-scale office buildout, or an industrial upgrade, we tailor our services to your needs and budget."
   },
   {
     question: "How long does a typical remodel or renovation take?",
@@ -198,7 +199,7 @@ export const ourProcessData = {
     },
     {
       title: "Construction & Execution",
-      description: "Our experienced crew handles all phases — demolition, building, finishing, and quality checks.",
+      description: "Our experienced crew handles all phases â€” demolition, building, finishing, and quality checks.",
       icon: FaHammer
     },
     {
@@ -222,7 +223,7 @@ export const WhyUSData = [
   },
   {
     title: "Clear Communication",
-    description: "We keep clients updated throughout the project — no surprises, just results.",
+    description: "We keep clients updated throughout the project â€” no surprises, just results.",
     icon: FaHandshake
   },
   {
@@ -311,7 +312,7 @@ export const navItems = [
    NAVITEMS FOOTER 
 ------------------------ */
 export const FooterData = {
-  tagline: 'Building Florida’s future with expert office remodels, industrial renovations, and trusted general contracting services.',
+  tagline: 'Building Floridaâ€™s future with expert office remodels, industrial renovations, and trusted general contracting services.',
 };
 
 /* ------------------------
@@ -323,7 +324,7 @@ export const serviceAreasData = [
     href: "/miami",
     title: "General Contracting & Remodeling in Miami, FL",
     description: "Professional office remodels, industrial renovations, and full general contracting services in Miami, FL.",
-    content: "Berg General Contractors serves Miami with reliable construction services — from office remodels and tenant improvements to large-scale industrial renovations.",
+    content: "Berg General Contractors serves Miami with reliable construction services â€” from office remodels and tenant improvements to large-scale industrial renovations.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
@@ -338,7 +339,7 @@ export const serviceAreasData = [
     name: "Tampa",
     href: "/tampa",
     title: "Contracting & Remodeling Services in Tampa, FL",
-    description: "From commercial remodels to industrial renovations — Tampa businesses trust Berg General Contractors.",
+    description: "From commercial remodels to industrial renovations â€” Tampa businesses trust Berg General Contractors.",
     content: "We proudly serve Tampa with expert construction, remodeling, and restoration services that ensure efficiency, durability, and modern design.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -347,7 +348,7 @@ export const serviceAreasData = [
     href: "/jacksonville",
     title: "General Contractor Services in Jacksonville, FL",
     description: "Reliable contracting solutions for offices, industrial facilities, and retail properties in Jacksonville.",
-    content: "Berg General Contractors provides full-service construction in Jacksonville — from tenant improvements to complex industrial renovations.",
+    content: "Berg General Contractors provides full-service construction in Jacksonville â€” from tenant improvements to complex industrial renovations.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
@@ -471,7 +472,7 @@ export const servicesData = {
   label: 'Office Remodel',
   title: 'Professional Office Remodeling Services in Florida',
   description: 'Upgrade your workspace with Berg General Contractors. We specialize in creating modern, efficient, and functional office environments that inspire productivity and reflect your brand.',
-  content: `An office remodel is more than a design update — it’s about creating a productive, welcoming, and efficient space for your team and clients. At Berg General Contractors, we deliver end-to-end office remodeling solutions tailored to your company’s needs. From layout redesign and tenant improvements to custom finishes and mechanical upgrades, we manage every detail of the project. Our team ensures minimal disruption to your business operations, while delivering high-quality results that improve functionality, comfort, and aesthetics. Whether it’s a single-office refresh or a full corporate headquarters transformation, we bring precision, professionalism, and care to every project.`,
+  content: `An office remodel is more than a design update â€” itâ€™s about creating a productive, welcoming, and efficient space for your team and clients. At Berg General Contractors, we deliver end-to-end office remodeling solutions tailored to your companyâ€™s needs. From layout redesign and tenant improvements to custom finishes and mechanical upgrades, we manage every detail of the project. Our team ensures minimal disruption to your business operations, while delivering high-quality results that improve functionality, comfort, and aesthetics. Whether itâ€™s a single-office refresh or a full corporate headquarters transformation, we bring precision, professionalism, and care to every project.`,
   image: `${static_assets}/images/services/office.jpg`,
   typeOfSolutions: {
     headings: 'Solutions we offer',
@@ -533,7 +534,7 @@ export const servicesData = {
     },
     {
       question: "Do you offer custom solutions for specific industries?",
-      answer: "Yes, whether you’re in healthcare, retail, finance, or tech, we tailor the remodel to meet industry-specific needs."
+      answer: "Yes, whether youâ€™re in healthcare, retail, finance, or tech, we tailor the remodel to meet industry-specific needs."
     }
   ],
   images: [],
@@ -541,7 +542,7 @@ export const servicesData = {
 'industrial-remodel': {
   label: 'Industrial Remodel',
   title: 'Industrial Remodeling & Facility Upgrades in Florida',
-  description: 'Berg General Contractors delivers safe, code-compliant industrial remodels — from production floors and warehouses to labs and logistics facilities.',
+  description: 'Berg General Contractors delivers safe, code-compliant industrial remodels â€” from production floors and warehouses to labs and logistics facilities.',
   content: `Industrial remodeling demands precision, safety, and strict adherence to regulations. At Berg General Contractors, we modernize warehouses, manufacturing plants, labs, and logistics hubs to improve throughput, safety, and efficiency. Our team coordinates structural changes, MEP upgrades, racking systems, loading docks, clean zones, and specialized buildouts while minimizing downtime. From heavy-duty flooring and impact protection to ventilation, fire safety, and electrical capacity increases, we plan and execute with industrial performance in mind.`,
   image: `${static_assets}/images/services/industrial-remodel.jpg`,
   typeOfSolutions: {
@@ -596,7 +597,7 @@ export const servicesData = {
     },
     {
       question: "What industries do you serve?",
-      answer: "Manufacturing, warehousing, logistics, food & beverage, labs, and light industrial — among others."
+      answer: "Manufacturing, warehousing, logistics, food & beverage, labs, and light industrial â€” among others."
     },
     {
       question: "Can you increase electrical capacity and ventilation?",
@@ -612,8 +613,8 @@ export const servicesData = {
 'general-contracting': {
   label: 'General Contracting',
   title: 'Comprehensive General Contracting Services in Florida',
-  description: 'Berg General Contractors provides complete construction management and general contracting services — from planning and permitting to project delivery.',
-  content: `As a full-service general contractor, Berg General Contractors manages every aspect of your construction or renovation project. We coordinate trades, manage schedules, handle permits, and ensure code compliance — all while maintaining clear communication with you. Whether it’s a new commercial build, a tenant improvement, or a large-scale renovation, our goal is to deliver quality construction with efficiency and precision. By acting as your single point of contact, we eliminate stress and streamline the building process, ensuring that projects are completed on time, within budget, and to the highest standards.`,
+  description: 'Berg General Contractors provides complete construction management and general contracting services â€” from planning and permitting to project delivery.',
+  content: `As a full-service general contractor, Berg General Contractors manages every aspect of your construction or renovation project. We coordinate trades, manage schedules, handle permits, and ensure code compliance â€” all while maintaining clear communication with you. Whether itâ€™s a new commercial build, a tenant improvement, or a large-scale renovation, our goal is to deliver quality construction with efficiency and precision. By acting as your single point of contact, we eliminate stress and streamline the building process, ensuring that projects are completed on time, within budget, and to the highest standards.`,
   image: `${static_assets}/images/services/general-contracting.jpg`,
   typeOfSolutions: {
     headings: 'Solutions we offer',
@@ -683,8 +684,8 @@ export const servicesData = {
 'tenant-improvements': {
   label: 'Tenant Improvements',
   title: 'Tenant Improvement Construction Services in Florida',
-  description: 'Berg General Contractors delivers turnkey tenant improvement solutions — from office buildouts to retail spaces — tailored to meet your business needs and lease requirements.',
-  content: `Tenant improvements require a careful balance between property owner expectations and tenant business goals. At Berg General Contractors, we specialize in transforming leased spaces into functional, efficient, and brand-aligned environments. Whether it’s reconfiguring office layouts, updating retail interiors, or upgrading building systems, we handle every aspect of the process. Our team manages design coordination, permitting, and construction while ensuring compliance with building codes and lease agreements. With our expertise, tenants move into customized spaces that are ready for immediate productivity and long-term success.`,
+  description: 'Berg General Contractors delivers turnkey tenant improvement solutions â€” from office buildouts to retail spaces â€” tailored to meet your business needs and lease requirements.',
+  content: `Tenant improvements require a careful balance between property owner expectations and tenant business goals. At Berg General Contractors, we specialize in transforming leased spaces into functional, efficient, and brand-aligned environments. Whether itâ€™s reconfiguring office layouts, updating retail interiors, or upgrading building systems, we handle every aspect of the process. Our team manages design coordination, permitting, and construction while ensuring compliance with building codes and lease agreements. With our expertise, tenants move into customized spaces that are ready for immediate productivity and long-term success.`,
   image: `${static_assets}/images/services/tenant-improvements.jpg`,
   typeOfSolutions: {
     headings: 'Solutions we offer',
@@ -704,7 +705,7 @@ export const servicesData = {
   benefitsOFChoosing: [
     {
       title: 'Tailored to Your Business',
-      description: 'We design and build improvements that reflect your company’s brand and operational needs.'
+      description: 'We design and build improvements that reflect your companyâ€™s brand and operational needs.'
     },
     {
       title: 'Code & Lease Compliance',
@@ -755,7 +756,7 @@ export const servicesData = {
   label: 'Concrete Restoration',
   title: 'Concrete Restoration & Structural Repair Services in Florida',
   description: 'Berg General Contractors provides expert concrete restoration, repair, and strengthening services to extend the life of your structures and ensure safety and compliance.',
-  content: `Concrete structures — from parking garages and industrial floors to commercial buildings and bridges — face wear and deterioration over time. Exposure to weather, water intrusion, heavy loads, and environmental conditions can weaken concrete, compromise reinforcement, and create safety risks. At Berg General Contractors, we specialize in comprehensive concrete restoration services that go beyond surface-level fixes. Our process addresses structural integrity, prevents further damage, and restores functionality while complying with Florida’s strict building codes.
+  content: `Concrete structures â€” from parking garages and industrial floors to commercial buildings and bridges â€” face wear and deterioration over time. Exposure to weather, water intrusion, heavy loads, and environmental conditions can weaken concrete, compromise reinforcement, and create safety risks. At Berg General Contractors, we specialize in comprehensive concrete restoration services that go beyond surface-level fixes. Our process addresses structural integrity, prevents further damage, and restores functionality while complying with Floridaâ€™s strict building codes.
 
 We provide end-to-end concrete solutions, including damage assessment, corrosion control, waterproofing, surface repairs, and structural strengthening. Our experienced team works with property managers, commercial building owners, and industrial operators to deliver long-lasting, cost-effective repairs with minimal disruption. Whether you need spall repair, joint sealing, or full structural rehabilitation, Berg General Contractors ensures durability, safety, and quality craftsmanship in every project.`,
   image: `${static_assets}/images/services/concrete-restoration.jpg`,
@@ -819,7 +820,7 @@ We provide end-to-end concrete solutions, including damage assessment, corrosion
     },
     {
       question: "Are your services certified and insured?",
-      answer: "Yes. We are fully licensed, insured, and experienced in meeting Florida’s structural safety regulations."
+      answer: "Yes. We are fully licensed, insured, and experienced in meeting Floridaâ€™s structural safety regulations."
     }
   ],
   images: [],
@@ -827,10 +828,10 @@ We provide end-to-end concrete solutions, including damage assessment, corrosion
 'windows-doors': {
   label: 'Windows & Doors Installation',
   title: 'Commercial Windows & Doors Installation Services in Florida',
-  description: 'Berg General Contractors provides professional window and door installation for offices, retail stores, and industrial facilities — enhancing safety, efficiency, and curb appeal.',
+  description: 'Berg General Contractors provides professional window and door installation for offices, retail stores, and industrial facilities â€” enhancing safety, efficiency, and curb appeal.',
   content: `Windows and doors are critical to both the functionality and appearance of any property. They impact energy efficiency, security, natural light, and the overall look of your building. At Berg General Contractors, we specialize in high-quality window and door installation for commercial, industrial, and mixed-use properties. From modern storefront glazing systems to secure industrial overhead doors, our installations are designed for performance, durability, and style.
 
-We handle every stage of the process, including removal of old units, precise installation, weatherproofing, and finishing. Our team works with premium suppliers to offer energy-efficient windows, impact-resistant glass, fire-rated doors, and ADA-compliant access systems. Whether you’re upgrading an office for more natural light, renovating a retail space for better curb appeal, or installing heavy-duty industrial doors for safety, we ensure every project meets Florida codes and exceeds expectations.`,
+We handle every stage of the process, including removal of old units, precise installation, weatherproofing, and finishing. Our team works with premium suppliers to offer energy-efficient windows, impact-resistant glass, fire-rated doors, and ADA-compliant access systems. Whether youâ€™re upgrading an office for more natural light, renovating a retail space for better curb appeal, or installing heavy-duty industrial doors for safety, we ensure every project meets Florida codes and exceeds expectations.`,
   image: `${static_assets}/images/services/windows-doors.jpg`,
   typeOfSolutions: {
     headings: 'Solutions we offer',
@@ -858,15 +859,15 @@ We handle every stage of the process, including removal of old units, precise in
     },
     {
       title: 'Curb Appeal',
-      description: 'Upgrade your building’s exterior with stylish, brand-aligned windows and doors.'
+      description: 'Upgrade your buildingâ€™s exterior with stylish, brand-aligned windows and doors.'
     },
     {
       title: 'Code-Compliant Installations',
-      description: 'All installations meet Florida’s hurricane, fire, and ADA accessibility codes.'
+      description: 'All installations meet Floridaâ€™s hurricane, fire, and ADA accessibility codes.'
     },
     {
       title: 'Durability & Performance',
-      description: 'We source top-grade materials built to withstand Florida’s weather conditions.'
+      description: 'We source top-grade materials built to withstand Floridaâ€™s weather conditions.'
     },
     {
       title: 'Turnkey Service',
@@ -901,7 +902,7 @@ We handle every stage of the process, including removal of old units, precise in
   label: 'Roofing Services',
   title: 'Commercial & Industrial Roofing Services in Florida',
   description: 'Berg General Contractors provides expert roofing installation, repair, and maintenance services designed to protect your property and ensure long-term durability.',
-  content: `Your roof is one of the most important elements of your building’s structure — it protects your assets, ensures energy efficiency, and safeguards the people inside. At Berg General Contractors, we specialize in high-quality roofing services for commercial, industrial, and mixed-use properties across Florida. From new installations and full roof replacements to leak repairs and preventative maintenance, we offer comprehensive roofing solutions built to withstand Florida’s climate.
+  content: `Your roof is one of the most important elements of your buildingâ€™s structure â€” it protects your assets, ensures energy efficiency, and safeguards the people inside. At Berg General Contractors, we specialize in high-quality roofing services for commercial, industrial, and mixed-use properties across Florida. From new installations and full roof replacements to leak repairs and preventative maintenance, we offer comprehensive roofing solutions built to withstand Floridaâ€™s climate.
 
 Our team works with a wide range of roofing systems, including flat roofs, metal, TPO, and tile, ensuring you receive the most effective solution for your property type. With a focus on safety, code compliance, and long-term performance, we deliver roofing projects that provide peace of mind and lasting protection.`,
   image: `${static_assets}/images/services/roofing.jpg`,
@@ -931,7 +932,7 @@ Our team works with a wide range of roofing systems, including flat roofs, metal
     },
     {
       title: 'Licensed & Insured Experts',
-      description: 'All work is performed by experienced contractors who meet Florida’s roofing standards.'
+      description: 'All work is performed by experienced contractors who meet Floridaâ€™s roofing standards.'
     },
     {
       title: 'Long-Term Durability',
@@ -976,7 +977,7 @@ Our team works with a wide range of roofing systems, including flat roofs, metal
   description: 'Berg General Contractors delivers professional plumbing and mechanical system installations, upgrades, and repairs for commercial and industrial properties.',
   content: `Every commercial or industrial facility relies on efficient plumbing and mechanical systems to maintain operations. At Berg General Contractors, we provide end-to-end plumbing and mechanical services designed to keep your property functional, compliant, and reliable. From installing new plumbing lines and fixtures to upgrading mechanical systems like pumps, boilers, and compressed air, we deliver solutions tailored to your business needs.
 
-Our team specializes in large-scale plumbing networks, process piping, drainage, and mechanical equipment integration. We ensure that every system meets Florida’s strict building codes and environmental standards while maximizing efficiency and minimizing downtime. Whether you’re renovating an office, upgrading an industrial facility, or constructing a new space, Berg General Contractors ensures your plumbing and mechanical systems are built to last.`,
+Our team specializes in large-scale plumbing networks, process piping, drainage, and mechanical equipment integration. We ensure that every system meets Floridaâ€™s strict building codes and environmental standards while maximizing efficiency and minimizing downtime. Whether youâ€™re renovating an office, upgrading an industrial facility, or constructing a new space, Berg General Contractors ensures your plumbing and mechanical systems are built to last.`,
   image: `${static_assets}/images/services/plumbing-mechanical.jpg`,
   typeOfSolutions: {
     headings: 'Solutions we offer',
@@ -1034,7 +1035,7 @@ Our team specializes in large-scale plumbing networks, process piping, drainage,
     },
     {
       question: "Are your plumbing services code-compliant?",
-      answer: "Yes. All of our work is performed to meet or exceed Florida’s plumbing and mechanical codes."
+      answer: "Yes. All of our work is performed to meet or exceed Floridaâ€™s plumbing and mechanical codes."
     },
     {
       question: "Do you offer maintenance programs?",
@@ -1049,7 +1050,7 @@ Our team specializes in large-scale plumbing networks, process piping, drainage,
   description: 'Berg General Contractors provides complete HVAC installation, upgrades, and maintenance solutions to keep your facilities comfortable, efficient, and compliant.',
   content: `Heating, ventilation, and air conditioning (HVAC) systems are essential for creating a safe, comfortable, and productive environment in any commercial or industrial building. At Berg General Contractors, we deliver tailored HVAC solutions that improve air quality, regulate temperature, and ensure energy efficiency. Our services cover everything from system design and installation to routine maintenance and emergency repairs.
 
-We work with a wide variety of HVAC systems, including rooftop units, chillers, boilers, ductwork, and exhaust systems. With a strong focus on compliance, energy codes, and occupant comfort, our HVAC projects are built to withstand Florida’s climate challenges. Whether you’re constructing a new office, upgrading an industrial facility, or renovating retail space, Berg General Contractors ensures your HVAC systems deliver reliable performance year-round.`,
+We work with a wide variety of HVAC systems, including rooftop units, chillers, boilers, ductwork, and exhaust systems. With a strong focus on compliance, energy codes, and occupant comfort, our HVAC projects are built to withstand Floridaâ€™s climate challenges. Whether youâ€™re constructing a new office, upgrading an industrial facility, or renovating retail space, Berg General Contractors ensures your HVAC systems deliver reliable performance year-round.`,
   image: `${static_assets}/images/services/hvac.jpg`,
   typeOfSolutions: {
     headings: 'Solutions we offer',
@@ -1073,7 +1074,7 @@ We work with a wide variety of HVAC systems, including rooftop units, chillers, 
     },
     {
       title: 'Climate-Ready Systems',
-      description: 'Our HVAC solutions are designed to handle Florida’s heat, humidity, and weather extremes.'
+      description: 'Our HVAC solutions are designed to handle Floridaâ€™s heat, humidity, and weather extremes.'
     },
     {
       title: 'Improved Air Quality',
@@ -1111,7 +1112,7 @@ We work with a wide variety of HVAC systems, including rooftop units, chillers, 
     },
     {
       question: "Are your HVAC systems compliant with Florida codes?",
-      answer: "Yes, all installations meet or exceed Florida’s energy and building code requirements."
+      answer: "Yes, all installations meet or exceed Floridaâ€™s energy and building code requirements."
     }
   ],
   images: [],
@@ -1140,7 +1141,7 @@ export const projectsData = {
     "Custom millwork and cabinetry"
   ],
   content: `
-This office renovation project transformed a dated workspace into a modern, functional, and employee-friendly environment. The client’s primary goal was to increase productivity while reflecting their brand identity through the office design.
+This office renovation project transformed a dated workspace into a modern, functional, and employee-friendly environment. The clientâ€™s primary goal was to increase productivity while reflecting their brand identity through the office design.
 
 We reconfigured the space with new layouts that optimized workflow and introduced glass partitions to allow natural light to flow across the office. Energy-efficient lighting, HVAC upgrades, and ergonomic workstations were installed to enhance comfort and reduce operating costs. Acoustic solutions, including ceiling panels and soundproof partitions, ensured a quieter, more collaborative workplace. The conference room was fully outfitted with modern audiovisual systems for seamless communication. Finally, custom millwork and branded finishes created a professional, welcoming space for both staff and visitors.
   `
@@ -1165,15 +1166,15 @@ We reconfigured the space with new layouts that optimized workflow and introduce
     "Overhead crane integration"
   ],
   content: `
-This industrial upgrade project was focused on modernizing a manufacturing facility to improve compliance, safety, and operational efficiency. Our team reinforced structural elements, installed epoxy flooring for durability, and upgraded the facility’s electrical and mechanical systems to support heavy equipment use.
+This industrial upgrade project was focused on modernizing a manufacturing facility to improve compliance, safety, and operational efficiency. Our team reinforced structural elements, installed epoxy flooring for durability, and upgraded the facilityâ€™s electrical and mechanical systems to support heavy equipment use.
 
-We implemented modern ventilation and air quality systems to meet OSHA standards, installed fire suppression sprinklers, and integrated new dock doors for efficient logistics. To improve employee safety, we added guardrails, barriers, and marked pedestrian pathways. This project was completed on schedule, ensuring the client’s operations experienced minimal downtime while achieving significant improvements in safety and efficiency.
+We implemented modern ventilation and air quality systems to meet OSHA standards, installed fire suppression sprinklers, and integrated new dock doors for efficient logistics. To improve employee safety, we added guardrails, barriers, and marked pedestrian pathways. This project was completed on schedule, ensuring the clientâ€™s operations experienced minimal downtime while achieving significant improvements in safety and efficiency.
   `
 },
 'retail-buildout': {
   label: "Retail Build-Out",
   title: "Complete Retail Store Build-Out",
-  description: "From empty shell to a vibrant retail space — this project included everything from structural buildout to branded interiors, creating a welcoming customer experience.",
+  description: "From empty shell to a vibrant retail space â€” this project included everything from structural buildout to branded interiors, creating a welcoming customer experience.",
   image: `${static_assets}/images/projects/retail.jpg`,
   location: "Shopping Center, Orlando, FL",
   duration: "Completed in 8 weeks",
@@ -1192,7 +1193,7 @@ We implemented modern ventilation and air quality systems to meet OSHA standards
   content: `
 This retail build-out project transformed a raw commercial space into a polished, brand-aligned store designed to maximize customer flow and create a welcoming atmosphere. We worked closely with the client to design and implement both functional layouts and brand-centric interiors.
 
-Our team installed a custom storefront glass entry, luxury vinyl tile flooring, and energy-efficient lighting systems. Branded signage, accent walls, and display fixtures reinforced the store’s identity. Restrooms and staff areas were upgraded to ADA standards, and the HVAC system was zoned for customer comfort. The result was a turnkey retail space ready for grand opening and optimized for daily business operations.
+Our team installed a custom storefront glass entry, luxury vinyl tile flooring, and energy-efficient lighting systems. Branded signage, accent walls, and display fixtures reinforced the storeâ€™s identity. Restrooms and staff areas were upgraded to ADA standards, and the HVAC system was zoned for customer comfort. The result was a turnkey retail space ready for grand opening and optimized for daily business operations.
   `
 },
 'tenant-improvement': {
@@ -1215,7 +1216,7 @@ Our team installed a custom storefront glass entry, luxury vinyl tile flooring, 
     "Custom signage integration"
   ],
   content: `
-The tenant improvement project involved a complete customization of a leased office to match the client’s brand and operational needs. We reconfigured the space with partitions, upgraded HVAC systems, and installed energy-efficient lighting throughout the office.
+The tenant improvement project involved a complete customization of a leased office to match the clientâ€™s brand and operational needs. We reconfigured the space with partitions, upgraded HVAC systems, and installed energy-efficient lighting throughout the office.
 
 Restrooms were renovated to ADA compliance, and the breakroom was outfitted with new cabinetry and appliances. The design incorporated brand-colored accent walls, signage, and custom glass-walled conference rooms. Data cabling and IT infrastructure were installed to support modern technology requirements. Delivered within the lease timeline, the project allowed the tenant to move in and begin operations without delay.
   `
@@ -1241,7 +1242,7 @@ Restrooms were renovated to ADA compliance, and the breakroom was outfitted with
   ],
   content: `
 This concrete restoration project was undertaken to repair and restore a multi-level parking garage in Jacksonville. Over years of use, the structure had experienced spalling, cracking, and water intrusion that compromised both safety and usability.
-We began with structural assessments, followed by spall repair, epoxy crack injection, and reinforcement of corroded rebar. Expansion joints were replaced, and waterproof coatings were applied to protect against future deterioration. The project also included new safety barriers, updated railings, and improved pedestrian pathways. The restoration extended the lifespan of the structure, ensured compliance with Florida’s building safety laws, and provided a safer environment for both vehicles and pedestrians.`
+We began with structural assessments, followed by spall repair, epoxy crack injection, and reinforcement of corroded rebar. Expansion joints were replaced, and waterproof coatings were applied to protect against future deterioration. The project also included new safety barriers, updated railings, and improved pedestrian pathways. The restoration extended the lifespan of the structure, ensured compliance with Floridaâ€™s building safety laws, and provided a safer environment for both vehicles and pedestrians.`
 }
 
 };
@@ -1302,7 +1303,7 @@ export const testimonialsData = [
   {
     name: "Anthony Garcia",
     role: "Real Estate Developer | St. Petersburg, FL",
-    feedback: "They’ve completed several commercial buildouts for us — always on schedule and within budget. A contractor we can trust."
+    feedback: "Theyâ€™ve completed several commercial buildouts for us â€” always on schedule and within budget. A contractor we can trust."
   },
 
   {
@@ -1320,7 +1321,7 @@ export const testimonialsData = [
   {
     name: "Olivia Brown",
     role: "Commercial Property Owner | West Palm Beach, FL",
-    feedback: "They repaired and restored our parking garage’s concrete structure. The project was handled professionally with safety as the top priority."
+    feedback: "They repaired and restored our parking garageâ€™s concrete structure. The project was handled professionally with safety as the top priority."
   },
 
   {

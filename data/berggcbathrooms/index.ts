@@ -23,7 +23,7 @@ export const contactInfo = {
   mapEmbedUrl: "https://maps.app.goo.gl/rDGBNQRu5YWHo6329",
 
   email: 'support@bathrooms.berggc.com',
-  workingHours: 'Mon–Sat: 8:00 AM – 6:00 PM'
+  workingHours: 'Monâ€“Sat: 8:00 AM â€“ 6:00 PM'
 };
 export const socialLinks = {
   facebook: 'https://www.facebook.com/profile.php?id=61579296842520',
@@ -34,13 +34,14 @@ export const licenses = [
   { number: 'CCC1336268', label: 'Roofing' },
   { number: 'CGC1535671', label: 'General Contractor' },
 ];
+export const enable_estimates = true;
 /* ------------------------
     PAGES  
 ------------------------ */
 export const landingPage = {
   seo: {
     title: 'Berg General Contractor Bathrooms',
-    description: 'Expert bathroom renovation and installation services. From modern makeovers to full-scale remodeling — we bring style, comfort, and quality to your home.',
+    description: 'Expert bathroom renovation and installation services. From modern makeovers to full-scale remodeling â€” we bring style, comfort, and quality to your home.',
     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl,
   },
@@ -71,7 +72,7 @@ export const servicesPage = {
 export const projectsPage = {
   seo: {
     title: 'Bathroom Renovation Projects',
-    description: 'View our portfolio of completed bathroom remodels — elegant, efficient, and designed to inspire.',
+    description: 'View our portfolio of completed bathroom remodels â€” elegant, efficient, and designed to inspire.',
     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'projects',
   },
@@ -97,7 +98,7 @@ export const contactPage = {
   },
   form: {
     heading: 'Get In Touch',
-    messagePlaceholder: "Tell us about your bathroom goals — we're ready to bring them to life.",
+    messagePlaceholder: "Tell us about your bathroom goals â€” we're ready to bring them to life.",
   }
 }
 
@@ -131,7 +132,7 @@ export const getToKnow = {
   keyPoints: [
       {
           title: 'Skilled & Experienced Renovators',
-          desc: 'Our team is trained in modern bathroom construction, tiling, plumbing, and finishing — ensuring professional results.',
+          desc: 'Our team is trained in modern bathroom construction, tiling, plumbing, and finishing â€” ensuring professional results.',
       },
       {
           title: 'Premium Fixtures & Materials',
@@ -162,11 +163,11 @@ export const faqs = [
   },
   {
       question: "Can you help with small bathroom updates too?",
-      answer: "Yes, whether it’s a minor refresh or a complete remodel, we tailor our services to your needs and budget."
+      answer: "Yes, whether itâ€™s a minor refresh or a complete remodel, we tailor our services to your needs and budget."
   },
   {
       question: "How long does a typical bathroom remodel take?",
-      answer: "Most projects take 1–3 weeks depending on scope, materials, and customization."
+      answer: "Most projects take 1â€“3 weeks depending on scope, materials, and customization."
   },
   {
       question: "Do you work on both residential and commercial bathrooms?",
@@ -200,7 +201,7 @@ export const ourProcessData = {
       },
       {
           title: "Renovation Execution",
-          description: "Our expert team handles all installation work—tiling, fixtures, plumbing, and finishes.",
+          description: "Our expert team handles all installation workâ€”tiling, fixtures, plumbing, and finishes.",
           icon: FaHammer
       },
       {
@@ -223,7 +224,7 @@ export const WhyUSData = [
   },
   {
       title: "Clear, Consistent Communication",
-      description: "We keep you in the loop from start to finish — no confusion, no surprises.",
+      description: "We keep you in the loop from start to finish â€” no confusion, no surprises.",
       icon: FaHandshake
   },
   {
@@ -233,7 +234,7 @@ export const WhyUSData = [
   },
   {
       title: "Client-Centered Approach",
-      description: "We’re focused on your comfort, style, and satisfaction — down to the final tile.",
+      description: "Weâ€™re focused on your comfort, style, and satisfaction â€” down to the final tile.",
       icon: FaSmile
   },
   {
@@ -330,7 +331,7 @@ export const serviceAreasData = [
       name: "Miami",
       href: "/miami",
       title: "Bathroom Renovation Services in Miami, FL",
-      description: "Stylish bathroom remodeling in Miami, FL. From luxury upgrades to space-saving designs — we do it all.",
+      description: "Stylish bathroom remodeling in Miami, FL. From luxury upgrades to space-saving designs â€” we do it all.",
       content: "Berg General Contractor Bathrooms brings modern designs and expert craftsmanship to every Miami renovation project. We focus on elegance, functionality, and long-lasting quality.",
       image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -339,7 +340,7 @@ export const serviceAreasData = [
       href: "/orlando",
       title: "Bathroom Renovation Services in Orlando, FL",
       description: "Trusted bathroom renovation in Orlando, FL. High-end finishes, custom vanities, and expert tile work.",
-      content: "In Orlando, Berg General Contractor Bathrooms delivers personalized renovations with attention to every detail — ensuring comfort, beauty, and durability.",
+      content: "In Orlando, Berg General Contractor Bathrooms delivers personalized renovations with attention to every detail â€” ensuring comfort, beauty, and durability.",
       image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
@@ -363,7 +364,7 @@ export const serviceAreasData = [
       href: "/fort-lauderdale",
       title: "Bathroom Renovation Services in Fort Lauderdale, FL",
       description: "High-end bathroom renovation in Fort Lauderdale, FL. Bring a touch of luxury to your home.",
-      content: "We bring sleek, modern finishes and luxury bathroom remodeling to Fort Lauderdale — with top-notch service from start to finish.",
+      content: "We bring sleek, modern finishes and luxury bathroom remodeling to Fort Lauderdale â€” with top-notch service from start to finish.",
       image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
@@ -378,7 +379,7 @@ export const serviceAreasData = [
       name: "Cape Coral",
       href: "/cape-coral",
       title: "Bathroom Renovation Services in Cape Coral, FL",
-      description: "Cape Coral’s go-to team for bathroom remodels. Fresh layouts, quality materials, and expert finish.",
+      description: "Cape Coralâ€™s go-to team for bathroom remodels. Fresh layouts, quality materials, and expert finish.",
       content: "Cape Coral homeowners count on Berg General Contractor Bathrooms for sleek designs, efficient plumbing upgrades, and lasting beauty.",
       image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -442,7 +443,7 @@ export const serviceAreasData = [
       name: "Bradenton",
       href: "/bradenton",
       title: "Bathroom Renovation Services in Bradenton, FL",
-      description: "Bradenton’s top bathroom renovation service. Clean finishes, luxury details, and fair pricing.",
+      description: "Bradentonâ€™s top bathroom renovation service. Clean finishes, luxury details, and fair pricing.",
       content: "We bring beautiful transformations to Bradenton bathrooms with custom solutions and dependable execution.",
       image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -648,7 +649,7 @@ export const servicesData = {
       },
       {
         title: 'Unique Aesthetic Appeal',
-        description: 'Create a one-of-a-kind look that reflects your personal style and complements your bathroom décor.'
+        description: 'Create a one-of-a-kind look that reflects your personal style and complements your bathroom dÃ©cor.'
       },
       {
         title: 'Optimized Storage Solutions',
@@ -1438,7 +1439,7 @@ export const testimonialsData = [
   {
     "name": "John Davis",
     "role": "Homeowner | Bath",
-    "feedback": "Berg General Contractor Bathrooms transformed our old bathroom into a modern oasis—smooth process and stunning results!",
+    "feedback": "Berg General Contractor Bathrooms transformed our old bathroom into a modern oasisâ€”smooth process and stunning results!",
   },
 
   {
@@ -1474,7 +1475,7 @@ export const testimonialsData = [
   {
     "name": "Emily Chen",
     "role": "Homeowner | Bath",
-    "feedback": "Our old bathroom was a disaster—Berg General Contractor got a new one up and running in just a few weeks!",
+    "feedback": "Our old bathroom was a disasterâ€”Berg General Contractor got a new one up and running in just a few weeks!",
   },
 
 
@@ -1482,7 +1483,7 @@ export const testimonialsData = [
   {
     "name": "David Kim",
     "role": "Real Estate Developer",
-    "feedback": "They’ve handled bathroom renovations across multiple properties. On-time, budget-friendly, and always to code.",
+    "feedback": "Theyâ€™ve handled bathroom renovations across multiple properties. On-time, budget-friendly, and always to code.",
   },
 
 

@@ -23,7 +23,7 @@ export const contactInfo = {
     mapEmbedUrl: "https://maps.app.goo.gl/rDGBNQRu5YWHo6329",
 
     email: 'support@totalcareserviceswindows.com',
-    workingHours: 'Mon–Sat: 8:00 AM – 6:00 PM'
+    workingHours: 'Monâ€“Sat: 8:00 AM â€“ 6:00 PM'
 };
 export const socialLinks = {
     facebook: 'https://www.facebook.com/profile.php?id=61579296842520',
@@ -34,6 +34,7 @@ export const licenses = [
   { number: 'CCC1336268', label: 'Roofing' },
   { number: 'CGC1535671', label: 'General Contractor' },
 ];
+export const enable_estimates = true;
 /* ------------------------
     PAGES  
 ------------------------ */
@@ -61,7 +62,7 @@ export const landingPage = {
 export const servicesPage = {
     seo: {
         title: 'Professional Window Services',
-        description: 'Explore our window services — installation, glass replacement, sealing, tinting, and maintenance for homes and offices.',
+        description: 'Explore our window services â€” installation, glass replacement, sealing, tinting, and maintenance for homes and offices.',
         ogImage: `${static_assets}/images/hero_bg_1.jpg`,
         canonical: siteUrl + 'services',
     },
@@ -69,7 +70,7 @@ export const servicesPage = {
 export const projectsPage = {
     seo: {
         title: 'Completed Window Projects',
-        description: 'See our latest window work — expertly installed, energy-efficient, and aesthetically pleasing.',
+        description: 'See our latest window work â€” expertly installed, energy-efficient, and aesthetically pleasing.',
         ogImage: `${static_assets}/images/hero_bg_1.jpg`,
         canonical: siteUrl + 'projects',
     },
@@ -81,7 +82,7 @@ export const aboutPage = {
         ogImage: `${static_assets}/images/hero_bg_1.jpg`,
         canonical: siteUrl + 'about',
     },
-    content: 'Total Care Windows is dedicated to delivering precise, clean, and high-performing window services. Whether you’re upgrading your view or improving insulation, we’re here to help with top-tier materials and workmanship.',
+    content: 'Total Care Windows is dedicated to delivering precise, clean, and high-performing window services. Whether youâ€™re upgrading your view or improving insulation, weâ€™re here to help with top-tier materials and workmanship.',
 }
 export const contactPage = {
     seo: {
@@ -92,7 +93,7 @@ export const contactPage = {
     },
     form: {
         heading: 'Book Your Window Service',
-        messagePlaceholder: "Tell us about your window needs — we'll respond promptly.",
+        messagePlaceholder: "Tell us about your window needs â€” we'll respond promptly.",
     },
 }
 export const blogPage = {
@@ -123,7 +124,7 @@ export const getToKnow = {
     keyPoints: [
         {
             title: 'Skilled Window Specialists',
-            desc: 'Our technicians are experienced in handling all window types — from traditional to modern setups.',
+            desc: 'Our technicians are experienced in handling all window types â€” from traditional to modern setups.',
         },
         {
             title: 'Transparent Pricing',
@@ -191,7 +192,7 @@ export const ourProcessData = {
         },
         {
             title: "Professional Window Service",
-            description: "Our experts carry out the work efficiently — whether cleaning, fixing, or installing.",
+            description: "Our experts carry out the work efficiently â€” whether cleaning, fixing, or installing.",
             icon: FaHammer
         },
         {
@@ -219,7 +220,7 @@ export const WhyUSData = [
     },
     {
         title: "Honest Pricing, No Surprises",
-        description: "We quote accurately with no hidden fees — just great value and clean results.",
+        description: "We quote accurately with no hidden fees â€” just great value and clean results.",
         icon: FaDollarSign
     },
     {
@@ -229,7 +230,7 @@ export const WhyUSData = [
     },
     {
         title: "Fully Licensed & Insured",
-        description: "Our crew follows all safety codes and regulations — so you’re always in good hands.",
+        description: "Our crew follows all safety codes and regulations â€” so youâ€™re always in good hands.",
         icon: FaShieldAlt
     }
 ];
@@ -303,7 +304,7 @@ export const navItems = [
    NAVITEMS FOOTER 
 ------------------------ */
 export const FooterData = {
-    tagline: 'Crystal-clear window solutions for homes and businesses across Florida — installation, repair, tinting, and more.',
+    tagline: 'Crystal-clear window solutions for homes and businesses across Florida â€” installation, repair, tinting, and more.',
 };
 /* ------------------------
    AREAS OF SERVICES
@@ -321,7 +322,7 @@ export const serviceAreasData = [
         name: "Orlando",
         href: "/orlando",
         title: "Window Services in Orlando, FL",
-        description: "Reliable and affordable window services across Orlando — installation, sealing, and maintenance.",
+        description: "Reliable and affordable window services across Orlando â€” installation, sealing, and maintenance.",
         content: "From historic homes to modern buildings, our Orlando team delivers clean installs and top-tier repairs.",
         image: "/images/areaofservices/default.jpg"
     },
@@ -337,7 +338,7 @@ export const serviceAreasData = [
         name: "Jacksonville",
         href: "/jacksonville",
         title: "Window Services in Jacksonville, FL",
-        description: "Full-service window solutions in Jacksonville — from broken panes to full replacements.",
+        description: "Full-service window solutions in Jacksonville â€” from broken panes to full replacements.",
         content: "Jacksonville clients trust Total Care Windows for precise, lasting, and budget-friendly window care.",
         image: "/images/areaofservices/default.jpg"
     },
@@ -361,8 +362,8 @@ export const serviceAreasData = [
         name: "Cape Coral",
         href: "/cape-coral",
         title: "Window Services in Cape Coral, FL",
-        description: "Coastal-grade window services for Cape Coral homes — installation, tinting, and sealing.",
-        content: "From hurricane-rated windows to glare-reducing tints, we’ve got Cape Coral covered.",
+        description: "Coastal-grade window services for Cape Coral homes â€” installation, tinting, and sealing.",
+        content: "From hurricane-rated windows to glare-reducing tints, weâ€™ve got Cape Coral covered.",
         image: "/images/areaofservices/default.jpg"
     },
     {
@@ -394,7 +395,7 @@ export const serviceAreasData = [
         href: "/pensacola",
         title: "Window Services in Pensacola, FL",
         description: "Durable and dependable window services for homes and businesses in Pensacola.",
-        content: "We offer fast and professional window work tailored to Pensacola’s weather and style.",
+        content: "We offer fast and professional window work tailored to Pensacolaâ€™s weather and style.",
         image: "/images/areaofservices/default.jpg"
     },
     {
@@ -425,7 +426,7 @@ export const serviceAreasData = [
         name: "Bradenton",
         href: "/bradenton",
         title: "Window Services in Bradenton, FL",
-        description: "Full-range window services — from custom sizing to energy-efficient upgrades.",
+        description: "Full-range window services â€” from custom sizing to energy-efficient upgrades.",
         content: "Bradenton homes get lasting value and style with our expert window craftsmanship.",
         image: "/images/areaofservices/default.jpg"
     },
@@ -462,7 +463,7 @@ export const servicesData = {
     label: 'Window Installation',
     title: 'Professional Window Installation Services',
     description: 'Expert residential and commercial window installation for improved comfort, energy efficiency, and curb appeal.',
-    content: `Upgrade your home or business with precision window installation services. Our skilled team installs a wide range of window styles — from classic single-hung and double-hung to sliding, casement, bay, and specialty windows. Proper installation not only enhances appearance but also improves energy efficiency, insulation, and overall comfort. We work with high-quality materials and proven techniques to ensure durability and long-lasting performance.`,
+    content: `Upgrade your home or business with precision window installation services. Our skilled team installs a wide range of window styles â€” from classic single-hung and double-hung to sliding, casement, bay, and specialty windows. Proper installation not only enhances appearance but also improves energy efficiency, insulation, and overall comfort. We work with high-quality materials and proven techniques to ensure durability and long-lasting performance.`,
     image: `${static_assets}/images/services/window_installation.jpg`,
     typeOfSolutions: {
         headings: 'Solutions we offer',
@@ -486,9 +487,9 @@ export const servicesData = {
     ],
     images:[],
     faqs: [
-        { question: 'How long does window installation take?', answer: 'Most standard installations take 1–2 days depending on window type and project size.' },
+        { question: 'How long does window installation take?', answer: 'Most standard installations take 1â€“2 days depending on window type and project size.' },
         { question: 'Do you install custom-sized windows?', answer: 'Yes, we provide custom measurements and fittings to ensure a perfect match.' },
-        { question: 'Can you replace windows during winter?', answer: 'Absolutely — we use efficient processes to minimize exposure and heat loss.' },
+        { question: 'Can you replace windows during winter?', answer: 'Absolutely â€” we use efficient processes to minimize exposure and heat loss.' },
         { question: 'Do you handle disposal of old windows?', answer: 'Yes, we remove and dispose of old materials as part of our service.' }
     ],
     
@@ -497,7 +498,7 @@ export const servicesData = {
     label: 'Glass Replacement',
     title: 'Expert Glass Replacement Services',
     description: 'Restore clarity and safety with professional glass replacement for cracked, broken, or foggy windows.',
-    content: `Damaged or outdated glass doesn’t just affect your view — it impacts insulation, safety, and curb appeal. Our professional glass replacement service restores your windows with high-quality panes designed for durability and energy efficiency. From small cracks to full replacements, we work quickly and carefully to make your windows look brand-new.`,
+    content: `Damaged or outdated glass doesnâ€™t just affect your view â€” it impacts insulation, safety, and curb appeal. Our professional glass replacement service restores your windows with high-quality panes designed for durability and energy efficiency. From small cracks to full replacements, we work quickly and carefully to make your windows look brand-new.`,
     image: `${static_assets}/images/services/glass_replacement.jpg`,
     typeOfSolutions: {
         headings: 'Solutions we offer',
@@ -515,15 +516,15 @@ export const servicesData = {
         { title: 'Clear Visibility', description: 'Enjoy spotless, crystal-clear glass in every window.' },
         { title: 'Energy Efficiency', description: 'Upgrade to insulated glass for better thermal control.' },
         { title: 'Safety & Security', description: 'Replace broken panes with durable, shatter-resistant options.' },
-        { title: 'Quick Turnaround', description: 'Fast service to restore your property’s safety and appearance.' },
+        { title: 'Quick Turnaround', description: 'Fast service to restore your propertyâ€™s safety and appearance.' },
         { title: 'Custom Fit', description: 'Glass is measured and cut to fit perfectly in your frames.' }
     ],
     images:[],
     faqs: [
         { question: 'Can you replace just the glass without the entire window?', answer: 'Yes, if the frame is intact, we can replace just the glass panel.' },
-        { question: 'What causes foggy windows?', answer: 'Moisture trapped between panes due to seal failure — which we can replace with new insulated glass.' },
+        { question: 'What causes foggy windows?', answer: 'Moisture trapped between panes due to seal failure â€” which we can replace with new insulated glass.' },
         { question: 'Do you offer same-day service for broken glass?', answer: 'In many cases, yes. Emergency glass replacement is available.' },
-        { question: 'Can you upgrade my current glass to energy-efficient options?', answer: 'Absolutely — we provide low-E and insulated glass replacements.' }
+        { question: 'Can you upgrade my current glass to energy-efficient options?', answer: 'Absolutely â€” we provide low-E and insulated glass replacements.' }
     ],
     
 },
@@ -553,7 +554,7 @@ export const servicesData = {
     ],
     images:[],
     faqs: [
-        { question: 'How often should windows be resealed?', answer: 'Typically every 5–10 years, depending on climate and material wear.' },
+        { question: 'How often should windows be resealed?', answer: 'Typically every 5â€“10 years, depending on climate and material wear.' },
         { question: 'Can sealing fix condensation issues?', answer: 'It can reduce drafts, but failed glass seals may require glass replacement.' },
         { question: 'Do you use weather-resistant caulking?', answer: 'Yes, we only use premium, long-lasting sealing products.' },
         { question: 'Will sealing make my windows more soundproof?', answer: 'Yes, better seals can reduce outside noise levels significantly.' }
@@ -564,7 +565,7 @@ export const servicesData = {
     label: 'Window Tinting & Films',
     title: 'Professional Window Tinting and Film Installation',
     description: 'Enhance privacy, reduce glare, and improve energy efficiency with expert window tinting solutions.',
-    content: `Our window tinting services provide both style and function for residential and commercial properties. High-quality window films reduce heat, block harmful UV rays, and protect interiors from fading — all while adding a sleek, modern look. Choose from decorative, reflective, or privacy films to match your needs and preferences.`,
+    content: `Our window tinting services provide both style and function for residential and commercial properties. High-quality window films reduce heat, block harmful UV rays, and protect interiors from fading â€” all while adding a sleek, modern look. Choose from decorative, reflective, or privacy films to match your needs and preferences.`,
     image: `${static_assets}/images/services/window_tint.jpg`,
     typeOfSolutions: {
         headings: 'Solutions we offer',
@@ -587,10 +588,10 @@ export const servicesData = {
     ],
     images:[],
     faqs: [
-        { question: 'How long does window tinting last?', answer: 'With professional installation, films can last 10–15 years depending on conditions.' },
+        { question: 'How long does window tinting last?', answer: 'With professional installation, films can last 10â€“15 years depending on conditions.' },
         { question: 'Will tinting make my home too dark?', answer: 'No, we offer a range of shades that balance natural light and privacy.' },
         { question: 'Can tint be applied to existing windows?', answer: 'Yes, films can be installed on most glass types.' },
-        { question: 'Does tinting help with fading furniture?', answer: 'Absolutely — by blocking UV rays, it protects floors, fabrics, and artwork.' }
+        { question: 'Does tinting help with fading furniture?', answer: 'Absolutely â€” by blocking UV rays, it protects floors, fabrics, and artwork.' }
     ],
 
 },
@@ -598,7 +599,7 @@ export const servicesData = {
     label: 'Maintenance & Repair',
     title: 'Comprehensive Window Maintenance and Repair',
     description: 'Keep your windows in top condition with expert maintenance and fast, reliable repairs.',
-    content: `Windows play a vital role in energy efficiency, comfort, and security. Over time, they can develop issues like sticking, leaks, drafts, or broken components. Our professional maintenance and repair services keep your windows functioning properly, extend their lifespan, and prevent costly replacements. From minor fixes to full refurbishments, we’ve got you covered.`,
+    content: `Windows play a vital role in energy efficiency, comfort, and security. Over time, they can develop issues like sticking, leaks, drafts, or broken components. Our professional maintenance and repair services keep your windows functioning properly, extend their lifespan, and prevent costly replacements. From minor fixes to full refurbishments, weâ€™ve got you covered.`,
     image: `${static_assets}/images/services/window_repair.jpg`,
     typeOfSolutions: {
         headings: 'Solutions we offer',
@@ -615,14 +616,14 @@ export const servicesData = {
     benefitsOFChoosing: [
         { title: 'Cost Savings', description: 'Prevent expensive replacements with timely repairs.' },
         { title: 'Energy Efficiency', description: 'Fix drafts and seal leaks to cut utility costs.' },
-        { title: 'Extended Lifespan', description: 'Proper maintenance adds years to your windows.’' },
+        { title: 'Extended Lifespan', description: 'Proper maintenance adds years to your windows.â€™' },
         { title: 'Professional Care', description: 'Expert technicians handle all types of repairs.' },
         { title: 'Peace of Mind', description: 'Reliable service ensures your windows work smoothly.' }
     ],
     images:[],
     faqs: [
         { question: 'Do you repair all types of windows?', answer: 'Yes, we service sliding, casement, bay, and more.' },
-        { question: 'Can maintenance improve insulation?', answer: 'Absolutely — sealing and repairs prevent energy loss.' },
+        { question: 'Can maintenance improve insulation?', answer: 'Absolutely â€” sealing and repairs prevent energy loss.' },
         { question: 'Do you replace broken parts?', answer: 'Yes, we source high-quality replacement parts for all brands.' },
         { question: 'How often should I schedule window maintenance?', answer: 'Annually is recommended for optimal performance.' }
     ],
@@ -650,13 +651,13 @@ export const servicesData = {
         { title: 'Eco-Friendly Methods', description: 'Safe, green cleaning solutions protect your home.' },
         { title: 'Full Detailing', description: 'We clean glass, frames, screens, and sills.' },
         { title: 'Time-Saving', description: 'Save hours of work with our efficient team.' },
-        { title: 'Curb Appeal', description: 'Enhance your home’s appearance instantly.' }
+        { title: 'Curb Appeal', description: 'Enhance your homeâ€™s appearance instantly.' }
     ],
     images:[],
     faqs: [
         { question: 'Do you clean hard-to-reach windows?', answer: 'Yes, we have professional equipment for high or awkward windows.' },
         { question: 'How often should I schedule window cleaning?', answer: 'Most homeowners choose seasonal or biannual cleanings.' },
-        { question: 'Is your cleaning solution safe for pets?', answer: 'Absolutely — we use eco-friendly, non-toxic products.' },
+        { question: 'Is your cleaning solution safe for pets?', answer: 'Absolutely â€” we use eco-friendly, non-toxic products.' },
         { question: 'Do you clean skylights too?', answer: 'Yes, skylights are included as part of our service options.' }
     ],
   
@@ -665,7 +666,7 @@ export const servicesData = {
     label: 'Commercial Window Cleaning',
     title: 'Commercial Window Cleaning Services',
     description: 'Professional window cleaning for offices, retail stores, and commercial properties of all sizes.',
-    content: `Keep your business looking sharp with professional commercial window cleaning. We service office buildings, storefronts, schools, and high-traffic facilities, providing clean, streak-free glass that boosts your property’s appearance. Our flexible scheduling minimizes disruptions so your operations continue smoothly.`,
+    content: `Keep your business looking sharp with professional commercial window cleaning. We service office buildings, storefronts, schools, and high-traffic facilities, providing clean, streak-free glass that boosts your propertyâ€™s appearance. Our flexible scheduling minimizes disruptions so your operations continue smoothly.`,
     image: `${static_assets}/images/services/window_cleaning_commercial.jpg`,
     typeOfSolutions: {
         headings: 'Solutions we offer',
@@ -689,7 +690,7 @@ export const servicesData = {
     faqs: [
         { question: 'Do you work outside business hours?', answer: 'Yes, we offer flexible scheduling, including early mornings and weekends.' },
         { question: 'Do you offer service contracts?', answer: 'Yes, we provide regular service agreements for ongoing cleaning.' },
-        { question: 'Are you insured for commercial properties?', answer: 'Absolutely — we are fully licensed and insured.' },
+        { question: 'Are you insured for commercial properties?', answer: 'Absolutely â€” we are fully licensed and insured.' },
         { question: 'Do you handle post-renovation cleaning?', answer: 'Yes, we specialize in removing dust and debris from new builds or remodels.' }
     ],
    
@@ -698,7 +699,7 @@ export const servicesData = {
     label: 'Screen Repair & Replacement',
     title: 'Window Screen Repair and Replacement Services',
     description: 'Fix torn or damaged window screens with professional repair and replacement solutions.',
-    content: `Window screens keep insects out while letting fresh air in — but over time, they can tear, warp, or loosen. Our screen repair and replacement services restore your windows with durable, properly fitted screens that enhance airflow and comfort. We offer a variety of mesh options including pet-resistant, solar, and fine-mesh screens.`,
+    content: `Window screens keep insects out while letting fresh air in â€” but over time, they can tear, warp, or loosen. Our screen repair and replacement services restore your windows with durable, properly fitted screens that enhance airflow and comfort. We offer a variety of mesh options including pet-resistant, solar, and fine-mesh screens.`,
     image: `${static_assets}/images/services/window_screen.jpg`,
     typeOfSolutions: {
         headings: 'Solutions we offer',
@@ -723,7 +724,7 @@ export const servicesData = {
     faqs: [
         { question: 'Can you repair sliding door screens?', answer: 'Yes, we repair and replace patio and sliding door screens.' },
         { question: 'Do you offer pet-resistant screens?', answer: 'Yes, we provide heavy-duty mesh designed for pets.' },
-        { question: 'Can I get a custom screen for odd-sized windows?', answer: 'Absolutely — we build custom frames and mesh to size.' },
+        { question: 'Can I get a custom screen for odd-sized windows?', answer: 'Absolutely â€” we build custom frames and mesh to size.' },
         { question: 'How long does screen replacement take?', answer: 'Most jobs are completed in a single visit.' }
     ],
    
@@ -732,7 +733,7 @@ export const servicesData = {
     label: 'Storm Window Installation',
     title: 'Storm Window Installation Services',
     description: 'Protect your home from harsh weather with durable, energy-efficient storm window installations.',
-    content: `Storm windows provide an extra layer of protection against wind, rain, snow, and extreme temperatures. Our installation services ensure your property is secure, insulated, and energy-efficient year-round. Whether you need interior or exterior storm windows, we customize installations to match your home’s design and provide lasting weather protection.`,
+    content: `Storm windows provide an extra layer of protection against wind, rain, snow, and extreme temperatures. Our installation services ensure your property is secure, insulated, and energy-efficient year-round. Whether you need interior or exterior storm windows, we customize installations to match your homeâ€™s design and provide lasting weather protection.`,
     image: `${static_assets}/images/services/strom_windows.jpg`,
     typeOfSolutions: {
         headings: 'Solutions we offer',
@@ -788,7 +789,7 @@ export const servicesData = {
     faqs: [
         { question: 'How often should skylights be cleaned?', answer: 'We recommend cleaning at least twice a year for best results.' },
         { question: 'Do you repair skylight leaks?', answer: 'Yes, we inspect and reseal skylights to stop leaks.' },
-        { question: 'Can you clean acrylic skylights?', answer: 'Absolutely — we use safe products designed for acrylic surfaces.' },
+        { question: 'Can you clean acrylic skylights?', answer: 'Absolutely â€” we use safe products designed for acrylic surfaces.' },
         { question: 'Is skylight cleaning safe?', answer: 'Yes, we use professional safety equipment to reach and clean skylights securely.' }
     ],
 
@@ -819,8 +820,8 @@ export const servicesData = {
     ],
     images:[],
     faqs: [
-        { question: 'How often should solar panels be cleaned?', answer: 'We recommend every 6–12 months depending on local dust, pollen, and weather conditions.' },
-        { question: 'Do dirty panels really lose efficiency?', answer: 'Yes — buildup can reduce energy production by 20–30%.' },
+        { question: 'How often should solar panels be cleaned?', answer: 'We recommend every 6â€“12 months depending on local dust, pollen, and weather conditions.' },
+        { question: 'Do dirty panels really lose efficiency?', answer: 'Yes â€” buildup can reduce energy production by 20â€“30%.' },
         { question: 'Is cleaning safe for the panels?', answer: 'Absolutely. We use gentle, manufacturer-approved cleaning methods.' },
         { question: 'Can you clean commercial solar farms?', answer: 'Yes, we service both residential and large-scale commercial installations.' }
     ],
@@ -879,7 +880,7 @@ The final result not only lowered the homeowner's energy bills but also transfor
     content: `
 A retail store experienced a sudden impact that left their front glass cracked and unsafe for customers. Immediate replacement was required to restore safety and maintain business operations.
 
-Our technicians quickly fabricated a custom-fitted tempered glass panel to match the storefront’s dimensions. Using advanced suction and lift equipment, the damaged panel was safely removed and replaced within hours.
+Our technicians quickly fabricated a custom-fitted tempered glass panel to match the storefrontâ€™s dimensions. Using advanced suction and lift equipment, the damaged panel was safely removed and replaced within hours.
 
 The upgraded tempered glass provided enhanced strength, improved safety, and a sleek modern appearance, giving the storefront a fresh look and renewed confidence for the business owner.
     `,
@@ -935,7 +936,7 @@ A modern office building was facing issues with excessive glare, uneven indoor t
 
 Our team recommended and installed high-performance UV-protective window films across multiple floors. Each window was carefully cleaned and prepped before the precision application of the films, ensuring a flawless, bubble-free finish.
 
-The project resulted in significantly reduced glare, better climate control, and improved employee comfort. The films also added a layer of privacy and long-term protection for the office’s furniture and décor, while maintaining a modern, professional appearance.
+The project resulted in significantly reduced glare, better climate control, and improved employee comfort. The films also added a layer of privacy and long-term protection for the officeâ€™s furniture and dÃ©cor, while maintaining a modern, professional appearance.
     `,
 }
 };
@@ -973,7 +974,7 @@ export const testimonialsData = [
     {
         name: "Lisa Turner",
         role: "Interior Designer",
-        feedback: "We’ve collaborated on several renovation projects where they provided sleek, modern window solutions. Their precision and quality always impress my clients.",
+        feedback: "Weâ€™ve collaborated on several renovation projects where they provided sleek, modern window solutions. Their precision and quality always impress my clients.",
     },
     {
         name: "Mark Johnson",
@@ -983,12 +984,12 @@ export const testimonialsData = [
     {
         name: "Emily Chen",
         role: "Homeowner | Bay Window",
-        feedback: "We had them install a custom bay window in our living room. It completely transformed the space — beautiful craftsmanship!",
+        feedback: "We had them install a custom bay window in our living room. It completely transformed the space â€” beautiful craftsmanship!",
     },
     {
         name: "David Kim",
         role: "Real Estate Developer",
-        feedback: "They’ve handled window installations across several of our properties. Always on time, to spec, and with excellent finishing work.",
+        feedback: "Theyâ€™ve handled window installations across several of our properties. Always on time, to spec, and with excellent finishing work.",
     },
     {
         name: "Sophia Allen",

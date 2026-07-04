@@ -24,7 +24,7 @@ export const contactInfo = {
   mapEmbedUrl: "https://maps.app.goo.gl/rDGBNQRu5YWHo6329",
 
   email: 'support@totalcareservicesairconditioning.com',
-  workingHours: 'Mon–Sat: 8:00 AM – 6:00 PM'
+  workingHours: 'Monâ€“Sat: 8:00 AM â€“ 6:00 PM'
 };
 export const socialLinks = {
   facebook: 'https://www.facebook.com/profile.php?id=61579296842520',
@@ -35,6 +35,7 @@ export const licenses = [
   { number: 'CCC1336268', label: 'Roofing' },
   { number: 'CGC1535671', label: 'General Contractor' },
 ];
+export const enable_estimates = true;
 /* ------------------------
     PAGES  
 ------------------------ */
@@ -73,7 +74,7 @@ export const landingPage = {
   export const projectsPage = {
     seo: {
       title: 'Air Conditioning Projects in Florida',
-      description: 'Browse our portfolio of cooling projects — from home AC installations to large commercial HVAC solutions throughout Florida.',
+      description: 'Browse our portfolio of cooling projects â€” from home AC installations to large commercial HVAC solutions throughout Florida.',
       ogImage: `${static_assets}/images/hero_bg_1.jpg`,
       canonical: siteUrl + 'projects',
     },
@@ -98,7 +99,7 @@ export const landingPage = {
     },
     form: {
       heading: 'Contact Us',
-      messagePlaceholder: "Tell us what’s heating up — we’ll cool it down fast.",
+      messagePlaceholder: "Tell us whatâ€™s heating up â€” weâ€™ll cool it down fast.",
     },
 }
   
@@ -114,7 +115,7 @@ export const landingPage = {
   export const serviceAreaPage = {
     seo: {
       title: 'Air Conditioning Services In Florida',
-      description: 'Serving all of Florida with expert air conditioning services — from minor tune-ups to complete HVAC installations.',
+      description: 'Serving all of Florida with expert air conditioning services â€” from minor tune-ups to complete HVAC installations.',
       ogImage: `${static_assets}/images/hero_bg_1.jpg`,
       canonical: siteUrl + 'service-areas',
     }
@@ -164,7 +165,7 @@ export const getToKnow = {
     },
     {
       question: "Do you offer emergency AC services?",
-      answer: "Yes, we’re available 24/7 for emergencies like breakdowns, refrigerant leaks, or system failures."
+      answer: "Yes, weâ€™re available 24/7 for emergencies like breakdowns, refrigerant leaks, or system failures."
     },
     {
       question: "How quickly can you respond to a service call?",
@@ -203,7 +204,7 @@ export const getToKnow = {
       },
       {
         title: "AC Service or Installation",
-        description: "Our team handles the job precisely—whether it's repair, replacement, or full system setup.",
+        description: "Our team handles the job preciselyâ€”whether it's repair, replacement, or full system setup.",
         icon: FaHammer
       },
       {
@@ -232,12 +233,12 @@ export const getToKnow = {
     },
     {
       title: "Honest, Upfront Pricing",
-      description: "No surprises — we offer transparent quotes that align with your budget and comfort goals.",
+      description: "No surprises â€” we offer transparent quotes that align with your budget and comfort goals.",
       icon: FaDollarSign
     },
     {
       title: "Customer-First Mindset",
-      description: "Your comfort is our mission. We’re not done until your AC runs perfectly and you’re fully satisfied.",
+      description: "Your comfort is our mission. Weâ€™re not done until your AC runs perfectly and youâ€™re fully satisfied.",
       icon: FaSmile
     },
     {
@@ -335,14 +336,14 @@ export const serviceAreasData = [
       href: "/miami",
       title: "Air Conditioning Services in Miami, FL",
       description: "Trusted AC services in Miami, FL. Expert repairs, installations, and maintenance to keep your space cool year-round.",
-      content: "Total Care Air Conditioning proudly serves Miami with dependable HVAC solutions built for Florida’s heat. We focus on efficiency, reliability, and customer comfort.",
+      content: "Total Care Air Conditioning proudly serves Miami with dependable HVAC solutions built for Floridaâ€™s heat. We focus on efficiency, reliability, and customer comfort.",
       image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
       name: "Orlando",
       href: "/orlando",
       title: "Air Conditioning Services in Orlando, FL",
-      description: "Top-rated air conditioning services in Orlando, FL. From emergency repairs to full system installs — we’ve got you covered.",
+      description: "Top-rated air conditioning services in Orlando, FL. From emergency repairs to full system installs â€” weâ€™ve got you covered.",
       content: "In Orlando, Total Care Air Conditioning delivers cool comfort with fast, friendly, and professional HVAC services you can count on.",
       image: `${static_assets}/images/hero_bg_1.jpg`
     },
@@ -382,7 +383,7 @@ export const serviceAreasData = [
       name: "Cape Coral",
       href: "/cape-coral",
       title: "Air Conditioning Services in Cape Coral, FL",
-      description: "Cape Coral’s trusted HVAC team. We handle everything from ductless mini-splits to central air installations.",
+      description: "Cape Coralâ€™s trusted HVAC team. We handle everything from ductless mini-splits to central air installations.",
       content: "In Cape Coral, Total Care Air Conditioning brings expertise, energy efficiency, and friendly service to every home and business.",
       image: `${static_assets}/images/hero_bg_1.jpg`
     },
@@ -391,7 +392,7 @@ export const serviceAreasData = [
       href: "/hialeah",
       title: "Air Conditioning Services in Hialeah, FL",
       description: "Full-service AC repairs and installations in Hialeah, FL. Stay cool with trusted, local HVAC pros.",
-      content: "Total Care Air Conditioning is Hialeah’s partner for responsive service, smart system upgrades, and year-round indoor comfort.",
+      content: "Total Care Air Conditioning is Hialeahâ€™s partner for responsive service, smart system upgrades, and year-round indoor comfort.",
       image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
@@ -422,7 +423,7 @@ export const serviceAreasData = [
       name: "West Palm Beach",
       href: "/west-palm-beach",
       title: "Air Conditioning Services in West Palm Beach, FL",
-      description: "Premier AC services in West Palm Beach. Repairs, installations, ductwork, and more — all in one place.",
+      description: "Premier AC services in West Palm Beach. Repairs, installations, ductwork, and more â€” all in one place.",
       content: "West Palm Beach counts on Total Care Air Conditioning for modern cooling solutions with a focus on comfort and energy savings.",
       image: `${static_assets}/images/hero_bg_1.jpg`
     },
@@ -430,7 +431,7 @@ export const serviceAreasData = [
       name: "Lakeland",
       href: "/lakeland",
       title: "Air Conditioning Services in Lakeland, FL",
-      description: "Lakeland’s trusted HVAC service provider. Quick diagnostics, quality repairs, and long-lasting results.",
+      description: "Lakelandâ€™s trusted HVAC service provider. Quick diagnostics, quality repairs, and long-lasting results.",
       content: "At Total Care Air Conditioning, we bring cool comfort to Lakeland with responsive service and attention to every detail.",
       image: `${static_assets}/images/hero_bg_1.jpg`
     },
@@ -439,7 +440,7 @@ export const serviceAreasData = [
       href: "/ocala",
       title: "Air Conditioning Services in Ocala, FL",
       description: "Affordable AC services in Ocala. Reliable repairs and installs to keep your space cool all year long.",
-      content: "Serving Ocala with pride, Total Care Air Conditioning offers expert HVAC solutions tailored to Florida’s unique climate.",
+      content: "Serving Ocala with pride, Total Care Air Conditioning offers expert HVAC solutions tailored to Floridaâ€™s unique climate.",
       image: `${static_assets}/images/hero_bg_1.jpg`
     },
     {
@@ -462,7 +463,7 @@ export const serviceAreasData = [
       name: "Hollywood",
       href: "/hollywood",
       title: "Air Conditioning Services in Hollywood, FL",
-      description: "Hollywood, FL’s trusted HVAC experts. Cool your space with modern, energy-efficient systems.",
+      description: "Hollywood, FLâ€™s trusted HVAC experts. Cool your space with modern, energy-efficient systems.",
       content: "We proudly serve Hollywood with high-efficiency cooling and a commitment to customer satisfaction and comfort.",
       image: `${static_assets}/images/hero_bg_1.jpg`
     },
@@ -485,8 +486,8 @@ export const servicesData = {
   'ac-installation': {
       label: 'AC Installation',
       title: 'Expert Air Conditioning Installation Services in Florida',
-      description: 'Stay cool year-round with our professional AC installation services. We install energy-efficient systems tailored to your property’s needs.',
-      content: `A properly installed AC system is essential for comfort and energy savings in Florida’s heat. At Total Care Air Conditioning, we specialize in the professional installation of central air systems, ductless mini-splits, and high-efficiency HVAC units. Our experienced technicians evaluate your space, recommend the right system size and type, and ensure flawless installation. Whether it’s a new construction, renovation, or system replacement, we provide smooth, code-compliant installs that maximize performance and longevity.`,
+      description: 'Stay cool year-round with our professional AC installation services. We install energy-efficient systems tailored to your propertyâ€™s needs.',
+      content: `A properly installed AC system is essential for comfort and energy savings in Floridaâ€™s heat. At Total Care Air Conditioning, we specialize in the professional installation of central air systems, ductless mini-splits, and high-efficiency HVAC units. Our experienced technicians evaluate your space, recommend the right system size and type, and ensure flawless installation. Whether itâ€™s a new construction, renovation, or system replacement, we provide smooth, code-compliant installs that maximize performance and longevity.`,
       image: `${static_assets}/images/services/ac_installation.jpg`,
       typeOfSolutions: {
         headings: 'Solutions we offer',
@@ -514,7 +515,7 @@ export const servicesData = {
         },
         {
           title: 'Certified HVAC Technicians',
-          description: 'Our licensed experts follow Florida’s building codes and manufacturer guidelines for seamless installation.'
+          description: 'Our licensed experts follow Floridaâ€™s building codes and manufacturer guidelines for seamless installation.'
         },
         {
           title: 'Quick Turnaround',
@@ -537,7 +538,7 @@ export const servicesData = {
       faqs: [
         {
           question: "How do I know which AC system is right for my home?",
-          answer: "We perform a load calculation based on your home’s size, layout, and insulation to recommend the ideal system."
+          answer: "We perform a load calculation based on your homeâ€™s size, layout, and insulation to recommend the ideal system."
         },
         {
           question: "Do you install ductless AC systems?",
@@ -545,11 +546,11 @@ export const servicesData = {
         },
         {
           question: "How long does AC installation take?",
-          answer: "Most standard installations are completed in 1–2 days, depending on system complexity and existing setup."
+          answer: "Most standard installations are completed in 1â€“2 days, depending on system complexity and existing setup."
         },
         {
           question: "Will I need to upgrade my electrical system?",
-          answer: "Sometimes. If your existing panel can’t handle the new load, we’ll advise on safe, code-compliant upgrades."
+          answer: "Sometimes. If your existing panel canâ€™t handle the new load, weâ€™ll advise on safe, code-compliant upgrades."
         },
         {
           question: "Is your work warrantied?",
@@ -566,7 +567,7 @@ export const servicesData = {
     label: 'AC Repair',
     title: 'Fast & Reliable Air Conditioning Repair Services in Florida',
     description: 'Restore cool comfort fast with our expert AC repair services. We fix all makes and models with upfront pricing and no hidden fees.',
-    content: `Don’t sweat it—Total Care Air Conditioning is here when your AC system breaks down. Our certified HVAC technicians diagnose and repair all types of cooling systems with speed and precision. Whether it’s weak airflow, strange noises, or complete failure, we’ll get your system back up and running in no time. We service central AC units, ductless mini-splits, heat pumps, and more. Our repairs are code-compliant, efficient, and backed by satisfaction guarantees. Same-day and emergency service available across Florida.`,
+    content: `Donâ€™t sweat itâ€”Total Care Air Conditioning is here when your AC system breaks down. Our certified HVAC technicians diagnose and repair all types of cooling systems with speed and precision. Whether itâ€™s weak airflow, strange noises, or complete failure, weâ€™ll get your system back up and running in no time. We service central AC units, ductless mini-splits, heat pumps, and more. Our repairs are code-compliant, efficient, and backed by satisfaction guarantees. Same-day and emergency service available across Florida.`,
     image: `${static_assets}/images/services/ac_repair.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -602,15 +603,15 @@ export const servicesData = {
       },
       {
         title: 'Lasting Fixes',
-        description: 'We don’t just patch symptoms — we address root causes to prevent future issues.'
+        description: 'We donâ€™t just patch symptoms â€” we address root causes to prevent future issues.'
       },
       {
         title: 'Fully Licensed & Insured',
-        description: 'Our HVAC pros are certified and trained to Florida’s high standards of safety and reliability.'
+        description: 'Our HVAC pros are certified and trained to Floridaâ€™s high standards of safety and reliability.'
       },
       {
         title: 'Satisfaction Guarantee',
-        description: 'We back every repair with our Total Care promise — quality work or we’ll make it right.'
+        description: 'We back every repair with our Total Care promise â€” quality work or weâ€™ll make it right.'
       }
     ],
     faqs: [
@@ -619,8 +620,8 @@ export const servicesData = {
         answer: "Warm air, strange noises, bad odors, water leaks, high energy bills, or poor airflow are all red flags."
       },
       {
-        question: "Can I run my AC if it’s acting up?",
-        answer: "It’s best to shut it off and call a pro. Running a damaged system can make things worse and cost more."
+        question: "Can I run my AC if itâ€™s acting up?",
+        answer: "Itâ€™s best to shut it off and call a pro. Running a damaged system can make things worse and cost more."
       },
       {
         question: "Do you carry parts for on-the-spot repairs?",
@@ -628,11 +629,11 @@ export const servicesData = {
       },
       {
         question: "Will you check refrigerant levels?",
-        answer: "Absolutely. Low refrigerant is a common problem and we’ll refill or repair any leaks as needed."
+        answer: "Absolutely. Low refrigerant is a common problem and weâ€™ll refill or repair any leaks as needed."
       },
       {
         question: "Is it better to repair or replace my unit?",
-        answer: "We’ll give honest advice based on age, repair history, and efficiency — not pushy upsells."
+        answer: "Weâ€™ll give honest advice based on age, repair history, and efficiency â€” not pushy upsells."
       },
       {
         question: "How much does AC repair cost?",
@@ -645,7 +646,7 @@ export const servicesData = {
     label: 'Duct Cleaning',
     title: 'Professional Air Duct Cleaning Services in Florida',
     description: 'Improve your indoor air quality and HVAC efficiency with expert duct cleaning. We remove dust, debris, and allergens from your ductwork.',
-    content: `Over time, dust, mold, pet dander, and other contaminants can build up in your air ducts — polluting your indoor air and reducing HVAC performance. At Total Care Air Conditioning, our duct cleaning services help restore clean airflow, improve system efficiency, and support healthier living. Using high-powered vacuums and safe techniques, we thoroughly clean every inch of your ductwork, vents, and returns. Whether it’s for allergy relief, energy savings, or peace of mind, our certified team ensures your ducts are spotless and functioning their best.`,
+    content: `Over time, dust, mold, pet dander, and other contaminants can build up in your air ducts â€” polluting your indoor air and reducing HVAC performance. At Total Care Air Conditioning, our duct cleaning services help restore clean airflow, improve system efficiency, and support healthier living. Using high-powered vacuums and safe techniques, we thoroughly clean every inch of your ductwork, vents, and returns. Whether itâ€™s for allergy relief, energy savings, or peace of mind, our certified team ensures your ducts are spotless and functioning their best.`,
     image: `${static_assets}/images/services/duct_cleaning.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -677,7 +678,7 @@ export const servicesData = {
       },
       {
         title: 'Advanced Equipment',
-        description: 'We use powerful vacuum systems and safe brushes that won’t damage your ducts.'
+        description: 'We use powerful vacuum systems and safe brushes that wonâ€™t damage your ducts.'
       },
       {
         title: 'Odor Elimination',
@@ -689,14 +690,14 @@ export const servicesData = {
       },
       {
         title: 'Honest Assessment',
-        description: 'We only recommend duct cleaning when it’s actually needed — no scare tactics.'
+        description: 'We only recommend duct cleaning when itâ€™s actually needed â€” no scare tactics.'
       }
     ],
     
     faqs: [
       {
         question: "How often should air ducts be cleaned?",
-        answer: "Every 3–5 years is typical, or sooner if you have pets, allergies, recent renovations, or visible dust buildup."
+        answer: "Every 3â€“5 years is typical, or sooner if you have pets, allergies, recent renovations, or visible dust buildup."
       },
       {
         question: "Will duct cleaning make my home dusty?",
@@ -708,11 +709,11 @@ export const servicesData = {
       },
       {
         question: "Do you clean dryer vents too?",
-        answer: "Yes. Dryer vent cleaning reduces fire risk and improves appliance efficiency — we recommend it annually."
+        answer: "Yes. Dryer vent cleaning reduces fire risk and improves appliance efficiency â€” we recommend it annually."
       },
       {
         question: "Is there any prep I need to do?",
-        answer: "Just clear access to vents and registers. We’ll handle everything else, including furniture covers if needed."
+        answer: "Just clear access to vents and registers. Weâ€™ll handle everything else, including furniture covers if needed."
       },
       {
         question: "Do you offer duct sanitizing?",
@@ -725,7 +726,7 @@ export const servicesData = {
     label: 'Thermostat Installation',
     title: 'Smart & Programmable Thermostat Installation Services in Florida',
     description: 'Upgrade your HVAC control with expert thermostat installation. We install and configure smart, programmable, and manual thermostats.',
-    content: `Take control of your indoor climate and energy use with a professionally installed thermostat. At Total Care Air Conditioning, we install a wide range of thermostats — from basic programmable units to advanced smart thermostats with Wi-Fi connectivity and app control. Whether you're replacing an outdated model or integrating a thermostat with a new HVAC system, our technicians ensure it’s wired, configured, and optimized for your specific setup. Enjoy improved comfort, energy savings, and smart features that let you adjust temperatures from anywhere.`,
+    content: `Take control of your indoor climate and energy use with a professionally installed thermostat. At Total Care Air Conditioning, we install a wide range of thermostats â€” from basic programmable units to advanced smart thermostats with Wi-Fi connectivity and app control. Whether you're replacing an outdated model or integrating a thermostat with a new HVAC system, our technicians ensure itâ€™s wired, configured, and optimized for your specific setup. Enjoy improved comfort, energy savings, and smart features that let you adjust temperatures from anywhere.`,
     image: `${static_assets}/images/services/smart_thermostat.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -745,15 +746,15 @@ export const servicesData = {
     benefitsOFChoosing: [
       {
         title: 'Energy Savings',
-        description: 'Smart thermostats learn your patterns and help reduce heating/cooling waste — saving you money.'
+        description: 'Smart thermostats learn your patterns and help reduce heating/cooling waste â€” saving you money.'
       },
       {
         title: 'Remote Access',
-        description: 'Control your home’s temperature from your phone, tablet, or voice assistant for ultimate convenience.'
+        description: 'Control your homeâ€™s temperature from your phone, tablet, or voice assistant for ultimate convenience.'
       },
       {
         title: 'Seamless Compatibility',
-        description: 'We install thermostats that work perfectly with your existing HVAC system — no guesswork.'
+        description: 'We install thermostats that work perfectly with your existing HVAC system â€” no guesswork.'
       },
       {
         title: 'Professional Wiring & Setup',
@@ -765,26 +766,26 @@ export const servicesData = {
       },
       {
         title: 'Brand Flexibility',
-        description: 'We work with Nest, Ecobee, Honeywell, and other leading brands — helping you choose what’s best.'
+        description: 'We work with Nest, Ecobee, Honeywell, and other leading brands â€” helping you choose whatâ€™s best.'
       },
       {
         title: 'Quick Installations',
-        description: 'Most installations are completed in under an hour — no major disruptions.'
+        description: 'Most installations are completed in under an hour â€” no major disruptions.'
       }
     ],
     
     faqs: [
       {
         question: "Can I install a smart thermostat myself?",
-        answer: "Some can, but it’s easy to make wiring mistakes or damage components. We recommend pro installation for best results."
+        answer: "Some can, but itâ€™s easy to make wiring mistakes or damage components. We recommend pro installation for best results."
       },
       {
         question: "Which smart thermostat do you recommend?",
-        answer: "It depends on your HVAC system and goals. We’ll help you choose between brands like Nest, Ecobee, and Honeywell."
+        answer: "It depends on your HVAC system and goals. Weâ€™ll help you choose between brands like Nest, Ecobee, and Honeywell."
       },
       {
         question: "Do I need Wi-Fi for a smart thermostat?",
-        answer: "Yes, for remote access and advanced features. If you don’t need those, we can install a programmable model instead."
+        answer: "Yes, for remote access and advanced features. If you donâ€™t need those, we can install a programmable model instead."
       },
       {
         question: "Can a new thermostat lower my energy bills?",
@@ -805,7 +806,7 @@ export const servicesData = {
     label: 'HVAC Maintenance',
     title: 'Comprehensive HVAC Maintenance Services in Florida',
     description: 'Keep your HVAC system running efficiently year-round with our scheduled maintenance and tune-up services.',
-    content: `Prevent unexpected breakdowns and extend the life of your heating and cooling systems with professional HVAC maintenance from Total Care Air Conditioning. Our technicians perform seasonal tune-ups, clean key components, check refrigerant levels, test safety systems, and inspect for wear and tear. Whether it’s a residential unit or a large commercial system, routine maintenance improves performance, lowers energy bills, and helps you avoid costly repairs. Stay comfortable all year with Florida’s trusted HVAC experts.`,
+    content: `Prevent unexpected breakdowns and extend the life of your heating and cooling systems with professional HVAC maintenance from Total Care Air Conditioning. Our technicians perform seasonal tune-ups, clean key components, check refrigerant levels, test safety systems, and inspect for wear and tear. Whether itâ€™s a residential unit or a large commercial system, routine maintenance improves performance, lowers energy bills, and helps you avoid costly repairs. Stay comfortable all year with Floridaâ€™s trusted HVAC experts.`,
     image: `${static_assets}/images/services/hvac_maintainence.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -833,7 +834,7 @@ export const servicesData = {
       },
       {
         title: 'Fewer Emergency Repairs',
-        description: 'Our inspections catch issues early — preventing unexpected failures and downtime.'
+        description: 'Our inspections catch issues early â€” preventing unexpected failures and downtime.'
       },
       {
         title: 'Enhanced Indoor Air Quality',
@@ -856,10 +857,10 @@ export const servicesData = {
     faqs: [
       {
         question: "How often should I service my HVAC system?",
-        answer: "We recommend twice a year — once before summer and once before winter — for optimal performance."
+        answer: "We recommend twice a year â€” once before summer and once before winter â€” for optimal performance."
       },
       {
-        question: "What’s included in a tune-up?",
+        question: "Whatâ€™s included in a tune-up?",
         answer: "We check all major components, clean coils, test refrigerant levels, inspect wiring, and replace filters."
       },
       {
@@ -905,7 +906,7 @@ export const servicesData = {
     benefitsOFChoosing: [
       {
         title: 'Healthier Living Environment',
-        description: 'We reduce airborne allergens, dust, and bacteria — ideal for families with allergies or asthma.'
+        description: 'We reduce airborne allergens, dust, and bacteria â€” ideal for families with allergies or asthma.'
       },
       {
         title: 'Humidity & Mold Control',
@@ -956,7 +957,7 @@ export const servicesData = {
       },
       {
         question: "How often should filters be replaced?",
-        answer: "Typically every 1–3 months, depending on system type, usage, and home environment."
+        answer: "Typically every 1â€“3 months, depending on system type, usage, and home environment."
       }
     ],
     images: []
@@ -1023,16 +1024,16 @@ export const servicesData = {
         answer: "Yes, we specialize in retrofitting duct systems for older and historic homes."
       },
       {
-        question: "What’s the benefit of duct sealing?",
+        question: "Whatâ€™s the benefit of duct sealing?",
         answer: "Sealing prevents air leaks, improves efficiency, and enhances comfort throughout your space."
       },
       {
         question: "How often should ducts be cleaned?",
-        answer: "Generally every 3–5 years, or more frequently if you notice dust buildup or allergy symptoms."
+        answer: "Generally every 3â€“5 years, or more frequently if you notice dust buildup or allergy symptoms."
       },
       {
         question: "Is ductwork covered under HVAC warranties?",
-        answer: "That depends on your system and provider—our work is always backed by our own service warranty."
+        answer: "That depends on your system and providerâ€”our work is always backed by our own service warranty."
       },
       {
         question: "Do you offer duct design for new construction?",
@@ -1045,7 +1046,7 @@ export const servicesData = {
     label: 'Air Balancing & Zoning',
     title: 'Air Balancing & Zoning Services for Comfortable Living in Florida',
     description: 'Achieve consistent temperatures in every room with expert air balancing and zoning solutions tailored to your home or business.',
-    content: `Do some rooms feel too hot while others stay cold? Uneven airflow is a common HVAC issue, but Total Care Air Conditioning has the fix. Our air balancing and zoning services optimize your duct system to ensure even distribution of air throughout your property. Zoning allows you to control the temperature in different areas independently—perfect for multi-story homes or large office spaces. Whether you need better airflow, customized comfort, or energy savings, our solutions help you gain full control of your indoor environment.`,
+    content: `Do some rooms feel too hot while others stay cold? Uneven airflow is a common HVAC issue, but Total Care Air Conditioning has the fix. Our air balancing and zoning services optimize your duct system to ensure even distribution of air throughout your property. Zoning allows you to control the temperature in different areas independentlyâ€”perfect for multi-story homes or large office spaces. Whether you need better airflow, customized comfort, or energy savings, our solutions help you gain full control of your indoor environment.`,
     image: `${static_assets}/images/services/air_balance.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -1108,7 +1109,7 @@ export const servicesData = {
       },
       {
         question: "How many zones can I have?",
-        answer: "It depends on the size and layout of your space—we’ll recommend the ideal number during inspection."
+        answer: "It depends on the size and layout of your spaceâ€”weâ€™ll recommend the ideal number during inspection."
       },
       {
         question: "Can you install zoning in a single-story home?",
@@ -1124,8 +1125,8 @@ export const servicesData = {
   'emergency-ac-services': {
     label: 'Emergency AC Services',
     title: '24/7 Emergency Air Conditioning Repair Services in Florida',
-    description: 'Don’t sweat a breakdown—our emergency AC technicians are on call day and night to restore your comfort fast.',
-    content: `Air conditioning issues don’t wait for convenient hours—and neither do we. At Total Care Air Conditioning, we provide 24/7 emergency AC repair across Florida. Whether your system stopped cooling, is making strange noises, or completely shut down during peak heat, our rapid-response team is ready to diagnose and fix the issue fast. We arrive fully equipped to handle common emergencies on the spot, restoring your cooling and comfort without delay. When your AC fails, trust our licensed techs to get things running again—any time, any day.`,
+    description: 'Donâ€™t sweat a breakdownâ€”our emergency AC technicians are on call day and night to restore your comfort fast.',
+    content: `Air conditioning issues donâ€™t wait for convenient hoursâ€”and neither do we. At Total Care Air Conditioning, we provide 24/7 emergency AC repair across Florida. Whether your system stopped cooling, is making strange noises, or completely shut down during peak heat, our rapid-response team is ready to diagnose and fix the issue fast. We arrive fully equipped to handle common emergencies on the spot, restoring your cooling and comfort without delay. When your AC fails, trust our licensed techs to get things running againâ€”any time, any day.`,
     image: `${static_assets}/images/services/emergency.jpg`,
     typeOfSolutions: {
       headings: 'Emergency Services We Provide',
@@ -1157,7 +1158,7 @@ export const servicesData = {
       },
       {
         title: 'Upfront Pricing',
-        description: 'No surprise costs—just clear, honest pricing even in urgent situations.'
+        description: 'No surprise costsâ€”just clear, honest pricing even in urgent situations.'
       },
       {
         title: 'All Brands & Models Serviced',
@@ -1169,7 +1170,7 @@ export const servicesData = {
       },
       {
         title: 'Follow-Up Support',
-        description: 'We don’t just patch issues—we check your full system and offer tips to avoid repeat failures.'
+        description: 'We donâ€™t just patch issuesâ€”we check your full system and offer tips to avoid repeat failures.'
       }
     ],
     
@@ -1180,15 +1181,15 @@ export const servicesData = {
       },
       {
         question: "Do you charge extra for emergency service?",
-        answer: "We offer transparent pricing. After-hours rates may apply but are discussed up front—no surprises."
+        answer: "We offer transparent pricing. After-hours rates may apply but are discussed up frontâ€”no surprises."
       },
       {
         question: "How fast can you arrive?",
-        answer: "In most Florida metro areas, we arrive within 1–2 hours of your call."
+        answer: "In most Florida metro areas, we arrive within 1â€“2 hours of your call."
       },
       {
-        question: "What if my system needs a part you don’t have?",
-        answer: "We’ll provide a temporary solution and return as soon as the part arrives—usually within 24–48 hours."
+        question: "What if my system needs a part you donâ€™t have?",
+        answer: "Weâ€™ll provide a temporary solution and return as soon as the part arrivesâ€”usually within 24â€“48 hours."
       },
       {
         question: "Can I call you late at night or on weekends?",
@@ -1205,7 +1206,7 @@ export const servicesData = {
     label: 'Commercial HVAC Solutions',
     title: 'Reliable Commercial HVAC Services Across Florida',
     description: 'Keep your business running efficiently with tailored heating, ventilation, and cooling solutions from experienced commercial HVAC pros.',
-    content: `Commercial buildings require robust HVAC systems that can handle large spaces, variable occupancy, and long operating hours. At Total Care Air Conditioning, we design, install, maintain, and repair commercial-grade HVAC systems for offices, retail spaces, restaurants, warehouses, and more. Our team understands local regulations and energy efficiency requirements to ensure your system is not only effective but compliant and cost-efficient. From rooftop unit replacements to VRF system upgrades and regular maintenance contracts—we deliver comfort and reliability for your business.`,
+    content: `Commercial buildings require robust HVAC systems that can handle large spaces, variable occupancy, and long operating hours. At Total Care Air Conditioning, we design, install, maintain, and repair commercial-grade HVAC systems for offices, retail spaces, restaurants, warehouses, and more. Our team understands local regulations and energy efficiency requirements to ensure your system is not only effective but compliant and cost-efficient. From rooftop unit replacements to VRF system upgrades and regular maintenance contractsâ€”we deliver comfort and reliability for your business.`,
     image: `${static_assets}/images/services/commercial_hvac.jpg`,
     typeOfSolutions: {
       headings: 'Commercial HVAC Services We Offer',
@@ -1225,11 +1226,11 @@ export const servicesData = {
     benefitsOFChoosing: [
       {
         title: 'Custom Solutions for Your Business',
-        description: 'We assess your building’s layout and usage to deliver optimized HVAC solutions tailored to your industry.'
+        description: 'We assess your buildingâ€™s layout and usage to deliver optimized HVAC solutions tailored to your industry.'
       },
       {
         title: 'Minimal Downtime',
-        description: 'Our team works fast and around your schedule to ensure your business isn’t disrupted during installs or repairs.'
+        description: 'Our team works fast and around your schedule to ensure your business isnâ€™t disrupted during installs or repairs.'
       },
       {
         title: 'Energy Efficiency Focus',
@@ -1249,7 +1250,7 @@ export const servicesData = {
       },
       {
         title: 'Scalable Systems',
-        description: 'Our solutions grow with your business—from single-site operations to multi-location enterprises.'
+        description: 'Our solutions grow with your businessâ€”from single-site operations to multi-location enterprises.'
       }
     ],
     
@@ -1268,7 +1269,7 @@ export const servicesData = {
       },
       {
         question: "How do I know if my current system needs an upgrade?",
-        answer: "If it’s over 10–15 years old, energy bills are high, or comfort is uneven—it might be time for a more efficient solution."
+        answer: "If itâ€™s over 10â€“15 years old, energy bills are high, or comfort is unevenâ€”it might be time for a more efficient solution."
       },
       {
         question: "Do you handle rooftop HVAC units?",
@@ -1276,7 +1277,7 @@ export const servicesData = {
       },
       {
         question: "Can you help reduce HVAC energy costs for my business?",
-        answer: "Yes—through system upgrades, smart controls, proper zoning, and routine maintenance."
+        answer: "Yesâ€”through system upgrades, smart controls, proper zoning, and routine maintenance."
       }
     ],
     images: []
@@ -1285,7 +1286,7 @@ export const servicesData = {
     label: 'Heat Pump Services',
     title: 'Reliable Heat Pump Installation & Repair Services in Florida',
     description: 'Stay comfortable year-round with energy-efficient heat pump systems, professionally installed and serviced by our Florida technicians.',
-    content: `Heat pumps offer both heating and cooling in one efficient system—ideal for Florida's climate. At Total Care Air Conditioning, we provide expert installation, repair, and maintenance of all major heat pump brands. Whether you're replacing an old unit, upgrading for energy efficiency, or fixing performance issues, our team ensures seamless service and long-lasting comfort. From ducted systems to ductless mini-splits, we’ve got the experience to get it done right.`,
+    content: `Heat pumps offer both heating and cooling in one efficient systemâ€”ideal for Florida's climate. At Total Care Air Conditioning, we provide expert installation, repair, and maintenance of all major heat pump brands. Whether you're replacing an old unit, upgrading for energy efficiency, or fixing performance issues, our team ensures seamless service and long-lasting comfort. From ducted systems to ductless mini-splits, weâ€™ve got the experience to get it done right.`,
     image: `${static_assets}/images/services/heat_pump.jpg`,
     typeOfSolutions: {
       headings: 'Solutions We Offer',
@@ -1305,11 +1306,11 @@ export const servicesData = {
     benefitsOFChoosing: [
       {
         title: 'Year-Round Comfort',
-        description: 'One system handles both heating and cooling—perfect for Florida’s mild winters and hot summers.'
+        description: 'One system handles both heating and coolingâ€”perfect for Floridaâ€™s mild winters and hot summers.'
       },
       {
         title: 'Energy Efficient Solutions',
-        description: 'Our systems are ENERGY STAR® certified and optimized to reduce utility bills.'
+        description: 'Our systems are ENERGY STARÂ® certified and optimized to reduce utility bills.'
       },
       {
         title: 'Expert Heat Pump Repairs',
@@ -1329,7 +1330,7 @@ export const servicesData = {
       },
       {
         title: 'Transparent Pricing',
-        description: 'No hidden costs—just honest estimates and quality service every step of the way.'
+        description: 'No hidden costsâ€”just honest estimates and quality service every step of the way.'
       }
     ],
     
@@ -1339,8 +1340,8 @@ export const servicesData = {
         answer: "It transfers heat between indoors and outdoors, providing both heating and cooling using refrigerant cycles."
       },
       {
-        question: "Is a heat pump good for Florida’s climate?",
-        answer: "Yes! It’s ideal for areas with mild winters and warm summers like Florida."
+        question: "Is a heat pump good for Floridaâ€™s climate?",
+        answer: "Yes! Itâ€™s ideal for areas with mild winters and warm summers like Florida."
       },
       {
         question: "Can you replace my old HVAC with a heat pump?",
@@ -1352,7 +1353,7 @@ export const servicesData = {
       },
       {
         question: "How often should a heat pump be serviced?",
-        answer: "We recommend twice a year—before summer and before winter—for optimal performance."
+        answer: "We recommend twice a yearâ€”before summer and before winterâ€”for optimal performance."
       },
       {
         question: "Do you provide emergency heat pump repair?",
@@ -1365,7 +1366,7 @@ export const servicesData = {
     label: 'Energy Efficiency Upgrades',
     title: 'Energy Efficiency Upgrades for Air Conditioning in Florida',
     description: 'Reduce your energy bills and carbon footprint with smart AC upgrades tailored for Florida homes and businesses.',
-    content: `Upgrading your air conditioning system for energy efficiency not only saves money but also contributes to a greener planet. At Total Care Air Conditioning, we assess your existing setup and recommend cost-effective upgrades—from high-SEER units to smart thermostats and insulation improvements. Our team ensures your system runs at peak efficiency, helping you lower utility bills while staying cool even in the Florida heat.`,
+    content: `Upgrading your air conditioning system for energy efficiency not only saves money but also contributes to a greener planet. At Total Care Air Conditioning, we assess your existing setup and recommend cost-effective upgradesâ€”from high-SEER units to smart thermostats and insulation improvements. Our team ensures your system runs at peak efficiency, helping you lower utility bills while staying cool even in the Florida heat.`,
     image: `${static_assets}/images/services/energy_efficient.jpg`,
     typeOfSolutions: {
       headings: 'Solutions We Offer',
@@ -1415,12 +1416,12 @@ export const servicesData = {
     
     faqs: [
       {
-        question: "What’s the best way to make my AC more energy efficient?",
+        question: "Whatâ€™s the best way to make my AC more energy efficient?",
         answer: "Start with a high-SEER unit and a smart thermostat. We can assess and recommend a full upgrade plan."
       },
       {
         question: "Will energy-efficient upgrades really lower my bill?",
-        answer: "Yes, customers typically save 20–40% on cooling costs depending on the upgrades applied."
+        answer: "Yes, customers typically save 20â€“40% on cooling costs depending on the upgrades applied."
       },
       {
         question: "Can I upgrade my current AC or do I need a full replacement?",
@@ -1428,11 +1429,11 @@ export const servicesData = {
       },
       {
         question: "Are there rebates available in Florida?",
-        answer: "Yes, certain utility companies offer rebates—we’ll help you find and apply for them."
+        answer: "Yes, certain utility companies offer rebatesâ€”weâ€™ll help you find and apply for them."
       },
       {
         question: "How long do efficiency upgrades take?",
-        answer: "Most upgrades can be done in 1–2 days depending on the scope of work."
+        answer: "Most upgrades can be done in 1â€“2 days depending on the scope of work."
       },
       {
         question: "Do you provide an energy audit?",
@@ -1495,7 +1496,7 @@ export const projectsData = {
         'Noise-Reducing Mounts'
       ],
       content: `
-  The Sunrise Apartments HVAC upgrade project focused on modernizing the building’s outdated cooling infrastructure. Our team replaced aging rooftop units with multi-zone HVAC systems capable of serving individual apartment needs more efficiently. High-SEER condensers and ductless mini-splits were installed in select units for better temperature control and energy savings.
+  The Sunrise Apartments HVAC upgrade project focused on modernizing the buildingâ€™s outdated cooling infrastructure. Our team replaced aging rooftop units with multi-zone HVAC systems capable of serving individual apartment needs more efficiently. High-SEER condensers and ductless mini-splits were installed in select units for better temperature control and energy savings.
   
   We also improved insulation in existing ducts and added smart monitoring systems to track usage and detect maintenance needs proactively. The result was a quieter, more efficient, and tenant-friendly cooling solution that reduced monthly energy costs and increased long-term reliability.
   `,
@@ -1573,7 +1574,7 @@ export const projectsData = {
         'Low-Profile Mounting Brackets'
       ],
       content: `The Heritage Hotel HVAC renovation required a delicate balance of modern climate control and historic preservation. Our team upgraded the full system with energy-efficient ductless mini-splits, chosen for their minimal visual impact and quiet performance.
-      We installed custom air vents and concealed ductwork to maintain the building’s vintage aesthetic. New thermostats and humidity controls were added to improve guest comfort. Despite architectural challenges, we completed the project in 3 weeks without compromising the hotel's historic charm.`,
+      We installed custom air vents and concealed ductwork to maintain the buildingâ€™s vintage aesthetic. New thermostats and humidity controls were added to improve guest comfort. Despite architectural challenges, we completed the project in 3 weeks without compromising the hotel's historic charm.`,
       
     },
     'green-grove-setup': {
@@ -1674,7 +1675,7 @@ export const testimonialsData = [
     {
       name: "John Davis",
       role: "Homeowner | Florida",
-      feedback: "Total Care Air Conditioning installed a new central AC unit in our home—smooth process and great results!",
+      feedback: "Total Care Air Conditioning installed a new central AC unit in our homeâ€”smooth process and great results!",
     },
     {
       name: "Rachel Green",
@@ -1699,12 +1700,12 @@ export const testimonialsData = [
     {
       name: "Emily Chen",
       role: "Homeowner | Florida",
-      feedback: "Our old AC died in peak summer—Total Care got a new system up and running in just one day!",
+      feedback: "Our old AC died in peak summerâ€”Total Care got a new system up and running in just one day!",
     },
     {
       name: "David Kim",
       role: "Real Estate Developer",
-      feedback: "They’ve handled HVAC installs across multiple properties. On-time, budget-friendly, and always to code.",
+      feedback: "Theyâ€™ve handled HVAC installs across multiple properties. On-time, budget-friendly, and always to code.",
     },
     {
       name: "Sophia Allen",

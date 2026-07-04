@@ -24,7 +24,7 @@ export const contactInfo = {
   mapEmbedUrl: "https://maps.app.goo.gl/rDGBNQRu5YWHo6329",
 
   email: 'support@totalcareserviceselectrical.com',
-  workingHours: 'Mon–Sat: 8:00 AM – 6:00 PM'
+  workingHours: 'Monâ€“Sat: 8:00 AM â€“ 6:00 PM'
 };
 export const socialLinks = {
   facebook: 'https://www.facebook.com/profile.php?id=61579296842520',
@@ -35,6 +35,7 @@ export const licenses = [
   { number: 'CCC1336268', label: 'Roofing' },
   { number: 'CGC1535671', label: 'General Contractor' },
 ];
+export const enable_estimates = true;
 /* ------------------------
     PAGES  
 ------------------------ */
@@ -72,7 +73,7 @@ export const servicesPage = {
 export const projectsPage = {
   seo: {
     title: 'Electrical Projects in Florida',
-    description: 'Browse our portfolio of electrical work across Florida — from residential rewiring to large-scale commercial installations.',
+    description: 'Browse our portfolio of electrical work across Florida â€” from residential rewiring to large-scale commercial installations.',
     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'projects',
   },
@@ -97,7 +98,7 @@ export const contactPage = {
   },
   form: {
     heading: 'Contact Us',
-    messagePlaceholder: "Tell us what’s sparking — we’ll handle it safely and quickly.",
+    messagePlaceholder: "Tell us whatâ€™s sparking â€” weâ€™ll handle it safely and quickly.",
   },
 }
 
@@ -113,7 +114,7 @@ export const blogPage = {
 export const serviceAreaPage = {
   seo: {
     title: 'Electrical Services In Florida',
-    description: 'We serve Florida homes and businesses with top-quality electrical solutions — from basic fixes to complex installations.',
+    description: 'We serve Florida homes and businesses with top-quality electrical solutions â€” from basic fixes to complex installations.',
     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'service-areas',
   }
@@ -159,11 +160,11 @@ export const faqs = [
   },
   {
     question: "Are your electricians licensed and insured?",
-    answer: "Absolutely. All our electricians are fully licensed, insured, and trained to meet Florida’s electrical code standards."
+    answer: "Absolutely. All our electricians are fully licensed, insured, and trained to meet Floridaâ€™s electrical code standards."
   },
   {
     question: "Do you offer emergency electrical services?",
-    answer: "Yes, we’re available 24/7 for emergencies like power outages, electrical fires, or hazardous faults."
+    answer: "Yes, weâ€™re available 24/7 for emergencies like power outages, electrical fires, or hazardous faults."
   },
   {
     question: "How fast can you respond to a service request?",
@@ -235,12 +236,12 @@ export const WhyUSData = [
   },
   {
     title: "Customer-First Approach",
-    description: "Your satisfaction is our priority — we won’t leave until you’re fully confident in our work.",
+    description: "Your satisfaction is our priority â€” we wonâ€™t leave until youâ€™re fully confident in our work.",
     icon: FaSmile
   },
   {
     title: "Safety-Compliant Services",
-    description: "We follow Florida’s electrical codes and safety guidelines to protect your property and your peace of mind.",
+    description: "We follow Floridaâ€™s electrical codes and safety guidelines to protect your property and your peace of mind.",
     icon: FaShieldAlt
   }
 ];
@@ -339,7 +340,7 @@ export const serviceAreasData = [
     name: "Orlando",
     href: "/orlando",
     title: "Electrical Services in Orlando, FL",
-    description: "Top-rated electrical services in Orlando, FL. From fixture installations to circuit troubleshooting — we’ve got you covered.",
+    description: "Top-rated electrical services in Orlando, FL. From fixture installations to circuit troubleshooting â€” weâ€™ve got you covered.",
     content: "Total Care Electrical is proud to power Orlando homes and businesses with trusted electrical repairs, upgrades, and maintenance. Our team ensures every job is done safely and up to code.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -348,7 +349,7 @@ export const serviceAreasData = [
     href: "/tampa",
     title: "Electrical Services in Tampa, FL",
     description: "Reliable electrical solutions in Tampa, FL. We offer fast repairs, efficient rewiring, and dependable service with every visit.",
-    content: "Serving Tampa with pride, Total Care Electrical delivers clean, compliant, and energy-efficient electrical work. Whether it’s lighting upgrades or whole-home rewiring, we treat your space like our own.",
+    content: "Serving Tampa with pride, Total Care Electrical delivers clean, compliant, and energy-efficient electrical work. Whether itâ€™s lighting upgrades or whole-home rewiring, we treat your space like our own.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
@@ -395,7 +396,7 @@ export const serviceAreasData = [
     name: "Gainesville",
     href: "/gainesville",
     title: "Electrical Services in Gainesville, FL",
-    description: "Gainesville’s go-to electricians for residential and light commercial work. Reliable wiring, upgrades, and repairs.",
+    description: "Gainesvilleâ€™s go-to electricians for residential and light commercial work. Reliable wiring, upgrades, and repairs.",
     content: "At Total Care Electrical, we offer Gainesville dependable electrical services that keep your home or office safe and running smoothly.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -419,7 +420,7 @@ export const serviceAreasData = [
     name: "West Palm Beach",
     href: "/west-palm-beach",
     title: "Electrical Services in West Palm Beach, FL",
-    description: "Premier electricians serving West Palm Beach. Clean installs, panel fixes, and lighting design — all in one place.",
+    description: "Premier electricians serving West Palm Beach. Clean installs, panel fixes, and lighting design â€” all in one place.",
     content: "West Palm Beach residents trust Total Care Electrical for safe, smart, and stylish electrical solutions that meet modern needs.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -427,8 +428,8 @@ export const serviceAreasData = [
     name: "Lakeland",
     href: "/lakeland",
     title: "Electrical Services in Lakeland, FL",
-    description: "Lakeland’s trusted choice for electrical repair, inspection, and installation. Fast service, flawless results.",
-    content: "At Total Care Electrical, we handle Lakeland’s wiring needs with professionalism, attention to detail, and dependable results.",
+    description: "Lakelandâ€™s trusted choice for electrical repair, inspection, and installation. Fast service, flawless results.",
+    content: "At Total Care Electrical, we handle Lakelandâ€™s wiring needs with professionalism, attention to detail, and dependable results.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
@@ -443,7 +444,7 @@ export const serviceAreasData = [
     name: "Bradenton",
     href: "/bradenton",
     title: "Electrical Services in Bradenton, FL",
-    description: "Complete electrical services in Bradenton, FL — wiring, panel repairs, LED upgrades, and more.",
+    description: "Complete electrical services in Bradenton, FL â€” wiring, panel repairs, LED upgrades, and more.",
     content: "Total Care Electrical brings a customer-first mindset and professional-grade tools to every Bradenton job we tackle.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -459,8 +460,8 @@ export const serviceAreasData = [
     name: "Hollywood",
     href: "/hollywood",
     title: "Electrical Services in Hollywood, FL",
-    description: "Hollywood FL’s go-to team for electrical solutions. Panels, lights, smart systems — installed right.",
-    content: "We’re proud to serve Hollywood homes and businesses with safe, stylish, and future-ready electrical work.",
+    description: "Hollywood FLâ€™s go-to team for electrical solutions. Panels, lights, smart systems â€” installed right.",
+    content: "Weâ€™re proud to serve Hollywood homes and businesses with safe, stylish, and future-ready electrical work.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
@@ -483,7 +484,7 @@ export const servicesData = {
     label: 'Wiring & Rewiring',
     title: 'Professional Electrical Wiring & Rewiring Services in Florida',
     description: 'Keep your property safe and up to code with our expert wiring and rewiring services. We handle everything from new installations to full system upgrades.',
-    content: `Faulty or outdated wiring is a major safety hazard. At Total Care Electrical, we offer precise wiring and rewiring services for homes and businesses throughout Florida. Whether you’re building from scratch, remodeling, or upgrading an old system, our licensed electricians ensure every wire, outlet, and panel is safely installed and code-compliant. We handle both partial and full rewiring projects, resolve overloaded circuits, and bring your system up to modern electrical standards. Safety, efficiency, and reliability are always our priority.`,
+    content: `Faulty or outdated wiring is a major safety hazard. At Total Care Electrical, we offer precise wiring and rewiring services for homes and businesses throughout Florida. Whether youâ€™re building from scratch, remodeling, or upgrading an old system, our licensed electricians ensure every wire, outlet, and panel is safely installed and code-compliant. We handle both partial and full rewiring projects, resolve overloaded circuits, and bring your system up to modern electrical standards. Safety, efficiency, and reliability are always our priority.`,
     image: `${static_assets}/images/services/wiring.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -527,7 +528,7 @@ export const servicesData = {
       },
       {
         title: 'Transparent Estimates',
-        description: 'You’ll get upfront pricing and honest recommendations for your exact needs—no upsells.'
+        description: 'Youâ€™ll get upfront pricing and honest recommendations for your exact needsâ€”no upsells.'
       }
     ],
     faqs: [
@@ -541,7 +542,7 @@ export const servicesData = {
       },
       {
         question: "How long does a full home rewire take?",
-        answer: "Typically between 3–7 days depending on property size and complexity."
+        answer: "Typically between 3â€“7 days depending on property size and complexity."
       },
       {
         question: "Do I need to move out during the process?",
@@ -613,7 +614,7 @@ export const servicesData = {
     faqs: [
       {
         question: "When should I upgrade my electrical panel?",
-        answer: "If you’re adding appliances, experiencing breaker issues, or have an older fuse box, it’s time to upgrade."
+        answer: "If youâ€™re adding appliances, experiencing breaker issues, or have an older fuse box, itâ€™s time to upgrade."
       },
       {
         question: "How long does a panel upgrade take?",
@@ -625,7 +626,7 @@ export const servicesData = {
       },
       {
         question: "Is it safe to keep using an old fuse box?",
-        answer: "Old fuse boxes lack modern safety features and often don’t meet current electrical demands—upgrading is highly recommended."
+        answer: "Old fuse boxes lack modern safety features and often donâ€™t meet current electrical demandsâ€”upgrading is highly recommended."
       },
       {
         question: "Do I need a permit for a panel upgrade?",
@@ -643,7 +644,7 @@ export const servicesData = {
     label: 'Lighting Installation',
     title: 'Professional Lighting Installation Services in Florida',
     description: 'Brighten up your space with expert lighting installation. From ambient home lighting to commercial-grade solutions, we do it all with precision and style.',
-    content: `The right lighting transforms your space, enhancing aesthetics, mood, and functionality. At Total Care Electrical, we offer comprehensive lighting installation services across Florida for homes, offices, retail stores, and outdoor spaces. Whether you’re looking to install recessed lighting in your kitchen, pendant lights over your island, or landscape lights to boost curb appeal, our licensed electricians ensure safe, clean, and code-compliant setups. We help you choose the perfect fixtures, plan optimal layouts, and install smart lighting systems that work seamlessly with your home automation.`,
+    content: `The right lighting transforms your space, enhancing aesthetics, mood, and functionality. At Total Care Electrical, we offer comprehensive lighting installation services across Florida for homes, offices, retail stores, and outdoor spaces. Whether youâ€™re looking to install recessed lighting in your kitchen, pendant lights over your island, or landscape lights to boost curb appeal, our licensed electricians ensure safe, clean, and code-compliant setups. We help you choose the perfect fixtures, plan optimal layouts, and install smart lighting systems that work seamlessly with your home automation.`,
     image: `${static_assets}/images/services/light.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -663,7 +664,7 @@ export const servicesData = {
     benefitsOFChoosing: [
       {
         title: 'Custom Lighting Design',
-        description: 'We tailor each lighting plan to match your home’s architecture and your aesthetic preferences.'
+        description: 'We tailor each lighting plan to match your homeâ€™s architecture and your aesthetic preferences.'
       },
       {
         title: 'Energy-Efficient Options',
@@ -679,7 +680,7 @@ export const servicesData = {
       },
       {
         title: 'Enhanced Property Value',
-        description: 'Well-planned lighting boosts your home’s appeal and market value.'
+        description: 'Well-planned lighting boosts your homeâ€™s appeal and market value.'
       },
       {
         title: 'Fast, Clean Installations',
@@ -687,7 +688,7 @@ export const servicesData = {
       },
       {
         title: 'Fixture Selection Help',
-        description: 'We help you choose fixtures that match your décor and lighting goals, from soft ambiance to task lighting.'
+        description: 'We help you choose fixtures that match your dÃ©cor and lighting goals, from soft ambiance to task lighting.'
       }
     ],
     faqs: [
@@ -723,7 +724,7 @@ export const servicesData = {
     label: 'Emergency Repairs',
     title: '24/7 Emergency Electrical Repair Services in Florida',
     description: 'Power outage or electrical fault? Get fast, reliable emergency electrical repair services anytime, anywhere in Florida.',
-    content: `Electrical emergencies can strike at any time—faulty wiring, sudden outages, sparking outlets, or breaker trips can put your safety and comfort at risk. At Total Care Electrical, we offer 24/7 emergency repair services to restore power and fix dangerous faults without delay. Our licensed electricians respond rapidly, troubleshoot the issue, and provide safe, lasting solutions. Whether it’s a residential blackout or a commercial electrical hazard, we bring the tools, experience, and urgency required to handle it. Your safety is our top priority, and we’re just one call away.`,
+    content: `Electrical emergencies can strike at any timeâ€”faulty wiring, sudden outages, sparking outlets, or breaker trips can put your safety and comfort at risk. At Total Care Electrical, we offer 24/7 emergency repair services to restore power and fix dangerous faults without delay. Our licensed electricians respond rapidly, troubleshoot the issue, and provide safe, lasting solutions. Whether itâ€™s a residential blackout or a commercial electrical hazard, we bring the tools, experience, and urgency required to handle it. Your safety is our top priority, and weâ€™re just one call away.`,
     image: `${static_assets}/images/services/emergency.jpg`,
     typeOfSolutions: {
       headings: 'Emergency Services We Provide',
@@ -763,7 +764,7 @@ export const servicesData = {
       },
       {
         title: 'Clear Communication',
-        description: 'We explain what went wrong, how we’re fixing it, and how you can prevent future emergencies.'
+        description: 'We explain what went wrong, how weâ€™re fixing it, and how you can prevent future emergencies.'
       },
       {
         title: 'Support for Homes & Businesses',
@@ -773,7 +774,7 @@ export const servicesData = {
     faqs: [
       {
         question: "What qualifies as an electrical emergency?",
-        answer: "Anything posing immediate danger—sparks, smoke, outages, burning smells, exposed wires, or frequent tripping breakers."
+        answer: "Anything posing immediate dangerâ€”sparks, smoke, outages, burning smells, exposed wires, or frequent tripping breakers."
       },
       {
         question: "Do you charge extra for after-hours service?",
@@ -793,7 +794,7 @@ export const servicesData = {
       },
       {
         question: "What should I do while waiting for your team?",
-        answer: "Turn off the main breaker if it’s safe to do so, avoid touching exposed wires, and keep the area clear."
+        answer: "Turn off the main breaker if itâ€™s safe to do so, avoid touching exposed wires, and keep the area clear."
       }
     ],
     images:[],
@@ -802,7 +803,7 @@ export const servicesData = {
     label: 'EV Charger Installation',
     title: 'Professional EV Charger Installation Services in Florida',
     description: 'Charge your electric vehicle at home or work with our expert EV charger installation services. Safe, fast, and code-compliant installations guaranteed.',
-    content: `As electric vehicles become the new norm, having a reliable home or commercial EV charging station is essential. At Total Care Electrical, we provide professional EV charger installation services throughout Florida. Whether it’s a Level 2 home charger or a multi-port commercial setup, our licensed electricians handle everything from load calculation and wiring to permitting and installation. We work with all major brands like Tesla, ChargePoint, and JuiceBox. Our goal is to provide a safe, efficient, and future-ready solution that makes powering your EV convenient and worry-free.`,
+    content: `As electric vehicles become the new norm, having a reliable home or commercial EV charging station is essential. At Total Care Electrical, we provide professional EV charger installation services throughout Florida. Whether itâ€™s a Level 2 home charger or a multi-port commercial setup, our licensed electricians handle everything from load calculation and wiring to permitting and installation. We work with all major brands like Tesla, ChargePoint, and JuiceBox. Our goal is to provide a safe, efficient, and future-ready solution that makes powering your EV convenient and worry-free.`,
     image: `${static_assets}/images/services/ev_charger.jpg`,
     typeOfSolutions: {
       headings: 'EV Charging Solutions We Offer',
@@ -834,7 +835,7 @@ export const servicesData = {
       },
       {
         title: 'Code-Compliant Work',
-        description: 'All installations follow Florida’s electrical codes and safety standards for EV charging systems.'
+        description: 'All installations follow Floridaâ€™s electrical codes and safety standards for EV charging systems.'
       },
       {
         title: 'End-to-End Service',
@@ -882,7 +883,7 @@ export const servicesData = {
     label: 'Generator Installation',
     title: 'Reliable Generator Installation Services in Florida',
     description: 'Keep your home or business powered during outages with our expert generator installation services. We install whole-house and portable systems with safety and efficiency in mind.',
-    content: `Power outages can strike anytime, and having a reliable backup generator ensures peace of mind. At Total Care Electrical, we provide professional generator installation services across Florida. Whether you need a standby generator for your home or a commercial-grade system for your business, we handle everything from sizing and load calculation to wiring and permitting. We work with top brands like Generac and Kohler, ensuring a seamless integration with your existing electrical panel. With our skilled electricians and tailored approach, you’ll always be prepared for the unexpected.`,
+    content: `Power outages can strike anytime, and having a reliable backup generator ensures peace of mind. At Total Care Electrical, we provide professional generator installation services across Florida. Whether you need a standby generator for your home or a commercial-grade system for your business, we handle everything from sizing and load calculation to wiring and permitting. We work with top brands like Generac and Kohler, ensuring a seamless integration with your existing electrical panel. With our skilled electricians and tailored approach, youâ€™ll always be prepared for the unexpected.`,
     image: `${static_assets}/images/services/generator_installation.jpg`,
     typeOfSolutions: {
       headings: 'Types of Generator Solutions We Offer',
@@ -940,11 +941,11 @@ export const servicesData = {
       },
       {
         question: "How long does installation take?",
-        answer: "Most home generator installations are completed in 1–2 days, depending on complexity and permitting."
+        answer: "Most home generator installations are completed in 1â€“2 days, depending on complexity and permitting."
       },
       {
         question: "Can I use a portable generator?",
-        answer: "Yes, we can install a transfer switch to safely connect a portable generator to your home’s electrical system."
+        answer: "Yes, we can install a transfer switch to safely connect a portable generator to your homeâ€™s electrical system."
       },
       {
         question: "Do you offer maintenance services?",
@@ -961,7 +962,7 @@ export const servicesData = {
     label: 'Smart Home Wiring',
     title: 'Professional Smart Home Wiring Services in Florida',
     description: 'Upgrade your home with smart wiring that supports automation, energy efficiency, and seamless device connectivity.',
-    content: `Smart homes require smart infrastructure. At Total Care Electrical, we provide expert smart home wiring services to future-proof your property for intelligent living. Whether you're building a new home or retrofitting an existing one, we design and install low-voltage and high-voltage systems that support home automation, smart lighting, voice assistants, thermostats, and security systems. Our team ensures clean, concealed wiring layouts with clear labeling and scalability for future tech upgrades. We follow all safety codes and tailor the wiring to your home’s layout and smart ecosystem.`,
+    content: `Smart homes require smart infrastructure. At Total Care Electrical, we provide expert smart home wiring services to future-proof your property for intelligent living. Whether you're building a new home or retrofitting an existing one, we design and install low-voltage and high-voltage systems that support home automation, smart lighting, voice assistants, thermostats, and security systems. Our team ensures clean, concealed wiring layouts with clear labeling and scalability for future tech upgrades. We follow all safety codes and tailor the wiring to your homeâ€™s layout and smart ecosystem.`,
     image: `${static_assets}/images/services/smart_home_wiring.jpg`,
     typeOfSolutions: {
       headings: 'Smart Wiring Solutions We Offer',
@@ -1001,7 +1002,7 @@ export const servicesData = {
       },
       {
         title: 'Custom Layouts Based on Home Design',
-        description: 'We create wiring plans that match your home’s architecture and smart home goals.'
+        description: 'We create wiring plans that match your homeâ€™s architecture and smart home goals.'
       },
       {
         title: 'Licensed & Code-Compliant',
@@ -1010,7 +1011,7 @@ export const servicesData = {
     ],
     faqs: [
       {
-        question: "What’s included in smart home wiring?",
+        question: "Whatâ€™s included in smart home wiring?",
         answer: "We install data, audio, and control cables for devices like smart lighting, thermostats, doorbells, and voice assistants."
       },
       {
@@ -1027,7 +1028,7 @@ export const servicesData = {
       },
       {
         question: "How long does smart home wiring take?",
-        answer: "It varies by project, but most installations are completed in 1–3 days depending on your home’s size and requirements."
+        answer: "It varies by project, but most installations are completed in 1â€“3 days depending on your homeâ€™s size and requirements."
       },
       {
         question: "Can I expand my system later?",
@@ -1040,7 +1041,7 @@ export const servicesData = {
     label: 'Surge Protection',
     title: 'Whole-Home Surge Protection Services in Florida',
     description: 'Protect your home and electronics from voltage spikes with professional surge protection installation.',
-    content: `Power surges can damage appliances, computers, HVAC systems, and even your home’s electrical infrastructure. At Total Care Electrical, we provide comprehensive surge protection services for homes and businesses across Florida. Our licensed electricians install whole-home surge protectors directly into your electrical panel, safeguarding every circuit and outlet. Whether caused by lightning strikes, grid switching, or internal overloads, surges are no match for our robust protective systems.`,
+    content: `Power surges can damage appliances, computers, HVAC systems, and even your homeâ€™s electrical infrastructure. At Total Care Electrical, we provide comprehensive surge protection services for homes and businesses across Florida. Our licensed electricians install whole-home surge protectors directly into your electrical panel, safeguarding every circuit and outlet. Whether caused by lightning strikes, grid switching, or internal overloads, surges are no match for our robust protective systems.`,
     image: `${static_assets}/images/services/surge.jpg`,
     typeOfSolutions: {
       headings: 'Surge Protection Solutions We Offer',
@@ -1106,11 +1107,11 @@ export const servicesData = {
       },
       {
         question: "How long do surge protectors last?",
-        answer: "Most last 5–10 years depending on usage and surge frequency. We offer replacements as needed."
+        answer: "Most last 5â€“10 years depending on usage and surge frequency. We offer replacements as needed."
       },
       {
         question: "Will surge protection lower my energy bills?",
-        answer: "It won’t reduce consumption but prevents costly repairs and replacement of damaged devices."
+        answer: "It wonâ€™t reduce consumption but prevents costly repairs and replacement of damaged devices."
       }
     ],
     images:[],
@@ -1151,11 +1152,11 @@ export const servicesData = {
       },
       {
         title: 'Custom Placement',
-        description: 'We install outlets and switches exactly where you need them—no more extension cords or workarounds.'
+        description: 'We install outlets and switches exactly where you need themâ€”no more extension cords or workarounds.'
       },
       {
         title: 'Aesthetic Matching',
-        description: 'Choose modern finishes, plates, and colors to match your home’s décor.'
+        description: 'Choose modern finishes, plates, and colors to match your homeâ€™s dÃ©cor.'
       },
       {
         title: 'Fast & Clean Installation',
@@ -1185,7 +1186,7 @@ export const servicesData = {
       },
       {
         question: "Is it safe to add more outlets to a room?",
-        answer: "Yes, as long as the circuit can handle the load. We’ll assess and ensure proper balance."
+        answer: "Yes, as long as the circuit can handle the load. Weâ€™ll assess and ensure proper balance."
       },
       {
         question: "Are outdoor outlets safe in the rain?",
@@ -1198,7 +1199,7 @@ export const servicesData = {
     label: 'Ceiling Fan Installation',
     title: 'Professional Ceiling Fan Installation in Florida',
     description: 'Stay cool and stylish with our expert ceiling fan installation services. Safe, efficient, and perfect for Florida homes and businesses.',
-    content: `Ceiling fans offer a cost-effective way to cool your space while enhancing your room’s aesthetic. At Total Care Electrical, we provide expert ceiling fan installation services for residential and commercial properties across Florida. Whether it's your living room, bedroom, patio, or office, we install all types of ceiling fans — from basic models to smart, remote-controlled systems. Our licensed electricians ensure safe mounting, correct wiring, and smooth operation, even on high or sloped ceilings.`,
+    content: `Ceiling fans offer a cost-effective way to cool your space while enhancing your roomâ€™s aesthetic. At Total Care Electrical, we provide expert ceiling fan installation services for residential and commercial properties across Florida. Whether it's your living room, bedroom, patio, or office, we install all types of ceiling fans â€” from basic models to smart, remote-controlled systems. Our licensed electricians ensure safe mounting, correct wiring, and smooth operation, even on high or sloped ceilings.`,
     image: `${static_assets}/images/services/ceiling_fan.jpg`,
     typeOfSolutions: {
       headings: 'Types of Ceiling Fan Installations',
@@ -1226,7 +1227,7 @@ export const servicesData = {
       },
       {
         title: 'Indoor & Outdoor Comfort',
-        description: 'Our fans are installed for optimal airflow in any space — bedrooms, patios, or business areas.'
+        description: 'Our fans are installed for optimal airflow in any space â€” bedrooms, patios, or business areas.'
       },
       {
         title: 'Smart & Remote Capabilities',
@@ -1234,11 +1235,11 @@ export const servicesData = {
       },
       {
         title: 'Aesthetic Integration',
-        description: 'We help select fan styles and finishes that complement your room’s design.'
+        description: 'We help select fan styles and finishes that complement your roomâ€™s design.'
       },
       {
         title: 'Full Electrical Support',
-        description: 'We can add new wiring, boxes, or switches if your space isn’t pre-wired for ceiling fans.'
+        description: 'We can add new wiring, boxes, or switches if your space isnâ€™t pre-wired for ceiling fans.'
       },
       {
         title: 'Licensed & Insured Technicians',
@@ -1247,12 +1248,12 @@ export const servicesData = {
     ],
     faqs: [
       {
-        question: "Can you install a fan where there’s no existing fixture?",
+        question: "Can you install a fan where thereâ€™s no existing fixture?",
         answer: "Yes. We can install new wiring and a fan-rated box even if no existing ceiling fixture is present."
       },
       {
         question: "Do I need a special fan for outdoor use?",
-        answer: "Yes, outdoor fans are rated for moisture and weather exposure. We’ll help you choose the right one."
+        answer: "Yes, outdoor fans are rated for moisture and weather exposure. Weâ€™ll help you choose the right one."
       },
       {
         question: "Can you install fans on vaulted or sloped ceilings?",
@@ -1268,7 +1269,7 @@ export const servicesData = {
       },
       {
         question: "How long does installation take?",
-        answer: "Most installations take 1–2 hours depending on wiring and ceiling type."
+        answer: "Most installations take 1â€“2 hours depending on wiring and ceiling type."
       }],
     images:[],
   }
@@ -1300,7 +1301,7 @@ export const projectsData = {
       'Grounding Rods'
     ],
     content: `
-    This downtown Miami office project involved a complete upgrade of the building’s outdated electrical system. We replaced legacy wiring with new copper conductors and installed modern circuit panels for improved load management. Smart switches and occupancy sensors were deployed to enhance energy efficiency, while data cabling ensured full network coverage. The project was executed over two weeks with strict adherence to Miami’s commercial electrical codes, ensuring safety, reliability, and room for future expansion.`,
+    This downtown Miami office project involved a complete upgrade of the buildingâ€™s outdated electrical system. We replaced legacy wiring with new copper conductors and installed modern circuit panels for improved load management. Smart switches and occupancy sensors were deployed to enhance energy efficiency, while data cabling ensured full network coverage. The project was executed over two weeks with strict adherence to Miamiâ€™s commercial electrical codes, ensuring safety, reliability, and room for future expansion.`,
   },
   'sunrise-apartments-upgrade': {
     label: 'Sunrise Apartments Electrical Upgrade',
@@ -1344,7 +1345,7 @@ export const projectsData = {
       'Building Management System (BMS) Interface'
     ],
     content: `
-    For the Palm Heights luxury complex, we handled the end-to-end setup of a modern power system. Starting from the main distribution panel, we integrated smart meters, surge protection, and high-capacity breakers to support the demands of luxury living. Smart lighting and automation features were added throughout, along with EV charging stations for residents. Underground conduit layouts were designed to optimize safety and aesthetics. The entire setup was integrated with the building’s management system for remote monitoring and efficiency.`,
+    For the Palm Heights luxury complex, we handled the end-to-end setup of a modern power system. Starting from the main distribution panel, we integrated smart meters, surge protection, and high-capacity breakers to support the demands of luxury living. Smart lighting and automation features were added throughout, along with EV charging stations for residents. Underground conduit layouts were designed to optimize safety and aesthetics. The entire setup was integrated with the buildingâ€™s management system for remote monitoring and efficiency.`,
   },
   'city-mall-lighting': {
     label: 'City Mall Lighting System',
@@ -1366,7 +1367,7 @@ export const projectsData = {
       'Wiring & Cable Trays'
     ],
     content: `
-    This project involved a full-scale lighting design and installation for City Mall’s new expansion. We used high-efficiency LED fixtures to reduce long-term energy costs while enhancing the aesthetic of retail spaces. Emergency lighting and signage were installed throughout for compliance and safety. Smart controllers and motion sensors were added to reduce power usage during off-peak hours. Our team worked after hours to avoid disrupting mall operations, and the entire project was completed in five weeks.`,
+    This project involved a full-scale lighting design and installation for City Mallâ€™s new expansion. We used high-efficiency LED fixtures to reduce long-term energy costs while enhancing the aesthetic of retail spaces. Emergency lighting and signage were installed throughout for compliance and safety. Smart controllers and motion sensors were added to reduce power usage during off-peak hours. Our team worked after hours to avoid disrupting mall operations, and the entire project was completed in five weeks.`,
   },
   'hotel-renovation': {
     label: 'Hotel Power Renovation',
@@ -1388,7 +1389,7 @@ export const projectsData = {
       'Tamper-Resistant Receptacles'
     ],
     content: `
-    For the  Hotel, our team was tasked with a sensitive power system upgrade that respected the building’s charm while meeting modern electrical standards.
+    For the  Hotel, our team was tasked with a sensitive power system upgrade that respected the buildingâ€™s charm while meeting modern electrical standards.
     We rewired guest rooms, common areas, and the kitchen, ensuring clean and consistent power delivery.
     LED lighting and smart thermostats were installed to improve energy efficiency. GFCI outlets and upgraded smoke detectors added critical safety.
     All work was performed with close coordination with preservation experts to ensure no historical elements were disturbed during the renovation.`,
@@ -1545,7 +1546,7 @@ export const testimonialsData = [
   {
     name: "Isabella Taylor",
     role: "Retail Owner",
-    feedback: "Had a power failure over the weekend—these guys were here fast and handled it like pros.",
+    feedback: "Had a power failure over the weekendâ€”these guys were here fast and handled it like pros.",
 
   },
   {
@@ -1557,7 +1558,7 @@ export const testimonialsData = [
   {
     name: "Emma Robinson",
     role: "Home Renovator | Florida",
-    feedback: "They’re excellent at integrating electrical systems into remodeling projects without delays or surprises.",
+    feedback: "Theyâ€™re excellent at integrating electrical systems into remodeling projects without delays or surprises.",
 
   }
 ];

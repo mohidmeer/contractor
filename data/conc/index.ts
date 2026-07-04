@@ -24,7 +24,7 @@ export const contactInfo = {
   mapEmbedUrl: "https://maps.app.goo.gl/rDGBNQRu5YWHo6329",
 
   email: 'support@totalcareservicesconcrete.com',
-  workingHours: 'Mon–Sat: 8:00 AM – 6:00 PM'
+  workingHours: 'Monâ€“Sat: 8:00 AM â€“ 6:00 PM'
 };
 export const socialLinks = {
   facebook: 'https://www.facebook.com/profile.php?id=61579296842520',
@@ -35,6 +35,7 @@ export const licenses = [
   { number: 'CCC1336268', label: 'Roofing' },
   { number: 'CGC1535671', label: 'General Contractor' },
 ];
+export const enable_estimates = true;
 /* ------------------------
     PAGES  
 ------------------------ */
@@ -74,7 +75,7 @@ export const servicesPage = {
 export const projectsPage = {
   seo: {
     title: 'Concrete Projects Portfolio',
-    description: 'View completed concrete jobs — strong, clean, and built to last.',
+    description: 'View completed concrete jobs â€” strong, clean, and built to last.',
     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'projects',
   },
@@ -83,7 +84,7 @@ export const projectsPage = {
 export const aboutPage = {
   seo: {
     title: 'About Total Care Concrete',
-    description: 'Learn about our team’s experience delivering high-quality concrete solutions with professionalism and precision.',
+    description: 'Learn about our teamâ€™s experience delivering high-quality concrete solutions with professionalism and precision.',
     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'about',
   },
@@ -99,7 +100,7 @@ export const contactPage = {
   },
   form: {
     heading: 'Request a Quote',
-    messagePlaceholder: "Tell us about your concrete project — we’ll get back to you shortly.",
+    messagePlaceholder: "Tell us about your concrete project â€” weâ€™ll get back to you shortly.",
   },
 }
 
@@ -115,7 +116,7 @@ export const blogPage = {
 export const serviceAreaPage = {
   seo: {
     title: 'Concrete Services in Your Area',
-    description: 'We provide concrete services across your local area — with expert installation and reliable results.',
+    description: 'We provide concrete services across your local area â€” with expert installation and reliable results.',
     ogImage: `${static_assets}/images/hero_bg_1.jpg`,
     canonical: siteUrl + 'service-areas',
   }
@@ -131,11 +132,11 @@ export const getToKnow = {
   title: 'GET TO KNOW',
   heading: 'Concrete Work Built for Strength, Style, and Longevity',
   description:
-    'Total Care Concrete is your trusted partner for delivering expertly crafted concrete work. Whether it’s a patio, driveway, or foundation, we bring skill and care to every pour.',
+    'Total Care Concrete is your trusted partner for delivering expertly crafted concrete work. Whether itâ€™s a patio, driveway, or foundation, we bring skill and care to every pour.',
   keyPoints: [
     {
       title: 'Skilled Concrete Professionals',
-      desc: 'Our crew brings years of experience in residential and commercial concrete — ensuring clean, precise results.',
+      desc: 'Our crew brings years of experience in residential and commercial concrete â€” ensuring clean, precise results.',
     },
     {
       title: 'Durable, High-Quality Materials',
@@ -171,7 +172,7 @@ export const faqs = [
   },
   {
     question: "How long does a typical concrete project take?",
-    answer: "It depends on the scope, but most residential projects are completed in 1–5 days."
+    answer: "It depends on the scope, but most residential projects are completed in 1â€“5 days."
   },
   {
     question: "Do you serve both residential and commercial clients?",
@@ -194,7 +195,7 @@ export const ourProcessData = {
     },
     {
       title: "Custom Quote & Plan",
-      description: "You’ll receive a clear plan with material specs, timeline, and upfront pricing.",
+      description: "Youâ€™ll receive a clear plan with material specs, timeline, and upfront pricing.",
       icon: FaFileAlt
     },
     {
@@ -218,7 +219,7 @@ export const ourProcessData = {
 export const WhyUSData = [
   {
     title: "Certified Concrete Specialists",
-    description: "Our crew is trained in all aspects of concrete work — from foundations to decorative finishes.",
+    description: "Our crew is trained in all aspects of concrete work â€” from foundations to decorative finishes.",
     icon: FaUserTie
   },
   {
@@ -238,7 +239,7 @@ export const WhyUSData = [
   },
   {
     title: "Custom Concrete Solutions",
-    description: "Whether it’s stamped finishes or functional slabs, we tailor each project to your goals.",
+    description: "Whether itâ€™s stamped finishes or functional slabs, we tailor each project to your goals.",
     icon: FaSmile
   },
   {
@@ -323,7 +324,7 @@ export const navItems = [
    NAVITEMS FOOTER 
 ------------------------ */
 export const FooterData = {
-  tagline: 'Delivering durable, beautiful concrete solutions across Florida — from driveways to foundations.',
+  tagline: 'Delivering durable, beautiful concrete solutions across Florida â€” from driveways to foundations.',
 };
 /* ------------------------
    AREAS OF SERVICES
@@ -333,7 +334,7 @@ export const serviceAreasData = [
     name: "Miami",
     href: "/miami",
     title: "Concrete Services in Miami, FL",
-    description: "Professional concrete solutions in Miami. From driveways to patios — durable and stylish.",
+    description: "Professional concrete solutions in Miami. From driveways to patios â€” durable and stylish.",
     content: "Total Care Concrete enhances Miami properties with expert concrete work, decorative finishes, and solid foundations.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -350,14 +351,14 @@ export const serviceAreasData = [
     href: "/tampa",
     title: "Concrete Services in Tampa, FL",
     description: "Concrete driveways, patios, and more in Tampa. Affordable and built for Florida weather.",
-    content: "We help Tampa homeowners with custom concrete work — clean finishes, fast turnarounds, and long-lasting results.",
+    content: "We help Tampa homeowners with custom concrete work â€” clean finishes, fast turnarounds, and long-lasting results.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
     name: "Jacksonville",
     href: "/jacksonville",
     title: "Concrete Services in Jacksonville, FL",
-    description: "Expert concrete services in Jacksonville — for homes, businesses, and more.",
+    description: "Expert concrete services in Jacksonville â€” for homes, businesses, and more.",
     content: "Total Care Concrete delivers durable slabs, walkways, and foundations in Jacksonville with top-tier materials and workmanship.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -373,7 +374,7 @@ export const serviceAreasData = [
     name: "St. Petersburg",
     href: "/st-petersburg",
     title: "Concrete Services in St. Petersburg, FL",
-    description: "Versatile concrete work in St. Pete — from resurfacing to new pours.",
+    description: "Versatile concrete work in St. Pete â€” from resurfacing to new pours.",
     content: "Total Care Concrete serves St. Petersburg with decorative concrete, smooth installations, and repair services.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -381,7 +382,7 @@ export const serviceAreasData = [
     name: "Cape Coral",
     href: "/cape-coral",
     title: "Concrete Services in Cape Coral, FL",
-    description: "Cape Coral’s trusted name for patios, sidewalks, and decorative concrete.",
+    description: "Cape Coralâ€™s trusted name for patios, sidewalks, and decorative concrete.",
     content: "In Cape Coral, we build long-lasting driveways, pool decks, and slabs tailored to Florida's coastal conditions.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -389,7 +390,7 @@ export const serviceAreasData = [
     name: "Hialeah",
     href: "/hialeah",
     title: "Concrete Services in Hialeah, FL",
-    description: "Affordable and efficient concrete services in Hialeah — functional and neat.",
+    description: "Affordable and efficient concrete services in Hialeah â€” functional and neat.",
     content: "From driveway repairs to new slab pours, Total Care Concrete brings reliability and value to every Hialeah project.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -405,7 +406,7 @@ export const serviceAreasData = [
     name: "Naples",
     href: "/naples",
     title: "Concrete Services in Naples, FL",
-    description: "Elegant concrete work in Naples — stylish finishes and flawless pours.",
+    description: "Elegant concrete work in Naples â€” stylish finishes and flawless pours.",
     content: "Naples clients count on us for premium concrete patios, coastal-resistant driveways, and unique stamped textures.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -413,7 +414,7 @@ export const serviceAreasData = [
     name: "Pensacola",
     href: "/pensacola",
     title: "Concrete Services in Pensacola, FL",
-    description: "Reliable concrete services in Pensacola — for homes and commercial sites.",
+    description: "Reliable concrete services in Pensacola â€” for homes and commercial sites.",
     content: "We deliver solid concrete foundations, custom walkways, and affordable slab solutions across Pensacola.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -421,7 +422,7 @@ export const serviceAreasData = [
     name: "West Palm Beach",
     href: "/west-palm-beach",
     title: "Concrete Services in West Palm Beach, FL",
-    description: "Modern concrete options for West Palm Beach — strong, clean, and stylish.",
+    description: "Modern concrete options for West Palm Beach â€” strong, clean, and stylish.",
     content: "Our concrete team builds driveways, patios, and pathways in West Palm Beach with attention to style and durability.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -429,7 +430,7 @@ export const serviceAreasData = [
     name: "Lakeland",
     href: "/lakeland",
     title: "Concrete Services in Lakeland, FL",
-    description: "Your local concrete experts in Lakeland — budget-friendly and dependable.",
+    description: "Your local concrete experts in Lakeland â€” budget-friendly and dependable.",
     content: "Lakeland homeowners trust Total Care Concrete for concrete resurfacing, new installs, and decorative finishes.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -438,14 +439,14 @@ export const serviceAreasData = [
     href: "/ocala",
     title: "Concrete Services in Ocala, FL",
     description: "Functional and attractive concrete services in Ocala, FL.",
-    content: "In Ocala, we deliver everything from large slab pours to intricate walkway designs — done right the first time.",
+    content: "In Ocala, we deliver everything from large slab pours to intricate walkway designs â€” done right the first time.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
   {
     name: "Bradenton",
     href: "/bradenton",
     title: "Concrete Services in Bradenton, FL",
-    description: "Top-rated concrete services in Bradenton — built to last.",
+    description: "Top-rated concrete services in Bradenton â€” built to last.",
     content: "Total Care Concrete upgrades Bradenton spaces with strong structures, modern textures, and expert finishes.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -453,7 +454,7 @@ export const serviceAreasData = [
     name: "Fort Myers",
     href: "/fort-myers",
     title: "Concrete Services in Fort Myers, FL",
-    description: "Fort Myers concrete pros — from residential slabs to decorative pathways.",
+    description: "Fort Myers concrete pros â€” from residential slabs to decorative pathways.",
     content: "We help Fort Myers clients with custom concrete solutions tailored to your space, style, and schedule.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -461,7 +462,7 @@ export const serviceAreasData = [
     name: "Hollywood",
     href: "/hollywood",
     title: "Concrete Services in Hollywood, FL",
-    description: "Hollywood’s go-to for modern concrete work. Sleek, strong, and stylish.",
+    description: "Hollywoodâ€™s go-to for modern concrete work. Sleek, strong, and stylish.",
     content: "Hollywood homes and businesses shine with our expert concrete driveways, stamped patios, and walkways.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   },
@@ -469,7 +470,7 @@ export const serviceAreasData = [
     name: "Boca Raton",
     href: "/boca-raton",
     title: "Concrete Services in Boca Raton, FL",
-    description: "Upscale concrete finishes in Boca Raton — luxury meets function.",
+    description: "Upscale concrete finishes in Boca Raton â€” luxury meets function.",
     content: "Boca Raton clients choose us for premium concrete surfaces with elegant textures and long-term strength.",
     image: `${static_assets}/images/hero_bg_1.jpg`
   }
@@ -483,8 +484,8 @@ export const servicesData = {
   'driveway-installation': {
     label: 'Driveway Installation',
     title: 'Durable & Stylish Driveway Installation by Total Care Concrete',
-    description: 'Upgrade your property’s curb appeal and functionality with expertly installed concrete driveways tailored to your needs.',
-    content: `Your driveway is more than just a path to your garage — it’s the first impression of your home or business. At Total Care Concrete, we specialize in custom driveway installations that blend form and function. Whether you need a traditional flat concrete driveway or a decorative stamped finish, our team ensures every project is built to last. We begin with a thorough site assessment, proper base preparation, and reinforcement for long-term durability. Our driveways are engineered to handle daily wear, extreme weather, and heavy vehicle loads without cracking or fading. We also offer design consultations to align with your aesthetic preferences and property layout.`,
+    description: 'Upgrade your propertyâ€™s curb appeal and functionality with expertly installed concrete driveways tailored to your needs.',
+    content: `Your driveway is more than just a path to your garage â€” itâ€™s the first impression of your home or business. At Total Care Concrete, we specialize in custom driveway installations that blend form and function. Whether you need a traditional flat concrete driveway or a decorative stamped finish, our team ensures every project is built to last. We begin with a thorough site assessment, proper base preparation, and reinforcement for long-term durability. Our driveways are engineered to handle daily wear, extreme weather, and heavy vehicle loads without cracking or fading. We also offer design consultations to align with your aesthetic preferences and property layout.`,
     image: `${static_assets}/images/services/driveway.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -508,7 +509,7 @@ export const servicesData = {
       },
       {
         title: 'Custom Designs',
-        description: 'Choose from various textures, colors, and finishes to match your property’s style.'
+        description: 'Choose from various textures, colors, and finishes to match your propertyâ€™s style.'
       },
       {
         title: 'Expert Installation',
@@ -530,7 +531,7 @@ export const servicesData = {
     faqs: [
       {
         question: "How long does a concrete driveway installation take?",
-        answer: "Most driveway installations are completed in 3–5 days, depending on size and design."
+        answer: "Most driveway installations are completed in 3â€“5 days, depending on size and design."
       },
       {
         question: "Is reinforcement necessary for my driveway?",
@@ -555,7 +556,7 @@ export const servicesData = {
     label: 'Concrete Slabs',
     title: 'Precision Concrete Slab Installation by Total Care Concrete',
     description: 'Strong, stable, and durable concrete slabs for residential and commercial foundations, pads, and more.',
-    content: `Concrete slabs form the backbone of countless structures—from homes and garages to patios and sheds. At Total Care Concrete, we specialize in expertly poured slabs that meet structural codes, offer long-term durability, and serve as reliable foundations for your projects. Whether you’re building a new home, installing a shed, or preparing for a commercial setup, our team ensures accurate grading, formwork, reinforcement, and curing. We use premium materials and advanced techniques to prevent cracks, settlement, and drainage issues. Our process is fast, clean, and customized for your specific site conditions and project requirements.`,
+    content: `Concrete slabs form the backbone of countless structuresâ€”from homes and garages to patios and sheds. At Total Care Concrete, we specialize in expertly poured slabs that meet structural codes, offer long-term durability, and serve as reliable foundations for your projects. Whether youâ€™re building a new home, installing a shed, or preparing for a commercial setup, our team ensures accurate grading, formwork, reinforcement, and curing. We use premium materials and advanced techniques to prevent cracks, settlement, and drainage issues. Our process is fast, clean, and customized for your specific site conditions and project requirements.`,
     image: `${static_assets}/images/services/slab.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -579,7 +580,7 @@ export const servicesData = {
       },
       {
         title: 'Custom Applications',
-        description: 'We pour slabs for any use—residential, commercial, or industrial—with tailored reinforcement.'
+        description: 'We pour slabs for any useâ€”residential, commercial, or industrialâ€”with tailored reinforcement.'
       },
       {
         title: 'Proper Drainage',
@@ -601,7 +602,7 @@ export const servicesData = {
     faqs: [
       {
         question: "How thick should a concrete slab be?",
-        answer: "Most residential slabs are 4–6 inches thick, but we adjust based on load and application."
+        answer: "Most residential slabs are 4â€“6 inches thick, but we adjust based on load and application."
       },
       {
         question: "Do you include reinforcement in your slabs?",
@@ -609,11 +610,11 @@ export const servicesData = {
       },
       {
         question: "Can I build directly on the slab?",
-        answer: "Absolutely—our slabs are designed to support construction such as garages, sheds, and patios."
+        answer: "Absolutelyâ€”our slabs are designed to support construction such as garages, sheds, and patios."
       },
       {
         question: "How long before I can use the slab?",
-        answer: "Light foot traffic is possible in 24–48 hours; full cure for heavy loads may take 7–28 days."
+        answer: "Light foot traffic is possible in 24â€“48 hours; full cure for heavy loads may take 7â€“28 days."
       },
       {
         question: "Do you handle permits and inspections?",
@@ -626,7 +627,7 @@ export const servicesData = {
     label: 'Patios & Walkways',
     title: 'Custom Concrete Patios & Walkways by Total Care Concrete',
     description: 'Transform your outdoor spaces with beautifully designed and expertly installed concrete patios and walkways.',
-    content: `Well-crafted patios and walkways enhance your property’s functionality, safety, and curb appeal. At Total Care Concrete, we design and build custom outdoor surfaces that blend seamlessly with your landscape and architectural style. Whether you prefer a clean modern slab, decorative stamped patterns, or textured finishes for grip, our team delivers with attention to detail and precision. From backyard patios perfect for gatherings to walkways that guide guests with elegance and ease, we use high-quality materials and proven techniques to ensure long-lasting results. Every step—from grading and forming to finishing and sealing—is handled professionally to bring your vision to life.`,
+    content: `Well-crafted patios and walkways enhance your propertyâ€™s functionality, safety, and curb appeal. At Total Care Concrete, we design and build custom outdoor surfaces that blend seamlessly with your landscape and architectural style. Whether you prefer a clean modern slab, decorative stamped patterns, or textured finishes for grip, our team delivers with attention to detail and precision. From backyard patios perfect for gatherings to walkways that guide guests with elegance and ease, we use high-quality materials and proven techniques to ensure long-lasting results. Every stepâ€”from grading and forming to finishing and sealingâ€”is handled professionally to bring your vision to life.`,
     image: `${static_assets}/images/services/patio.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -646,7 +647,7 @@ export const servicesData = {
     benefitsOFChoosing: [
       {
         title: 'Customized Designs',
-        description: 'We tailor patio and walkway designs to match your home’s character and your lifestyle.'
+        description: 'We tailor patio and walkway designs to match your homeâ€™s character and your lifestyle.'
       },
       {
         title: 'Slip-Resistant Textures',
@@ -658,11 +659,11 @@ export const servicesData = {
       },
       {
         title: 'Weather Resistant',
-        description: 'Our outdoor surfaces withstand Florida’s sun, rain, and humidity without cracking or fading.'
+        description: 'Our outdoor surfaces withstand Floridaâ€™s sun, rain, and humidity without cracking or fading.'
       },
       {
         title: 'Low Maintenance',
-        description: 'Easy-to-clean and durable concrete that doesn’t require frequent upkeep.'
+        description: 'Easy-to-clean and durable concrete that doesnâ€™t require frequent upkeep.'
       },
       {
         title: 'Fast & Clean Installation',
@@ -676,11 +677,11 @@ export const servicesData = {
       },
       {
         question: "How long does it take to install a patio?",
-        answer: "Most patios are completed within 3–5 days depending on size and complexity."
+        answer: "Most patios are completed within 3â€“5 days depending on size and complexity."
       },
       {
         question: "Are stamped concrete options available?",
-        answer: "Absolutely—we offer a range of stamped and decorative finishes for custom styling."
+        answer: "Absolutelyâ€”we offer a range of stamped and decorative finishes for custom styling."
       },
       {
         question: "Will the concrete crack over time?",
@@ -697,7 +698,7 @@ export const servicesData = {
     label: 'Foundation Work',
     title: 'Reliable Concrete Foundation Services by Total Care Concrete',
     description: 'Ensure the structural integrity of your property with our expert concrete foundation solutions.',
-    content: `A strong, stable foundation is the most critical part of any construction project. At Total Care Concrete, we specialize in creating durable, precise foundations that serve as the solid base for homes, garages, additions, and commercial structures. Whether you need a new foundation, underpinning, or repairs to an existing slab, our experienced team delivers results you can trust. We handle every phase—excavation, forming, reinforcement, pouring, and finishing—with careful planning and engineering expertise to meet local building codes and withstand Florida’s challenging soil conditions. Trust us to keep your project grounded—literally.`,
+    content: `A strong, stable foundation is the most critical part of any construction project. At Total Care Concrete, we specialize in creating durable, precise foundations that serve as the solid base for homes, garages, additions, and commercial structures. Whether you need a new foundation, underpinning, or repairs to an existing slab, our experienced team delivers results you can trust. We handle every phaseâ€”excavation, forming, reinforcement, pouring, and finishingâ€”with careful planning and engineering expertise to meet local building codes and withstand Floridaâ€™s challenging soil conditions. Trust us to keep your project groundedâ€”literally.`,
     image: `${static_assets}/images/services/foundation.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -747,7 +748,7 @@ export const servicesData = {
       },
       {
         question: "How long does a foundation project take?",
-        answer: "Typical residential foundations take 5–7 days, depending on weather and complexity."
+        answer: "Typical residential foundations take 5â€“7 days, depending on weather and complexity."
       },
       {
         question: "Can you repair existing foundations?",
@@ -767,8 +768,8 @@ export const servicesData = {
   'garage-flooring': {
     label: 'Garage Flooring',
     title: 'Durable & Stylish Garage Flooring Solutions by Total Care Concrete',
-    description: 'Upgrade your garage with professional concrete flooring that’s tough, clean, and built to last.',
-    content: `Total Care Concrete delivers garage flooring that’s not only tough but visually appealing. Whether you're turning your garage into a showroom, workshop, or storage space, we install high-performance concrete floors designed for heavy loads and high traffic. Our flooring systems resist stains, cracks, moisture, and chemicals, making them ideal for residential and commercial use. Choose from polished concrete, epoxy coatings, or textured finishes for improved traction and a clean, professional appearance. We handle surface prep, leveling, sealing, and finishing to ensure a long-lasting result that transforms your garage into a functional and beautiful extension of your home.`,
+    description: 'Upgrade your garage with professional concrete flooring thatâ€™s tough, clean, and built to last.',
+    content: `Total Care Concrete delivers garage flooring thatâ€™s not only tough but visually appealing. Whether you're turning your garage into a showroom, workshop, or storage space, we install high-performance concrete floors designed for heavy loads and high traffic. Our flooring systems resist stains, cracks, moisture, and chemicals, making them ideal for residential and commercial use. Choose from polished concrete, epoxy coatings, or textured finishes for improved traction and a clean, professional appearance. We handle surface prep, leveling, sealing, and finishing to ensure a long-lasting result that transforms your garage into a functional and beautiful extension of your home.`,
     image: `${static_assets}/images/services/flooring.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -796,11 +797,11 @@ export const servicesData = {
       },
       {
         title: 'Custom Finishes',
-        description: 'Choose from a range of colors, textures, and coatings to match your garage’s use and style.'
+        description: 'Choose from a range of colors, textures, and coatings to match your garageâ€™s use and style.'
       },
       {
         title: 'Fast Turnaround',
-        description: 'We complete most garage flooring installations in just 1–2 days.'
+        description: 'We complete most garage flooring installations in just 1â€“2 days.'
       },
       {
         title: 'Slip Resistance',
@@ -808,13 +809,13 @@ export const servicesData = {
       },
       {
         title: 'Long-Term Value',
-        description: 'Enhance your garage’s look and usability while boosting home value.'
+        description: 'Enhance your garageâ€™s look and usability while boosting home value.'
       }
     ],
     faqs: [
       {
         question: "How long does a garage floor installation take?",
-        answer: "Most installs take 1–2 days, including surface prep and curing time."
+        answer: "Most installs take 1â€“2 days, including surface prep and curing time."
       },
       {
         question: "Will the flooring resist oil and chemical stains?",
@@ -829,8 +830,8 @@ export const servicesData = {
         answer: "We offer slip-resistant textures and additives to reduce slipperiness even when wet."
       },
       {
-        question: "What’s the maintenance like?",
-        answer: "Just occasional mopping or sweeping—no special cleaners required."
+        question: "Whatâ€™s the maintenance like?",
+        answer: "Just occasional mopping or sweepingâ€”no special cleaners required."
       }
     ],
     images: []
@@ -839,7 +840,7 @@ export const servicesData = {
     label: 'Retaining Walls',
     title: 'Expertly Built Retaining Walls by Total Care Concrete',
     description: 'Ensure structural stability and enhance your landscape with professionally engineered concrete retaining walls.',
-    content: `Retaining walls are essential for managing sloped terrain, preventing soil erosion, and adding dimension to your outdoor space. At Total Care Concrete, we design and construct retaining walls that are as strong as they are attractive. Whether it's a functional barrier for water runoff or an aesthetic feature in your garden, our walls are built to last. We work with poured concrete, concrete blocks, and decorative finishes to match your property’s needs. Every project begins with proper assessment and engineering, followed by precise excavation, drainage solutions, and expert installation. Our walls are built with both structural integrity and curb appeal in mind.`,
+    content: `Retaining walls are essential for managing sloped terrain, preventing soil erosion, and adding dimension to your outdoor space. At Total Care Concrete, we design and construct retaining walls that are as strong as they are attractive. Whether it's a functional barrier for water runoff or an aesthetic feature in your garden, our walls are built to last. We work with poured concrete, concrete blocks, and decorative finishes to match your propertyâ€™s needs. Every project begins with proper assessment and engineering, followed by precise excavation, drainage solutions, and expert installation. Our walls are built with both structural integrity and curb appeal in mind.`,
     image: `${static_assets}/images/services/retaining.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -960,7 +961,7 @@ export const servicesData = {
       },
       {
         question: "How long does resurfacing last?",
-        answer: "With proper maintenance, resurfaced concrete can last 10–15 years or longer."
+        answer: "With proper maintenance, resurfaced concrete can last 10â€“15 years or longer."
       },
       {
         question: "Is resurfacing suitable for driveways and garages?",
@@ -981,7 +982,7 @@ export const servicesData = {
     label: 'Commercial Concrete Services',
     title: 'Reliable Commercial Concrete Services for Florida Businesses',
     description: 'From warehouses to storefronts, our commercial concrete services are tailored to meet high-volume, code-compliant construction needs.',
-    content: `At Total Care Concrete, we understand the unique demands of commercial concrete projects—whether you're developing new structures or maintaining existing ones. Our team delivers durable, code-compliant concrete work that supports heavy traffic and long-term performance. We handle everything from foundations and parking lots to sidewalks, ramps, and slab work. Our commercial-grade equipment, experienced crews, and adherence to strict timelines ensure your project stays on track. We also collaborate with contractors, property managers, and business owners to develop efficient solutions that minimize downtime and support business operations.`,
+    content: `At Total Care Concrete, we understand the unique demands of commercial concrete projectsâ€”whether you're developing new structures or maintaining existing ones. Our team delivers durable, code-compliant concrete work that supports heavy traffic and long-term performance. We handle everything from foundations and parking lots to sidewalks, ramps, and slab work. Our commercial-grade equipment, experienced crews, and adherence to strict timelines ensure your project stays on track. We also collaborate with contractors, property managers, and business owners to develop efficient solutions that minimize downtime and support business operations.`,
     image: `${static_assets}/images/services/commercial.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -1009,7 +1010,7 @@ export const servicesData = {
       },
       {
         title: 'Timely Project Delivery',
-        description: 'We understand time is money—our crews work efficiently to meet business-critical timelines.'
+        description: 'We understand time is moneyâ€”our crews work efficiently to meet business-critical timelines.'
       },
       {
         title: 'Collaborative Approach',
@@ -1027,7 +1028,7 @@ export const servicesData = {
     faqs: [
       {
         question: "Do you handle large-scale commercial projects?",
-        answer: "Yes, we’re equipped to take on projects of all sizes, from retail stores to warehouses and industrial facilities."
+        answer: "Yes, weâ€™re equipped to take on projects of all sizes, from retail stores to warehouses and industrial facilities."
       },
       {
         question: "Are your commercial services ADA compliant?",
@@ -1052,7 +1053,7 @@ export const servicesData = {
     label: 'Stamped Concrete',
     title: 'Stylish & Durable Stamped Concrete Solutions',
     description: 'Add texture and personality to your concrete surfaces with our custom stamped concrete services.',
-    content: `Stamped concrete is the perfect choice when you want the durability of concrete with the beauty of stone, brick, tile, or even wood textures. At Total Care Concrete, we specialize in stamped concrete installations that elevate the curb appeal of driveways, patios, walkways, and pool decks. You can choose from a wide range of patterns, textures, and color finishes to match your home’s style. Our experts ensure precise stamping and sealing techniques for a long-lasting, low-maintenance finish that resists weathering and fading. Whether you're aiming for a rustic stone look or a modern geometric pattern, stamped concrete brings elegance without the high cost of natural materials.`,
+    content: `Stamped concrete is the perfect choice when you want the durability of concrete with the beauty of stone, brick, tile, or even wood textures. At Total Care Concrete, we specialize in stamped concrete installations that elevate the curb appeal of driveways, patios, walkways, and pool decks. You can choose from a wide range of patterns, textures, and color finishes to match your homeâ€™s style. Our experts ensure precise stamping and sealing techniques for a long-lasting, low-maintenance finish that resists weathering and fading. Whether you're aiming for a rustic stone look or a modern geometric pattern, stamped concrete brings elegance without the high cost of natural materials.`,
     image: `${static_assets}/images/services/stamped.jpg`,
     typeOfSolutions: {
       headings: 'Solutions we offer',
@@ -1153,16 +1154,16 @@ export const projectsData = {
    
    Our team began by excavating the old pavement and installing a gravel sub-base for drainage and durability. Steel reinforcement ensured long-term strength, and control joints were placed strategically to avoid future cracking. The surface was finished with a sleek broom texture for traction and minimal maintenance.
    
-   A standout feature was the stamped border, which added a visual frame to the slab and elevated its curb appeal. The entire driveway was sealed to protect against Florida’s humidity and heavy rain, ensuring lasting beauty and performance.
+   A standout feature was the stamped border, which added a visual frame to the slab and elevated its curb appeal. The entire driveway was sealed to protect against Floridaâ€™s humidity and heavy rain, ensuring lasting beauty and performance.
    
-   The result is a modern, low-maintenance driveway that enhances the home’s value and delivers reliable use for years to come.
+   The result is a modern, low-maintenance driveway that enhances the homeâ€™s value and delivers reliable use for years to come.
    `,
   
   },
   "outdoor-concrete-living": {
     label: "Outdoor Living Space",
     title: "Outdoor Concrete Living Space for Relaxation and Entertainment",
-    description: "A custom-built outdoor area featuring stamped concrete, integrated seating, and fire features — crafted for open-air comfort and gatherings.",
+    description: "A custom-built outdoor area featuring stamped concrete, integrated seating, and fire features â€” crafted for open-air comfort and gatherings.",
     image: `${static_assets}/images/projects/outdoor.jpg`,
     location: "Winter Park Backyard, Orlando, FL",
     duration: "Completed in 4 weeks",
@@ -1183,7 +1184,7 @@ export const projectsData = {
    
    We integrated curved concrete seating around a stone-clad fire pit, perfect for cozy gatherings. The stamped surface included strategic expansion joints to prevent cracking, while outdoor-rated lighting created ambiance after sunset. The client also planned to add a pergola in the future, so base mounts were embedded into the layout.
    
-   The final result? A low-maintenance, elegant concrete patio that extends the home’s usable living space and brings family and friends together under the open sky.
+   The final result? A low-maintenance, elegant concrete patio that extends the homeâ€™s usable living space and brings family and friends together under the open sky.
    `,
   
   },
@@ -1235,9 +1236,9 @@ export const projectsData = {
       "Waterproof membrane coating"
     ],
     content: `
-   This retaining wall project addressed both functional and aesthetic needs for a sloped backyard that was prone to soil erosion. The homeowners wanted a solution that provided slope support while upgrading the outdoor space’s visual appeal.
+   This retaining wall project addressed both functional and aesthetic needs for a sloped backyard that was prone to soil erosion. The homeowners wanted a solution that provided slope support while upgrading the outdoor spaceâ€™s visual appeal.
    
-   We began with proper excavation and poured a concrete footing reinforced with rebar to support long-term load. Concrete blocks were then stacked and bonded using industrial adhesive, with a gravel-backed drain system installed to ensure water runoff didn't compromise the wall’s stability. A stone veneer finish gave it a high-end appearance that complements the surrounding landscape.
+   We began with proper excavation and poured a concrete footing reinforced with rebar to support long-term load. Concrete blocks were then stacked and bonded using industrial adhesive, with a gravel-backed drain system installed to ensure water runoff didn't compromise the wallâ€™s stability. A stone veneer finish gave it a high-end appearance that complements the surrounding landscape.
    
    The new retaining wall not only prevents soil movement but also carves out a beautiful, flat garden zone, turning a tricky slope into a feature-worthy space.
    `,
@@ -1263,11 +1264,11 @@ export const projectsData = {
       "Anti-crack joint inserts"
     ],
     content: `
-   These outdoor concrete steps were built to provide safe, lasting access to the home’s main entrance while enhancing its front-yard appeal. The homeowners wanted a clean, modern look with minimal maintenance — and concrete was the perfect choice.
+   These outdoor concrete steps were built to provide safe, lasting access to the homeâ€™s main entrance while enhancing its front-yard appeal. The homeowners wanted a clean, modern look with minimal maintenance â€” and concrete was the perfect choice.
    
-   We began by excavating the site and laying a stable gravel base, ensuring proper drainage. Reinforced concrete was poured and shaped using precision forms to create wide, even risers. After curing, a non-slip sealer was applied for safety and longevity, especially during Florida’s rainy seasons.
+   We began by excavating the site and laying a stable gravel base, ensuring proper drainage. Reinforced concrete was poured and shaped using precision forms to create wide, even risers. After curing, a non-slip sealer was applied for safety and longevity, especially during Floridaâ€™s rainy seasons.
    
-   The result? A simple yet striking entrance upgrade that’s built to last and elevates the home’s overall look and function.
+   The result? A simple yet striking entrance upgrade thatâ€™s built to last and elevates the homeâ€™s overall look and function.
    `,
   
   },
@@ -1295,7 +1296,7 @@ export const projectsData = {
    
    After prepping the concrete with diamond grinding, we filled any imperfections and applied a moisture-resistant primer. The base coat was layered with decorative vinyl flakes for texture and style, followed by a polyaspartic topcoat for maximum protection.
    
-   This new garage floor resists oil stains, abrasions, and chemicals — all while giving the space a showroom-quality finish that elevates the entire property.
+   This new garage floor resists oil stains, abrasions, and chemicals â€” all while giving the space a showroom-quality finish that elevates the entire property.
    `,
   
   },
@@ -1345,7 +1346,7 @@ export const projectsData = {
       "Anti-slip textured finish"
     ],
     content: `
-   This stamped concrete patio project brought timeless charm and increased usability to a once-underutilized backyard. The homeowners desired a stone-like look without the cost or maintenance of real pavers — and stamped concrete was the perfect solution.
+   This stamped concrete patio project brought timeless charm and increased usability to a once-underutilized backyard. The homeowners desired a stone-like look without the cost or maintenance of real pavers â€” and stamped concrete was the perfect solution.
    
    After site prep and a sturdy base installation, we poured and stamped the concrete using an ashlar slate pattern, adding rich color hardeners and antique release agents for a natural, multi-tone effect. Precision-edged borders gave the patio a polished, intentional feel.
    
@@ -1391,7 +1392,7 @@ export const testimonialsData = [
   {
     name: "Lisa Turner",
     role: "Landscape Architect",
-    feedback: "We’ve collaborated on several stamped concrete patio projects—always impressed by their finish quality and site cleanliness.",
+    feedback: "Weâ€™ve collaborated on several stamped concrete patio projectsâ€”always impressed by their finish quality and site cleanliness.",
   },
   {
     name: "Mark Johnson",
@@ -1406,7 +1407,7 @@ export const testimonialsData = [
   {
     name: "David Kim",
     role: "Real Estate Developer",
-    feedback: "Total Care Concrete handled foundation pours for our new builds—accurate, clean, and always to spec.",
+    feedback: "Total Care Concrete handled foundation pours for our new buildsâ€”accurate, clean, and always to spec.",
   },
   {
     name: "Sophia Allen",
@@ -1421,7 +1422,7 @@ export const testimonialsData = [
   {
     name: "Olivia Perez",
     role: "Retail Store Owner",
-    feedback: "We needed concrete repairs in a high-traffic area—they were fast, clean, and restored it like new.",
+    feedback: "We needed concrete repairs in a high-traffic areaâ€”they were fast, clean, and restored it like new.",
   },
   {
     name: "Jason Brooks",
@@ -1431,6 +1432,6 @@ export const testimonialsData = [
   {
     name: "Mia Thompson",
     role: "Home Renovator | Garage",
-    feedback: "We had them refinish a cracked garage floor—smooth finish, sealed, and looks brand new!",
+    feedback: "We had them refinish a cracked garage floorâ€”smooth finish, sealed, and looks brand new!",
   }
 ];
