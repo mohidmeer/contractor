@@ -5,13 +5,20 @@ import {
   FaEnvelope,
   FaFileInvoiceDollar,
   FaPhoneAlt,
+  FaPlay,
   FaUser,
+  FaYoutube,
 } from "react-icons/fa";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import prisma from "@/lib/prisma";
 import { contactInfo, enable_estimates, siteName } from "@/data";
 import { serializeEstimate } from "@/lib/estimateHelpers";
 import DownloadEstimatePdfButton from "@/components/DownloadEstimatePdfButton";
+import {
+  getYouTubeEmbedUrl,
+  getYouTubeThumbnailUrl,
+  getYouTubeWatchUrl,
+} from "@/lib/youtube";
 
 type Props = {
   params: Promise<{ token: string }>;
@@ -80,6 +87,9 @@ export default async function PublicEstimatePage({ params }: Props) {
       day: "numeric",
     }
   );
+  const youtubeEmbedUrl = getYouTubeEmbedUrl(estimate.youtubeUrl);
+  const youtubeWatchUrl = getYouTubeWatchUrl(estimate.youtubeUrl);
+  const youtubeThumbnailUrl = getYouTubeThumbnailUrl(estimate.youtubeUrl);
 
   return (
     <main className="flex flex-col gap-8 pb-12 pt-6 sm:pt-10">
@@ -200,6 +210,55 @@ export default async function PublicEstimatePage({ params }: Props) {
                 </div>
               </div>
             </div>
+
+            {youtubeEmbedUrl && youtubeWatchUrl && youtubeThumbnailUrl && (
+              <div className="card overflow-hidden rounded-xl bg-white">
+                <div className="flex flex-col gap-1 border-b border-primary/10 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+                      Project video
+                    </p>
+                    <h2 className="mt-1 text-heading text-2xl">
+                      Watch the walkthrough
+                    </h2>
+                  </div>
+                  <a
+                    href={youtubeWatchUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline sm:mt-0"
+                  >
+                    <FaYoutube size={20} className="text-red-600" />
+                    Open on YouTube
+                  </a>
+                </div>
+
+                <div className="relative aspect-video w-full bg-heading">
+                  {/* Thumbnail keeps PDF screenshots useful when iframe is blank */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={youtubeThumbnailUrl}
+                    alt="YouTube video thumbnail"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-heading/30">
+                    <span className="flex h-16 w-16 items-center justify-center rounded-full bg-red-600 text-white shadow-lg">
+                      <FaPlay size={22} className="ml-1" />
+                    </span>
+                  </div>
+                  <iframe
+                    src={youtubeEmbedUrl}
+                    title="Estimate project video"
+                    className="absolute inset-0 h-full w-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    data-html2canvas-ignore="true"
+                  />
+                </div>
+              </div>
+            )}
 
             {/* Line items */}
             <div className="card rounded-xl bg-white p-6 sm:p-8">

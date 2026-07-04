@@ -38,6 +38,7 @@ export type EstimateFormValues = {
   title: string;
   description?: string | null;
   notes?: string | null;
+  youtubeUrl?: string | null;
   status: EstimateStatus;
   items: LineItem[];
 };
@@ -67,6 +68,7 @@ function buildInitialState(initialValues?: EstimateFormValues) {
     title: initialValues?.title ?? "",
     description: initialValues?.description ?? "",
     notes: initialValues?.notes ?? "",
+    youtubeUrl: initialValues?.youtubeUrl ?? "",
     status: (initialValues?.status ?? "DRAFT") as EstimateStatus,
     items: initialValues?.items?.length
       ? initialValues.items.map((item, index) => ({
@@ -94,6 +96,7 @@ export default function EstimateForm({
   const [title, setTitle] = useState(initial.title);
   const [description, setDescription] = useState(initial.description);
   const [notes, setNotes] = useState(initial.notes);
+  const [youtubeUrl, setYoutubeUrl] = useState(initial.youtubeUrl);
   const [status, setStatus] = useState<EstimateStatus>(initial.status);
   const [items, setItems] = useState<LineItem[]>(initial.items);
 
@@ -105,6 +108,7 @@ export default function EstimateForm({
     setTitle(next.title);
     setDescription(next.description);
     setNotes(next.notes);
+    setYoutubeUrl(next.youtubeUrl);
     setStatus(next.status);
     setItems(next.items);
   }, [initialValues, mode, estimateId]);
@@ -152,6 +156,7 @@ export default function EstimateForm({
       title,
       description: description || null,
       notes: notes || null,
+      youtubeUrl: youtubeUrl || null,
       status,
       items: items.map((item, index) => ({
         name: item.name,
@@ -275,6 +280,20 @@ export default function EstimateForm({
             onChange={(e) => setDescription(e.target.value)}
             rows={2}
           />
+        </div>
+        <div className="space-y-2 md:col-span-2">
+          <Label htmlFor="youtubeUrl">YouTube video link</Label>
+          <Input
+            id="youtubeUrl"
+            type="url"
+            placeholder="https://www.youtube.com/watch?v=..."
+            value={youtubeUrl}
+            onChange={(e) => setYoutubeUrl(e.target.value)}
+          />
+          <p className="text-xs text-muted-foreground">
+            Optional. Paste a YouTube watch, share, or shorts link to show on the
+            public estimate page.
+          </p>
         </div>
         <div className="space-y-2 md:col-span-2">
           <Label htmlFor="notes">Notes</Label>

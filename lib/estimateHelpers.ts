@@ -33,6 +33,7 @@ export function serializeEstimate<
     title: string;
     description: string | null;
     notes: string | null;
+    youtubeUrl?: string | null;
     status: string;
     createdAt: Date;
     updatedAt: Date;
@@ -52,6 +53,7 @@ export function serializeEstimate<
     title: estimate.title,
     description: estimate.description,
     notes: estimate.notes,
+    youtubeUrl: estimate.youtubeUrl ?? null,
     status: estimate.status,
     items,
     total: computeEstimateTotal(items),

@@ -29,6 +29,7 @@ model Estimate {
   title       String
   description String?
   notes       String?
+  youtubeUrl  String?
   status      EstimateStatus @default(DRAFT)
   items       EstimateItem[]
   createdAt   DateTime       @default(now())

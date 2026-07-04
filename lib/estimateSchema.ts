@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { isValidYouTubeUrl } from "@/lib/youtube";
 
 export const EstimateStatusSchema = z.enum([
   "DRAFT",
@@ -28,6 +29,14 @@ export const EstimateBodySchema = z.object({
   title: z.string().min(1, "Title is required"),
   description: z.string().optional().nullable().or(z.literal("")),
   notes: z.string().optional().nullable().or(z.literal("")),
+  youtubeUrl: z
+    .string()
+    .optional()
+    .nullable()
+    .or(z.literal(""))
+    .refine((value) => isValidYouTubeUrl(value), {
+      message: "Enter a valid YouTube video link",
+    }),
   status: EstimateStatusSchema.default("DRAFT"),
   items: z.array(EstimateItemSchema).min(1, "At least one line item is required"),
 });
@@ -44,6 +53,7 @@ export function normalizeEstimateBody(data: EstimateBody) {
     title: data.title.trim(),
     description: data.description?.trim() || null,
     notes: data.notes?.trim() || null,
+    youtubeUrl: data.youtubeUrl?.trim() || null,
     status: data.status,
     items: data.items.map((item, index) => ({
       name: item.name.trim(),

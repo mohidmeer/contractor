@@ -115,6 +115,7 @@ export default function EstimateFormDialog({
                       title: estimate.title,
                       description: estimate.description,
                       notes: estimate.notes,
+                      youtubeUrl: estimate.youtubeUrl,
                       status: estimate.status as EstimateStatus,
                       items: estimate.items.map((item) => ({
                         name: item.name,

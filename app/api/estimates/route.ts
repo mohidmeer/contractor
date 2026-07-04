@@ -49,6 +49,7 @@ export async function POST(req: NextRequest) {
         title: data.title,
         description: data.description,
         notes: data.notes,
+        youtubeUrl: data.youtubeUrl,
         status: data.status,
         items: {
           create: data.items.map((item) => ({
