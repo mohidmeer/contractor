@@ -81,7 +81,7 @@ export default function EstimateFormDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="flex max-h-[90vh] w-full max-w-3xl flex-col gap-0 overflow-hidden p-0 sm:max-w-3xl">
+      <DialogContent className="flex max-h-[92vh] w-[min(96vw,48rem)] max-w-none flex-col gap-0 overflow-hidden p-0 sm:max-w-none">
         <DialogHeader className="border-b px-6 py-4">
           <DialogTitle>
             {mode === "create" ? "New Estimate" : "Edit Estimate"}
@@ -93,7 +93,7 @@ export default function EstimateFormDialog({
           </DialogDescription>
         </DialogHeader>
 
-        <div className="overflow-y-auto px-6 py-4">
+        <div className="overflow-y-auto px-4 py-4 sm:px-6">
           {loading ? (
             <p className="py-8 text-sm text-muted-foreground">
               Loading estimate...

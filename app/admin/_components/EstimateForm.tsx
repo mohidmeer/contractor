@@ -288,111 +288,138 @@ export default function EstimateForm({
       </div>
 
       <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <p className="text-sm font-semibold">Line items</p>
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="text-sm font-semibold">Line items</p>
+            <p className="text-xs text-muted-foreground">
+              One row per item — name, details, qty, and price
+            </p>
+          </div>
           <Button type="button" variant="outline" size="sm" onClick={addItem}>
             <Plus className="h-4 w-4" />
             Add row
           </Button>
         </div>
 
-        {items.map((item, index) => {
-          const subtotal =
-            (Number(item.quantity) || 0) * (Number(item.unitPrice) || 0);
-          return (
-            <div
-              key={index}
-              className="space-y-3 rounded-lg border p-3"
-            >
-              <div className="grid gap-3 md:grid-cols-2">
-                <div className="space-y-2">
-                  <Label>Name *</Label>
-                  <Input
-                    value={item.name}
-                    onChange={(e) =>
-                      updateItem(index, { name: e.target.value })
-                    }
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Description</Label>
-                  <Input
-                    value={item.description}
-                    onChange={(e) =>
-                      updateItem(index, { description: e.target.value })
-                    }
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Quantity</Label>
-                  <Input
-                    type="number"
-                    min={1}
-                    value={item.quantity}
-                    onChange={(e) =>
-                      updateItem(index, {
-                        quantity: Number(e.target.value) || 1,
-                      })
-                    }
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Unit price</Label>
-                  <Input
-                    type="number"
-                    min={0}
-                    step="0.01"
-                    value={item.unitPrice}
-                    onChange={(e) =>
-                      updateItem(index, {
-                        unitPrice: Number(e.target.value) || 0,
-                      })
-                    }
-                  />
-                </div>
-              </div>
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <p className="text-sm font-medium">
-                  Subtotal: {formatCurrency(subtotal)}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="icon"
-                    onClick={() => moveItem(index, -1)}
-                    disabled={index === 0}
-                  >
-                    <ArrowUp className="h-4 w-4" />
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="icon"
-                    onClick={() => moveItem(index, 1)}
-                    disabled={index === items.length - 1}
-                  >
-                    <ArrowDown className="h-4 w-4" />
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="icon"
-                    onClick={() => removeItem(index)}
-                    disabled={items.length === 1}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
+        <div className="overflow-x-auto rounded-xl border bg-muted/20">
+          <div className="min-w-[680px]">
+            <div className="grid grid-cols-[1.75rem_minmax(7rem,1.1fr)_minmax(7rem,1fr)_4rem_5.5rem_5.5rem_6.5rem] items-center gap-1.5 border-b bg-muted/50 px-2 py-2 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+              <span>#</span>
+              <span>Name</span>
+              <span>Description</span>
+              <span>Qty</span>
+              <span>Price</span>
+              <span className="text-right">Total</span>
+              <span className="text-right">Actions</span>
             </div>
-          );
-        })}
 
-        <div className="flex items-center justify-between border-t pt-3">
-          <p className="text-base font-semibold">Grand total</p>
-          <p className="text-lg font-bold">{formatCurrency(total)}</p>
+            <div className="divide-y">
+              {items.map((item, index) => {
+                const subtotal =
+                  (Number(item.quantity) || 0) * (Number(item.unitPrice) || 0);
+                return (
+                  <div
+                    key={index}
+                    className="grid grid-cols-[1.75rem_minmax(7rem,1.1fr)_minmax(7rem,1fr)_4rem_5.5rem_5.5rem_6.5rem] items-center gap-1.5 bg-background px-2 py-2 transition-colors hover:bg-accent/40"
+                  >
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-[11px] font-semibold text-primary">
+                      {index + 1}
+                    </span>
+                    <Input
+                      value={item.name}
+                      onChange={(e) =>
+                        updateItem(index, { name: e.target.value })
+                      }
+                      placeholder="Item name"
+                      className="h-9"
+                      required
+                    />
+                    <Input
+                      value={item.description}
+                      onChange={(e) =>
+                        updateItem(index, { description: e.target.value })
+                      }
+                      placeholder="Optional details"
+                      className="h-9"
+                    />
+                    <Input
+                      type="number"
+                      min={1}
+                      value={item.quantity}
+                      onChange={(e) =>
+                        updateItem(index, {
+                          quantity: Number(e.target.value) || 1,
+                        })
+                      }
+                      className="h-9 text-center"
+                    />
+                    <Input
+                      type="number"
+                      min={0}
+                      step="0.01"
+                      value={item.unitPrice}
+                      onChange={(e) =>
+                        updateItem(index, {
+                          unitPrice: Number(e.target.value) || 0,
+                        })
+                      }
+                      className="h-9"
+                    />
+                    <div className="text-right text-sm font-semibold tabular-nums">
+                      {formatCurrency(subtotal)}
+                    </div>
+                    <div className="flex justify-end gap-1">
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon"
+                        className="h-8 w-8"
+                        onClick={() => moveItem(index, -1)}
+                        disabled={index === 0}
+                        title="Move up"
+                      >
+                        <ArrowUp className="h-4 w-4" />
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon"
+                        className="h-8 w-8"
+                        onClick={() => moveItem(index, 1)}
+                        disabled={index === items.length - 1}
+                        title="Move down"
+                      >
+                        <ArrowDown className="h-4 w-4" />
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon"
+                        className="h-8 w-8 text-destructive hover:text-destructive"
+                        onClick={() => removeItem(index)}
+                        disabled={items.length === 1}
+                        title="Remove row"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-between rounded-xl border bg-primary/5 px-4 py-3">
+          <p className="text-sm font-medium text-muted-foreground">
+            {items.length} item{items.length === 1 ? "" : "s"}
+          </p>
+          <div className="text-right">
+            <p className="text-xs uppercase tracking-wide text-muted-foreground">
+              Grand total
+            </p>
+            <p className="text-xl font-bold tabular-nums">{formatCurrency(total)}</p>
+          </div>
         </div>
       </div>
 
