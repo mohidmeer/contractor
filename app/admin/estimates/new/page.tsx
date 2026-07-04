@@ -1,14 +1,5 @@
-import AdminPageHeader from "../../_components/AdminPageHeader";
-import EstimateForm from "../../_components/EstimateForm";
+import { redirect } from "next/navigation";
 
 export default function NewEstimatePage() {
-  return (
-    <div>
-      <AdminPageHeader
-        title="New Estimate"
-        description="Create a new client estimate"
-      />
-      <EstimateForm mode="create" />
-    </div>
-  );
+  redirect("/admin/estimates");
 }

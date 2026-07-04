@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { toast } from "sonner";
 import { Pencil, Plus, Trash2 } from "lucide-react";
 import AdminPageHeader from "../_components/AdminPageHeader";
 import DeleteConfirmDialog from "../_components/DeleteConfirmDialog";
 import CopyEstimateLink from "../_components/CopyEstimateLink";
+import EstimateFormDialog from "../_components/EstimateFormDialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -48,6 +48,9 @@ export default function EstimatesPage() {
   const [loading, setLoading] = useState(true);
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [deleteLoading, setDeleteLoading] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
+  const [formMode, setFormMode] = useState<"create" | "edit">("create");
+  const [editingId, setEditingId] = useState<string | null>(null);
 
   const loadEstimates = async () => {
     setLoading(true);
@@ -66,6 +69,18 @@ export default function EstimatesPage() {
   useEffect(() => {
     loadEstimates();
   }, []);
+
+  const openCreate = () => {
+    setFormMode("create");
+    setEditingId(null);
+    setFormOpen(true);
+  };
+
+  const openEdit = (id: string) => {
+    setFormMode("edit");
+    setEditingId(id);
+    setFormOpen(true);
+  };
 
   const handleDelete = async () => {
     if (!deletingId) return;
@@ -92,11 +107,9 @@ export default function EstimatesPage() {
         title="Estimates"
         description="Create and manage client estimates"
         action={
-          <Button asChild>
-            <Link href="/admin/estimates/new">
-              <Plus className="h-4 w-4" />
-              New Estimate
-            </Link>
+          <Button onClick={openCreate}>
+            <Plus className="h-4 w-4" />
+            New Estimate
           </Button>
         }
       />
@@ -137,10 +150,12 @@ export default function EstimatesPage() {
                         size="icon"
                         showLabel={false}
                       />
-                      <Button asChild variant="outline" size="icon">
-                        <Link href={`/admin/estimates/${item.id}/edit`}>
-                          <Pencil className="h-4 w-4" />
-                        </Link>
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => openEdit(item.id)}
+                      >
+                        <Pencil className="h-4 w-4" />
                       </Button>
                       <Button
                         variant="outline"
@@ -167,6 +182,14 @@ export default function EstimatesPage() {
           </Table>
         )}
       </div>
+
+      <EstimateFormDialog
+        open={formOpen}
+        onOpenChange={setFormOpen}
+        mode={formMode}
+        estimateId={editingId}
+        onSaved={loadEstimates}
+      />
 
       <DeleteConfirmDialog
         open={!!deletingId}
