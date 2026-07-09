@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FileText, ClipboardList } from "lucide-react";
+import { FileText, ClipboardList, Inbox } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { siteName } from "@/data";
 
 const links = [
   { href: "/admin/estimates", label: "Estimates", icon: ClipboardList },
+  { href: "/admin/requests", label: "Requests", icon: Inbox },
   { href: "/admin/blogs", label: "Blogs", icon: FileText },
 ];
 

@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import FormInput from './inputs/FormInput';
 import { contactPage, siteName } from '@/data';
@@ -13,15 +14,66 @@ type FormData = {
 };
 
 const ContactForm = () => {
+    const [loading, setLoading] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
+
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm<FormData>();
 
-    const onSubmit = (data: FormData) => {
-        console.log(data);
+    const onSubmit = async (data: FormData) => {
+        setLoading(true);
+        setSubmitError(null);
+
+        try {
+            const res = await fetch('/api/requests', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    type: 'REQUEST_QUOTE',
+                    name: data.name,
+                    phone: data.number,
+                    address: data.address,
+                    message: data.message,
+                    site: data.site,
+                }),
+            });
+
+            const result = await res.json();
+            if (!res.ok) {
+                throw new Error(result.error || 'Failed to submit request');
+            }
+
+            setSubmitted(true);
+            reset({ site: siteName });
+        } catch (err) {
+            setSubmitError(err instanceof Error ? err.message : 'Failed to submit request');
+        } finally {
+            setLoading(false);
+        }
     };
+
+    if (submitted) {
+        return (
+            <div className="bg-white p-8 rounded-xl shadow-lg border border-primary/10 text-center">
+                <h2 className="text-3xl font-bold text-heading mb-2">Thank you!</h2>
+                <p className="text-gray-600 mb-4">
+                    Your request has been received. We&apos;ll get back to you as soon as possible.
+                </p>
+                <button
+                    type="button"
+                    className="btn-primary !scale-100"
+                    onClick={() => setSubmitted(false)}
+                >
+                    Submit another request
+                </button>
+            </div>
+        );
+    }
 
     return (
         <div className='bg-white p-8 rounded-xl shadow-lg hover:shadow-xl border border-primary/10 hover:border-primary/30 transition-all duration-300'>
@@ -63,8 +115,15 @@ const ContactForm = () => {
                     error={errors.message?.message}
                     placeholder={contactPage.form.messagePlaceholder}
                 />
-                <button type="submit" className="btn-primary w-full h-fit mt-2 hover:scale-105 transition-transform duration-300">
-                    Submit
+                {submitError && (
+                    <p className="text-sm text-red-600">{submitError}</p>
+                )}
+                <button
+                    type="submit"
+                    disabled={loading}
+                    className="btn-primary w-full h-fit mt-2 hover:scale-105 transition-transform duration-300 disabled:opacity-60 disabled:hover:scale-100"
+                >
+                    {loading ? 'Submitting...' : 'Submit'}
                 </button>
             </form>
         </div>

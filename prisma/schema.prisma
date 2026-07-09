@@ -55,3 +55,27 @@ enum EstimateStatus {
   ACCEPTED
   DECLINED
 }
+
+model FormRequest {
+  id        String            @id @default(cuid())
+  type      FormRequestType
+  name      String
+  phone     String
+  address   String?
+  message   String?
+  site      String
+  status    FormRequestStatus @default(NEW)
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+}
+
+enum FormRequestType {
+  FREE_CONSULTATION
+  REQUEST_QUOTE
+}
+
+enum FormRequestStatus {
+  NEW
+  CONTACTED
+  CLOSED
+}
