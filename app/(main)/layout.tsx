@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
-import TopBar from "@/components/TopBar";
-import NavBar from "@/components/NavBar";
+import NavBar2 from "@/components/NavBar2";
 import Footer from "@/components/Footer";
 import GoogleMap from "@/components/GoogleMap";
 import { googleAnalyticId, landingPage, siteUrl } from "@/data";
@@ -59,10 +58,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className="overflow-x-hidden">
         <GoogleAnalytics gaId={googleAnalyticId} />
-        <header className="">
-          <TopBar />
-          <NavBar />
-        </header>
+        <NavBar2 />
         {children}
         <GoogleMap />
         <Footer />
