@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Logo from './Logo';
 import { contactInfo, licenses, navItems } from '@/data';
 import Link from 'next/link';
@@ -15,8 +15,20 @@ const NavBar2 = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isHome = pathname === '/';
   const isSolid = scrolled || !isHome;
+
+  const openMenu = (label: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setActiveMenu(label);
+  };
+
+  const scheduleCloseMenu = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setActiveMenu(null), 180);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -28,6 +40,7 @@ const NavBar2 = () => {
   useEffect(() => {
     setMenuOpen(false);
     setOpenDropdown(null);
+    setActiveMenu(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -36,6 +49,12 @@ const NavBar2 = () => {
       document.body.style.overflow = '';
     };
   }, [menuOpen]);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    };
+  }, []);
 
   return (
     <>
@@ -84,40 +103,93 @@ const NavBar2 = () => {
           <div className="items-center hidden lg:flex">
             <ul className="flex flex-row items-center gap-0.5 xl:gap-1 text-sm font-semibold">
               {navItems.map((item) => (
-                <li key={item.label} className="relative group">
+                <li
+                  key={item.label}
+                  className={`${item.hasChildrens ? 'static' : 'relative'}`}
+                  onMouseEnter={() => item.hasChildrens && openMenu(item.label)}
+                  onMouseLeave={() => item.hasChildrens && scheduleCloseMenu()}
+                >
                   <Link
                     href={item.href}
                     className="flex items-center gap-1 px-2 xl:px-2.5 py-1 text-white/90 hover:text-white transition-colors whitespace-nowrap"
                   >
                     <span
                       className={`relative after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:bg-secondary after:transition-all after:duration-300 ${
-                        pathname === item.href
+                        pathname === item.href || activeMenu === item.label
                           ? 'after:w-full text-white'
-                          : 'after:w-0 group-hover:after:w-full'
+                          : 'after:w-0 hover:after:w-full'
                       }`}
                     >
                       {item.label}
                     </span>
                     {item.hasChildrens && (
-                      <FaAngleDown className="text-xs opacity-80 group-hover:rotate-180 transition-transform duration-300" />
+                      <FaAngleDown
+                        className={`text-xs opacity-80 transition-transform duration-300 ${
+                          activeMenu === item.label ? 'rotate-180' : ''
+                        }`}
+                      />
                     )}
                   </Link>
 
                   {item.hasChildrens && (
-                    <ul className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-30">
-                      <div className="min-w-[240px] rounded-xl bg-white/95 backdrop-blur-xl text-black shadow-2xl shadow-black/20 border border-white/40 overflow-hidden p-1.5">
-                        {item.children?.map((child) => (
-                          <li key={child.label}>
+                    <div
+                      className={`absolute left-0 right-0 top-full z-30 transition-all duration-200 ${
+                        activeMenu === item.label
+                          ? 'opacity-100 visible pointer-events-auto'
+                          : 'opacity-0 invisible pointer-events-none'
+                      }`}
+                      onMouseEnter={() => openMenu(item.label)}
+                      onMouseLeave={scheduleCloseMenu}
+                    >
+                      {/* Keeps hover active while moving from the link into the panel */}
+                      <div className="h-4 -mt-4" aria-hidden />
+                      <div className="w-full bg-white/95 backdrop-blur-xl text-black shadow-2xl shadow-black/25 border-t border-b border-black/5">
+                        <div className="xl:container mx-auto px-4 sm:px-6 py-6 lg:py-8">
+                          <div className="flex items-end justify-between gap-4 mb-5 pb-4 border-b border-black/10">
+                            <div>
+                              <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-1">
+                                Explore
+                              </p>
+                              <h3 className="text-xl font-bold text-primary">{item.label}</h3>
+                            </div>
                             <Link
-                              href={child.href}
-                              className="block px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-secondary hover:text-white transition-colors"
+                              href={item.href}
+                              className="text-sm font-semibold text-secondary hover:underline whitespace-nowrap"
                             >
-                              {child.label}
+                              View all {item.label.toLowerCase()} →
                             </Link>
-                          </li>
-                        ))}
+                          </div>
+
+                          <ul className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
+                            {item.children?.map((child) => (
+                              <li key={child.label}>
+                                <Link
+                                  href={child.href}
+                                  className="flex items-center gap-2 h-full px-4 py-3 rounded-lg text-sm font-medium text-black/80 hover:text-white hover:bg-secondary transition-colors border border-transparent hover:border-secondary"
+                                >
+                                  <span className="h-1.5 w-1.5 rounded-full bg-secondary shrink-0" />
+                                  {child.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+
+                          <div className="mt-6 pt-5 border-t border-black/10 flex flex-wrap items-center justify-between gap-3">
+                            <p className="text-sm text-black/60">
+                              Need help choosing? Talk with our team today.
+                            </p>
+                            <a
+                              href={contactInfo.phone.href}
+                              className="inline-flex items-center gap-2 btn-secondary"
+                              onClick={trackCallClick('Navbar2 Mega Menu Call')}
+                            >
+                              <BsFillTelephoneFill size={14} />
+                              {contactInfo.phone.text}
+                            </a>
+                          </div>
+                        </div>
                       </div>
-                    </ul>
+                    </div>
                   )}
                 </li>
               ))}
@@ -127,15 +199,15 @@ const NavBar2 = () => {
           <div className="flex gap-2 items-center">
             <a
               href={contactInfo.phone.href}
-              className="hidden sm:inline-flex items-center gap-1.5 relative overflow-hidden rounded-full bg-secondary px-3.5 xl:px-4 py-1 text-sm text-white font-semibold shadow-lg shadow-secondary/40 hover:shadow-secondary/60 hover:scale-105 transition-all duration-300 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/25 before:to-transparent before:-translate-x-full hover:before:translate-x-full before:transition-transform before:duration-700"
+              className="hidden sm:inline-flex items-center gap-2 btn-secondary"
               onClick={trackCallClick('Navbar2 Call Button')}
             >
-              <BsFillTelephoneFill size={14} />
-              <span className="relative z-10">{contactInfo.phone.text}</span>
+              <BsFillTelephoneFill size={20} />
+              {contactInfo.phone.text}
             </a>
 
             <button
-              className="lg:hidden relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-md hover:bg-white/20 transition-colors cursor-pointer"
+              className="lg:hidden relative z-10 flex h-9 w-9 items-center justify-center rounded-sm border border-white/25 bg-white/10 text-white backdrop-blur-md hover:bg-white/20 transition-colors cursor-pointer"
               aria-label="Open menu"
               onClick={() => setMenuOpen(true)}
             >

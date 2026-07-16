@@ -9,7 +9,7 @@ import { trackCallClick } from "@/lib/analytics";
 
 const Hero = () => {
     return (
-        <section className="h-[90vh] relative select-none">
+        <section className="h-screen relative select-none">
             <div className="absolute inset-0  bg-black/20  clip-diagnol backdrop-blur-xs" />
             <Image src={landingPage.hero.backgroundImage} alt="total_care_hero_img" fill className="object-cover -z-10  " sizes="(min-width: 1024px) 90vw, 100vw" />
             <div className="md:grid-cols-2 grid z-10 relative h-full container mx-auto w-full p-4 pt-24 md:pt-28" >

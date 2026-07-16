@@ -278,6 +278,13 @@ export const navItems = [
       { label: 'Retaining Walls', href: '/services/retaining-walls', hasChildrens: false },
       { label: 'Concrete Repair & Resurfacing', href: '/services/concrete-repair', hasChildrens: false },
       { label: 'Commercial Concrete Services', href: '/services/commercial-concrete', hasChildrens: false },
+      { label: 'Sidewalk Installation', href: '/services/patios-walkways', hasChildrens: false },
+      { label: 'Pool Deck Concrete', href: '/services/patios-walkways', hasChildrens: false },
+      { label: 'Driveway Resurfacing', href: '/services/concrete-repair', hasChildrens: false },
+      { label: 'Colored & Decorative Concrete', href: '/services/stamped-concrete', hasChildrens: false },
+      { label: 'Epoxy Garage Floors', href: '/services/garage-flooring', hasChildrens: false },
+      { label: 'Concrete Curbing', href: '/services/commercial-concrete', hasChildrens: false },
+      { label: 'New Construction Slabs', href: '/services/concrete-slabs', hasChildrens: false },
     ]
   },
   {
@@ -294,6 +301,10 @@ export const navItems = [
       { label: 'Retaining Wall Build', href: '/projects/retaining-wall', hasChildrens: false },
       { label: 'Foundation Repair', href: '/projects/foundation-repair', hasChildrens: false },
       { label: 'Outdoor Living Space', href: '/projects/outdoor-concrete-living', hasChildrens: false },
+      { label: 'Residential Driveways', href: '/projects/modern-driveway', hasChildrens: false },
+      { label: 'Decorative Patio Work', href: '/projects/stamped-patio', hasChildrens: false },
+      { label: 'Commercial Concrete', href: '/projects/commercial-lot', hasChildrens: false },
+      { label: 'Outdoor Entertainment Areas', href: '/projects/outdoor-concrete-living', hasChildrens: false },
     ]
   },
   {

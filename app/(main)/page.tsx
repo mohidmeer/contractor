@@ -1,4 +1,4 @@
-import Hero from "@/components/Hero";
+import Hero2 from "@/components/Hero2";
 import Services from "@/components/Services";
 import ThemeSwitcher from "@/components/Theme";
 import FAQs from "@/components/Faqs";
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className="flex flex-col gap-20 ">
       <ThemeSwitcher />
-      <Hero />
+      <Hero2 />
       <GetToKnow />
       <Services />
       <Process />
