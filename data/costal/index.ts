@@ -9,7 +9,7 @@ import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } f
 export const static_assets = '/costal'
 export const siteUrl = 'https://coastalcw.net/';
 export const siteName = 'Costal Concrete';
-export const siteLogo = `${static_assets}/images/logo.png`;
+export const siteLogo = `${static_assets}/images/logo_light.png`;
 export const googleAnalyticId = 'G-4Z16WS61D0';
 export const bussinessType = ["LocalBusiness", "ConcreteContractor"]
 
@@ -60,6 +60,35 @@ export const landingPage = {
   projects: {
     heading: 'Recent Concrete Work',
   },
+}
+
+export const hero2 = {
+  slides: [
+    {
+      tagline: 'Driveways Built to Last',
+      title: 'Strong, Smooth Concrete Driveways',
+      description: 'From new pours to full replacements, we deliver durable driveways that handle Florida weather and everyday use.',
+      backgroundImage: `${static_assets}/images/services/driveway.jpg`,
+    },
+    {
+      tagline: 'Outdoor Living Spaces',
+      title: 'Patios Made for Everyday Enjoyment',
+      description: 'Custom concrete patios designed for comfort, style, and long-lasting performance around your home.',
+      backgroundImage: `${static_assets}/images/services/patio.jpg`,
+    },
+    {
+      tagline: 'Solid Foundations',
+      title: 'Reliable Foundation Concrete Work',
+      description: 'Precision foundation pours and repairs that give your project a stable start and lasting structural strength.',
+      backgroundImage: `${static_assets}/images/services/foundation.jpg`,
+    },
+    {
+      tagline: 'Commercial Concrete',
+      title: 'Professional Results for Every Job Site',
+      description: 'Dependable commercial concrete services with clean finishes, clear timelines, and quality you can count on.',
+      backgroundImage: `${static_assets}/images/projects/commercial.jpg`,
+    },
+  ],
 }
 
 export const servicesPage = {

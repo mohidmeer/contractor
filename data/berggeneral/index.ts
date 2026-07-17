@@ -59,6 +59,35 @@ export const landingPage = {
   },
 }
 
+export const hero2 = {
+  slides: [
+    {
+      tagline: 'Office Remodeling',
+      title: 'Workspaces Built for Productivity',
+      description: 'From layout updates to full office renovations, we create functional commercial spaces that work harder for your team.',
+      backgroundImage: `${static_assets}/images/services/office.jpg`,
+    },
+    {
+      tagline: 'Industrial Renovation',
+      title: 'Tough Spaces Done Right',
+      description: 'Industrial remodels engineered for durability, safety, and efficiency — delivered with professional project management.',
+      backgroundImage: `${static_assets}/images/services/industrial-remodel.jpg`,
+    },
+    {
+      tagline: 'General Contracting',
+      title: 'One Team for the Full Build',
+      description: 'End-to-end contracting for renovations and new work, coordinated cleanly from planning through final walkthrough.',
+      backgroundImage: `${static_assets}/images/services/general-contracting.jpg`,
+    },
+    {
+      tagline: 'Retail & Tenant Work',
+      title: 'Spaces That Make the Right Impression',
+      description: 'Retail and tenant improvements finished on schedule with sharp detailing and results that support your business.',
+      backgroundImage: `${static_assets}/images/projects/retail.jpg`,
+    },
+  ],
+}
+
 export const servicesPage = {
   seo: {
     title: 'Contracting Services',

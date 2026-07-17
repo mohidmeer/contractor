@@ -64,6 +64,35 @@ export const landingPage = {
     },
 }
 
+export const hero2 = {
+    slides: [
+        {
+            tagline: 'Kitchen Renovation',
+            title: 'Transform the Heart of Your Home',
+            description: 'Complete kitchen renovations that balance beauty and function — designed around how you cook, gather, and live.',
+            backgroundImage: `${static_assets}/images/services/kitchen_reno.jpg`,
+        },
+        {
+            tagline: 'Custom Cabinetry',
+            title: 'Cabinets Built for Style and Storage',
+            description: 'Upgrade your kitchen with cabinetry that maximizes space, improves workflow, and delivers a polished finish.',
+            backgroundImage: `${static_assets}/images/services/kitchen_cabinet.jpg`,
+        },
+        {
+            tagline: 'Countertops',
+            title: 'Surfaces That Elevate Every Detail',
+            description: 'Premium countertop installs with clean edges and durable materials that stand up to daily kitchen life.',
+            backgroundImage: `${static_assets}/images/services/counter_top.jpg`,
+        },
+        {
+            tagline: 'Open Kitchen Design',
+            title: 'Open Layouts Made for Entertaining',
+            description: 'Modern open kitchens that connect cooking and living spaces with bright, inviting, family-friendly design.',
+            backgroundImage: `${static_assets}/images/projects/open_kitchen.jpg`,
+        },
+    ],
+}
+
 export const servicesPage = {
     seo: {
         title: 'Kitchen Renovation Services',

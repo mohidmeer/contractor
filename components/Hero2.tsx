@@ -7,7 +7,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 import useEmblaCarousel from 'embla-carousel-react';
 import Title from './inputs/Title';
 import HeroForm from './HeroForm';
-import { contactInfo, landingPage, siteName } from '@/data';
+import { contactInfo, hero2 } from '@/data';
 import { trackCallClick } from '@/lib/analytics';
 import {
   Dialog,
@@ -17,12 +17,10 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 
-const SLIDE_COUNT = 4;
-
 const Hero2 = () => {
-  const slides = Array.from({ length: SLIDE_COUNT }, (_, index) => ({
+  const slides = hero2.slides.map((slide, index) => ({
     id: index,
-    ...landingPage.hero,
+    ...slide,
   }));
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 30 });
@@ -75,7 +73,7 @@ const Hero2 = () => {
                 <div className="absolute inset-0 bg-black/35 z-[1]" />
                 <Image
                   src={slide.backgroundImage}
-                  alt={`${siteName} hero slide ${slide.id + 1}`}
+                  alt={slide.title}
                   fill
                   className="object-cover"
                   sizes="100vw"
@@ -84,7 +82,7 @@ const Hero2 = () => {
 
                 <div className="relative z-10 h-full container mx-auto w-full p-4 pt-24 md:pt-28 flex items-center">
                   <div className="w-full max-w-2xl text-white flex flex-col gap-4">
-                    <Title text={siteName} />
+                    <Title text={slide.tagline} />
                     <h1>{slide.title}</h1>
                     <p className="p1">{slide.description}</p>
                     <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-2">

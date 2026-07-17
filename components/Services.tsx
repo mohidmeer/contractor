@@ -20,7 +20,7 @@ const Services = () => {
                 {Object.entries(servicesData).splice(0, 8).map(([slug, i], z) => (
                     <Link
                         href={`/services/${slug}`}
-                        className="group cursor-pointer bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-primary/10 hover:border-primary/30"
+                        className="moving-border group cursor-pointer bg-white rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-primary/10"
                         key={slug}
                     >
                         {/* Image Section */}

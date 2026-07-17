@@ -60,6 +60,35 @@ export const landingPage = {
   },
 }
 
+export const hero2 = {
+  slides: [
+    {
+      tagline: 'Bathroom Renovation',
+      title: 'Refresh Your Bathroom from Floor to Finish',
+      description: 'Full bathroom renovations designed for comfort, style, and everyday function — tailored to your home and budget.',
+      backgroundImage: `${static_assets}/images/services/renovation.jpg`,
+    },
+    {
+      tagline: 'Shower & Tub Upgrades',
+      title: 'Modern Showers and Tub Conversions',
+      description: 'Upgrade outdated fixtures with sleek shower systems and tub solutions that feel spa-ready and easy to maintain.',
+      backgroundImage: `${static_assets}/images/services/shower_tub.jpg`,
+    },
+    {
+      tagline: 'Vanity & Storage',
+      title: 'Beautiful Vanities with Smarter Storage',
+      description: 'Custom vanity installs that elevate your bathroom look while adding the storage and lighting your routine needs.',
+      backgroundImage: `${static_assets}/images/services/vanity.jpg`,
+    },
+    {
+      tagline: 'Spa-Inspired Bathrooms',
+      title: 'Turn Everyday Routines into a Retreat',
+      description: 'Create a calm, spa-like bathroom with premium finishes, thoughtful layouts, and lasting craftsmanship.',
+      backgroundImage: `${static_assets}/images/projects/spa.jpg`,
+    },
+  ],
+}
+
 export const servicesPage = {
   seo: {
     title: 'Bathroom Renovation Services',

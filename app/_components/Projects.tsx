@@ -25,7 +25,7 @@ const Projects = () => {
                         <div className="flex-[0_0_100%] sm:flex-[0_0_75%] md:flex-[0_0_50%] lg:flex-[0_0_25%]" key={slug}>
                             <Link
                                 href={`/projects/${slug}`}
-                                className="group cursor-pointer bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-primary/10 hover:border-primary/30 block h-full"
+                                className="moving-border group cursor-pointer bg-white rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-primary/10 block h-full"
                                 aria-label={`Continue reading :${i.title}`}
                             >
                                 {/* Image Section */}
