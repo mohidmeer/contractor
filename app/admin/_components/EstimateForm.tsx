@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
-import { ArrowDown, ArrowUp, Plus, Trash2 } from "lucide-react";
+import { ArrowDown, ArrowUp, Loader2, Plus, Sparkles, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,6 +23,7 @@ import CopyEstimateLink, {
   getEstimatePublicUrl,
 } from "./CopyEstimateLink";
 import EstimateImagesField from "./EstimateImagesField";
+import AiFillDialog from "./AiFillDialog";
 
 type LineItem = {
   name: string;
@@ -93,6 +94,8 @@ export default function EstimateForm({
 }: EstimateFormProps) {
   const initial = buildInitialState(initialValues);
   const [saving, setSaving] = useState(false);
+  const [aiOpen, setAiOpen] = useState(false);
+  const [aiLoading, setAiLoading] = useState(false);
   const [clientName, setClientName] = useState(initial.clientName);
   const [clientEmail, setClientEmail] = useState(initial.clientEmail);
   const [clientPhone, setClientPhone] = useState(initial.clientPhone);
@@ -148,6 +151,56 @@ export default function EstimateForm({
 
   const addItem = () => {
     setItems((prev) => [...prev, emptyItem(prev.length)]);
+  };
+
+  const handleAiGenerate = async (prompt: string) => {
+    setAiLoading(true);
+    try {
+      const res = await fetch("/api/admin/ai/estimates", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || "Failed to generate with AI");
+
+      const generated = data.data;
+      setClientName(generated.clientName ?? "");
+      setClientEmail(generated.clientEmail ?? "");
+      setClientPhone(generated.clientPhone ?? "");
+      setTitle(generated.title ?? "");
+      setDescription(generated.description ?? "");
+      setNotes(generated.notes ?? "");
+      setStatus((generated.status as EstimateStatus) || "DRAFT");
+      setItems(
+        Array.isArray(generated.items) && generated.items.length
+          ? generated.items.map(
+              (
+                item: {
+                  name?: string;
+                  description?: string;
+                  quantity?: number;
+                  unitPrice?: number;
+                },
+                index: number
+              ) => ({
+                name: item.name ?? "",
+                description: item.description ?? "",
+                quantity: Number(item.quantity) || 1,
+                unitPrice: Number(item.unitPrice) || 0,
+                sortOrder: index,
+              })
+            )
+          : [emptyItem(0)]
+      );
+      // Keep images / youtube for the user to add
+      setAiOpen(false);
+      toast.success("Estimate filled with AI — add images when ready");
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "AI generation failed");
+    } finally {
+      setAiLoading(false);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -211,7 +264,36 @@ export default function EstimateForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <>
+    <form onSubmit={handleSubmit} className="relative space-y-5">
+      {aiLoading && (
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 rounded-lg bg-background/80 backdrop-blur-sm">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <p className="text-sm font-medium">Generating estimate with AI...</p>
+        </div>
+      )}
+
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <p className="text-sm font-medium">AI-assisted drafting</p>
+          <p className="text-sm text-muted-foreground">
+            Describe the job and Claude drafts the estimate — images stay yours to add.
+          </p>
+        </div>
+        <Button
+          type="button"
+          variant="outline"
+          className="ai-rainbow-btn"
+          disabled={aiLoading || saving}
+          onClick={() => setAiOpen(true)}
+        >
+          <span className="inline-flex items-center gap-2">
+            <Sparkles className="h-4 w-4" />
+            Fill with AI
+          </span>
+        </Button>
+      </div>
+
       {initialToken && (
         <div className="flex flex-col gap-2 rounded-md border bg-muted/40 p-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="min-w-0">
@@ -454,14 +536,25 @@ export default function EstimateForm({
           type="button"
           variant="outline"
           onClick={onCancel}
-          disabled={saving}
+          disabled={saving || aiLoading}
         >
           Cancel
         </Button>
-        <Button type="submit" disabled={saving}>
+        <Button type="submit" disabled={saving || aiLoading}>
           {saving ? "Saving..." : "Save estimate"}
         </Button>
       </div>
     </form>
+
+    <AiFillDialog
+      open={aiOpen}
+      onOpenChange={setAiOpen}
+      title="Fill estimate with AI"
+      description="Describe the job and client. Line items and copy will be filled; leave images for you to upload."
+      placeholder="e.g. Kitchen remodel for Jane Doe in Orlando — cabinets, quartz counters, backsplash, plumbing rough-in..."
+      loading={aiLoading}
+      onGenerate={handleAiGenerate}
+    />
+    </>
   );
 }

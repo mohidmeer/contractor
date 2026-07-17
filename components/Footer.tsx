@@ -3,15 +3,16 @@ import React from 'react';
 import Logo from './Logo';
 import Link from 'next/link';
 import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
-import { contactInfo, FooterData, navItems, siteName, socialLinks } from '@/data';
+import { contactInfo, FooterData, siteName, socialLinks } from '@/data';
 import { BsClock, BsFillTelephoneFill } from 'react-icons/bs';
 import { FaLocationDot } from 'react-icons/fa6';
 import { trackCallClick } from '@/lib/analytics';
+import type { NavItem } from '@/types';
 
-const Footer = () => {
-  const services = navItems.find(item => item.label === 'Services')?.children || [];
-  const projects = navItems.find(item => item.label === 'Projects')?.children || [];
-  const aboutLinks = navItems.filter(item =>
+const Footer = ({ items }: { items: NavItem[] }) => {
+  const services = items.find(item => item.label === 'Services')?.children || [];
+  const projects = items.find(item => item.label === 'Projects')?.children || [];
+  const aboutLinks = items.filter(item =>
     ['About Us', 'Contact Us', 'Blogs'].includes(item.label)
   );
 

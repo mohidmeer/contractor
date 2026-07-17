@@ -2,15 +2,16 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Logo from './Logo';
-import { contactInfo, licenses, navItems } from '@/data';
+import { contactInfo, licenses } from '@/data';
 import Link from 'next/link';
 import { FaAngleDown } from 'react-icons/fa6';
 import { usePathname } from 'next/navigation';
 import { BsClock, BsFillTelephoneFill } from 'react-icons/bs';
 import { MdClose, MdMenu } from 'react-icons/md';
 import { trackCallClick } from '@/lib/analytics';
+import type { NavItem } from '@/types';
 
-const NavBar2 = () => {
+const NavBar2 = ({ items }: { items: NavItem[] }) => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -102,7 +103,7 @@ const NavBar2 = () => {
 
           <div className="items-center hidden lg:flex">
             <ul className="flex flex-row items-center gap-0.5 xl:gap-1 text-sm font-semibold">
-              {navItems.map((item) => (
+              {items.map((item) => (
                 <li
                   key={item.label}
                   className={`${item.hasChildrens ? 'static' : 'relative'}`}
@@ -162,7 +163,7 @@ const NavBar2 = () => {
 
                           <ul className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
                             {item.children?.map((child) => (
-                              <li key={child.label}>
+                              <li key={child.href}>
                                 <Link
                                   href={child.href}
                                   className="flex items-center gap-2 h-full px-4 py-3 rounded-lg text-sm font-medium text-black/80 hover:text-white hover:bg-secondary transition-colors border border-transparent hover:border-secondary"
@@ -250,7 +251,7 @@ const NavBar2 = () => {
 
           <div className="px-3 py-4 overflow-y-auto h-[calc(100%-140px)]">
             <ul className="flex flex-col gap-1">
-              {navItems.map((item) => (
+              {items.map((item) => (
                 <li key={item.label}>
                   {item.hasChildrens ? (
                     <>
@@ -275,7 +276,7 @@ const NavBar2 = () => {
                         }`}
                       >
                         {item.children?.map((child) => (
-                          <li key={child.label}>
+                          <li key={child.href}>
                             <Link
                               href={child.href}
                               className="block rounded-lg ml-3 px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-secondary/80 transition-colors"

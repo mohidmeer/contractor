@@ -24,10 +24,17 @@
   }
 
   --animate-border-spin: border-spin 3.5s linear infinite;
+  --animate-ai-rainbow-spin: ai-rainbow-spin 2.5s linear infinite;
 
   @keyframes border-spin {
     to {
       --border-angle: 360deg;
+    }
+  }
+
+  @keyframes ai-rainbow-spin {
+    to {
+      transform: rotate(360deg);
     }
   }
 }
@@ -103,6 +110,54 @@ body {
     animation: none;
     opacity: 1;
     background: linear-gradient(var(--color-secondary), var(--color-primary));
+  }
+}
+
+.ai-rainbow-btn {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  border: none !important;
+  background: transparent !important;
+}
+
+.ai-rainbow-btn::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  z-index: -2;
+  background: conic-gradient(
+    from 0deg,
+    #ff0080,
+    #ff8c00,
+    #ffee00,
+    #00ff66,
+    #00cfff,
+    #7a5cff,
+    #ff0080
+  );
+  animation: ai-rainbow-spin 2.5s linear infinite;
+  pointer-events: none;
+}
+
+.ai-rainbow-btn::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  z-index: -1;
+  border-radius: calc(0.625rem - 2px);
+  background: var(--background, #fff);
+  pointer-events: none;
+}
+
+.ai-rainbow-btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-rainbow-btn::before {
+    animation: none;
   }
 }
 

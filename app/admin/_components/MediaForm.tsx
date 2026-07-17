@@ -60,22 +60,27 @@ const MediaForm = ({
   };
 
   return (
-    <div className="flex w-full shrink-0 flex-col gap-2 md:w-[300px]">
-      <Label>Image</Label>
+    <div className="flex w-full flex-col gap-2">
+      <div>
+        <Label>Cover image</Label>
+        <p className="mt-1 text-xs text-muted-foreground">
+          Main image shown on cards and page headers.
+        </p>
+      </div>
 
       {displayUrl && (
         <Image
           src={displayUrl}
-          width={400}
-          height={400}
+          width={640}
+          height={360}
           alt="Uploaded image"
-          className="shrink-0 rounded-md border"
+          className="max-h-48 w-full max-w-md rounded-md border object-cover"
           unoptimized
         />
       )}
 
-      <div className="relative cursor-pointer rounded-md border border-dashed p-3 text-center text-sm font-medium text-primary">
-        {uploading ? "Uploading..." : "Add new image"}
+      <div className="relative max-w-md cursor-pointer rounded-md border border-dashed p-3 text-center text-sm font-medium text-primary">
+        {uploading ? "Uploading..." : "Add cover image"}
         <Input
           type="file"
           accept="image/*"

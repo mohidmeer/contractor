@@ -1,16 +1,17 @@
 'use client';
 import React, { useState } from 'react'
 import Logo from './Logo'
-import { contactInfo, navItems } from '@/data'
+import { contactInfo } from '@/data'
 import Link from 'next/link'
 import { FaAngleDown } from 'react-icons/fa6'
 import { usePathname } from 'next/navigation'
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { MdClose, MdMenu } from 'react-icons/md';
 import { trackCallClick } from '@/lib/analytics';
+import type { NavItem } from '@/types';
 
 
-const NavBar = () => {
+const NavBar = ({ items }: { items: NavItem[] }) => {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -23,7 +24,7 @@ const NavBar = () => {
         </button>
         <div className=' h-full  bg-white  w-fit px-4'>
           <ul className="flex flex-col gap-4 p-4  font-bold ">
-            {navItems.map((item) => (
+            {items.map((item) => (
               <li key={item.label} className="relative group">
                 <Link
                   href={item.href}
@@ -35,7 +36,7 @@ const NavBar = () => {
                 {item.hasChildrens && (
                   <ul className="absolute hidden group-hover:block bg-white text-black shadow-md  p-2 rounded whitespace-nowrap z-20">
                     {item.children?.map((child) => (
-                      <li key={child.label}>
+                      <li key={child.href}>
                         <Link
                           href={child.href}
                           className="block px-4 py-2 hover:bg-secondary hover:text-white"
@@ -61,7 +62,7 @@ const NavBar = () => {
         <Logo />
         <div className="items-center  hidden lg:flex  " id="navbar-cta">
           <ul className="flex flex-row p-4 md:p-0 mt-4  md:space-x-4 xl:space-x-8 font-semibold xl:font-bold ">
-            {navItems.map((item) => (
+            {items.map((item) => (
               <li key={item.label} className="relative group">
                 <Link
                   href={item.href}
@@ -75,7 +76,7 @@ const NavBar = () => {
                 {item.hasChildrens && (
                   <ul className="absolute hidden group-hover:block bg-white text-black shadow-md  p-2 rounded whitespace-nowrap z-20">
                     {item.children?.map((child) => (
-                      <li key={child.label}>
+                      <li key={child.href}>
                         <Link
                           href={child.href}
                           className="block px-4 py-2 hover:bg-secondary hover:text-white"

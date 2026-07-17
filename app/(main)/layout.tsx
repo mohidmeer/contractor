@@ -8,6 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import { JsonLdDataLanding } from "@/jsonld";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import CallButton from "@/components/CallButton";
+import { getDynamicNavItems } from "@/actions/nav";
 
 export const metadata: Metadata = {
   title: {
@@ -54,17 +55,20 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const navItems = await getDynamicNavItems();
+
   return (
     <html lang="en">
       <body className="overflow-x-hidden">
         <GoogleAnalytics gaId={googleAnalyticId} />
-        <NavBar2 />
+        <NavBar2 items={navItems} />
         {children}
         <GoogleMap />
-        <Footer />
+        <Footer items={navItems} />
         <JsonLd data={JsonLdDataLanding} />
         <CallButton/>
       </body>
     </html>
   );
 }
+

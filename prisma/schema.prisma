@@ -79,3 +79,50 @@ enum FormRequestStatus {
   CONTACTED
   CLOSED
 }
+
+model Service {
+  id                 Int      @id @default(autoincrement())
+  site               String
+  slug               String
+  label              String
+  title              String
+  description        String
+  content            String
+  image              String?
+  typeOfSolutions    Json
+  benefitsOFChoosing Json
+  faqs               Json
+  images             Json     @default("[]")
+  sortOrder          Int      @default(0)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@unique([site, slug])
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  site        String
+  slug        String
+  label       String
+  title       String
+  description String
+  content     String
+  image       String?
+  location    String?
+  duration    String?
+  materials   Json     @default("[]")
+  images      Json     @default("[]")
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([site, slug])
+}
+
+model Setting {
+  id           Int      @id @default(autoincrement())
+  anthropicKey String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
