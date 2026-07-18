@@ -84,7 +84,7 @@ const Hero2 = () => {
                   <div className="w-full max-w-2xl text-white flex flex-col gap-4">
                     <Title text={slide.tagline} />
                     <h1>{slide.title}</h1>
-                    <p className="p1">{slide.description}</p>
+                    <p className="p1 !text-white/90">{slide.description}</p>
                     <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-2">
                       <a
                         href={contactInfo.phone.href}

@@ -2,36 +2,33 @@ import React from "react";
 import { MdLocationPin } from "react-icons/md";
 import { serviceAreasData } from "@/data";
 import Link from "next/link";
+import Title from "@/components/inputs/Title";
 
 const AreaOfServices = () => {
   return (
-    <section className="grid grid-cols-1 xl:grid-cols-3 min-h-[90vh]">
-      {/* Left Column */}
-      <div className="flex items-center flex-col gap-4 border justify-center bg-primary text-white p-16 xl:order-2">
-        <p className="font-bold">Locations</p>
-        <h2 className="font-bold text-3xl text-center">
-          Cities We Serve Across Florida
-        </h2>
-        <p className="text-lg text-center">
-          Explore our service areas and find expert solutions near you.
-        </p>
-      </div>
+    <section className="bg-secondary/10 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
+        <div className="text-center flex items-center justify-center flex-col gap-2 mb-10 md:mb-12 max-w-2xl mx-auto">
+          <Title text="Locations" />
+          <h2 className="text-heading">Cities We Serve Across Florida</h2>
+          <p className="p1 max-w-xl">
+            Explore our service areas and find expert solutions near you.
+          </p>
+        </div>
 
-      {/* Right Column */}
-      <div className="col-span-2 h-full xl:py-24 order-1">
-        <div className="h-full flex items-center w-full flex-col justify-center bg-white card ">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6  w-full ">
-            {serviceAreasData.map((city, index) => (
-              <Link
-                key={index}
-                href={'/service-areas/'+city.href}
-                className="rounded-lg p-4 bg-white hover:underline transition-all flex items-center gap-3 text-lg font-medium"
-              >
-                <MdLocationPin className="text-primary text-2xl shrink-0" />
-                <span>{city.name}</span>
-              </Link>
-            ))}
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          {serviceAreasData.map((city, index) => (
+            <Link
+              key={index}
+              href={"/service-areas/" + city.href}
+              className="rounded-2xl p-4 md:p-5 bg-white border border-primary/5 shadow-sm hover:shadow-md hover:bg-white hover:border-primary/15 transition-all flex items-center gap-3 text-base font-semibold text-heading"
+            >
+              <span className="rounded-xl bg-primary/10 p-2 shrink-0">
+                <MdLocationPin className="text-primary text-lg" />
+              </span>
+              <span>{city.name}</span>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import Hero2 from "@/components/Hero2";
+import HeroBar from "@/components/HeroBar";
 import Services from "@/components/Services";
 import ThemeSwitcher from "@/components/Theme";
 import FAQs from "@/components/Faqs";
@@ -11,9 +12,10 @@ import Testimonials from "../_components/Testimonials";
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-20 ">
+    <main className="flex flex-col">
       <ThemeSwitcher />
       <Hero2 />
+      <HeroBar />
       <GetToKnow />
       <Services />
       <Process />

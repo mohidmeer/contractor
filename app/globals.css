@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "./colors.css";
 @import "tailwindcss";
 
@@ -165,23 +165,23 @@ h1 {
 }
 
 h2 {
-  @apply font-semibold;
-  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-  /* ~text-2xl to text-4xl */
+  @apply font-bold;
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  /* ~text-2xl to text-3xl */
 }
 
 .h2 {
-  @apply font-semibold;
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-  /* ~text-2xl to text-4xl */
+  @apply font-bold;
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  /* ~text-2xl to text-3xl */
 }
 
 
 
 h3 {
-  @apply font-semibold;
-  font-size: clamp(1.25rem, 3vw, 1.875rem);
-  /* ~text-xl to text-3xl */
+  @apply font-bold;
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  /* ~text-lg to text-xl+ */
 }
 
 h4 {
@@ -203,15 +203,15 @@ h6 {
 }
 
 .p1 {
-  @apply leading-relaxed;
-  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  @apply leading-relaxed font-light text-gray-600;
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
   /* ~text-base to text-lg */
 }
 
 .p2 {
-  @apply leading-normal;
-  font-size: clamp(0.875rem, 1.3vw, 1rem);
-  /* ~text-sm to text-base */
+  @apply leading-normal font-light text-gray-600;
+  font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
+  /* ~text-sm+ to text-base+ */
 }
 
 .p3 {
