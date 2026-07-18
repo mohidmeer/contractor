@@ -203,7 +203,7 @@ h6 {
 }
 
 .p1 {
-  @apply leading-relaxed font-light text-gray-600;
+  @apply leading-relaxed font-normal text-gray-600;
   font-size: clamp(1rem, 1.4vw, 1.125rem);
   /* ~text-base to text-lg */
 }

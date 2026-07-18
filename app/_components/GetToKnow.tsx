@@ -3,16 +3,18 @@ import Title from '@/components/inputs/Title'
 import { contactInfo, getToKnow } from '@/data'
 import { trackCallClick } from '@/lib/analytics'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import { BsFillTelephoneFill } from 'react-icons/bs'
 import { FaCheckSquare } from 'react-icons/fa'
+import { MdArrowForward } from 'react-icons/md'
 
 const GetToKnow = ({ description = getToKnow.description }: { description?: string }) => {
     return (
-        <section className="bg-white py-16 md:py-24">
+        <section className="bg-white py-14 md:py-20">
             <div className="max-w-7xl mx-auto px-6 md:px-8">
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
-                    <div className="flex flex-col gap-5 justify-center sm:p-7  rounded-2xl card p-5 border border-primary/5 shadow-md">
+                <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+                    <div className="flex flex-col gap-3.5 justify-center rounded-2xl bg-secondary/10 p-5 sm:p-6 border border-primary/5 shadow-md">
                         <Title text={getToKnow.title} />
                         <h2 className="text-heading">
                             {getToKnow.heading}
@@ -20,32 +22,39 @@ const GetToKnow = ({ description = getToKnow.description }: { description?: stri
                         <p className="p1">
                             {description}
                         </p>
-                        <div className="space-y-3.5">
+                        <div className="space-y-2.5">
                             {
                                 getToKnow.keyPoints.map((i, z) => (
-                                    <div className="flex gap-3" key={z}>
-                                        <FaCheckSquare size={18} className="text-green-700 mt-0.5 shrink-0" />
+                                    <div className="flex gap-2.5" key={z}>
+                                        <FaCheckSquare size={16} className="text-green-700 mt-0.5 shrink-0" />
                                         <div className="space-y-0.5">
-                                            <h3 className="font-bold text-heading leading-snug">{i.title}</h3>
-                                            <p className="p1">{i.desc}</p>
+                                            <h3 className="text-sm md:text-base font-bold text-heading leading-snug">{i.title}</h3>
+                                            <p className="text-sm font-light text-gray-600 leading-relaxed">{i.desc}</p>
                                         </div>
                                     </div>
                                 ))
                             }
                         </div>
-                        <div className="flex xl:flex-row flex-col gap-4 items-center pt-1">
+                        <div className="flex flex-wrap items-center gap-3 pt-1">
                             <a
                                 onClick={trackCallClick('Get To Know Call Button')}
                                 href={contactInfo.phone.href}
-                                className="group flex gap-2 items-center text-heading text-[clamp(1.35rem,1.8vw,1.875rem)] font-bold whitespace-nowrap hover:scale-105 transition-all"
+                                className="btn-primary inline-flex items-center gap-2 text-sm !px-5 !py-2.5 hover:scale-105"
                             >
-                                <BsFillTelephoneFill size={22} className="" />
+                                <BsFillTelephoneFill size={16} />
                                 {contactInfo.phone.text}
                             </a>
+                            <Link
+                                href="/about"
+                                className="group inline-flex items-center gap-1.5 rounded-sm border border-primary/20 bg-white px-5 py-2.5 text-sm font-semibold text-heading hover:border-primary hover:text-primary hover:gap-2.5 transition-all"
+                            >
+                                More about us
+                                <MdArrowForward className="text-base transition-transform group-hover:translate-x-0.5" />
+                            </Link>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2.5 relative rounded-2xl overflow-hidden min-h-[280px] sm:min-h-[320px] md:min-h-[360px] max-w-md lg:max-w-none mx-auto w-full">
+                    <div className="grid grid-cols-2 gap-2.5 relative rounded-2xl overflow-hidden max-w-md sm:max-w-lg lg:max-w-none mx-auto w-full">
                         <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
                             <div className="bg-primary text-white rounded-full size-28 sm:size-32 relative flex flex-col gap-0.5 items-center justify-center border-white border-[5px] shadow-lg">
                                 <p className="text-3xl sm:text-4xl font-bold leading-none">10</p>

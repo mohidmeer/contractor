@@ -8,24 +8,35 @@ const Breadcrumbs = () => {
   const paths = pathname.split('/').filter(Boolean);
 
   return (
-    <nav className="my-3">
-      <ol className="flex items-center space-x-2">
+    <nav aria-label="Breadcrumb" className="mb-1">
+      <ol className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm font-semibold tracking-wide">
         <li>
-          <Link href="/" className="hover:underline font-semibold p2">
+          <Link
+            href="/"
+            className="text-white/75 hover:text-white transition-colors"
+          >
             Home
           </Link>
         </li>
         {paths.map((segment, index) => {
           const href = '/' + paths.slice(0, index + 1).join('/');
           const isLast = index === paths.length - 1;
+          const label = segment.replace(/-/g, ' ');
+
           return (
-            <li key={index} className="flex items-center">
-              <span className="mx-2">/</span>
+            <li key={href} className="flex items-center gap-2">
+              <span
+                className="inline-block size-1.5 rounded-full bg-secondary shrink-0"
+                aria-hidden
+              />
               {isLast ? (
-                <span className="font-semibold underline capitalize p2">{segment.replace(/-/g, ' ')}</span>
+                <span className="text-white capitalize">{label}</span>
               ) : (
-                <Link href={href} className="hover:underline capitalize font-semibold p2 ">
-                  {segment.replace(/-/g, ' ')}
+                <Link
+                  href={href}
+                  className="text-white/75 hover:text-white capitalize transition-colors"
+                >
+                  {label}
                 </Link>
               )}
             </li>

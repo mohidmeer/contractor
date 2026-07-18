@@ -19,9 +19,9 @@ export default function Home() {
       <GetToKnow />
       <Services />
       <Process />
+      <Projects />
       <WhyUS />
       <FAQs />
-      <Projects />
       <Testimonials />
       <AreaOfServices />
     </main>

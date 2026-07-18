@@ -1,18 +1,13 @@
-"use client";
-
 import FAQs from "@/components/Faqs";
 import Header from "@/components/Header";
 import Title from "@/components/inputs/Title";
 import WhyUS from "@/components/WhyUS";
-import { projectsPage } from "@/data";
-import AutoScroll from "embla-carousel-auto-scroll";
-import useEmblaCarousel from "embla-carousel-react";
-import Image from "next/image";
-import Link from "next/link";
+import { projectsPage, servicesPage, landingPage } from "@/data";
 import Process from "@/app/_components/Process";
 import JsonLd from "@/components/JsonLd";
 import AreaOfServices from "@/components/AreaOfServices";
-import { MdArrowForward } from "react-icons/md";
+import ProjectsMasonryGrid from "@/components/ProjectsMasonryGrid";
+import ServicesListSection from "@/components/ServicesListSection";
 import type { ProjectView } from "@/actions/projects";
 
 type ProjectsListingProps = {
@@ -24,83 +19,31 @@ export default function ProjectsListing({
   items,
   jsonLdData,
 }: ProjectsListingProps) {
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [
-    AutoScroll({ playOnInit: true, speed: 0.3 }),
-  ]);
-  const [emblaRef2] = useEmblaCarousel({ loop: true }, [
-    AutoScroll({ playOnInit: true, speed: 0.3, direction: "backward" }),
-  ]);
-
-  const mid = Math.ceil(items.length / 2);
-  const firstHalf = items.slice(0, mid).length < 5 ? items : items.slice(0, mid);
-  const secondHalf = items.slice(mid);
-
-  const renderCard = (project: ProjectView, index: number) => (
-    <div
-      className="flex-[0_0_100%] sm:flex-[0_0_75%] md:flex-[0_0_50%] lg:flex-[0_0_25%]"
-      key={project.slug}
-    >
-      <Link
-        href={`/projects/${project.slug}`}
-        className="moving-border group cursor-pointer bg-white rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-primary/10 block h-full"
-      >
-        <div className="relative h-[280px] overflow-hidden bg-primary/10">
-          {project.imageUrl ? (
-            <Image
-              src={project.imageUrl}
-              fill
-              className="object-cover group-hover:scale-110 transition-transform duration-500"
-              alt={project.title}
-              unoptimized
-            />
-          ) : (
-            <div className="absolute inset-0 flex items-center justify-center text-primary/40 text-sm font-medium px-4 text-center">
-              {project.label || project.title}
-            </div>
-          )}
-          <div className="absolute top-4 left-4 bg-primary text-white text-2xl font-bold w-10 h-10 rounded-full flex items-center justify-center shadow-lg">
-            {index + 1}
-          </div>
-        </div>
-        <div className="p-6 flex flex-col gap-4">
-          <h3 className="text-heading text-xl font-semibold group-hover:text-primary transition-colors leading-tight">
-            {project.title}
-          </h3>
-          <p className="text-gray-600 text-base leading-relaxed line-clamp-3">
-            {project.description}
-          </p>
-          <div className="flex items-center gap-2 text-primary font-semibold mt-2 group-hover:gap-4 transition-all">
-            <span>Read More</span>
-            <MdArrowForward className="group-hover:translate-x-2 transition-transform" />
-          </div>
-        </div>
-      </Link>
-    </div>
-  );
-
   return (
-    <main className="flex flex-col gap-10">
+    <main className="flex flex-col">
       <Header cta desc="" title={projectsPage.seo.title} />
-      <section>
-        <div className="text-center flex items-center justify-center flex-col gap-2 mb-10">
-          <Title text={"Our Projects"} />
-          <h2 className="text-heading">{projectsPage.seo.title}</h2>
-        </div>
 
-        <div className="embla my-6" ref={emblaRef}>
-          <div className="embla__container flex gap-6 px-2">
-            {firstHalf.map((project, z) => renderCard(project, z))}
+      <section className="bg-secondary/10 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="mb-10 flex flex-col gap-3 max-w-2xl">
+            <Title text="Our Projects" />
+            <h2 className="text-heading">{projectsPage.seo.title}</h2>
+            <p className="p1">{projectsPage.seo.description}</p>
           </div>
-        </div>
 
-        {items.length > 5 && (
-          <div className="embla my-6" ref={emblaRef2}>
-            <div className="embla__container flex gap-6 px-2">
-              {secondHalf.map((project, z) => renderCard(project, z + mid))}
-            </div>
-          </div>
-        )}
+          <ProjectsMasonryGrid items={items} ctaLabel="Read more" />
+        </div>
       </section>
+
+      <ServicesListSection
+        title="Our Services"
+        heading={landingPage.services.heading}
+        description={servicesPage.seo.description}
+        tone="white"
+        ctaLabel="View service"
+        titleField="label"
+      />
+
       <WhyUS />
       <Process />
       <FAQs />

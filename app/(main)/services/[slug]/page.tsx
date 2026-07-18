@@ -78,115 +78,126 @@ export default async function Page({ params }: Props) {
   };
 
   return (
-    <main className="flex flex-col gap-20">
+    <main className="flex flex-col">
       <Header cta title={service.title} desc={service.description} />
 
-      <section className="container mx-auto w-full px-4 sm:px-6">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
-          <article className="lg:col-span-8 xl:col-span-9 flex flex-col gap-10">
-            {service.imageUrl && (
-              <div className="relative aspect-[21/9] overflow-hidden rounded-xl bg-primary/5 sm:aspect-[2.4/1]">
-                <Image
-                  src={service.imageUrl}
-                  alt={service.title}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 75vw"
-                  className="object-cover"
-                  unoptimized
-                />
-              </div>
-            )}
+      <section className="bg-secondary/10 py-14 md:py-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
+            <article className="lg:col-span-7 xl:col-span-8 flex flex-col gap-8">
+              {service.imageUrl && (
+                <div className="relative aspect-[21/9] overflow-hidden rounded-2xl bg-primary/5 shadow-lg shadow-primary/10 sm:aspect-[2.4/1]">
+                  <Image
+                    src={service.imageUrl}
+                    alt={service.title}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 75vw"
+                    className="object-cover"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-heading/50 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6">
+                    {service.category && (
+                      <span className="inline-block mb-2 rounded-lg bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
+                        {service.category.name}
+                      </span>
+                    )}
+                    <h2 className="!text-white font-bold text-xl sm:text-2xl drop-shadow-md max-w-2xl">
+                      {service.label}
+                    </h2>
+                  </div>
+                </div>
+              )}
 
-            <div className="rounded-xl bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
-              <div className="mb-8 max-w-3xl">
-                {service.category && (
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                    {service.category.name}
-                  </p>
+              <div className="rounded-2xl bg-white p-6 sm:p-8 md:p-10 shadow-md">
+                {!service.imageUrl && (
+                  <div className="mb-6 max-w-3xl">
+                    {service.category && (
+                      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                        {service.category.name}
+                      </p>
+                    )}
+                    <h2 className="text-heading mb-4">{service.label}</h2>
+                  </div>
                 )}
-                <h2 className="text-heading mb-6">{service.label}</h2>
-                <div className="space-y-5">
+                <div className="space-y-4 max-w-3xl">
                   {paragraphs.map((paragraph, i) => (
-                    <p
-                      key={i}
-                      className="text-base leading-[1.8] text-gray-700 sm:text-lg"
-                    >
+                    <p key={i} className="p1">
                       {paragraph}
                     </p>
                   ))}
                 </div>
+
+                {service.benefitsOFChoosing.length > 0 && (
+                  <div className="mt-10 border-t border-primary/10 pt-10">
+                    <div className="mb-6 flex flex-col gap-2">
+                      <Title text="Why it matters" />
+                      <h3 className="text-heading">Key benefits</h3>
+                    </div>
+                    <ul className="grid gap-4 sm:grid-cols-2">
+                      {service.benefitsOFChoosing.map((benefit, z) => (
+                        <li
+                          key={z}
+                          className="group relative overflow-hidden flex gap-3 rounded-2xl bg-secondary/10 p-5 hover:bg-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                        >
+                          <span className="absolute bottom-0 left-0 h-1 w-0 bg-primary group-hover:w-full transition-all duration-500" />
+                          <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary text-white shadow-md shadow-primary/25">
+                            <FaCheck size={14} />
+                          </span>
+                          <div className="min-w-0">
+                            <h4 className="mb-1 text-base font-bold text-heading group-hover:text-primary transition-colors">
+                              {benefit.title}
+                            </h4>
+                            <p className="text-sm font-light leading-relaxed text-gray-600">
+                              {benefit.description}
+                            </p>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {service.typeOfSolutions.types.length > 0 && (
+                  <div className="mt-10 border-t border-primary/10 pt-10">
+                    <div className="mb-6 flex flex-col gap-2">
+                      <Title text="Applications" />
+                      <h3 className="text-heading">
+                        {service.typeOfSolutions.headings}
+                      </h3>
+                    </div>
+                    <ul className="flex flex-wrap gap-2.5">
+                      {service.typeOfSolutions.types.map((type, z) => (
+                        <li
+                          key={z}
+                          className="rounded-xl bg-primary/5 border border-primary/10 px-4 py-2.5 text-sm font-semibold text-heading hover:bg-primary hover:text-white hover:border-primary transition-all cursor-default"
+                        >
+                          {type}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
 
-              {service.benefitsOFChoosing.length > 0 && (
-                <div className="border-t border-primary/10 pt-10">
+              {galleryImages.length > 0 && (
+                <div className="rounded-2xl bg-white p-6 sm:p-8 md:p-10 shadow-md">
                   <div className="mb-6 flex flex-col gap-2">
-                    <Title text="Why it matters" />
-                    <h3 className="text-heading !text-2xl sm:!text-3xl">
-                      Key benefits
+                    <Title text="Gallery" />
+                    <h3 className="text-heading">
+                      What our work looks like
                     </h3>
                   </div>
-                  <ul className="grid gap-5 sm:grid-cols-2">
-                    {service.benefitsOFChoosing.map((benefit, z) => (
-                      <li
-                        key={z}
-                        className="flex gap-3 rounded-lg bg-secondary/5 p-5"
-                      >
-                        <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                          <FaCheck size={12} />
-                        </span>
-                        <div className="min-w-0">
-                          <h4 className="mb-1 text-base font-semibold text-heading">
-                            {benefit.title}
-                          </h4>
-                          <p className="text-sm leading-relaxed text-gray-600 sm:text-[15px]">
-                            {benefit.description}
-                          </p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                  <Gallery images={galleryImages} />
                 </div>
               )}
+            </article>
 
-              {service.typeOfSolutions.types.length > 0 && (
-                <div className="mt-10 border-t border-primary/10 pt-10">
-                  <div className="mb-6 flex flex-col gap-2">
-                    <Title text="Applications" />
-                    <h3 className="text-heading !text-2xl sm:!text-3xl">
-                      {service.typeOfSolutions.headings}
-                    </h3>
-                  </div>
-                  <ul className="flex flex-wrap gap-2.5">
-                    {service.typeOfSolutions.types.map((type, z) => (
-                      <li
-                        key={z}
-                        className="rounded-md border border-primary/15 bg-secondary/5 px-4 py-2 text-sm font-medium text-heading"
-                      >
-                        {type}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-
-            {galleryImages.length > 0 && (
-              <div className="rounded-xl bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
-                <div className="mb-6 flex flex-col gap-2">
-                  <Title text="Gallery" />
-                  <h3 className="text-heading !text-2xl sm:!text-3xl">
-                    What our work looks like
-                  </h3>
-                </div>
-                <Gallery images={galleryImages} />
-              </div>
-            )}
-          </article>
-
-          <aside className="hidden h-fit flex-col gap-6 lg:col-span-4 xl:col-span-3 lg:flex">
-            <SideBar />
-          </aside>
+            <aside className="hidden h-fit flex-col gap-5 lg:col-span-5 xl:col-span-4 lg:flex lg:sticky lg:top-28">
+              <SideBar />
+            </aside>
+          </div>
         </div>
       </section>
 
