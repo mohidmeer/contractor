@@ -40,8 +40,10 @@ export async function GET(req: NextRequest) {
         description: true,
         image: true,
         sortOrder: true,
+        categoryId: true,
         createdAt: true,
         updatedAt: true,
+        category: { select: { id: true, name: true, slug: true } },
       },
     }),
     prisma.service.count({ where }),
@@ -71,6 +73,7 @@ export async function POST(req: NextRequest) {
         faqs: data.faqs,
         images: data.images,
         sortOrder: data.sortOrder,
+        categoryId: data.categoryId,
       },
     });
 

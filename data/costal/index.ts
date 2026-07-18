@@ -297,44 +297,14 @@ export const navItems = [
     href: '/services',
     external: false,
     hasChildrens: true,
-    children: [
-      { label: 'Driveway Installation', href: '/services/driveway-installation', hasChildrens: false },
-      { label: 'Stamped Concrete', href: '/services/stamped-concrete', hasChildrens: false },
-      { label: 'Concrete Slabs', href: '/services/concrete-slabs', hasChildrens: false },
-      { label: 'Patios & Walkways', href: '/services/patios-walkways', hasChildrens: false },
-      { label: 'Foundation Work', href: '/services/foundation-work', hasChildrens: false },
-      { label: 'Garage Flooring', href: '/services/garage-flooring', hasChildrens: false },
-      { label: 'Retaining Walls', href: '/services/retaining-walls', hasChildrens: false },
-      { label: 'Concrete Repair & Resurfacing', href: '/services/concrete-repair', hasChildrens: false },
-      { label: 'Commercial Concrete Services', href: '/services/commercial-concrete', hasChildrens: false },
-      { label: 'Sidewalk Installation', href: '/services/patios-walkways', hasChildrens: false },
-      { label: 'Pool Deck Concrete', href: '/services/patios-walkways', hasChildrens: false },
-      { label: 'Driveway Resurfacing', href: '/services/concrete-repair', hasChildrens: false },
-      { label: 'Colored & Decorative Concrete', href: '/services/stamped-concrete', hasChildrens: false },
-      { label: 'Epoxy Garage Floors', href: '/services/garage-flooring', hasChildrens: false },
-      { label: 'Concrete Curbing', href: '/services/commercial-concrete', hasChildrens: false },
-      { label: 'New Construction Slabs', href: '/services/concrete-slabs', hasChildrens: false },
-    ]
+    children: [],
   },
   {
     label: 'Projects',
     href: '/projects',
     external: false,
     hasChildrens: true,
-    children: [
-      { label: 'Modern Driveway', href: '/projects/modern-driveway', hasChildrens: false },
-      { label: 'Stamped Patio', href: '/projects/stamped-patio', hasChildrens: false },
-      { label: 'Commercial Lot Paving', href: '/projects/commercial-lot', hasChildrens: false },
-      { label: 'Garage Floor Finish', href: '/projects/garage-floor', hasChildrens: false },
-      { label: 'Concrete Steps', href: '/projects/concrete-steps', hasChildrens: false },
-      { label: 'Retaining Wall Build', href: '/projects/retaining-wall', hasChildrens: false },
-      { label: 'Foundation Repair', href: '/projects/foundation-repair', hasChildrens: false },
-      { label: 'Outdoor Living Space', href: '/projects/outdoor-concrete-living', hasChildrens: false },
-      { label: 'Residential Driveways', href: '/projects/modern-driveway', hasChildrens: false },
-      { label: 'Decorative Patio Work', href: '/projects/stamped-patio', hasChildrens: false },
-      { label: 'Commercial Concrete', href: '/projects/commercial-lot', hasChildrens: false },
-      { label: 'Outdoor Entertainment Areas', href: '/projects/outdoor-concrete-living', hasChildrens: false },
-    ]
+    children: [],
   },
   {
     label: 'Contact Us',
@@ -520,6 +490,7 @@ export const serviceAreasData = [
 ------------------------ */
 export { servicesData } from './services'
 export { projectsData, projectsImageGallery } from './projects'
+export { categoriesData } from './categories'
 
 /* ------------------------
    TESTIMONAILS START

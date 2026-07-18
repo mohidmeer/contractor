@@ -12,20 +12,30 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const emptyService = (): ServiceBody => ({
   slug: "",
   label: "",
   title: "",
   description: "",
-  content: "",
+  content: [""],
   image: "",
   typeOfSolutions: { headings: "Solutions we offer", types: [""] },
   benefitsOFChoosing: [{ title: "", description: "" }],
   faqs: [{ question: "", answer: "" }],
   images: [],
   sortOrder: 0,
+  categoryId: null,
 });
+
+type CategoryOption = { id: number; name: string; slug: string };
 
 type ServiceFormProps = {
   mode: "create" | "edit";
@@ -48,10 +58,31 @@ export default function ServiceForm({
   const [saving, setSaving] = useState(false);
   const [aiOpen, setAiOpen] = useState(false);
   const [aiLoading, setAiLoading] = useState(false);
+  const [categories, setCategories] = useState<CategoryOption[]>([]);
 
   useEffect(() => {
     if (initialValues) setForm(initialValues);
   }, [initialValues]);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function loadCategories() {
+      try {
+        const res = await fetch("/api/admin/categories?take=200", {
+          cache: "no-store",
+        });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!cancelled) setCategories(data.items || []);
+      } catch {
+        // non-blocking
+      }
+    }
+    loadCategories();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const handleAiGenerate = async (prompt: string) => {
     setAiLoading(true);
@@ -71,12 +102,16 @@ export default function ServiceForm({
         label: generated.label ?? prev.label,
         title: generated.title ?? prev.title,
         description: generated.description ?? prev.description,
-        content: generated.content ?? prev.content,
+        content:
+          Array.isArray(generated.content) && generated.content.length
+            ? generated.content
+            : prev.content,
         typeOfSolutions: generated.typeOfSolutions ?? prev.typeOfSolutions,
         benefitsOFChoosing:
           generated.benefitsOFChoosing ?? prev.benefitsOFChoosing,
         faqs: generated.faqs ?? prev.faqs,
         sortOrder: generated.sortOrder ?? prev.sortOrder,
+        categoryId: prev.categoryId,
         // Keep images for the user to upload
         image: prev.image,
         images: prev.images,
@@ -189,6 +224,32 @@ export default function ServiceForm({
             />
           </div>
           <div className="space-y-2 md:col-span-2">
+            <Label>Category</Label>
+            <Select
+              value={
+                form.categoryId != null ? String(form.categoryId) : "none"
+              }
+              onValueChange={(value) =>
+                setForm({
+                  ...form,
+                  categoryId: value === "none" ? null : Number(value),
+                })
+              }
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select a category" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="none">No category</SelectItem>
+                {categories.map((cat) => (
+                  <SelectItem key={cat.id} value={String(cat.id)}>
+                    {cat.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="space-y-2 md:col-span-2">
             <Label htmlFor="service-label">Label</Label>
             <Input
               id="service-label"
@@ -217,15 +278,51 @@ export default function ServiceForm({
               required
             />
           </div>
-          <div className="space-y-2 md:col-span-2">
-            <Label htmlFor="service-content">Content</Label>
-            <Textarea
-              id="service-content"
-              rows={6}
-              value={form.content}
-              onChange={(e) => setForm({ ...form, content: e.target.value })}
-              required
-            />
+          <div className="space-y-3 md:col-span-2">
+            <div className="flex items-center justify-between gap-2">
+              <Label>Content paragraphs</Label>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() =>
+                  setForm({ ...form, content: [...form.content, ""] })
+                }
+              >
+                <Plus className="h-4 w-4 mr-1" />
+                Add paragraph
+              </Button>
+            </div>
+            {form.content.map((paragraph, index) => (
+              <div key={index} className="flex gap-2">
+                <Textarea
+                  rows={4}
+                  value={paragraph}
+                  placeholder={`Paragraph ${index + 1}`}
+                  onChange={(e) => {
+                    const content = [...form.content];
+                    content[index] = e.target.value;
+                    setForm({ ...form, content });
+                  }}
+                  required
+                />
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="icon"
+                  disabled={form.content.length <= 1}
+                  onClick={() => {
+                    const content = form.content.filter((_, i) => i !== index);
+                    setForm({
+                      ...form,
+                      content: content.length ? content : [""],
+                    });
+                  }}
+                >
+                  <Trash2 className="h-4 w-4" />
+                </Button>
+              </div>
+            ))}
           </div>
         </CardContent>
       </Card>

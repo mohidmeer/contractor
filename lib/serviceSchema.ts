@@ -21,13 +21,14 @@ export const ServiceBodySchema = z.object({
   label: z.string().min(1),
   title: z.string().min(1),
   description: z.string().min(1),
-  content: z.string().min(1),
+  content: z.array(z.string().min(1)).min(1),
   image: z.string().optional().nullable(),
   typeOfSolutions: typeOfSolutionsSchema,
   benefitsOFChoosing: z.array(benefitSchema).default([]),
   faqs: z.array(faqSchema).default([]),
   images: z.array(z.string()).default([]),
   sortOrder: z.number().int().default(0),
+  categoryId: z.number().int().nullable().optional(),
 });
 
 export type ServiceBody = z.infer<typeof ServiceBodySchema>;
@@ -35,7 +36,9 @@ export type ServiceBody = z.infer<typeof ServiceBodySchema>;
 export function normalizeServiceBody(body: ServiceBody) {
   return {
     ...body,
+    content: body.content.map((p) => p.trim()).filter(Boolean),
     image: body.image ? toMediaPath(body.image) : null,
     images: body.images.map((img) => toMediaPath(img)).filter(Boolean),
+    categoryId: body.categoryId ?? null,
   };
 }

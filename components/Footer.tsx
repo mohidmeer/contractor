@@ -10,10 +10,20 @@ import { trackCallClick } from '@/lib/analytics';
 import type { NavItem } from '@/types';
 
 const Footer = ({ items }: { items: NavItem[] }) => {
-  const services = items.find(item => item.label === 'Services')?.children || [];
-  const projects = items.find(item => item.label === 'Projects')?.children || [];
-  const aboutLinks = items.filter(item =>
-    ['About Us', 'Contact Us', 'Blogs'].includes(item.label)
+  const services =
+    items.find(
+      (item) =>
+        item.label.toLowerCase() === "services" ||
+        item.href.replace(/\/+$/, "") === "/services"
+    )?.children || [];
+  const projects =
+    items.find(
+      (item) =>
+        item.label.toLowerCase() === "projects" ||
+        item.href.replace(/\/+$/, "") === "/projects"
+    )?.children || [];
+  const aboutLinks = items.filter((item) =>
+    ["About Us", "Contact Us", "Blogs"].includes(item.label)
   );
 
   return (

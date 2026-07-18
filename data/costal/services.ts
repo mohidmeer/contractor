@@ -1,647 +1,551 @@
-const static_assets = '/costal'
+type ServiceData = {
+  label: string;
+  title: string;
+  description: string;
+  content: string[];
+  image: string;
+  categorySlug: string;
+  typeOfSolutions: { headings: string; types: string[] };
+  benefitsOFChoosing: { title: string; description: string }[];
+  faqs: { question: string; answer: string }[];
+  images: string[];
+};
 
-/* ------------------------
-   SERVICES
------------------------- */
-export const servicesData = {
-  'driveway-installation': {
-    label: 'Driveway Installation',
-    title: 'Durable & Stylish Driveway Installation by Costal Concrete',
-    description: 'Upgrade your property’s curb appeal and functionality with expertly installed concrete driveways tailored to your needs.',
-    content: `Your driveway is more than just a path to your garage — it’s the first impression of your home or business. At Costal Concrete, we specialize in custom driveway installations that blend form and function. Whether you need a traditional flat concrete driveway or a decorative stamped finish, our team ensures every project is built to last. We begin with a thorough site assessment, proper base preparation, and reinforcement for long-term durability. Our driveways are engineered to handle daily wear, extreme weather, and heavy vehicle loads without cracking or fading. We also offer design consultations to align with your aesthetic preferences and property layout.`,
-    image: `${static_assets}/images/services/driveway.jpg`,
+export const servicesData: Record<string, ServiceData> = {
+  "epoxy-injection": {
+    label: "Epoxy Injection",
+    title: "Epoxy Injection for Structural Concrete Crack Repair",
+    description:
+      "Pressure-inject low-viscosity epoxy into dormant cracks to restore structural bond and seal against moisture and chloride intrusion.",
+    content: [
+      "Pressure-injecting low-viscosity epoxy resin (typically 50–200 psi) into dormant cracks 0.002\"–0.5\" wide restores structural bond across the crack and seals it against moisture and chloride intrusion — essentially \"welding\" the crack back together.",
+      "At Costal Concrete, epoxy injection is used on parking garages, high-rises, bridges, and industrial floors where non-moving structural cracks show no active corrosion. Work follows ACI 224.1R, ACI 503.7, ASTM C881, and ICRI 210.1R guidance for Florida commercial structures.",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
     typeOfSolutions: {
-      headings: 'Solutions we offer',
+      headings: "Typical structures",
       types: [
-        'New Concrete Driveway Installation',
-        'Stamped or Textured Finishes',
-        'Driveway Resurfacing & Overlays',
-        'Grading & Drainage Planning',
-        'Rebar & Mesh Reinforcement',
-        'Concrete Sealing & Finishing',
-        'Decorative Edging & Borders',
-        'Colored Concrete Options',
-        'Extension for Additional Parking',
-        'Demolition & Removal of Old Driveways'
-      ]
+        "Parking garages",
+        "High-rises",
+        "Bridges",
+        "Industrial floors",
+      ],
     },
     benefitsOFChoosing: [
       {
-        title: 'High Durability',
-        description: 'Our concrete driveways are built to withstand heavy traffic and harsh conditions.'
+        title: "Triggered by",
+        description:
+          "Non-moving structural cracks with no active corrosion that need bond restoration and moisture sealing.",
       },
       {
-        title: 'Custom Designs',
-        description: 'Choose from various textures, colors, and finishes to match your property’s style.'
+        title: "Standards & references",
+        description: "ACI 224.1R, ACI 503.7, ASTM C881, ICRI 210.1R",
       },
-      {
-        title: 'Expert Installation',
-        description: 'Our crew ensures precise grading and reinforcement for long-term performance.'
-      },
-      {
-        title: 'Enhanced Property Value',
-        description: 'A professionally installed driveway improves curb appeal and boosts real estate value.'
-      },
-      {
-        title: 'Fast Turnaround',
-        description: 'We complete projects quickly without compromising quality or safety.'
-      },
-      {
-        title: 'Proper Drainage',
-        description: 'We design driveways with proper slope and drainage to prevent water pooling and damage.'
-      }
     ],
     faqs: [
       {
-        question: "How long does a concrete driveway installation take?",
-        answer: "Most driveway installations are completed in 3–5 days, depending on size and design."
+        question: "When is epoxy injection the right repair?",
+        answer:
+          "When cracks are dormant (not actively moving) and there is no ongoing corrosion that would reopen the repair.",
       },
       {
-        question: "Is reinforcement necessary for my driveway?",
-        answer: "Yes, we use rebar or mesh reinforcement to enhance strength and prevent cracking over time."
+        question: "How wide of a crack can epoxy injection treat?",
+        answer:
+          "Typically cracks from about 0.002\" to 0.5\" wide, using low-viscosity resins injected under controlled pressure.",
       },
-      {
-        question: "Can I drive on the new concrete immediately?",
-        answer: "We recommend waiting 7 days before driving on the surface to ensure proper curing."
-      },
-      {
-        question: "Do you remove old driveways?",
-        answer: "Yes, we handle the demolition and disposal of existing surfaces before new installation."
-      },
-      {
-        question: "Can I customize the look of my driveway?",
-        answer: "Absolutely! We offer decorative finishes like stamping, coloring, and borders to suit your style."
-      }
     ],
-    images: []
+    images: [],
   },
-  'concrete-slabs': {
-    label: 'Concrete Slabs',
-    title: 'Precision Concrete Slab Installation by Costal Concrete',
-    description: 'Strong, stable, and durable concrete slabs for residential and commercial foundations, pads, and more.',
-    content: `Concrete slabs form the backbone of countless structures—from homes and garages to patios and sheds. At Costal Concrete, we specialize in expertly poured slabs that meet structural codes, offer long-term durability, and serve as reliable foundations for your projects. Whether you’re building a new home, installing a shed, or preparing for a commercial setup, our team ensures accurate grading, formwork, reinforcement, and curing. We use premium materials and advanced techniques to prevent cracks, settlement, and drainage issues. Our process is fast, clean, and customized for your specific site conditions and project requirements.`,
-    image: `${static_assets}/images/services/slab.jpg`,
-    typeOfSolutions: {
-      headings: 'Solutions we offer',
-      types: [
-        'Residential Slabs for Homes & Garages',
-        'Shed & Workshop Foundations',
-        'Patio and Porch Slabs',
-        'Commercial Floor Slabs',
-        'Sidewalk & Entryway Pads',
-        'Slabs with Reinforced Rebar or Mesh',
-        'Slabs with Vapor Barriers & Insulation',
-        'Precision Site Grading & Preparation',
-        'Post-Tensioned Slab Systems',
-        'Concrete Pads for Equipment & HVAC Units'
-      ]
-    },
-    benefitsOFChoosing: [
-      {
-        title: 'Structural Strength',
-        description: 'Our slabs are engineered for durability, supporting heavy loads without cracking or shifting.'
-      },
-      {
-        title: 'Custom Applications',
-        description: 'We pour slabs for any use—residential, commercial, or industrial—with tailored reinforcement.'
-      },
-      {
-        title: 'Proper Drainage',
-        description: 'We ensure slope and grading are done right to prevent pooling or water damage.'
-      },
-      {
-        title: 'Fast Turnaround',
-        description: 'Our streamlined process minimizes delays and gets your project off the ground quickly.'
-      },
-      {
-        title: 'Compliance Guaranteed',
-        description: 'We meet or exceed all local codes and regulations for slab depth, reinforcement, and curing.'
-      },
-      {
-        title: 'Precision Finish',
-        description: 'Smooth, level, and ready-for-use surfaces delivered with professional workmanship.'
-      }
-    ],
-    faqs: [
-      {
-        question: "How thick should a concrete slab be?",
-        answer: "Most residential slabs are 4–6 inches thick, but we adjust based on load and application."
-      },
-      {
-        question: "Do you include reinforcement in your slabs?",
-        answer: "Yes, we use rebar or wire mesh based on the slab type and structural needs."
-      },
-      {
-        question: "Can I build directly on the slab?",
-        answer: "Absolutely—our slabs are designed to support construction such as garages, sheds, and patios."
-      },
-      {
-        question: "How long before I can use the slab?",
-        answer: "Light foot traffic is possible in 24–48 hours; full cure for heavy loads may take 7–28 days."
-      },
-      {
-        question: "Do you handle permits and inspections?",
-        answer: "Yes, we assist with permits and coordinate inspections as needed for your municipality."
-      }
-    ],
-    images: []
-  },
-  'patios-walkways': {
-    label: 'Patios & Walkways',
-    title: 'Custom Concrete Patios & Walkways by Costal Concrete',
-    description: 'Transform your outdoor spaces with beautifully designed and expertly installed concrete patios and walkways.',
-    content: `Well-crafted patios and walkways enhance your property’s functionality, safety, and curb appeal. At Costal Concrete, we design and build custom outdoor surfaces that blend seamlessly with your landscape and architectural style. Whether you prefer a clean modern slab, decorative stamped patterns, or textured finishes for grip, our team delivers with attention to detail and precision. From backyard patios perfect for gatherings to walkways that guide guests with elegance and ease, we use high-quality materials and proven techniques to ensure long-lasting results. Every step—from grading and forming to finishing and sealing—is handled professionally to bring your vision to life.`,
-    image: `${static_assets}/images/services/patio.jpg`,
-    typeOfSolutions: {
-      headings: 'Solutions we offer',
-      types: [
-        'Concrete Backyard Patios',
-        'Stamped & Decorative Concrete Paths',
-        'Walkways Connecting Entrances & Garden Areas',
-        'Curved, Angular, or Custom Shapes',
-        'Textured Surfaces for Slip Resistance',
-        'Concrete Borders & Edging Integration',
-        'Drainage Solutions for Outdoor Areas',
-        'Fire Pit & Seating Area Foundations',
-        'Covered Patio Bases',
-        'Stained or Colored Finishes for Style'
-      ]
-    },
-    benefitsOFChoosing: [
-      {
-        title: 'Customized Designs',
-        description: 'We tailor patio and walkway designs to match your home’s character and your lifestyle.'
-      },
-      {
-        title: 'Slip-Resistant Textures',
-        description: 'Safe, functional surfaces for walking even in wet or high-traffic conditions.'
-      },
-      {
-        title: 'Curb Appeal Boost',
-        description: 'Enhance the look of your front or backyard with attractive, functional concrete paths.'
-      },
-      {
-        title: 'Weather Resistant',
-        description: 'Our outdoor surfaces withstand Florida’s sun, rain, and humidity without cracking or fading.'
-      },
-      {
-        title: 'Low Maintenance',
-        description: 'Easy-to-clean and durable concrete that doesn’t require frequent upkeep.'
-      },
-      {
-        title: 'Fast & Clean Installation',
-        description: 'We complete most patio and walkway projects with minimal disruption to your property.'
-      }
-    ],
-    faqs: [
-      {
-        question: "Can you build curved walkways?",
-        answer: "Yes, we specialize in both straight and curved layouts to match your landscape design."
-      },
-      {
-        question: "How long does it take to install a patio?",
-        answer: "Most patios are completed within 3–5 days depending on size and complexity."
-      },
-      {
-        question: "Are stamped concrete options available?",
-        answer: "Absolutely—we offer a range of stamped and decorative finishes for custom styling."
-      },
-      {
-        question: "Will the concrete crack over time?",
-        answer: "We use control joints, reinforcement, and proper curing methods to prevent cracking."
-      },
-      {
-        question: "Do you offer drainage solutions?",
-        answer: "Yes, we incorporate grading and optional drainage systems to prevent water pooling."
-      }
-    ],
-    images: []
-  },
-  'foundation-work': {
-    label: 'Foundation Work',
-    title: 'Reliable Concrete Foundation Services by Costal Concrete',
-    description: 'Ensure the structural integrity of your property with our expert concrete foundation solutions.',
-    content: `A strong, stable foundation is the most critical part of any construction project. At Costal Concrete, we specialize in creating durable, precise foundations that serve as the solid base for homes, garages, additions, and commercial structures. Whether you need a new foundation, underpinning, or repairs to an existing slab, our experienced team delivers results you can trust. We handle every phase—excavation, forming, reinforcement, pouring, and finishing—with careful planning and engineering expertise to meet local building codes and withstand Florida’s challenging soil conditions. Trust us to keep your project grounded—literally.`,
-    image: `${static_assets}/images/services/foundation.jpg`,
-    typeOfSolutions: {
-      headings: 'Solutions we offer',
-      types: [
-        'New Concrete Slab Foundations',
-        'Footings & Grade Beams',
-        'Foundation Repair & Leveling',
-        'Garage & Shed Foundations',
-        'Pier & Beam Support Work',
-        'Underpinning for Settling Structures',
-        'Stem Wall Construction',
-        'Waterproofing & Drainage Integration',
-        'Concrete Reinforcement (Rebar & Mesh)',
-        'Code-Compliant Engineering & Permits'
-      ]
-    },
-    benefitsOFChoosing: [
-      {
-        title: 'Engineered Precision',
-        description: 'We build foundations to exact specifications, ensuring long-term durability and safety.'
-      },
-      {
-        title: 'Licensed & Code-Compliant',
-        description: 'Our team ensures all work meets Florida regulations and passes inspections with ease.'
-      },
-      {
-        title: 'Custom Foundation Types',
-        description: 'From slabs to footings, we build foundations to suit your structure and soil conditions.'
-      },
-      {
-        title: 'Timely Project Delivery',
-        description: 'We keep your timeline in check by coordinating efficiently with builders and inspectors.'
-      },
-      {
-        title: 'Crack-Resistant Builds',
-        description: 'We use top-grade materials and reinforcement techniques to minimize cracking and settling.'
-      },
-      {
-        title: 'Comprehensive Site Prep',
-        description: 'Our crew manages excavation, grading, and soil compaction before any concrete is poured.'
-      }
-    ],
-    faqs: [
-      {
-        question: "Do you handle permits and inspections?",
-        answer: "Yes, we manage all necessary permits and work closely with inspectors to ensure compliance."
-      },
-      {
-        question: "How long does a foundation project take?",
-        answer: "Typical residential foundations take 5–7 days, depending on weather and complexity."
-      },
-      {
-        question: "Can you repair existing foundations?",
-        answer: "Absolutely. We offer crack repair, leveling, and structural strengthening services."
-      },
-      {
-        question: "What kind of reinforcement do you use?",
-        answer: "We use steel rebar and welded wire mesh to enhance structural integrity."
-      },
-      {
-        question: "Will you coordinate with my builder or contractor?",
-        answer: "Yes, we work seamlessly with other trades to align timelines and requirements."
-      }
-    ],
-    images: []
-  },
-  'garage-flooring': {
-    label: 'Garage Flooring',
-    title: 'Durable & Stylish Garage Flooring Solutions by Costal Concrete',
-    description: 'Upgrade your garage with professional concrete flooring that’s tough, clean, and built to last.',
-    content: `Costal Concrete delivers garage flooring that’s not only tough but visually appealing. Whether you're turning your garage into a showroom, workshop, or storage space, we install high-performance concrete floors designed for heavy loads and high traffic. Our flooring systems resist stains, cracks, moisture, and chemicals, making them ideal for residential and commercial use. Choose from polished concrete, epoxy coatings, or textured finishes for improved traction and a clean, professional appearance. We handle surface prep, leveling, sealing, and finishing to ensure a long-lasting result that transforms your garage into a functional and beautiful extension of your home.`,
-    image: `${static_assets}/images/services/flooring.jpg`,
-    typeOfSolutions: {
-      headings: 'Solutions we offer',
-      types: [
-        'Concrete Garage Floor Installation',
-        'Epoxy Coatings & Sealers',
-        'Polished & Stained Finishes',
-        'Crack & Surface Repair',
-        'Slip-Resistant Textured Surfaces',
-        'Chemical & Oil Resistant Sealants',
-        'Moisture Barrier Installations',
-        'Garage Floor Leveling & Smoothing',
-        'Custom Color & Design Options',
-        'UV-Protective Coatings'
-      ]
-    },
-    benefitsOFChoosing: [
-      {
-        title: 'Heavy-Duty Durability',
-        description: 'Built to withstand vehicle weight, spills, and tools without cracking or fading.'
-      },
-      {
-        title: 'Low Maintenance',
-        description: 'Our sealed surfaces are easy to clean and resist oil, dust, and grime.'
-      },
-      {
-        title: 'Custom Finishes',
-        description: 'Choose from a range of colors, textures, and coatings to match your garage’s use and style.'
-      },
-      {
-        title: 'Fast Turnaround',
-        description: 'We complete most garage flooring installations in just 1–2 days.'
-      },
-      {
-        title: 'Slip Resistance',
-        description: 'Options like textured or sand-coated epoxy help improve grip and safety.'
-      },
-      {
-        title: 'Long-Term Value',
-        description: 'Enhance your garage’s look and usability while boosting home value.'
-      }
-    ],
-    faqs: [
-      {
-        question: "How long does a garage floor installation take?",
-        answer: "Most installs take 1–2 days, including surface prep and curing time."
-      },
-      {
-        question: "Will the flooring resist oil and chemical stains?",
-        answer: "Yes, our sealers and epoxy systems are designed to resist automotive fluids and household chemicals."
-      },
-      {
-        question: "Can you repair and coat my existing concrete floor?",
-        answer: "Absolutely. We repair cracks, clean, and prepare the surface before applying any coatings."
-      },
-      {
-        question: "Are your floors safe when wet?",
-        answer: "We offer slip-resistant textures and additives to reduce slipperiness even when wet."
-      },
-      {
-        question: "What’s the maintenance like?",
-        answer: "Just occasional mopping or sweeping—no special cleaners required."
-      }
-    ],
-    images: []
-  },
-  'retaining-walls': {
-    label: 'Retaining Walls',
-    title: 'Expertly Built Retaining Walls by Costal Concrete',
-    description: 'Ensure structural stability and enhance your landscape with professionally engineered concrete retaining walls.',
-    content: `Retaining walls are essential for managing sloped terrain, preventing soil erosion, and adding dimension to your outdoor space. At Costal Concrete, we design and construct retaining walls that are as strong as they are attractive. Whether it's a functional barrier for water runoff or an aesthetic feature in your garden, our walls are built to last. We work with poured concrete, concrete blocks, and decorative finishes to match your property’s needs. Every project begins with proper assessment and engineering, followed by precise excavation, drainage solutions, and expert installation. Our walls are built with both structural integrity and curb appeal in mind.`,
-    image: `${static_assets}/images/services/retaining.jpg`,
-    typeOfSolutions: {
-      headings: 'Solutions we offer',
-      types: [
-        'Poured Concrete Retaining Walls',
-        'Concrete Block Retaining Walls',
-        'Tiered & Terraced Wall Systems',
-        'Reinforced Structural Retaining Walls',
-        'Decorative & Stamped Finishes',
-        'Drainage System Integration',
-        'Sloped Landscape Support',
-        'Garden & Flowerbed Walls',
-        'Retaining Wall Repairs & Reinforcements',
-        'Customized Wall Designs'
-      ]
-    },
-    benefitsOFChoosing: [
-      {
-        title: 'Structural Reliability',
-        description: 'Our walls are engineered to hold back soil and water with long-term stability.'
-      },
-      {
-        title: 'Enhanced Curb Appeal',
-        description: 'Decorative finishes and clean lines add beauty to any yard or landscape.'
-      },
-      {
-        title: 'Erosion & Drainage Control',
-        description: 'We integrate proper drainage to reduce pressure and prevent water damage.'
-      },
-      {
-        title: 'Custom Configurations',
-        description: 'Built to fit your slope, garden, or outdoor living space perfectly.'
-      },
-      {
-        title: 'Licensed Professionals',
-        description: 'We meet local codes and engineering standards to ensure compliance and safety.'
-      },
-      {
-        title: 'Low Maintenance',
-        description: 'Built to withstand weather without constant upkeep or repairs.'
-      }
-    ],
-    faqs: [
-      {
-        question: "Do I need a retaining wall for my property?",
-        answer: "If you have sloped terrain, drainage issues, or need to level an area, a retaining wall is often necessary."
-      },
-      {
-        question: "How long do concrete retaining walls last?",
-        answer: "With proper construction, they can last 50+ years with minimal maintenance."
-      },
-      {
-        question: "Do you handle drainage with the wall installation?",
-        answer: "Yes, we incorporate drainage systems like weep holes and gravel backfill to prevent hydrostatic pressure."
-      },
-      {
-        question: "Can you match the wall to my existing landscaping?",
-        answer: "Definitely. We offer decorative finishes and can design around your landscape aesthetic."
-      },
-      {
-        question: "Is a permit required for a retaining wall?",
-        answer: "For walls over a certain height (typically 4 feet), local permits and engineering may be required. We assist with this process."
-      }
-    ],
-    images: []
-  },
-  'concrete-repair': {
-    label: 'Concrete Repair & Resurfacing',
-    title: 'Professional Concrete Repair & Resurfacing Services',
-    description: 'Restore the strength and appearance of your concrete surfaces with expert repair and resurfacing solutions from Costal Concrete.',
-    content: `Cracked, chipped, or stained concrete can affect both safety and curb appeal. Our concrete repair and resurfacing services provide an affordable way to restore functionality and aesthetics without full replacement. Whether it's a worn-out driveway, spalling patio, or chipped walkway, we assess the damage and apply targeted solutions. Our techniques include crack filling, resurfacing overlays, grinding, patching, and sealing. We also offer decorative finishes to give old surfaces a refreshed, modern look. With advanced tools and materials, our team ensures that repairs blend seamlessly and last for years.`,
-    image: `${static_assets}/images/services/concrete.jpg`,
-    typeOfSolutions: {
-      headings: 'Solutions we offer',
-      types: [
-        'Crack & Joint Repair',
-        'Surface Grinding & Leveling',
-        'Concrete Overlay Systems',
-        'Stamped Concrete Resurfacing',
-        'Spalling & Pitting Treatment',
-        'Epoxy & Polyurethane Injections',
-        'Garage & Driveway Resurfacing',
-        'Walkway & Patio Repairs',
-        'Concrete Sealing & Protection',
-        'Decorative Concrete Finishes'
-      ]
-    },
-    benefitsOFChoosing: [
-      {
-        title: 'Cost-Effective Alternative',
-        description: 'Save money by repairing or resurfacing instead of replacing entire slabs.'
-      },
-      {
-        title: 'Improved Safety',
-        description: 'Smooth out tripping hazards and cracks to make surfaces safer to walk or drive on.'
-      },
-      {
-        title: 'Aesthetic Upgrade',
-        description: 'Restore the look of your concrete with color options and texture improvements.'
-      },
-      {
-        title: 'Quick Turnaround',
-        description: 'Most repairs can be completed in a day or two, minimizing downtime.'
-      },
-      {
-        title: 'Durable Materials',
-        description: 'We use premium repair products to ensure long-lasting results.'
-      },
-      {
-        title: 'Eco-Friendly Approach',
-        description: 'Extend the life of your existing concrete to reduce demolition waste.'
-      }
-    ],
-    faqs: [
-      {
-        question: "Can all cracks in concrete be repaired?",
-        answer: "Most surface and structural cracks can be repaired. We assess each case to choose the right solution."
-      },
-      {
-        question: "How long does resurfacing last?",
-        answer: "With proper maintenance, resurfaced concrete can last 10–15 years or longer."
-      },
-      {
-        question: "Is resurfacing suitable for driveways and garages?",
-        answer: "Absolutely. It's commonly used on driveways, garages, patios, and commercial floors."
-      },
-      {
-        question: "Will the repaired area match the rest of the surface?",
-        answer: "We aim for seamless blending. Color matching and texturing options are available."
-      },
-      {
-        question: "Do you offer decorative options during repair?",
-        answer: "Yes, we can apply stamped overlays or colored finishes as part of the resurfacing process."
-      }
-    ],
-    images: []
-  },
-  'commercial-concrete': {
-    label: 'Commercial Concrete Services',
-    title: 'Reliable Commercial Concrete Services for Florida Businesses',
-    description: 'From warehouses to storefronts, our commercial concrete services are tailored to meet high-volume, code-compliant construction needs.',
-    content: `At Costal Concrete, we understand the unique demands of commercial concrete projects—whether you're developing new structures or maintaining existing ones. Our team delivers durable, code-compliant concrete work that supports heavy traffic and long-term performance. We handle everything from foundations and parking lots to sidewalks, ramps, and slab work. Our commercial-grade equipment, experienced crews, and adherence to strict timelines ensure your project stays on track. We also collaborate with contractors, property managers, and business owners to develop efficient solutions that minimize downtime and support business operations.`,
-    image: `${static_assets}/images/services/commercial.jpg`,
-    typeOfSolutions: {
-      headings: 'Solutions we offer',
-      types: [
-        'Commercial Foundations',
-        'Concrete Slabs & Flooring',
-        'Sidewalks & Curbs',
-        'Parking Lot Construction',
-        'ADA Compliant Ramps',
-        'Loading Dock Pads',
-        'Concrete Retaining Walls',
-        'Drainage & Grading Solutions',
-        'Expansion Joint Installation',
-        'Concrete Demolition & Replacement'
-      ]
-    },
-    benefitsOFChoosing: [
-      {
-        title: 'Heavy-Duty Performance',
-        description: 'Our concrete solutions are built to withstand high traffic, weight loads, and daily wear.'
-      },
-      {
-        title: 'Strict Code Compliance',
-        description: 'We follow all building regulations and ADA requirements to ensure safety and approval.'
-      },
-      {
-        title: 'Timely Project Delivery',
-        description: 'We understand time is money—our crews work efficiently to meet business-critical timelines.'
-      },
-      {
-        title: 'Collaborative Approach',
-        description: 'We partner with contractors, engineers, and business owners to ensure seamless project execution.'
-      },
-      {
-        title: 'Long-Term Value',
-        description: 'Our concrete surfaces are built for longevity, reducing maintenance and future repair costs.'
-      },
-      {
-        title: 'Custom Solutions',
-        description: 'From layout to finish, we tailor our services to fit your business needs and site conditions.'
-      }
-    ],
-    faqs: [
-      {
-        question: "Do you handle large-scale commercial projects?",
-        answer: "Yes, we’re equipped to take on projects of all sizes, from retail stores to warehouses and industrial facilities."
-      },
-      {
-        question: "Are your commercial services ADA compliant?",
-        answer: "Absolutely. We ensure ramps, sidewalks, and access points meet ADA standards."
-      },
-      {
-        question: "Can you coordinate with general contractors?",
-        answer: "Yes, we work closely with contractors and project managers for smooth integration into larger projects."
-      },
-      {
-        question: "What kind of turnaround can we expect?",
-        answer: "Project timelines vary, but we prioritize speed without compromising quality or safety."
-      },
-      {
-        question: "Is nighttime or off-hour work available?",
-        answer: "Yes, we offer flexible scheduling to minimize disruption to your business operations."
-      }
-    ],
-    images: []
-  },
-  'stamped-concrete': {
-    label: 'Stamped Concrete',
-    title: 'Stylish & Durable Stamped Concrete Solutions',
-    description: 'Add texture and personality to your concrete surfaces with our custom stamped concrete services.',
-    content: `Stamped concrete is the perfect choice when you want the durability of concrete with the beauty of stone, brick, tile, or even wood textures. At Costal Concrete, we specialize in stamped concrete installations that elevate the curb appeal of driveways, patios, walkways, and pool decks. You can choose from a wide range of patterns, textures, and color finishes to match your home’s style. Our experts ensure precise stamping and sealing techniques for a long-lasting, low-maintenance finish that resists weathering and fading. Whether you're aiming for a rustic stone look or a modern geometric pattern, stamped concrete brings elegance without the high cost of natural materials.`,
-    image: `${static_assets}/images/services/stamped.jpg`,
-    typeOfSolutions: {
-      headings: 'Solutions we offer',
-      types: [
-        'Stamped Driveways',
-        'Stamped Patios & Walkways',
-        'Pool Deck Stamping',
-        'Textured Concrete Slabs',
-        'Color-Tinted Stamped Finishes',
-        'Brick, Slate, & Stone Patterns',
-        'Custom Stamping Designs',
-        'Stamped Concrete Sealing',
-        'Resurfacing & Resealing Services',
-        'Decorative Borders & Inlays'
-      ]
-    },
-    benefitsOFChoosing: [
-      {
-        title: 'Elegant Appearance',
-        description: 'Achieve the look of high-end materials like slate or brick at a fraction of the cost.'
-      },
-      {
-        title: 'Durability Meets Design',
-        description: 'Stamped concrete offers long-term strength with beautiful surface texture and color.'
-      },
-      {
-        title: 'Low Maintenance',
-        description: 'Properly sealed stamped concrete resists fading, staining, and weather damage.'
-      },
-      {
-        title: 'Custom Styles',
-        description: 'Choose from a wide range of patterns, textures, and colors for a truly custom look.'
-      },
-      {
-        title: 'Fast Installation',
-        description: 'Compared to pavers or natural stone, stamped concrete is installed faster with fewer joints.'
-      },
-      {
-        title: 'Slip-Resistant Options',
-        description: 'We offer textured finishes and non-slip sealers for safe outdoor surfaces.'
-      }
-    ],
-    faqs: [
-      {
-        question: "How long does stamped concrete last?",
-        answer: "With proper sealing and maintenance, stamped concrete can last over 20 years."
-      },
-      {
-        question: "Can stamped concrete be used around pools?",
-        answer: "Yes, we apply slip-resistant finishes that make stamped concrete ideal for pool decks."
-      },
-      {
-        question: "Will the color fade over time?",
-        answer: "Our UV-resistant sealers help preserve color and protect against fading from sun exposure."
-      },
-      {
-        question: "Can I customize the pattern or texture?",
-        answer: "Absolutely! We offer a variety of stamping patterns and color combinations to match your style."
-      },
-      {
-        question: "Is stamped concrete more affordable than pavers?",
-        answer: "Yes, stamped concrete typically costs less than natural stone or paver installations."
-      }
-    ],
-    images: []
-  }
 
+  "carbon-fiber-reinforcement": {
+    label: "Carbon Fiber Reinforcement (CFRP/FRP)",
+    title: "Carbon Fiber (CFRP/FRP) Concrete Strengthening",
+    description:
+      "Bond high-tensile carbon fiber fabric or plates with epoxy to add flexural strength without significant weight or section depth.",
+    content: [
+      "Bonding high-tensile-strength carbon fiber fabric or plates to a prepared concrete surface with epoxy resin adds tensile and flexural strength without significant weight or section depth.",
+      "Costal Concrete applies CFRP/FRP for load-capacity upgrades, seismic retrofit, and deficient or under-designed members on parking garages, bridges, high-rises, and industrial floors — guided by ACI 440.2R and ACI 562.",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: [
+        "Parking garages",
+        "Bridges",
+        "High-rises",
+        "Industrial floors",
+      ],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Load-capacity upgrades, seismic retrofit, or deficient/under-designed structural members.",
+      },
+      {
+        title: "Standards & references",
+        description: "ACI 440.2R, ACI 562",
+      },
+    ],
+    faqs: [
+      {
+        question: "Why choose CFRP instead of adding concrete or steel?",
+        answer:
+          "CFRP adds high tensile capacity with minimal weight and almost no increase in member depth — ideal where clearance or dead load matters.",
+      },
+    ],
+    images: [],
+  },
+
+  "post-tension-cable-repair": {
+    label: "Post-Tension Cable Repair",
+    title: "Post-Tension (PT) Cable Repair for Elevated Slabs",
+    description:
+      "Locate, expose, splice or replace, and re-stress corroded or broken post-tensioned tendons in elevated concrete slabs.",
+    content: [
+      "Post-tension cable repair involves locating, exposing, de-tensioning, splicing or replacing, and re-stressing broken or corroded post-tensioned steel tendons embedded in elevated concrete slabs.",
+      "This is a common failure point in older Florida parking garages. Costal Concrete performs PT repairs on parking garages, elevated slabs, and balconies following ICRI post-tensioned garage repair guidance.",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: ["Parking garages", "Elevated slabs", "Balconies"],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Corroded or severed PT strands — a frequent failure mode in older Florida garages.",
+      },
+      {
+        title: "Standards & references",
+        description: "ICRI Post-Tensioned Garage Repair guidance",
+      },
+    ],
+    faqs: [
+      {
+        question: "Why are PT cables a Florida concern?",
+        answer:
+          "Coastal chloride exposure and aging mid-century garage stock accelerate tendon corrosion, making PT repair a high-frequency commercial need.",
+      },
+    ],
+    images: [],
+  },
+
+  "spalling-remediation": {
+    label: "Spalling Remediation",
+    title: "Concrete Spalling Remediation & Patch Repair",
+    description:
+      "Remove delaminated concrete cover caused by rebar corrosion and patch with compatible repair mortar to restore section and finish.",
+    content: [
+      "Spalling remediation removes deteriorated or delaminated concrete cover caused by expanding corrosion products around rebar, then patches with compatible repair mortar to restore surface finish and structural section.",
+      "Costal Concrete performs sounding surveys and repairs on parking garages, balconies, bridges, and seawalls using ICRI Guideline No. 310.1R for surface prep and ACI 546R for repair practice.",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: ["Parking garages", "Balconies", "Bridges", "Seawalls"],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Visible cracking, rust staining, or hollow-sounding concrete on a sounding survey.",
+      },
+      {
+        title: "Standards & references",
+        description: "ICRI Guideline No. 310.1R, ACI 546R",
+      },
+    ],
+    faqs: [
+      {
+        question: "What causes spalling in Florida?",
+        answer:
+          "Chloride-induced corrosion of reinforcing steel expands rust products that crack and push off the concrete cover — the dominant coastal failure mode.",
+      },
+    ],
+    images: [],
+  },
+
+  "expansion-joint-repair": {
+    label: "Expansion Joint Repair / Replacement",
+    title: "Expansion Joint Repair & Replacement",
+    description:
+      "Repair or replace joint systems that accommodate movement between concrete sections and keep water off reinforcement below.",
+    content: [
+      "Expansion joint repair or replacement restores gland, header, and sealant systems that accommodate thermal and structural movement between concrete sections, preventing water from reaching reinforcement below.",
+      "Applied on parking garages, bridges, and stadiums when glands tear, headers crack, or water staining appears below joints — following ICRI joint maintenance guidelines.",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: ["Parking garages", "Bridges", "Stadiums"],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Gland tears, header cracking, or water staining below joints.",
+      },
+      {
+        title: "Standards & references",
+        description: "ICRI joint maintenance guidelines",
+      },
+    ],
+    faqs: [],
+    images: [],
+  },
+
+  "concrete-resurfacing-overlays": {
+    label: "Concrete Resurfacing / Overlay Systems",
+    title: "Concrete Resurfacing & Overlay Systems",
+    description:
+      "Apply polymer-modified, epoxy, or polyurea overlays to restore wearing surfaces and extend service life without full replacement.",
+    content: [
+      "Concrete resurfacing and overlay systems apply a new polymer-modified cementitious, epoxy, or polyurea overlay over existing sound concrete to restore the wearing surface, improve abrasion and chemical resistance, and extend service life without full replacement.",
+      "Ideal for industrial floors, parking decks, and retail floors when surface wear or shallow spalling does not justify full-depth repair. Surface profiling follows ICRI 310.2R.",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: ["Industrial floors", "Parking decks", "Retail floors"],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Surface wear, spalling too shallow for full-depth repair, or aesthetic renewal.",
+      },
+      {
+        title: "Standards & references",
+        description: "ICRI 310.2R surface profiling",
+      },
+    ],
+    faqs: [],
+    images: [],
+  },
+
+  "structural-crack-repair": {
+    label: "Structural Crack Repair",
+    title: "Structural Crack Repair — Routing, Sealing & Stitching",
+    description:
+      "Route and seal moving cracks with flexible sealant, or stitch larger structural cracks to restore tensile capacity.",
+    content: [
+      "Structural crack repair covers two related methods: routing widens an active or moving crack into a groove filled with flexible sealant (non-structural); stitching embeds metal staples or dowels across a crack to mechanically restore tensile capacity for larger structural cracks.",
+      "Used on bridges, industrial floors, and retaining walls when cracks are unsuitable for rigid epoxy injection — per ACI 224.1R.",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: ["Bridges", "Industrial floors", "Retaining walls"],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Active or moving cracks unsuitable for rigid epoxy injection.",
+      },
+      {
+        title: "Standards & references",
+        description: "ACI 224.1R",
+      },
+    ],
+    faqs: [],
+    images: [],
+  },
+
+  "waterproofing-coatings-membranes": {
+    label: "Waterproofing Coatings & Membranes",
+    title: "Waterproofing Coatings & Membrane Systems",
+    description:
+      "Fluid-applied or sheet membranes and elastomeric coatings that block water intrusion and protect embedded steel.",
+    content: [
+      "Waterproofing coatings and membrane systems include fluid-applied or sheet membranes and elastomeric coatings applied to decks, plazas, and below-grade concrete to block water intrusion and protect embedded steel from corrosion.",
+      "Costal Concrete installs these systems on high-rises, parking decks, balconies, and plazas for leaks, ponding, and planter waterproofing failure — aligned with ACI 515 and ASTM waterproofing standards.",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: ["High-rises", "Parking decks", "Balconies", "Plazas"],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Leaks, ponding, or planter/plaza waterproofing failure.",
+      },
+      {
+        title: "Standards & references",
+        description: "ACI 515, ASTM waterproofing standards",
+      },
+    ],
+    faqs: [],
+    images: [],
+  },
+
+  "cathodic-protection": {
+    label: "Cathodic Protection",
+    title: "Cathodic Protection for Reinforced Concrete",
+    description:
+      "Impressed-current or galvanic systems that stop or slow corrosion in chloride-contaminated concrete without removing all contaminated material.",
+    content: [
+      "Cathodic protection is an electrochemical corrosion-control system — impressed current or galvanic sacrificial anodes — that stops or slows ongoing corrosion of reinforcing steel in chloride-contaminated concrete without removing all contaminated concrete.",
+      "Applied on parking garages, bridges, and marine/seawall structures when chloride content exceeds corrosion thresholds or spalling keeps recurring. References include NACE/AMPP SP0290 and ACI 222R.",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: [
+        "Parking garages",
+        "Bridges",
+        "Marine / seawall structures",
+      ],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Chloride content above corrosion threshold or recurring spalling.",
+      },
+      {
+        title: "Standards & references",
+        description: "NACE/AMPP SP0290, ACI 222R",
+      },
+    ],
+    faqs: [],
+    images: [],
+  },
+
+  "shotcrete-gunite-repair": {
+    label: "Shotcrete / Gunite Repair",
+    title: "Shotcrete & Gunite Structural Repair",
+    description:
+      "Pneumatically apply high-velocity sprayed concrete for vertical and overhead repairs where formwork is impractical.",
+    content: [
+      "Shotcrete/gunite repair pneumatically applies high-velocity sprayed concrete or mortar for structural repairs on vertical or overhead surfaces, or where conventional formwork is impractical.",
+      "Costal Concrete uses shotcrete on retaining walls, seawalls, tunnels, and industrial structures for large-area rehab — guided by ACI 506R.",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: [
+        "Retaining walls",
+        "Seawalls",
+        "Tunnels",
+        "Industrial structures",
+      ],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Large-area vertical or overhead repairs and retaining wall rehab.",
+      },
+      {
+        title: "Standards & references",
+        description: "ACI 506R",
+      },
+    ],
+    faqs: [],
+    images: [],
+  },
+
+  "polyurethane-injection": {
+    label: "Polyurethane Injection",
+    title: "Polyurethane Injection for Active Water Leaks",
+    description:
+      "Inject flexible polyurethane into active cracks or joints to stop water infiltration on damp substrates.",
+    content: [
+      "Polyurethane injection uses low-viscosity flexible polyurethane resin in active or moving cracks and joints. Unlike epoxy, it bonds to damp or wet substrates and remains flexible — suited to stopping water infiltration rather than restoring structural strength.",
+      "Ideal for below-grade walls, foundations, and active leaking cracks that open and close. Related material standards include ASTM C881 Type I/II variants.",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: [
+        "Below-grade walls",
+        "Foundations",
+        "Active leaking cracks",
+      ],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Active water infiltration or leaking cracks that open and close.",
+      },
+      {
+        title: "Standards & references",
+        description: "ASTM C881 (Type I/II variants)",
+      },
+    ],
+    faqs: [
+      {
+        question: "Epoxy vs polyurethane injection?",
+        answer:
+          "Epoxy restores structural bond in dry, dormant cracks. Polyurethane stops water in wet, moving cracks and stays flexible.",
+      },
+    ],
+    images: [],
+  },
+
+  "structural-strengthening-underpinning": {
+    label: "Structural Strengthening & Underpinning",
+    title: "Structural Strengthening & Underpinning",
+    description:
+      "FRP, steel plate bonding, jacketing, micropiles, and helical piers to increase capacity or correct settlement.",
+    content: [
+      "Structural strengthening and underpinning is an umbrella for methods — FRP, steel plate bonding, concrete jacketing, micropiles, and helical piers — that increase load capacity or arrest/correct foundation settlement.",
+      "Used on high-rises, industrial buildings, and bridges for load-rating deficiencies, settlement, or code upgrade requirements under ACI 562 and ACI 437R.",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: ["High-rises", "Industrial buildings", "Bridges"],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Load rating deficiencies, settlement, or code upgrade requirements.",
+      },
+      {
+        title: "Standards & references",
+        description: "ACI 562, ACI 437R",
+      },
+    ],
+    faqs: [],
+    images: [],
+  },
+
+  "rebar-replacement": {
+    label: "Rebar Replacement / Reinforcement Repair",
+    title: "Rebar Replacement & Reinforcement Repair",
+    description:
+      "Remove corroded reinforcing steel and install new rebar with proper splices as part of full-depth structural repair.",
+    content: [
+      "Rebar replacement and reinforcement repair removes corroded reinforcing steel and installs new rebar (with dowel or splice bars as needed) as part of full-depth structural concrete repair.",
+      "Performed on parking garages, bridges, and balconies when section loss on reinforcement exceeds repair thresholds — per ACI 546R.",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: ["Parking garages", "Bridges", "Balconies"],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Section loss on reinforcement exceeding repair thresholds.",
+      },
+      {
+        title: "Standards & references",
+        description: "ACI 546R",
+      },
+    ],
+    faqs: [],
+    images: [],
+  },
+
+  hydrodemolition: {
+    label: "Hydrodemolition",
+    title: "Hydrodemolition Concrete Removal",
+    description:
+      "High-pressure water jets selectively remove deteriorated concrete without micro-fracturing sound concrete or damaging rebar.",
+    content: [
+      "Hydrodemolition uses high-pressure water jets (10,000–20,000+ psi) to selectively remove deteriorated concrete without micro-fracturing sound concrete or damaging existing rebar.",
+      "Used on bridge decks and large industrial floors for large-scale rehabilitation requiring precise removal, following FHWA/DOT hydrodemolition specifications.",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: ["Bridge decks", "Large industrial floors"],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Large-scale deck or slab rehabilitation requiring precise removal.",
+      },
+      {
+        title: "Standards & references",
+        description: "FHWA/DOT hydrodemolition specs",
+      },
+    ],
+    faqs: [],
+    images: [],
+  },
+
+  "joint-sealant-replacement": {
+    label: "Joint Sealant Replacement",
+    title: "Joint Sealant Replacement",
+    description:
+      "Remove failed sealant from control, construction, and expansion joints and install new sealant for a watertight envelope.",
+    content: [
+      "Joint sealant replacement removes aged, cracked, or debonded sealant from control, construction, and expansion joints and installs new sealant to maintain a watertight envelope.",
+      "Applicable across all structure types when sealant fails through adhesive or cohesive cracking — referenced to ASTM C920.",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: ["All structure types"],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description: "Sealant failure, adhesive or cohesive cracking.",
+      },
+      {
+        title: "Standards & references",
+        description: "ASTM C920",
+      },
+    ],
+    faqs: [],
+    images: [],
+  },
+
+  "elastomeric-traffic-coating": {
+    label: "Elastomeric / Traffic Coating Systems",
+    title: "Elastomeric & Protective Traffic Coating Systems",
+    description:
+      "Flexible, UV- and chemical-resistant traffic-bearing membranes that waterproof and protect parking decks.",
+    content: [
+      "Elastomeric and protective traffic coating systems are flexible, UV- and chemical-resistant traffic-bearing membranes applied over parking decks. They combine waterproofing with wear resistance for vehicular and pedestrian traffic.",
+      "Used on parking garages and elevated decks for waterproofing renewal and traffic-bearing surface wear, following ICRI and manufacturer systems (e.g., Sika, Tremco).",
+    ],
+    image: "",
+    categorySlug: "repair-methods",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: ["Parking garages", "Elevated parking decks"],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Deck waterproofing renewal or traffic-bearing surface wear.",
+      },
+      {
+        title: "Standards & references",
+        description: "ICRI; manufacturer systems (e.g., Sika, Tremco)",
+      },
+    ],
+    faqs: [],
+    images: [],
+  },
 };

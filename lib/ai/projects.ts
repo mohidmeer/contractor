@@ -11,8 +11,8 @@ const ProjectAiSchema = z.object({
   title: z.string().describe("Full project page title"),
   description: z.string().describe("1-2 sentence short description for cards and SEO"),
   content: z
-    .string()
-    .describe("Longer project story, 2-4 short paragraphs separated by newlines"),
+    .array(z.string())
+    .describe("2-4 short project story paragraphs as separate strings"),
   location: z.string().describe("City or area, e.g. Orlando, FL"),
   duration: z.string().describe("Project timeline, e.g. 6 weeks"),
   materials: z

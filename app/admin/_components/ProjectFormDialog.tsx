@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import ProjectForm, { emptyProject } from "./ProjectForm";
 import type { ProjectBody } from "@/lib/projectSchema";
+import { asParagraphs } from "@/lib/paragraphs";
 
 type ProjectFormDialogProps = {
   open: boolean;
@@ -61,7 +62,10 @@ export default function ProjectFormDialog({
           label: data.label,
           title: data.title,
           description: data.description,
-          content: data.content,
+          content: (() => {
+            const paragraphs = asParagraphs(data.content);
+            return paragraphs.length ? paragraphs : [""];
+          })(),
           image: data.image ?? "",
           location: data.location ?? "",
           duration: data.duration ?? "",

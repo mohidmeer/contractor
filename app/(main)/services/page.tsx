@@ -10,6 +10,7 @@ import Process from "@/app/_components/Process";
 import { MdArrowForward } from "react-icons/md";
 import { getServices } from "@/actions/services";
 import { getJsonLdDataServices } from "@/actions/catalogJsonLd";
+import { asParagraphs } from "@/lib/paragraphs";
 
 const page = async () => {
   const services = await getServices();
@@ -50,7 +51,7 @@ const page = async () => {
                       {service.description}
                     </p>
                     <p className="text-base text-gray-600 overflow-hidden transition-all line-clamp-4 leading-relaxed">
-                      {service.content}
+                      {asParagraphs(service.content).join(" ")}
                     </p>
                     <div className="flex items-center gap-2 text-primary font-bold text-lg mt-2 group-hover:gap-4 transition-all duration-300">
                       <span>Continue Reading</span>

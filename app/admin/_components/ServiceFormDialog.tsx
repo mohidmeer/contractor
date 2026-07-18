@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import ServiceForm, { emptyService } from "./ServiceForm";
 import type { ServiceBody } from "@/lib/serviceSchema";
+import { asParagraphs } from "@/lib/paragraphs";
 
 type ServiceFormDialogProps = {
   open: boolean;
@@ -61,13 +62,17 @@ export default function ServiceFormDialog({
           label: data.label,
           title: data.title,
           description: data.description,
-          content: data.content,
+          content: (() => {
+            const paragraphs = asParagraphs(data.content);
+            return paragraphs.length ? paragraphs : [""];
+          })(),
           image: data.image ?? "",
           typeOfSolutions: data.typeOfSolutions,
           benefitsOFChoosing: data.benefitsOFChoosing,
           faqs: data.faqs,
           images: Array.isArray(data.images) ? data.images : [],
           sortOrder: data.sortOrder ?? 0,
+          categoryId: data.categoryId ?? null,
         });
       } catch (err) {
         toast.error(err instanceof Error ? err.message : "Failed to load");

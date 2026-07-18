@@ -44,8 +44,8 @@ export default function ProjectsListing({
         href={`/projects/${project.slug}`}
         className="moving-border group cursor-pointer bg-white rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-primary/10 block h-full"
       >
-        <div className="relative h-[280px] overflow-hidden">
-          {project.imageUrl && (
+        <div className="relative h-[280px] overflow-hidden bg-primary/10">
+          {project.imageUrl ? (
             <Image
               src={project.imageUrl}
               fill
@@ -53,6 +53,10 @@ export default function ProjectsListing({
               alt={project.title}
               unoptimized
             />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center text-primary/40 text-sm font-medium px-4 text-center">
+              {project.label || project.title}
+            </div>
           )}
           <div className="absolute top-4 left-4 bg-primary text-white text-2xl font-bold w-10 h-10 rounded-full flex items-center justify-center shadow-lg">
             {index + 1}

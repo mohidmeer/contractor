@@ -55,6 +55,10 @@ export async function PATCH(req: NextRequest, { params }: Props) {
       faqs: parsed.faqs ?? (existing.faqs as ServiceBody["faqs"]),
       images: parsed.images ?? (existing.images as ServiceBody["images"]),
       sortOrder: parsed.sortOrder ?? existing.sortOrder,
+      categoryId:
+        parsed.categoryId !== undefined
+          ? parsed.categoryId
+          : existing.categoryId,
     };
 
     const data = normalizeServiceBody(merged);
@@ -73,6 +77,7 @@ export async function PATCH(req: NextRequest, { params }: Props) {
         faqs: data.faqs,
         images: data.images,
         sortOrder: data.sortOrder,
+        categoryId: data.categoryId,
       },
     });
 

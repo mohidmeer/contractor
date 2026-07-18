@@ -6,7 +6,7 @@ export const ProjectBodySchema = z.object({
   label: z.string().min(1),
   title: z.string().min(1),
   description: z.string().min(1),
-  content: z.string().min(1),
+  content: z.array(z.string().min(1)).min(1),
   image: z.string().optional().nullable(),
   location: z.string().optional().nullable(),
   duration: z.string().optional().nullable(),
@@ -20,6 +20,7 @@ export type ProjectBody = z.infer<typeof ProjectBodySchema>;
 export function normalizeProjectBody(body: ProjectBody) {
   return {
     ...body,
+    content: body.content.map((p) => p.trim()).filter(Boolean),
     image: body.image ? toMediaPath(body.image) : null,
     images: body.images.map((img) => toMediaPath(img)).filter(Boolean),
     location: body.location || null,

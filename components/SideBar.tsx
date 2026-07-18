@@ -6,9 +6,17 @@ import React from 'react'
 const SideBar = async () => {
     const items = await getDynamicNavItems()
     const services =
-        items.find((item) => item.label === 'Services')?.children ?? []
+        items.find(
+            (item) =>
+                item.label.toLowerCase() === 'services' ||
+                item.href.replace(/\/+$/, '') === '/services'
+        )?.children ?? []
     const projects =
-        items.find((item) => item.label === 'Projects')?.children ?? []
+        items.find(
+            (item) =>
+                item.label.toLowerCase() === 'projects' ||
+                item.href.replace(/\/+$/, '') === '/projects'
+        )?.children ?? []
 
     return (
         <>

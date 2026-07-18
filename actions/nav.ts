@@ -12,6 +12,20 @@ function toNavChild(label: string, href: string): NavItem {
   };
 }
 
+function isServicesNav(item: NavItem) {
+  return (
+    item.label.toLowerCase() === "services" ||
+    item.href.replace(/\/+$/, "") === "/services"
+  );
+}
+
+function isProjectsNav(item: NavItem) {
+  return (
+    item.label.toLowerCase() === "projects" ||
+    item.href.replace(/\/+$/, "") === "/projects"
+  );
+}
+
 /**
  * Builds nav items with Services / Projects children from the DB.
  * Reuses getServices/getProjects caches — no extra DB hit on warm cache.
@@ -32,14 +46,14 @@ export async function getDynamicNavItems(): Promise<NavItem[]> {
       );
 
       return navItems.map((item) => {
-        if (item.label === "Services") {
+        if (isServicesNav(item)) {
           return {
             ...item,
             hasChildrens: serviceChildren.length > 0,
             children: serviceChildren,
           };
         }
-        if (item.label === "Projects") {
+        if (isProjectsNav(item)) {
           return {
             ...item,
             hasChildrens: projectChildren.length > 0,

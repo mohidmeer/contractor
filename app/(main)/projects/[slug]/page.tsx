@@ -16,6 +16,7 @@ import { FaCircle } from "react-icons/fa6";
 import { MdLocationPin, MdTimelapse } from "react-icons/md";
 import { getProjectBySlug, getProjectSlugs } from "@/actions/projects";
 import { toMediaUrl } from "@/lib/media";
+import { asParagraphs } from "@/lib/paragraphs";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -102,7 +103,13 @@ export default async function page({ params }: Props) {
                 )}
               </div>
               <h2 className="text-heading">{project.label}</h2>
-              <p className="text-lg">{project.content}</p>
+              <div className="space-y-4">
+                {asParagraphs(project.content).map((paragraph, i) => (
+                  <p className="text-lg" key={i}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
 
               <h3 className="text-heading">Material Used</h3>
               <div className="grid grid-cols-2">

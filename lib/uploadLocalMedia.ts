@@ -69,5 +69,11 @@ export async function resolveImagePathForSeed(
   category: string
 ): Promise<string | null> {
   if (!inputPath?.trim()) return null;
-  return uploadLocalFileToMedia(inputPath, category);
+
+  const uploaded = await uploadLocalFileToMedia(inputPath, category);
+  if (uploaded) return uploaded;
+
+  // Fall back to local public path so pages still render without the media server
+  const local = inputPath.trim().replace(/^\/+/, "");
+  return local || null;
 }

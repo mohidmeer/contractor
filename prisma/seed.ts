@@ -3,6 +3,7 @@ import path from "path";
 import { pathToFileURL } from "url";
 import { PrismaClient } from "@prisma/client";
 import { resolveImagePathForSeed } from "../lib/uploadLocalMedia";
+import { asParagraphs } from "../lib/paragraphs";
 
 const prisma = new PrismaClient();
 
@@ -27,12 +28,20 @@ function loadEnvFile() {
   }
 }
 
+type StaticCategory = {
+  slug: string;
+  name: string;
+  description?: string | null;
+  sortOrder?: number;
+};
+
 type StaticService = {
   label: string;
   title: string;
   description: string;
-  content: string;
-  image: string;
+  content: string | string[];
+  image?: string;
+  categorySlug?: string;
   typeOfSolutions: { headings: string; types: string[] };
   benefitsOFChoosing: { title: string; description: string }[];
   faqs: { question: string; answer: string }[];
@@ -43,7 +52,7 @@ type StaticProject = {
   label: string;
   title: string;
   description: string;
-  content: string;
+  content: string | string[];
   image: string;
   location: string;
   duration: string;
@@ -51,6 +60,7 @@ type StaticProject = {
 };
 
 async function seedBrand(brand: string, mod: Record<string, unknown>) {
+  const categoriesData = mod.categoriesData as StaticCategory[] | undefined;
   const servicesData = mod.servicesData as
     | Record<string, StaticService>
     | undefined;
@@ -58,6 +68,31 @@ async function seedBrand(brand: string, mod: Record<string, unknown>) {
     | Record<string, StaticProject>
     | undefined;
   const projectsImageGallery = (mod.projectsImageGallery as string[]) ?? [];
+
+  const categoryIdBySlug = new Map<string, number>();
+
+  if (categoriesData?.length) {
+    let sortOrder = 0;
+    for (const cat of categoriesData) {
+      const row = await prisma.category.upsert({
+        where: { slug: cat.slug },
+        create: {
+          slug: cat.slug,
+          name: cat.name,
+          description: cat.description ?? null,
+          sortOrder: cat.sortOrder ?? sortOrder,
+        },
+        update: {
+          name: cat.name,
+          description: cat.description ?? null,
+          sortOrder: cat.sortOrder ?? sortOrder,
+        },
+      });
+      categoryIdBySlug.set(cat.slug, row.id);
+      sortOrder++;
+      console.log(`[seed] Category upserted: ${cat.slug}`);
+    }
+  }
 
   let galleryPaths: string[] = [];
   if (projectsImageGallery.length) {
@@ -68,12 +103,23 @@ async function seedBrand(brand: string, mod: Record<string, unknown>) {
   }
 
   if (servicesData) {
+    const keepSlugs = Object.keys(servicesData);
+    await prisma.service.deleteMany({
+      where: { slug: { notIn: keepSlugs } },
+    });
+
     let sortOrder = 0;
     for (const [slug, service] of Object.entries(servicesData)) {
-      const image = await resolveImagePathForSeed(service.image, brand);
+      const image = service.image
+        ? await resolveImagePathForSeed(service.image, brand)
+        : null;
       const gallery = await Promise.all(
         (service.images ?? []).map((img) => resolveImagePathForSeed(img, brand))
       );
+
+      const categoryId = service.categorySlug
+        ? (categoryIdBySlug.get(service.categorySlug) ?? null)
+        : null;
 
       await prisma.service.upsert({
         where: { slug },
@@ -82,25 +128,27 @@ async function seedBrand(brand: string, mod: Record<string, unknown>) {
           label: service.label,
           title: service.title,
           description: service.description,
-          content: service.content,
+          content: asParagraphs(service.content),
           image,
           typeOfSolutions: service.typeOfSolutions,
           benefitsOFChoosing: service.benefitsOFChoosing,
           faqs: service.faqs,
           images: gallery.filter((p): p is string => Boolean(p)),
           sortOrder: sortOrder++,
+          categoryId,
         },
         update: {
           label: service.label,
           title: service.title,
           description: service.description,
-          content: service.content,
+          content: asParagraphs(service.content),
           image,
           typeOfSolutions: service.typeOfSolutions,
           benefitsOFChoosing: service.benefitsOFChoosing,
           faqs: service.faqs,
           images: gallery.filter((p): p is string => Boolean(p)),
           sortOrder: sortOrder - 1,
+          categoryId,
         },
       });
 
@@ -120,7 +168,7 @@ async function seedBrand(brand: string, mod: Record<string, unknown>) {
           label: project.label,
           title: project.title,
           description: project.description,
-          content: project.content,
+          content: asParagraphs(project.content),
           image,
           location: project.location,
           duration: project.duration,
@@ -132,7 +180,7 @@ async function seedBrand(brand: string, mod: Record<string, unknown>) {
           label: project.label,
           title: project.title,
           description: project.description,
-          content: project.content,
+          content: asParagraphs(project.content),
           image,
           location: project.location,
           duration: project.duration,
@@ -171,13 +219,43 @@ async function main() {
   const modulePath = pathToFileURL(indexPath).href;
   const mod = (await import(modulePath)) as Record<string, unknown>;
 
-  if (!mod.servicesData && !mod.projectsData) {
+  if (!mod.servicesData && !mod.projectsData && !mod.categoriesData) {
     throw new Error(
-      `[seed] No servicesData/projectsData found in data/${brand}`
+      `[seed] No servicesData/projectsData/categoriesData found in data/${brand}`
     );
   }
 
   await seedBrand(brand, mod);
+
+  // Bust Next.js data cache so nav / listings pick up seeded rows
+  try {
+    const base =
+      process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
+      "http://localhost:3000";
+    const user = process.env.BASIC_AUTH_USER;
+    const pass = process.env.BASIC_AUTH_PASS;
+    if (user && pass) {
+      const res = await fetch(`${base}/api/admin/revalidate`, {
+        method: "POST",
+        headers: {
+          Authorization:
+            "Basic " + Buffer.from(`${user}:${pass}`).toString("base64"),
+        },
+      });
+      if (res.ok) {
+        console.log("[seed] Cache revalidated");
+      } else {
+        console.warn(
+          `[seed] Cache revalidate returned ${res.status} — restart next dev if nav looks stale`
+        );
+      }
+    }
+  } catch {
+    console.warn(
+      "[seed] Could not reach revalidate endpoint — restart next dev if nav looks stale"
+    );
+  }
+
   console.log("[seed] Done.");
 }
 

@@ -81,20 +81,22 @@ enum FormRequestStatus {
 }
 
 model Service {
-  id                 Int      @id @default(autoincrement())
-  slug               String   @unique
+  id                 Int       @id @default(autoincrement())
+  slug               String    @unique
   label              String
   title              String
   description        String
-  content            String
+  content            Json      @default("[]")
   image              String?
   typeOfSolutions    Json
   benefitsOFChoosing Json
   faqs               Json
-  images             Json     @default("[]")
-  sortOrder          Int      @default(0)
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+  images             Json      @default("[]")
+  sortOrder          Int       @default(0)
+  categoryId         Int?
+  category           Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
 }
 
 model Project {
@@ -103,7 +105,7 @@ model Project {
   label       String
   title       String
   description String
-  content     String
+  content     Json     @default("[]")
   image       String?
   location    String?
   duration    String?
@@ -112,6 +114,17 @@ model Project {
   sortOrder   Int      @default(0)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+model Category {
+  id          Int       @id @default(autoincrement())
+  slug        String    @unique
+  name        String
+  description String?
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  services    Service[]
 }
 
 model Setting {

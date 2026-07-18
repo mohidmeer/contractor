@@ -11,8 +11,8 @@ const ServiceAiSchema = z.object({
   title: z.string().describe("Full service page title"),
   description: z.string().describe("1-2 sentence short description for cards and SEO"),
   content: z
-    .string()
-    .describe("Longer page body content, 2-4 short paragraphs separated by newlines"),
+    .array(z.string())
+    .describe("2-4 short body paragraphs as separate strings"),
   typeOfSolutions: z.object({
     headings: z.string().describe("Section heading for the solutions list"),
     types: z.array(z.string()).describe("4-8 concrete solution names"),

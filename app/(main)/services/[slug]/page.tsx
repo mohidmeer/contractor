@@ -15,6 +15,7 @@ import { FaCheckSquare } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa6";
 import { getServiceBySlug, getServiceSlugs } from "@/actions/services";
 import { toMediaUrl } from "@/lib/media";
+import { asParagraphs } from "@/lib/paragraphs";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -80,8 +81,19 @@ export default async function Page({ params }: Props) {
       <section className="lg:container mx-auto w-full">
         <div className="grid-cols-1 lg:grid-cols-4 grid gap-10 p-4">
           <div className="bg-white p-10 rounded-md flex-col gap-6 flex col-span-3 card">
+            {service.category && (
+              <p className="text-sm font-medium uppercase tracking-wide text-primary">
+                {service.category.name}
+              </p>
+            )}
             <h2 className="text-heading">{service.label}</h2>
-            <p className="text-lg">{service.content}</p>
+            <div className="space-y-4">
+              {asParagraphs(service.content).map((paragraph, i) => (
+                <p className="text-lg" key={i}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
 
             <h3 className="text-heading">Key Benefits</h3>
             <div className="grid grid-cols-2 gap-6">

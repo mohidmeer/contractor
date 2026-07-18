@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FileText, ClipboardList, Inbox, Wrench, FolderKanban, Settings } from "lucide-react";
+import { FileText, ClipboardList, Inbox, Wrench, FolderKanban, Settings, Tags } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { siteName } from "@/data";
 
 const links = [
   { href: "/admin/estimates", label: "Estimates", icon: ClipboardList },
   { href: "/admin/requests", label: "Requests", icon: Inbox },
+  { href: "/admin/categories", label: "Categories", icon: Tags },
   { href: "/admin/services", label: "Services", icon: Wrench },
   { href: "/admin/projects", label: "Projects", icon: FolderKanban },
   { href: "/admin/blogs", label: "Blogs", icon: FileText },

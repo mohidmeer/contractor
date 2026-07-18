@@ -24,6 +24,7 @@ type ServiceRow = {
   slug: string;
   description?: string;
   createdAt: string;
+  category?: { id: number; name: string; slug: string } | null;
 };
 
 export default function ServicesAdminPage() {
@@ -121,6 +122,7 @@ export default function ServicesAdminPage() {
             <TableHeader>
               <TableRow>
                 <TableHead>Title</TableHead>
+                <TableHead>Category</TableHead>
                 <TableHead>Slug</TableHead>
                 <TableHead>Created</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
@@ -135,6 +137,13 @@ export default function ServicesAdminPage() {
                       <div className="mt-1 max-w-xl truncate text-xs text-muted-foreground">
                         {item.description}
                       </div>
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    {item.category ? (
+                      <Badge variant="outline">{item.category.name}</Badge>
+                    ) : (
+                      <span className="text-xs text-muted-foreground">—</span>
                     )}
                   </TableCell>
                   <TableCell>
@@ -166,7 +175,7 @@ export default function ServicesAdminPage() {
               {items.length === 0 && (
                 <TableRow>
                   <TableCell
-                    colSpan={4}
+                    colSpan={5}
                     className="py-8 text-center text-muted-foreground"
                   >
                     No services found.

@@ -27,6 +27,7 @@ export function toMediaPath(input: string | null | undefined): string {
 /**
  * Full media URL for display, e.g. `http://localhost:4000/media/costal/file.png`.
  * Leaves already-absolute URLs unchanged (legacy rows).
+ * Local public paths (not under media/) are returned as site-relative URLs.
  */
 export function toMediaUrl(pathOrUrl: string | null | undefined): string {
   if (!pathOrUrl) return "";
@@ -35,8 +36,14 @@ export function toMediaUrl(pathOrUrl: string | null | undefined): string {
 
   if (/^https?:\/\//i.test(trimmed)) return trimmed;
 
-  const base = getMediaServerUrl();
   const path = trimmed.replace(/^\/+/, "");
+
+  // Local public/ assets (e.g. costal/images/...), not media-server paths
+  if (!path.startsWith("media/")) {
+    return `/${path}`;
+  }
+
+  const base = getMediaServerUrl();
   if (!base) return `/${path}`;
   return `${base}/${path}`;
 }
