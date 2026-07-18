@@ -6,34 +6,8 @@ const FAQs = ({ faqItems = faqs }: { faqItems?: FAQ[] }) => {
     return (
         <section className="bg-secondary/10 py-16 md:py-24">
             <div className="max-w-7xl mx-auto px-6 md:px-8">
-                <div className="grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.35fr)] gap-10 lg:gap-14 items-start">
-                    <div className="lg:sticky lg:top-28">
-                        <div className="rounded-2xl bg-primary text-white p-8 md:p-10 shadow-xl shadow-primary/20 overflow-hidden relative">
-                            <span className="absolute -right-4 -bottom-6 text-[8rem] font-bold leading-none text-white/[0.07] select-none pointer-events-none">
-                                ?
-                            </span>
-                            <div className="relative z-[1] space-y-4">
-                                <p className="flex items-center gap-1.5">
-                                    <span className="bg-secondary w-6 h-1 block rounded-full" />
-                                    <span className="font-bold text-white/95">FAQs</span>
-                                </p>
-                                <h2 className="!text-white font-bold">
-                                    Frequently Asked Questions
-                                </h2>
-                                <p className="text-base font-light text-white/85 leading-relaxed">
-                                    Common questions our customers ask before starting their project.
-                                </p>
-                                <div className="pt-2 flex items-center gap-3 text-sm font-semibold text-white/90">
-                                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-secondary text-lg font-bold">
-                                        {faqItems.length}
-                                    </span>
-                                    <span>Questions answered</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-col gap-3 md:gap-4">
+                <div className="grid lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.85fr)] gap-10 lg:gap-14 items-start">
+                    <div className="flex flex-col gap-3 md:gap-4 order-2 lg:order-1">
                         {faqItems.map((faq, index) => (
                             <details
                                 key={index}
@@ -63,6 +37,32 @@ const FAQs = ({ faqItems = faqs }: { faqItems?: FAQ[] }) => {
                                 </div>
                             </details>
                         ))}
+                    </div>
+
+                    <div className="lg:sticky lg:top-28 order-1 lg:order-2">
+                        <div className="rounded-2xl bg-primary text-white p-8 md:p-10 shadow-xl shadow-primary/20 overflow-hidden relative">
+                            <span className="absolute -right-4 -bottom-6 text-[8rem] font-bold leading-none text-white/[0.07] select-none pointer-events-none">
+                                ?
+                            </span>
+                            <div className="relative z-[1] space-y-4">
+                                <p className="flex items-center gap-1.5">
+                                    <span className="bg-secondary w-6 h-1 block rounded-full" />
+                                    <span className="font-bold text-white/95">FAQs</span>
+                                </p>
+                                <h2 className="!text-white font-bold">
+                                    Frequently Asked Questions
+                                </h2>
+                                <p className="text-base font-light text-white/85 leading-relaxed">
+                                    Common questions our customers ask before starting their project.
+                                </p>
+                                <div className="pt-2 flex items-center gap-3 text-sm font-semibold text-white/90">
+                                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-secondary text-lg font-bold">
+                                        {faqItems.length}
+                                    </span>
+                                    <span>Questions answered</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

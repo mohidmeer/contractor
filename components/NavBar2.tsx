@@ -19,7 +19,7 @@ const NavBar2 = ({ items }: { items: NavItem[] }) => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isHome = pathname === '/';
-  const isSolid = scrolled || !isHome;
+  const isSolid = scrolled;
 
   const openMenu = (label: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -66,34 +66,36 @@ const NavBar2 = ({ items }: { items: NavItem[] }) => {
             : 'bg-black/40 backdrop-blur-md border-b border-white/10'
         }`}
       >
-        {/* Top bar */}
-        <div
-          className={`hidden md:block transition-all duration-500 overflow-hidden ${
-            isSolid ? 'max-h-0 opacity-0' : 'max-h-12 opacity-100'
-          }`}
-        >
-          <div className="xl:container mx-auto px-3 py-0.5 flex items-center justify-center gap-4 lg:gap-6 flex-wrap text-[11px] lg:text-xs text-white/90">
-            {licenses.length > 0 && (
-              <div className="flex items-center gap-1.5">
-                <span className="inline-flex h-1.5 w-1.5 rounded-full bg-secondary animate-pulse" />
-                <span className="font-medium text-white/70">License #</span>
-                {licenses.map((license, index) => (
-                  <React.Fragment key={license.number}>
-                    <span className="font-bold tracking-wide">{license.number}</span>
-                    {license.label && (
-                      <span className="text-white/60">({license.label})</span>
-                    )}
-                    {index < licenses.length - 1 && <span className="text-white/40">·</span>}
-                  </React.Fragment>
-                ))}
+        {/* Top bar — landing page only, hides on scroll */}
+        {isHome && (
+          <div
+            className={`hidden md:block transition-all duration-500 overflow-hidden ${
+              isSolid ? 'max-h-0 opacity-0' : 'max-h-12 opacity-100'
+            }`}
+          >
+            <div className="xl:container mx-auto px-3 py-0.5 flex items-center justify-center gap-4 lg:gap-6 flex-wrap text-[11px] lg:text-xs text-white/90">
+              {licenses.length > 0 && (
+                <div className="flex items-center gap-1.5">
+                  <span className="inline-flex h-1.5 w-1.5 rounded-full bg-secondary animate-pulse" />
+                  <span className="font-medium text-white/70">License #</span>
+                  {licenses.map((license, index) => (
+                    <React.Fragment key={license.number}>
+                      <span className="font-bold tracking-wide">{license.number}</span>
+                      {license.label && (
+                        <span className="text-white/60">({license.label})</span>
+                      )}
+                      {index < licenses.length - 1 && <span className="text-white/40">·</span>}
+                    </React.Fragment>
+                  ))}
+                </div>
+              )}
+              <div className="flex items-center gap-1.5 text-white/80">
+                <BsClock size={12} className="text-secondary" />
+                <span>{contactInfo.workingHours}</span>
               </div>
-            )}
-            <div className="flex items-center gap-1.5 text-white/80">
-              <BsClock size={12} className="text-secondary" />
-              <span>{contactInfo.workingHours}</span>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Main nav */}
         <nav className="xl:container mx-auto w-full flex justify-between items-center px-2 sm:px-3 py-0.5">
@@ -218,8 +220,7 @@ const NavBar2 = ({ items }: { items: NavItem[] }) => {
         </nav>
       </header>
 
-      {/* Spacer so content isn't hidden under fixed header on non-home pages */}
-      {!isHome && <div className="h-[52px] md:h-[58px]" aria-hidden />}
+      {/* Spacer removed — page heroes/headers sit under the fixed transparent nav */}
 
       {/* Mobile drawer */}
       <div

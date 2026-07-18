@@ -8,7 +8,7 @@ import { trackCallClick } from '@/lib/analytics'
 
 const Header = ({ title, desc, cta = true }: { title: string, desc: string | null, cta: boolean }) => {
     return (
-        <section className="relative flex flex-col items-center justify-center text-white bg-primary/50 gap-4 py-20 px-6">
+        <section className="relative flex flex-col items-center justify-center text-white bg-primary/50 gap-4 pt-28 pb-16 md:pt-32 md:pb-20 px-6">
             <Image
                 src={static_assets + '/images/hero_bg_2.jpg'}
                 fill

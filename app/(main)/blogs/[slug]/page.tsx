@@ -70,7 +70,7 @@ export default async function page({ params }: Props) {
   return (
     <main className="flex flex-col gap-20">
       <article>
-        <header className="relative flex flex-col items-center justify-center text-white bg-primary/40 gap-4 py-10 px-4">
+        <header className="relative flex flex-col items-center justify-center text-white bg-primary/40 gap-4 pt-28 pb-12 md:pt-32 md:pb-14 px-4">
            <Image src={'/images/hero_bg_2.jpg'} fill className=' object-cover -z-5' alt='header_section' />
           <Breadcrumbs />
           <h1 className=" text-center container !font-semibold">{blog.title}</h1>
