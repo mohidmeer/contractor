@@ -6,6 +6,7 @@ import {
   normalizeProjectBody,
   type ProjectBody,
 } from "@/lib/projectSchema";
+import { asParagraphs } from "@/lib/paragraphs";
 import { revalidateProjectsCache } from "@/lib/revalidateCatalog";
 
 type Props = {
@@ -44,7 +45,7 @@ export async function PATCH(req: NextRequest, { params }: Props) {
       label: parsed.label ?? existing.label,
       title: parsed.title ?? existing.title,
       description: parsed.description ?? existing.description,
-      content: parsed.content ?? existing.content,
+      content: parsed.content ?? asParagraphs(existing.content),
       image: parsed.image !== undefined ? parsed.image : existing.image,
       location:
         parsed.location !== undefined ? parsed.location : existing.location,
