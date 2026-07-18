@@ -1,7 +1,6 @@
 import { serviceAreasData, siteUrl } from "@/data";
 import type { MetadataRoute } from "next";
 import prisma from "@/lib/prisma";
-import { getSite } from "@/lib/site";
 
 export const revalidate = 259200;
 
@@ -16,16 +15,13 @@ export async function getAllBlogs() {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const site = getSite();
   const blogs = await getAllBlogs();
 
   const [services, projects] = await Promise.all([
     prisma.service.findMany({
-      where: { site },
       select: { slug: true, updatedAt: true },
     }),
     prisma.project.findMany({
-      where: { site },
       select: { slug: true, updatedAt: true },
     }),
   ]);

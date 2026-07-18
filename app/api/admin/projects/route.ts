@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAuthorized } from "@/lib/auth";
 import prisma from "@/lib/prisma";
-import { getSite } from "@/lib/site";
 import {
   ProjectBodySchema,
   normalizeProjectBody,
@@ -11,25 +10,21 @@ import { revalidateProjectsCache } from "@/lib/revalidateCatalog";
 export async function GET(req: NextRequest) {
   if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
 
-  const site = getSite();
   const { searchParams } = new URL(req.url);
   const take = Number(searchParams.get("take") ?? 50);
   const skip = Number(searchParams.get("skip") ?? 0);
   const q = searchParams.get("q") ?? "";
 
-  const where = {
-    site,
-    ...(q
-      ? {
-          OR: [
-            { title: { contains: q } },
-            { label: { contains: q } },
-            { slug: { contains: q } },
-            { description: { contains: q } },
-          ],
-        }
-      : {}),
-  };
+  const where = q
+    ? {
+        OR: [
+          { title: { contains: q } },
+          { label: { contains: q } },
+          { slug: { contains: q } },
+          { description: { contains: q } },
+        ],
+      }
+    : {};
 
   const [items, total] = await Promise.all([
     prisma.project.findMany({
@@ -62,11 +57,9 @@ export async function POST(req: NextRequest) {
     const json = await req.json();
     const parsed = ProjectBodySchema.parse(json);
     const data = normalizeProjectBody(parsed);
-    const site = getSite();
 
     const created = await prisma.project.create({
       data: {
-        site,
         slug: data.slug,
         label: data.label,
         title: data.title,
@@ -81,7 +74,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    revalidateProjectsCache(site);
+    revalidateProjectsCache();
 
     return NextResponse.json({ message: "created", id: created.id }, { status: 201 });
   } catch (error: unknown) {

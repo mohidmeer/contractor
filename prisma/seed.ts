@@ -50,7 +50,7 @@ type StaticProject = {
   materials: string[];
 };
 
-async function seedBrand(site: string, mod: Record<string, unknown>) {
+async function seedBrand(brand: string, mod: Record<string, unknown>) {
   const servicesData = mod.servicesData as
     | Record<string, StaticService>
     | undefined;
@@ -62,7 +62,7 @@ async function seedBrand(site: string, mod: Record<string, unknown>) {
   let galleryPaths: string[] = [];
   if (projectsImageGallery.length) {
     const uploaded = await Promise.all(
-      projectsImageGallery.map((img) => resolveImagePathForSeed(img, site))
+      projectsImageGallery.map((img) => resolveImagePathForSeed(img, brand))
     );
     galleryPaths = uploaded.filter((p): p is string => Boolean(p));
   }
@@ -70,15 +70,14 @@ async function seedBrand(site: string, mod: Record<string, unknown>) {
   if (servicesData) {
     let sortOrder = 0;
     for (const [slug, service] of Object.entries(servicesData)) {
-      const image = await resolveImagePathForSeed(service.image, site);
+      const image = await resolveImagePathForSeed(service.image, brand);
       const gallery = await Promise.all(
-        (service.images ?? []).map((img) => resolveImagePathForSeed(img, site))
+        (service.images ?? []).map((img) => resolveImagePathForSeed(img, brand))
       );
 
       await prisma.service.upsert({
-        where: { site_slug: { site, slug } },
+        where: { slug },
         create: {
-          site,
           slug,
           label: service.label,
           title: service.title,
@@ -105,19 +104,18 @@ async function seedBrand(site: string, mod: Record<string, unknown>) {
         },
       });
 
-      console.log(`[seed] Service upserted: ${site}/${slug}`);
+      console.log(`[seed] Service upserted: ${slug}`);
     }
   }
 
   if (projectsData) {
     let sortOrder = 0;
     for (const [slug, project] of Object.entries(projectsData)) {
-      const image = await resolveImagePathForSeed(project.image, site);
+      const image = await resolveImagePathForSeed(project.image, brand);
 
       await prisma.project.upsert({
-        where: { site_slug: { site, slug } },
+        where: { slug },
         create: {
-          site,
           slug,
           label: project.label,
           title: project.title,
@@ -144,7 +142,7 @@ async function seedBrand(site: string, mod: Record<string, unknown>) {
         },
       });
 
-      console.log(`[seed] Project upserted: ${site}/${slug}`);
+      console.log(`[seed] Project upserted: ${slug}`);
     }
   }
 }
@@ -152,32 +150,34 @@ async function seedBrand(site: string, mod: Record<string, unknown>) {
 async function main() {
   loadEnvFile();
 
-  const dataDir = path.join(process.cwd(), "data");
-  const brands = fs
-    .readdirSync(dataDir)
-    .filter((name) => {
-      const full = path.join(dataDir, name);
-      return (
-        fs.statSync(full).isDirectory() &&
-        fs.existsSync(path.join(full, "index.ts"))
-      );
-    });
-
-  console.log(`[seed] Found ${brands.length} brand folders`);
-
-  for (const brand of brands) {
-    const modulePath = pathToFileURL(path.join(dataDir, brand, "index.ts")).href;
-    const mod = (await import(modulePath)) as Record<string, unknown>;
-
-    if (!mod.servicesData && !mod.projectsData) {
-      console.log(`[seed] Skipping ${brand} (no services/projects data)`);
-      continue;
-    }
-
-    console.log(`[seed] Seeding brand: ${brand}`);
-    await seedBrand(brand, mod);
+  const brand = process.env.DATA?.trim();
+  if (!brand) {
+    throw new Error(
+      "[seed] DATA env variable is required (e.g. DATA=costal). Seed only runs for that brand."
+    );
   }
 
+  const brandDir = path.join(process.cwd(), "data", brand);
+  const indexPath = path.join(brandDir, "index.ts");
+
+  if (!fs.existsSync(indexPath)) {
+    throw new Error(
+      `[seed] Brand folder not found for DATA="${brand}" (expected ${indexPath})`
+    );
+  }
+
+  console.log(`[seed] Seeding brand from DATA=${brand}`);
+
+  const modulePath = pathToFileURL(indexPath).href;
+  const mod = (await import(modulePath)) as Record<string, unknown>;
+
+  if (!mod.servicesData && !mod.projectsData) {
+    throw new Error(
+      `[seed] No servicesData/projectsData found in data/${brand}`
+    );
+  }
+
+  await seedBrand(brand, mod);
   console.log("[seed] Done.");
 }
 

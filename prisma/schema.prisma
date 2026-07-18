@@ -82,8 +82,7 @@ enum FormRequestStatus {
 
 model Service {
   id                 Int      @id @default(autoincrement())
-  site               String
-  slug               String
+  slug               String   @unique
   label              String
   title              String
   description        String
@@ -96,14 +95,11 @@ model Service {
   sortOrder          Int      @default(0)
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
-
-  @@unique([site, slug])
 }
 
 model Project {
   id          Int      @id @default(autoincrement())
-  site        String
-  slug        String
+  slug        String   @unique
   label       String
   title       String
   description String
@@ -116,8 +112,6 @@ model Project {
   sortOrder   Int      @default(0)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
-  @@unique([site, slug])
 }
 
 model Setting {

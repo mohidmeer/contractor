@@ -97,7 +97,7 @@ export default function ServiceFormDialog({
           </DialogTitle>
           <DialogDescription>
             {mode === "create"
-              ? "Create a new service for the active site."
+              ? "Create a new service."
               : "Update service details, gallery, and content."}
           </DialogDescription>
         </DialogHeader>

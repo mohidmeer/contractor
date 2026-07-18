@@ -1,7 +1,6 @@
 import { unstable_cache } from "next/cache";
 import prisma from "@/lib/prisma";
 import { toMediaUrl } from "@/lib/media";
-import { getSite } from "@/lib/site";
 import type { Project } from "@prisma/client";
 
 export type ProjectView = {
@@ -47,31 +46,28 @@ function mapProject(row: Project): ProjectView {
 }
 
 export async function getProjects(): Promise<ProjectView[]> {
-  const site = getSite();
   return unstable_cache(
     async () => {
       const rows = await prisma.project.findMany({
-        where: { site },
         orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
       });
       return rows.map(mapProject);
     },
-    [`projects-list-${site}`],
-    { tags: [`projects-${site}`, "projects"] }
+    ["projects-list"],
+    { tags: ["projects"] }
   )();
 }
 
-export async function getProjectBySlug(slug: string): Promise<ProjectView | null> {
-  const site = getSite();
+export async function getProjectBySlug(
+  slug: string
+): Promise<ProjectView | null> {
   return unstable_cache(
     async () => {
-      const row = await prisma.project.findUnique({
-        where: { site_slug: { site, slug } },
-      });
+      const row = await prisma.project.findUnique({ where: { slug } });
       return row ? mapProject(row) : null;
     },
-    [`project-${site}-${slug}`],
-    { tags: [`projects-${site}`, "projects"] }
+    [`project-${slug}`],
+    { tags: ["projects"] }
   )();
 }
 

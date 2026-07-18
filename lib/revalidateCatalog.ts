@@ -1,16 +1,11 @@
 import { revalidateTag } from "next/cache";
-import { getSite } from "@/lib/site";
 
-export function revalidateServicesCache(site = getSite()) {
-  revalidateTag(`services-${site}`);
+export function revalidateServicesCache() {
   revalidateTag("services");
-  revalidateTag(`nav-${site}`);
   revalidateTag("nav");
 }
 
-export function revalidateProjectsCache(site = getSite()) {
-  revalidateTag(`projects-${site}`);
+export function revalidateProjectsCache() {
   revalidateTag("projects");
-  revalidateTag(`nav-${site}`);
   revalidateTag("nav");
 }

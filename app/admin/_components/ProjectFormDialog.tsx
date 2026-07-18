@@ -97,7 +97,7 @@ export default function ProjectFormDialog({
           </DialogTitle>
           <DialogDescription>
             {mode === "create"
-              ? "Create a new project for the active site."
+              ? "Create a new project."
               : "Update project details, gallery, and content."}
           </DialogDescription>
         </DialogHeader>

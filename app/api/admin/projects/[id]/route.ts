@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAuthorized } from "@/lib/auth";
 import prisma from "@/lib/prisma";
-import { getSite } from "@/lib/site";
 import {
   ProjectBodySchema,
   normalizeProjectBody,
@@ -17,10 +16,9 @@ export async function GET(req: NextRequest, { params }: Props) {
   if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
 
   const { id } = await params;
-  const site = getSite();
 
-  const project = await prisma.project.findFirst({
-    where: { id: Number(id), site },
+  const project = await prisma.project.findUnique({
+    where: { id: Number(id) },
   });
 
   if (!project) return new NextResponse("Not Found", { status: 404 });
@@ -31,11 +29,10 @@ export async function PATCH(req: NextRequest, { params }: Props) {
   if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
 
   const { id } = await params;
-  const site = getSite();
 
   try {
-    const existing = await prisma.project.findFirst({
-      where: { id: Number(id), site },
+    const existing = await prisma.project.findUnique({
+      where: { id: Number(id) },
     });
     if (!existing) return new NextResponse("Not Found", { status: 404 });
 
@@ -78,7 +75,7 @@ export async function PATCH(req: NextRequest, { params }: Props) {
       },
     });
 
-    revalidateProjectsCache(site);
+    revalidateProjectsCache();
 
     return NextResponse.json({ message: "updated", id: updated.id });
   } catch (error: unknown) {
@@ -91,16 +88,15 @@ export async function DELETE(req: NextRequest, { params }: Props) {
   if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
 
   const { id } = await params;
-  const site = getSite();
 
   try {
-    const existing = await prisma.project.findFirst({
-      where: { id: Number(id), site },
+    const existing = await prisma.project.findUnique({
+      where: { id: Number(id) },
     });
     if (!existing) return new NextResponse("Not Found", { status: 404 });
 
     await prisma.project.delete({ where: { id: Number(id) } });
-    revalidateProjectsCache(site);
+    revalidateProjectsCache();
     return NextResponse.json({ message: "deleted" });
   } catch {
     return NextResponse.json({ error: "Failed to delete project" }, { status: 500 });

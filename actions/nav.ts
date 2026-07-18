@@ -2,7 +2,6 @@ import { unstable_cache } from "next/cache";
 import { navItems } from "@/data";
 import { getServices } from "@/actions/services";
 import { getProjects } from "@/actions/projects";
-import { getSite } from "@/lib/site";
 import type { NavItem } from "@/types";
 
 function toNavChild(label: string, href: string): NavItem {
@@ -18,8 +17,6 @@ function toNavChild(label: string, href: string): NavItem {
  * Reuses getServices/getProjects caches — no extra DB hit on warm cache.
  */
 export async function getDynamicNavItems(): Promise<NavItem[]> {
-  const site = getSite();
-
   return unstable_cache(
     async () => {
       const [services, projects] = await Promise.all([
@@ -52,7 +49,7 @@ export async function getDynamicNavItems(): Promise<NavItem[]> {
         return item;
       });
     },
-    [`nav-items-${site}`],
-    { tags: [`nav-${site}`, "nav", `services-${site}`, `projects-${site}`] }
+    ["nav-items"],
+    { tags: ["nav", "services", "projects"] }
   )();
 }

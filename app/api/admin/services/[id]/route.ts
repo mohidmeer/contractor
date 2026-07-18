@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAuthorized } from "@/lib/auth";
 import prisma from "@/lib/prisma";
-import { getSite } from "@/lib/site";
 import {
   ServiceBodySchema,
   normalizeServiceBody,
@@ -17,10 +16,9 @@ export async function GET(req: NextRequest, { params }: Props) {
   if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
 
   const { id } = await params;
-  const site = getSite();
 
-  const service = await prisma.service.findFirst({
-    where: { id: Number(id), site },
+  const service = await prisma.service.findUnique({
+    where: { id: Number(id) },
   });
 
   if (!service) return new NextResponse("Not Found", { status: 404 });
@@ -31,11 +29,10 @@ export async function PATCH(req: NextRequest, { params }: Props) {
   if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
 
   const { id } = await params;
-  const site = getSite();
 
   try {
-    const existing = await prisma.service.findFirst({
-      where: { id: Number(id), site },
+    const existing = await prisma.service.findUnique({
+      where: { id: Number(id) },
     });
     if (!existing) return new NextResponse("Not Found", { status: 404 });
 
@@ -56,8 +53,7 @@ export async function PATCH(req: NextRequest, { params }: Props) {
         parsed.benefitsOFChoosing ??
         (existing.benefitsOFChoosing as ServiceBody["benefitsOFChoosing"]),
       faqs: parsed.faqs ?? (existing.faqs as ServiceBody["faqs"]),
-      images:
-        parsed.images ?? (existing.images as ServiceBody["images"]),
+      images: parsed.images ?? (existing.images as ServiceBody["images"]),
       sortOrder: parsed.sortOrder ?? existing.sortOrder,
     };
 
@@ -80,7 +76,7 @@ export async function PATCH(req: NextRequest, { params }: Props) {
       },
     });
 
-    revalidateServicesCache(site);
+    revalidateServicesCache();
 
     return NextResponse.json({ message: "updated", id: updated.id });
   } catch (error: unknown) {
@@ -93,16 +89,15 @@ export async function DELETE(req: NextRequest, { params }: Props) {
   if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
 
   const { id } = await params;
-  const site = getSite();
 
   try {
-    const existing = await prisma.service.findFirst({
-      where: { id: Number(id), site },
+    const existing = await prisma.service.findUnique({
+      where: { id: Number(id) },
     });
     if (!existing) return new NextResponse("Not Found", { status: 404 });
 
     await prisma.service.delete({ where: { id: Number(id) } });
-    revalidateServicesCache(site);
+    revalidateServicesCache();
     return NextResponse.json({ message: "deleted" });
   } catch {
     return NextResponse.json({ error: "Failed to delete service" }, { status: 500 });

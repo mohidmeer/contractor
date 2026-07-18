@@ -1,7 +1,6 @@
 import { unstable_cache } from "next/cache";
 import prisma from "@/lib/prisma";
 import { toMediaUrl } from "@/lib/media";
-import { getSite } from "@/lib/site";
 import type { Service } from "@prisma/client";
 
 export type ServiceView = {
@@ -22,9 +21,7 @@ export type ServiceView = {
 };
 
 function mapService(row: Service): ServiceView {
-  const images = Array.isArray(row.images)
-    ? (row.images as string[])
-    : [];
+  const images = Array.isArray(row.images) ? (row.images as string[]) : [];
   const image = row.image ?? null;
 
   return {
@@ -37,7 +34,8 @@ function mapService(row: Service): ServiceView {
     image,
     imageUrl: image ? toMediaUrl(image) : "",
     typeOfSolutions: row.typeOfSolutions as ServiceView["typeOfSolutions"],
-    benefitsOFChoosing: row.benefitsOFChoosing as ServiceView["benefitsOFChoosing"],
+    benefitsOFChoosing:
+      row.benefitsOFChoosing as ServiceView["benefitsOFChoosing"],
     faqs: row.faqs as ServiceView["faqs"],
     images,
     imageUrls: images.map((img) => toMediaUrl(img)),
@@ -46,31 +44,28 @@ function mapService(row: Service): ServiceView {
 }
 
 export async function getServices(): Promise<ServiceView[]> {
-  const site = getSite();
   return unstable_cache(
     async () => {
       const rows = await prisma.service.findMany({
-        where: { site },
         orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
       });
       return rows.map(mapService);
     },
-    [`services-list-${site}`],
-    { tags: [`services-${site}`, "services"] }
+    ["services-list"],
+    { tags: ["services"] }
   )();
 }
 
-export async function getServiceBySlug(slug: string): Promise<ServiceView | null> {
-  const site = getSite();
+export async function getServiceBySlug(
+  slug: string
+): Promise<ServiceView | null> {
   return unstable_cache(
     async () => {
-      const row = await prisma.service.findUnique({
-        where: { site_slug: { site, slug } },
-      });
+      const row = await prisma.service.findUnique({ where: { slug } });
       return row ? mapService(row) : null;
     },
-    [`service-${site}-${slug}`],
-    { tags: [`services-${site}`, "services"] }
+    [`service-${slug}`],
+    { tags: ["services"] }
   )();
 }
 
