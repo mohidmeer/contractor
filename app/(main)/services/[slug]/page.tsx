@@ -8,11 +8,12 @@ import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
 import SideBar from "@/components/SideBar";
 import WhyUS from "@/components/WhyUS";
+import Title from "@/components/inputs/Title";
 import { siteName, siteUrl } from "@/data";
 import { BUSINESS_ID } from "@/jsonld";
 import { notFound } from "next/navigation";
-import { FaCheckSquare } from "react-icons/fa";
-import { FaCircle } from "react-icons/fa6";
+import Image from "next/image";
+import { FaCheck } from "react-icons/fa6";
 import { getServiceBySlug, getServiceSlugs } from "@/actions/services";
 import { toMediaUrl } from "@/lib/media";
 import { asParagraphs } from "@/lib/paragraphs";
@@ -59,9 +60,10 @@ export default async function Page({ params }: Props) {
   if (!service) return notFound();
 
   const image = service.image ? toMediaUrl(service.image) : "";
-  const gallery_images = [
+  const paragraphs = asParagraphs(service.content);
+  const galleryImages = [
     ...(service.imageUrl ? [service.imageUrl] : []),
-    ...service.imageUrls,
+    ...service.imageUrls.filter((url) => url !== service.imageUrl),
   ];
 
   const jsonLdData = {
@@ -78,58 +80,116 @@ export default async function Page({ params }: Props) {
   return (
     <main className="flex flex-col gap-20">
       <Header cta title={service.title} desc={service.description} />
-      <section className="lg:container mx-auto w-full">
-        <div className="grid-cols-1 lg:grid-cols-4 grid gap-10 p-4">
-          <div className="bg-white p-10 rounded-md flex-col gap-6 flex col-span-3 card">
-            {service.category && (
-              <p className="text-sm font-medium uppercase tracking-wide text-primary">
-                {service.category.name}
-              </p>
+
+      <section className="container mx-auto w-full px-4 sm:px-6">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
+          <article className="lg:col-span-8 xl:col-span-9 flex flex-col gap-10">
+            {service.imageUrl && (
+              <div className="relative aspect-[21/9] overflow-hidden rounded-xl bg-primary/5 sm:aspect-[2.4/1]">
+                <Image
+                  src={service.imageUrl}
+                  alt={service.title}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 75vw"
+                  className="object-cover"
+                  unoptimized
+                />
+              </div>
             )}
-            <h2 className="text-heading">{service.label}</h2>
-            <div className="space-y-4">
-              {asParagraphs(service.content).map((paragraph, i) => (
-                <p className="text-lg" key={i}>
-                  {paragraph}
-                </p>
-              ))}
+
+            <div className="rounded-xl bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
+              <div className="mb-8 max-w-3xl">
+                {service.category && (
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                    {service.category.name}
+                  </p>
+                )}
+                <h2 className="text-heading mb-6">{service.label}</h2>
+                <div className="space-y-5">
+                  {paragraphs.map((paragraph, i) => (
+                    <p
+                      key={i}
+                      className="text-base leading-[1.8] text-gray-700 sm:text-lg"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              {service.benefitsOFChoosing.length > 0 && (
+                <div className="border-t border-primary/10 pt-10">
+                  <div className="mb-6 flex flex-col gap-2">
+                    <Title text="Why it matters" />
+                    <h3 className="text-heading !text-2xl sm:!text-3xl">
+                      Key benefits
+                    </h3>
+                  </div>
+                  <ul className="grid gap-5 sm:grid-cols-2">
+                    {service.benefitsOFChoosing.map((benefit, z) => (
+                      <li
+                        key={z}
+                        className="flex gap-3 rounded-lg bg-secondary/5 p-5"
+                      >
+                        <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                          <FaCheck size={12} />
+                        </span>
+                        <div className="min-w-0">
+                          <h4 className="mb-1 text-base font-semibold text-heading">
+                            {benefit.title}
+                          </h4>
+                          <p className="text-sm leading-relaxed text-gray-600 sm:text-[15px]">
+                            {benefit.description}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {service.typeOfSolutions.types.length > 0 && (
+                <div className="mt-10 border-t border-primary/10 pt-10">
+                  <div className="mb-6 flex flex-col gap-2">
+                    <Title text="Applications" />
+                    <h3 className="text-heading !text-2xl sm:!text-3xl">
+                      {service.typeOfSolutions.headings}
+                    </h3>
+                  </div>
+                  <ul className="flex flex-wrap gap-2.5">
+                    {service.typeOfSolutions.types.map((type, z) => (
+                      <li
+                        key={z}
+                        className="rounded-md border border-primary/15 bg-secondary/5 px-4 py-2 text-sm font-medium text-heading"
+                      >
+                        {type}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
-            <h3 className="text-heading">Key Benefits</h3>
-            <div className="grid grid-cols-2 gap-6">
-              {service.benefitsOFChoosing.map((i, z) => (
-                <div className="flex gap-2" key={z}>
-                  <FaCheckSquare
-                    size={20}
-                    className="text-primary mt-1 shrink-0"
-                  />
-                  <div>
-                    <h4 className="font-bold !text-xl text-heading">{i.title}</h4>
-                    <p className="text-base">{i.description}</p>
-                  </div>
+            {galleryImages.length > 0 && (
+              <div className="rounded-xl bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
+                <div className="mb-6 flex flex-col gap-2">
+                  <Title text="Gallery" />
+                  <h3 className="text-heading !text-2xl sm:!text-3xl">
+                    What our work looks like
+                  </h3>
                 </div>
-              ))}
-            </div>
-            <div>
-              <h3 className="text-heading">{service.typeOfSolutions.headings}</h3>
-              <div className="grid grid-cols-2">
-                {service.typeOfSolutions.types.map((i, z) => (
-                  <p className="text-lg flex items-center gap-2" key={z}>
-                    <FaCircle size={10} className="text-primary" /> {i}
-                  </p>
-                ))}
+                <Gallery images={galleryImages} />
               </div>
-            </div>
-            <div>
-              <h3 className="text-heading my-10">What our work look like</h3>
-              <Gallery images={gallery_images} />
-            </div>
-          </div>
-          <div className="sr-only lg:not-sr-only md:flex md:flex-col h-fit gap-8">
+            )}
+          </article>
+
+          <aside className="hidden h-fit flex-col gap-6 lg:col-span-4 xl:col-span-3 lg:flex">
             <SideBar />
-          </div>
+          </aside>
         </div>
       </section>
+
       <Process />
       <WhyUS />
       <Projects />

@@ -54,7 +54,7 @@ body {
 
 @layer components {
   .card {
-    @apply relative shadow-md border border-primary/20 transition-shadow duration-300 hover:shadow-xl;
+    @apply relative shadow-md transition-shadow duration-300 hover:shadow-xl;
   }
 
   .clip-diagnol {
@@ -63,13 +63,12 @@ body {
 
 }
 
-.card,
+/* Animated primary border — use only on project/service catalog cards */
 .moving-border {
   position: relative;
   isolation: isolate;
 }
 
-.card::before,
 .moving-border::before {
   content: "";
   position: absolute;
@@ -98,14 +97,12 @@ body {
   pointer-events: none;
 }
 
-.card:hover::before,
 .moving-border:hover::before {
   opacity: 1;
   animation: border-spin 3.5s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card:hover::before,
   .moving-border:hover::before {
     animation: none;
     opacity: 1;

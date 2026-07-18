@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Title from "@/components/inputs/Title";
 import { servicesPage } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +11,6 @@ import Process from "@/app/_components/Process";
 import { MdArrowForward } from "react-icons/md";
 import { getServices } from "@/actions/services";
 import { getJsonLdDataServices } from "@/actions/catalogJsonLd";
-import { asParagraphs } from "@/lib/paragraphs";
 
 const page = async () => {
   const services = await getServices();
@@ -23,64 +23,65 @@ const page = async () => {
         desc={servicesPage.seo.description}
         title={servicesPage.seo.title}
       />
-      <section className="p-2 mx-auto">
-        <div className="flex flex-col my-10 container mx-auto gap-12">
-          {services.map((service, z) => (
+
+      <section className="container mx-auto px-4 sm:px-6">
+        <div className="mx-auto max-w-2xl text-center flex flex-col items-center gap-3 mb-14">
+          <Title text="Our Services" />
+          <h2 className="text-heading">What we deliver</h2>
+          <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+            {servicesPage.seo.description}
+          </p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          {services.map((service, index) => (
             <Link
-              href={`/services/${service.slug}`}
-              className="text-heading cursor-pointer group"
               key={service.slug}
+              href={`/services/${service.slug}`}
+              className="moving-border group flex h-full flex-col overflow-hidden rounded-xl border border-primary/10 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="h-full sm:p-8 grid md:grid-cols-2 gap-6 overflow-hidden bg-white shadow-lg hover:shadow-2xl border border-primary/20 hover:border-primary/40 rounded-xl transition-all duration-300 relative">
-                <div
-                  className={`absolute top-0 ${z % 2 !== 0 ? "right-0" : "left-0"} w-1 h-full bg-gradient-to-b from-primary via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                />
-                <div
-                  className={`absolute ${z % 2 !== 0 ? "right-8 top-8" : "left-8 top-8"} z-10 bg-gradient-to-br from-primary to-primary/80 text-white text-3xl font-bold w-16 h-16 rounded-full flex items-center justify-center shadow-xl transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}
-                >
-                  {z + 1}
-                </div>
-                <div
-                  className={`flex flex-col gap-5 justify-center p-6 md:p-8 relative ${z % 2 !== 0 ? "order-2" : "order-1"}`}
-                >
-                  <div className="flex flex-col gap-4 mt-8 md:mt-0">
-                    <h3 className="!text-3xl font-bold text-heading group-hover:text-primary transition-colors duration-300">
-                      {service.title}
-                    </h3>
-                    <p className="text-lg font-medium text-gray-700 leading-relaxed">
-                      {service.description}
-                    </p>
-                    <p className="text-base text-gray-600 overflow-hidden transition-all line-clamp-4 leading-relaxed">
-                      {asParagraphs(service.content).join(" ")}
-                    </p>
-                    <div className="flex items-center gap-2 text-primary font-bold text-lg mt-2 group-hover:gap-4 transition-all duration-300">
-                      <span>Continue Reading</span>
-                      <MdArrowForward className="group-hover:translate-x-2 transition-transform duration-300" />
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className={`relative overflow-hidden md:h-[500px] rounded-lg ${z % 2 !== 0 ? "order-1" : "order-2"} group-hover:rounded-xl transition-all duration-300`}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                  {service.imageUrl && (
-                    <Image
-                      src={service.imageUrl}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      alt={service.title}
-                      unoptimized
-                    />
-                  )}
-                  <div
-                    className={`absolute ${z % 2 !== 0 ? "top-0 left-0" : "top-0 right-0"} w-24 h-24 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+              <div className="relative aspect-[16/10] overflow-hidden bg-primary/5">
+                {service.imageUrl ? (
+                  <Image
+                    src={service.imageUrl}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    alt={service.title}
+                    unoptimized
                   />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center text-sm font-medium text-primary/40 px-6 text-center">
+                    {service.label}
+                  </div>
+                )}
+                <span className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white shadow-md">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
+
+              <div className="flex flex-1 flex-col gap-3 p-6">
+                {service.category && (
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+                    {service.category.name}
+                  </p>
+                )}
+                <h3 className="text-heading text-xl font-semibold leading-snug transition-colors group-hover:text-primary">
+                  {service.label}
+                </h3>
+                <p className="text-gray-600 text-[15px] leading-relaxed line-clamp-3 flex-1">
+                  {service.description}
+                </p>
+                <div className="mt-2 flex items-center gap-2 text-sm font-semibold text-primary transition-all group-hover:gap-3">
+                  <span>View service</span>
+                  <MdArrowForward className="transition-transform group-hover:translate-x-1" />
                 </div>
               </div>
             </Link>
           ))}
         </div>
       </section>
+
       <Projects />
       <Process />
       <FAQs />
