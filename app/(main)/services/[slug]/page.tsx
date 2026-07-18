@@ -8,7 +8,6 @@ import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
 import SideBar from "@/components/SideBar";
 import WhyUS from "@/components/WhyUS";
-import Title from "@/components/inputs/Title";
 import { siteName, siteUrl } from "@/data";
 import { BUSINESS_ID } from "@/jsonld";
 import { notFound } from "next/navigation";
@@ -61,6 +60,8 @@ export default async function Page({ params }: Props) {
 
   const image = service.image ? toMediaUrl(service.image) : "";
   const paragraphs = asParagraphs(service.content);
+  const lead = paragraphs[0];
+  const rest = paragraphs.slice(1);
   const galleryImages = [
     ...(service.imageUrl ? [service.imageUrl] : []),
     ...service.imageUrls.filter((url) => url !== service.imageUrl),
@@ -82,9 +83,9 @@ export default async function Page({ params }: Props) {
       <Header cta title={service.title} desc={service.description} />
 
       <section className="bg-secondary/10 py-14 md:py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
-            <article className="lg:col-span-7 xl:col-span-8 flex flex-col gap-8">
+        <div className="xl:container mx-auto w-full px-4 md:px-6">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 lg:gap-10">
+            <article className="lg:col-span-3 flex flex-col gap-8">
               {service.imageUrl && (
                 <div className="relative aspect-[21/9] overflow-hidden rounded-2xl bg-primary/5 shadow-lg shadow-primary/10 sm:aspect-[2.4/1]">
                   <Image
@@ -96,57 +97,101 @@ export default async function Page({ params }: Props) {
                     className="object-cover"
                     unoptimized
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-heading/50 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-heading/55 via-heading/10 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6">
                     {service.category && (
                       <span className="inline-block mb-2 rounded-lg bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
                         {service.category.name}
                       </span>
                     )}
-                    <h2 className="!text-white font-bold text-xl sm:text-2xl drop-shadow-md max-w-2xl">
+                    <h2 className="!text-white font-bold text-xl sm:text-2xl drop-shadow-md max-w-3xl">
                       {service.label}
                     </h2>
                   </div>
                 </div>
               )}
 
-              <div className="rounded-2xl bg-white p-6 sm:p-8 md:p-10 shadow-md">
+              <div className="rounded-2xl bg-white p-6 sm:p-8 md:p-10 shadow-md overflow-hidden relative">
+                <div
+                  className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary/[0.04]"
+                  aria-hidden
+                />
+                <div
+                  className="pointer-events-none absolute -left-10 bottom-24 h-32 w-32 rounded-full bg-secondary/20"
+                  aria-hidden
+                />
+
                 {!service.imageUrl && (
-                  <div className="mb-6 max-w-3xl">
+                  <div className="mb-8 relative">
                     {service.category && (
                       <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
                         {service.category.name}
                       </p>
                     )}
-                    <h2 className="text-heading mb-4">{service.label}</h2>
+                    <h2 className="text-heading mb-2">{service.label}</h2>
+                    <span className="block h-1 w-16 rounded-full bg-secondary" />
                   </div>
                 )}
-                <div className="space-y-4 max-w-3xl">
-                  {paragraphs.map((paragraph, i) => (
-                    <p key={i} className="p1">
-                      {paragraph}
+
+                {service.description && (
+                  <div className="relative mb-8 rounded-2xl border-l-4 border-primary bg-secondary/15 px-5 py-4 md:px-6 md:py-5">
+                    <p className="text-base md:text-lg font-medium leading-relaxed text-heading">
+                      {service.description}
                     </p>
-                  ))}
+                  </div>
+                )}
+
+                <div className="relative space-y-0">
+                  {lead && (
+                    <p className="p1 first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-bold first-letter:text-5xl first-letter:leading-none first-letter:text-primary md:first-letter:text-6xl">
+                      {lead}
+                    </p>
+                  )}
+
+                  {rest.length > 0 && (
+                    <div className="mt-8 grid gap-6 md:gap-8">
+                      {rest.map((paragraph, i) => (
+                        <div
+                          key={i}
+                          className="group grid grid-cols-[auto_1fr] gap-4 md:gap-5"
+                        >
+                          <span className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xs font-bold text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                            {String(i + 2).padStart(2, "0")}
+                          </span>
+                          <p className="p1 border-b border-primary/5 pb-6 group-last:border-0 group-last:pb-0">
+                            {paragraph}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 {service.benefitsOFChoosing.length > 0 && (
                   <div className="mt-10 border-t border-primary/10 pt-10">
-                    <div className="mb-6 flex flex-col gap-2">
-                      <Title text="Why it matters" />
-                      <h3 className="text-heading">Key benefits</h3>
+                    <div className="relative mb-6 overflow-hidden">
+                      <span
+                        aria-hidden
+                        className="pointer-events-none absolute -left-1 -top-3 select-none text-[clamp(2.5rem,8vw,4.5rem)] font-bold leading-none tracking-tight text-primary/[0.07]"
+                      >
+                        Benefits
+                      </span>
+                      <h3 className="relative !text-lg md:!text-xl font-bold text-heading pt-4">
+                        Key benefits
+                      </h3>
                     </div>
-                    <ul className="grid gap-4 sm:grid-cols-2">
+                    <ul className="grid gap-3 sm:grid-cols-2">
                       {service.benefitsOFChoosing.map((benefit, z) => (
                         <li
                           key={z}
-                          className="group relative overflow-hidden flex gap-3 rounded-2xl bg-secondary/10 p-5 hover:bg-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                          className="group relative overflow-hidden flex gap-2.5 rounded-xl bg-secondary/10 p-4 hover:bg-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
                         >
-                          <span className="absolute bottom-0 left-0 h-1 w-0 bg-primary group-hover:w-full transition-all duration-500" />
-                          <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary text-white shadow-md shadow-primary/25">
-                            <FaCheck size={14} />
+                          <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-500" />
+                          <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-primary text-white shadow-sm shadow-primary/20">
+                            <FaCheck size={10} />
                           </span>
                           <div className="min-w-0">
-                            <h4 className="mb-1 text-base font-bold text-heading group-hover:text-primary transition-colors">
+                            <h4 className="mb-0.5 text-sm font-bold text-heading group-hover:text-primary transition-colors">
                               {benefit.title}
                             </h4>
                             <p className="text-sm font-light leading-relaxed text-gray-600">
@@ -161,17 +206,22 @@ export default async function Page({ params }: Props) {
 
                 {service.typeOfSolutions.types.length > 0 && (
                   <div className="mt-10 border-t border-primary/10 pt-10">
-                    <div className="mb-6 flex flex-col gap-2">
-                      <Title text="Applications" />
-                      <h3 className="text-heading">
+                    <div className="relative mb-6 overflow-hidden">
+                      <span
+                        aria-hidden
+                        className="pointer-events-none absolute -left-1 -top-3 select-none text-[clamp(2.5rem,8vw,4.5rem)] font-bold leading-none tracking-tight text-primary/[0.07]"
+                      >
+                        Applications
+                      </span>
+                      <h3 className="relative !text-lg md:!text-xl font-bold text-heading pt-4">
                         {service.typeOfSolutions.headings}
                       </h3>
                     </div>
-                    <ul className="flex flex-wrap gap-2.5">
+                    <ul className="flex flex-wrap gap-2">
                       {service.typeOfSolutions.types.map((type, z) => (
                         <li
                           key={z}
-                          className="rounded-xl bg-primary/5 border border-primary/10 px-4 py-2.5 text-sm font-semibold text-heading hover:bg-primary hover:text-white hover:border-primary transition-all cursor-default"
+                          className="rounded-lg bg-primary/5 border border-primary/10 px-3.5 py-2 text-sm font-semibold text-heading hover:bg-primary hover:text-white hover:border-primary transition-all cursor-default"
                         >
                           {type}
                         </li>
@@ -183,9 +233,14 @@ export default async function Page({ params }: Props) {
 
               {galleryImages.length > 0 && (
                 <div className="rounded-2xl bg-white p-6 sm:p-8 md:p-10 shadow-md">
-                  <div className="mb-6 flex flex-col gap-2">
-                    <Title text="Gallery" />
-                    <h3 className="text-heading">
+                  <div className="relative mb-6 overflow-hidden">
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute -left-1 -top-3 select-none text-[clamp(2.5rem,8vw,4.5rem)] font-bold leading-none tracking-tight text-primary/[0.07]"
+                    >
+                      Gallery
+                    </span>
+                    <h3 className="relative !text-lg md:!text-xl font-bold text-heading pt-4">
                       What our work looks like
                     </h3>
                   </div>
@@ -194,7 +249,7 @@ export default async function Page({ params }: Props) {
               )}
             </article>
 
-            <aside className="hidden h-fit flex-col gap-5 lg:col-span-5 xl:col-span-4 lg:flex lg:sticky lg:top-28">
+            <aside className="hidden h-fit flex-col gap-5 lg:flex lg:sticky lg:top-28">
               <SideBar />
             </aside>
           </div>
@@ -202,8 +257,8 @@ export default async function Page({ params }: Props) {
       </section>
 
       <Process />
-      <WhyUS />
       <Projects />
+      <WhyUS />
       <Testimonials />
       <FAQs faqItems={service.faqs} />
       <AreaOfServices />

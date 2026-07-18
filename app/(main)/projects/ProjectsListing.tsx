@@ -2,12 +2,12 @@ import FAQs from "@/components/Faqs";
 import Header from "@/components/Header";
 import Title from "@/components/inputs/Title";
 import WhyUS from "@/components/WhyUS";
-import { projectsPage, servicesPage, landingPage } from "@/data";
+import Services from "@/components/Services";
+import { projectsPage } from "@/data";
 import Process from "@/app/_components/Process";
 import JsonLd from "@/components/JsonLd";
 import AreaOfServices from "@/components/AreaOfServices";
 import ProjectsMasonryGrid from "@/components/ProjectsMasonryGrid";
-import ServicesListSection from "@/components/ServicesListSection";
 import type { ProjectView } from "@/actions/projects";
 
 type ProjectsListingProps = {
@@ -35,16 +35,8 @@ export default function ProjectsListing({
         </div>
       </section>
 
-      <ServicesListSection
-        title="Our Services"
-        heading={landingPage.services.heading}
-        description={servicesPage.seo.description}
-        tone="white"
-        ctaLabel="View service"
-        titleField="label"
-      />
-
       <WhyUS />
+      <Services />
       <Process />
       <FAQs />
       <AreaOfServices />

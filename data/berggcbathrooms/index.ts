@@ -1,4 +1,4 @@
-import { FaCalendarAlt, FaCheckCircle, FaFileAlt, FaSearch } from 'react-icons/fa';
+import { FaCalendarAlt, FaCheckCircle, FaFileAlt, FaSearch, FaStar, FaFlag, FaCheck, FaMapMarkerAlt, FaHome } from 'react-icons/fa';
 import { FaComments, FaHammer } from 'react-icons/fa6';
 import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } from "react-icons/fa";
 
@@ -59,6 +59,15 @@ export const landingPage = {
     heading: 'Recent Bathroom Renovations',
   },
 }
+
+export const heroBarData = [
+  { icon: FaStar, label: '5.0 Bathroom Reviews' },
+  { icon: FaFlag, label: '180+ Bath Remodels' },
+  { icon: FaCheck, label: 'Free Design Quotes' },
+  { icon: FaShieldAlt, label: 'Licensed & Insured' },
+  { icon: FaMapMarkerAlt, label: 'Serving Florida Homes' },
+  { icon: FaHome, label: 'Full Bath Specialists' },
+];
 
 export const hero2 = {
   slides: [

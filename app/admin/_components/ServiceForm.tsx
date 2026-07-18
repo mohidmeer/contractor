@@ -87,10 +87,30 @@ export default function ServiceForm({
   const handleAiGenerate = async (prompt: string) => {
     setAiLoading(true);
     try {
+      const existing =
+        mode === "edit"
+          ? {
+              slug: form.slug,
+              label: form.label,
+              title: form.title,
+              description: form.description,
+              content: form.content,
+              typeOfSolutions: form.typeOfSolutions,
+              benefitsOFChoosing: form.benefitsOFChoosing,
+              faqs: form.faqs,
+              sortOrder: form.sortOrder,
+              categoryId: form.categoryId,
+            }
+          : null;
+
       const res = await fetch("/api/admin/ai/services", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt }),
+        body: JSON.stringify({
+          prompt,
+          id: mode === "edit" ? serviceId : null,
+          existing,
+        }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || "Failed to generate with AI");
@@ -117,7 +137,11 @@ export default function ServiceForm({
         images: prev.images,
       }));
       setAiOpen(false);
-      toast.success("Form filled with AI — add images when ready");
+      toast.success(
+        mode === "edit"
+          ? "Service updated with AI — review before saving"
+          : "Form filled with AI — add images when ready"
+      );
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "AI generation failed");
     } finally {
@@ -555,9 +579,17 @@ export default function ServiceForm({
     <AiFillDialog
       open={aiOpen}
       onOpenChange={setAiOpen}
-      title="Fill service with AI"
-      description="Describe the service. Text fields will be filled; leave images for you to upload."
-      placeholder="e.g. Concrete driveway installation and replacement for Florida homes, including sealing and repairs..."
+      title={mode === "edit" ? "Update service with AI" : "Fill service with AI"}
+      description={
+        mode === "edit"
+          ? "Describe what to change. Current service content is sent to AI as reference."
+          : "Describe the service. Text fields will be filled; leave images for you to upload."
+      }
+      placeholder={
+        mode === "edit"
+          ? "e.g. Make the benefits more specific to Florida coastal homes, and add an FAQ about permits..."
+          : "e.g. Concrete driveway installation and replacement for Florida homes, including sealing and repairs..."
+      }
       loading={aiLoading}
       onGenerate={handleAiGenerate}
     />

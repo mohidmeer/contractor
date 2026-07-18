@@ -56,10 +56,29 @@ export default function ProjectForm({
   const handleAiGenerate = async (prompt: string) => {
     setAiLoading(true);
     try {
+      const existing =
+        mode === "edit"
+          ? {
+              slug: form.slug,
+              label: form.label,
+              title: form.title,
+              description: form.description,
+              content: form.content,
+              location: form.location,
+              duration: form.duration,
+              materials: form.materials,
+              sortOrder: form.sortOrder,
+            }
+          : null;
+
       const res = await fetch("/api/admin/ai/projects", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt }),
+        body: JSON.stringify({
+          prompt,
+          id: mode === "edit" ? projectId : null,
+          existing,
+        }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || "Failed to generate with AI");
@@ -86,7 +105,11 @@ export default function ProjectForm({
         images: prev.images,
       }));
       setAiOpen(false);
-      toast.success("Form filled with AI — add images when ready");
+      toast.success(
+        mode === "edit"
+          ? "Project updated with AI — review before saving"
+          : "Form filled with AI — add images when ready"
+      );
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "AI generation failed");
     } finally {
@@ -360,9 +383,17 @@ export default function ProjectForm({
     <AiFillDialog
       open={aiOpen}
       onOpenChange={setAiOpen}
-      title="Fill project with AI"
-      description="Describe the project. Text fields will be filled; leave images for you to upload."
-      placeholder="e.g. Full kitchen remodel in Orlando with quartz counters, custom cabinets, and a 6-week timeline..."
+      title={mode === "edit" ? "Update project with AI" : "Fill project with AI"}
+      description={
+        mode === "edit"
+          ? "Describe what to change. Current project content is sent to AI as reference."
+          : "Describe the project. Text fields will be filled; leave images for you to upload."
+      }
+      placeholder={
+        mode === "edit"
+          ? "e.g. Emphasize the custom cabinetry work and shorten the timeline language..."
+          : "e.g. Full kitchen remodel in Orlando with quartz counters, custom cabinets, and a 6-week timeline..."
+      }
       loading={aiLoading}
       onGenerate={handleAiGenerate}
     />

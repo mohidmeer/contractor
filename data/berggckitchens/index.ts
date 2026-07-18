@@ -1,4 +1,4 @@
-import { FaCalendarAlt, FaCheckCircle, FaFileAlt, FaSearch } from 'react-icons/fa';
+import { FaCalendarAlt, FaCheckCircle, FaFileAlt, FaSearch, FaStar, FaFlag, FaCheck, FaMapMarkerAlt, FaHome } from 'react-icons/fa';
 import { FaComments, FaHammer } from 'react-icons/fa6';
 import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } from "react-icons/fa";
 
@@ -63,6 +63,15 @@ export const landingPage = {
         heading: 'Recent Kitchen Renovations',
     },
 }
+
+export const heroBarData = [
+    { icon: FaStar, label: '5.0 Kitchen Reviews' },
+    { icon: FaFlag, label: '200+ Kitchen Remodels' },
+    { icon: FaCheck, label: 'Free Design Estimates' },
+    { icon: FaShieldAlt, label: 'Licensed & Insured' },
+    { icon: FaMapMarkerAlt, label: 'Serving Florida Homes' },
+    { icon: FaHome, label: 'Custom Cabinetry Pros' },
+];
 
 export const hero2 = {
     slides: [

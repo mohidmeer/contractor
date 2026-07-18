@@ -10,6 +10,14 @@ export async function POST(req: NextRequest) {
   try {
     const json = await req.json();
     const prompt = typeof json.prompt === "string" ? json.prompt.trim() : "";
+    const id =
+      json.id != null && String(json.id).trim() !== ""
+        ? String(json.id).trim()
+        : null;
+    const existing =
+      json.existing && typeof json.existing === "object"
+        ? (json.existing as Record<string, unknown>)
+        : null;
 
     if (!prompt) {
       return NextResponse.json(
@@ -18,7 +26,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const data = await generateServiceWithAi(prompt);
+    const data = await generateServiceWithAi(prompt, { id, existing });
     return NextResponse.json({ data });
   } catch (error: unknown) {
     const message =

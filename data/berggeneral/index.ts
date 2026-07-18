@@ -1,4 +1,4 @@
-import { FaCalendarAlt, FaCheckCircle, FaFileAlt, FaSearch } from 'react-icons/fa';
+import { FaCalendarAlt, FaCheckCircle, FaFileAlt, FaSearch, FaStar, FaFlag, FaCheck, FaMapMarkerAlt, FaHome } from 'react-icons/fa';
 import { FaComments, FaHammer } from 'react-icons/fa6';
 import { FaUserTie, FaTools, FaHandshake, FaDollarSign, FaSmile, FaShieldAlt } from "react-icons/fa";
 
@@ -58,6 +58,15 @@ export const landingPage = {
     heading: 'Recent Projects',
   },
 }
+
+export const heroBarData = [
+  { icon: FaStar, label: '5.0 Client Reviews' },
+  { icon: FaFlag, label: '150+ Remodel Projects' },
+  { icon: FaCheck, label: 'Free Consultations' },
+  { icon: FaShieldAlt, label: 'Licensed GC & Insured' },
+  { icon: FaMapMarkerAlt, label: 'Statewide Florida Crews' },
+  { icon: FaHome, label: 'Commercial & Industrial' },
+];
 
 export const hero2 = {
   slides: [

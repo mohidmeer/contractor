@@ -38,8 +38,52 @@ const EstimateAiSchema = z.object({
 
 export type EstimateAiResult = z.infer<typeof EstimateAiSchema>;
 
+export type EstimateAiContext = {
+  id?: string | number | null;
+  existing?: Record<string, unknown> | null;
+};
+
+function buildEstimateUserMessage(prompt: string, context?: EstimateAiContext) {
+  const hasExisting =
+    context?.existing &&
+    typeof context.existing === "object" &&
+    Object.keys(context.existing).length > 0;
+
+  if (hasExisting) {
+    const idLine =
+      context?.id != null && String(context.id).trim() !== ""
+        ? `Record id: ${context.id}\n`
+        : "";
+    return `You create professional contractor estimates for "${siteName}".
+
+You are UPDATING an existing estimate. Use the current data below as the source of truth.
+Apply the user's instructions to revise line items, pricing, client details, or copy.
+Preserve accurate existing details unless the user asks to change them.
+Do not invent image URLs or YouTube links.
+Use clear line items with realistic Florida contractor pricing in USD.
+Return a complete updated estimate object.
+
+${idLine}Current estimate data (JSON):
+${JSON.stringify(context!.existing, null, 2)}
+
+Update instructions:
+${prompt.trim()}`;
+  }
+
+  return `You create professional contractor estimates for "${siteName}".
+
+Generate a complete estimate from this brief. Do not invent image URLs or YouTube links.
+Use clear line items with realistic Florida contractor pricing in USD.
+Default status to DRAFT unless the brief says otherwise.
+If client contact details are missing, use empty strings.
+
+Brief:
+${prompt.trim()}`;
+}
+
 export async function generateEstimateWithAi(
-  prompt: string
+  prompt: string,
+  context?: EstimateAiContext
 ): Promise<EstimateAiResult> {
   const client = await getAnthropicClient();
 
@@ -49,15 +93,7 @@ export async function generateEstimateWithAi(
     messages: [
       {
         role: "user",
-        content: `You create professional contractor estimates for "${siteName}".
-
-Generate a complete estimate from this brief. Do not invent image URLs or YouTube links.
-Use clear line items with realistic Florida contractor pricing in USD.
-Default status to DRAFT unless the brief says otherwise.
-If client contact details are missing, use empty strings.
-
-Brief:
-${prompt.trim()}`,
+        content: buildEstimateUserMessage(prompt, context),
       },
     ],
     output_config: {

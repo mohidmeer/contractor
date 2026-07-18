@@ -25,7 +25,7 @@ const Header = ({ title, desc, cta = true }: { title: string, desc: string | nul
                 <div>
                     <a
                         href={contactInfo.phone.href}
-                        className="flex gap-2 btn-primary"
+                        className="flex gap-2 btn-secondary"
                         onClick={trackCallClick('Header Section')}
                     >
                         <BsFillTelephoneFill size={20} />

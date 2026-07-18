@@ -38,8 +38,51 @@ const ServiceAiSchema = z.object({
 
 export type ServiceAiResult = z.infer<typeof ServiceAiSchema>;
 
+export type ServiceAiContext = {
+  id?: string | number | null;
+  existing?: Record<string, unknown> | null;
+};
+
+function buildServiceUserMessage(prompt: string, context?: ServiceAiContext) {
+  const hasExisting =
+    context?.existing &&
+    typeof context.existing === "object" &&
+    Object.keys(context.existing).length > 0;
+
+  if (hasExisting) {
+    const idLine =
+      context?.id != null && String(context.id).trim() !== ""
+        ? `Record id: ${context.id}\n`
+        : "";
+    return `You write website content for "${siteName}", a professional contractor business.
+
+You are UPDATING an existing service page. Use the current data below as the source of truth.
+Apply the user's instructions to revise, improve, or expand that content.
+Preserve facts, tone, and structure that still fit unless the user asks to change them.
+Keep the slug stable unless the user explicitly asks to change it.
+Do not invent image URLs.
+Return a complete updated service object.
+
+${idLine}Current service data (JSON):
+${JSON.stringify(context!.existing, null, 2)}
+
+Update instructions:
+${prompt.trim()}`;
+  }
+
+  return `You write website content for "${siteName}", a professional contractor business.
+
+Generate complete service page copy from this brief. Do not invent image URLs.
+Use a clear, trustworthy tone suited for local homeowners and commercial clients.
+Slug must be lowercase kebab-case.
+
+Brief:
+${prompt.trim()}`;
+}
+
 export async function generateServiceWithAi(
-  prompt: string
+  prompt: string,
+  context?: ServiceAiContext
 ): Promise<ServiceAiResult> {
   const client = await getAnthropicClient();
 
@@ -49,14 +92,7 @@ export async function generateServiceWithAi(
     messages: [
       {
         role: "user",
-        content: `You write website content for "${siteName}", a professional contractor business.
-
-Generate complete service page copy from this brief. Do not invent image URLs.
-Use a clear, trustworthy tone suited for local homeowners and commercial clients.
-Slug must be lowercase kebab-case.
-
-Brief:
-${prompt.trim()}`,
+        content: buildServiceUserMessage(prompt, context),
       },
     ],
     output_config: {

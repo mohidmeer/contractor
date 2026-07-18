@@ -156,10 +156,28 @@ export default function EstimateForm({
   const handleAiGenerate = async (prompt: string) => {
     setAiLoading(true);
     try {
+      const existing =
+        mode === "edit"
+          ? {
+              clientName,
+              clientEmail,
+              clientPhone,
+              title,
+              description,
+              notes,
+              status,
+              items,
+            }
+          : null;
+
       const res = await fetch("/api/admin/ai/estimates", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt }),
+        body: JSON.stringify({
+          prompt,
+          id: mode === "edit" ? estimateId : null,
+          existing,
+        }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || "Failed to generate with AI");
@@ -195,7 +213,11 @@ export default function EstimateForm({
       );
       // Keep images / youtube for the user to add
       setAiOpen(false);
-      toast.success("Estimate filled with AI — add images when ready");
+      toast.success(
+        mode === "edit"
+          ? "Estimate updated with AI — review before saving"
+          : "Estimate filled with AI — add images when ready"
+      );
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "AI generation failed");
     } finally {
@@ -549,9 +571,19 @@ export default function EstimateForm({
     <AiFillDialog
       open={aiOpen}
       onOpenChange={setAiOpen}
-      title="Fill estimate with AI"
-      description="Describe the job and client. Line items and copy will be filled; leave images for you to upload."
-      placeholder="e.g. Kitchen remodel for Jane Doe in Orlando — cabinets, quartz counters, backsplash, plumbing rough-in..."
+      title={
+        mode === "edit" ? "Update estimate with AI" : "Fill estimate with AI"
+      }
+      description={
+        mode === "edit"
+          ? "Describe what to change. Current estimate details and line items are sent to AI as reference."
+          : "Describe the job and client. Line items and copy will be filled; leave images for you to upload."
+      }
+      placeholder={
+        mode === "edit"
+          ? "e.g. Add a backsplash line item and raise cabinet labor by about 10%..."
+          : "e.g. Kitchen remodel for Jane Doe in Orlando — cabinets, quartz counters, backsplash, plumbing rough-in..."
+      }
       loading={aiLoading}
       onGenerate={handleAiGenerate}
     />
