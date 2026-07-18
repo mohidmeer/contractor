@@ -1,4 +1,4 @@
-import Title from '@/components/inputs/Title';
+import SectionShadowHeading from '@/components/SectionShadowHeading';
 import { ourProcessData } from '@/data';
 import React from 'react';
 
@@ -6,12 +6,13 @@ const Process = () => {
     return (
         <section className="bg-white py-16 md:py-24">
             <div className="max-w-7xl mx-auto px-6 md:px-8">
-                <div className="text-center flex items-center justify-center flex-col gap-2 mb-10 md:mb-14 max-w-2xl mx-auto">
-                    <Title text="Our Process" />
-                    <h2 className="text-heading">{ourProcessData.heading}</h2>
-                    <p className="p1 max-w-xl">
-                        {ourProcessData.description}
-                    </p>
+                <div className="mb-10 md:mb-14 max-w-2xl mx-auto">
+                    <SectionShadowHeading shadow="Steps" align="center">
+                        <h2 className="text-heading">{ourProcessData.heading}</h2>
+                        <p className="p1 max-w-xl mx-auto">
+                            {ourProcessData.description}
+                        </p>
+                    </SectionShadowHeading>
                 </div>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">

@@ -1,4 +1,5 @@
 'use client';
+import SectionShadowHeading from '@/components/SectionShadowHeading'
 import { contactInfo, getToKnow } from '@/data'
 import { trackCallClick } from '@/lib/analytics'
 import Image from 'next/image'
@@ -13,18 +14,12 @@ const GetToKnow = ({ description = getToKnow.description }: { description?: stri
         <section className="bg-white py-14 md:py-20">
             <div className="max-w-7xl mx-auto px-6 md:px-8">
                 <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
-                    <div className="flex flex-col gap-3.5 justify-center rounded-2xl bg-secondary/10 p-5 sm:p-6 border border-primary/5 shadow-md">
-                        <div className="relative overflow-hidden">
-                            <span
-                                aria-hidden
-                                className="pointer-events-none absolute -left-1 -top-3 select-none text-[clamp(2.25rem,7vw,3.75rem)] font-bold leading-none tracking-tight text-primary/[0.08]"
-                            >
-                                {getToKnow.title}
-                            </span>
-                            <h2 className="relative text-heading pt-4">
+                    <div className="flex flex-col gap-3.5 justify-center rounded-2xl bg-secondary/10 p-5 sm:p-6 pt-7 sm:pt-8 border border-primary/5 shadow-md">
+                        <SectionShadowHeading shadow={getToKnow.title}>
+                            <h2 className="text-heading">
                                 {getToKnow.heading}
                             </h2>
-                        </div>
+                        </SectionShadowHeading>
                         <p className="p1">
                             {description}
                         </p>

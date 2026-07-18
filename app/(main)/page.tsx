@@ -21,8 +21,8 @@ export default function Home() {
       <Process />
       <Projects />
       <WhyUS />
-      <FAQs />
       <Testimonials />
+      <FAQs />
       <AreaOfServices />
     </main>
   );

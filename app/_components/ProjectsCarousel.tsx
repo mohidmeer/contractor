@@ -6,7 +6,7 @@ import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Link from "next/link";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
-import Title from "@/components/inputs/Title";
+import SectionShadowHeading from "@/components/SectionShadowHeading";
 import type { ProjectView } from "@/actions/projects";
 
 type ProjectsCarouselProps = {
@@ -105,10 +105,9 @@ export default function ProjectsCarousel({
     <div>
       {showHeader ? (
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div className="flex flex-col gap-2">
-            <Title text="Our Projects" />
+          <SectionShadowHeading shadow="Our Projects" className="flex-1">
             <h2 className="text-heading">{heading}</h2>
-          </div>
+          </SectionShadowHeading>
           <div className="self-end sm:self-auto">{navControls}</div>
         </div>
       ) : (

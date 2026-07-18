@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from "react";
-import Title from "@/components/inputs/Title";
+import SectionShadowHeading from "@/components/SectionShadowHeading";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { BsQuote } from "react-icons/bs";
@@ -61,8 +61,7 @@ const Testimonials = () => {
     <section className="bg-white py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div className="flex flex-col gap-2">
-            <Title text="What Our Clients Say" />
+          <SectionShadowHeading shadow="What Clients Say" className="flex-1">
             <div className="flex flex-wrap items-center gap-3">
               <h2 className="text-heading">Client Testimonials</h2>
               <div className="inline-flex items-center gap-1.5 rounded-full bg-secondary/15 px-3 py-1">
@@ -74,7 +73,7 @@ const Testimonials = () => {
                 <span className="text-xs font-bold text-heading">5.0</span>
               </div>
             </div>
-          </div>
+          </SectionShadowHeading>
 
           <div className="flex items-center gap-3 self-end sm:self-auto">
             <span className="text-sm font-semibold text-heading/70 whitespace-nowrap">

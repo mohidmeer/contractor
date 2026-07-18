@@ -1,13 +1,14 @@
-import Title from '@/components/inputs/Title';
 import { accomplishmentData, WhyUSData } from '@/data';
+import SectionShadowHeading from '@/components/SectionShadowHeading';
 
 const WhyUS = () => {
     return (
         <section className="bg-white py-16 md:py-24">
             <div className="max-w-7xl mx-auto px-6 md:px-8">
-                <div className="text-center mb-10 md:mb-12 flex items-center flex-col gap-2 max-w-2xl mx-auto">
-                    <Title text="Why Choose Us" />
-                    <h2 className="font-bold text-heading">What Makes Us Different</h2>
+                <div className="mb-10 md:mb-12 max-w-2xl mx-auto">
+                    <SectionShadowHeading shadow="Why Choose Us" align="center">
+                        <h2 className="font-bold text-heading">What Makes Us Different</h2>
+                    </SectionShadowHeading>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">

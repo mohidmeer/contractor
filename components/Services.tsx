@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Title from "./inputs/Title";
 import Link from "next/link";
 import { MdArrowForward } from "react-icons/md";
 import { landingPage } from "@/data";
 import { getServices } from "@/actions/services";
+import SectionShadowHeading from "./SectionShadowHeading";
 
 type ServicesProps = {
   limit?: number;
@@ -17,10 +17,9 @@ const Services = async ({ limit = 6 }: ServicesProps) => {
     <section className="bg-secondary/10 py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="mb-10 flex flex-col gap-3">
-          <div className="flex flex-col gap-2">
-            <Title text={"What We Do"} />
+          <SectionShadowHeading shadow="What We Do">
             <h2 className="text-heading">{landingPage.services.heading}</h2>
-          </div>
+          </SectionShadowHeading>
           <Link
             href="/services"
             className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all w-fit"
