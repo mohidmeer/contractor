@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { toast } from "sonner";
 import { Pencil, Plus, Trash2 } from "lucide-react";
 import AdminPageHeader from "../_components/AdminPageHeader";
 import DeleteConfirmDialog from "../_components/DeleteConfirmDialog";
+import BlogFormDialog from "../_components/BlogFormDialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -32,26 +32,44 @@ export default function BlogsPage() {
   const [search, setSearch] = useState("");
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [deleteLoading, setDeleteLoading] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
+  const [formMode, setFormMode] = useState<"create" | "edit">("create");
+  const [editingId, setEditingId] = useState<string | null>(null);
+
+  const loadBlogs = async () => {
+    setLoading(true);
+    try {
+      const params = new URLSearchParams();
+      if (search.trim()) params.set("q", search.trim());
+      const res = await fetch(`/api/admin/blogs?${params.toString()}`, {
+        cache: "no-store",
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Failed to load blogs");
+      setBlogs(data.items || []);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Failed to load blogs");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchBlogs = async () => {
-      setLoading(true);
-      try {
-        const params = new URLSearchParams();
-        if (search.trim()) params.set("q", search.trim());
-        const res = await fetch(`/api/admin/blogs?${params.toString()}`);
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || "Failed to load blogs");
-        setBlogs(data.items || []);
-      } catch (err) {
-        toast.error(err instanceof Error ? err.message : "Failed to load blogs");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBlogs();
+    loadBlogs();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
+
+  const openCreate = () => {
+    setFormMode("create");
+    setEditingId(null);
+    setFormOpen(true);
+  };
+
+  const openEdit = (id: string | number) => {
+    setFormMode("edit");
+    setEditingId(String(id));
+    setFormOpen(true);
+  };
 
   const handleDelete = async () => {
     if (!deletingId) return;
@@ -80,11 +98,9 @@ export default function BlogsPage() {
         title="Blogs"
         description="Manage blog posts"
         action={
-          <Button asChild>
-            <Link href="/admin/blogs/new">
-              <Plus className="h-4 w-4" />
-              New Post
-            </Link>
+          <Button onClick={openCreate}>
+            <Plus className="h-4 w-4" />
+            New Post
           </Button>
         }
       />
@@ -132,10 +148,12 @@ export default function BlogsPage() {
                   </TableCell>
                   <TableCell>
                     <div className="flex justify-end gap-2">
-                      <Button asChild variant="outline" size="icon">
-                        <Link href={`/admin/blogs/${blog.id}/edit`}>
-                          <Pencil className="h-4 w-4" />
-                        </Link>
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => openEdit(blog.id)}
+                      >
+                        <Pencil className="h-4 w-4" />
                       </Button>
                       <Button
                         variant="outline"
@@ -162,6 +180,14 @@ export default function BlogsPage() {
           </Table>
         )}
       </div>
+
+      <BlogFormDialog
+        open={formOpen}
+        onOpenChange={setFormOpen}
+        mode={formMode}
+        blogId={editingId}
+        onSaved={loadBlogs}
+      />
 
       <DeleteConfirmDialog
         open={!!deletingId}

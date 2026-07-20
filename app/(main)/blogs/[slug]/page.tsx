@@ -1,58 +1,62 @@
-import { getBlog } from "@/actions/blogs";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import { getBlog, getMoreBlogs } from "@/actions/blogs";
+import AreaOfServices from "@/components/AreaOfServices";
+import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
+import MoreBlogsCarousel from "@/components/MoreBlogsCarousel";
+import Services from "@/components/Services";
 import SideBar from "@/components/SideBar";
 import { siteName, siteUrl } from "@/data";
 import { BUSINESS_ID } from "@/jsonld";
 import { toMediaUrl } from "@/lib/media";
-import { Blog } from "@/types";
+import type { Blog } from "@/types";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { FaCheck } from "react-icons/fa6";
 import { MdCalendarMonth, MdTimer } from "react-icons/md";
 
-
 type Props = {
-  params:  Promise<{slug:string}>;
+  params: Promise<{ slug: string }>;
 };
 
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+  const blog = await getBlog(slug);
+  if (!blog) return {};
 
-export async function generateMetadata({ params }: Props ) {
-  const { slug } = await params
-  const blog = await getBlog(slug)
-  const canonical = `${siteUrl}blogs/${blog?.title}`
-  const imageUrl = toMediaUrl(blog?.image)
+  const canonical = `${siteUrl}blogs/${blog.slug}`;
+  const imageUrl = toMediaUrl(blog.image);
+
   return {
-    title: blog?.seo_title,
-    description: blog?.seo_description,
-    alternates: {
-      canonical,
-    },
+    title: blog.seo_title,
+    description: blog.seo_description,
+    alternates: { canonical },
     openGraph: {
-      title: blog?.seo_title,
-      description: blog?.seo_description,
+      title: blog.seo_title,
+      description: blog.seo_description,
       url: canonical,
       images: imageUrl ? [imageUrl] : [],
     },
     twitter: {
-      card: 'summary_large_image',
-      title: blog?.seo_title,
-      description: blog?.seo_description,
+      card: "summary_large_image",
+      title: blog.seo_title,
+      description: blog.seo_description,
       images: imageUrl ? [imageUrl] : [],
     },
-  }
+  };
 }
 
-export default async function page({ params }: Props) {
+export default async function Page({ params }: Props) {
+  const { slug } = await params;
+  const blog = await getBlog(slug);
+  if (!blog?.content) return notFound();
 
-  const { slug } = await params
-  const blog = await getBlog(slug)
-  if (!blog?.content) return notFound()
-
-
+  const moreBlogs = await getMoreBlogs(blog.slug, 8);
 
   const postUrl = `${siteUrl}/blogs/${blog.slug}`;
   const BLOG_ID = `${siteUrl}/blogs#blog`;
   const imageUrl = toMediaUrl(blog.image);
+  const sections = blog.content as Blog["content"];
+
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -68,95 +72,201 @@ export default async function page({ params }: Props) {
   };
 
   return (
-    <main className="flex flex-col gap-20">
-      <article>
-        <header className="relative flex flex-col items-center justify-center text-white bg-primary/40 gap-4 pt-28 pb-12 md:pt-32 md:pb-14 px-4">
-           <Image src={'/images/hero_bg_2.jpg'} fill className=' object-cover -z-5' alt='header_section' />
-          <Breadcrumbs />
-          <h1 className=" text-center container !font-semibold">{blog.title}</h1>
-          
-          <div className="text-sm font-medium text-white/80 flex flex-wrap justify-center items-center gap-4 mt-2">
-            <span>By <span className="font-bold text-white "> {siteName}</span></span>
-            <span className="flex items-center gap-1 ">
-              <MdCalendarMonth size={16} /> <span className="font-bold text-white">{new Date(blog.createdAt).toDateString()}</span>
-            </span>
-            <span className="flex items-center gap-1">
-              <MdTimer size={16} /><span className="font-bold text-white">{blog.read_time}</span>
-            </span>
-          </div>
-        </header>
-        <section className='xl:container mx-auto w-full overflow-hidden '>
-          <div className=' grid-cols-1 lg:grid-cols-4 grid gap-10 p-4'>
-            <div className='bg-white px-4 md:px-10 py-2 md:py-10 rounded-md flex-col gap-6 flex col-span-3 card'>
+    <main className="flex flex-col">
+      <Header
+        cta
+        title={blog.title}
+        desc={blog.seo_description ?? ""}
+      />
+
+      <section className="bg-secondary/10 py-14 md:py-20">
+        <div className="xl:container mx-auto w-full px-4 md:px-6">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 lg:gap-10">
+            <article className="lg:col-span-3 flex flex-col gap-8">
               {imageUrl && (
-                <figure className="w-full">
-                  <div className="h-[500px] w-full relative">
-                    <Image
-                      fill
-                      className="object-cover rounded-md"
-                      alt={blog?.title}
-                      src={imageUrl}
-                      unoptimized
-                    />
-                  </div>
-                  <figcaption className="text-sm text-center text-gray-500 mt-2">
-                    {blog?.title}
-                  </figcaption>
-                </figure>
-              )}
-              {(blog.content as Blog['content']).map((section, index) => (
-                <section key={index} className="">
-                  <h2 className="!text-2xl font-bold mb-4">{section.heading}</h2>
-
-                  {section.paragraph || section.body && (
-                    <p className="text-base leading-relaxed mb-4">
-                      {section.paragraph ?? section.body}
-                    </p>
-                  )}
-                  
-
-                  {section.listItems && section.listItems.length > 0 && (
-                    <ul className="list-disc pl-6 mb-4  decoration-amber-600">
-                      {section.listItems.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {section.quote && (
-                    <blockquote className="border-l-4 border-primary pl-4 italic text-gray-700 mb-4 text-xl">
-                      “{section.quote}”
-                    </blockquote>
-                  )}
-
-                  {section.table && section.table.length > 0 && (
-                    <div className="overflow-x-auto mb-4">
-                      <table className="min-w-full border-collapse border border-gray-300">
-                        <tbody>
-                          {section.table.map((row, rowIndex) => (
-                            <tr key={rowIndex}>
-                              {row.map((cell, colIndex) => (
-                                <td key={colIndex} className="border border-gray-300 p-2">
-                                  {cell}
-                                </td>
-                              ))}
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
+                <div className="relative aspect-[21/9] overflow-hidden rounded-2xl bg-primary/5 shadow-lg shadow-primary/10 sm:aspect-[2.4/1]">
+                  <Image
+                    src={imageUrl}
+                    alt={blog.title}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 75vw"
+                    className="object-cover"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-heading/55 via-heading/10 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6">
+                    <div className="mb-2 flex flex-wrap items-center gap-2">
+                      <span className="inline-flex items-center gap-1 rounded-lg bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
+                        <MdCalendarMonth className="text-sm" />
+                        {new Date(blog.createdAt).toLocaleDateString("en-US", {
+                          month: "short",
+                          day: "numeric",
+                          year: "numeric",
+                        })}
+                      </span>
+                      {blog.read_time && (
+                        <span className="inline-flex items-center gap-1 rounded-lg bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
+                          <MdTimer className="text-sm" />
+                          {blog.read_time}
+                        </span>
+                      )}
                     </div>
-                  )}
-                </section>
-              ))}
-            </div>
-            {/* SIDE BARE SECTION */}
-            <div className='sr-only lg:not-sr-only md:flex md:flex-col h-fit gap-8'>
+                    <h2 className="!text-white font-bold text-xl sm:text-2xl drop-shadow-md max-w-3xl">
+                      {blog.title}
+                    </h2>
+                  </div>
+                </div>
+              )}
+
+              <div className="rounded-2xl bg-white p-6 sm:p-8 md:p-10 shadow-md overflow-hidden relative">
+                <div
+                  className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary/[0.04]"
+                  aria-hidden
+                />
+                <div
+                  className="pointer-events-none absolute -left-10 bottom-24 h-32 w-32 rounded-full bg-secondary/20"
+                  aria-hidden
+                />
+
+                {!imageUrl && (
+                  <div className="mb-8 relative">
+                    <div className="mb-3 flex flex-wrap items-center gap-3 text-sm font-semibold text-primary">
+                      <span className="inline-flex items-center gap-1">
+                        <MdCalendarMonth size={16} />
+                        {new Date(blog.createdAt).toDateString()}
+                      </span>
+                      {blog.read_time && (
+                        <span className="inline-flex items-center gap-1">
+                          <MdTimer size={16} />
+                          {blog.read_time}
+                        </span>
+                      )}
+                    </div>
+                    <h2 className="text-heading mb-2">{blog.title}</h2>
+                    <span className="block h-1 w-16 rounded-full bg-secondary" />
+                  </div>
+                )}
+
+                {blog.seo_description && (
+                  <div className="relative mb-8 rounded-2xl border-l-4 border-primary bg-secondary/15 px-5 py-4 md:px-6 md:py-5">
+                    <p className="text-base md:text-lg font-medium leading-relaxed text-heading">
+                      {blog.seo_description}
+                    </p>
+                  </div>
+                )}
+
+                <p className="mb-8 text-sm font-medium text-heading/70">
+                  By <span className="font-bold text-heading">{siteName}</span>
+                </p>
+
+                <div className="relative space-y-10">
+                  {sections.map((section, index) => {
+                    const body = section.paragraph ?? section.body;
+                    return (
+                      <section
+                        key={index}
+                        className="group grid grid-cols-[auto_1fr] gap-4 md:gap-5"
+                      >
+                        <span className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xs font-bold text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <div className="min-w-0 border-b border-primary/5 pb-8 group-last:border-0 group-last:pb-0">
+                          {section.heading && (
+                            <h3 className="!text-lg md:!text-xl font-bold text-heading mb-3">
+                              {section.heading}
+                            </h3>
+                          )}
+
+                          {body && (
+                            <p className="p1 mb-4 last:mb-0">{body}</p>
+                          )}
+
+                          {section.listItems && section.listItems.length > 0 && (
+                            <ul className="mb-4 grid gap-2 sm:grid-cols-1">
+                              {section.listItems.map((item, i) => (
+                                <li
+                                  key={i}
+                                  className="flex items-start gap-2.5 text-sm text-heading"
+                                >
+                                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-primary text-white">
+                                    <FaCheck size={9} />
+                                  </span>
+                                  <span className="font-medium leading-snug">
+                                    {item}
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+
+                          {section.quote && (
+                            <blockquote className="mb-4 rounded-2xl border-l-4 border-secondary bg-secondary/10 px-5 py-4 text-base md:text-lg font-medium italic text-heading leading-relaxed">
+                              “{section.quote}”
+                            </blockquote>
+                          )}
+
+                          {section.table && section.table.length > 0 && (
+                            <div className="overflow-x-auto rounded-xl border border-primary/10">
+                              <table className="min-w-full border-collapse text-sm">
+                                <thead>
+                                  <tr className="bg-primary text-white">
+                                    {section.table[0].map((cell, colIndex) => (
+                                      <th
+                                        key={colIndex}
+                                        scope="col"
+                                        className="px-3 py-3 text-left text-xs font-bold uppercase tracking-wide"
+                                      >
+                                        {cell}
+                                      </th>
+                                    ))}
+                                  </tr>
+                                </thead>
+                                {section.table.length > 1 && (
+                                  <tbody>
+                                    {section.table.slice(1).map((row, rowIndex) => (
+                                      <tr
+                                        key={rowIndex}
+                                        className={
+                                          rowIndex % 2 === 0
+                                            ? "bg-secondary/10"
+                                            : "bg-white"
+                                        }
+                                      >
+                                        {row.map((cell, colIndex) => (
+                                          <td
+                                            key={colIndex}
+                                            className="border-b border-primary/5 px-3 py-2.5 text-heading"
+                                          >
+                                            {cell}
+                                          </td>
+                                        ))}
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                )}
+                              </table>
+                            </div>
+                          )}
+                        </div>
+                      </section>
+                    );
+                  })}
+                </div>
+              </div>
+            </article>
+
+            <aside className="hidden h-fit flex-col gap-5 lg:flex lg:sticky lg:top-28">
               <SideBar />
-            </div>
+            </aside>
           </div>
-        </section>
-      </article>
+        </div>
+      </section>
+
+      <MoreBlogsCarousel items={moreBlogs} />
+      <Services />
+      <AreaOfServices />
       <JsonLd data={jsonLdData} />
     </main>
-  )
+  );
 }

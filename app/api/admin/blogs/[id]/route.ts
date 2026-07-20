@@ -25,11 +25,14 @@ export async function GET(
 const blog = await prisma.blog.findUnique({
     where: { id: Number(id) },
     select: {
+      id: true,
       title: true,
       slug: true,
       read_time: true,
       image: true,
       description: true,
+      seo_title: true,
+      seo_description: true,
       content: true,
       createdAt: true,
       updatedAt: true,

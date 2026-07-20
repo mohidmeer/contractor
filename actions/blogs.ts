@@ -44,6 +44,23 @@ export async function getBlog(slug: string) {
   });
   return blog;
 }
+
+export async function getMoreBlogs(excludeSlug: string, take = 8) {
+  return prisma.blog.findMany({
+    where: { slug: { not: excludeSlug } },
+    orderBy: { createdAt: "desc" },
+    take,
+    select: {
+      id: true,
+      slug: true,
+      title: true,
+      seo_description: true,
+      read_time: true,
+      image: true,
+      createdAt: true,
+    },
+  });
+}
 // dummyblog =  {
 //   title: "Roofing Basics for Homeowners",
 //   read_time: '5 minutes',

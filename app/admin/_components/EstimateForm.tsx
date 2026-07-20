@@ -2,11 +2,17 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
-import { ArrowDown, ArrowUp, Loader2, Plus, Sparkles, Trash2 } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowUp,
+  Loader2,
+  Plus,
+  Sparkles,
+  Trash2,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -18,12 +24,20 @@ import {
   EstimateBodySchema,
   type EstimateStatus,
 } from "@/lib/estimateSchema";
-import { computeEstimateTotal, formatCurrency } from "@/lib/utils";
+import { computeEstimateTotal, formatCurrency, cn } from "@/lib/utils";
 import CopyEstimateLink, {
   getEstimatePublicUrl,
 } from "./CopyEstimateLink";
 import EstimateImagesField from "./EstimateImagesField";
 import AiFillDialog from "./AiFillDialog";
+import {
+  AiDraftBanner,
+  Field,
+  FormCard,
+  areaClass,
+  fieldClass,
+  selectTriggerClass,
+} from "./formUi";
 
 type LineItem = {
   name: string;
@@ -211,7 +225,6 @@ export default function EstimateForm({
             )
           : [emptyItem(0)]
       );
-      // Keep images / youtube for the user to add
       setAiOpen(false);
       toast.success(
         mode === "edit"
@@ -287,306 +300,330 @@ export default function EstimateForm({
 
   return (
     <>
-    <form onSubmit={handleSubmit} className="relative space-y-5">
-      {aiLoading && (
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 rounded-lg bg-background/80 backdrop-blur-sm">
-          <Loader2 className="h-8 w-8 animate-spin text-primary" />
-          <p className="text-sm font-medium">Generating estimate with AI...</p>
-        </div>
-      )}
+      <form onSubmit={handleSubmit} className="relative space-y-6">
+        {aiLoading && (
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 rounded-2xl bg-background/80 backdrop-blur-sm">
+            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            <p className="text-sm font-medium">Generating estimate with AI...</p>
+          </div>
+        )}
 
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <p className="text-sm font-medium">AI-assisted drafting</p>
-          <p className="text-sm text-muted-foreground">
-            Describe the job and Claude drafts the estimate — images stay yours to add.
-          </p>
-        </div>
-        <Button
-          type="button"
-          variant="outline"
-          className="ai-rainbow-btn"
-          disabled={aiLoading || saving}
-          onClick={() => setAiOpen(true)}
+        <AiDraftBanner
+          description="Describe the job and Claude drafts the estimate — images stay yours to add."
+          action={
+            <Button
+              type="button"
+              variant="outline"
+              className="ai-rainbow-btn"
+              disabled={aiLoading || saving}
+              onClick={() => setAiOpen(true)}
+            >
+              <span className="inline-flex items-center gap-2">
+                <Sparkles className="h-4 w-4" />
+                Fill with AI
+              </span>
+            </Button>
+          }
+        />
+
+        {initialToken && (
+          <div className="flex flex-col gap-2 rounded-2xl border border-dashed border-primary/20 bg-primary/[0.03] p-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="min-w-0">
+              <p className="text-sm font-semibold">Public link</p>
+              <p className="truncate text-xs text-muted-foreground">
+                {getEstimatePublicUrl(initialToken)}
+              </p>
+            </div>
+            <CopyEstimateLink token={initialToken} />
+          </div>
+        )}
+
+        <FormCard
+          title="Client & job"
+          description="Who this estimate is for and what the job covers."
+          contentClassName="grid gap-5 md:grid-cols-2"
         >
-          <span className="inline-flex items-center gap-2">
-            <Sparkles className="h-4 w-4" />
-            Fill with AI
-          </span>
-        </Button>
-      </div>
-
-      {initialToken && (
-        <div className="flex flex-col gap-2 rounded-md border bg-muted/40 p-3 sm:flex-row sm:items-center sm:justify-between">
-          <div className="min-w-0">
-            <p className="text-sm font-medium">Public link</p>
-            <p className="truncate text-xs text-muted-foreground">
-              {getEstimatePublicUrl(initialToken)}
-            </p>
-          </div>
-          <CopyEstimateLink token={initialToken} />
-        </div>
-      )}
-
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="space-y-2">
-          <Label htmlFor="clientName">Client name *</Label>
-          <Input
-            id="clientName"
-            value={clientName}
-            onChange={(e) => setClientName(e.target.value)}
-            required
-          />
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="title">Title *</Label>
-          <Input
-            id="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="clientEmail">Client email</Label>
-          <Input
-            id="clientEmail"
-            type="email"
-            value={clientEmail}
-            onChange={(e) => setClientEmail(e.target.value)}
-          />
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="clientPhone">Client phone</Label>
-          <Input
-            id="clientPhone"
-            value={clientPhone}
-            onChange={(e) => setClientPhone(e.target.value)}
-          />
-        </div>
-        <div className="space-y-2 md:col-span-2">
-          <Label>Status</Label>
-          <Select
-            value={status}
-            onValueChange={(value) => setStatus(value as EstimateStatus)}
+          <Field label="Client name *" htmlFor="clientName">
+            <Input
+              id="clientName"
+              value={clientName}
+              onChange={(e) => setClientName(e.target.value)}
+              className={fieldClass}
+              required
+            />
+          </Field>
+          <Field label="Title *" htmlFor="title">
+            <Input
+              id="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className={cn(fieldClass, "font-medium")}
+              required
+            />
+          </Field>
+          <Field label="Client email" htmlFor="clientEmail">
+            <Input
+              id="clientEmail"
+              type="email"
+              value={clientEmail}
+              onChange={(e) => setClientEmail(e.target.value)}
+              className={fieldClass}
+            />
+          </Field>
+          <Field label="Client phone" htmlFor="clientPhone">
+            <Input
+              id="clientPhone"
+              value={clientPhone}
+              onChange={(e) => setClientPhone(e.target.value)}
+              className={fieldClass}
+            />
+          </Field>
+          <Field label="Status" className="md:col-span-2">
+            <Select
+              value={status}
+              onValueChange={(value) => setStatus(value as EstimateStatus)}
+            >
+              <SelectTrigger className={selectTriggerClass}>
+                <SelectValue placeholder="Select status" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="DRAFT">Draft</SelectItem>
+                <SelectItem value="SENT">Sent</SelectItem>
+                <SelectItem value="VIEWED">Viewed</SelectItem>
+                <SelectItem value="ACCEPTED">Accepted</SelectItem>
+                <SelectItem value="DECLINED">Declined</SelectItem>
+              </SelectContent>
+            </Select>
+          </Field>
+          <Field
+            label="Description"
+            htmlFor="description"
+            className="md:col-span-2"
           >
-            <SelectTrigger>
-              <SelectValue placeholder="Select status" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="DRAFT">Draft</SelectItem>
-              <SelectItem value="SENT">Sent</SelectItem>
-              <SelectItem value="VIEWED">Viewed</SelectItem>
-              <SelectItem value="ACCEPTED">Accepted</SelectItem>
-              <SelectItem value="DECLINED">Declined</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="space-y-2 md:col-span-2">
-          <Label htmlFor="description">Description</Label>
-          <Textarea
-            id="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            rows={2}
-          />
-        </div>
-        <EstimateImagesField images={images} onChange={setImages} />
-        <div className="space-y-2 md:col-span-2">
-          <Label htmlFor="youtubeUrl">YouTube video link</Label>
-          <Input
-            id="youtubeUrl"
-            type="url"
-            placeholder="https://www.youtube.com/watch?v=..."
-            value={youtubeUrl}
-            onChange={(e) => setYoutubeUrl(e.target.value)}
-          />
-          <p className="text-xs text-muted-foreground">
-            Optional. Paste a YouTube watch, share, or shorts link to show on the
-            public estimate page.
-          </p>
-        </div>
-        <div className="space-y-2 md:col-span-2">
-          <Label htmlFor="notes">Notes</Label>
-          <Textarea
-            id="notes"
-            value={notes}
-            onChange={(e) => setNotes(e.target.value)}
-            rows={2}
-          />
-        </div>
-      </div>
+            <Textarea
+              id="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              rows={3}
+              className={areaClass}
+            />
+          </Field>
+          <Field label="Notes" htmlFor="notes" className="md:col-span-2">
+            <Textarea
+              id="notes"
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              rows={3}
+              className={areaClass}
+              placeholder="Internal or client-facing notes…"
+            />
+          </Field>
+        </FormCard>
 
-      <div className="space-y-3">
-        <div className="flex items-center justify-between gap-3">
-          <div>
-            <p className="text-sm font-semibold">Line items</p>
-            <p className="text-xs text-muted-foreground">
-              One row per item — name, details, qty, and price
+        <FormCard
+          title="Media"
+          description="Photos and an optional YouTube link for the public page."
+          contentClassName="grid gap-5"
+        >
+          <EstimateImagesField images={images} onChange={setImages} />
+          <Field
+            label="YouTube video link"
+            htmlFor="youtubeUrl"
+            hint="optional"
+          >
+            <Input
+              id="youtubeUrl"
+              type="url"
+              placeholder="https://www.youtube.com/watch?v=..."
+              value={youtubeUrl}
+              onChange={(e) => setYoutubeUrl(e.target.value)}
+              className={fieldClass}
+            />
+            <p className="pt-1 text-xs text-muted-foreground">
+              Paste a YouTube watch, share, or shorts link.
             </p>
+          </Field>
+        </FormCard>
+
+        <FormCard
+          title="Line items"
+          description="One row per item — name, details, qty, and price."
+          action={
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              className="rounded-lg"
+              onClick={addItem}
+            >
+              <Plus className="h-4 w-4" />
+              Add row
+            </Button>
+          }
+          contentClassName="space-y-4"
+        >
+          <div className="overflow-x-auto rounded-2xl border border-emerald-500/15 bg-emerald-500/[0.03]">
+            <div className="min-w-[680px]">
+              <div className="grid grid-cols-[1.75rem_minmax(7rem,1.1fr)_minmax(7rem,1fr)_4rem_5.5rem_5.5rem_6.5rem] items-center gap-1.5 border-b bg-muted/40 px-3 py-2.5 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                <span>#</span>
+                <span>Name</span>
+                <span>Description</span>
+                <span>Qty</span>
+                <span>Price</span>
+                <span className="text-right">Total</span>
+                <span className="text-right">Actions</span>
+              </div>
+
+              <div className="divide-y divide-border/60">
+                {items.map((item, index) => {
+                  const subtotal =
+                    (Number(item.quantity) || 0) *
+                    (Number(item.unitPrice) || 0);
+                  return (
+                    <div
+                      key={index}
+                      className="grid grid-cols-[1.75rem_minmax(7rem,1.1fr)_minmax(7rem,1fr)_4rem_5.5rem_5.5rem_6.5rem] items-center gap-1.5 bg-background/80 px-3 py-2.5 transition-colors hover:bg-accent/30"
+                    >
+                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-600/10 text-[11px] font-semibold text-emerald-800">
+                        {index + 1}
+                      </span>
+                      <Input
+                        value={item.name}
+                        onChange={(e) =>
+                          updateItem(index, { name: e.target.value })
+                        }
+                        placeholder="Item name"
+                        className={cn(fieldClass, "h-9 bg-background")}
+                        required
+                      />
+                      <Input
+                        value={item.description}
+                        onChange={(e) =>
+                          updateItem(index, { description: e.target.value })
+                        }
+                        placeholder="Optional details"
+                        className={cn(fieldClass, "h-9 bg-background")}
+                      />
+                      <Input
+                        type="number"
+                        min={1}
+                        value={item.quantity}
+                        onChange={(e) =>
+                          updateItem(index, {
+                            quantity: Number(e.target.value) || 1,
+                          })
+                        }
+                        className={cn(
+                          fieldClass,
+                          "h-9 bg-background text-center"
+                        )}
+                      />
+                      <Input
+                        type="number"
+                        min={0}
+                        step="0.01"
+                        value={item.unitPrice}
+                        onChange={(e) =>
+                          updateItem(index, {
+                            unitPrice: Number(e.target.value) || 0,
+                          })
+                        }
+                        className={cn(fieldClass, "h-9 bg-background")}
+                      />
+                      <div className="text-right text-sm font-semibold tabular-nums">
+                        {formatCurrency(subtotal)}
+                      </div>
+                      <div className="flex justify-end gap-1">
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="icon"
+                          className="h-8 w-8"
+                          onClick={() => moveItem(index, -1)}
+                          disabled={index === 0}
+                          title="Move up"
+                        >
+                          <ArrowUp className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="icon"
+                          className="h-8 w-8"
+                          onClick={() => moveItem(index, 1)}
+                          disabled={index === items.length - 1}
+                          title="Move down"
+                        >
+                          <ArrowDown className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="icon"
+                          className="h-8 w-8 text-destructive hover:text-destructive"
+                          onClick={() => removeItem(index)}
+                          disabled={items.length === 1}
+                          title="Remove row"
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-          <Button type="button" variant="outline" size="sm" onClick={addItem}>
-            <Plus className="h-4 w-4" />
-            Add row
+
+          <div className="flex items-center justify-between rounded-2xl border border-primary/15 bg-primary/[0.04] px-4 py-3.5">
+            <p className="text-sm font-medium text-muted-foreground">
+              {items.length} item{items.length === 1 ? "" : "s"}
+            </p>
+            <div className="text-right">
+              <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                Grand total
+              </p>
+              <p className="text-xl font-bold tabular-nums">
+                {formatCurrency(total)}
+              </p>
+            </div>
+          </div>
+        </FormCard>
+
+        <div className="sticky bottom-0 flex flex-wrap justify-end gap-2 border-t bg-background/95 py-3 backdrop-blur">
+          <Button
+            type="button"
+            variant="outline"
+            onClick={onCancel}
+            disabled={saving || aiLoading}
+          >
+            Cancel
+          </Button>
+          <Button type="submit" disabled={saving || aiLoading}>
+            {saving ? "Saving..." : "Save estimate"}
           </Button>
         </div>
+      </form>
 
-        <div className="overflow-x-auto rounded-xl border bg-muted/20">
-          <div className="min-w-[680px]">
-            <div className="grid grid-cols-[1.75rem_minmax(7rem,1.1fr)_minmax(7rem,1fr)_4rem_5.5rem_5.5rem_6.5rem] items-center gap-1.5 border-b bg-muted/50 px-2 py-2 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
-              <span>#</span>
-              <span>Name</span>
-              <span>Description</span>
-              <span>Qty</span>
-              <span>Price</span>
-              <span className="text-right">Total</span>
-              <span className="text-right">Actions</span>
-            </div>
-
-            <div className="divide-y">
-              {items.map((item, index) => {
-                const subtotal =
-                  (Number(item.quantity) || 0) * (Number(item.unitPrice) || 0);
-                return (
-                  <div
-                    key={index}
-                    className="grid grid-cols-[1.75rem_minmax(7rem,1.1fr)_minmax(7rem,1fr)_4rem_5.5rem_5.5rem_6.5rem] items-center gap-1.5 bg-background px-2 py-2 transition-colors hover:bg-accent/40"
-                  >
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-[11px] font-semibold text-primary">
-                      {index + 1}
-                    </span>
-                    <Input
-                      value={item.name}
-                      onChange={(e) =>
-                        updateItem(index, { name: e.target.value })
-                      }
-                      placeholder="Item name"
-                      className="h-9"
-                      required
-                    />
-                    <Input
-                      value={item.description}
-                      onChange={(e) =>
-                        updateItem(index, { description: e.target.value })
-                      }
-                      placeholder="Optional details"
-                      className="h-9"
-                    />
-                    <Input
-                      type="number"
-                      min={1}
-                      value={item.quantity}
-                      onChange={(e) =>
-                        updateItem(index, {
-                          quantity: Number(e.target.value) || 1,
-                        })
-                      }
-                      className="h-9 text-center"
-                    />
-                    <Input
-                      type="number"
-                      min={0}
-                      step="0.01"
-                      value={item.unitPrice}
-                      onChange={(e) =>
-                        updateItem(index, {
-                          unitPrice: Number(e.target.value) || 0,
-                        })
-                      }
-                      className="h-9"
-                    />
-                    <div className="text-right text-sm font-semibold tabular-nums">
-                      {formatCurrency(subtotal)}
-                    </div>
-                    <div className="flex justify-end gap-1">
-                      <Button
-                        type="button"
-                        variant="ghost"
-                        size="icon"
-                        className="h-8 w-8"
-                        onClick={() => moveItem(index, -1)}
-                        disabled={index === 0}
-                        title="Move up"
-                      >
-                        <ArrowUp className="h-4 w-4" />
-                      </Button>
-                      <Button
-                        type="button"
-                        variant="ghost"
-                        size="icon"
-                        className="h-8 w-8"
-                        onClick={() => moveItem(index, 1)}
-                        disabled={index === items.length - 1}
-                        title="Move down"
-                      >
-                        <ArrowDown className="h-4 w-4" />
-                      </Button>
-                      <Button
-                        type="button"
-                        variant="ghost"
-                        size="icon"
-                        className="h-8 w-8 text-destructive hover:text-destructive"
-                        onClick={() => removeItem(index)}
-                        disabled={items.length === 1}
-                        title="Remove row"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between rounded-xl border bg-primary/5 px-4 py-3">
-          <p className="text-sm font-medium text-muted-foreground">
-            {items.length} item{items.length === 1 ? "" : "s"}
-          </p>
-          <div className="text-right">
-            <p className="text-xs uppercase tracking-wide text-muted-foreground">
-              Grand total
-            </p>
-            <p className="text-xl font-bold tabular-nums">{formatCurrency(total)}</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-wrap justify-end gap-2 border-t pt-4">
-        <Button
-          type="button"
-          variant="outline"
-          onClick={onCancel}
-          disabled={saving || aiLoading}
-        >
-          Cancel
-        </Button>
-        <Button type="submit" disabled={saving || aiLoading}>
-          {saving ? "Saving..." : "Save estimate"}
-        </Button>
-      </div>
-    </form>
-
-    <AiFillDialog
-      open={aiOpen}
-      onOpenChange={setAiOpen}
-      title={
-        mode === "edit" ? "Update estimate with AI" : "Fill estimate with AI"
-      }
-      description={
-        mode === "edit"
-          ? "Describe what to change. Current estimate details and line items are sent to AI as reference."
-          : "Describe the job and client. Line items and copy will be filled; leave images for you to upload."
-      }
-      placeholder={
-        mode === "edit"
-          ? "e.g. Add a backsplash line item and raise cabinet labor by about 10%..."
-          : "e.g. Kitchen remodel for Jane Doe in Orlando — cabinets, quartz counters, backsplash, plumbing rough-in..."
-      }
-      loading={aiLoading}
-      onGenerate={handleAiGenerate}
-    />
+      <AiFillDialog
+        open={aiOpen}
+        onOpenChange={setAiOpen}
+        title={
+          mode === "edit" ? "Update estimate with AI" : "Fill estimate with AI"
+        }
+        description={
+          mode === "edit"
+            ? "Describe what to change. Current estimate details and line items are sent to AI as reference."
+            : "Describe the job and client. Line items and copy will be filled; leave images for you to upload."
+        }
+        placeholder={
+          mode === "edit"
+            ? "e.g. Add a backsplash line item and raise cabinet labor by about 10%..."
+            : "e.g. Kitchen remodel for Jane Doe in Orlando — cabinets, quartz counters, backsplash, plumbing rough-in..."
+        }
+        loading={aiLoading}
+        onGenerate={handleAiGenerate}
+      />
     </>
   );
 }
