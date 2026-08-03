@@ -3,10 +3,10 @@ import "@/app/globals.css";
 import NavBar2 from "@/components/NavBar2";
 import Footer from "@/components/Footer";
 import GoogleMap from "@/components/GoogleMap";
-import { googleAnalyticId, landingPage, siteUrl } from "@/data";
+import { googleAnalyticId, googleTagManagerId, landingPage, siteUrl } from "@/data";
 import JsonLd from "@/components/JsonLd";
 import { JsonLdDataLanding } from "@/jsonld";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import CallButton from "@/components/CallButton";
 import { getDynamicNavItems } from "@/actions/nav";
 
@@ -60,7 +60,12 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className="overflow-x-hidden">
-        <GoogleAnalytics gaId={googleAnalyticId} />
+        {/* <GoogleAnalytics gaId={googleAnalyticId} /> */}
+        {googleTagManagerId ? (
+          <GoogleTagManager gtmId={googleTagManagerId} />
+        ) : (
+          googleAnalyticId && <GoogleAnalytics gaId={googleAnalyticId} />
+        )}
         <NavBar2 items={navItems} />
         {children}
         <GoogleMap />
