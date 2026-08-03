@@ -12,7 +12,7 @@ export const siteName = 'Berg General Contractors';
 export const bussinessType = ["LocalBusiness","HomeAndConstructionBusiness","GeneralContractor"];
 export const siteLogo = `${static_assets}/images/logo.png`;
 export const googleAnalyticId = 'G-YKMDZQ9PH2';
-export const googleTagManagerId = '5Q3MVLR8';
+export const googleTagManagerId = 'GTM-5Q3MVLR8';
 
 export const contactInfo = {
   phone: {
