@@ -1,6 +1,9 @@
 import { z } from "zod";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
-import { getAnthropicClient } from "@/lib/ai/clients";
+import {
+  getAnthropicClient,
+  recordAnthropicMessageUsage,
+} from "@/lib/ai/clients";
 import { siteName } from "@/data";
 
 const ServiceAiSchema = z.object({
@@ -84,7 +87,7 @@ export async function generateServiceWithAi(
   prompt: string,
   context?: ServiceAiContext
 ): Promise<ServiceAiResult> {
-  const client = await getAnthropicClient();
+  const { client, apiKeyId } = await getAnthropicClient();
 
   const message = await client.messages.parse({
     model: "claude-sonnet-4-6",
@@ -99,6 +102,8 @@ export async function generateServiceWithAi(
       format: zodOutputFormat(ServiceAiSchema),
     },
   });
+
+  await recordAnthropicMessageUsage(apiKeyId, message.usage);
 
   if (!message.parsed_output) {
     throw new Error(

@@ -1,18 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAuthorized } from "@/lib/auth";
 import prisma from "@/lib/prisma";
-
-const SETTING_ID = 1;
+import { ensureSettingRow, SETTING_ID } from "@/lib/apiKeys";
 
 export async function GET(req: NextRequest) {
   if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
 
+  await ensureSettingRow();
   const setting = await prisma.setting.findUnique({
     where: { id: SETTING_ID },
   });
 
   return NextResponse.json({
-    anthropicKey: setting?.anthropicKey ?? "",
+    ownerPrompt: setting?.ownerPrompt ?? "",
+    activeApiKeyId: setting?.activeApiKeyId ?? null,
   });
 }
 
@@ -21,18 +22,19 @@ export async function PUT(req: NextRequest) {
 
   try {
     const json = await req.json();
-    const anthropicKey =
-      typeof json.anthropicKey === "string" ? json.anthropicKey.trim() : "";
+    const ownerPrompt =
+      typeof json.ownerPrompt === "string" ? json.ownerPrompt : "";
 
-    const setting = await prisma.setting.upsert({
+    await ensureSettingRow();
+    const setting = await prisma.setting.update({
       where: { id: SETTING_ID },
-      create: { id: SETTING_ID, anthropicKey: anthropicKey || null },
-      update: { anthropicKey: anthropicKey || null },
+      data: { ownerPrompt: ownerPrompt.trim() || null },
     });
 
     return NextResponse.json({
       message: "saved",
-      anthropicKey: setting.anthropicKey ?? "",
+      ownerPrompt: setting.ownerPrompt ?? "",
+      activeApiKeyId: setting.activeApiKeyId ?? null,
     });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Invalid payload";

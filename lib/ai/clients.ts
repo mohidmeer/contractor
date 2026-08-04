@@ -1,26 +1,38 @@
 import Anthropic from "@anthropic-ai/sdk";
-import prisma from "@/lib/prisma";
+import {
+  recordTokenUsage,
+  resolveAnthropicApiKey,
+} from "@/lib/apiKeys";
 
-const SETTING_ID = 1;
+export type AnthropicClientBundle = {
+  client: Anthropic;
+  apiKeyId: string;
+};
 
-export async function getAnthropicApiKey(): Promise<string> {
-  const setting = await prisma.setting.findUnique({
-    where: { id: SETTING_ID },
-  });
-
-  const apiKey = setting?.anthropicKey?.trim();
-  if (!apiKey) {
-    throw new Error(
-      "Anthropic API key is not configured. Add it in Admin → Settings."
-    );
-  }
-
-  return apiKey;
+export async function getAnthropicClient(): Promise<AnthropicClientBundle> {
+  const key = await resolveAnthropicApiKey();
+  return {
+    client: new Anthropic({ apiKey: key.apiKey }),
+    apiKeyId: key.id,
+  };
 }
 
-export async function getAnthropicClient(): Promise<Anthropic> {
-  const apiKey = await getAnthropicApiKey();
-  return new Anthropic({ apiKey });
+export async function recordAnthropicMessageUsage(
+  apiKeyId: string,
+  usage?: { input_tokens?: number; output_tokens?: number } | null
+): Promise<void> {
+  if (!usage) return;
+  await recordTokenUsage(
+    apiKeyId,
+    usage.input_tokens ?? 0,
+    usage.output_tokens ?? 0
+  );
+}
+
+/** @deprecated Use getAnthropicClient(); kept for any straggling imports */
+export async function getAnthropicApiKey(): Promise<string> {
+  const key = await resolveAnthropicApiKey();
+  return key.apiKey;
 }
 
 export { Anthropic };

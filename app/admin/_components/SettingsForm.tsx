@@ -2,15 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function SettingsForm() {
-  const [anthropicKey, setAnthropicKey] = useState("");
-  const [showKey, setShowKey] = useState(false);
+  const [ownerPrompt, setOwnerPrompt] = useState("");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
@@ -22,7 +20,7 @@ export default function SettingsForm() {
         const res = await fetch("/api/admin/settings", { cache: "no-store" });
         if (!res.ok) throw new Error(`Failed to load settings (${res.status})`);
         const data = await res.json();
-        if (!cancelled) setAnthropicKey(data.anthropicKey ?? "");
+        if (!cancelled) setOwnerPrompt(data.ownerPrompt ?? "");
       } catch (err) {
         toast.error(err instanceof Error ? err.message : "Failed to load settings");
       } finally {
@@ -44,7 +42,7 @@ export default function SettingsForm() {
       const res = await fetch("/api/admin/settings", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ anthropicKey }),
+        body: JSON.stringify({ ownerPrompt }),
       });
 
       if (!res.ok) {
@@ -52,7 +50,7 @@ export default function SettingsForm() {
         throw new Error(data.error || "Failed to save settings");
       }
 
-      toast.success("Settings saved");
+      toast.success("Chatbot prompt saved");
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Failed to save");
     } finally {
@@ -68,44 +66,27 @@ export default function SettingsForm() {
     <form onSubmit={handleSubmit} className="max-w-2xl space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>API Keys</CardTitle>
+          <CardTitle>Chatbot prompt</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="anthropic-key">Anthropic API Key</Label>
-            <div className="relative">
-              <Input
-                id="anthropic-key"
-                type={showKey ? "text" : "password"}
-                value={anthropicKey}
-                onChange={(e) => setAnthropicKey(e.target.value)}
-                placeholder="sk-ant-..."
-                autoComplete="off"
-                className="pr-10"
-              />
-              <button
-                type="button"
-                onClick={() => setShowKey((v) => !v)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                aria-label={showKey ? "Hide key" : "Show key"}
-              >
-                {showKey ? (
-                  <EyeOff className="h-4 w-4" />
-                ) : (
-                  <Eye className="h-4 w-4" />
-                )}
-              </button>
-            </div>
+            <Label htmlFor="owner-prompt">Owner instructions</Label>
+            <Textarea
+              id="owner-prompt"
+              value={ownerPrompt}
+              onChange={(e) => setOwnerPrompt(e.target.value)}
+              placeholder="Add tone, specialties, service areas, or CTA preferences for the landing chatbot…"
+              rows={6}
+            />
             <p className="text-xs text-muted-foreground">
-              Stored securely in the database and used for AI features.
+              Appended to the chatbot system prompt with your published services and projects.
             </p>
           </div>
+          <Button type="submit" disabled={saving}>
+            {saving ? "Saving..." : "Save prompt"}
+          </Button>
         </CardContent>
       </Card>
-
-      <Button type="submit" disabled={saving}>
-        {saving ? "Saving..." : "Save settings"}
-      </Button>
     </form>
   );
 }

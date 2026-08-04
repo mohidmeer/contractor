@@ -1,6 +1,9 @@
 import { z } from "zod";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
-import { getAnthropicClient } from "@/lib/ai/clients";
+import {
+  getAnthropicClient,
+  recordAnthropicMessageUsage,
+} from "@/lib/ai/clients";
 import { siteName } from "@/data";
 
 const EstimateAiSchema = z.object({
@@ -85,7 +88,7 @@ export async function generateEstimateWithAi(
   prompt: string,
   context?: EstimateAiContext
 ): Promise<EstimateAiResult> {
-  const client = await getAnthropicClient();
+  const { client, apiKeyId } = await getAnthropicClient();
 
   const message = await client.messages.parse({
     model: "claude-sonnet-4-6",
@@ -100,6 +103,8 @@ export async function generateEstimateWithAi(
       format: zodOutputFormat(EstimateAiSchema),
     },
   });
+
+  await recordAnthropicMessageUsage(apiKeyId, message.usage);
 
   if (!message.parsed_output) {
     throw new Error(

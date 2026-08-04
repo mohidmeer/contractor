@@ -135,9 +135,27 @@ model Category {
   services    Service[]
 }
 
+enum ApiKeyProvider {
+  ANTHROPIC
+}
+
+model ApiKey {
+  id                    String         @id @default(cuid())
+  label                 String
+  provider              ApiKeyProvider @default(ANTHROPIC)
+  apiKey                String
+  inputTokensUsed       Int            @default(0)
+  outputTokensUsed      Int            @default(0)
+  inputPricePerMillion  Float          @default(0)
+  outputPricePerMillion Float          @default(0)
+  isDefault             Boolean        @default(false)
+  createdAt             DateTime       @default(now())
+}
+
 model Setting {
-  id           Int      @id @default(autoincrement())
-  anthropicKey String?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id             Int      @id @default(autoincrement())
+  ownerPrompt    String?
+  activeApiKeyId String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
