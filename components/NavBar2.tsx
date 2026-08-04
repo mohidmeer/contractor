@@ -147,13 +147,13 @@ const NavBar2 = ({ items }: { items: NavItem[] }) => {
                       {/* Keeps hover active while moving from the link into the panel */}
                       <div className="h-4 -mt-4" aria-hidden />
                       <div className="w-full bg-white/95 backdrop-blur-xl text-black shadow-2xl shadow-black/25 border-t border-b border-black/5">
-                        <div className="xl:container mx-auto px-4 sm:px-6 py-6 lg:py-8">
-                          <div className="flex items-end justify-between gap-4 mb-5 pb-4 border-b border-black/10">
+                        <div className="xl:container mx-auto px-4 sm:px-6 py-5 lg:py-6">
+                          <div className="flex items-end justify-between gap-4 mb-4 pb-3 border-b border-black/10">
                             <div>
-                              <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-1">
+                              <p className="text-[11px] uppercase tracking-[0.18em] text-secondary font-bold mb-0.5">
                                 Explore
                               </p>
-                              <h3 className="text-xl font-bold text-primary">{item.label}</h3>
+                              <h3 className="text-lg font-bold text-primary">{item.label}</h3>
                             </div>
                             <Link
                               href={item.href}
@@ -163,22 +163,62 @@ const NavBar2 = ({ items }: { items: NavItem[] }) => {
                             </Link>
                           </div>
 
-                          <ul className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
-                            {item.children?.map((child) => (
-                              <li key={child.href}>
-                                <Link
-                                  href={child.href}
-                                  className="flex items-center gap-2 h-full px-4 py-3 rounded-lg text-sm font-medium text-black/80 hover:text-white hover:bg-secondary transition-colors border border-transparent hover:border-secondary"
+                          {item.children?.some(
+                            (child) =>
+                              child.hasChildrens &&
+                              (child.children?.length ?? 0) > 0
+                          ) ? (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
+                              {item.children?.map((group) => (
+                                <div
+                                  key={`${group.label}-${group.href}`}
+                                  className="rounded-xl border border-black/6 bg-black/[0.02] p-3.5"
                                 >
-                                  <span className="h-1.5 w-1.5 rounded-full bg-secondary shrink-0" />
-                                  {child.label}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
+                                  <div className="mb-2.5 flex items-center gap-2.5 border-b border-black/8 pb-2">
+                                    <span
+                                      aria-hidden
+                                      className="h-5 w-0.5 shrink-0 rounded-full bg-secondary"
+                                    />
+                                    <h4 className="text-sm font-bold leading-snug text-primary truncate">
+                                      {group.label}
+                                    </h4>
+                                  </div>
+                                  <ul className="space-y-0.5">
+                                    {group.children?.map((child) => (
+                                      <li key={child.href}>
+                                        <Link
+                                          href={child.href}
+                                          className="flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-[13px] font-medium text-black/70 transition-colors hover:bg-secondary hover:text-white"
+                                        >
+                                          <span className="h-1 w-1 rounded-full bg-secondary/80 shrink-0" />
+                                          <span className="leading-snug">
+                                            {child.label}
+                                          </span>
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              ))}
+                            </div>
+                          ) : (
+                            <ul className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
+                              {item.children?.map((child) => (
+                                <li key={child.href}>
+                                  <Link
+                                    href={child.href}
+                                    className="flex items-center gap-2 h-full px-4 py-3 rounded-lg text-sm font-medium text-black/80 hover:text-white hover:bg-secondary transition-colors border border-transparent hover:border-secondary"
+                                  >
+                                    <span className="h-1.5 w-1.5 rounded-full bg-secondary shrink-0" />
+                                    {child.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
 
-                          <div className="mt-6 pt-5 border-t border-black/10 flex flex-wrap items-center justify-between gap-3">
-                            <p className="text-sm text-black/60">
+                          <div className="mt-5 pt-4 border-t border-black/10 flex flex-wrap items-center justify-between gap-3">
+                            <p className="text-sm text-black/55">
                               Need help choosing? Talk with our team today.
                             </p>
                             <a
@@ -273,20 +313,48 @@ const NavBar2 = ({ items }: { items: NavItem[] }) => {
                       </button>
                       <ul
                         className={`overflow-hidden transition-all duration-300 ${
-                          openDropdown === item.label ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                          openDropdown === item.label ? 'max-h-[70vh] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'
                         }`}
                       >
-                        {item.children?.map((child) => (
-                          <li key={child.href}>
-                            <Link
-                              href={child.href}
-                              className="block rounded-lg ml-3 px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-secondary/80 transition-colors"
-                              onClick={() => setMenuOpen(false)}
-                            >
-                              {child.label}
-                            </Link>
-                          </li>
-                        ))}
+                        {item.children?.some(
+                          (child) =>
+                            child.hasChildrens &&
+                            (child.children?.length ?? 0) > 0
+                        )
+                          ? item.children.map((group) => (
+                              <li key={`${group.label}-${group.href}`} className="mt-3 first:mt-1">
+                                <div className="ml-3 mb-1.5 flex items-center gap-2 px-3">
+                                  <span className="h-4 w-0.5 rounded-full bg-secondary" />
+                                  <p className="text-sm font-bold text-white">
+                                    {group.label}
+                                  </p>
+                                </div>
+                                <ul>
+                                  {group.children?.map((child) => (
+                                    <li key={child.href}>
+                                      <Link
+                                        href={child.href}
+                                        className="block rounded-lg ml-3 px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-secondary/80 transition-colors"
+                                        onClick={() => setMenuOpen(false)}
+                                      >
+                                        {child.label}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </li>
+                            ))
+                          : item.children?.map((child) => (
+                              <li key={child.href}>
+                                <Link
+                                  href={child.href}
+                                  className="block rounded-lg ml-3 px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-secondary/80 transition-colors"
+                                  onClick={() => setMenuOpen(false)}
+                                >
+                                  {child.label}
+                                </Link>
+                              </li>
+                            ))}
                       </ul>
                     </>
                   ) : (

@@ -1,19 +1,27 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
-import { CheckCircle2, Loader2, Sparkles, XCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  CheckCircle2,
+  Loader2,
+  Plus,
+  Sparkles,
+  Trash2,
+  XCircle,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
 import {
   type BulkEntityType,
   getBulkAiEndpoint,
@@ -23,6 +31,7 @@ import {
 } from "@/lib/ai/bulkMap";
 
 type ProgressStatus =
+  | "idle"
   | "pending"
   | "generating"
   | "saving"
@@ -30,11 +39,23 @@ type ProgressStatus =
   | "error"
   | "cancelled";
 
-type ProgressRow = {
-  prompt: string;
+type PromptCard = {
+  id: string;
+  text: string;
   status: ProgressStatus;
   error?: string;
 };
+
+const TYPE_OPTIONS: {
+  value: BulkEntityType;
+  label: string;
+  hint: string;
+}[] = [
+  { value: "blogs", label: "Blogs", hint: "Articles & posts" },
+  { value: "services", label: "Services", hint: "Service pages" },
+  { value: "projects", label: "Projects", hint: "Case studies" },
+  { value: "estimates", label: "Estimates", hint: "Client drafts" },
+];
 
 const TYPE_LABELS: Record<BulkEntityType, string> = {
   blogs: "Blogs",
@@ -43,19 +64,114 @@ const TYPE_LABELS: Record<BulkEntityType, string> = {
   estimates: "Estimates",
 };
 
+function newCard(text = ""): PromptCard {
+  return {
+    id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    text,
+    status: "idle",
+  };
+}
+
 export default function BulkAiWritePanel() {
+  const [open, setOpen] = useState(false);
   const [entityType, setEntityType] = useState<BulkEntityType>("blogs");
-  const [promptsText, setPromptsText] = useState("");
+  const [cards, setCards] = useState<PromptCard[]>([newCard()]);
   const [running, setRunning] = useState(false);
-  const [rows, setRows] = useState<ProgressRow[]>([]);
   const cancelRef = useRef(false);
 
-  const completed = rows.filter((r) => r.status === "done").length;
-  const failed = rows.filter((r) => r.status === "error").length;
+  const readyPrompts = cards
+    .map((c) => c.text.trim())
+    .filter(Boolean);
+  const completed = cards.filter((c) => c.status === "done").length;
+  const failed = cards.filter((c) => c.status === "error").length;
+  const finished = cards.filter((c) =>
+    ["done", "error", "cancelled"].includes(c.status)
+  ).length;
+  const activeTotal = cards.filter((c) =>
+    ["pending", "generating", "saving", "done", "error", "cancelled"].includes(
+      c.status
+    )
+  ).length;
+  const progressPct =
+    activeTotal > 0 ? Math.round((finished / activeTotal) * 100) : 0;
 
-  const updateRow = (index: number, patch: Partial<ProgressRow>) => {
-    setRows((prev) =>
-      prev.map((row, i) => (i === index ? { ...row, ...patch } : row))
+  useEffect(() => {
+    if (!open && !running) {
+      setCards([newCard()]);
+      cancelRef.current = false;
+    }
+  }, [open, running]);
+
+  const updateCard = (id: string, patch: Partial<PromptCard>) => {
+    setCards((prev) =>
+      prev.map((card) => (card.id === id ? { ...card, ...patch } : card))
+    );
+  };
+
+  const addCard = () => {
+    if (running) return;
+    setCards((prev) => [...prev, newCard()]);
+  };
+
+  const removeCard = (id: string) => {
+    if (running) return;
+    setCards((prev) => {
+      if (prev.length <= 1) return [newCard()];
+      return prev.filter((card) => card.id !== id);
+    });
+  };
+
+  const handleCardChange = (id: string, value: string) => {
+    updateCard(id, { text: value, status: "idle", error: undefined });
+  };
+
+  const handlePaste = (
+    id: string,
+    event: React.ClipboardEvent<HTMLTextAreaElement>
+  ) => {
+    if (running) return;
+    const pasted = event.clipboardData.getData("text");
+    if (!pasted.includes("\n") && !pasted.includes("\r")) return;
+
+    event.preventDefault();
+    const pieces = parseBulkPrompts(pasted);
+    if (!pieces.length) return;
+
+    const target = event.currentTarget;
+    const selectionStart = target?.selectionStart ?? 0;
+    const selectionEnd = target?.selectionEnd ?? selectionStart;
+
+    setCards((prev) => {
+      const index = prev.findIndex((card) => card.id === id);
+      if (index === -1) return prev;
+
+      const current = prev[index];
+      const before = current.text.slice(0, selectionStart);
+      const after = current.text.slice(selectionEnd);
+
+      const splitCards = pieces.map((text, i) => {
+        if (i === 0) {
+          const merged = `${before}${text}${
+            pieces.length === 1 ? after : ""
+          }`.trim();
+          return {
+            ...current,
+            text: merged,
+            status: "idle" as const,
+            error: undefined,
+          };
+        }
+        if (i === pieces.length - 1 && after.trim()) {
+          return newCard(`${text}${after}`.trim());
+        }
+        return newCard(text);
+      });
+
+      return [...prev.slice(0, index), ...splitCards, ...prev.slice(index + 1)];
+    });
+
+    toast.success(
+      `Split into ${pieces.length} prompt${pieces.length === 1 ? "" : "s"}`
     );
   };
 
@@ -64,43 +180,53 @@ export default function BulkAiWritePanel() {
   };
 
   const handleBulkWrite = async () => {
-    const prompts = parseBulkPrompts(promptsText);
-    if (!prompts.length) {
-      toast.error("Add at least one prompt (one per line)");
+    const active = cards.filter((c) => c.text.trim());
+    if (!active.length) {
+      toast.error("Add at least one prompt");
       return;
     }
 
     cancelRef.current = false;
     setRunning(true);
-    setRows(prompts.map((prompt) => ({ prompt, status: "pending" })));
+
+    // Reset statuses for cards that will run
+    setCards((prev) =>
+      prev.map((card) =>
+        card.text.trim()
+          ? { ...card, status: "pending", error: undefined }
+          : card
+      )
+    );
 
     const aiUrl = getBulkAiEndpoint(entityType);
     const createUrl = getBulkCreateEndpoint(entityType);
     let doneCount = 0;
     let failCount = 0;
 
-    for (let i = 0; i < prompts.length; i++) {
+    // Work from a snapshot of ids with non-empty prompts
+    const queue = active.map((c) => ({ id: c.id, prompt: c.text.trim() }));
+
+    for (const item of queue) {
       if (cancelRef.current) {
-        setRows((prev) =>
-          prev.map((row) =>
-            row.status === "pending" ||
-            row.status === "generating" ||
-            row.status === "saving"
-              ? { ...row, status: "cancelled" }
-              : row
+        setCards((prev) =>
+          prev.map((card) =>
+            card.status === "pending" ||
+            card.status === "generating" ||
+            card.status === "saving"
+              ? { ...card, status: "cancelled" }
+              : card
           )
         );
         break;
       }
 
-      const prompt = prompts[i];
-      updateRow(i, { status: "generating", error: undefined });
+      updateCard(item.id, { status: "generating", error: undefined });
 
       try {
         const aiRes = await fetch(aiUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ prompt, existing: null }),
+          body: JSON.stringify({ prompt: item.prompt, existing: null }),
         });
         const aiJson = await aiRes.json().catch(() => ({}));
         if (!aiRes.ok) {
@@ -112,11 +238,11 @@ export default function BulkAiWritePanel() {
         }
 
         if (cancelRef.current) {
-          updateRow(i, { status: "cancelled" });
+          updateCard(item.id, { status: "cancelled" });
           break;
         }
 
-        updateRow(i, { status: "saving" });
+        updateCard(item.id, { status: "saving" });
         const payload = mapAiResultToCreatePayload(
           entityType,
           (aiJson.data ?? {}) as Record<string, unknown>
@@ -136,11 +262,11 @@ export default function BulkAiWritePanel() {
           );
         }
 
-        updateRow(i, { status: "done" });
+        updateCard(item.id, { status: "done" });
         doneCount += 1;
       } catch (err) {
         failCount += 1;
-        updateRow(i, {
+        updateCard(item.id, {
           status: "error",
           error: err instanceof Error ? err.message : "Failed",
         });
@@ -164,138 +290,265 @@ export default function BulkAiWritePanel() {
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Sparkles className="h-4 w-4" />
-          Bulk write
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <p className="text-sm text-muted-foreground">
-          Paste one prompt per line. Each item is generated with AI, saved as a{" "}
-          <strong>draft</strong> with no images, then you can review and publish
-          from the admin lists.
-        </p>
-
-        <div className="space-y-2">
-          <Label>Content type</Label>
-          <Select
-            value={entityType}
-            onValueChange={(value) => setEntityType(value as BulkEntityType)}
-            disabled={running}
-          >
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="blogs">Blogs</SelectItem>
-              <SelectItem value="services">Services</SelectItem>
-              <SelectItem value="projects">Projects</SelectItem>
-              <SelectItem value="estimates">Estimates</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="bulk-prompts">Prompts (one per line)</Label>
-          <Textarea
-            id="bulk-prompts"
-            rows={8}
-            value={promptsText}
-            disabled={running}
-            onChange={(e) => setPromptsText(e.target.value)}
-            placeholder={
-              "Office remodel case study in Tampa\nWarehouse floor coating article\nResidential kitchen renovation estimate brief"
-            }
-          />
-        </div>
-
-        <div className="flex flex-wrap items-center gap-2">
+    <>
+      <Card className="max-w-2xl">
+        <CardContent className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2 text-sm font-medium">
+              <Sparkles className="h-4 w-4 text-primary" />
+              Bulk write
+            </div>
+            <p className="mt-1 text-xs text-muted-foreground">
+              Generate many drafts at once from a list of prompts.
+            </p>
+          </div>
           <Button
             type="button"
-            onClick={handleBulkWrite}
-            disabled={running || !promptsText.trim()}
+            size="sm"
+            className="shrink-0"
+            onClick={() => setOpen(true)}
           >
-            {running ? (
-              <>
-                <Loader2 className="h-4 w-4 animate-spin" />
-                Writing...
-              </>
-            ) : (
-              <>
-                <Sparkles className="h-4 w-4" />
-                Bulk write
-              </>
-            )}
+            <Sparkles className="h-4 w-4" />
+            Open bulk write
           </Button>
-          {running && (
-            <Button type="button" variant="outline" onClick={handleCancel}>
-              Stop
-            </Button>
-          )}
-          {rows.length > 0 && (
-            <span className="text-sm text-muted-foreground">
-              {completed} / {rows.length} complete
-              {failed > 0 ? ` · ${failed} failed` : ""}
-            </span>
-          )}
-        </div>
+        </CardContent>
+      </Card>
 
-        {rows.length > 0 && (
-          <ul className="max-h-72 space-y-2 overflow-y-auto rounded-md border p-3 text-sm">
-            {rows.map((row, index) => (
-              <li
-                key={`${index}-${row.prompt.slice(0, 24)}`}
-                className="flex items-start gap-2"
-              >
-                <StatusIcon status={row.status} />
-                <div className="min-w-0 flex-1">
-                  <p className="truncate font-medium">{row.prompt}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {statusLabel(row.status)}
-                    {row.error ? ` — ${row.error}` : ""}
-                  </p>
+      <Dialog
+        open={open}
+        onOpenChange={(next) => {
+          if (running) return;
+          setOpen(next);
+        }}
+      >
+        <DialogContent className="flex max-h-[92vh] w-[min(96vw,40rem)] max-w-none flex-col gap-0 overflow-hidden p-0 sm:max-w-none">
+          <DialogHeader className="border-b bg-muted/20 px-6 py-5">
+            <DialogTitle className="flex items-center gap-2 text-lg">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <Sparkles className="h-4 w-4" />
+              </span>
+              Bulk write
+            </DialogTitle>
+            <DialogDescription>
+              Paste a list and we’ll split each line into its own prompt card.
+              Everything saves as a draft — add images later when you publish.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="flex min-h-0 flex-1 flex-col gap-5 overflow-y-auto px-6 py-5">
+            <div className="space-y-2">
+              <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                What to generate
+              </p>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                {TYPE_OPTIONS.map((option) => {
+                  const selected = entityType === option.value;
+                  return (
+                    <button
+                      key={option.value}
+                      type="button"
+                      disabled={running}
+                      onClick={() => setEntityType(option.value)}
+                      className={cn(
+                        "rounded-xl border px-3 py-2.5 text-left transition",
+                        selected
+                          ? "border-primary bg-accent text-accent-foreground shadow-sm"
+                          : "hover:border-border hover:bg-muted/40",
+                        running && "opacity-60"
+                      )}
+                    >
+                      <div className="text-sm font-medium">{option.label}</div>
+                      <div className="text-[11px] text-muted-foreground">
+                        {option.hint}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {(running || activeTotal > 0) && (
+              <div className="space-y-2 rounded-xl border bg-muted/30 p-3">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-medium">
+                    {running ? "Writing drafts…" : "Run complete"}
+                  </span>
+                  <span className="text-muted-foreground">
+                    {completed}/{activeTotal || readyPrompts.length} done
+                    {failed > 0 ? ` · ${failed} failed` : ""}
+                  </span>
                 </div>
-              </li>
-            ))}
-          </ul>
-        )}
-      </CardContent>
-    </Card>
+                <div className="h-2 overflow-hidden rounded-full bg-muted">
+                  <div
+                    className={cn(
+                      "h-full rounded-full transition-all duration-500",
+                      failed > 0 ? "bg-destructive" : "bg-primary"
+                    )}
+                    style={{
+                      width: `${running ? Math.max(progressPct, 6) : progressPct || 100}%`,
+                    }}
+                  />
+                </div>
+              </div>
+            )}
+
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  Prompts ({readyPrompts.length})
+                </p>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  disabled={running}
+                  onClick={addCard}
+                >
+                  <Plus className="h-3.5 w-3.5" />
+                  Add prompt
+                </Button>
+              </div>
+
+              <div className="space-y-3">
+                {cards.map((card, index) => (
+                  <div
+                    key={card.id}
+                    className={cn(
+                      "rounded-xl border p-3 transition",
+                      card.status === "done" &&
+                        "border-primary/40 bg-accent/50",
+                      card.status === "error" &&
+                        "border-destructive/40 bg-destructive/5",
+                      (card.status === "generating" ||
+                        card.status === "saving") &&
+                        "border-primary/30 bg-muted/40",
+                      card.status === "pending" && "opacity-80"
+                    )}
+                  >
+                    <div className="mb-2 flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                        <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-muted px-1.5 text-[11px] text-foreground">
+                          {index + 1}
+                        </span>
+                        <StatusLabel status={card.status} error={card.error} />
+                      </div>
+                      <button
+                        type="button"
+                        disabled={running || cards.length <= 1}
+                        onClick={() => removeCard(card.id)}
+                        className="rounded-md p-1 text-muted-foreground transition hover:bg-muted hover:text-destructive disabled:opacity-40"
+                        aria-label="Remove prompt"
+                      >
+                        <Trash2 className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
+                    <Textarea
+                      rows={2}
+                      value={card.text}
+                      disabled={running}
+                      onChange={(e) => handleCardChange(card.id, e.target.value)}
+                      onPaste={(e) => handlePaste(card.id, e)}
+                      placeholder={
+                        index === 0
+                          ? "Paste several lines at once — each line becomes its own card"
+                          : "Describe this draft…"
+                      }
+                      className="min-h-[4.5rem] resize-y border-0 bg-transparent p-0 shadow-none focus-visible:ring-0"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <DialogFooter className="gap-2 border-t bg-muted/20 px-6 py-4 sm:justify-between">
+            <p className="hidden text-xs text-muted-foreground sm:block">
+              Multi-line paste auto-splits into cards
+            </p>
+            <div className="flex flex-wrap justify-end gap-2">
+              {running ? (
+                <Button type="button" variant="outline" onClick={handleCancel}>
+                  Stop
+                </Button>
+              ) : (
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setOpen(false)}
+                >
+                  Close
+                </Button>
+              )}
+              <Button
+                type="button"
+                disabled={running || readyPrompts.length === 0}
+                onClick={handleBulkWrite}
+              >
+                {running ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Writing…
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="h-4 w-4" />
+                    Write {readyPrompts.length || ""} draft
+                    {readyPrompts.length === 1 ? "" : "s"}
+                  </>
+                )}
+              </Button>
+            </div>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
 
-function statusLabel(status: ProgressStatus) {
-  switch (status) {
-    case "pending":
-      return "Waiting";
-    case "generating":
-      return "Generating with AI…";
-    case "saving":
-      return "Saving draft…";
-    case "done":
-      return "Saved as draft";
-    case "error":
-      return "Error";
-    case "cancelled":
-      return "Cancelled";
-  }
-}
-
-function StatusIcon({ status }: { status: ProgressStatus }) {
+function StatusLabel({
+  status,
+  error,
+}: {
+  status: ProgressStatus;
+  error?: string;
+}) {
   if (status === "done") {
-    return <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-600" />;
-  }
-  if (status === "error") {
-    return <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-destructive" />;
-  }
-  if (status === "generating" || status === "saving") {
     return (
-      <Loader2 className="mt-0.5 h-4 w-4 shrink-0 animate-spin text-muted-foreground" />
+      <span className="inline-flex items-center gap-1 text-primary">
+        <CheckCircle2 className="h-3.5 w-3.5" />
+        Saved as draft
+      </span>
     );
   }
-  return (
-    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-muted-foreground/40" />
-  );
+  if (status === "error") {
+    return (
+      <span className="inline-flex items-center gap-1 text-destructive">
+        <XCircle className="h-3.5 w-3.5" />
+        {error || "Error"}
+      </span>
+    );
+  }
+  if (status === "generating") {
+    return (
+      <span className="inline-flex items-center gap-1 text-foreground">
+        <Loader2 className="h-3.5 w-3.5 animate-spin" />
+        Generating…
+      </span>
+    );
+  }
+  if (status === "saving") {
+    return (
+      <span className="inline-flex items-center gap-1 text-foreground">
+        <Loader2 className="h-3.5 w-3.5 animate-spin" />
+        Saving draft…
+      </span>
+    );
+  }
+  if (status === "pending") {
+    return <span>Waiting…</span>;
+  }
+  if (status === "cancelled") {
+    return <span>Cancelled</span>;
+  }
+  return <span>Prompt</span>;
 }

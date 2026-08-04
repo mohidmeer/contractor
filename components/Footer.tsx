@@ -13,23 +13,26 @@ import { BsClock, BsFillTelephoneFill } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdArrowForward } from "react-icons/md";
 import { trackCallClick } from "@/lib/analytics";
+import { flattenNavLeaves } from "@/lib/nav";
 import type { NavItem } from "@/types";
 
 const FOOTER_LINK_LIMIT = 6;
 
 const Footer = ({ items }: { items: NavItem[] }) => {
-  const services =
+  const services = flattenNavLeaves(
     items.find(
       (item) =>
         item.label.toLowerCase() === "services" ||
         item.href.replace(/\/+$/, "") === "/services"
-    )?.children || [];
-  const projects =
+    )?.children || []
+  );
+  const projects = flattenNavLeaves(
     items.find(
       (item) =>
         item.label.toLowerCase() === "projects" ||
         item.href.replace(/\/+$/, "") === "/projects"
-    )?.children || [];
+    )?.children || []
+  );
   const aboutLinks = items.filter((item) =>
     ["About Us", "Contact Us", "Blogs"].includes(item.label)
   );

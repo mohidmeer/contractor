@@ -20,7 +20,7 @@ export type ServiceView = {
   imageUrls: string[];
   sortOrder: number;
   categoryId: number | null;
-  category: { id: number; slug: string; name: string } | null;
+  category: { id: number; slug: string; name: string; sortOrder: number } | null;
 };
 
 type ServiceWithCategory = Service & {
@@ -53,6 +53,7 @@ function mapService(row: ServiceWithCategory): ServiceView {
           id: row.category.id,
           slug: row.category.slug,
           name: row.category.name,
+          sortOrder: row.category.sortOrder,
         }
       : null,
   };

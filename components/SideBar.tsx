@@ -1,4 +1,5 @@
 import { getDynamicNavItems } from '@/actions/nav'
+import { flattenNavLeaves } from '@/lib/nav'
 import type { NavItem } from '@/types'
 import Link from 'next/link'
 import React from 'react'
@@ -6,18 +7,20 @@ import { MdArrowForward, MdBuild, MdFolder } from 'react-icons/md'
 
 const SideBar = async () => {
     const items = await getDynamicNavItems()
-    const services =
+    const services = flattenNavLeaves(
         items.find(
             (item) =>
                 item.label.toLowerCase() === 'services' ||
                 item.href.replace(/\/+$/, '') === '/services'
         )?.children ?? []
-    const projects =
+    )
+    const projects = flattenNavLeaves(
         items.find(
             (item) =>
                 item.label.toLowerCase() === 'projects' ||
                 item.href.replace(/\/+$/, '') === '/projects'
         )?.children ?? []
+    )
 
     return (
         <>
