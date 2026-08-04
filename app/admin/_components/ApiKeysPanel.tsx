@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
-import { KeyRound, Loader2, Plus, Trash2 } from "lucide-react";
+import { KeyRound, Loader2, Pencil, Plus, RotateCcw, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -54,6 +54,8 @@ export default function ApiKeysPanel() {
   const [active, setActive] = useState<ApiKeyRow | null>(null);
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
+  const [editOpen, setEditOpen] = useState(false);
+  const [editing, setEditing] = useState<ApiKeyRow | null>(null);
   const [saving, setSaving] = useState(false);
   const [busyId, setBusyId] = useState<string | null>(null);
 
@@ -62,6 +64,8 @@ export default function ApiKeysPanel() {
   const [inputPrice, setInputPrice] = useState("0");
   const [outputPrice, setOutputPrice] = useState("0");
   const [makeDefault, setMakeDefault] = useState(false);
+  const [editInputPrice, setEditInputPrice] = useState("0");
+  const [editOutputPrice, setEditOutputPrice] = useState("0");
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -90,6 +94,13 @@ export default function ApiKeysPanel() {
     setMakeDefault(false);
   };
 
+  const openEdit = (row: ApiKeyRow) => {
+    setEditing(row);
+    setEditInputPrice(String(row.inputPricePerMillion ?? 0));
+    setEditOutputPrice(String(row.outputPricePerMillion ?? 0));
+    setEditOpen(true);
+  };
+
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
@@ -114,6 +125,60 @@ export default function ApiKeysPanel() {
       await load();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Failed to add key");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleSavePricing = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editing) return;
+    setSaving(true);
+    try {
+      const res = await fetch("/api/admin/api-keys", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: editing.id,
+          action: "update-pricing",
+          inputPricePerMillion: Number(editInputPrice) || 0,
+          outputPricePerMillion: Number(editOutputPrice) || 0,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || "Failed to update pricing");
+      toast.success("Pricing updated");
+      setEditOpen(false);
+      setEditing(null);
+      await load();
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Failed to update pricing");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleResetUsage = async () => {
+    if (!editing) return;
+    if (!confirm("Reset In and Out token usage for this key to 0?")) return;
+    setSaving(true);
+    try {
+      const res = await fetch("/api/admin/api-keys", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: editing.id, action: "reset-usage" }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || "Failed to reset usage");
+      toast.success("Usage reset");
+      setEditing((prev) =>
+        prev
+          ? { ...prev, inputTokensUsed: 0, outputTokensUsed: 0, estimatedCost: 0 }
+          : prev
+      );
+      await load();
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Failed to reset usage");
     } finally {
       setSaving(false);
     }
@@ -220,8 +285,9 @@ export default function ApiKeysPanel() {
                   <TableRow className="hover:bg-transparent">
                     <TableHead>Label</TableHead>
                     <TableHead>Key</TableHead>
-                    <TableHead>Usage</TableHead>
-                    <TableHead>Est. cost</TableHead>
+                    <TableHead className="text-right">In</TableHead>
+                    <TableHead className="text-right">Out</TableHead>
+                    <TableHead className="text-right">Est. cost</TableHead>
                     <TableHead className="text-right">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
@@ -240,14 +306,27 @@ export default function ApiKeysPanel() {
                       <TableCell className="font-mono text-xs text-muted-foreground">
                         {row.maskedKey}
                       </TableCell>
-                      <TableCell className="text-xs text-muted-foreground">
-                        in {formatTokens(row.inputTokensUsed)}
-                        <br />
-                        out {formatTokens(row.outputTokensUsed)}
+                      <TableCell className="text-right text-xs tabular-nums text-muted-foreground">
+                        {formatTokens(row.inputTokensUsed)}
                       </TableCell>
-                      <TableCell>{formatUsd(row.estimatedCost)}</TableCell>
+                      <TableCell className="text-right text-xs tabular-nums text-muted-foreground">
+                        {formatTokens(row.outputTokensUsed)}
+                      </TableCell>
+                      <TableCell className="text-right">
+                        {formatUsd(row.estimatedCost)}
+                      </TableCell>
                       <TableCell className="text-right">
                         <div className="flex justify-end gap-1">
+                          <Button
+                            type="button"
+                            size="sm"
+                            variant="outline"
+                            disabled={busyId === row.id}
+                            onClick={() => openEdit(row)}
+                          >
+                            <Pencil className="h-3.5 w-3.5" />
+                            Edit
+                          </Button>
                           {!row.isActive ? (
                             <Button
                               type="button"
@@ -386,6 +465,96 @@ export default function ApiKeysPanel() {
               </Button>
               <Button type="submit" disabled={saving}>
                 {saving ? "Saving…" : "Add key"}
+              </Button>
+            </DialogFooter>
+          </form>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog
+        open={editOpen}
+        onOpenChange={(next) => {
+          if (saving) return;
+          setEditOpen(next);
+          if (!next) setEditing(null);
+        }}
+      >
+        <DialogContent className="flex w-[min(96vw,28rem)] max-w-none flex-col gap-0 overflow-hidden p-0 sm:max-w-none">
+          <form onSubmit={handleSavePricing} className="flex flex-col">
+            <DialogHeader className="border-b bg-muted/20 px-6 py-5">
+              <DialogTitle className="flex items-center gap-2 text-lg">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                  <Pencil className="h-4 w-4" />
+                </span>
+                Edit pricing
+              </DialogTitle>
+              <DialogDescription>
+                Only pricing and usage counters can be changed. Label and API key stay fixed.
+              </DialogDescription>
+            </DialogHeader>
+
+            <div className="grid gap-4 px-6 py-5">
+              {editing ? (
+                <div className="rounded-xl border bg-muted/20 px-3 py-2.5 text-sm">
+                  <p className="font-medium">{editing.label}</p>
+                  <p className="font-mono text-xs text-muted-foreground">
+                    {editing.maskedKey}
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    In {formatTokens(editing.inputTokensUsed)} · Out{" "}
+                    {formatTokens(editing.outputTokensUsed)}
+                  </p>
+                </div>
+              ) : null}
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-2">
+                  <Label htmlFor="edit-in-price">Input $/1M tokens</Label>
+                  <Input
+                    id="edit-in-price"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    value={editInputPrice}
+                    onChange={(e) => setEditInputPrice(e.target.value)}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="edit-out-price">Output $/1M tokens</Label>
+                  <Input
+                    id="edit-out-price"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    value={editOutputPrice}
+                    onChange={(e) => setEditOutputPrice(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <Button
+                type="button"
+                variant="outline"
+                disabled={saving || !editing}
+                onClick={handleResetUsage}
+                className="justify-start"
+              >
+                <RotateCcw className="h-3.5 w-3.5" />
+                Reset In / Out usage to 0
+              </Button>
+            </div>
+
+            <DialogFooter className="gap-2 border-t bg-muted/20 px-6 py-4 sm:justify-end">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setEditOpen(false)}
+                disabled={saving}
+              >
+                Cancel
+              </Button>
+              <Button type="submit" disabled={saving}>
+                {saving ? "Saving…" : "Save pricing"}
               </Button>
             </DialogFooter>
           </form>

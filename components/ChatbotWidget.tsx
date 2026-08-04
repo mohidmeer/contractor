@@ -2,9 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Loader2, MessageCircle, RotateCcw, Send, X } from "lucide-react";
+import {
+  BsChatDotsFill,
+  BsXLg,
+  BsSendFill,
+  BsArrowCounterclockwise,
+} from "react-icons/bs";
 import { siteName } from "@/data";
-import { cn } from "@/lib/utils";
 
 type ChatRole = "user" | "assistant";
 
@@ -74,7 +78,9 @@ export default function ChatbotWidget() {
         {
           id: newId(),
           role: "assistant",
-          content: String(data.reply ?? "").trim() || "Sorry, I had trouble answering that.",
+          content:
+            String(data.reply ?? "").trim() ||
+            "Sorry, I had trouble answering that.",
         },
       ]);
     } catch (err) {
@@ -95,73 +101,85 @@ export default function ChatbotWidget() {
   };
 
   return (
-    <div className="fixed bottom-28 right-5 z-40 flex flex-col items-end gap-3">
+    <div className="relative flex items-center">
       {open ? (
         <div
-          className="flex h-[min(32rem,70vh)] w-[min(22rem,calc(100vw-2.5rem))] flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl"
+          className="absolute bottom-[calc(100%+0.75rem)] right-0 flex h-[min(30rem,68vh)] w-[min(22rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-2xl border border-primary/15 bg-white shadow-[0_20px_50px_-12px_rgba(0,0,0,0.35)]"
           role="dialog"
           aria-label="Chat assistant"
         >
-          <div className="flex items-center justify-between gap-2 border-b bg-primary px-4 py-3 text-primary-foreground">
-            <div>
-              <p className="text-sm font-semibold">Chat with us</p>
-              <p className="text-xs opacity-80">{siteName}</p>
+          <div className="flex items-center justify-between gap-3 bg-primary px-4 py-3.5 text-white">
+            <div className="flex min-w-0 items-center gap-3">
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/25">
+                <BsChatDotsFill size={16} className="text-white" />
+              </span>
+              <div className="min-w-0">
+                <p className="truncate text-sm font-semibold tracking-tight">
+                  Chat with us
+                </p>
+                <p className="truncate text-xs text-white/75">{siteName}</p>
+              </div>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex shrink-0 items-center gap-0.5">
               <button
                 type="button"
                 onClick={resetChat}
-                className="rounded-md p-1.5 hover:bg-white/15"
+                className="rounded-lg p-2 text-white/85 transition hover:bg-white/15 hover:text-white"
                 aria-label="Reset conversation"
                 title="Reset"
               >
-                <RotateCcw className="h-4 w-4" />
+                <BsArrowCounterclockwise size={15} />
               </button>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="rounded-md p-1.5 hover:bg-white/15"
+                className="rounded-lg p-2 text-white/85 transition hover:bg-white/15 hover:text-white"
                 aria-label="Close chat"
               >
-                <X className="h-4 w-4" />
+                <BsXLg size={14} />
               </button>
             </div>
           </div>
 
-          <div className="flex flex-1 flex-col gap-3 overflow-y-auto px-3 py-3">
+          <div className="flex flex-1 flex-col gap-2.5 overflow-y-auto bg-secondary/5 px-3.5 py-3.5">
             {messages.map((m) => (
               <div
                 key={m.id}
-                className={cn(
-                  "max-w-[90%] rounded-2xl px-3 py-2 text-sm leading-relaxed",
+                className={
                   m.role === "user"
-                    ? "ml-auto bg-primary text-primary-foreground"
-                    : "mr-auto bg-muted text-foreground"
-                )}
+                    ? "ml-auto max-w-[88%] rounded-2xl rounded-br-md bg-primary px-3.5 py-2.5 text-sm leading-relaxed text-white shadow-sm"
+                    : "mr-auto max-w-[88%] rounded-2xl rounded-bl-md border border-primary/10 bg-white px-3.5 py-2.5 text-sm leading-relaxed text-heading shadow-sm"
+                }
               >
                 {m.content}
               </div>
             ))}
             {sending ? (
-              <div className="mr-auto flex items-center gap-2 rounded-2xl bg-muted px-3 py-2 text-sm text-muted-foreground">
-                <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                Thinking…
+              <div className="mr-auto rounded-2xl rounded-bl-md border border-primary/10 bg-white px-3.5 py-2.5 text-sm text-gray-500 shadow-sm">
+                <span className="inline-flex items-center gap-2">
+                  <span className="flex gap-1">
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-secondary" />
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-secondary [animation-delay:150ms]" />
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-secondary [animation-delay:300ms]" />
+                  </span>
+                  Thinking…
+                </span>
               </div>
             ) : null}
             <div ref={bottomRef} />
           </div>
 
-          <div className="flex flex-wrap gap-2 border-t px-3 py-2">
+          <div className="flex flex-wrap gap-2 border-t border-primary/10 bg-white px-3.5 py-2.5">
             <Link
               href="/contact"
-              className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-foreground transition hover:bg-muted"
+              className="rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-white transition hover:scale-105"
               onClick={() => setOpen(false)}
             >
               Request a Quote
             </Link>
             <Link
               href="/"
-              className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-foreground transition hover:bg-muted"
+              className="rounded-full bg-secondary px-3 py-1.5 text-xs font-semibold text-white transition hover:scale-105"
               onClick={() => setOpen(false)}
             >
               Free Consultation
@@ -169,7 +187,7 @@ export default function ChatbotWidget() {
           </div>
 
           <form
-            className="flex items-end gap-2 border-t p-3"
+            className="flex items-end gap-2 border-t border-primary/10 bg-white p-3"
             onSubmit={(e) => {
               e.preventDefault();
               void send(input);
@@ -180,7 +198,7 @@ export default function ChatbotWidget() {
               onChange={(e) => setInput(e.target.value)}
               rows={1}
               placeholder="Ask a question…"
-              className="max-h-24 min-h-[2.25rem] flex-1 resize-none rounded-xl border border-input bg-transparent px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring"
+              className="input max-h-24 min-h-[2.5rem] flex-1 !rounded-xl !px-3 !py-2 text-sm resize-none"
               onKeyDown={(e) => {
                 if (e.key === "Enter" && !e.shiftKey) {
                   e.preventDefault();
@@ -192,10 +210,10 @@ export default function ChatbotWidget() {
             <button
               type="submit"
               disabled={sending || !input.trim()}
-              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground disabled:opacity-50"
+              className="btn-primary inline-flex h-10 w-10 shrink-0 items-center justify-center !rounded-full !px-0 !py-0 hover:!scale-105 disabled:opacity-50 disabled:hover:!scale-100"
               aria-label="Send message"
             >
-              <Send className="h-4 w-4" />
+              <BsSendFill size={15} className="text-white" />
             </button>
           </form>
         </div>
@@ -204,10 +222,15 @@ export default function ChatbotWidget() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="btn-primary flex h-14 w-14 items-center justify-center !rounded-full shadow-2xl border"
+        className="animate-ring-pulse relative z-10 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-secondary text-white shadow-2xl transition-[filter] duration-200 hover:brightness-110"
         aria-label={open ? "Close chat" : "Open chat"}
+        aria-expanded={open}
       >
-        {open ? <X size={22} /> : <MessageCircle size={22} />}
+        {open ? (
+          <BsXLg size={18} className="text-white" />
+        ) : (
+          <BsChatDotsFill size={22} className="text-white" />
+        )}
       </button>
     </div>
   );

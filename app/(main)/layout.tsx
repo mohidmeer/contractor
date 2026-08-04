@@ -7,8 +7,7 @@ import { googleAnalyticId, googleTagManagerId, landingPage, siteUrl } from "@/da
 import JsonLd from "@/components/JsonLd";
 import { JsonLdDataLanding } from "@/jsonld";
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
-import CallButton from "@/components/CallButton";
-import ChatbotWidget from "@/components/ChatbotWidget";
+import FloatingActions from "@/components/FloatingActions";
 import { getDynamicNavItems } from "@/actions/nav";
 
 export const metadata: Metadata = {
@@ -72,8 +71,7 @@ export default async function RootLayout({
         <GoogleMap />
         <Footer items={navItems} />
         <JsonLd data={JsonLdDataLanding} />
-        <CallButton />
-        <ChatbotWidget />
+        <FloatingActions />
       </body>
     </html>
   );

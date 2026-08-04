@@ -6,9 +6,13 @@ import { BsFillTelephoneFill } from 'react-icons/bs'
 
 const CallButton = () => {
     return (
-        <a href={contactInfo.phone.href} className='btn-primary fixed bottom-10 right-5 flex items-center gap-2 !rounded-full shadow-2xl border'  onClick={trackCallClick('Floating call Button')} >
-            <BsFillTelephoneFill size={20} className='s' />
-            {contactInfo.phone.text}
+        <a
+            href={contactInfo.phone.href}
+            className="btn-primary flex h-[52px] items-center gap-2 !rounded-full border border-white/20 shadow-2xl hover:!scale-105"
+            onClick={trackCallClick('Floating call Button')}
+        >
+            <BsFillTelephoneFill size={18} className="text-white" />
+            <span className="text-white">{contactInfo.phone.text}</span>
         </a>
     )
 }

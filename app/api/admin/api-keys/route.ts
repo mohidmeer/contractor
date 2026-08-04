@@ -146,8 +146,28 @@ export async function PATCH(req: NextRequest) {
       await setActiveApiKeyId(id);
     } else if (json.action === "set-default") {
       await setDefaultApiKey(id);
+    } else if (json.action === "update-pricing") {
+      const inputPricePerMillion = Number(json.inputPricePerMillion ?? 0);
+      const outputPricePerMillion = Number(json.outputPricePerMillion ?? 0);
+      if (!Number.isFinite(inputPricePerMillion) || inputPricePerMillion < 0) {
+        throw new Error("Invalid input price per million");
+      }
+      if (!Number.isFinite(outputPricePerMillion) || outputPricePerMillion < 0) {
+        throw new Error("Invalid output price per million");
+      }
+      await prisma.apiKey.update({
+        where: { id },
+        data: { inputPricePerMillion, outputPricePerMillion },
+      });
+    } else if (json.action === "reset-usage") {
+      await prisma.apiKey.update({
+        where: { id },
+        data: { inputTokensUsed: 0, outputTokensUsed: 0 },
+      });
     } else {
-      throw new Error("action must be set-active or set-default");
+      throw new Error(
+        "action must be set-active, set-default, update-pricing, or reset-usage"
+      );
     }
 
     const setting = await prisma.setting.findUnique({
