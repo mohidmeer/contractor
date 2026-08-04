@@ -44,7 +44,7 @@ next-env.d.ts
 data.ts
 
 
-# Ignore everything inside public/uploads
-/public/uploads/*
+# Ignore everything inside uploads
+/uploads/*
 # But keep the placeholder file
-!/public/uploads/.gitkeep
+!/uploads/.gitkeep

@@ -14,24 +14,16 @@ export * from "@/data/${SITE}";
 );
 
 const nextConfig: NextConfig = {
-  env: {
-    // Expose media base to client components (admin upload preview)
-    MEDIA_SERVER_URL: process.env.MEDIA_SERVER_URL ?? "",
-  },
   images: {
-    remotePatterns: [
+    remotePatterns: [],
+  },
+  async rewrites() {
+    return [
       {
-        protocol: 'https',
-        hostname: 'media.coastalcw.net',
-        pathname: '/media/**',
+        source: "/uploads/:path*",
+        destination: "/api/serve-upload/:path*",
       },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '4000',
-        pathname: '/media/**',
-      },
-    ],
+    ];
   },
 };
 

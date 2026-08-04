@@ -59,7 +59,7 @@ type StaticProject = {
   materials: string[];
 };
 
-async function seedBrand(brand: string, mod: Record<string, unknown>) {
+async function seedBrand(mod: Record<string, unknown>) {
   const categoriesData = mod.categoriesData as StaticCategory[] | undefined;
   const servicesData = mod.servicesData as
     | Record<string, StaticService>
@@ -97,7 +97,7 @@ async function seedBrand(brand: string, mod: Record<string, unknown>) {
   let galleryPaths: string[] = [];
   if (projectsImageGallery.length) {
     const uploaded = await Promise.all(
-      projectsImageGallery.map((img) => resolveImagePathForSeed(img, brand))
+      projectsImageGallery.map((img) => resolveImagePathForSeed(img))
     );
     galleryPaths = uploaded.filter((p): p is string => Boolean(p));
   }
@@ -111,10 +111,10 @@ async function seedBrand(brand: string, mod: Record<string, unknown>) {
     let sortOrder = 0;
     for (const [slug, service] of Object.entries(servicesData)) {
       const image = service.image
-        ? await resolveImagePathForSeed(service.image, brand)
+        ? await resolveImagePathForSeed(service.image)
         : null;
       const gallery = await Promise.all(
-        (service.images ?? []).map((img) => resolveImagePathForSeed(img, brand))
+        (service.images ?? []).map((img) => resolveImagePathForSeed(img))
       );
 
       const categoryId = service.categorySlug
@@ -159,7 +159,7 @@ async function seedBrand(brand: string, mod: Record<string, unknown>) {
   if (projectsData) {
     let sortOrder = 0;
     for (const [slug, project] of Object.entries(projectsData)) {
-      const image = await resolveImagePathForSeed(project.image, brand);
+      const image = await resolveImagePathForSeed(project.image);
 
       await prisma.project.upsert({
         where: { slug },
@@ -225,7 +225,7 @@ async function main() {
     );
   }
 
-  await seedBrand(brand, mod);
+  await seedBrand(mod);
 
   // Bust Next.js data cache so nav / listings pick up seeded rows
   try {

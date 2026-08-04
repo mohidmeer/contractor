@@ -1,10 +1,16 @@
-/** Media server base URL (no trailing slash). */
+/**
+ * Media path helpers.
+ * New uploads persist as `uploads/<file>` and are served at `/uploads/<file>`.
+ * Legacy `media/...` paths are still resolved via MEDIA_SERVER_URL until migrated.
+ */
+
+/** Media server base URL (no trailing slash). Used only for legacy paths. */
 export function getMediaServerUrl() {
   return (process.env.MEDIA_SERVER_URL || "").replace(/\/+$/, "");
 }
 
 /**
- * Persistable media path only, e.g. `media/costal/file.png`.
+ * Persistable media path only, e.g. `uploads/uuid.png` or legacy `media/costal/file.png`.
  * Strips origin and leading slash from full URLs.
  */
 export function toMediaPath(input: string | null | undefined): string {
@@ -25,9 +31,10 @@ export function toMediaPath(input: string | null | undefined): string {
 }
 
 /**
- * Full media URL for display, e.g. `http://localhost:4000/media/costal/file.png`.
- * Leaves already-absolute URLs unchanged (legacy rows).
- * Local public paths (not under media/) are returned as site-relative URLs.
+ * Full media URL for display.
+ * - Absolute URLs left unchanged (legacy rows).
+ * - `uploads/...` and other local paths → site-relative `/${path}`.
+ * - Legacy `media/...` → MEDIA_SERVER_URL if set, else `/${path}`.
  */
 export function toMediaUrl(pathOrUrl: string | null | undefined): string {
   if (!pathOrUrl) return "";
@@ -38,8 +45,7 @@ export function toMediaUrl(pathOrUrl: string | null | undefined): string {
 
   const path = trimmed.replace(/^\/+/, "");
 
-  // Local public/ assets (e.g. costal/images/...), not media-server paths
-  if (!path.startsWith("media/")) {
+  if (path.startsWith("uploads/") || !path.startsWith("media/")) {
     return `/${path}`;
   }
 
