@@ -291,26 +291,36 @@ export default function BulkAiWritePanel() {
 
   return (
     <>
-      <Card className="max-w-2xl">
-        <CardContent className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="min-w-0">
-            <div className="flex items-center gap-2 text-sm font-medium">
-              <Sparkles className="h-4 w-4 text-primary" />
-              Bulk write
+      <Card className="h-full">
+        <CardContent className="flex h-full flex-col gap-4 p-5">
+          <div className="flex items-start justify-between gap-3">
+            <div className="flex min-w-0 items-start gap-3">
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                <Sparkles className="h-4 w-4" />
+              </span>
+              <div className="min-w-0">
+                <h3 className="text-sm font-semibold tracking-tight">Bulk write</h3>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  Generate many drafts at once from a list of prompts
+                </p>
+              </div>
             </div>
-            <p className="mt-1 text-xs text-muted-foreground">
-              Generate many drafts at once from a list of prompts.
+            <Button
+              type="button"
+              size="sm"
+              className="shrink-0"
+              onClick={() => setOpen(true)}
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              Open
+            </Button>
+          </div>
+
+          <div className="mt-auto space-y-2 border-t pt-4">
+            <p className="text-xs text-muted-foreground">
+              Blogs, services, projects, and estimates — saved as drafts.
             </p>
           </div>
-          <Button
-            type="button"
-            size="sm"
-            className="shrink-0"
-            onClick={() => setOpen(true)}
-          >
-            <Sparkles className="h-4 w-4" />
-            Open bulk write
-          </Button>
         </CardContent>
       </Card>
 

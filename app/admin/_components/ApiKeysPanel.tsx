@@ -2,18 +2,12 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Loader2, Plus, Trash2 } from "lucide-react";
+import { KeyRound, Loader2, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
@@ -165,129 +159,165 @@ export default function ApiKeysPanel() {
   };
 
   return (
-    <Card className="max-w-4xl">
-      <CardHeader className="flex flex-row items-start justify-between gap-4 space-y-0">
-        <div className="space-y-1.5">
-          <CardTitle>API Keys</CardTitle>
-          <CardDescription>
-            Used for the landing chatbot, Bulk write, and Fill with AI.
-          </CardDescription>
-          {active ? (
-            <p className="pt-1 text-sm text-foreground">
-              Active: <span className="font-medium">{active.label}</span>{" "}
-              <span className="text-muted-foreground">{active.maskedKey}</span>
-            </p>
+    <>
+      <Card>
+        <CardContent className="space-y-5 p-5">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div className="flex min-w-0 items-start gap-3">
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                <KeyRound className="h-4 w-4" />
+              </span>
+              <div className="min-w-0 space-y-1">
+                <h3 className="text-sm font-semibold tracking-tight">API Keys</h3>
+                <p className="text-xs text-muted-foreground">
+                  Used for the landing chatbot, Bulk write, and Fill with AI.
+                </p>
+                {active ? (
+                  <p className="pt-1 text-xs text-foreground">
+                    Active: <span className="font-medium">{active.label}</span>{" "}
+                    <span className="font-mono text-muted-foreground">
+                      {active.maskedKey}
+                    </span>
+                  </p>
+                ) : !loading ? (
+                  <p className="pt-1 text-xs text-muted-foreground">No active key set.</p>
+                ) : null}
+              </div>
+            </div>
+            <Button
+              type="button"
+              size="sm"
+              className="shrink-0"
+              onClick={() => setOpen(true)}
+            >
+              <Plus className="h-3.5 w-3.5" />
+              Add key
+            </Button>
+          </div>
+
+          {loading ? (
+            <p className="text-sm text-muted-foreground">Loading keys…</p>
+          ) : items.length === 0 ? (
+            <div className="flex flex-col items-center justify-center gap-3 rounded-xl border border-dashed bg-muted/20 px-6 py-10 text-center">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-muted">
+                <KeyRound className="h-4 w-4 text-muted-foreground" />
+              </span>
+              <div className="space-y-1">
+                <p className="text-sm font-medium">No API keys yet</p>
+                <p className="text-xs text-muted-foreground">
+                  Add a key to enable AI generation and the chatbot.
+                </p>
+              </div>
+              <Button type="button" size="sm" onClick={() => setOpen(true)}>
+                <Plus className="h-3.5 w-3.5" />
+                Add key
+              </Button>
+            </div>
           ) : (
-            <p className="pt-1 text-sm text-muted-foreground">No active key set.</p>
+            <div className="overflow-hidden rounded-xl border">
+              <Table>
+                <TableHeader>
+                  <TableRow className="hover:bg-transparent">
+                    <TableHead>Label</TableHead>
+                    <TableHead>Key</TableHead>
+                    <TableHead>Usage</TableHead>
+                    <TableHead>Est. cost</TableHead>
+                    <TableHead className="text-right">Actions</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {items.map((row) => (
+                    <TableRow key={row.id}>
+                      <TableCell className="font-medium">
+                        <div className="flex flex-wrap items-center gap-1.5">
+                          {row.label}
+                          {row.isActive ? <Badge>Active</Badge> : null}
+                          {row.isDefault ? (
+                            <Badge variant="outline">Default</Badge>
+                          ) : null}
+                        </div>
+                      </TableCell>
+                      <TableCell className="font-mono text-xs text-muted-foreground">
+                        {row.maskedKey}
+                      </TableCell>
+                      <TableCell className="text-xs text-muted-foreground">
+                        in {formatTokens(row.inputTokensUsed)}
+                        <br />
+                        out {formatTokens(row.outputTokensUsed)}
+                      </TableCell>
+                      <TableCell>{formatUsd(row.estimatedCost)}</TableCell>
+                      <TableCell className="text-right">
+                        <div className="flex justify-end gap-1">
+                          {!row.isActive ? (
+                            <Button
+                              type="button"
+                              size="sm"
+                              variant="outline"
+                              disabled={busyId === row.id}
+                              onClick={() => patchKey(row.id, "set-active")}
+                            >
+                              Set active
+                            </Button>
+                          ) : null}
+                          {!row.isDefault ? (
+                            <Button
+                              type="button"
+                              size="sm"
+                              variant="ghost"
+                              disabled={busyId === row.id}
+                              onClick={() => patchKey(row.id, "set-default")}
+                            >
+                              Default
+                            </Button>
+                          ) : null}
+                          <Button
+                            type="button"
+                            size="sm"
+                            variant="ghost"
+                            disabled={busyId === row.id}
+                            onClick={() => deleteKey(row.id)}
+                            aria-label="Delete key"
+                          >
+                            {busyId === row.id ? (
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : (
+                              <Trash2 className="h-4 w-4 text-destructive" />
+                            )}
+                          </Button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
           )}
-        </div>
-        <Button type="button" onClick={() => setOpen(true)}>
-          <Plus className="mr-1.5 h-4 w-4" />
-          Add key
-        </Button>
-      </CardHeader>
-      <CardContent>
-        {loading ? (
-          <p className="text-sm text-muted-foreground">Loading keys...</p>
-        ) : items.length === 0 ? (
-          <p className="text-sm text-muted-foreground">
-            No API keys yet. Add a key to enable AI generation and the chatbot.
-          </p>
-        ) : (
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Label</TableHead>
-                <TableHead>Key</TableHead>
-                <TableHead>Usage</TableHead>
-                <TableHead>Est. cost</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {items.map((row) => (
-                <TableRow key={row.id}>
-                  <TableCell className="font-medium">
-                    <div className="flex flex-wrap items-center gap-1.5">
-                      {row.label}
-                      {row.isActive ? <Badge>Active</Badge> : null}
-                      {row.isDefault ? (
-                        <Badge variant="outline">Default</Badge>
-                      ) : null}
-                    </div>
-                  </TableCell>
-                  <TableCell className="font-mono text-xs text-muted-foreground">
-                    {row.maskedKey}
-                  </TableCell>
-                  <TableCell className="text-xs text-muted-foreground">
-                    in {formatTokens(row.inputTokensUsed)}
-                    <br />
-                    out {formatTokens(row.outputTokensUsed)}
-                  </TableCell>
-                  <TableCell>{formatUsd(row.estimatedCost)}</TableCell>
-                  <TableCell className="text-right">
-                    <div className="flex justify-end gap-1">
-                      {!row.isActive ? (
-                        <Button
-                          type="button"
-                          size="sm"
-                          variant="outline"
-                          disabled={busyId === row.id}
-                          onClick={() => patchKey(row.id, "set-active")}
-                        >
-                          Set active
-                        </Button>
-                      ) : null}
-                      {!row.isDefault ? (
-                        <Button
-                          type="button"
-                          size="sm"
-                          variant="ghost"
-                          disabled={busyId === row.id}
-                          onClick={() => patchKey(row.id, "set-default")}
-                        >
-                          Default
-                        </Button>
-                      ) : null}
-                      <Button
-                        type="button"
-                        size="sm"
-                        variant="ghost"
-                        disabled={busyId === row.id}
-                        onClick={() => deleteKey(row.id)}
-                        aria-label="Delete key"
-                      >
-                        {busyId === row.id ? (
-                          <Loader2 className="h-4 w-4 animate-spin" />
-                        ) : (
-                          <Trash2 className="h-4 w-4 text-destructive" />
-                        )}
-                      </Button>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        )}
-      </CardContent>
+        </CardContent>
+      </Card>
 
       <Dialog
         open={open}
         onOpenChange={(next) => {
+          if (saving) return;
           setOpen(next);
           if (!next) resetForm();
         }}
       >
-        <DialogContent>
-          <form onSubmit={handleCreate}>
-            <DialogHeader>
-              <DialogTitle>Add API key</DialogTitle>
+        <DialogContent className="flex w-[min(96vw,28rem)] max-w-none flex-col gap-0 overflow-hidden p-0 sm:max-w-none">
+          <form onSubmit={handleCreate} className="flex flex-col">
+            <DialogHeader className="border-b bg-muted/20 px-6 py-5">
+              <DialogTitle className="flex items-center gap-2 text-lg">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                  <KeyRound className="h-4 w-4" />
+                </span>
+                Add API key
+              </DialogTitle>
               <DialogDescription>
-                Stored in plain text in the database. Shown masked in the list after save.
+                Stored in plain text. Shown masked in the list after save.
               </DialogDescription>
             </DialogHeader>
-            <div className="grid gap-4 py-4">
+
+            <div className="grid gap-4 px-6 py-5">
               <div className="space-y-2">
                 <Label htmlFor="key-label">Label</Label>
                 <Input
@@ -344,7 +374,8 @@ export default function ApiKeysPanel() {
                 Set as default key
               </label>
             </div>
-            <DialogFooter>
+
+            <DialogFooter className="gap-2 border-t bg-muted/20 px-6 py-4 sm:justify-end">
               <Button
                 type="button"
                 variant="outline"
@@ -354,12 +385,12 @@ export default function ApiKeysPanel() {
                 Cancel
               </Button>
               <Button type="submit" disabled={saving}>
-                {saving ? "Saving..." : "Add key"}
+                {saving ? "Saving…" : "Add key"}
               </Button>
             </DialogFooter>
           </form>
         </DialogContent>
       </Dialog>
-    </Card>
+    </>
   );
 }
