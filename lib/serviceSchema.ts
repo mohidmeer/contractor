@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { toMediaPath } from "@/lib/media";
+import { PublishStatusSchema } from "@/lib/publishStatus";
 
 const benefitSchema = z.object({
   title: z.string().min(1),
@@ -29,6 +30,7 @@ export const ServiceBodySchema = z.object({
   images: z.array(z.string()).default([]),
   sortOrder: z.number().int().default(0),
   categoryId: z.number().int().nullable().optional(),
+  status: PublishStatusSchema.default("PUBLISHED"),
 });
 
 export type ServiceBody = z.infer<typeof ServiceBodySchema>;
@@ -40,5 +42,6 @@ export function normalizeServiceBody(body: ServiceBody) {
     image: body.image ? toMediaPath(body.image) : null,
     images: body.images.map((img) => toMediaPath(img)).filter(Boolean),
     categoryId: body.categoryId ?? null,
+    status: body.status,
   };
 }

@@ -9,6 +9,7 @@ import {
 import { asParagraphs } from "@/lib/paragraphs";
 import { revalidateServicesCache } from "@/lib/revalidateCatalog";
 import { collectUploadPaths, deleteOrphanedUploadFiles } from "@/lib/uploadCleanup";
+import { generateUniqueSlug, slugify } from "@/lib/slug";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -61,14 +62,20 @@ export async function PATCH(req: NextRequest, { params }: Props) {
         parsed.categoryId !== undefined
           ? parsed.categoryId
           : existing.categoryId,
+      status: parsed.status ?? existing.status,
     };
 
     const data = normalizeServiceBody(merged);
+    const uniqueSlug = await generateUniqueSlug(
+      "service",
+      slugify(data.slug) || slugify(data.title),
+      Number(id)
+    );
 
     const updated = await prisma.service.update({
       where: { id: Number(id) },
       data: {
-        slug: data.slug,
+        slug: uniqueSlug,
         label: data.label,
         title: data.title,
         description: data.description,
@@ -79,6 +86,7 @@ export async function PATCH(req: NextRequest, { params }: Props) {
         faqs: data.faqs,
         images: data.images,
         sortOrder: data.sortOrder,
+        status: data.status,
         categoryId: data.categoryId,
       },
     });

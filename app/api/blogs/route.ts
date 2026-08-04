@@ -65,6 +65,7 @@ export async function POST(req: NextRequest) {
         slug: uniqueSlug,
         image: parsed.image,
         content: parsed.content,
+        status: parsed.status === "DRAFT" ? "DRAFT" : "PUBLISHED",
       }
     });
     return NextResponse.json({ message: 'created' }, { status: 201 });

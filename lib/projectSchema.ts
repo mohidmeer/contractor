@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { toMediaPath } from "@/lib/media";
+import { PublishStatusSchema } from "@/lib/publishStatus";
 
 export const ProjectBodySchema = z.object({
   slug: z.string().min(1),
@@ -13,6 +14,7 @@ export const ProjectBodySchema = z.object({
   materials: z.array(z.string()).default([]),
   images: z.array(z.string()).default([]),
   sortOrder: z.number().int().default(0),
+  status: PublishStatusSchema.default("PUBLISHED"),
 });
 
 export type ProjectBody = z.infer<typeof ProjectBodySchema>;
@@ -25,5 +27,6 @@ export function normalizeProjectBody(body: ProjectBody) {
     images: body.images.map((img) => toMediaPath(img)).filter(Boolean),
     location: body.location || null,
     duration: body.duration || null,
+    status: body.status,
   };
 }

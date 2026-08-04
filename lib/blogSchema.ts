@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { PublishStatusSchema } from "@/lib/publishStatus";
 
 export const BlogBlockSchema = z.object({
   heading: z.string(),
@@ -19,6 +20,7 @@ export const BlogContentSchema = z.object({
   /** Media path only; left blank for the user to upload */
   image: z.string(),
   content: z.array(BlogBlockSchema).min(1),
+  status: PublishStatusSchema.default("PUBLISHED"),
 });
 
 export type BlogBlock = z.infer<typeof BlogBlockSchema>;
@@ -42,4 +44,5 @@ export const emptyBlog = (): BlogContentType => ({
   },
   image: "",
   content: [emptyBlogBlock()],
+  status: "PUBLISHED",
 });

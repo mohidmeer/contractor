@@ -50,6 +50,7 @@ export async function getProjects(): Promise<ProjectView[]> {
   return unstable_cache(
     async () => {
       const rows = await prisma.project.findMany({
+        where: { status: "PUBLISHED" },
         orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
       });
       return rows.map(mapProject);
@@ -64,7 +65,9 @@ export async function getProjectBySlug(
 ): Promise<ProjectView | null> {
   return unstable_cache(
     async () => {
-      const row = await prisma.project.findUnique({ where: { slug } });
+      const row = await prisma.project.findFirst({
+        where: { slug, status: "PUBLISHED" },
+      });
       return row ? mapProject(row) : null;
     },
     [`project-v2-${slug}`],

@@ -23,6 +23,7 @@ type ProjectRow = {
   title: string;
   slug: string;
   description?: string;
+  status?: "DRAFT" | "PUBLISHED";
   createdAt: string;
 };
 
@@ -121,6 +122,7 @@ export default function ProjectsAdminPage() {
             <TableHeader>
               <TableRow>
                 <TableHead>Title</TableHead>
+                <TableHead>Status</TableHead>
                 <TableHead>Slug</TableHead>
                 <TableHead>Created</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
@@ -136,6 +138,15 @@ export default function ProjectsAdminPage() {
                         {item.description}
                       </div>
                     )}
+                  </TableCell>
+                  <TableCell>
+                    <Badge
+                      variant={
+                        item.status === "DRAFT" ? "outline" : "secondary"
+                      }
+                    >
+                      {item.status === "DRAFT" ? "Draft" : "Published"}
+                    </Badge>
                   </TableCell>
                   <TableCell>
                     <Badge variant="secondary">/{item.slug}</Badge>
@@ -166,7 +177,7 @@ export default function ProjectsAdminPage() {
               {items.length === 0 && (
                 <TableRow>
                   <TableCell
-                    colSpan={4}
+                    colSpan={5}
                     className="py-8 text-center text-muted-foreground"
                   >
                     No projects found.

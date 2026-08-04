@@ -73,6 +73,7 @@ export default function ServiceFormDialog({
           images: Array.isArray(data.images) ? data.images : [],
           sortOrder: data.sortOrder ?? 0,
           categoryId: data.categoryId ?? null,
+          status: data.status === "DRAFT" ? "DRAFT" : "PUBLISHED",
         });
       } catch (err) {
         toast.error(err instanceof Error ? err.message : "Failed to load");

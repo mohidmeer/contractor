@@ -6,6 +6,7 @@ export const revalidate = 259200;
 
 export async function getAllBlogs() {
   return await prisma.blog.findMany({
+    where: { status: "PUBLISHED" },
     orderBy: { createdAt: "desc" },
     select: {
       slug: true,
@@ -19,9 +20,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const [services, projects] = await Promise.all([
     prisma.service.findMany({
+      where: { status: "PUBLISHED" },
       select: { slug: true, updatedAt: true },
     }),
     prisma.project.findMany({
+      where: { status: "PUBLISHED" },
       select: { slug: true, updatedAt: true },
     }),
   ]);

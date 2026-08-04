@@ -61,6 +61,7 @@ export async function getServices(): Promise<ServiceView[]> {
   return unstable_cache(
     async () => {
       const rows = await prisma.service.findMany({
+        where: { status: "PUBLISHED" },
         include: { category: true },
         orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
       });
@@ -76,8 +77,8 @@ export async function getServiceBySlug(
 ): Promise<ServiceView | null> {
   return unstable_cache(
     async () => {
-      const row = await prisma.service.findUnique({
-        where: { slug },
+      const row = await prisma.service.findFirst({
+        where: { slug, status: "PUBLISHED" },
         include: { category: true },
       });
       return row ? mapService(row) : null;

@@ -72,6 +72,7 @@ export default function ProjectFormDialog({
           materials: Array.isArray(data.materials) ? data.materials : [],
           images: Array.isArray(data.images) ? data.images : [],
           sortOrder: data.sortOrder ?? 0,
+          status: data.status === "DRAFT" ? "DRAFT" : "PUBLISHED",
         });
       } catch (err) {
         toast.error(err instanceof Error ? err.message : "Failed to load");

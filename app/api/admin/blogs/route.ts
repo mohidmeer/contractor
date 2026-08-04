@@ -3,6 +3,7 @@ import { isAuthorized } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { BlogContentSchema } from "@/lib/blogSchema";
 import { toMediaPath } from "@/lib/media";
+import { generateUniqueSlug, slugify } from "@/lib/slug";
 
 export async function GET(req: NextRequest) {
   if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
@@ -36,6 +37,7 @@ export async function GET(req: NextRequest) {
         description:true,
         read_time: true,
         image: true,
+        status: true,
         createdAt: true,
         updatedAt: true,
       },
@@ -54,7 +56,7 @@ export async function POST(req: NextRequest) {
     const parsed = BlogContentSchema.parse(json);
 
     const baseSlug = slugify(parsed.title);
-    const uniqueSlug = await generateUniqueSlug(baseSlug);
+    const uniqueSlug = await generateUniqueSlug("blog", baseSlug);
 
     await prisma.blog.create({
       data: {
@@ -66,6 +68,7 @@ export async function POST(req: NextRequest) {
         slug: uniqueSlug,
         image: toMediaPath(parsed.image),
         content: parsed.content,
+        status: parsed.status,
       },
     });
 
@@ -74,19 +77,4 @@ export async function POST(req: NextRequest) {
     console.error(error);
     return NextResponse.json({ error: error?.message ?? "Invalid payload" }, { status: 400 });
   }
-}
-
-function slugify(text: string) {
-  return text.toLowerCase().trim()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w\-]+/g, "");
-}
-
-async function generateUniqueSlug(baseSlug: string): Promise<string> {
-  let slug = baseSlug;
-  let counter = 1;
-  while (await prisma.blog.findUnique({ where: { slug } })) {
-    slug = `${baseSlug}-${counter++}`;
-  }
-  return slug;
 }

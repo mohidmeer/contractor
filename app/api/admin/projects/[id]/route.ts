@@ -9,6 +9,7 @@ import {
 import { asParagraphs } from "@/lib/paragraphs";
 import { revalidateProjectsCache } from "@/lib/revalidateCatalog";
 import { collectUploadPaths, deleteOrphanedUploadFiles } from "@/lib/uploadCleanup";
+import { generateUniqueSlug, slugify } from "@/lib/slug";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -56,14 +57,20 @@ export async function PATCH(req: NextRequest, { params }: Props) {
         parsed.materials ?? (existing.materials as ProjectBody["materials"]),
       images: parsed.images ?? (existing.images as ProjectBody["images"]),
       sortOrder: parsed.sortOrder ?? existing.sortOrder,
+      status: parsed.status ?? existing.status,
     };
 
     const data = normalizeProjectBody(merged);
+    const uniqueSlug = await generateUniqueSlug(
+      "project",
+      slugify(data.slug) || slugify(data.title),
+      Number(id)
+    );
 
     const updated = await prisma.project.update({
       where: { id: Number(id) },
       data: {
-        slug: data.slug,
+        slug: uniqueSlug,
         label: data.label,
         title: data.title,
         description: data.description,
@@ -74,6 +81,7 @@ export async function PATCH(req: NextRequest, { params }: Props) {
         materials: data.materials,
         images: data.images,
         sortOrder: data.sortOrder,
+        status: data.status,
       },
     });
 

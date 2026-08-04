@@ -6,6 +6,7 @@ import {
   normalizeServiceBody,
 } from "@/lib/serviceSchema";
 import { revalidateServicesCache } from "@/lib/revalidateCatalog";
+import { generateUniqueSlug, slugify } from "@/lib/slug";
 
 export async function GET(req: NextRequest) {
   if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
@@ -40,6 +41,7 @@ export async function GET(req: NextRequest) {
         description: true,
         image: true,
         sortOrder: true,
+        status: true,
         categoryId: true,
         createdAt: true,
         updatedAt: true,
@@ -59,10 +61,14 @@ export async function POST(req: NextRequest) {
     const json = await req.json();
     const parsed = ServiceBodySchema.parse(json);
     const data = normalizeServiceBody(parsed);
+    const uniqueSlug = await generateUniqueSlug(
+      "service",
+      slugify(data.slug) || slugify(data.title)
+    );
 
     const created = await prisma.service.create({
       data: {
-        slug: data.slug,
+        slug: uniqueSlug,
         label: data.label,
         title: data.title,
         description: data.description,
@@ -73,11 +79,14 @@ export async function POST(req: NextRequest) {
         faqs: data.faqs,
         images: data.images,
         sortOrder: data.sortOrder,
+        status: data.status,
         categoryId: data.categoryId,
       },
     });
 
-    revalidateServicesCache();
+    if (data.status === "PUBLISHED") {
+      revalidateServicesCache();
+    }
 
     return NextResponse.json({ message: "created", id: created.id }, { status: 201 });
   } catch (error: unknown) {

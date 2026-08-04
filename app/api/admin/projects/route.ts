@@ -6,6 +6,7 @@ import {
   normalizeProjectBody,
 } from "@/lib/projectSchema";
 import { revalidateProjectsCache } from "@/lib/revalidateCatalog";
+import { generateUniqueSlug, slugify } from "@/lib/slug";
 
 export async function GET(req: NextRequest) {
   if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
@@ -40,6 +41,7 @@ export async function GET(req: NextRequest) {
         description: true,
         image: true,
         sortOrder: true,
+        status: true,
         createdAt: true,
         updatedAt: true,
       },
@@ -57,10 +59,14 @@ export async function POST(req: NextRequest) {
     const json = await req.json();
     const parsed = ProjectBodySchema.parse(json);
     const data = normalizeProjectBody(parsed);
+    const uniqueSlug = await generateUniqueSlug(
+      "project",
+      slugify(data.slug) || slugify(data.title)
+    );
 
     const created = await prisma.project.create({
       data: {
-        slug: data.slug,
+        slug: uniqueSlug,
         label: data.label,
         title: data.title,
         description: data.description,
@@ -71,10 +77,13 @@ export async function POST(req: NextRequest) {
         materials: data.materials,
         images: data.images,
         sortOrder: data.sortOrder,
+        status: data.status,
       },
     });
 
-    revalidateProjectsCache();
+    if (data.status === "PUBLISHED") {
+      revalidateProjectsCache();
+    }
 
     return NextResponse.json({ message: "created", id: created.id }, { status: 201 });
   } catch (error: unknown) {

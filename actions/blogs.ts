@@ -4,8 +4,10 @@ import prisma from "@/lib/prisma";
 export async function getAllBlogs(currentPage:number) {
   const pageSize = 8;
   const skip = (currentPage - 1) * pageSize;
+  const where = { status: "PUBLISHED" as const };
   const [blogs, total] = await Promise.all([
     prisma.blog.findMany({
+      where,
       skip,
       take: pageSize,
       orderBy: { createdAt: 'desc' },
@@ -20,7 +22,7 @@ export async function getAllBlogs(currentPage:number) {
         createdAt: true,
       },
     }),
-    prisma.blog.count(),
+    prisma.blog.count({ where }),
   ]);
 
   const totalPages = Math.ceil(total / pageSize);
@@ -39,15 +41,15 @@ export async function getAllBlogs(currentPage:number) {
 }
 
 export async function getBlog(slug: string) {
-  const blog = await prisma.blog.findUnique({
-    where: { slug },
+  const blog = await prisma.blog.findFirst({
+    where: { slug, status: "PUBLISHED" },
   });
   return blog;
 }
 
 export async function getMoreBlogs(excludeSlug: string, take = 8) {
   return prisma.blog.findMany({
-    where: { slug: { not: excludeSlug } },
+    where: { slug: { not: excludeSlug }, status: "PUBLISHED" },
     orderBy: { createdAt: "desc" },
     take,
     select: {

@@ -13,6 +13,17 @@ import {
 } from "lucide-react";
 import MediaForm from "./MediaForm";
 import AiFillDialog from "./AiFillDialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 import {
   AiDraftBanner,
   Field,
@@ -28,10 +39,6 @@ import {
   type BlogContentType,
 } from "@/lib/blogSchema";
 import { toMediaPath } from "@/lib/media";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { cn } from "@/lib/utils";
 
 function normalizeBlock(raw: Record<string, unknown>): BlogBlock {
   const paragraph =
@@ -436,6 +443,22 @@ export default function BlogForm({
               className={fieldClass}
               required
             />
+          </Field>
+          <Field label="Status" className="sm:col-span-2">
+            <Select
+              value={form.status}
+              onValueChange={(value) =>
+                updateField("status", value as BlogContentType["status"])
+              }
+            >
+              <SelectTrigger className={fieldClass}>
+                <SelectValue placeholder="Status" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="DRAFT">Draft</SelectItem>
+                <SelectItem value="PUBLISHED">Published</SelectItem>
+              </SelectContent>
+            </Select>
           </Field>
         </FormCard>
 

@@ -23,6 +23,7 @@ type Blog = {
   title: string;
   slug: string;
   description?: string;
+  status?: "DRAFT" | "PUBLISHED";
   createdAt: string;
 };
 
@@ -138,7 +139,13 @@ export default function BlogsPage() {
                     )}
                   </TableCell>
                   <TableCell>
-                    <Badge variant="secondary">Live</Badge>
+                    <Badge
+                      variant={
+                        blog.status === "DRAFT" ? "outline" : "secondary"
+                      }
+                    >
+                      {blog.status === "DRAFT" ? "Draft" : "Published"}
+                    </Badge>
                     <div className="mt-1 text-xs text-muted-foreground">
                       /{blog.slug}
                     </div>

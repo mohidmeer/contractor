@@ -99,6 +99,7 @@ export default function BlogFormDialog({
           },
           image: data.image ?? "",
           content: normalizeLoadedContent(data.content),
+          status: data.status === "DRAFT" ? "DRAFT" : "PUBLISHED",
         });
       } catch (err) {
         toast.error(err instanceof Error ? err.message : "Failed to load");

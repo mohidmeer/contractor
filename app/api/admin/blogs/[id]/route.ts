@@ -35,6 +35,7 @@ const blog = await prisma.blog.findUnique({
       seo_title: true,
       seo_description: true,
       content: true,
+      status: true,
       createdAt: true,
       updatedAt: true,
     },
@@ -68,6 +69,7 @@ export async function PATCH(
         ...(parsed.seo?.description && { seo_description: parsed.seo.description }),
         ...(parsed.image && { image: toMediaPath(parsed.image) }),
         ...(parsed.content && { content: parsed.content }),
+        ...(parsed.status && { status: parsed.status }),
       },
     });
 

@@ -6,6 +6,18 @@ import { Loader2, Plus, Sparkles, Trash2 } from "lucide-react";
 import MediaForm from "./MediaForm";
 import GalleryImagesField from "./GalleryImagesField";
 import AiFillDialog from "./AiFillDialog";
+import { ProjectBodySchema, type ProjectBody } from "@/lib/projectSchema";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 import {
   AiDraftBanner,
   Field,
@@ -13,12 +25,8 @@ import {
   ItemBadge,
   areaClass,
   fieldClass,
+  selectTriggerClass,
 } from "./formUi";
-import { ProjectBodySchema, type ProjectBody } from "@/lib/projectSchema";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { cn } from "@/lib/utils";
 
 export const emptyProject = (): ProjectBody => ({
   slug: "",
@@ -32,6 +40,7 @@ export const emptyProject = (): ProjectBody => ({
   materials: [""],
   images: [],
   sortOrder: 0,
+  status: "PUBLISHED",
 });
 
 type ProjectFormProps = {
@@ -210,6 +219,25 @@ export default function ProjectForm({
               }
               className={fieldClass}
             />
+          </Field>
+          <Field label="Status">
+            <Select
+              value={form.status}
+              onValueChange={(value) =>
+                setForm({
+                  ...form,
+                  status: value as ProjectBody["status"],
+                })
+              }
+            >
+              <SelectTrigger className={selectTriggerClass}>
+                <SelectValue placeholder="Status" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="DRAFT">Draft</SelectItem>
+                <SelectItem value="PUBLISHED">Published</SelectItem>
+              </SelectContent>
+            </Select>
           </Field>
           <Field label="Label" htmlFor="project-label" className="md:col-span-2">
             <Input

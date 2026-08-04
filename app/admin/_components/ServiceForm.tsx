@@ -41,6 +41,7 @@ export const emptyService = (): ServiceBody => ({
   images: [],
   sortOrder: 0,
   categoryId: null,
+  status: "PUBLISHED",
 });
 
 type CategoryOption = { id: number; name: string; slug: string };
@@ -273,6 +274,25 @@ export default function ServiceForm({
                     {cat.name}
                   </SelectItem>
                 ))}
+              </SelectContent>
+            </Select>
+          </Field>
+          <Field label="Status">
+            <Select
+              value={form.status}
+              onValueChange={(value) =>
+                setForm({
+                  ...form,
+                  status: value as ServiceBody["status"],
+                })
+              }
+            >
+              <SelectTrigger className={selectTriggerClass}>
+                <SelectValue placeholder="Status" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="DRAFT">Draft</SelectItem>
+                <SelectItem value="PUBLISHED">Published</SelectItem>
               </SelectContent>
             </Select>
           </Field>
