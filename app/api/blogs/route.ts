@@ -1,5 +1,6 @@
 import { isAuthorized } from '@/lib/auth';
 import prisma from '@/lib/prisma';
+import { collectUploadPaths, deleteOrphanedUploadFiles } from '@/lib/uploadCleanup';
 import { NextRequest, NextResponse } from 'next/server';
 // import { z } from "zod";
 
@@ -93,27 +94,28 @@ export async function DELETE(req: NextRequest) {
       // no body provided → ignore (defaults to deleting all)
     }
 
+    const blogs = await prisma.blog.findMany({
+      where: slugs && slugs.length > 0 ? { slug: { in: slugs } } : undefined,
+      select: { image: true },
+    });
+    const uploadPaths = blogs.flatMap((blog) => collectUploadPaths(blog.image));
+
     if (slugs && slugs.length > 0) {
-      // Delete only blogs with matching slugs
       await prisma.blog.deleteMany({
         where: {
           slug: { in: slugs },
         },
       });
-
-      
     } else {
-
-  
       await prisma.blog.deleteMany({});
-
     }
 
+    await deleteOrphanedUploadFiles(uploadPaths);
 
-      return NextResponse.json(
-        { message: `Deleted  blogs` },
-        { status: 200 }
-      );
+    return NextResponse.json(
+      { message: `Deleted  blogs` },
+      { status: 200 }
+    );
 
    
 

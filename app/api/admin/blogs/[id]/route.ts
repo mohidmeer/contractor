@@ -3,6 +3,7 @@ import { isAuthorized } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { BlogContentSchema } from "@/lib/blogSchema";
 import { toMediaPath } from "@/lib/media";
+import { collectUploadPaths, deleteOrphanedUploadFiles } from "@/lib/uploadCleanup";
 
 
 
@@ -89,7 +90,18 @@ export async function DELETE(
   const { id } = await params
 
   try {
+    const existing = await prisma.blog.findUnique({
+      where: { id: Number(id) },
+      select: { image: true },
+    });
+    if (!existing) {
+      return NextResponse.json({ error: "Not found" }, { status: 404 });
+    }
+
+    const uploadPaths = collectUploadPaths(existing.image);
     await prisma.blog.delete({ where: { id: Number(id) } });
+    await deleteOrphanedUploadFiles(uploadPaths);
+
     return NextResponse.json({ message: "deleted" });
   } catch (error) {
     console.error(error);

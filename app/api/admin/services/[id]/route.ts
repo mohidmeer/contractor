@@ -8,6 +8,7 @@ import {
 } from "@/lib/serviceSchema";
 import { asParagraphs } from "@/lib/paragraphs";
 import { revalidateServicesCache } from "@/lib/revalidateCatalog";
+import { collectUploadPaths, deleteOrphanedUploadFiles } from "@/lib/uploadCleanup";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -99,10 +100,13 @@ export async function DELETE(req: NextRequest, { params }: Props) {
   try {
     const existing = await prisma.service.findUnique({
       where: { id: Number(id) },
+      select: { image: true, images: true },
     });
     if (!existing) return new NextResponse("Not Found", { status: 404 });
 
+    const uploadPaths = collectUploadPaths(existing.image, existing.images);
     await prisma.service.delete({ where: { id: Number(id) } });
+    await deleteOrphanedUploadFiles(uploadPaths);
     revalidateServicesCache();
     return NextResponse.json({ message: "deleted" });
   } catch {

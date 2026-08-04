@@ -6,6 +6,7 @@ import {
   normalizeEstimateBody,
 } from "@/lib/estimateSchema";
 import { serializeEstimate } from "@/lib/estimateHelpers";
+import { collectUploadPaths, deleteOrphanedUploadFiles } from "@/lib/uploadCleanup";
 import { ZodError } from "zod";
 
 type Props = {
@@ -109,7 +110,18 @@ export async function DELETE(req: NextRequest, { params }: Props) {
   const { id } = await params;
 
   try {
+    const existing = await prisma.estimate.findUnique({
+      where: { id },
+      select: { images: true },
+    });
+    if (!existing) {
+      return NextResponse.json({ error: "Not found" }, { status: 404 });
+    }
+
+    const uploadPaths = collectUploadPaths(null, existing.images);
     await prisma.estimate.delete({ where: { id } });
+    await deleteOrphanedUploadFiles(uploadPaths);
+
     return NextResponse.json({ message: "deleted" });
   } catch (error) {
     console.error(error);
