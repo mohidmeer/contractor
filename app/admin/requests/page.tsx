@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Trash2 } from "lucide-react";
+import { Loader2, RotateCcw, Trash2 } from "lucide-react";
 import AdminPageHeader from "../_components/AdminPageHeader";
 import DeleteConfirmDialog from "../_components/DeleteConfirmDialog";
 import { Button } from "@/components/ui/button";
@@ -23,8 +23,10 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import {
+  FORM_REQUEST_EMAIL_STATUS_LABELS,
   FORM_REQUEST_STATUS_LABELS,
   FORM_REQUEST_TYPE_LABELS,
+  type FormRequestEmailStatus,
   type FormRequestStatus,
   type FormRequestType,
 } from "@/lib/formRequestSchema";
@@ -38,6 +40,8 @@ type FormRequestRow = {
   message: string | null;
   site: string;
   status: FormRequestStatus;
+  emailStatus: FormRequestEmailStatus;
+  emailError: string | null;
   createdAt: string;
 };
 
@@ -66,6 +70,7 @@ export default function RequestsPage() {
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [updatingId, setUpdatingId] = useState<string | null>(null);
+  const [retryingId, setRetryingId] = useState<string | null>(null);
 
   const loadRequests = useCallback(async () => {
     setLoading(true);
@@ -108,6 +113,49 @@ export default function RequestsPage() {
       toast.error(err instanceof Error ? err.message : "Failed to update status");
     } finally {
       setUpdatingId(null);
+    }
+  };
+
+  const handleRetryEmail = async (id: string) => {
+    setRetryingId(id);
+    try {
+      const res = await fetch(`/api/admin/requests/${id}/retry-email`, {
+        method: "POST",
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        if (data.emailStatus) {
+          setItems((prev) =>
+            prev.map((item) =>
+              item.id === id
+                ? {
+                    ...item,
+                    emailStatus: data.emailStatus,
+                    emailError: data.emailError ?? null,
+                  }
+                : item
+            )
+          );
+        }
+        throw new Error(data.error || "Failed to send email");
+      }
+
+      setItems((prev) =>
+        prev.map((item) =>
+          item.id === id
+            ? {
+                ...item,
+                emailStatus: data.emailStatus,
+                emailError: data.emailError ?? null,
+              }
+            : item
+        )
+      );
+      toast.success("Email sent");
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Failed to retry email");
+    } finally {
+      setRetryingId(null);
     }
   };
 
@@ -172,13 +220,14 @@ export default function RequestsPage() {
                 <TableHead>Address</TableHead>
                 <TableHead>Message</TableHead>
                 <TableHead>Status</TableHead>
-                <TableHead className="w-[60px]">Actions</TableHead>
+                <TableHead>Email</TableHead>
+                <TableHead className="w-[100px]">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {items.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={8} className="py-10 text-center text-muted-foreground">
+                  <TableCell colSpan={9} className="py-10 text-center text-muted-foreground">
                     No form requests yet
                   </TableCell>
                 </TableRow>
@@ -228,14 +277,51 @@ export default function RequestsPage() {
                       </Select>
                     </TableCell>
                     <TableCell>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        aria-label="Delete request"
-                        onClick={() => setDeletingId(item.id)}
-                      >
-                        <Trash2 className="h-4 w-4 text-destructive" />
-                      </Button>
+                      <div className="space-y-1">
+                        <Badge
+                          variant={
+                            item.emailStatus === "SENT" ? "secondary" : "destructive"
+                          }
+                        >
+                          {FORM_REQUEST_EMAIL_STATUS_LABELS[item.emailStatus]}
+                        </Badge>
+                        {item.emailStatus === "ERROR" && item.emailError ? (
+                          <p
+                            className="max-w-[160px] truncate text-[11px] text-muted-foreground"
+                            title={item.emailError}
+                          >
+                            {item.emailError}
+                          </p>
+                        ) : null}
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-0.5">
+                        {item.emailStatus === "ERROR" ? (
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            aria-label="Retry email"
+                            title="Retry email"
+                            disabled={retryingId === item.id}
+                            onClick={() => handleRetryEmail(item.id)}
+                          >
+                            {retryingId === item.id ? (
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : (
+                              <RotateCcw className="h-4 w-4" />
+                            )}
+                          </Button>
+                        ) : null}
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          aria-label="Delete request"
+                          onClick={() => setDeletingId(item.id)}
+                        >
+                          <Trash2 className="h-4 w-4 text-destructive" />
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                 ))

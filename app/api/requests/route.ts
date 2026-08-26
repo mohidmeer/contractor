@@ -4,6 +4,7 @@ import {
   CreateFormRequestSchema,
   normalizeFormRequestBody,
 } from "@/lib/formRequestSchema";
+import { sendFormRequestNotification } from "@/lib/mail/sendFormRequestNotification";
 import { ZodError } from "zod";
 
 export async function POST(req: NextRequest) {
@@ -13,6 +14,7 @@ export async function POST(req: NextRequest) {
     const data = normalizeFormRequestBody(parsed);
 
     const request = await prisma.formRequest.create({ data });
+    await sendFormRequestNotification(request.id);
 
     return NextResponse.json(
       { id: request.id, message: "Request submitted" },

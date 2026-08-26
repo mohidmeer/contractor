@@ -7,6 +7,8 @@ export const FormRequestTypeSchema = z.enum([
 
 export const FormRequestStatusSchema = z.enum(["NEW", "CONTACTED", "CLOSED"]);
 
+export const FormRequestEmailStatusSchema = z.enum(["SENT", "ERROR"]);
+
 const phonePattern = /^[0-9+\-\s()]{7,}$/;
 
 export const CreateFormRequestSchema = z.object({
@@ -27,6 +29,7 @@ export const UpdateFormRequestStatusSchema = z.object({
 
 export type FormRequestType = z.infer<typeof FormRequestTypeSchema>;
 export type FormRequestStatus = z.infer<typeof FormRequestStatusSchema>;
+export type FormRequestEmailStatus = z.infer<typeof FormRequestEmailStatusSchema>;
 export type CreateFormRequestBody = z.infer<typeof CreateFormRequestSchema>;
 
 export function normalizeFormRequestBody(data: CreateFormRequestBody) {
@@ -50,6 +53,8 @@ export function serializeFormRequest<
     message: string | null;
     site: string;
     status: FormRequestStatus;
+    emailStatus: FormRequestEmailStatus;
+    emailError: string | null;
     createdAt: Date;
     updatedAt: Date;
   },
@@ -63,6 +68,8 @@ export function serializeFormRequest<
     message: request.message,
     site: request.site,
     status: request.status,
+    emailStatus: request.emailStatus,
+    emailError: request.emailError,
     createdAt: request.createdAt.toISOString(),
     updatedAt: request.updatedAt.toISOString(),
   };
@@ -77,4 +84,12 @@ export const FORM_REQUEST_STATUS_LABELS: Record<FormRequestStatus, string> = {
   NEW: "New",
   CONTACTED: "Contacted",
   CLOSED: "Closed",
+};
+
+export const FORM_REQUEST_EMAIL_STATUS_LABELS: Record<
+  FormRequestEmailStatus,
+  string
+> = {
+  SENT: "Sent",
+  ERROR: "Error",
 };

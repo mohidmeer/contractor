@@ -2,13 +2,14 @@ import AdminPageHeader from "../_components/AdminPageHeader";
 import ChatbotPromptPanel from "../_components/ChatbotPromptPanel";
 import ApiKeysPanel from "../_components/ApiKeysPanel";
 import BulkAiWritePanel from "../_components/BulkAiWritePanel";
+import SmtpSettingsPanel from "../_components/SmtpSettingsPanel";
 
 export default function SettingsPage() {
   return (
     <div>
       <AdminPageHeader
         title="Settings"
-        description="Manage chatbot prompt, API keys, and bulk AI writing"
+        description="Manage chatbot prompt, API keys, SMTP, and bulk AI writing"
       />
       <div className="mx-auto max-w-5xl space-y-6">
         <div className="grid gap-4 md:grid-cols-2 md:items-stretch">
@@ -16,6 +17,7 @@ export default function SettingsPage() {
           <BulkAiWritePanel />
         </div>
         <ApiKeysPanel />
+        <SmtpSettingsPanel />
       </div>
     </div>
   );
