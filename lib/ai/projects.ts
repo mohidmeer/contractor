@@ -12,7 +12,13 @@ const ProjectAiSchema = z.object({
     .describe("URL-friendly slug using lowercase kebab-case, e.g. orlando-kitchen-remodel"),
   label: z.string().describe("Short nav / card label"),
   title: z.string().describe("Full project page title"),
-  description: z.string().describe("1-2 sentence short description for cards and SEO"),
+  description: z.string().describe("1-2 sentence short description for cards"),
+  seo: z.object({
+    title: z.string().describe("SEO title for meta tags — distinct from page title when helpful"),
+    description: z
+      .string()
+      .describe("SEO meta description, 1-2 sentences — distinct from card description when helpful"),
+  }),
   content: z
     .array(z.string())
     .describe("2-4 short project story paragraphs as separate strings"),
@@ -48,6 +54,7 @@ You are UPDATING an existing project showcase. Use the current data below as the
 Apply the user's instructions to revise, improve, or expand that content.
 Preserve facts, location, timeline, and structure that still fit unless the user asks to change them.
 Keep the slug stable unless the user explicitly asks to change it.
+Generate distinct seo.title and seo.description for meta tags (not invent images).
 Do not invent image URLs.
 Return a complete updated project object.
 
@@ -61,6 +68,7 @@ ${prompt.trim()}`;
   return `You write website content for "${siteName}", a professional contractor business.
 
 Generate complete project showcase copy from this brief. Do not invent image URLs.
+Include distinct seo.title and seo.description for search/social meta tags.
 Use a clear, trustworthy tone that highlights craftsmanship and results.
 Slug must be lowercase kebab-case.
 

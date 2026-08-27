@@ -5,13 +5,22 @@ import Image from "next/image";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { toMediaPath, toMediaUrl } from "@/lib/media";
+import { cn } from "@/lib/utils";
 
 const MediaForm = ({
   initialUrl = "",
   onUploaded,
+  label = "Cover image",
+  hint = "Main image shown on cards and page headers.",
+  compact = false,
+  className,
 }: {
   initialUrl?: string;
   onUploaded?: (url: string) => void;
+  label?: string;
+  hint?: string | null;
+  compact?: boolean;
+  className?: string;
 }) => {
   const [imgPath, setImgPath] = useState(toMediaPath(initialUrl));
   const [uploading, setUploading] = useState(false);
@@ -47,7 +56,6 @@ const MediaForm = ({
       }
 
       const data = await res.json();
-      // Save only the path after the first slash (media/...)
       const path = toMediaPath(data.url ?? data.path ?? "");
       setImgPath(path);
       setSuccess("Image updated successfully");
@@ -60,27 +68,43 @@ const MediaForm = ({
   };
 
   return (
-    <div className="flex w-full flex-col gap-2">
-      <div>
-        <Label>Cover image</Label>
-        <p className="mt-1 text-xs text-muted-foreground">
-          Main image shown on cards and page headers.
-        </p>
-      </div>
+    <div className={cn("flex w-full flex-col gap-2", className)}>
+      {(label || hint) && (
+        <div>
+          {label ? <Label>{label}</Label> : null}
+          {hint ? (
+            <p className="mt-1 text-xs text-muted-foreground">{hint}</p>
+          ) : null}
+        </div>
+      )}
 
       {displayUrl && (
         <Image
           src={displayUrl}
-          width={640}
-          height={360}
+          width={compact ? 480 : 640}
+          height={compact ? 360 : 360}
           alt="Uploaded image"
-          className="max-h-48 w-full max-w-md rounded-md border object-cover"
+          className={cn(
+            "w-full rounded-md border object-cover",
+            compact ? "aspect-[4/3] max-h-44" : "max-h-48 max-w-md"
+          )}
           unoptimized
         />
       )}
 
-      <div className="relative max-w-md cursor-pointer rounded-md border border-dashed p-3 text-center text-sm font-medium text-primary">
-        {uploading ? "Uploading..." : "Add cover image"}
+      <div
+        className={cn(
+          "relative cursor-pointer rounded-md border border-dashed p-3 text-center text-sm font-medium text-primary",
+          compact ? "max-w-none" : "max-w-md"
+        )}
+      >
+        {uploading
+          ? "Uploading..."
+          : displayUrl
+            ? "Replace image"
+            : compact
+              ? "Upload image"
+              : "Add cover image"}
         <Input
           type="file"
           accept="image/*"
@@ -90,12 +114,14 @@ const MediaForm = ({
         />
       </div>
 
-      {imgPath && (
+      {imgPath && !compact && (
         <p className="break-all text-xs text-muted-foreground">{imgPath}</p>
       )}
 
       {error && <p className="text-sm text-destructive">{error}</p>}
-      {success && <p className="text-sm text-muted-foreground">{success}</p>}
+      {success && !compact && (
+        <p className="text-sm text-muted-foreground">{success}</p>
+      )}
     </div>
   );
 };

@@ -10,6 +10,8 @@ export type ProjectView = {
   label: string;
   title: string;
   description: string;
+  seo_title: string;
+  seo_description: string;
   content: string[];
   image: string | null;
   imageUrl: string;
@@ -34,6 +36,8 @@ function mapProject(row: Project): ProjectView {
     label: row.label,
     title: row.title,
     description: row.description,
+    seo_title: row.seo_title || row.title,
+    seo_description: row.seo_description || row.description,
     content: asParagraphs(row.content),
     image,
     imageUrl: image ? toMediaUrl(image) : "",

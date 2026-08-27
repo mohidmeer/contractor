@@ -62,6 +62,10 @@ export default function ProjectFormDialog({
           label: data.label,
           title: data.title,
           description: data.description,
+          seo: {
+            title: data.seo_title ?? data.title ?? "",
+            description: data.seo_description ?? data.description ?? "",
+          },
           content: (() => {
             const paragraphs = asParagraphs(data.content);
             return paragraphs.length ? paragraphs : [""];

@@ -12,7 +12,6 @@ export const BlogAiSchema = z.object({
   seo: z.object({
     title: z.string().describe("SEO title for meta tags"),
     description: z.string().describe("SEO meta description, 1-2 sentences"),
-    keywords: z.array(z.string()).describe("5-10 relevant SEO keywords"),
   }),
   content: z
     .array(
@@ -34,6 +33,45 @@ export const BlogAiSchema = z.object({
           .string()
           .nullable()
           .describe("Optional pull quote, or null if not needed"),
+        callout: z
+          .object({
+            text: z.string(),
+            tone: z.enum(["tip", "note", "warning"]),
+          })
+          .nullable()
+          .describe("Optional tip/note/warning callout, or null"),
+        cta: z
+          .object({
+            label: z.string(),
+            href: z.string(),
+          })
+          .nullable()
+          .describe("Optional call-to-action button label and href, or null"),
+        imageFigure: z
+          .object({
+            image: z.string(),
+            caption: z.string().nullable(),
+          })
+          .nullable()
+          .describe("Always null — never invent image URLs"),
+        mediaSplit: z
+          .object({
+            image: z.string(),
+            side: z.enum(["left", "right"]),
+            heading: z.string(),
+            paragraph: z.string().nullable(),
+            listItems: z.array(z.string()).nullable(),
+            table: z.array(z.array(z.string())).nullable(),
+            quote: z.string().nullable(),
+            cta: z
+              .object({
+                label: z.string(),
+                href: z.string(),
+              })
+              .nullable(),
+          })
+          .nullable()
+          .describe("Always null — never invent image URLs"),
       })
     )
     .describe("4-7 well-structured article sections"),
@@ -62,9 +100,9 @@ function buildBlogUserMessage(prompt: string, context?: BlogAiContext) {
 You are UPDATING an existing blog post. Use the current data below as the source of truth.
 Apply the user's instructions to revise, improve, or expand that content.
 Preserve facts and structure that still fit unless the user asks to change them.
-Do not invent image URLs or image fields.
+Do not invent image URLs or image fields — always set imageFigure and mediaSplit to null.
 Return a complete updated blog object matching the schema.
-Use null for unused listItems, table, or quote fields — do not invent filler lists/tables/quotes.
+Use null for unused listItems, table, quote, callout, or cta fields — do not invent filler.
 
 ${idLine}Current blog data (JSON):
 ${JSON.stringify(context!.existing, null, 2)}
@@ -77,8 +115,8 @@ ${prompt.trim()}`;
 
 Generate a complete, helpful blog post from this brief.
 Tone: clear, trustworthy, and practical for local homeowners and commercial clients.
-Do not invent image URLs or image fields.
-Use null for unused listItems, table, or quote fields — only include them when they add real value.
+Do not invent image URLs or image fields — always set imageFigure and mediaSplit to null.
+Use null for unused listItems, table, quote, callout, or cta fields — only include them when they add real value.
 Aim for 4-7 sections with useful headings and solid paragraphs.
 
 Brief:
@@ -108,9 +146,7 @@ export async function generateBlogWithAi(
   await recordAnthropicMessageUsage(apiKeyId, message.usage);
 
   if (!message.parsed_output) {
-    throw new Error(
-      `AI did not return structured blog data (stop_reason: ${message.stop_reason})`
-    );
+    throw new Error("AI returned empty blog content");
   }
 
   return message.parsed_output;

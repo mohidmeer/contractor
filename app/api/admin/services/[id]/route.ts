@@ -47,6 +47,10 @@ export async function PATCH(req: NextRequest, { params }: Props) {
       label: parsed.label ?? existing.label,
       title: parsed.title ?? existing.title,
       description: parsed.description ?? existing.description,
+      seo: parsed.seo ?? {
+        title: existing.seo_title,
+        description: existing.seo_description,
+      },
       content: parsed.content ?? asParagraphs(existing.content),
       image: parsed.image !== undefined ? parsed.image : existing.image,
       typeOfSolutions:
@@ -79,6 +83,8 @@ export async function PATCH(req: NextRequest, { params }: Props) {
         label: data.label,
         title: data.title,
         description: data.description,
+        seo_title: data.seo_title,
+        seo_description: data.seo_description,
         content: data.content,
         image: data.image,
         typeOfSolutions: data.typeOfSolutions,

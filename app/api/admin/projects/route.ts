@@ -70,6 +70,8 @@ export async function POST(req: NextRequest) {
         label: data.label,
         title: data.title,
         description: data.description,
+        seo_title: data.seo_title,
+        seo_description: data.seo_description,
         content: data.content,
         image: data.image,
         location: data.location,

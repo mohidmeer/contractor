@@ -33,21 +33,23 @@ export async function generateMetadata({ params }: Props) {
 
   const canonical = `${siteUrl}services/${slug}`;
   const image = service.image ? toMediaUrl(service.image) : undefined;
+  const metaTitle = service.seo_title || service.title;
+  const metaDesc = service.seo_description || service.description;
 
   return {
-    title: `${service.title} | ${siteName}`,
-    description: service.description,
+    title: `${metaTitle} | ${siteName}`,
+    description: metaDesc,
     alternates: { canonical },
     openGraph: {
-      title: service.title,
-      description: service.description,
+      title: metaTitle,
+      description: metaDesc,
       url: canonical,
       images: image ? [image] : undefined,
     },
     twitter: {
       card: "summary_large_image",
-      title: service.title,
-      description: service.description,
+      title: metaTitle,
+      description: metaDesc,
       images: image ? [image] : undefined,
     },
   };
@@ -67,11 +69,14 @@ export default async function Page({ params }: Props) {
     ...service.imageUrls.filter((url) => url !== service.imageUrl),
   ];
 
+  const metaTitle = service.seo_title || service.title;
+  const metaDesc = service.seo_description || service.description;
+
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: service.title,
-    description: service.description,
+    name: metaTitle,
+    description: metaDesc,
     image,
     provider: { "@id": BUSINESS_ID },
     url: `${siteUrl}/services/${slug}`,

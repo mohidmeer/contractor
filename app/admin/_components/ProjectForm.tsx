@@ -33,6 +33,7 @@ export const emptyProject = (): ProjectBody => ({
   label: "",
   title: "",
   description: "",
+  seo: { title: "", description: "" },
   content: [""],
   image: "",
   location: "",
@@ -79,6 +80,7 @@ export default function ProjectForm({
               label: form.label,
               title: form.title,
               description: form.description,
+              seo: form.seo,
               content: form.content,
               location: form.location,
               duration: form.duration,
@@ -106,6 +108,11 @@ export default function ProjectForm({
         label: generated.label ?? prev.label,
         title: generated.title ?? prev.title,
         description: generated.description ?? prev.description,
+        seo: {
+          title: generated.seo?.title ?? prev.seo?.title ?? "",
+          description:
+            generated.seo?.description ?? prev.seo?.description ?? "",
+        },
         content:
           Array.isArray(generated.content) && generated.content.length
             ? generated.content
@@ -291,63 +298,103 @@ export default function ProjectForm({
               required
             />
           </Field>
+        </FormCard>
 
-          <div className="space-y-3 md:col-span-2">
-            <div className="flex items-center justify-between gap-2">
-              <p className="text-[13px] font-semibold tracking-tight">
-                Content paragraphs
-              </p>
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                className="rounded-lg"
-                onClick={() =>
-                  setForm({ ...form, content: [...form.content, ""] })
-                }
+        <FormCard
+          title="SEO"
+          description="Used for search and social. Leave blank to use the main title and description."
+          contentClassName="grid gap-5"
+        >
+          <Field label="SEO title" htmlFor="project-seo-title">
+            <Input
+              id="project-seo-title"
+              value={form.seo?.title ?? ""}
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  seo: { ...form.seo, title: e.target.value },
+                })
+              }
+              placeholder="Defaults to main title"
+              className={fieldClass}
+            />
+          </Field>
+          <Field label="SEO description" htmlFor="project-seo-desc">
+            <Textarea
+              id="project-seo-desc"
+              value={form.seo?.description ?? ""}
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  seo: { ...form.seo, description: e.target.value },
+                })
+              }
+              rows={3}
+              placeholder="Defaults to main description"
+              className={areaClass}
+            />
+          </Field>
+        </FormCard>
+
+        <FormCard
+          title="Content"
+          description="Body paragraphs for the project page."
+          contentClassName="space-y-3"
+        >
+          <div className="flex items-center justify-between gap-2">
+            <p className="text-[13px] font-semibold tracking-tight">
+              Content paragraphs
+            </p>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              className="rounded-lg"
+              onClick={() =>
+                setForm({ ...form, content: [...form.content, ""] })
+              }
+            >
+              <Plus className="h-4 w-4" />
+              Add paragraph
+            </Button>
+          </div>
+          <div className="space-y-3">
+            {form.content.map((paragraph, index) => (
+              <div
+                key={index}
+                className="flex gap-2 rounded-2xl border border-border/60 bg-muted/15 p-3"
               >
-                <Plus className="h-4 w-4" />
-                Add paragraph
-              </Button>
-            </div>
-            <div className="space-y-3">
-              {form.content.map((paragraph, index) => (
-                <div
-                  key={index}
-                  className="flex gap-2 rounded-2xl border border-border/60 bg-muted/15 p-3"
+                <ItemBadge n={index + 1} />
+                <Textarea
+                  rows={4}
+                  value={paragraph}
+                  placeholder={`Paragraph ${index + 1}`}
+                  onChange={(e) => {
+                    const content = [...form.content];
+                    content[index] = e.target.value;
+                    setForm({ ...form, content });
+                  }}
+                  className={cn(areaClass, "bg-background/80")}
+                  required
+                />
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  className="h-9 w-9 shrink-0 text-destructive"
+                  disabled={form.content.length <= 1}
+                  onClick={() => {
+                    const content = form.content.filter((_, i) => i !== index);
+                    setForm({
+                      ...form,
+                      content: content.length ? content : [""],
+                    });
+                  }}
                 >
-                  <ItemBadge n={index + 1} />
-                  <Textarea
-                    rows={4}
-                    value={paragraph}
-                    placeholder={`Paragraph ${index + 1}`}
-                    onChange={(e) => {
-                      const content = [...form.content];
-                      content[index] = e.target.value;
-                      setForm({ ...form, content });
-                    }}
-                    className={cn(areaClass, "bg-background/80")}
-                    required
-                  />
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    size="icon"
-                    className="h-9 w-9 shrink-0 text-destructive"
-                    disabled={form.content.length <= 1}
-                    onClick={() => {
-                      const content = form.content.filter((_, i) => i !== index);
-                      setForm({
-                        ...form,
-                        content: content.length ? content : [""],
-                      });
-                    }}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                </div>
-              ))}
-            </div>
+                  <Trash2 className="h-4 w-4" />
+                </Button>
+              </div>
+            ))}
           </div>
         </FormCard>
 

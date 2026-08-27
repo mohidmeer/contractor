@@ -12,7 +12,13 @@ const ServiceAiSchema = z.object({
     .describe("URL-friendly slug using lowercase kebab-case, e.g. concrete-driveways"),
   label: z.string().describe("Short nav label"),
   title: z.string().describe("Full service page title"),
-  description: z.string().describe("1-2 sentence short description for cards and SEO"),
+  description: z.string().describe("1-2 sentence short description for cards"),
+  seo: z.object({
+    title: z.string().describe("SEO title for meta tags — distinct from page title when helpful"),
+    description: z
+      .string()
+      .describe("SEO meta description, 1-2 sentences — distinct from card description when helpful"),
+  }),
   content: z
     .array(z.string())
     .describe("2-4 short body paragraphs as separate strings"),
@@ -63,6 +69,7 @@ You are UPDATING an existing service page. Use the current data below as the sou
 Apply the user's instructions to revise, improve, or expand that content.
 Preserve facts, tone, and structure that still fit unless the user asks to change them.
 Keep the slug stable unless the user explicitly asks to change it.
+Generate distinct seo.title and seo.description for meta tags (not invent images).
 Do not invent image URLs.
 Return a complete updated service object.
 
@@ -76,6 +83,7 @@ ${prompt.trim()}`;
   return `You write website content for "${siteName}", a professional contractor business.
 
 Generate complete service page copy from this brief. Do not invent image URLs.
+Include distinct seo.title and seo.description for search/social meta tags.
 Use a clear, trustworthy tone suited for local homeowners and commercial clients.
 Slug must be lowercase kebab-case.
 

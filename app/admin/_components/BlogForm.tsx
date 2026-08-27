@@ -4,7 +4,12 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import {
   Loader2,
+  ImageIcon,
+  Link2,
   List,
+  MessageSquareWarning,
+  PanelLeft,
+  PanelRight,
   Plus,
   Quote,
   Sparkles,
@@ -55,12 +60,100 @@ function normalizeBlock(raw: Record<string, unknown>): BlogBlock {
     : null;
   const quote = typeof raw.quote === "string" ? raw.quote : null;
 
+  const calloutRaw = raw.callout as Record<string, unknown> | null | undefined;
+  const ctaRaw = raw.cta as Record<string, unknown> | null | undefined;
+  const imageFigureRaw = raw.imageFigure as
+    | Record<string, unknown>
+    | null
+    | undefined;
+  const mediaSplitRaw = raw.mediaSplit as
+    | Record<string, unknown>
+    | null
+    | undefined;
+
+  const callout =
+    calloutRaw && typeof calloutRaw.text === "string"
+      ? {
+          text: calloutRaw.text,
+          tone: (
+            calloutRaw.tone === "tip" ||
+            calloutRaw.tone === "note" ||
+            calloutRaw.tone === "warning"
+              ? calloutRaw.tone
+              : "note"
+          ) as "tip" | "note" | "warning",
+        }
+      : null;
+
+  const cta =
+    ctaRaw &&
+    typeof ctaRaw.label === "string" &&
+    typeof ctaRaw.href === "string"
+      ? { label: ctaRaw.label, href: ctaRaw.href }
+      : null;
+
+  const imageFigure =
+    imageFigureRaw && typeof imageFigureRaw.image === "string"
+      ? {
+          image: imageFigureRaw.image,
+          caption:
+            typeof imageFigureRaw.caption === "string"
+              ? imageFigureRaw.caption
+              : null,
+        }
+      : null;
+
+  const mediaSplit =
+    mediaSplitRaw && typeof mediaSplitRaw.image === "string"
+      ? {
+          image: mediaSplitRaw.image,
+          side: mediaSplitRaw.side === "right" ? ("right" as const) : ("left" as const),
+          heading:
+            typeof mediaSplitRaw.heading === "string"
+              ? mediaSplitRaw.heading
+              : "",
+          paragraph:
+            typeof mediaSplitRaw.paragraph === "string"
+              ? mediaSplitRaw.paragraph
+              : null,
+          listItems: Array.isArray(mediaSplitRaw.listItems)
+            ? (mediaSplitRaw.listItems as string[])
+            : null,
+          table: Array.isArray(mediaSplitRaw.table)
+            ? (mediaSplitRaw.table as string[][])
+            : null,
+          quote:
+            typeof mediaSplitRaw.quote === "string"
+              ? mediaSplitRaw.quote
+              : null,
+          cta:
+            mediaSplitRaw.cta &&
+            typeof (mediaSplitRaw.cta as Record<string, unknown>).label ===
+              "string" &&
+            typeof (mediaSplitRaw.cta as Record<string, unknown>).href ===
+              "string"
+              ? {
+                  label: String(
+                    (mediaSplitRaw.cta as Record<string, unknown>).label
+                  ),
+                  href: String(
+                    (mediaSplitRaw.cta as Record<string, unknown>).href
+                  ),
+                }
+              : null,
+        }
+      : null;
+
   return {
     heading: typeof raw.heading === "string" ? raw.heading : "",
     paragraph,
     listItems: listItems?.length ? listItems : null,
     table: table?.length ? table : null,
     quote,
+    callout,
+    cta,
+    imageFigure,
+    mediaSplit,
   };
 }
 
@@ -96,9 +189,6 @@ export default function BlogForm({
   const [form, setForm] = useState<BlogContentType>(
     initialValues ?? emptyBlog()
   );
-  const [keywordsText, setKeywordsText] = useState(
-    (initialValues?.seo.keywords ?? []).join(", ")
-  );
   const [saving, setSaving] = useState(false);
   const [aiOpen, setAiOpen] = useState(false);
   const [aiLoading, setAiLoading] = useState(false);
@@ -106,7 +196,6 @@ export default function BlogForm({
   useEffect(() => {
     if (!initialValues) return;
     setForm(initialValues);
-    setKeywordsText((initialValues.seo.keywords ?? []).join(", "));
   }, [initialValues]);
 
   const updateField = <K extends keyof BlogContentType>(
@@ -281,6 +370,53 @@ export default function BlogForm({
     updateSection(sectionIndex, { quote: null });
   };
 
+  const enableCallout = (sectionIndex: number) => {
+    updateSection(sectionIndex, {
+      callout: { text: "", tone: "note" },
+    });
+  };
+
+  const clearCallout = (sectionIndex: number) => {
+    updateSection(sectionIndex, { callout: null });
+  };
+
+  const enableCta = (sectionIndex: number) => {
+    updateSection(sectionIndex, { cta: { label: "", href: "" } });
+  };
+
+  const clearCta = (sectionIndex: number) => {
+    updateSection(sectionIndex, { cta: null });
+  };
+
+  const enableImageFigure = (sectionIndex: number) => {
+    updateSection(sectionIndex, {
+      imageFigure: { image: "", caption: null },
+    });
+  };
+
+  const clearImageFigure = (sectionIndex: number) => {
+    updateSection(sectionIndex, { imageFigure: null });
+  };
+
+  const enableMediaSplit = (sectionIndex: number) => {
+    updateSection(sectionIndex, {
+      mediaSplit: {
+        image: "",
+        side: "left",
+        heading: "",
+        paragraph: null,
+        listItems: null,
+        table: null,
+        quote: null,
+        cta: null,
+      },
+    });
+  };
+
+  const clearMediaSplit = (sectionIndex: number) => {
+    updateSection(sectionIndex, { mediaSplit: null });
+  };
+
   const handleAiGenerate = async (prompt: string) => {
     setAiLoading(true);
     try {
@@ -307,9 +443,7 @@ export default function BlogForm({
       if (!res.ok) throw new Error(data.error || "Failed to generate with AI");
 
       const generated = data.data;
-      const nextKeywords = Array.isArray(generated.seo?.keywords)
-        ? generated.seo.keywords
-        : [];
+      const prevContent = form.content;
 
       setForm((prev) => ({
         ...prev,
@@ -318,17 +452,23 @@ export default function BlogForm({
         seo: {
           title: generated.seo?.title ?? prev.seo.title,
           description: generated.seo?.description ?? prev.seo.description,
-          keywords: nextKeywords.length ? nextKeywords : prev.seo.keywords,
         },
         content:
           Array.isArray(generated.content) && generated.content.length
-            ? generated.content.map((block: Record<string, unknown>) =>
-                normalizeBlock(block)
+            ? generated.content.map(
+                (block: Record<string, unknown>, i: number) => {
+                  const next = normalizeBlock(block);
+                  const prevBlock = prevContent[i];
+                  return {
+                    ...next,
+                    imageFigure: next.imageFigure ?? prevBlock?.imageFigure ?? null,
+                    mediaSplit: next.mediaSplit ?? prevBlock?.mediaSplit ?? null,
+                  };
+                }
               )
             : prev.content,
         image: prev.image,
       }));
-      setKeywordsText(nextKeywords.join(", "));
       setAiOpen(false);
       toast.success(
         mode === "edit"
@@ -347,28 +487,82 @@ export default function BlogForm({
     setSaving(true);
 
     try {
-      const keywords = keywordsText
-        .split(",")
-        .map((k) => k.trim())
-        .filter(Boolean);
-
       const payload = BlogContentSchema.parse({
         ...form,
         image: toMediaPath(form.image),
         seo: {
-          ...form.seo,
-          keywords,
+          title: form.seo.title,
+          description: form.seo.description,
         },
-        content: form.content.map((block) => ({
-          heading: block.heading,
-          paragraph: block.paragraph?.trim() ? block.paragraph : null,
-          listItems:
-            block.listItems?.map((i) => i.trim()).filter(Boolean).length
-              ? block.listItems.map((i) => i.trim()).filter(Boolean)
-              : null,
-          table: cleanTable(block.table),
-          quote: block.quote?.trim() ? block.quote : null,
-        })),
+        content: form.content.map((block) => {
+          const callout =
+            block.callout?.text?.trim()
+              ? {
+                  text: block.callout.text.trim(),
+                  tone: block.callout.tone,
+                }
+              : null;
+          const cta =
+            block.cta?.label?.trim() && block.cta?.href?.trim()
+              ? {
+                  label: block.cta.label.trim(),
+                  href: block.cta.href.trim(),
+                }
+              : null;
+          const imageFigure =
+            block.imageFigure?.image?.trim()
+              ? {
+                  image: toMediaPath(block.imageFigure.image),
+                  caption: block.imageFigure.caption?.trim() || null,
+                }
+              : null;
+          const mediaSplit =
+            block.mediaSplit?.image?.trim()
+              ? {
+                  image: toMediaPath(block.mediaSplit.image),
+                  side: block.mediaSplit.side,
+                  heading: block.mediaSplit.heading ?? "",
+                  paragraph: block.mediaSplit.paragraph?.trim()
+                    ? block.mediaSplit.paragraph
+                    : null,
+                  listItems:
+                    block.mediaSplit.listItems
+                      ?.map((i) => i.trim())
+                      .filter(Boolean).length
+                      ? block.mediaSplit.listItems
+                          .map((i) => i.trim())
+                          .filter(Boolean)
+                      : null,
+                  table: cleanTable(block.mediaSplit.table ?? null),
+                  quote: block.mediaSplit.quote?.trim()
+                    ? block.mediaSplit.quote
+                    : null,
+                  cta:
+                    block.mediaSplit.cta?.label?.trim() &&
+                    block.mediaSplit.cta?.href?.trim()
+                      ? {
+                          label: block.mediaSplit.cta.label.trim(),
+                          href: block.mediaSplit.cta.href.trim(),
+                        }
+                      : null,
+                }
+              : null;
+
+          return {
+            heading: block.heading,
+            paragraph: block.paragraph?.trim() ? block.paragraph : null,
+            listItems:
+              block.listItems?.map((i) => i.trim()).filter(Boolean).length
+                ? block.listItems.map((i) => i.trim()).filter(Boolean)
+                : null,
+            table: cleanTable(block.table),
+            quote: block.quote?.trim() ? block.quote : null,
+            callout,
+            cta,
+            imageFigure,
+            mediaSplit,
+          };
+        }),
       });
 
       const res = await fetch(
@@ -464,7 +658,7 @@ export default function BlogForm({
 
         <FormCard
           title="SEO"
-          description="Search title, description, and keywords."
+          description="Search title and meta description."
           contentClassName="grid gap-5"
         >
           <Field label="SEO title" htmlFor="blog-seo-title">
@@ -498,19 +692,6 @@ export default function BlogForm({
               required
             />
           </Field>
-          <Field
-            label="Keywords"
-            hint="comma-separated"
-            htmlFor="blog-keywords"
-          >
-            <Input
-              id="blog-keywords"
-              value={keywordsText}
-              onChange={(e) => setKeywordsText(e.target.value)}
-              placeholder="roofing, Florida, maintenance"
-              className={fieldClass}
-            />
-          </Field>
         </FormCard>
 
         <div className="space-y-4">
@@ -532,6 +713,18 @@ export default function BlogForm({
             const hasList = block.listItems !== null;
             const hasTable = block.table !== null;
             const hasQuote = block.quote !== null;
+            const hasCallout = block.callout !== null;
+            const hasCta = block.cta !== null;
+            const hasImageFigure = block.imageFigure !== null;
+            const hasMediaSplit = block.mediaSplit !== null;
+            const hasAnyOptional =
+              hasList ||
+              hasTable ||
+              hasQuote ||
+              hasCallout ||
+              hasCta ||
+              hasImageFigure ||
+              hasMediaSplit;
             const colCount = block.table?.[0]?.length ?? 0;
 
             return (
@@ -553,6 +746,10 @@ export default function BlogForm({
                         {hasList ? " · list" : ""}
                         {hasTable ? " · table" : ""}
                         {hasQuote ? " · quote" : ""}
+                        {hasCallout ? " · callout" : ""}
+                        {hasCta ? " · cta" : ""}
+                        {hasImageFigure ? " · image" : ""}
+                        {hasMediaSplit ? " · image+text" : ""}
                       </p>
                     </div>
                   </div>
@@ -594,7 +791,7 @@ export default function BlogForm({
                     />
                   </Field>
 
-                  {!hasList && !hasTable && !hasQuote ? (
+                  {!hasAnyOptional ? (
                     <div className="flex flex-wrap gap-2 rounded-xl border border-dashed border-border/80 bg-muted/15 p-3">
                       <span className="mr-1 self-center text-xs font-medium text-muted-foreground">
                         Optional blocks
@@ -628,6 +825,46 @@ export default function BlogForm({
                       >
                         <Quote className="h-3.5 w-3.5" />
                         Quote
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="secondary"
+                        size="sm"
+                        className="rounded-lg"
+                        onClick={() => enableCallout(index)}
+                      >
+                        <MessageSquareWarning className="h-3.5 w-3.5" />
+                        Callout
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="secondary"
+                        size="sm"
+                        className="rounded-lg"
+                        onClick={() => enableCta(index)}
+                      >
+                        <Link2 className="h-3.5 w-3.5" />
+                        CTA
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="secondary"
+                        size="sm"
+                        className="rounded-lg"
+                        onClick={() => enableImageFigure(index)}
+                      >
+                        <ImageIcon className="h-3.5 w-3.5" />
+                        Image figure
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="secondary"
+                        size="sm"
+                        className="rounded-lg"
+                        onClick={() => enableMediaSplit(index)}
+                      >
+                        <PanelLeft className="h-3.5 w-3.5" />
+                        Image + text
                       </Button>
                     </div>
                   ) : (
@@ -666,6 +903,54 @@ export default function BlogForm({
                         >
                           <Quote className="h-3.5 w-3.5" />
                           Add quote
+                        </Button>
+                      )}
+                      {!hasCallout && (
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="sm"
+                          className="rounded-lg"
+                          onClick={() => enableCallout(index)}
+                        >
+                          <MessageSquareWarning className="h-3.5 w-3.5" />
+                          Add callout
+                        </Button>
+                      )}
+                      {!hasCta && (
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="sm"
+                          className="rounded-lg"
+                          onClick={() => enableCta(index)}
+                        >
+                          <Link2 className="h-3.5 w-3.5" />
+                          Add CTA
+                        </Button>
+                      )}
+                      {!hasImageFigure && (
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="sm"
+                          className="rounded-lg"
+                          onClick={() => enableImageFigure(index)}
+                        >
+                          <ImageIcon className="h-3.5 w-3.5" />
+                          Add image figure
+                        </Button>
+                      )}
+                      {!hasMediaSplit && (
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="sm"
+                          className="rounded-lg"
+                          onClick={() => enableMediaSplit(index)}
+                        >
+                          <PanelLeft className="h-3.5 w-3.5" />
+                          Add image + text
                         </Button>
                       )}
                     </div>
@@ -900,6 +1185,975 @@ export default function BlogForm({
                           "border-l-4 border-l-amber-500/50 bg-background/80 italic"
                         )}
                       />
+                    </div>
+                  )}
+
+                  {hasCallout && block.callout && (
+                    <div className="space-y-3 rounded-2xl border border-violet-500/20 bg-violet-500/[0.05] p-4">
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-2">
+                          <MessageSquareWarning className="h-4 w-4 text-violet-700" />
+                          <p className="text-sm font-semibold">Callout</p>
+                        </div>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="h-8 text-destructive"
+                          onClick={() => clearCallout(index)}
+                        >
+                          Remove
+                        </Button>
+                      </div>
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <p className="text-xs font-medium text-muted-foreground">
+                          Tone
+                        </p>
+                        <div
+                          className="inline-flex items-center rounded-lg border border-violet-600/20 bg-background/80 p-0.5"
+                          role="group"
+                          aria-label="Callout tone"
+                        >
+                          {(
+                            [
+                              { value: "tip", label: "Tip" },
+                              { value: "note", label: "Note" },
+                              { value: "warning", label: "Warning" },
+                            ] as const
+                          ).map((opt) => {
+                            const callout = block.callout!;
+                            return (
+                              <button
+                                key={opt.value}
+                                type="button"
+                                className={cn(
+                                  "inline-flex h-8 items-center rounded-md px-2.5 text-xs font-semibold transition-colors",
+                                  callout.tone === opt.value
+                                    ? "bg-violet-700 text-white shadow-sm"
+                                    : "text-muted-foreground hover:text-foreground"
+                                )}
+                                onClick={() =>
+                                  updateSection(index, {
+                                    callout: {
+                                      ...callout,
+                                      tone: opt.value,
+                                    },
+                                  })
+                                }
+                              >
+                                {opt.label}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                      <Textarea
+                        value={block.callout.text}
+                        onChange={(e) =>
+                          updateSection(index, {
+                            callout: {
+                              ...block.callout!,
+                              text: e.target.value,
+                            },
+                          })
+                        }
+                        rows={3}
+                        placeholder="Helpful tip or important note…"
+                        className={areaClass}
+                      />
+                    </div>
+                  )}
+
+                  {hasCta && block.cta && (
+                    <div className="space-y-3 rounded-2xl border border-primary/20 bg-primary/[0.04] p-4">
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-2">
+                          <Link2 className="h-4 w-4 text-primary" />
+                          <p className="text-sm font-semibold">Call to action</p>
+                        </div>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="h-8 text-destructive"
+                          onClick={() => clearCta(index)}
+                        >
+                          Remove
+                        </Button>
+                      </div>
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        <Field label="Button label">
+                          <Input
+                            value={block.cta.label}
+                            onChange={(e) =>
+                              updateSection(index, {
+                                cta: {
+                                  ...block.cta!,
+                                  label: e.target.value,
+                                },
+                              })
+                            }
+                            placeholder="Get a free estimate"
+                            className={fieldClass}
+                          />
+                        </Field>
+                        <Field label="Link href">
+                          <Input
+                            value={block.cta.href}
+                            onChange={(e) =>
+                              updateSection(index, {
+                                cta: {
+                                  ...block.cta!,
+                                  href: e.target.value,
+                                },
+                              })
+                            }
+                            placeholder="/contact"
+                            className={fieldClass}
+                          />
+                        </Field>
+                      </div>
+                    </div>
+                  )}
+
+                  {hasImageFigure && block.imageFigure && (
+                    <div className="space-y-3 rounded-2xl border border-slate-500/15 bg-slate-500/[0.04] p-4">
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-2">
+                          <ImageIcon className="h-4 w-4 text-slate-700" />
+                          <p className="text-sm font-semibold">Image figure</p>
+                        </div>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="h-8 text-destructive"
+                          onClick={() => clearImageFigure(index)}
+                        >
+                          Remove
+                        </Button>
+                      </div>
+                      <div className="rounded-xl border border-slate-500/10 bg-background/70 p-3">
+                        <MediaForm
+                          initialUrl={block.imageFigure.image}
+                          label="Section image"
+                          hint="Shown full-width in this section with an optional caption."
+                          compact
+                          onUploaded={(url) =>
+                            updateSection(index, {
+                              imageFigure: {
+                                ...block.imageFigure!,
+                                image: toMediaPath(url),
+                              },
+                            })
+                          }
+                        />
+                      </div>
+                      <Field label="Caption (optional)">
+                        <Input
+                          value={block.imageFigure.caption ?? ""}
+                          onChange={(e) =>
+                            updateSection(index, {
+                              imageFigure: {
+                                ...block.imageFigure!,
+                                caption: e.target.value || null,
+                              },
+                            })
+                          }
+                          placeholder="Photo caption"
+                          className={fieldClass}
+                        />
+                      </Field>
+                    </div>
+                  )}
+
+                  {hasMediaSplit && block.mediaSplit && (
+                    <div className="space-y-3 rounded-2xl border border-teal-500/20 bg-teal-500/[0.04] p-4">
+                      <div className="flex flex-wrap items-center justify-between gap-3">
+                        <div className="flex items-center gap-2">
+                          <PanelLeft className="h-4 w-4 text-teal-700" />
+                          <p className="text-sm font-semibold">Image + text</p>
+                        </div>
+                        <div className="flex flex-wrap items-center gap-2">
+                          <div
+                            className="inline-flex items-center rounded-lg border border-teal-600/20 bg-background/80 p-0.5"
+                            role="group"
+                            aria-label="Image side"
+                          >
+                            <button
+                              type="button"
+                              className={cn(
+                                "inline-flex h-8 items-center gap-1.5 rounded-md px-2.5 text-xs font-semibold transition-colors",
+                                block.mediaSplit.side === "left"
+                                  ? "bg-teal-700 text-white shadow-sm"
+                                  : "text-muted-foreground hover:text-foreground"
+                              )}
+                              onClick={() =>
+                                updateSection(index, {
+                                  mediaSplit: {
+                                    ...block.mediaSplit!,
+                                    side: "left",
+                                  },
+                                })
+                              }
+                            >
+                              <PanelLeft className="h-3.5 w-3.5" />
+                              Left
+                            </button>
+                            <button
+                              type="button"
+                              className={cn(
+                                "inline-flex h-8 items-center gap-1.5 rounded-md px-2.5 text-xs font-semibold transition-colors",
+                                block.mediaSplit.side === "right"
+                                  ? "bg-teal-700 text-white shadow-sm"
+                                  : "text-muted-foreground hover:text-foreground"
+                              )}
+                              onClick={() =>
+                                updateSection(index, {
+                                  mediaSplit: {
+                                    ...block.mediaSplit!,
+                                    side: "right",
+                                  },
+                                })
+                              }
+                            >
+                              Right
+                              <PanelRight className="h-3.5 w-3.5" />
+                            </button>
+                          </div>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="sm"
+                            className="h-8 text-destructive"
+                            onClick={() => clearMediaSplit(index)}
+                          >
+                            Remove
+                          </Button>
+                        </div>
+                      </div>
+
+                      <p className="text-xs text-muted-foreground">
+                        Layout preview — image on the{" "}
+                        <span className="font-semibold text-foreground">
+                          {block.mediaSplit.side}
+                        </span>
+                        .
+                      </p>
+
+                      <div
+                        className={cn(
+                          "flex flex-col gap-4 rounded-xl border border-teal-600/10 bg-background/70 p-3 md:flex-row md:items-stretch",
+                          block.mediaSplit.side === "right" &&
+                            "md:flex-row-reverse"
+                        )}
+                      >
+                        <div className="w-full shrink-0 md:w-[42%]">
+                          <MediaForm
+                            initialUrl={block.mediaSplit.image}
+                            label="Image"
+                            hint={null}
+                            compact
+                            onUploaded={(url) =>
+                              updateSection(index, {
+                                mediaSplit: {
+                                  ...block.mediaSplit!,
+                                  image: toMediaPath(url),
+                                },
+                              })
+                            }
+                          />
+                        </div>
+
+                        <div className="min-w-0 flex-1 space-y-3">
+                          <Field label="Heading">
+                            <Input
+                              value={block.mediaSplit.heading}
+                              onChange={(e) =>
+                                updateSection(index, {
+                                  mediaSplit: {
+                                    ...block.mediaSplit!,
+                                    heading: e.target.value,
+                                  },
+                                })
+                              }
+                              placeholder="Short heading beside image"
+                              className={fieldClass}
+                            />
+                          </Field>
+
+                          {(() => {
+                            const split = block.mediaSplit!;
+                            const hasSplitParagraph = split.paragraph !== null;
+                            const hasSplitList = split.listItems !== null;
+                            const hasSplitTable = split.table !== null;
+                            const hasSplitQuote = split.quote !== null;
+                            const hasSplitCta = split.cta !== null;
+                            const hasSplitOptional =
+                              hasSplitParagraph ||
+                              hasSplitList ||
+                              hasSplitTable ||
+                              hasSplitQuote ||
+                              hasSplitCta;
+                            const splitColCount = split.table?.[0]?.length ?? 0;
+
+                            return (
+                              <>
+                                {!hasSplitOptional ? (
+                                  <div className="flex flex-wrap gap-2 rounded-xl border border-dashed border-border/80 bg-muted/15 p-3">
+                                    <span className="mr-1 self-center text-xs font-medium text-muted-foreground">
+                                      Optional blocks
+                                    </span>
+                                    <Button
+                                      type="button"
+                                      variant="secondary"
+                                      size="sm"
+                                      className="rounded-lg"
+                                      onClick={() =>
+                                        updateSection(index, {
+                                          mediaSplit: {
+                                            ...split,
+                                            paragraph: "",
+                                          },
+                                        })
+                                      }
+                                    >
+                                      Paragraph
+                                    </Button>
+                                    <Button
+                                      type="button"
+                                      variant="secondary"
+                                      size="sm"
+                                      className="rounded-lg"
+                                      onClick={() =>
+                                        updateSection(index, {
+                                          mediaSplit: {
+                                            ...split,
+                                            listItems: [""],
+                                          },
+                                        })
+                                      }
+                                    >
+                                      <List className="h-3.5 w-3.5" />
+                                      List
+                                    </Button>
+                                    <Button
+                                      type="button"
+                                      variant="secondary"
+                                      size="sm"
+                                      className="rounded-lg"
+                                      onClick={() =>
+                                        updateSection(index, {
+                                          mediaSplit: {
+                                            ...split,
+                                            table: emptyTable(),
+                                          },
+                                        })
+                                      }
+                                    >
+                                      <Table2 className="h-3.5 w-3.5" />
+                                      Table
+                                    </Button>
+                                    <Button
+                                      type="button"
+                                      variant="secondary"
+                                      size="sm"
+                                      className="rounded-lg"
+                                      onClick={() =>
+                                        updateSection(index, {
+                                          mediaSplit: {
+                                            ...split,
+                                            quote: "",
+                                          },
+                                        })
+                                      }
+                                    >
+                                      <Quote className="h-3.5 w-3.5" />
+                                      Quote
+                                    </Button>
+                                    <Button
+                                      type="button"
+                                      variant="secondary"
+                                      size="sm"
+                                      className="rounded-lg"
+                                      onClick={() =>
+                                        updateSection(index, {
+                                          mediaSplit: {
+                                            ...split,
+                                            cta: { label: "", href: "" },
+                                          },
+                                        })
+                                      }
+                                    >
+                                      <Link2 className="h-3.5 w-3.5" />
+                                      CTA
+                                    </Button>
+                                  </div>
+                                ) : (
+                                  <div className="flex flex-wrap gap-2">
+                                    {!hasSplitParagraph && (
+                                      <Button
+                                        type="button"
+                                        variant="outline"
+                                        size="sm"
+                                        className="rounded-lg"
+                                        onClick={() =>
+                                          updateSection(index, {
+                                            mediaSplit: {
+                                              ...split,
+                                              paragraph: "",
+                                            },
+                                          })
+                                        }
+                                      >
+                                        Add paragraph
+                                      </Button>
+                                    )}
+                                    {!hasSplitList && (
+                                      <Button
+                                        type="button"
+                                        variant="outline"
+                                        size="sm"
+                                        className="rounded-lg"
+                                        onClick={() =>
+                                          updateSection(index, {
+                                            mediaSplit: {
+                                              ...split,
+                                              listItems: [""],
+                                            },
+                                          })
+                                        }
+                                      >
+                                        <List className="h-3.5 w-3.5" />
+                                        Add list
+                                      </Button>
+                                    )}
+                                    {!hasSplitTable && (
+                                      <Button
+                                        type="button"
+                                        variant="outline"
+                                        size="sm"
+                                        className="rounded-lg"
+                                        onClick={() =>
+                                          updateSection(index, {
+                                            mediaSplit: {
+                                              ...split,
+                                              table: emptyTable(),
+                                            },
+                                          })
+                                        }
+                                      >
+                                        <Table2 className="h-3.5 w-3.5" />
+                                        Add table
+                                      </Button>
+                                    )}
+                                    {!hasSplitQuote && (
+                                      <Button
+                                        type="button"
+                                        variant="outline"
+                                        size="sm"
+                                        className="rounded-lg"
+                                        onClick={() =>
+                                          updateSection(index, {
+                                            mediaSplit: {
+                                              ...split,
+                                              quote: "",
+                                            },
+                                          })
+                                        }
+                                      >
+                                        <Quote className="h-3.5 w-3.5" />
+                                        Add quote
+                                      </Button>
+                                    )}
+                                    {!hasSplitCta && (
+                                      <Button
+                                        type="button"
+                                        variant="outline"
+                                        size="sm"
+                                        className="rounded-lg"
+                                        onClick={() =>
+                                          updateSection(index, {
+                                            mediaSplit: {
+                                              ...split,
+                                              cta: { label: "", href: "" },
+                                            },
+                                          })
+                                        }
+                                      >
+                                        <Link2 className="h-3.5 w-3.5" />
+                                        Add CTA
+                                      </Button>
+                                    )}
+                                  </div>
+                                )}
+
+                                {hasSplitParagraph && (
+                                  <div className="space-y-2 rounded-2xl border border-border/60 bg-muted/15 p-3">
+                                    <div className="flex items-center justify-between gap-2">
+                                      <p className="text-sm font-semibold">
+                                        Paragraph
+                                      </p>
+                                      <Button
+                                        type="button"
+                                        variant="ghost"
+                                        size="sm"
+                                        className="h-8 text-destructive"
+                                        onClick={() =>
+                                          updateSection(index, {
+                                            mediaSplit: {
+                                              ...split,
+                                              paragraph: null,
+                                            },
+                                          })
+                                        }
+                                      >
+                                        Remove
+                                      </Button>
+                                    </div>
+                                    <Textarea
+                                      value={split.paragraph ?? ""}
+                                      onChange={(e) =>
+                                        updateSection(index, {
+                                          mediaSplit: {
+                                            ...split,
+                                            paragraph: e.target.value,
+                                          },
+                                        })
+                                      }
+                                      rows={4}
+                                      placeholder="Compact supporting copy"
+                                      className={areaClass}
+                                    />
+                                  </div>
+                                )}
+
+                                {hasSplitList && (
+                                  <div className="space-y-3 rounded-2xl border border-sky-500/15 bg-sky-500/[0.04] p-3">
+                                    <div className="flex items-center justify-between gap-2">
+                                      <div className="flex items-center gap-2">
+                                        <List className="h-4 w-4 text-sky-700" />
+                                        <p className="text-sm font-semibold">
+                                          Bullet list
+                                        </p>
+                                      </div>
+                                      <Button
+                                        type="button"
+                                        variant="ghost"
+                                        size="sm"
+                                        className="h-8 text-destructive"
+                                        onClick={() =>
+                                          updateSection(index, {
+                                            mediaSplit: {
+                                              ...split,
+                                              listItems: null,
+                                            },
+                                          })
+                                        }
+                                      >
+                                        Remove
+                                      </Button>
+                                    </div>
+                                    <div className="space-y-2">
+                                      {(split.listItems ?? []).map(
+                                        (item, itemIndex) => (
+                                          <div
+                                            key={itemIndex}
+                                            className="flex items-center gap-2"
+                                          >
+                                            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-sky-600/10 text-xs font-semibold text-sky-800">
+                                              {itemIndex + 1}
+                                            </span>
+                                            <Input
+                                              value={item}
+                                              onChange={(e) => {
+                                                const listItems = [
+                                                  ...(split.listItems ?? []),
+                                                ];
+                                                listItems[itemIndex] =
+                                                  e.target.value;
+                                                updateSection(index, {
+                                                  mediaSplit: {
+                                                    ...split,
+                                                    listItems,
+                                                  },
+                                                });
+                                              }}
+                                              placeholder={`List item ${itemIndex + 1}`}
+                                              className={cn(
+                                                fieldClass,
+                                                "bg-background/80"
+                                              )}
+                                            />
+                                            <Button
+                                              type="button"
+                                              variant="ghost"
+                                              size="icon"
+                                              className="h-9 w-9 shrink-0 text-destructive"
+                                              onClick={() => {
+                                                const next = (
+                                                  split.listItems ?? []
+                                                ).filter(
+                                                  (_, j) => j !== itemIndex
+                                                );
+                                                updateSection(index, {
+                                                  mediaSplit: {
+                                                    ...split,
+                                                    listItems: next.length
+                                                      ? next
+                                                      : null,
+                                                  },
+                                                });
+                                              }}
+                                              disabled={
+                                                (split.listItems?.length ??
+                                                  0) <= 1
+                                              }
+                                            >
+                                              <Trash2 className="h-4 w-4" />
+                                            </Button>
+                                          </div>
+                                        )
+                                      )}
+                                    </div>
+                                    <Button
+                                      type="button"
+                                      variant="outline"
+                                      size="sm"
+                                      className="rounded-lg"
+                                      onClick={() =>
+                                        updateSection(index, {
+                                          mediaSplit: {
+                                            ...split,
+                                            listItems: [
+                                              ...(split.listItems ?? [""]),
+                                              "",
+                                            ],
+                                          },
+                                        })
+                                      }
+                                    >
+                                      <Plus className="h-3.5 w-3.5" />
+                                      Add item
+                                    </Button>
+                                  </div>
+                                )}
+
+                                {hasSplitTable && split.table && (
+                                  <div className="space-y-3 rounded-2xl border border-emerald-500/15 bg-emerald-500/[0.04] p-3">
+                                    <div className="flex flex-wrap items-center justify-between gap-2">
+                                      <div className="flex items-center gap-2">
+                                        <Table2 className="h-4 w-4 text-emerald-700" />
+                                        <p className="text-sm font-semibold">
+                                          Table
+                                        </p>
+                                      </div>
+                                      <div className="flex flex-wrap gap-1.5">
+                                        <Button
+                                          type="button"
+                                          variant="outline"
+                                          size="sm"
+                                          className="h-8 rounded-lg"
+                                          onClick={() => {
+                                            const cols =
+                                              split.table![0]?.length ?? 2;
+                                            updateSection(index, {
+                                              mediaSplit: {
+                                                ...split,
+                                                table: [
+                                                  ...split.table!,
+                                                  Array.from(
+                                                    { length: cols },
+                                                    () => ""
+                                                  ),
+                                                ],
+                                              },
+                                            });
+                                          }}
+                                        >
+                                          <Plus className="h-3.5 w-3.5" />
+                                          Row
+                                        </Button>
+                                        <Button
+                                          type="button"
+                                          variant="outline"
+                                          size="sm"
+                                          className="h-8 rounded-lg"
+                                          onClick={() =>
+                                            updateSection(index, {
+                                              mediaSplit: {
+                                                ...split,
+                                                table: split.table!.map(
+                                                  (row) => [...row, ""]
+                                                ),
+                                              },
+                                            })
+                                          }
+                                        >
+                                          <Plus className="h-3.5 w-3.5" />
+                                          Column
+                                        </Button>
+                                        <Button
+                                          type="button"
+                                          variant="ghost"
+                                          size="sm"
+                                          className="h-8 text-destructive"
+                                          onClick={() =>
+                                            updateSection(index, {
+                                              mediaSplit: {
+                                                ...split,
+                                                table: null,
+                                              },
+                                            })
+                                          }
+                                        >
+                                          Remove
+                                        </Button>
+                                      </div>
+                                    </div>
+                                    <div className="overflow-x-auto rounded-xl border border-emerald-600/10 bg-background/70">
+                                      <table className="min-w-full border-collapse">
+                                        <tbody>
+                                          {split.table.map((row, rowIndex) => (
+                                            <tr
+                                              key={rowIndex}
+                                              className="border-b last:border-0"
+                                            >
+                                              {row.map((cell, colIndex) => (
+                                                <td
+                                                  key={colIndex}
+                                                  className="px-1.5 py-1.5 align-middle"
+                                                >
+                                                  <Input
+                                                    value={cell}
+                                                    onChange={(e) => {
+                                                      const table =
+                                                        split.table!.map(
+                                                          (r, ri) =>
+                                                            ri === rowIndex
+                                                              ? r.map(
+                                                                  (c, ci) =>
+                                                                    ci ===
+                                                                    colIndex
+                                                                      ? e.target
+                                                                          .value
+                                                                      : c
+                                                                )
+                                                              : r
+                                                        );
+                                                      updateSection(index, {
+                                                        mediaSplit: {
+                                                          ...split,
+                                                          table,
+                                                        },
+                                                      });
+                                                    }}
+                                                    placeholder={
+                                                      rowIndex === 0
+                                                        ? `Header ${colIndex + 1}`
+                                                        : "Cell"
+                                                    }
+                                                    className={cn(
+                                                      fieldClass,
+                                                      "h-9 bg-background",
+                                                      rowIndex === 0 &&
+                                                        "font-semibold"
+                                                    )}
+                                                  />
+                                                </td>
+                                              ))}
+                                              <td className="px-1.5 py-1.5">
+                                                <Button
+                                                  type="button"
+                                                  variant="ghost"
+                                                  size="icon"
+                                                  className="h-8 w-8 text-destructive"
+                                                  disabled={
+                                                    split.table!.length <= 1
+                                                  }
+                                                  onClick={() => {
+                                                    const table =
+                                                      split.table!.filter(
+                                                        (_, r) =>
+                                                          r !== rowIndex
+                                                      );
+                                                    updateSection(index, {
+                                                      mediaSplit: {
+                                                        ...split,
+                                                        table: table.length
+                                                          ? table
+                                                          : null,
+                                                      },
+                                                    });
+                                                  }}
+                                                >
+                                                  <Trash2 className="h-3.5 w-3.5" />
+                                                </Button>
+                                              </td>
+                                            </tr>
+                                          ))}
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    {splitColCount > 1 && (
+                                      <div className="flex flex-wrap gap-1">
+                                        {Array.from({
+                                          length: splitColCount,
+                                        }).map((_, c) => (
+                                          <Button
+                                            key={c}
+                                            type="button"
+                                            variant="ghost"
+                                            size="sm"
+                                            className="h-7 text-xs text-destructive"
+                                            onClick={() => {
+                                              if (splitColCount <= 1) {
+                                                updateSection(index, {
+                                                  mediaSplit: {
+                                                    ...split,
+                                                    table: null,
+                                                  },
+                                                });
+                                                return;
+                                              }
+                                              updateSection(index, {
+                                                mediaSplit: {
+                                                  ...split,
+                                                  table: split.table!.map(
+                                                    (row) =>
+                                                      row.filter(
+                                                        (_, ci) => ci !== c
+                                                      )
+                                                  ),
+                                                },
+                                              });
+                                            }}
+                                          >
+                                            Remove col {c + 1}
+                                          </Button>
+                                        ))}
+                                      </div>
+                                    )}
+                                  </div>
+                                )}
+
+                                {hasSplitQuote && (
+                                  <div className="space-y-2 rounded-2xl border border-amber-500/20 bg-amber-500/[0.05] p-3">
+                                    <div className="flex items-center justify-between gap-2">
+                                      <div className="flex items-center gap-2">
+                                        <Quote className="h-4 w-4 text-amber-700" />
+                                        <p className="text-sm font-semibold">
+                                          Pull quote
+                                        </p>
+                                      </div>
+                                      <Button
+                                        type="button"
+                                        variant="ghost"
+                                        size="sm"
+                                        className="h-8 text-destructive"
+                                        onClick={() =>
+                                          updateSection(index, {
+                                            mediaSplit: {
+                                              ...split,
+                                              quote: null,
+                                            },
+                                          })
+                                        }
+                                      >
+                                        Remove
+                                      </Button>
+                                    </div>
+                                    <Textarea
+                                      value={split.quote ?? ""}
+                                      onChange={(e) =>
+                                        updateSection(index, {
+                                          mediaSplit: {
+                                            ...split,
+                                            quote: e.target.value,
+                                          },
+                                        })
+                                      }
+                                      rows={2}
+                                      placeholder="A short line worth highlighting…"
+                                      className={cn(
+                                        areaClass,
+                                        "border-l-4 border-l-amber-500/50 bg-background/80 italic"
+                                      )}
+                                    />
+                                  </div>
+                                )}
+
+                                {hasSplitCta && split.cta && (
+                                  <div className="space-y-3 rounded-2xl border border-primary/20 bg-primary/[0.04] p-3">
+                                    <div className="flex items-center justify-between gap-2">
+                                      <div className="flex items-center gap-2">
+                                        <Link2 className="h-4 w-4 text-primary" />
+                                        <p className="text-sm font-semibold">
+                                          Call to action
+                                        </p>
+                                      </div>
+                                      <Button
+                                        type="button"
+                                        variant="ghost"
+                                        size="sm"
+                                        className="h-8 text-destructive"
+                                        onClick={() =>
+                                          updateSection(index, {
+                                            mediaSplit: {
+                                              ...split,
+                                              cta: null,
+                                            },
+                                          })
+                                        }
+                                      >
+                                        Remove
+                                      </Button>
+                                    </div>
+                                    <div className="grid gap-3 sm:grid-cols-2">
+                                      <Field label="Button label">
+                                        <Input
+                                          value={split.cta.label}
+                                          onChange={(e) =>
+                                            updateSection(index, {
+                                              mediaSplit: {
+                                                ...split,
+                                                cta: {
+                                                  ...split.cta!,
+                                                  label: e.target.value,
+                                                },
+                                              },
+                                            })
+                                          }
+                                          placeholder="Get a free estimate"
+                                          className={fieldClass}
+                                        />
+                                      </Field>
+                                      <Field label="Link href">
+                                        <Input
+                                          value={split.cta.href}
+                                          onChange={(e) =>
+                                            updateSection(index, {
+                                              mediaSplit: {
+                                                ...split,
+                                                cta: {
+                                                  ...split.cta!,
+                                                  href: e.target.value,
+                                                },
+                                              },
+                                            })
+                                          }
+                                          placeholder="/contact"
+                                          className={fieldClass}
+                                        />
+                                      </Field>
+                                    </div>
+                                  </div>
+                                )}
+                              </>
+                            );
+                          })()}
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>

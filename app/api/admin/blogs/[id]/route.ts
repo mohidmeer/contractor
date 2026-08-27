@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAuthorized } from "@/lib/auth";
 import prisma from "@/lib/prisma";
-import { BlogContentSchema } from "@/lib/blogSchema";
+import { BlogContentSchema, normalizeBlogContentBlocks } from "@/lib/blogSchema";
 import { toMediaPath } from "@/lib/media";
 import { collectUploadPaths, deleteOrphanedUploadFiles } from "@/lib/uploadCleanup";
 
@@ -68,7 +68,9 @@ export async function PATCH(
         ...(parsed.seo?.title && { seo_title: parsed.seo.title }),
         ...(parsed.seo?.description && { seo_description: parsed.seo.description }),
         ...(parsed.image && { image: toMediaPath(parsed.image) }),
-        ...(parsed.content && { content: parsed.content }),
+        ...(parsed.content && {
+          content: normalizeBlogContentBlocks(parsed.content),
+        }),
         ...(parsed.status && { status: parsed.status }),
       },
     });

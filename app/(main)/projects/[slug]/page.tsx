@@ -34,21 +34,23 @@ export async function generateMetadata({ params }: Props) {
 
   const canonical = `${siteUrl}projects/${slug}`;
   const image = project.image ? toMediaUrl(project.image) : undefined;
+  const metaTitle = project.seo_title || project.title;
+  const metaDesc = project.seo_description || project.description;
 
   return {
-    title: `${project.title} | ${siteName}`,
-    description: project.description,
+    title: `${metaTitle} | ${siteName}`,
+    description: metaDesc,
     alternates: { canonical },
     openGraph: {
-      title: project.title,
-      description: project.description,
+      title: metaTitle,
+      description: metaDesc,
       url: canonical,
       images: image ? [image] : undefined,
     },
     twitter: {
       card: "summary_large_image",
-      title: project.title,
-      description: project.description,
+      title: metaTitle,
+      description: metaDesc,
       images: image ? [image] : undefined,
     },
   };
@@ -68,12 +70,14 @@ export default async function Page({ params }: Props) {
     ...project.imageUrls.filter((url) => url !== project.imageUrl),
   ];
   const materials = project.materials.filter(Boolean);
+  const metaTitle = project.seo_title || project.title;
+  const metaDesc = project.seo_description || project.description;
 
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    name: project.title,
-    description: project.description,
+    name: metaTitle,
+    description: metaDesc,
     provider: { "@id": BUSINESS_ID },
     url: `${siteUrl}/projects/${slug}`,
     image,

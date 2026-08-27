@@ -10,6 +10,7 @@ import { BUSINESS_ID } from "@/jsonld";
 import { toMediaUrl } from "@/lib/media";
 import type { Blog } from "@/types";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FaCheck } from "react-icons/fa6";
 import { MdCalendarMonth, MdTimer } from "react-icons/md";
@@ -17,6 +18,16 @@ import { MdCalendarMonth, MdTimer } from "react-icons/md";
 type Props = {
   params: Promise<{ slug: string }>;
 };
+
+function calloutToneClasses(tone: "tip" | "note" | "warning") {
+  if (tone === "tip") {
+    return "border-emerald-500 bg-emerald-50 text-heading";
+  }
+  if (tone === "warning") {
+    return "border-amber-500 bg-amber-50 text-heading";
+  }
+  return "border-primary bg-secondary/15 text-heading";
+}
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
@@ -163,6 +174,15 @@ export default async function Page({ params }: Props) {
                 <div className="relative space-y-10">
                   {sections.map((section, index) => {
                     const body = section.paragraph ?? section.body;
+                    const figureUrl = section.imageFigure?.image
+                      ? toMediaUrl(section.imageFigure.image)
+                      : "";
+                    const splitUrl = section.mediaSplit?.image
+                      ? toMediaUrl(section.mediaSplit.image)
+                      : "";
+                    const splitImageFirst =
+                      !section.mediaSplit || section.mediaSplit.side !== "right";
+
                     return (
                       <section
                         key={index}
@@ -207,7 +227,7 @@ export default async function Page({ params }: Props) {
                           )}
 
                           {section.table && section.table.length > 0 && (
-                            <div className="overflow-x-auto rounded-xl border border-primary/10">
+                            <div className="mb-4 overflow-x-auto rounded-xl border border-primary/10">
                               <table className="min-w-full border-collapse text-sm">
                                 <thead>
                                   <tr className="bg-primary text-white">
@@ -224,28 +244,198 @@ export default async function Page({ params }: Props) {
                                 </thead>
                                 {section.table.length > 1 && (
                                   <tbody>
-                                    {section.table.slice(1).map((row, rowIndex) => (
-                                      <tr
-                                        key={rowIndex}
-                                        className={
-                                          rowIndex % 2 === 0
-                                            ? "bg-secondary/10"
-                                            : "bg-white"
-                                        }
-                                      >
-                                        {row.map((cell, colIndex) => (
-                                          <td
-                                            key={colIndex}
-                                            className="border-b border-primary/5 px-3 py-2.5 text-heading"
-                                          >
-                                            {cell}
-                                          </td>
-                                        ))}
-                                      </tr>
-                                    ))}
+                                    {section.table
+                                      .slice(1)
+                                      .map((row, rowIndex) => (
+                                        <tr
+                                          key={rowIndex}
+                                          className={
+                                            rowIndex % 2 === 0
+                                              ? "bg-secondary/10"
+                                              : "bg-white"
+                                          }
+                                        >
+                                          {row.map((cell, colIndex) => (
+                                            <td
+                                              key={colIndex}
+                                              className="border-b border-primary/5 px-3 py-2.5 text-heading"
+                                            >
+                                              {cell}
+                                            </td>
+                                          ))}
+                                        </tr>
+                                      ))}
                                   </tbody>
                                 )}
                               </table>
+                            </div>
+                          )}
+
+                          {section.callout && (
+                            <aside
+                              className={`mb-4 rounded-2xl border-l-4 px-5 py-4 md:px-6 ${calloutToneClasses(section.callout.tone)}`}
+                            >
+                              <p className="mb-1 text-[11px] font-bold uppercase tracking-wider opacity-70">
+                                {section.callout.tone}
+                              </p>
+                              <p className="text-sm md:text-base font-medium leading-relaxed">
+                                {section.callout.text}
+                              </p>
+                            </aside>
+                          )}
+
+                          {section.cta?.label && section.cta?.href && (
+                            <div className="mb-4">
+                              <Link
+                                href={section.cta.href}
+                                className="btn-primary inline-flex"
+                              >
+                                {section.cta.label}
+                              </Link>
+                            </div>
+                          )}
+
+                          {figureUrl && (
+                            <figure className="mb-4 overflow-hidden rounded-2xl bg-primary/5">
+                              <div className="relative aspect-[16/10] w-full">
+                                <Image
+                                  src={figureUrl}
+                                  alt={
+                                    section.imageFigure?.caption ||
+                                    section.heading ||
+                                    blog.title
+                                  }
+                                  fill
+                                  sizes="(max-width: 1024px) 100vw, 70vw"
+                                  className="object-cover"
+                                  unoptimized
+                                />
+                              </div>
+                              {section.imageFigure?.caption && (
+                                <figcaption className="px-4 py-3 text-sm text-heading/70">
+                                  {section.imageFigure.caption}
+                                </figcaption>
+                              )}
+                            </figure>
+                          )}
+
+                          {section.mediaSplit && splitUrl && (
+                            <div
+                              className={`mb-4 grid gap-5 md:grid-cols-2 md:items-center ${
+                                splitImageFirst
+                                  ? ""
+                                  : "md:[&>*:first-child]:order-2"
+                              }`}
+                            >
+                              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-primary/5">
+                                <Image
+                                  src={splitUrl}
+                                  alt={
+                                    section.mediaSplit.heading ||
+                                    section.heading ||
+                                    blog.title
+                                  }
+                                  fill
+                                  sizes="(max-width: 768px) 100vw, 35vw"
+                                  className="object-cover"
+                                  unoptimized
+                                />
+                              </div>
+                              <div className="min-w-0 space-y-3">
+                                {section.mediaSplit.heading && (
+                                  <h4 className="!text-base md:!text-lg font-bold text-heading">
+                                    {section.mediaSplit.heading}
+                                  </h4>
+                                )}
+                                {section.mediaSplit.paragraph && (
+                                  <p className="p1">
+                                    {section.mediaSplit.paragraph}
+                                  </p>
+                                )}
+                                {section.mediaSplit.listItems &&
+                                  section.mediaSplit.listItems.length > 0 && (
+                                    <ul className="grid gap-2">
+                                      {section.mediaSplit.listItems.map(
+                                        (item, i) => (
+                                          <li
+                                            key={i}
+                                            className="flex items-start gap-2.5 text-sm text-heading"
+                                          >
+                                            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-primary text-white">
+                                              <FaCheck size={9} />
+                                            </span>
+                                            <span className="font-medium leading-snug">
+                                              {item}
+                                            </span>
+                                          </li>
+                                        )
+                                      )}
+                                    </ul>
+                                  )}
+                                {section.mediaSplit.table &&
+                                  section.mediaSplit.table.length > 0 && (
+                                    <div className="overflow-x-auto rounded-xl border border-primary/10">
+                                      <table className="min-w-full border-collapse text-sm">
+                                        <thead>
+                                          <tr className="bg-primary text-white">
+                                            {section.mediaSplit.table[0].map(
+                                              (cell, colIndex) => (
+                                                <th
+                                                  key={colIndex}
+                                                  scope="col"
+                                                  className="px-3 py-2.5 text-left text-xs font-bold uppercase tracking-wide"
+                                                >
+                                                  {cell}
+                                                </th>
+                                              )
+                                            )}
+                                          </tr>
+                                        </thead>
+                                        {section.mediaSplit.table.length > 1 && (
+                                          <tbody>
+                                            {section.mediaSplit.table
+                                              .slice(1)
+                                              .map((row, rowIndex) => (
+                                                <tr
+                                                  key={rowIndex}
+                                                  className={
+                                                    rowIndex % 2 === 0
+                                                      ? "bg-secondary/10"
+                                                      : "bg-white"
+                                                  }
+                                                >
+                                                  {row.map((cell, colIndex) => (
+                                                    <td
+                                                      key={colIndex}
+                                                      className="border-b border-primary/5 px-3 py-2 text-heading"
+                                                    >
+                                                      {cell}
+                                                    </td>
+                                                  ))}
+                                                </tr>
+                                              ))}
+                                          </tbody>
+                                        )}
+                                      </table>
+                                    </div>
+                                  )}
+                                {section.mediaSplit.quote && (
+                                  <blockquote className="rounded-xl border-l-4 border-secondary bg-secondary/10 px-4 py-3 text-sm italic text-heading">
+                                    “{section.mediaSplit.quote}”
+                                  </blockquote>
+                                )}
+                                {section.mediaSplit.cta?.label &&
+                                  section.mediaSplit.cta?.href && (
+                                    <div>
+                                      <Link
+                                        href={section.mediaSplit.cta.href}
+                                        className="btn-primary inline-flex"
+                                      >
+                                        {section.mediaSplit.cta.label}
+                                      </Link>
+                                    </div>
+                                  )}
+                              </div>
                             </div>
                           )}
                         </div>

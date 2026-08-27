@@ -74,6 +74,31 @@ export type Blog = {
     listItems: string[] | null;
     table: string[][] | null;
     quote: string | null;
+    callout: {
+      text: string;
+      tone: "tip" | "note" | "warning";
+    } | null;
+    cta: {
+      label: string;
+      href: string;
+    } | null;
+    imageFigure: {
+      image: string;
+      caption: string | null;
+    } | null;
+    mediaSplit: {
+      image: string;
+      side: "left" | "right";
+      heading: string;
+      paragraph: string | null;
+      listItems: string[] | null;
+      table: string[][] | null;
+      quote: string | null;
+      cta: {
+        label: string;
+        href: string;
+      } | null;
+    } | null;
   }[];
 };
 

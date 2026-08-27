@@ -7,6 +7,13 @@ export const ProjectBodySchema = z.object({
   label: z.string().min(1),
   title: z.string().min(1),
   description: z.string().min(1),
+  seo: z
+    .object({
+      title: z.string().optional().default(""),
+      description: z.string().optional().default(""),
+    })
+    .optional()
+    .default({ title: "", description: "" }),
   content: z.array(z.string().min(1)).min(1),
   image: z.string().optional().nullable(),
   location: z.string().optional().nullable(),
@@ -20,13 +27,23 @@ export const ProjectBodySchema = z.object({
 export type ProjectBody = z.infer<typeof ProjectBodySchema>;
 
 export function normalizeProjectBody(body: ProjectBody) {
+  const seoTitle = body.seo?.title?.trim() || body.title.trim();
+  const seoDescription = body.seo?.description?.trim() || body.description.trim();
+
   return {
-    ...body,
+    slug: body.slug,
+    label: body.label,
+    title: body.title,
+    description: body.description,
+    seo_title: seoTitle,
+    seo_description: seoDescription,
     content: body.content.map((p) => p.trim()).filter(Boolean),
     image: body.image ? toMediaPath(body.image) : null,
     images: body.images.map((img) => toMediaPath(img)).filter(Boolean),
     location: body.location || null,
     duration: body.duration || null,
+    materials: body.materials,
+    sortOrder: body.sortOrder,
     status: body.status,
   };
 }

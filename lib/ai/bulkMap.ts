@@ -22,13 +22,21 @@ export function mapBlogAiToCreatePayload(data: Record<string, unknown>): BlogCon
     seo: {
       title: String(seo.title ?? data.title ?? ""),
       description: String(seo.description ?? ""),
-      keywords: Array.isArray(seo.keywords)
-        ? seo.keywords.filter((k): k is string => typeof k === "string")
-        : [],
     },
     image: "",
     content: content.map((block) => {
       const item = (block ?? {}) as Record<string, unknown>;
+      const callout = item.callout as Record<string, unknown> | null | undefined;
+      const cta = item.cta as Record<string, unknown> | null | undefined;
+      const imageFigure = item.imageFigure as
+        | Record<string, unknown>
+        | null
+        | undefined;
+      const mediaSplit = item.mediaSplit as
+        | Record<string, unknown>
+        | null
+        | undefined;
+
       return {
         heading: String(item.heading ?? ""),
         paragraph:
@@ -40,6 +48,24 @@ export function mapBlogAiToCreatePayload(data: Record<string, unknown>): BlogCon
           ? (item.table as string[][])
           : null,
         quote: typeof item.quote === "string" ? item.quote : null,
+        callout:
+          callout && typeof callout.text === "string"
+            ? {
+                text: callout.text,
+                tone:
+                  callout.tone === "tip" ||
+                  callout.tone === "note" ||
+                  callout.tone === "warning"
+                    ? callout.tone
+                    : "note",
+              }
+            : null,
+        cta:
+          cta && typeof cta.label === "string" && typeof cta.href === "string"
+            ? { label: cta.label, href: cta.href }
+            : null,
+        imageFigure: null,
+        mediaSplit: null,
       };
     }),
     status: "DRAFT",
@@ -56,13 +82,20 @@ export function mapServiceAiToCreatePayload(
   const content = Array.isArray(data.content)
     ? data.content.filter((p): p is string => typeof p === "string" && Boolean(p.trim()))
     : [];
+  const seo = (data.seo ?? {}) as Record<string, unknown>;
+  const title = String(data.title ?? "");
+  const description = String(data.description ?? "");
 
   return {
     slug: String(data.slug ?? ""),
     label: String(data.label ?? data.title ?? ""),
-    title: String(data.title ?? ""),
-    description: String(data.description ?? ""),
-    content: content.length ? content : [String(data.description ?? "Draft")],
+    title,
+    description,
+    seo: {
+      title: String(seo.title ?? "").trim() || title,
+      description: String(seo.description ?? "").trim() || description,
+    },
+    content: content.length ? content : [description || "Draft"],
     image: null,
     typeOfSolutions: {
       headings: String(typeOfSolutions.headings ?? "Solutions we offer"),
@@ -92,13 +125,20 @@ export function mapProjectAiToCreatePayload(
   const content = Array.isArray(data.content)
     ? data.content.filter((p): p is string => typeof p === "string" && Boolean(p.trim()))
     : [];
+  const seo = (data.seo ?? {}) as Record<string, unknown>;
+  const title = String(data.title ?? "");
+  const description = String(data.description ?? "");
 
   return {
     slug: String(data.slug ?? ""),
     label: String(data.label ?? data.title ?? ""),
-    title: String(data.title ?? ""),
-    description: String(data.description ?? ""),
-    content: content.length ? content : [String(data.description ?? "Draft")],
+    title,
+    description,
+    seo: {
+      title: String(seo.title ?? "").trim() || title,
+      description: String(seo.description ?? "").trim() || description,
+    },
+    content: content.length ? content : [description || "Draft"],
     image: null,
     location: typeof data.location === "string" ? data.location : null,
     duration: typeof data.duration === "string" ? data.duration : null,

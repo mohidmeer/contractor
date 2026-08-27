@@ -40,12 +40,94 @@ function normalizeLoadedContent(raw: unknown): BlogContentType["content"] {
       ? (item.table as string[][])
       : null;
 
+    const calloutRaw = item.callout as Record<string, unknown> | null | undefined;
+    const ctaRaw = item.cta as Record<string, unknown> | null | undefined;
+    const imageFigureRaw = item.imageFigure as
+      | Record<string, unknown>
+      | null
+      | undefined;
+    const mediaSplitRaw = item.mediaSplit as
+      | Record<string, unknown>
+      | null
+      | undefined;
+
     return {
       heading: typeof item.heading === "string" ? item.heading : "",
       paragraph,
       listItems: listItems?.length ? listItems : null,
       table: table?.length ? table : null,
       quote: typeof item.quote === "string" ? item.quote : null,
+      callout:
+        calloutRaw && typeof calloutRaw.text === "string"
+          ? {
+              text: calloutRaw.text,
+              tone:
+                calloutRaw.tone === "tip" ||
+                calloutRaw.tone === "note" ||
+                calloutRaw.tone === "warning"
+                  ? calloutRaw.tone
+                  : ("note" as const),
+            }
+          : null,
+      cta:
+        ctaRaw &&
+        typeof ctaRaw.label === "string" &&
+        typeof ctaRaw.href === "string"
+          ? { label: ctaRaw.label, href: ctaRaw.href }
+          : null,
+      imageFigure:
+        imageFigureRaw && typeof imageFigureRaw.image === "string"
+          ? {
+              image: imageFigureRaw.image,
+              caption:
+                typeof imageFigureRaw.caption === "string"
+                  ? imageFigureRaw.caption
+                  : null,
+            }
+          : null,
+      mediaSplit:
+        mediaSplitRaw && typeof mediaSplitRaw.image === "string"
+          ? {
+              image: mediaSplitRaw.image,
+              side:
+                mediaSplitRaw.side === "right"
+                  ? ("right" as const)
+                  : ("left" as const),
+              heading:
+                typeof mediaSplitRaw.heading === "string"
+                  ? mediaSplitRaw.heading
+                  : "",
+              paragraph:
+                typeof mediaSplitRaw.paragraph === "string"
+                  ? mediaSplitRaw.paragraph
+                  : null,
+              listItems: Array.isArray(mediaSplitRaw.listItems)
+                ? (mediaSplitRaw.listItems as string[])
+                : null,
+              table: Array.isArray(mediaSplitRaw.table)
+                ? (mediaSplitRaw.table as string[][])
+                : null,
+              quote:
+                typeof mediaSplitRaw.quote === "string"
+                  ? mediaSplitRaw.quote
+                  : null,
+              cta:
+                mediaSplitRaw.cta &&
+                typeof (mediaSplitRaw.cta as Record<string, unknown>).label ===
+                  "string" &&
+                typeof (mediaSplitRaw.cta as Record<string, unknown>).href ===
+                  "string"
+                  ? {
+                      label: String(
+                        (mediaSplitRaw.cta as Record<string, unknown>).label
+                      ),
+                      href: String(
+                        (mediaSplitRaw.cta as Record<string, unknown>).href
+                      ),
+                    }
+                  : null,
+            }
+          : null,
     };
   });
 }
@@ -95,7 +177,6 @@ export default function BlogFormDialog({
             title: data.seo_title ?? data.title ?? "",
             description:
               data.seo_description ?? data.description ?? "",
-            keywords: [],
           },
           image: data.image ?? "",
           content: normalizeLoadedContent(data.content),

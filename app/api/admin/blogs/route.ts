@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isAuthorized } from "@/lib/auth";
 import prisma from "@/lib/prisma";
-import { BlogContentSchema } from "@/lib/blogSchema";
+import { BlogContentSchema, normalizeBlogContentBlocks } from "@/lib/blogSchema";
 import { toMediaPath } from "@/lib/media";
 import { generateUniqueSlug, slugify } from "@/lib/slug";
 
@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
         seo_description: parsed.seo.description,
         slug: uniqueSlug,
         image: toMediaPath(parsed.image),
-        content: parsed.content,
+        content: normalizeBlogContentBlocks(parsed.content),
         status: parsed.status,
       },
     });

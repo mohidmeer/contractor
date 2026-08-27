@@ -22,6 +22,13 @@ export const ServiceBodySchema = z.object({
   label: z.string().min(1),
   title: z.string().min(1),
   description: z.string().min(1),
+  seo: z
+    .object({
+      title: z.string().optional().default(""),
+      description: z.string().optional().default(""),
+    })
+    .optional()
+    .default({ title: "", description: "" }),
   content: z.array(z.string().min(1)).min(1),
   image: z.string().optional().nullable(),
   typeOfSolutions: typeOfSolutionsSchema,
@@ -36,11 +43,23 @@ export const ServiceBodySchema = z.object({
 export type ServiceBody = z.infer<typeof ServiceBodySchema>;
 
 export function normalizeServiceBody(body: ServiceBody) {
+  const seoTitle = body.seo?.title?.trim() || body.title.trim();
+  const seoDescription = body.seo?.description?.trim() || body.description.trim();
+
   return {
-    ...body,
+    slug: body.slug,
+    label: body.label,
+    title: body.title,
+    description: body.description,
+    seo_title: seoTitle,
+    seo_description: seoDescription,
     content: body.content.map((p) => p.trim()).filter(Boolean),
     image: body.image ? toMediaPath(body.image) : null,
     images: body.images.map((img) => toMediaPath(img)).filter(Boolean),
+    typeOfSolutions: body.typeOfSolutions,
+    benefitsOFChoosing: body.benefitsOFChoosing,
+    faqs: body.faqs,
+    sortOrder: body.sortOrder,
     categoryId: body.categoryId ?? null,
     status: body.status,
   };
