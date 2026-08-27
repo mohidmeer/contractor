@@ -11,6 +11,7 @@ export const siteUrl = 'https://coastalcw.net/';
 export const siteName = 'Costal Concrete';
 export const siteLogo = `${static_assets}/images/logo_light.png`;
 export const googleAnalyticId = 'G-4Z16WS61D0';
+export const googleTagManagerId = '';
 export const bussinessType = ["LocalBusiness", "ConcreteContractor"]
 
 
