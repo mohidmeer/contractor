@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Mail, Pencil } from "lucide-react";
+import { Mail, Pencil, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -26,6 +26,7 @@ type SmtpState = {
   hasSmtpPass: boolean;
   smtpFrom: string;
   smtpTo: string;
+  smtpBcc: string;
   smtpConfigured: boolean;
 };
 
@@ -38,8 +39,17 @@ const emptySmtp: SmtpState = {
   hasSmtpPass: false,
   smtpFrom: "",
   smtpTo: "",
+  smtpBcc: "",
   smtpConfigured: false,
 };
+
+function splitRecipients(value: string): string[] {
+  const parts = value
+    .split(/[,;]+/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+  return parts.length > 0 ? parts : [""];
+}
 
 export default function SmtpSettingsPanel() {
   const [smtp, setSmtp] = useState<SmtpState>(emptySmtp);
@@ -53,7 +63,8 @@ export default function SmtpSettingsPanel() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
+  const [recipients, setRecipients] = useState<string[]>([""]);
+  const [bcc, setBcc] = useState("");
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -70,6 +81,7 @@ export default function SmtpSettingsPanel() {
         hasSmtpPass: Boolean(data.hasSmtpPass),
         smtpFrom: data.smtpFrom ?? "",
         smtpTo: data.smtpTo ?? "",
+        smtpBcc: data.smtpBcc ?? "",
         smtpConfigured: Boolean(data.smtpConfigured),
       });
     } catch (err) {
@@ -90,12 +102,34 @@ export default function SmtpSettingsPanel() {
     setUser(smtp.smtpUser);
     setPass("");
     setFrom(smtp.smtpFrom);
-    setTo(smtp.smtpTo);
+    setRecipients(splitRecipients(smtp.smtpTo));
+    setBcc(smtp.smtpBcc);
     setOpen(true);
+  };
+
+  const updateRecipient = (index: number, value: string) => {
+    setRecipients((prev) => prev.map((r, i) => (i === index ? value : r)));
+  };
+
+  const addRecipient = () => {
+    setRecipients((prev) => [...prev, ""]);
+  };
+
+  const removeRecipient = (index: number) => {
+    setRecipients((prev) => {
+      if (prev.length <= 1) return [""];
+      return prev.filter((_, i) => i !== index);
+    });
   };
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
+    const cleaned = recipients.map((r) => r.trim()).filter(Boolean);
+    if (cleaned.length === 0) {
+      toast.error("Add at least one recipient");
+      return;
+    }
+
     setSaving(true);
     try {
       const res = await fetch("/api/admin/settings", {
@@ -108,7 +142,8 @@ export default function SmtpSettingsPanel() {
           smtpUser: user,
           smtpPass: pass,
           smtpFrom: from,
-          smtpTo: to,
+          smtpTo: cleaned.join(", "),
+          smtpBcc: bcc,
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -123,6 +158,7 @@ export default function SmtpSettingsPanel() {
         hasSmtpPass: Boolean(data.hasSmtpPass),
         smtpFrom: data.smtpFrom ?? "",
         smtpTo: data.smtpTo ?? "",
+        smtpBcc: data.smtpBcc ?? "",
         smtpConfigured: Boolean(data.smtpConfigured),
       });
       setOpen(false);
@@ -133,6 +169,10 @@ export default function SmtpSettingsPanel() {
       setSaving(false);
     }
   };
+
+  const recipientCount = smtp.smtpTo
+    ? smtp.smtpTo.split(/[,;]+/).filter((p) => p.trim()).length
+    : 0;
 
   return (
     <>
@@ -155,7 +195,13 @@ export default function SmtpSettingsPanel() {
                   <p className="text-xs text-muted-foreground">
                     Host <span className="font-medium text-foreground">{smtp.smtpHost}</span>
                     {" · "}
-                    To <span className="font-medium text-foreground">{smtp.smtpTo}</span>
+                    {recipientCount} recipient{recipientCount === 1 ? "" : "s"}
+                  </p>
+                  <p
+                    className="truncate text-xs text-muted-foreground"
+                    title={smtp.smtpTo}
+                  >
+                    To {smtp.smtpTo}
                   </p>
                 </div>
               ) : (
@@ -277,15 +323,59 @@ export default function SmtpSettingsPanel() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="smtp-to">Send notifications to</Label>
+                <div className="flex items-center justify-between gap-2">
+                  <Label>Recipients (To)</Label>
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    onClick={addRecipient}
+                  >
+                    <Plus className="h-3.5 w-3.5" />
+                    Add
+                  </Button>
+                </div>
+                <div className="space-y-2">
+                  {recipients.map((email, index) => (
+                    <div key={index} className="flex gap-2">
+                      <Input
+                        type="email"
+                        value={email}
+                        onChange={(e) => updateRecipient(index, e.target.value)}
+                        placeholder="client@example.com"
+                        required={index === 0}
+                        aria-label={`Recipient ${index + 1}`}
+                      />
+                      <Button
+                        type="button"
+                        size="icon"
+                        variant="ghost"
+                        disabled={recipients.length <= 1}
+                        onClick={() => removeRecipient(index)}
+                        aria-label="Remove recipient"
+                      >
+                        <Trash2 className="h-4 w-4 text-destructive" />
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  At least one recipient is required. All listed addresses get the lead email.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="smtp-bcc">BCC (optional)</Label>
                 <Input
-                  id="smtp-to"
+                  id="smtp-bcc"
                   type="email"
-                  value={to}
-                  onChange={(e) => setTo(e.target.value)}
-                  placeholder="client@example.com"
-                  required
+                  value={bcc}
+                  onChange={(e) => setBcc(e.target.value)}
+                  placeholder="copy@example.com"
                 />
+                <p className="text-xs text-muted-foreground">
+                  Blind carbon copy — left blank means no BCC.
+                </p>
               </div>
             </div>
 

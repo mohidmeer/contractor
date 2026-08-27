@@ -13,6 +13,7 @@ export type SmtpConfig = {
   pass: string;
   from: string;
   to: string;
+  bcc?: string;
 };
 
 export async function getSmtpConfig(): Promise<Partial<SmtpConfig> & { hasPass: boolean }> {
@@ -28,6 +29,7 @@ export async function getSmtpConfig(): Promise<Partial<SmtpConfig> & { hasPass: 
     pass: setting?.smtpPass ?? undefined,
     from: setting?.smtpFrom?.trim() || undefined,
     to: setting?.smtpTo?.trim() || undefined,
+    bcc: setting?.smtpBcc?.trim() || undefined,
     hasPass: Boolean(setting?.smtpPass?.trim()),
   };
 }
@@ -53,6 +55,29 @@ function escapeHtml(value: string) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+/** Split comma/semicolon-separated addresses into a clean list. */
+export function parseRecipients(value: string | undefined | null): string[] {
+  if (!value?.trim()) return [];
+  return value
+    .split(/[,;]+/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+/** Extract bare email from "Name <email>" or return trimmed address. */
+function extractEmailAddress(from: string): string {
+  const trimmed = from.trim();
+  const angled = trimmed.match(/<([^>]+)>/);
+  if (angled?.[1]) return angled[1].trim();
+  return trimmed;
+}
+
+function formatFromHeader(fromSetting: string): string {
+  const email = extractEmailAddress(fromSetting);
+  const displayName = `${siteName} Leads`.replace(/"/g, "");
+  return `"${displayName}" <${email}>`;
 }
 
 export async function sendFormRequestEmail(request: FormRequest): Promise<void> {
@@ -113,6 +138,13 @@ export async function sendFormRequestEmail(request: FormRequest): Promise<void> 
     </div>
   `;
 
+  const recipients = parseRecipients(config.to);
+  if (recipients.length === 0) {
+    throw new Error("At least one recipient (To) is required in SMTP settings.");
+  }
+
+  const bccList = parseRecipients(config.bcc);
+
   const transporter = nodemailer.createTransport({
     host: config.host,
     port: config.port,
@@ -124,8 +156,9 @@ export async function sendFormRequestEmail(request: FormRequest): Promise<void> 
   });
 
   await transporter.sendMail({
-    from: config.from,
-    to: config.to,
+    from: formatFromHeader(config.from),
+    to: recipients,
+    ...(bccList.length > 0 ? { bcc: bccList } : {}),
     subject,
     text,
     html,

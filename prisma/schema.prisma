@@ -170,6 +170,7 @@ model Setting {
   smtpPass       String?
   smtpFrom       String?
   smtpTo         String?
+  smtpBcc        String?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }

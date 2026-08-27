@@ -2,6 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { isAuthorized } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { ensureSettingRow, SETTING_ID, maskApiKey } from "@/lib/apiKeys";
+import { parseRecipients } from "@/lib/mail/smtp";
+
+function normalizeRecipientField(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const list = parseRecipients(value);
+  return list.length > 0 ? list.join(", ") : null;
+}
 
 function serializeSmtp(setting: {
   smtpHost: string | null;
@@ -11,6 +18,7 @@ function serializeSmtp(setting: {
   smtpPass: string | null;
   smtpFrom: string | null;
   smtpTo: string | null;
+  smtpBcc: string | null;
 }) {
   const configured = Boolean(
     setting.smtpHost?.trim() &&
@@ -32,9 +40,21 @@ function serializeSmtp(setting: {
     hasSmtpPass: Boolean(setting.smtpPass?.trim()),
     smtpFrom: setting.smtpFrom ?? "",
     smtpTo: setting.smtpTo ?? "",
+    smtpBcc: setting.smtpBcc ?? "",
     smtpConfigured: configured,
   };
 }
+
+const emptySmtp = {
+  smtpHost: null,
+  smtpPort: null,
+  smtpSecure: false,
+  smtpUser: null,
+  smtpPass: null,
+  smtpFrom: null,
+  smtpTo: null,
+  smtpBcc: null,
+};
 
 export async function GET(req: NextRequest) {
   if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
@@ -47,17 +67,7 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({
     ownerPrompt: setting?.ownerPrompt ?? "",
     activeApiKeyId: setting?.activeApiKeyId ?? null,
-    ...serializeSmtp(
-      setting ?? {
-        smtpHost: null,
-        smtpPort: null,
-        smtpSecure: false,
-        smtpUser: null,
-        smtpPass: null,
-        smtpFrom: null,
-        smtpTo: null,
-      }
-    ),
+    ...serializeSmtp(setting ?? emptySmtp),
   });
 }
 
@@ -81,6 +91,7 @@ export async function PUT(req: NextRequest) {
       smtpPass?: string | null;
       smtpFrom?: string | null;
       smtpTo?: string | null;
+      smtpBcc?: string | null;
     } = {};
 
     if ("ownerPrompt" in json) {
@@ -90,27 +101,32 @@ export async function PUT(req: NextRequest) {
           : null;
     }
 
-    if ("smtpHost" in json || "smtpTo" in json || "smtpFrom" in json) {
+    if ("smtpHost" in json || "smtpTo" in json || "smtpFrom" in json || "smtpBcc" in json) {
       const host =
         typeof json.smtpHost === "string" ? json.smtpHost.trim() : "";
       const user =
         typeof json.smtpUser === "string" ? json.smtpUser.trim() : "";
       const from =
         typeof json.smtpFrom === "string" ? json.smtpFrom.trim() : "";
-      const to = typeof json.smtpTo === "string" ? json.smtpTo.trim() : "";
+      const to = normalizeRecipientField(json.smtpTo);
+      const bcc = normalizeRecipientField(json.smtpBcc);
       const portRaw = Number(json.smtpPort ?? 587);
       const port = Number.isFinite(portRaw) && portRaw > 0 ? Math.floor(portRaw) : 587;
       const secure = Boolean(json.smtpSecure);
       const pass =
         typeof json.smtpPass === "string" ? json.smtpPass.trim() : "";
 
+      if (!to) {
+        throw new Error("At least one recipient (To) is required");
+      }
+
       data.smtpHost = host || null;
       data.smtpPort = port;
       data.smtpSecure = secure;
       data.smtpUser = user || null;
       data.smtpFrom = from || null;
-      data.smtpTo = to || null;
-      // Empty password keeps existing value
+      data.smtpTo = to;
+      data.smtpBcc = bcc;
       if (pass) {
         data.smtpPass = pass;
       } else if (!existing?.smtpPass) {
