@@ -117,6 +117,7 @@ export default function RequestsPage() {
   };
 
   const handleRetryEmail = async (id: string) => {
+    const previous = items.find((item) => item.id === id);
     setRetryingId(id);
     try {
       const res = await fetch(`/api/admin/requests/${id}/retry-email`, {
@@ -151,9 +152,11 @@ export default function RequestsPage() {
             : item
         )
       );
-      toast.success("Email sent");
+      toast.success(
+        previous?.emailStatus === "SENT" ? "Email resent" : "Email sent"
+      );
     } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Failed to retry email");
+      toast.error(err instanceof Error ? err.message : "Failed to send email");
     } finally {
       setRetryingId(null);
     }
@@ -297,22 +300,28 @@ export default function RequestsPage() {
                     </TableCell>
                     <TableCell>
                       <div className="flex items-center gap-0.5">
-                        {item.emailStatus === "ERROR" ? (
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            aria-label="Retry email"
-                            title="Retry email"
-                            disabled={retryingId === item.id}
-                            onClick={() => handleRetryEmail(item.id)}
-                          >
-                            {retryingId === item.id ? (
-                              <Loader2 className="h-4 w-4 animate-spin" />
-                            ) : (
-                              <RotateCcw className="h-4 w-4" />
-                            )}
-                          </Button>
-                        ) : null}
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          aria-label={
+                            item.emailStatus === "SENT"
+                              ? "Resend email"
+                              : "Retry email"
+                          }
+                          title={
+                            item.emailStatus === "SENT"
+                              ? "Resend email"
+                              : "Retry email"
+                          }
+                          disabled={retryingId === item.id}
+                          onClick={() => handleRetryEmail(item.id)}
+                        >
+                          {retryingId === item.id ? (
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                          ) : (
+                            <RotateCcw className="h-4 w-4" />
+                          )}
+                        </Button>
                         <Button
                           variant="ghost"
                           size="icon"

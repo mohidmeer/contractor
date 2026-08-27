@@ -73,9 +73,13 @@ export async function sendFormRequestEmail(request: FormRequest): Promise<void> 
     timeStyle: "short",
   });
 
-  const subject = `[${siteName}] ${typeLabel} — ${request.name}`;
+  // Inbox list: subject = title; first body lines drive preview (type, then name)
+  const subject = `${siteName} Leads`;
 
   const lines = [
+    typeLabel,
+    request.name,
+    "",
     `New form submission on ${siteName}`,
     "",
     `Type: ${typeLabel}`,
@@ -93,6 +97,8 @@ export async function sendFormRequestEmail(request: FormRequest): Promise<void> 
 
   const html = `
     <div style="font-family:Arial,sans-serif;line-height:1.5;color:#111">
+      <p style="margin:0 0 4px;font-size:15px;font-weight:600">${escapeHtml(typeLabel)}</p>
+      <p style="margin:0 0 16px;font-size:15px">${escapeHtml(request.name)}</p>
       <h2 style="margin:0 0 12px">New form submission on ${escapeHtml(siteName)}</h2>
       <table style="border-collapse:collapse;width:100%;max-width:560px">
         <tr><td style="padding:6px 0;font-weight:600">Type</td><td>${escapeHtml(typeLabel)}</td></tr>
