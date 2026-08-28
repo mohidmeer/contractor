@@ -14,11 +14,16 @@ export const siteLogo = `${static_assets}/images/logo.png`;
 export const googleAnalyticId = 'G-YKMDZQ9PH2';
 export const googleTagManagerId = 'GTM-5Q3MVLR8';
 
+export const justCall = {
+  enabled: true,
+  uhash: 'bmFxTlk4TEx2aWF1NWxNU0NhazhQUT09',
+} as const;
+
 export const contactInfo = {
   phone: {
-    text: '(561) 899-8926',
-    href: 'tel:+15618998926',
-    number: '+15618998926'
+    text: '(561) 652-7674',
+    href: 'tel:+15616527674',
+    number: '+15616527674',
   },
   address: '300 SW 1st Avenue Ste 155, Fort Lauderdale, FL 33301',
   mapEmbedUrl: "https://maps.app.goo.gl/rDGBNQRu5YWHo6329",

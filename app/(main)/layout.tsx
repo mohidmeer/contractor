@@ -3,11 +3,12 @@ import "@/app/globals.css";
 import NavBar2 from "@/components/NavBar2";
 import Footer from "@/components/Footer";
 import GoogleMap from "@/components/GoogleMap";
-import { googleAnalyticId, googleTagManagerId, landingPage, siteUrl } from "@/data";
+import { googleAnalyticId, googleTagManagerId, justCall, landingPage, siteUrl } from "@/data";
 import JsonLd from "@/components/JsonLd";
 import { JsonLdDataLanding } from "@/jsonld";
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import FloatingActions from "@/components/FloatingActions";
+import JustCallWidget from "@/components/JustCallWidget";
 import { getDynamicNavItems } from "@/actions/nav";
 
 export const metadata: Metadata = {
@@ -72,6 +73,9 @@ export default async function RootLayout({
         <Footer items={navItems} />
         <JsonLd data={JsonLdDataLanding} />
         <FloatingActions />
+        {justCall?.enabled ? (
+          <JustCallWidget uhash={justCall.uhash} />
+        ) : null}
       </body>
     </html>
   );

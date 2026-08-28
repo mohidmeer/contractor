@@ -14,12 +14,16 @@ export const googleAnalyticId = 'G-4Z16WS61D0';
 export const googleTagManagerId = '';
 export const bussinessType = ["LocalBusiness", "ConcreteContractor"]
 
+export const justCall = {
+  enabled: true,
+  uhash: 'bmFxTlk4TEx2aWF1NWxNU0NhazhQUT09',
+} as const;
 
 export const contactInfo = {
   phone: {
-    text: '(561) 213-2221',
-    href: 'tel:+15612132221',
-    number: '+15612132221'
+    text: '(561) 652-7674',
+    href: 'tel:+15616527674',
+    number: '+15616527674',
   },
   address: '300 SW 1st Avenue Ste 155, Fort Lauderdale, FL 33301',
   mapEmbedUrl: "https://maps.app.goo.gl/rDGBNQRu5YWHo6329",
