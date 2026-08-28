@@ -101,7 +101,7 @@ export default function ChatbotWidget() {
   };
 
   return (
-    <div className="relative flex items-center">
+    <div className="relative flex items-center" data-chatbot-widget>
       {open ? (
         <div
           className="absolute bottom-[calc(100%+0.75rem)] right-0 flex h-[min(30rem,68vh)] w-[min(22rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-2xl border border-primary/15 bg-white shadow-[0_20px_50px_-12px_rgba(0,0,0,0.35)]"

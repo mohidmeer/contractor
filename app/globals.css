@@ -255,3 +255,34 @@ h6 {
 .gallery {
   @apply grid grid-cols-1 gap-2 overflow-hidden
 }
+
+/* JustCall default launcher — replaced by site CallButton */
+.iframe-button-control,
+.iframe-button-control #toggleButton,
+.iframe-button-control .f-button,
+.iframe-button-control .click-now {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Anchor JustCall panel above our right-side FAB */
+.iframe-content,
+#abc_jc_56 {
+  left: auto !important;
+  right: 20px !important;
+  bottom: 112px !important;
+}
+
+@media (max-width: 576px) {
+  .iframe-content,
+  #abc_jc_56 {
+    right: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+  }
+}

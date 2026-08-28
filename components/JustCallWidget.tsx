@@ -1,5 +1,6 @@
 "use client";
 
+import { startJustCallOverrides } from "@/lib/justCallOverrides";
 import Script from "next/script";
 
 type JustCallWidgetProps = {
@@ -9,6 +10,8 @@ type JustCallWidgetProps = {
 declare global {
   interface Window {
     justcall?: { init: () => void };
+    resizeTheframe?: () => void;
+    removeSettings?: () => void;
   }
 }
 
@@ -22,6 +25,7 @@ export default function JustCallWidget({ uhash }: JustCallWidgetProps) {
       strategy="afterInteractive"
       onLoad={() => {
         try {
+          startJustCallOverrides();
           window.justcall?.init();
         } catch (e) {
           console.error("JustCall init failed", e);
