@@ -40,14 +40,14 @@ function toNavChild(label: string, href: string): NavItem {
   };
 }
 
-function isServicesNav(item: NavItem) {
+function isServicesNav(item: { label: string; href: string }) {
   return (
     item.label.toLowerCase() === "services" ||
     item.href.replace(/\/+$/, "") === "/services"
   );
 }
 
-function isProjectsNav(item: NavItem) {
+function isProjectsNav(item: { label: string; href: string }) {
   return (
     item.label.toLowerCase() === "projects" ||
     item.href.replace(/\/+$/, "") === "/projects"
@@ -114,7 +114,7 @@ export async function getDynamicNavItems(): Promise<NavItem[]> {
         toNavChild(p.label || p.title, `/projects/${p.slug}`)
       );
 
-      return navItems.map((item) => {
+      return navItems.map((item): NavItem => {
         if (isServicesNav(item)) {
           return {
             ...item,
@@ -129,7 +129,10 @@ export async function getDynamicNavItems(): Promise<NavItem[]> {
             children: projectChildren,
           };
         }
-        return item;
+        return {
+          ...item,
+          hasChildrens: false,
+        };
       });
     },
     ["nav-items-v4"],
