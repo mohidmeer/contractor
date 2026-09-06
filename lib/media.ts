@@ -11,7 +11,7 @@ export function getMediaServerUrl() {
 
 /**
  * Persistable media path only, e.g. `uploads/uuid.png` or legacy `media/costal/file.png`.
- * Strips origin and leading slash from full URLs.
+ * Strips origin and leading slash from full URLs. mji1     
  */
 export function toMediaPath(input: string | null | undefined): string {
   if (!input) return "";

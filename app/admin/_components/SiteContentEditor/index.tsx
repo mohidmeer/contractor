@@ -17,6 +17,7 @@ import WhyUsSection from "./WhyUsSection";
 import AboutSection from "./AboutSection";
 import TestimonialsSection from "./TestimonialsSection";
 import ServiceAreasSection from "./ServiceAreasSection";
+import SiteContentAiChat from "./SiteContentAiChat";
 
 export default function SiteContentEditor() {
   const [data, setDataState] = useState<SiteContent | null>(null);
@@ -132,6 +133,15 @@ export default function SiteContentEditor() {
         title="Site Content"
         description="Static marketing content stored in the database. Changes apply after save (cache refreshes automatically)."
       />
+
+      <div className="mx-auto mb-4 max-w-5xl">
+        <SiteContentAiChat
+          content={data}
+          onApplyMerged={(merged) => {
+            setData(merged);
+          }}
+        />
+      </div>
 
       <p className="mx-auto mb-4 max-w-5xl text-sm text-muted-foreground">
         Open a section to edit. Brand starts expanded; everything else is
