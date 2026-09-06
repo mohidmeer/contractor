@@ -1,13 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 import useEmblaCarousel from 'embla-carousel-react';
 import Title from './inputs/Title';
 import HeroForm from './HeroForm';
-import { contactInfo, hero2 } from '@/data';
+import { useSiteContent } from '@/lib/siteContent';
+import { toMediaUrl } from '@/lib/media';
 import { trackCallClick } from '@/lib/analytics';
 import {
   Dialog,
@@ -18,10 +19,16 @@ import {
 } from '@/components/ui/dialog';
 
 const Hero2 = () => {
-  const slides = hero2.slides.map((slide, index) => ({
-    id: index,
-    ...slide,
-  }));
+  const { hero2, contactInfo } = useSiteContent();
+  const slides = useMemo(
+    () =>
+      hero2.slides.map((slide, index) => ({
+        id: index,
+        ...slide,
+        backgroundImage: toMediaUrl(slide.backgroundImage),
+      })),
+    [hero2.slides]
+  );
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, duration: 30 });
   const [selectedIndex, setSelectedIndex] = useState(0);

@@ -4,7 +4,7 @@ import {
   getAnthropicClient,
   recordAnthropicMessageUsage,
 } from "@/lib/ai/clients";
-import { siteName } from "@/data";
+import { getSiteContent } from "@/lib/siteContent/server";
 
 const ServiceAiSchema = z.object({
   slug: z
@@ -52,7 +52,11 @@ export type ServiceAiContext = {
   existing?: Record<string, unknown> | null;
 };
 
-function buildServiceUserMessage(prompt: string, context?: ServiceAiContext) {
+function buildServiceUserMessage(
+  prompt: string,
+  siteName: string,
+  context?: ServiceAiContext
+) {
   const hasExisting =
     context?.existing &&
     typeof context.existing === "object" &&
@@ -95,7 +99,10 @@ export async function generateServiceWithAi(
   prompt: string,
   context?: ServiceAiContext
 ): Promise<ServiceAiResult> {
-  const { client, apiKeyId } = await getAnthropicClient();
+  const [{ client, apiKeyId }, { siteName }] = await Promise.all([
+    getAnthropicClient(),
+    getSiteContent(),
+  ]);
 
   const message = await client.messages.parse({
     model: "claude-sonnet-4-6",
@@ -103,7 +110,7 @@ export async function generateServiceWithAi(
     messages: [
       {
         role: "user",
-        content: buildServiceUserMessage(prompt, context),
+        content: buildServiceUserMessage(prompt, siteName, context),
       },
     ],
     output_config: {

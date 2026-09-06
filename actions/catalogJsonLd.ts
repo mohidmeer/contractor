@@ -1,11 +1,16 @@
 import { getServices } from "@/actions/services";
 import { getProjects } from "@/actions/projects";
-import { servicesPage, projectsPage, siteUrl } from "@/data";
 import { BUSINESS_ID } from "@/jsonld";
 import { toMediaUrl } from "@/lib/media";
+import { getSiteContent } from "@/lib/siteContent/server";
 
 export async function getJsonLdDataServices() {
-  const services = await getServices();
+  const [services, site] = await Promise.all([
+    getServices(),
+    getSiteContent(),
+  ]);
+  const { servicesPage, siteUrl } = site;
+  const ogImage = toMediaUrl(servicesPage.seo.ogImage);
 
   return {
     "@context": "https://schema.org",
@@ -13,7 +18,9 @@ export async function getJsonLdDataServices() {
     name: servicesPage.seo.title,
     description: servicesPage.seo.description,
     url: servicesPage.seo.canonical,
-    image: siteUrl + servicesPage.seo.ogImage,
+    image: ogImage.startsWith("http")
+      ? ogImage
+      : siteUrl.replace(/\/+$/, "") + ogImage,
     provider: { "@id": BUSINESS_ID },
     hasPart: services.map((service) => ({
       "@type": "Service",
@@ -27,7 +34,12 @@ export async function getJsonLdDataServices() {
 }
 
 export async function getJsonLdDataProjects() {
-  const projects = await getProjects();
+  const [projects, site] = await Promise.all([
+    getProjects(),
+    getSiteContent(),
+  ]);
+  const { projectsPage, siteUrl } = site;
+  const ogImage = toMediaUrl(projectsPage.seo.ogImage);
 
   return {
     "@context": "https://schema.org",
@@ -35,7 +47,9 @@ export async function getJsonLdDataProjects() {
     name: projectsPage.seo.title,
     description: projectsPage.seo.description,
     url: projectsPage.seo.canonical,
-    image: siteUrl + projectsPage.seo.ogImage,
+    image: ogImage.startsWith("http")
+      ? ogImage
+      : siteUrl.replace(/\/+$/, "") + ogImage,
     provider: { "@id": BUSINESS_ID },
     hasPart: projects.map((project) => ({
       "@type": "CreativeWork",

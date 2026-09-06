@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MdArrowForward } from "react-icons/md";
-import { landingPage } from "@/data";
 import { getServices } from "@/actions/services";
+import { getSiteContent } from "@/lib/siteContent/server";
 import SectionShadowHeading from "./SectionShadowHeading";
 
 type ServicesProps = {
@@ -10,15 +10,19 @@ type ServicesProps = {
 };
 
 const Services = async ({ limit = 6 }: ServicesProps) => {
-  const services = await getServices();
+  const [services, site] = await Promise.all([
+    getServices(),
+    getSiteContent(),
+  ]);
   const items = limit ? services.slice(0, limit) : services;
+  const heading = site.landingPage.services.heading;
 
   return (
     <section className="bg-secondary/10 py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="mb-10 flex flex-col gap-3">
           <SectionShadowHeading shadow="What We Do">
-            <h2 className="text-heading">{landingPage.services.heading}</h2>
+            <h2 className="text-heading">{heading}</h2>
           </SectionShadowHeading>
           <Link
             href="/services"

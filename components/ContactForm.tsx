@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import FormInput from "./inputs/FormInput";
-import { contactPage, siteName } from "@/data";
 import { FaCheckCircle } from "react-icons/fa";
+import { useSiteContent } from "@/lib/siteContent";
 
 type FormData = {
   name: string;
@@ -15,6 +15,7 @@ type FormData = {
 };
 
 const ContactForm = () => {
+  const { contactPage, siteName } = useSiteContent();
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);

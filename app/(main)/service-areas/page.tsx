@@ -4,12 +4,13 @@ import WhyUS from "@/components/WhyUS";
 import Services from "@/components/Services";
 import Projects from "@/app/_components/Projects";
 import Process from "@/app/_components/Process";
-import { serviceAreaPage } from "@/data";
 import JsonLd from "@/components/JsonLd";
 import { JsonLdDataServiceArea } from "@/jsonld";
 import ServiceAreasListing from "./ServiceAreasListing";
+import { getSiteContent } from "@/lib/siteContent/server";
 
-const page = () => {
+const page = async () => {
+  const { serviceAreaPage } = await getSiteContent();
   return (
     <main className="flex flex-col">
       <Header

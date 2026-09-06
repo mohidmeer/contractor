@@ -11,10 +11,10 @@ import {
 } from "react-icons/fa";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import prisma from "@/lib/prisma";
-import { contactInfo, enable_estimates, siteName } from "@/data";
 import { serializeEstimate } from "@/lib/estimateHelpers";
 import DownloadEstimatePdfButton from "@/components/DownloadEstimatePdfButton";
 import { toMediaUrl } from "@/lib/media";
+import { getSiteContent } from "@/lib/siteContent/server";
 import {
   getYouTubeEmbedUrl,
   getYouTubeThumbnailUrl,
@@ -33,6 +33,7 @@ function formatMoney(value: number) {
 }
 
 async function loadPublicEstimate(token: string, markViewed = false) {
+  const { enable_estimates } = await getSiteContent();
   if (!enable_estimates) return null;
 
   const estimate = await prisma.estimate.findUnique({
@@ -59,7 +60,10 @@ async function loadPublicEstimate(token: string, markViewed = false) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { token } = await params;
-  const estimate = await loadPublicEstimate(token, false);
+  const [{ siteName }, estimate] = await Promise.all([
+    getSiteContent(),
+    loadPublicEstimate(token, false),
+  ]);
 
   if (!estimate) {
     return {
@@ -96,7 +100,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PublicEstimatePage({ params }: Props) {
   const { token } = await params;
-  const estimate = await loadPublicEstimate(token, true);
+  const [{ contactInfo, siteName }, estimate] = await Promise.all([
+    getSiteContent(),
+    loadPublicEstimate(token, true),
+  ]);
 
   if (!estimate) notFound();
 

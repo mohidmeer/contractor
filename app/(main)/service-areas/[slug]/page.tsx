@@ -7,13 +7,15 @@ import FAQs from "@/components/Faqs";
 import Header from "@/components/Header";
 import Services from "@/components/Services";
 import WhyUS from "@/components/WhyUS";
-import { getToKnow, serviceAreasData, siteName, siteUrl } from "@/data";
+import { getSiteContent } from "@/lib/siteContent/server";
+import { toMediaUrl } from "@/lib/media";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
+  const { serviceAreasData } = await getSiteContent();
   return serviceAreasData.map((area) => ({
     slug: area.href.split("/").pop(),
   }));
@@ -21,12 +23,17 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
+  const { serviceAreasData, siteName, siteUrl } = await getSiteContent();
   const cityData = serviceAreasData.find(
     (area) => area.href.split("/").pop() === slug
   );
   if (!cityData) return {};
 
   const canonical = `${siteUrl}service-areas/${slug}`;
+  const image = toMediaUrl(cityData.image);
+  const ogAbsolute = image.startsWith("http")
+    ? image
+    : siteUrl.replace(/\/+$/, "") + image;
 
   return {
     title: `${cityData.title} | ${siteName}`,
@@ -38,19 +45,20 @@ export async function generateMetadata({ params }: Props) {
       title: cityData.title,
       description: cityData.description,
       url: canonical,
-      images: [siteUrl + cityData.image],
+      images: [ogAbsolute],
     },
     twitter: {
       card: "summary_large_image",
       title: cityData.title,
       description: cityData.description,
-      images: [siteUrl + cityData.image],
+      images: [ogAbsolute],
     },
   };
 }
 
 export default async function Page({ params }: Props) {
   const { slug } = await params;
+  const { getToKnow, serviceAreasData } = await getSiteContent();
 
   const cityData = serviceAreasData.find(
     (area) => area.href.split("/").pop() === slug

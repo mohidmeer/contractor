@@ -8,17 +8,18 @@ import {
   FaInstagramSquare,
   FaTwitterSquare,
 } from "react-icons/fa";
-import { contactInfo, FooterData, siteName, socialLinks } from "@/data";
 import { BsClock, BsFillTelephoneFill } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdArrowForward } from "react-icons/md";
 import { trackCallClick } from "@/lib/analytics";
 import { flattenNavLeaves } from "@/lib/nav";
+import { useSiteContent } from "@/lib/siteContent";
 import type { NavItem } from "@/types";
 
 const FOOTER_LINK_LIMIT = 6;
 
 const Footer = ({ items }: { items: NavItem[] }) => {
+  const { contactInfo, FooterData, siteName, socialLinks } = useSiteContent();
   const services = flattenNavLeaves(
     items.find(
       (item) =>

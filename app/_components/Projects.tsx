@@ -1,5 +1,5 @@
-import { landingPage } from "@/data";
 import { getProjects } from "@/actions/projects";
+import { getSiteContent } from "@/lib/siteContent/server";
 import ProjectsCarousel from "./ProjectsCarousel";
 
 type ProjectsProps = {
@@ -8,7 +8,10 @@ type ProjectsProps = {
 };
 
 const Projects = async ({ limit, showHeader = true }: ProjectsProps) => {
-  const items = await getProjects();
+  const [items, site] = await Promise.all([
+    getProjects(),
+    getSiteContent(),
+  ]);
 
   return (
     <section className="bg-secondary/10 py-16 md:py-24">
@@ -17,7 +20,7 @@ const Projects = async ({ limit, showHeader = true }: ProjectsProps) => {
           items={items}
           limit={limit}
           showHeader={showHeader}
-          heading={landingPage.projects.heading}
+          heading={site.landingPage.projects.heading}
         />
       </div>
     </section>

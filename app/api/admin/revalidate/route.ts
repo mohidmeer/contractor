@@ -4,6 +4,7 @@ import {
   revalidateCategoriesCache,
   revalidateProjectsCache,
   revalidateServicesCache,
+  revalidateSiteContentCache,
 } from "@/lib/revalidateCatalog";
 
 export async function POST(req: NextRequest) {
@@ -14,6 +15,7 @@ export async function POST(req: NextRequest) {
   revalidateServicesCache();
   revalidateProjectsCache();
   revalidateCategoriesCache();
+  revalidateSiteContentCache();
 
   return NextResponse.json({ message: "revalidated" });
 }

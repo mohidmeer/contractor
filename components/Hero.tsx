@@ -4,14 +4,17 @@ import React from 'react'
 import { BsFillTelephoneFill } from "react-icons/bs";
 import Title from "./inputs/Title";
 import HeroForm from "./HeroForm";
-import { contactInfo, landingPage, siteName } from "@/data";
 import { trackCallClick } from "@/lib/analytics";
+import { toMediaUrl } from "@/lib/media";
+import { useSiteContent } from "@/lib/siteContent";
+
 
 const Hero = () => {
+    const { contactInfo, landingPage, siteName } = useSiteContent();
     return (
         <section className="h-screen relative select-none">
             <div className="absolute inset-0  bg-black/20  clip-diagnol backdrop-blur-xs" />
-            <Image src={landingPage.hero.backgroundImage} alt="total_care_hero_img" fill className="object-cover -z-10  " sizes="(min-width: 1024px) 90vw, 100vw" />
+            <Image src={toMediaUrl(landingPage.hero.backgroundImage)} alt="total_care_hero_img" fill className="object-cover -z-10  " sizes="(min-width: 1024px) 90vw, 100vw" />
             <div className="md:grid-cols-2 grid z-10 relative h-full container mx-auto w-full p-4 pt-24 md:pt-28" >
                 <div className="z-10 w-full  text-white mx-auto h-full flex flex-col justify-center">
                     <div className="flex flex-col gap-4 ">

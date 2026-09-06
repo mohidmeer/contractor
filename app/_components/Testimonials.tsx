@@ -6,9 +6,10 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { BsQuote } from "react-icons/bs";
 import { MdArrowBack, MdArrowForward, MdStar } from "react-icons/md";
-import { testimonialsData } from "@/data";
+import { useSiteContent } from "@/lib/siteContent";
 
 const Testimonials = () => {
+  const { testimonialsData } = useSiteContent();
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,

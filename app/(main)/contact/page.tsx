@@ -11,40 +11,42 @@ import {
   FaClock,
   FaArrowRight,
 } from "react-icons/fa";
-import { contactInfo, contactPage, siteName } from "@/data";
 import FAQs from "@/components/Faqs";
 import Process from "@/app/_components/Process";
+import { getSiteContent } from "@/lib/siteContent/server";
 
 const mapEmbedSrc =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.34883771467!2d-80.1446295!3d26.1201667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d900f8f1f3e0d9%3A0x1369d39a6c77350e!2s300%20SW%201st%20Ave%20suite%20155%2C%20Fort%20Lauderdale%2C%20FL%2033301%2C%20USA!5e0!3m2!1sen!2s!4v1754560984887!5m2!1sen!2s";
 
-const contactCards = [
-  {
-    icon: FaPhoneAlt,
-    label: "Phone",
-    value: contactInfo.phone.text,
-    href: contactInfo.phone.href,
-  },
-  {
-    icon: FaEnvelope,
-    label: "Email",
-    value: contactInfo.email,
-    href: `mailto:${contactInfo.email}`,
-  },
-  {
-    icon: FaMapMarkerAlt,
-    label: "Address",
-    value: contactInfo.address,
-    href: contactInfo.mapEmbedUrl,
-  },
-  {
-    icon: FaClock,
-    label: "Hours",
-    value: contactInfo.workingHours,
-  },
-];
+const page = async () => {
+  const { contactInfo, contactPage, siteName } = await getSiteContent();
 
-const page = () => {
+  const contactCards = [
+    {
+      icon: FaPhoneAlt,
+      label: "Phone",
+      value: contactInfo.phone.text,
+      href: contactInfo.phone.href,
+    },
+    {
+      icon: FaEnvelope,
+      label: "Email",
+      value: contactInfo.email,
+      href: `mailto:${contactInfo.email}`,
+    },
+    {
+      icon: FaMapMarkerAlt,
+      label: "Address",
+      value: contactInfo.address,
+      href: contactInfo.mapEmbedUrl,
+    },
+    {
+      icon: FaClock,
+      label: "Hours",
+      value: contactInfo.workingHours,
+    },
+  ];
+
   return (
     <main className="flex flex-col">
       <Header

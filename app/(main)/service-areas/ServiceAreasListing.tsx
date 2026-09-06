@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MdArrowForward, MdLocationPin } from "react-icons/md";
 import Title from "@/components/inputs/Title";
-import { serviceAreaPage, serviceAreasData } from "@/data";
+import { getSiteContent } from "@/lib/siteContent/server";
 
 function cityMapEmbedUrl(cityName: string) {
   const query = encodeURIComponent(`${cityName}, Florida, USA`);
@@ -9,7 +9,9 @@ function cityMapEmbedUrl(cityName: string) {
 }
 
 /** Service-areas listing page only — do not reuse on other pages. */
-export default function ServiceAreasListing() {
+export default async function ServiceAreasListing() {
+  const { serviceAreaPage, serviceAreasData } = await getSiteContent();
+
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-8">

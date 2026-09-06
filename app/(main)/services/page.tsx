@@ -1,5 +1,4 @@
 import Header from "@/components/Header";
-import { servicesPage } from "@/data";
 import JsonLd from "@/components/JsonLd";
 import FAQs from "@/components/Faqs";
 import AreaOfServices from "@/components/AreaOfServices";
@@ -7,9 +6,13 @@ import Projects from "@/app/_components/Projects";
 import Process from "@/app/_components/Process";
 import { getJsonLdDataServices } from "@/actions/catalogJsonLd";
 import ServicesListSection from "@/components/ServicesListSection";
+import { getSiteContent } from "@/lib/siteContent/server";
 
 const page = async () => {
-  const jsonLdData = await getJsonLdDataServices();
+  const [jsonLdData, { servicesPage }] = await Promise.all([
+    getJsonLdDataServices(),
+    getSiteContent(),
+  ]);
 
   return (
     <main className="flex flex-col">

@@ -1,4 +1,4 @@
-import { serviceAreasData, siteUrl } from "@/data";
+import { getSiteContent } from "@/lib/siteContent/server";
 import type { MetadataRoute } from "next";
 import prisma from "@/lib/prisma";
 
@@ -16,7 +16,10 @@ export async function getAllBlogs() {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const blogs = await getAllBlogs();
+  const [{ serviceAreasData, siteUrl }, blogs] = await Promise.all([
+    getSiteContent(),
+    getAllBlogs(),
+  ]);
 
   const [services, projects] = await Promise.all([
     prisma.service.findMany({

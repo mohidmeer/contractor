@@ -1,19 +1,20 @@
 'use client';
 import React, { useState } from 'react'
 import Logo from './Logo'
-import { contactInfo } from '@/data'
 import Link from 'next/link'
 import { FaAngleDown } from 'react-icons/fa6'
 import { usePathname } from 'next/navigation'
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { MdClose, MdMenu } from 'react-icons/md';
 import { trackCallClick } from '@/lib/analytics';
+import { useSiteContent } from '@/lib/siteContent';
 import type { NavItem } from '@/types';
 
 
 const NavBar = ({ items }: { items: NavItem[] }) => {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false);
+  const { contactInfo } = useSiteContent();
 
   return (
     <nav className=' bg-primary w-full z-20 relative'>

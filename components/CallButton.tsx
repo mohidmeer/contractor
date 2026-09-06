@@ -1,8 +1,8 @@
 'use client';
 
-import { contactInfo } from '@/data';
 import { trackCallClick } from '@/lib/analytics';
 import { toggleJustCallWidget } from '@/lib/justCallTrigger';
+import { useSiteContent } from '@/lib/siteContent';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 
 type CallButtonProps = {
@@ -16,6 +16,7 @@ const justCallButtonClassName =
   'btn-primary relative z-10 inline-flex h-[52px] w-[52px] shrink-0 items-center justify-center !rounded-full !p-0 border border-white/20 shadow-2xl hover:!scale-105';
 
 const CallButton = ({ useJustCall = false }: CallButtonProps) => {
+  const { contactInfo } = useSiteContent();
   if (useJustCall) {
     return (
       <button

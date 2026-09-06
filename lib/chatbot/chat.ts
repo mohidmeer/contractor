@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import { siteName } from "@/data";
+import { getSiteContent } from "@/lib/siteContent/server";
 import {
   recordTokenUsage,
   resolveChatbotApiKey,
@@ -32,7 +32,8 @@ function normalizeHistory(history: unknown): ChatMessage[] {
 }
 
 async function buildSystemPrompt(ownerPrompt: string | null | undefined) {
-  const [services, projects] = await Promise.all([
+  const [{ siteName }, services, projects] = await Promise.all([
+    getSiteContent(),
     prisma.service.findMany({
       where: { status: "PUBLISHED" },
       orderBy: [{ sortOrder: "asc" }, { title: "asc" }],

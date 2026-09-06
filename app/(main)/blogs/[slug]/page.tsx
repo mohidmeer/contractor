@@ -6,9 +6,9 @@ import JsonLd from "@/components/JsonLd";
 import MoreBlogsCarousel from "@/components/MoreBlogsCarousel";
 import Services from "@/components/Services";
 import SideBar from "@/components/SideBar";
-import { siteName, siteUrl } from "@/data";
 import { BUSINESS_ID } from "@/jsonld";
 import { toMediaUrl } from "@/lib/media";
+import { getSiteContent } from "@/lib/siteContent/server";
 import type { Blog } from "@/types";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -20,7 +20,10 @@ type Props = {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const blog = await getBlog(slug);
+  const [blog, { siteUrl }] = await Promise.all([
+    getBlog(slug),
+    getSiteContent(),
+  ]);
   if (!blog) return {};
 
   const canonical = `${siteUrl}blogs/${blog.slug}`;
@@ -50,7 +53,10 @@ export default async function Page({ params }: Props) {
   const blog = await getBlog(slug);
   if (!blog?.content) return notFound();
 
-  const moreBlogs = await getMoreBlogs(blog.slug, 8);
+  const [moreBlogs, { siteName, siteUrl }] = await Promise.all([
+    getMoreBlogs(blog.slug, 8),
+    getSiteContent(),
+  ]);
 
   const postUrl = `${siteUrl}/blogs/${blog.slug}`;
   const BLOG_ID = `${siteUrl}/blogs#blog`;

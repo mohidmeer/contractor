@@ -1,18 +1,18 @@
-import { serviceAreaPage } from "@/data"
-export const metadata = {
+import type { Metadata } from "next";
+import { getSiteContent } from "@/lib/siteContent/server";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { serviceAreaPage } = await getSiteContent();
+  return {
     title: serviceAreaPage.seo.title,
     description: serviceAreaPage.seo.description,
+  };
 }
 
 export default function Layout({
-    children,
+  children,
 }: {
-    children: React.ReactNode
+  children: React.ReactNode;
 }) {
-    return (
-        <>
-
-            {children}
-        </>
-    )
+  return <>{children}</>;
 }

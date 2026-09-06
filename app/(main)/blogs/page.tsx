@@ -5,9 +5,9 @@ import JsonLd from "@/components/JsonLd";
 import Pagination from "@/components/pagination";
 import SideBar from "@/components/SideBar";
 import SectionShadowHeading from "@/components/SectionShadowHeading";
-import { blogPage, siteName, siteUrl } from "@/data";
 import { BUSINESS_ID } from "@/jsonld";
 import { toMediaUrl } from "@/lib/media";
+import { getSiteContent } from "@/lib/siteContent/server";
 import Image from "next/image";
 import Link from "next/link";
 import { MdArrowForward, MdCalendarMonth, MdTimer } from "react-icons/md";
@@ -19,7 +19,8 @@ type Props = {
 const page = async ({ searchParams }: Props) => {
   const { page: pageParam } = await searchParams;
   const currentPage = Number(pageParam) || 1;
-  const { blogs, pagination } = await getAllBlogs(currentPage);
+  const [{ blogs, pagination }, { blogPage, siteName, siteUrl }] =
+    await Promise.all([getAllBlogs(currentPage), getSiteContent()]);
 
   const BLOG_ID = `${siteUrl}/blogs#blog`;
   const jsonLdData = {

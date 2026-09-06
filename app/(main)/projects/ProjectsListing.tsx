@@ -3,22 +3,24 @@ import Header from "@/components/Header";
 import Title from "@/components/inputs/Title";
 import WhyUS from "@/components/WhyUS";
 import Services from "@/components/Services";
-import { projectsPage } from "@/data";
 import Process from "@/app/_components/Process";
 import JsonLd from "@/components/JsonLd";
 import AreaOfServices from "@/components/AreaOfServices";
 import ProjectsMasonryGrid from "@/components/ProjectsMasonryGrid";
 import type { ProjectView } from "@/actions/projects";
+import { getSiteContent } from "@/lib/siteContent/server";
 
 type ProjectsListingProps = {
   items: ProjectView[];
   jsonLdData: Record<string, unknown>;
 };
 
-export default function ProjectsListing({
+export default async function ProjectsListing({
   items,
   jsonLdData,
 }: ProjectsListingProps) {
+  const { projectsPage } = await getSiteContent();
+
   return (
     <main className="flex flex-col">
       <Header cta desc="" title={projectsPage.seo.title} />

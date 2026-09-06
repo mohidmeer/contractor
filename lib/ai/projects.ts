@@ -4,7 +4,7 @@ import {
   getAnthropicClient,
   recordAnthropicMessageUsage,
 } from "@/lib/ai/clients";
-import { siteName } from "@/data";
+import { getSiteContent } from "@/lib/siteContent/server";
 
 const ProjectAiSchema = z.object({
   slug: z
@@ -37,7 +37,11 @@ export type ProjectAiContext = {
   existing?: Record<string, unknown> | null;
 };
 
-function buildProjectUserMessage(prompt: string, context?: ProjectAiContext) {
+function buildProjectUserMessage(
+  prompt: string,
+  siteName: string,
+  context?: ProjectAiContext
+) {
   const hasExisting =
     context?.existing &&
     typeof context.existing === "object" &&
@@ -80,7 +84,10 @@ export async function generateProjectWithAi(
   prompt: string,
   context?: ProjectAiContext
 ): Promise<ProjectAiResult> {
-  const { client, apiKeyId } = await getAnthropicClient();
+  const [{ client, apiKeyId }, { siteName }] = await Promise.all([
+    getAnthropicClient(),
+    getSiteContent(),
+  ]);
 
   const message = await client.messages.parse({
     model: "claude-sonnet-4-6",
@@ -88,7 +95,7 @@ export async function generateProjectWithAi(
     messages: [
       {
         role: "user",
-        content: buildProjectUserMessage(prompt, context),
+        content: buildProjectUserMessage(prompt, siteName, context),
       },
     ],
     output_config: {

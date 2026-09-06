@@ -8,7 +8,7 @@ import {
   BsSendFill,
   BsArrowCounterclockwise,
 } from "react-icons/bs";
-import { siteName } from "@/data";
+import { useSiteContent } from "@/lib/siteContent";
 
 type ChatRole = "user" | "assistant";
 
@@ -18,18 +18,18 @@ type ChatMsg = {
   content: string;
 };
 
-const WELCOME = `Hi! I'm the ${siteName} assistant. Ask about our services or projects — or tap a button below to get started.`;
-
 function newId() {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
 export default function ChatbotWidget() {
+  const { siteName } = useSiteContent();
+  const welcome = `Hi! I'm the ${siteName} assistant. Ask about our services or projects — or tap a button below to get started.`;
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [messages, setMessages] = useState<ChatMsg[]>([
-    { id: "welcome", role: "assistant", content: WELCOME },
+    { id: "welcome", role: "assistant", content: welcome },
   ]);
   const bottomRef = useRef<HTMLDivElement>(null);
 
@@ -38,7 +38,7 @@ export default function ChatbotWidget() {
   }, [messages, open]);
 
   const resetChat = () => {
-    setMessages([{ id: newId(), role: "assistant", content: WELCOME }]);
+    setMessages([{ id: newId(), role: "assistant", content: welcome }]);
     setInput("");
   };
 

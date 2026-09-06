@@ -1,7 +1,8 @@
 'use client';
 import SectionShadowHeading from '@/components/SectionShadowHeading'
-import { contactInfo, getToKnow } from '@/data'
 import { trackCallClick } from '@/lib/analytics'
+import { toMediaUrl } from '@/lib/media'
+import { useSiteContent } from '@/lib/siteContent'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -9,7 +10,9 @@ import { BsFillTelephoneFill } from 'react-icons/bs'
 import { FaCheckSquare } from 'react-icons/fa'
 import { MdArrowForward } from 'react-icons/md'
 
-const GetToKnow = ({ description = getToKnow.description }: { description?: string }) => {
+const GetToKnow = ({ description }: { description?: string }) => {
+    const { contactInfo, getToKnow } = useSiteContent();
+    const body = description ?? getToKnow.description;
     return (
         <section className="bg-white py-14 md:py-20">
             <div className="max-w-7xl mx-auto px-6 md:px-8">
@@ -21,7 +24,7 @@ const GetToKnow = ({ description = getToKnow.description }: { description?: stri
                             </h2>
                         </SectionShadowHeading>
                         <p className="p1">
-                            {description}
+                            {body}
                         </p>
                         <div className="space-y-2.5">
                             {
@@ -64,7 +67,7 @@ const GetToKnow = ({ description = getToKnow.description }: { description?: stri
                         </div>
                         <div className="relative rounded-xl overflow-hidden aspect-square">
                             <Image
-                                src={getToKnow.image1_url}
+                                src={toMediaUrl(getToKnow.image1_url)}
                                 alt="Company work 1"
                                 fill
                                 className="object-cover hover:scale-110 transition-all duration-500"
@@ -72,7 +75,7 @@ const GetToKnow = ({ description = getToKnow.description }: { description?: stri
                         </div>
                         <div className="relative rounded-xl overflow-hidden aspect-square">
                             <Image
-                                src={getToKnow.image2_url}
+                                src={toMediaUrl(getToKnow.image2_url)}
                                 alt="Company work 2"
                                 fill
                                 className="object-cover hover:scale-110 transition-all duration-500"
@@ -80,7 +83,7 @@ const GetToKnow = ({ description = getToKnow.description }: { description?: stri
                         </div>
                         <div className="relative rounded-xl overflow-hidden aspect-square">
                             <Image
-                                src={getToKnow.image3_url}
+                                src={toMediaUrl(getToKnow.image3_url)}
                                 alt="Company work 3"
                                 fill
                                 className="object-cover hover:scale-110 transition-all duration-500"
@@ -88,7 +91,7 @@ const GetToKnow = ({ description = getToKnow.description }: { description?: stri
                         </div>
                         <div className="relative rounded-xl overflow-hidden aspect-square">
                             <Image
-                                src={getToKnow.image4_url}
+                                src={toMediaUrl(getToKnow.image4_url)}
                                 alt="Company work 4"
                                 fill
                                 className="object-cover hover:scale-110 transition-all duration-500"

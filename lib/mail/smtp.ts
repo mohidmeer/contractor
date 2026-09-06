@@ -3,7 +3,7 @@ import type { FormRequest } from "@prisma/client";
 import prisma from "@/lib/prisma";
 import { SETTING_ID } from "@/lib/apiKeys";
 import { FORM_REQUEST_TYPE_LABELS } from "@/lib/formRequestSchema";
-import { siteName } from "@/data";
+import { getSiteContent } from "@/lib/siteContent/server";
 
 export type SmtpConfig = {
   host: string;
@@ -74,14 +74,17 @@ function extractEmailAddress(from: string): string {
   return trimmed;
 }
 
-function formatFromHeader(fromSetting: string): string {
+function formatFromHeader(fromSetting: string, siteName: string): string {
   const email = extractEmailAddress(fromSetting);
   const displayName = `${siteName} Leads`.replace(/"/g, "");
   return `"${displayName}" <${email}>`;
 }
 
 export async function sendFormRequestEmail(request: FormRequest): Promise<void> {
-  const config = await getSmtpConfig();
+  const [config, { siteName }] = await Promise.all([
+    getSmtpConfig(),
+    getSiteContent(),
+  ]);
   if (!isSmtpConfigured(config)) {
     throw new Error(
       "SMTP is not configured. Add SMTP settings in Admin → Settings."
@@ -156,7 +159,7 @@ export async function sendFormRequestEmail(request: FormRequest): Promise<void> 
   });
 
   await transporter.sendMail({
-    from: formatFromHeader(config.from),
+    from: formatFromHeader(config.from, siteName),
     to: recipients,
     ...(bccList.length > 0 ? { bcc: bccList } : {}),
     subject,

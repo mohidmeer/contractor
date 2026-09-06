@@ -1,16 +1,18 @@
 'use client';
-import { contactInfo, static_assets } from '@/data'
 import Image from 'next/image'
 import React from 'react'
 import { BsFillTelephoneFill } from 'react-icons/bs'
 import Breadcrumbs from './Breadcrumbs'
 import { trackCallClick } from '@/lib/analytics'
+import { toMediaUrl } from '@/lib/media'
+import { useSiteContent } from '@/lib/siteContent'
 
 const Header = ({ title, desc, cta = true }: { title: string, desc: string | null, cta: boolean }) => {
+    const { contactInfo, static_assets } = useSiteContent();
     return (
         <section className="relative flex flex-col items-center justify-center text-white bg-primary/50 gap-4 pt-28 pb-16 md:pt-32 md:pb-20 px-6">
             <Image
-                src={static_assets + '/images/hero_bg_2.jpg'}
+                src={toMediaUrl(static_assets + '/images/hero_bg_2.jpg')}
                 fill
                 className="object-cover -z-10"
                 alt="header_section"

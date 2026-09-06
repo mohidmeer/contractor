@@ -1,9 +1,12 @@
+'use client';
+
 import React from "react";
 import { MdArrowForward, MdLocationPin } from "react-icons/md";
-import { serviceAreasData } from "@/data";
+import { useSiteContent } from "@/lib/siteContent";
 import Link from "next/link";
 
 const AreaOfServices = () => {
+  const { serviceAreasData } = useSiteContent();
   return (
     <section className="bg-secondary/10 py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-8">

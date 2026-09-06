@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import FormInput from './inputs/FormInput';
-import { siteName } from '@/data';
+import { useSiteContent } from '@/lib/siteContent';
 
 type FormData = {
     name: string;
@@ -14,6 +14,7 @@ type FormData = {
 };
 
 const HeroForm = () => {
+    const { siteName } = useSiteContent();
     const [loading, setLoading] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);

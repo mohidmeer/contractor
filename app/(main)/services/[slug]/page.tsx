@@ -8,7 +8,6 @@ import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
 import SideBar from "@/components/SideBar";
 import WhyUS from "@/components/WhyUS";
-import { siteName, siteUrl } from "@/data";
 import { BUSINESS_ID } from "@/jsonld";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -16,6 +15,7 @@ import { FaCheck } from "react-icons/fa6";
 import { getServiceBySlug, getServiceSlugs } from "@/actions/services";
 import { toMediaUrl } from "@/lib/media";
 import { asParagraphs } from "@/lib/paragraphs";
+import { getSiteContent } from "@/lib/siteContent/server";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -28,7 +28,10 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const service = await getServiceBySlug(slug);
+  const [service, { siteName, siteUrl }] = await Promise.all([
+    getServiceBySlug(slug),
+    getSiteContent(),
+  ]);
   if (!service) return {};
 
   const canonical = `${siteUrl}services/${slug}`;
@@ -57,7 +60,10 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function Page({ params }: Props) {
   const { slug } = await params;
-  const service = await getServiceBySlug(slug);
+  const [service, { siteUrl }] = await Promise.all([
+    getServiceBySlug(slug),
+    getSiteContent(),
+  ]);
   if (!service) return notFound();
 
   const image = service.image ? toMediaUrl(service.image) : "";

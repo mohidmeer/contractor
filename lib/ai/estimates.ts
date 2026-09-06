@@ -4,7 +4,7 @@ import {
   getAnthropicClient,
   recordAnthropicMessageUsage,
 } from "@/lib/ai/clients";
-import { siteName } from "@/data";
+import { getSiteContent } from "@/lib/siteContent/server";
 
 const EstimateAiSchema = z.object({
   clientName: z.string().describe("Client full name"),
@@ -46,7 +46,11 @@ export type EstimateAiContext = {
   existing?: Record<string, unknown> | null;
 };
 
-function buildEstimateUserMessage(prompt: string, context?: EstimateAiContext) {
+function buildEstimateUserMessage(
+  prompt: string,
+  siteName: string,
+  context?: EstimateAiContext
+) {
   const hasExisting =
     context?.existing &&
     typeof context.existing === "object" &&
@@ -88,7 +92,10 @@ export async function generateEstimateWithAi(
   prompt: string,
   context?: EstimateAiContext
 ): Promise<EstimateAiResult> {
-  const { client, apiKeyId } = await getAnthropicClient();
+  const [{ client, apiKeyId }, { siteName }] = await Promise.all([
+    getAnthropicClient(),
+    getSiteContent(),
+  ]);
 
   const message = await client.messages.parse({
     model: "claude-sonnet-4-6",
@@ -96,7 +103,7 @@ export async function generateEstimateWithAi(
     messages: [
       {
         role: "user",
-        content: buildEstimateUserMessage(prompt, context),
+        content: buildEstimateUserMessage(prompt, siteName, context),
       },
     ],
     output_config: {

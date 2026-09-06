@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Logo from './Logo';
-import { contactInfo, licenses } from '@/data';
+import { useSiteContent } from '@/lib/siteContent';
 import Link from 'next/link';
 import { FaAngleDown } from 'react-icons/fa6';
 import { usePathname } from 'next/navigation';
@@ -48,6 +48,7 @@ const COLUMN_COUNT_CLASS: Record<number, string> = {
 };
 
 const NavBar2 = ({ items }: { items: NavItem[] }) => {
+  const { contactInfo, licenses } = useSiteContent();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);

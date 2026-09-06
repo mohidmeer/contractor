@@ -1,9 +1,10 @@
 'use client';
-import { contactInfo, licenses, socialLinks } from '@/data';
+import { useSiteContent } from '@/lib/siteContent';
 import React from 'react';
 import { BsClock } from "react-icons/bs";
 import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
 const TopBar = () => {
+  const { contactInfo, licenses, socialLinks } = useSiteContent();
   return (
     <div className="bg-secondary p-4 flex flex-wrap items-center justify-center text-sm sm:text-base text-white gap-6 font-semibold whitespace-nowrap ">
       {licenses.length > 0 && (

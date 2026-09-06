@@ -4,7 +4,7 @@ import {
   getAnthropicClient,
   recordAnthropicMessageUsage,
 } from "@/lib/ai/clients";
-import { siteName } from "@/data";
+import { getSiteContent } from "@/lib/siteContent/server";
 
 export const BlogAiSchema = z.object({
   title: z.string().describe("Blog post title"),
@@ -84,7 +84,11 @@ export type BlogAiContext = {
   existing?: Record<string, unknown> | null;
 };
 
-function buildBlogUserMessage(prompt: string, context?: BlogAiContext) {
+function buildBlogUserMessage(
+  prompt: string,
+  siteName: string,
+  context?: BlogAiContext
+) {
   const hasExisting =
     context?.existing &&
     typeof context.existing === "object" &&
@@ -127,7 +131,10 @@ export async function generateBlogWithAi(
   prompt: string,
   context?: BlogAiContext
 ): Promise<BlogAiResult> {
-  const { client, apiKeyId } = await getAnthropicClient();
+  const [{ client, apiKeyId }, { siteName }] = await Promise.all([
+    getAnthropicClient(),
+    getSiteContent(),
+  ]);
 
   const message = await client.messages.parse({
     model: "claude-sonnet-4-6",
@@ -135,7 +142,7 @@ export async function generateBlogWithAi(
     messages: [
       {
         role: "user",
-        content: buildBlogUserMessage(prompt, context),
+        content: buildBlogUserMessage(prompt, siteName, context),
       },
     ],
     output_config: {

@@ -4,6 +4,9 @@ import { pathToFileURL } from "url";
 import { PrismaClient } from "@prisma/client";
 import { resolveImagePathForSeed } from "../lib/uploadLocalMedia";
 import { asParagraphs } from "../lib/paragraphs";
+import { siteContentFromStaticModule } from "../lib/siteContent/fromStatic";
+import { migrateSiteContentImages } from "../lib/siteContent/migrateImages";
+import { SITE_CONTENT_ID } from "../lib/siteContent/schema";
 
 const prisma = new PrismaClient();
 
@@ -193,6 +196,20 @@ async function seedBrand(mod: Record<string, unknown>) {
       console.log(`[seed] Project upserted: ${slug}`);
     }
   }
+
+  // Marketing / site config singleton
+  try {
+    const built = siteContentFromStaticModule(mod);
+    const withUploads = await migrateSiteContentImages(built);
+    await prisma.siteContent.upsert({
+      where: { id: SITE_CONTENT_ID },
+      create: { id: SITE_CONTENT_ID, data: withUploads },
+      update: { data: withUploads },
+    });
+    console.log("[seed] SiteContent upserted");
+  } catch (error) {
+    console.warn("[seed] SiteContent seed skipped:", error);
+  }
 }
 
 async function main() {
@@ -220,9 +237,12 @@ async function main() {
   const mod = (await import(modulePath)) as Record<string, unknown>;
 
   if (!mod.servicesData && !mod.projectsData && !mod.categoriesData) {
-    throw new Error(
-      `[seed] No servicesData/projectsData/categoriesData found in data/${brand}`
-    );
+    // Still allow site-content-only brands if they export identity fields
+    if (!mod.siteName && !mod.landingPage) {
+      throw new Error(
+        `[seed] No servicesData/projectsData/categoriesData/site content found in data/${brand}`
+      );
+    }
   }
 
   await seedBrand(mod);

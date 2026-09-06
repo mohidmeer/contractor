@@ -1,12 +1,15 @@
+'use client';
+
 import React from 'react'
 import { MdLocationPin, MdAccessTime, MdPhone, MdArrowOutward } from 'react-icons/md'
-import { contactInfo } from '@/data'
+import { useSiteContent } from '@/lib/siteContent'
 import Link from 'next/link'
 
 const mapEmbedSrc =
   'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.34883771467!2d-80.1446295!3d26.1201667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d900f8f1f3e0d9%3A0x1369d39a6c77350e!2s300%20SW%201st%20Ave%20suite%20155%2C%20Fort%20Lauderdale%2C%20FL%2033301%2C%20USA!5e0!3m2!1sen!2s!4v1754560984887!5m2!1sen!2s'
 
 const GoogleMap = () => {
+  const { contactInfo } = useSiteContent();
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
