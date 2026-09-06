@@ -900,4 +900,178 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     images: [img.garage, img.flooring, img.commercial],
   },
+
+  "multifamily-concrete-restoration": {
+    label: "Multifamily Concrete Restoration",
+    title: "Multifamily & Condominium Concrete Restoration",
+    description:
+      "Large-scale concrete restoration for multifamily and condominium communities — balconies, decks, façades, and structural repairs for South Florida associations and builders.",
+    content: [
+      "Multifamily concrete restoration addresses chloride-driven spalling, balcony failures, deck deterioration, and structural cracking common in South Florida condominiums and apartment communities — often tied to milestone inspections and SIRS requirements.",
+      "Costal Concrete partners with builders, associations, and property managers on large restoration contracts covering balconies, elevated walkways, amenity decks, façades, and related structural concrete.",
+      "Scopes typically combine sounding surveys, spalling remediation, rebar repair, crack injection, waterproofing, and phased access plans so occupied buildings stay operational during the work.",
+      "A coordinated multifamily restoration program protects resident safety, extends structure life, and helps associations meet inspection-driven repair obligations without disrupting the entire community at once.",
+    ],
+    image: img.commercial,
+    categorySlug: "multifamily-condominiums",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: [
+        "Condominiums",
+        "Apartment communities",
+        "High-rise multifamily",
+        "Amenity decks & walkways",
+      ],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Milestone/SIRS findings, balcony spalling, deck leaks, façade cracking, or association-mandated structural repairs.",
+      },
+      {
+        title: "Standards & references",
+        description: "ACI 546R, ICRI guidelines, Florida milestone inspection / SIRS-driven scopes",
+      },
+    ],
+    faqs: [
+      {
+        question: "Do you work on occupied multifamily buildings?",
+        answer:
+          "Yes. We phase access and work zones so residents and operations continue while restoration proceeds building by building or floor by floor.",
+      },
+      {
+        question: "Can you support milestone inspection repair scopes?",
+        answer:
+          "Yes. We restore concrete defects identified in milestone and SIRS-related assessments for condominium and multifamily communities.",
+      },
+      {
+        question: "What areas of a multifamily property do you restore?",
+        answer:
+          "Balconies, elevated decks, walkways, façades, parking structures serving the community, and other structural concrete elements.",
+      },
+      {
+        question: "Who typically hires you for multifamily work?",
+        answer:
+          "Builders, condominium associations, property managers, and structural consultants managing large restoration contracts.",
+      },
+    ],
+    images: [img.commercial, img.repair, img.garage],
+  },
+
+  "parking-garage-restoration": {
+    label: "Parking Garage Restoration",
+    title: "Parking Garage & Structure Concrete Restoration",
+    description:
+      "Full-scope parking garage concrete restoration — deck repairs, joints, overlays, waterproofing, and structural remediation for high-traffic structures.",
+    content: [
+      "Parking garage restoration targets chloride intrusion, PT tendon exposure, joint failure, deck cracking, and worn traffic surfaces that accelerate deterioration in Florida parking structures.",
+      "Costal Concrete restores garage decks and elevated parking with coordinated scopes: spalling repair, joint systems, elastomeric/traffic coatings, overlays, and structural crack remediation.",
+      "Work is phased by level or zone so owners keep partial parking capacity — critical for multifamily, commercial, and mixed-use properties.",
+      "Timely garage restoration reduces life-cycle cost, improves safety, and protects the structure from Florida’s aggressive moisture and chloride environment.",
+    ],
+    image: img.garage,
+    categorySlug: "parking-garages",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: [
+        "Multifamily parking garages",
+        "Commercial parking structures",
+        "Elevated parking decks",
+        "Mixed-use podium garages",
+      ],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Deck spalling, joint failure, coating wear, leaks to levels below, or inspection findings on parking structures.",
+      },
+      {
+        title: "Standards & references",
+        description: "ICRI, ACI 546R, manufacturer traffic-coating systems",
+      },
+    ],
+    faqs: [
+      {
+        question: "Will the garage need a full shutdown?",
+        answer:
+          "Usually not. We phase by levels or zones so owners retain partial parking capacity during restoration.",
+      },
+      {
+        question: "What repairs are included in garage restoration?",
+        answer:
+          "Scopes often include spalling remediation, joint repair, crack sealing, overlays, and traffic-bearing waterproofing systems.",
+      },
+      {
+        question: "Do you restore both multifamily and commercial garages?",
+        answer:
+          "Yes. We restore parking structures serving condominiums, apartments, offices, retail, and mixed-use developments.",
+      },
+      {
+        question: "How do you handle leaks between garage levels?",
+        answer:
+          "We address joints, cracks, and failed membranes, then install or renew waterproofing so water and chlorides stop migrating through the deck.",
+      },
+    ],
+    images: [img.garage, img.flooring, img.commercial],
+  },
+
+  "commercial-concrete-restoration": {
+    label: "Commercial Concrete Restoration",
+    title: "Commercial Building Concrete Restoration & Repair",
+    description:
+      "Large-contract commercial concrete restoration for offices, retail, hospitality, and mixed-use properties — structural repairs that protect asset value and operations.",
+    content: [
+      "Commercial concrete restoration covers façades, plazas, parking, balconies, and structural slabs where coastal exposure, traffic, and deferred maintenance drive cracking, spalling, and waterproofing failure.",
+      "Costal Concrete delivers large-contract restoration for commercial owners, builders, and facility managers — coordinating access, tenant operations, and clear schedules.",
+      "Typical scopes include structural crack repair, spalling remediation, joint systems, resurfacing overlays, and waterproofing membranes matched to the building’s use and exposure.",
+      "Investing in commercial concrete restoration protects tenant safety, reduces emergency callouts, and preserves long-term asset value for South Florida commercial portfolios.",
+    ],
+    image: img.commercial,
+    categorySlug: "commercial-real-estate",
+    typeOfSolutions: {
+      headings: "Typical structures",
+      types: [
+        "Office buildings",
+        "Retail & shopping centers",
+        "Hospitality properties",
+        "Mixed-use commercial",
+      ],
+    },
+    benefitsOFChoosing: [
+      {
+        title: "Triggered by",
+        description:
+          "Façade or plaza deterioration, parking/structural cracks, waterproofing failure, or capital-plan restoration scopes.",
+      },
+      {
+        title: "Standards & references",
+        description: "ACI 546R, ICRI guidelines, project specifications",
+      },
+    ],
+    faqs: [
+      {
+        question: "Do you handle large commercial contracts?",
+        answer:
+          "Yes. Our focus is large multifamily and commercial concrete restoration contracts with phased delivery and clear documentation.",
+      },
+      {
+        question: "Can work proceed around tenants and customers?",
+        answer:
+          "Yes. We plan access, noise, and phasing with property managers so commercial operations continue during restoration.",
+      },
+      {
+        question: "What commercial building elements do you restore?",
+        answer:
+          "Structural slabs, plazas, parking, façades, balconies/terraces, joints, and related waterproofing systems.",
+      },
+      {
+        question: "Do you work with builders and GCs?",
+        answer:
+          "Yes. We partner with builders, general contractors, and owners as the concrete restoration specialist on large South Florida projects.",
+      },
+    ],
+    images: [img.commercial, img.slab, img.repair],
+  },
 };

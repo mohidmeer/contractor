@@ -1,8 +1,36 @@
 import { unstable_cache } from "next/cache";
-import { navItems } from "@/data";
 import { getServices, type ServiceView } from "@/actions/services";
 import { getProjects } from "@/actions/projects";
 import type { NavItem } from "@/types";
+
+
+const navItems = [
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "Services",
+    href: "/services",
+  },
+  {
+    label: "Projects",
+    href: "/projects",
+  },
+  {
+    label: "Contact Us",
+    href: "/contact",
+  },
+  {
+    label: "About Us",
+    href: "/about",
+  },
+  {
+    label: "Blogs",
+    href: "/blogs",
+  },
+];
+
 
 function toNavChild(label: string, href: string): NavItem {
   return {
