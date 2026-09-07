@@ -6,6 +6,7 @@ import { ImageUp, Info } from "lucide-react";
 import { toast } from "sonner";
 import type { SiteContentSectionProps } from "./types";
 import CollapsibleSection from "./CollapsibleSection";
+import SectionAiUpdateButton from "./SectionAiUpdateButton";
 import { Field, fieldClass, areaClass } from "../formUi";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -28,12 +29,7 @@ const IMAGE_LABELS: Record<ImageKey, string> = {
   image4_url: "Image 4",
 };
 
-export default function GetToKnowSection({
-  data,
-  setData,
-  forceOpenSections,
-  forceOpenKey,
-}: SiteContentSectionProps) {
+export default function GetToKnowSection({ data, setData }: SiteContentSectionProps) {
   const [uploadingKey, setUploadingKey] = useState<ImageKey | null>(null);
   const fileInputRefs = useRef<
     Partial<Record<ImageKey, HTMLInputElement | null>>
@@ -73,8 +69,14 @@ export default function GetToKnowSection({
       title="Get to know"
       description="About blurb, key points, and gallery images"
       icon={Info}
-      forceOpen={forceOpenSections?.has("get-to-know")}
-      forceOpenKey={forceOpenKey}
+      headerAction={
+        <SectionAiUpdateButton
+          sectionId="get-to-know"
+          sectionLabel="Get to know"
+          data={data}
+          setData={setData}
+        />
+      }
     >
       <div className="grid items-start gap-5 lg:grid-cols-2 lg:gap-6">
         {/* Left: copy + key points (landing-like) */}

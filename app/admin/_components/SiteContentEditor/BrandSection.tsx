@@ -8,19 +8,12 @@ import { Field, fieldClass, areaClass } from "../formUi";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function BrandSection({
-  data,
-  setData,
-  forceOpenSections,
-  forceOpenKey,
-}: SiteContentSectionProps) {
+export default function BrandSection({ data, setData }: SiteContentSectionProps) {
   return (
     <CollapsibleSection
       title="Brand"
       description="Site identity, logo, analytics, footer tagline, JustCall"
       icon={Building2}
-      forceOpen={forceOpenSections?.has("brand")}
-      forceOpenKey={forceOpenKey}
       defaultOpen
     >
       <div className="grid gap-4 sm:grid-cols-2">

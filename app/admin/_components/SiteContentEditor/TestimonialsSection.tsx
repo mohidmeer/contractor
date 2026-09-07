@@ -4,6 +4,7 @@ import { useState } from "react";
 import { MessageSquareQuote, Pencil, Plus, Quote, Trash2 } from "lucide-react";
 import type { SiteContentSectionProps } from "./types";
 import CollapsibleSection from "./CollapsibleSection";
+import SectionAiUpdateButton from "./SectionAiUpdateButton";
 import DeleteConfirmDialog from "../DeleteConfirmDialog";
 import { Field, fieldClass, areaClass } from "../formUi";
 import { Input } from "@/components/ui/input";
@@ -24,12 +25,7 @@ const EMPTY_TESTIMONIAL = {
   feedback: "",
 };
 
-export default function TestimonialsSection({
-  data,
-  setData,
-  forceOpenSections,
-  forceOpenKey,
-}: SiteContentSectionProps) {
+export default function TestimonialsSection({ data, setData }: SiteContentSectionProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [deleteIndex, setDeleteIndex] = useState<number | null>(null);
   const active =
@@ -68,8 +64,14 @@ export default function TestimonialsSection({
       title="Testimonials"
       description="Click a card to edit · add or remove quotes"
       icon={MessageSquareQuote}
-      forceOpen={forceOpenSections?.has("testimonials")}
-      forceOpenKey={forceOpenKey}
+      headerAction={
+        <SectionAiUpdateButton
+          sectionId="testimonials"
+          sectionLabel="Testimonials"
+          data={data}
+          setData={setData}
+        />
+      }
     >
       <div className="flex justify-end">
         <Button type="button" size="sm" onClick={addTestimonial}>

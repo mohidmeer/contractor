@@ -3,24 +3,26 @@
 import { Search } from "lucide-react";
 import type { SiteContentSectionProps } from "./types";
 import CollapsibleSection from "./CollapsibleSection";
+import SectionAiUpdateButton from "./SectionAiUpdateButton";
 import MediaForm from "../MediaForm";
 import { Field, fieldClass, areaClass } from "../formUi";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function LandingSeoSection({
-  data,
-  setData,
-  forceOpenSections,
-  forceOpenKey,
-}: SiteContentSectionProps) {
+export default function LandingSeoSection({ data, setData }: SiteContentSectionProps) {
   return (
     <CollapsibleSection
       title="Landing SEO"
       description="Homepage SEO and services / projects section headings"
       icon={Search}
-      forceOpen={forceOpenSections?.has("landing-seo")}
-      forceOpenKey={forceOpenKey}
+      headerAction={
+        <SectionAiUpdateButton
+          sectionId="landing-seo"
+          sectionLabel="Landing SEO"
+          data={data}
+          setData={setData}
+        />
+      }
     >
       <Field label="SEO title">
         <Input

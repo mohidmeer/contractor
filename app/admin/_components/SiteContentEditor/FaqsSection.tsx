@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ChevronDown, CircleHelp } from "lucide-react";
 import type { SiteContentSectionProps } from "./types";
 import CollapsibleSection from "./CollapsibleSection";
+import SectionAiUpdateButton from "./SectionAiUpdateButton";
 import { Field, fieldClass, areaClass } from "../formUi";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -91,19 +92,20 @@ function FaqItem({
   );
 }
 
-export default function FaqsSection({
-  data,
-  setData,
-  forceOpenSections,
-  forceOpenKey,
-}: SiteContentSectionProps) {
+export default function FaqsSection({ data, setData }: SiteContentSectionProps) {
   return (
     <CollapsibleSection
       title="FAQs"
       description="Homepage frequently asked questions"
       icon={CircleHelp}
-      forceOpen={forceOpenSections?.has("faqs")}
-      forceOpenKey={forceOpenKey}
+      headerAction={
+        <SectionAiUpdateButton
+          sectionId="faqs"
+          sectionLabel="FAQs"
+          data={data}
+          setData={setData}
+        />
+      }
     >
       <div className="space-y-3">
         {data.faqs.map((faq, index) => (

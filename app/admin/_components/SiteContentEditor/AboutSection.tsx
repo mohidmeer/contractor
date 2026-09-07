@@ -3,23 +3,25 @@
 import { FileText } from "lucide-react";
 import type { SiteContentSectionProps } from "./types";
 import CollapsibleSection from "./CollapsibleSection";
+import SectionAiUpdateButton from "./SectionAiUpdateButton";
 import { Field, fieldClass, areaClass } from "../formUi";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function AboutSection({
-  data,
-  setData,
-  forceOpenSections,
-  forceOpenKey,
-}: SiteContentSectionProps) {
+export default function AboutSection({ data, setData }: SiteContentSectionProps) {
   return (
     <CollapsibleSection
       title="About page"
       description="About SEO title and body copy"
       icon={FileText}
-      forceOpen={forceOpenSections?.has("about")}
-      forceOpenKey={forceOpenKey}
+      headerAction={
+        <SectionAiUpdateButton
+          sectionId="about"
+          sectionLabel="About"
+          data={data}
+          setData={setData}
+        />
+      }
     >
       <Field label="About SEO title">
         <Input

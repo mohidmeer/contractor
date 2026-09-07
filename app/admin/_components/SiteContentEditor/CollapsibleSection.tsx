@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type ComponentType } from "react";
+import { useState, type ComponentType, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 import {
   Collapsible,
@@ -16,25 +16,18 @@ export default function CollapsibleSection({
   description,
   icon: Icon,
   defaultOpen = false,
-  forceOpen = false,
-  forceOpenKey = 0,
+  headerAction,
   children,
 }: {
   title: string;
   description?: string;
   icon: ComponentType<IconProps>;
   defaultOpen?: boolean;
-  /** When true (e.g. after AI apply), expand this section. */
-  forceOpen?: boolean;
-  /** Bumps when AI applies again so forceOpen re-triggers. */
-  forceOpenKey?: number;
+  /** Renders in the header (e.g. Update with AI). Clicks do not toggle the section. */
+  headerAction?: ReactNode;
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState(defaultOpen);
-
-  useEffect(() => {
-    if (forceOpen) setOpen(true);
-  }, [forceOpen, forceOpenKey]);
 
   return (
     <Collapsible
@@ -47,42 +40,56 @@ export default function CollapsibleSection({
           : "border-border/70 hover:border-border hover:shadow"
       )}
     >
-      <CollapsibleTrigger asChild>
-        <button
-          type="button"
-          className={cn(
-            "flex w-full items-center justify-between gap-3 px-5 py-4 text-left transition-colors",
-            open ? "bg-primary/[0.04]" : "hover:bg-muted/40"
-          )}
-        >
-          <div className="flex min-w-0 items-start gap-3">
-            <span
-              className={cn(
-                "mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors",
-                open
-                  ? "bg-primary text-primary-foreground shadow-sm shadow-primary/25"
-                  : "bg-muted text-foreground/80"
-              )}
-            >
-              <Icon className="h-5 w-5" />
-            </span>
-            <div className="min-w-0 pt-0.5">
-              <p className="text-base font-semibold tracking-tight">{title}</p>
-              {description ? (
-                <p className="mt-0.5 text-xs text-muted-foreground leading-relaxed">
-                  {description}
-                </p>
-              ) : null}
+      <div
+        className={cn(
+          "flex w-full items-center gap-2 px-5 py-4",
+          open ? "bg-primary/[0.04]" : "hover:bg-muted/40"
+        )}
+      >
+        <CollapsibleTrigger asChild>
+          <button
+            type="button"
+            className="flex min-w-0 flex-1 items-center justify-between gap-3 text-left transition-colors"
+          >
+            <div className="flex min-w-0 items-start gap-3">
+              <span
+                className={cn(
+                  "mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors",
+                  open
+                    ? "bg-primary text-primary-foreground shadow-sm shadow-primary/25"
+                    : "bg-muted text-foreground/80"
+                )}
+              >
+                <Icon className="h-5 w-5" />
+              </span>
+              <div className="min-w-0 pt-0.5">
+                <p className="text-base font-semibold tracking-tight">{title}</p>
+                {description ? (
+                  <p className="mt-0.5 text-xs text-muted-foreground leading-relaxed">
+                    {description}
+                  </p>
+                ) : null}
+              </div>
             </div>
+            <ChevronDown
+              className={cn(
+                "h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200",
+                open && "rotate-180 text-primary"
+              )}
+            />
+          </button>
+        </CollapsibleTrigger>
+        {headerAction ? (
+          <div
+            className="shrink-0"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            {headerAction}
           </div>
-          <ChevronDown
-            className={cn(
-              "h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200",
-              open && "rotate-180 text-primary"
-            )}
-          />
-        </button>
-      </CollapsibleTrigger>
+        ) : null}
+      </div>
       <CollapsibleContent className="overflow-hidden">
         <div className="space-y-4 border-t border-border/60 bg-muted/[0.15] px-5 py-4">
           {children}

@@ -6,6 +6,7 @@ import { Images, ImageUp, Pencil } from "lucide-react";
 import { toast } from "sonner";
 import type { SiteContentSectionProps } from "./types";
 import CollapsibleSection from "./CollapsibleSection";
+import SectionAiUpdateButton from "./SectionAiUpdateButton";
 import { Field, fieldClass, areaClass } from "../formUi";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,12 +21,7 @@ import {
 import { toMediaPath, toMediaUrl } from "@/lib/media";
 import { cn } from "@/lib/utils";
 
-export default function HeroCarouselSection({
-  data,
-  setData,
-  forceOpenSections,
-  forceOpenKey,
-}: SiteContentSectionProps) {
+export default function HeroCarouselSection({ data, setData }: SiteContentSectionProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [uploading, setUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -69,8 +65,14 @@ export default function HeroCarouselSection({
       title="Hero carousel"
       description="Click a slide to edit image, title, and description"
       icon={Images}
-      forceOpen={forceOpenSections?.has("hero-carousel")}
-      forceOpenKey={forceOpenKey}
+      headerAction={
+        <SectionAiUpdateButton
+          sectionId="hero-carousel"
+          sectionLabel="Hero carousel"
+          data={data}
+          setData={setData}
+        />
+      }
     >
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         {data.hero2.slides.map((slide, index) => {

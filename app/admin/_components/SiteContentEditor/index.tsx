@@ -17,7 +17,6 @@ import WhyUsSection from "./WhyUsSection";
 import AboutSection from "./AboutSection";
 import TestimonialsSection from "./TestimonialsSection";
 import ServiceAreasSection from "./ServiceAreasSection";
-import SiteContentAiChat from "./SiteContentAiChat";
 import BulkAiWritePanel from "../BulkAiWritePanel";
 
 export default function SiteContentEditor() {
@@ -25,10 +24,6 @@ export default function SiteContentEditor() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [dirty, setDirty] = useState(false);
-  const [forceOpenSections, setForceOpenSections] = useState<Set<string>>(
-    () => new Set()
-  );
-  const [forceOpenKey, setForceOpenKey] = useState(0);
   const savedSnapshot = useRef<string>("");
 
   const setData = useCallback((action: SetStateAction<SiteContent | null>) => {
@@ -113,7 +108,7 @@ export default function SiteContentEditor() {
     );
   }
 
-  const sectionProps = { data, setData, forceOpenSections, forceOpenKey };
+  const sectionProps = { data, setData };
 
   return (
     <div>
@@ -136,7 +131,7 @@ export default function SiteContentEditor() {
 
       <AdminPageHeader
         title="Site Content"
-        description="Static marketing content and bulk AI drafts. Site content changes apply after save (cache refreshes automatically)."
+        description="Static marketing content and bulk AI drafts. Changes apply after save (cache refreshes automatically)."
       />
 
       <div className="mx-auto mb-6 max-w-5xl">
@@ -144,9 +139,8 @@ export default function SiteContentEditor() {
       </div>
 
       <p className="mx-auto mb-4 max-w-5xl text-sm text-muted-foreground">
-        Open a section to edit static site content. Brand starts expanded;
-        everything else is collapsed until you need it. AI Chat can update these
-        fields — then use Save all.
+        Open a section to edit. Use Update with AI on a section for copy changes,
+        then Save all. Brand and Contact stay manual (locked fields).
       </p>
 
       <div className="mx-auto max-w-5xl space-y-3 pb-24">
@@ -162,17 +156,6 @@ export default function SiteContentEditor() {
         <TestimonialsSection {...sectionProps} />
         <ServiceAreasSection {...sectionProps} />
       </div>
-
-      <SiteContentAiChat
-        content={data}
-        onApplyMerged={(merged, _sections, sectionIds) => {
-          setData(merged);
-          if (sectionIds.length) {
-            setForceOpenSections(new Set(sectionIds));
-            setForceOpenKey((k) => k + 1);
-          }
-        }}
-      />
 
       <div className="sticky bottom-4 z-20 mx-auto max-w-5xl">
         <div

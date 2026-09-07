@@ -5,6 +5,7 @@ import { MapPinned, Pencil, Plus, Trash2 } from "lucide-react";
 import { MdLocationPin } from "react-icons/md";
 import type { SiteContentSectionProps } from "./types";
 import CollapsibleSection from "./CollapsibleSection";
+import SectionAiUpdateButton from "./SectionAiUpdateButton";
 import DeleteConfirmDialog from "../DeleteConfirmDialog";
 import { Field, fieldClass, areaClass } from "../formUi";
 import { Input } from "@/components/ui/input";
@@ -53,12 +54,7 @@ function cityMapEmbedUrl(cityName: string) {
   return `https://maps.google.com/maps?q=${query}&z=11&output=embed`;
 }
 
-export default function ServiceAreasSection({
-  data,
-  setData,
-  forceOpenSections,
-  forceOpenKey,
-}: SiteContentSectionProps) {
+export default function ServiceAreasSection({ data, setData }: SiteContentSectionProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [deleteIndex, setDeleteIndex] = useState<number | null>(null);
   const active =
@@ -127,8 +123,14 @@ export default function ServiceAreasSection({
       title="Service areas"
       description="Click a city to edit · path updates from the city name"
       icon={MapPinned}
-      forceOpen={forceOpenSections?.has("service-areas")}
-      forceOpenKey={forceOpenKey}
+      headerAction={
+        <SectionAiUpdateButton
+          sectionId="service-areas"
+          sectionLabel="Service areas"
+          data={data}
+          setData={setData}
+        />
+      }
     >
       <div className="flex justify-end">
         <Button type="button" size="sm" onClick={addArea}>

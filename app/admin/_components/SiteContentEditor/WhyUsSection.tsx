@@ -3,24 +3,26 @@
 import { Sparkles } from "lucide-react";
 import type { SiteContentSectionProps } from "./types";
 import CollapsibleSection from "./CollapsibleSection";
+import SectionAiUpdateButton from "./SectionAiUpdateButton";
 import IconPickerWidget from "./IconPickerWidget";
 import { Field, fieldClass, areaClass } from "../formUi";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function WhyUsSection({
-  data,
-  setData,
-  forceOpenSections,
-  forceOpenKey,
-}: SiteContentSectionProps) {
+export default function WhyUsSection({ data, setData }: SiteContentSectionProps) {
   return (
     <CollapsibleSection
       title="Why us & stats"
       description="Differentiators and accomplishment numbers"
       icon={Sparkles}
-      forceOpen={forceOpenSections?.has("why-us")}
-      forceOpenKey={forceOpenKey}
+      headerAction={
+        <SectionAiUpdateButton
+          sectionId="why-us"
+          sectionLabel="Why us"
+          data={data}
+          setData={setData}
+        />
+      }
     >
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {data.WhyUSData.map((item, index) => (

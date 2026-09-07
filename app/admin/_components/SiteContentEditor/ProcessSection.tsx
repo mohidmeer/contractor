@@ -3,24 +3,26 @@
 import { ListOrdered } from "lucide-react";
 import type { SiteContentSectionProps } from "./types";
 import CollapsibleSection from "./CollapsibleSection";
+import SectionAiUpdateButton from "./SectionAiUpdateButton";
 import IconPickerWidget from "./IconPickerWidget";
 import { Field, fieldClass, areaClass } from "../formUi";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function ProcessSection({
-  data,
-  setData,
-  forceOpenSections,
-  forceOpenKey,
-}: SiteContentSectionProps) {
+export default function ProcessSection({ data, setData }: SiteContentSectionProps) {
   return (
     <CollapsibleSection
       title="Process"
       description="Our process steps and icons"
       icon={ListOrdered}
-      forceOpen={forceOpenSections?.has("process")}
-      forceOpenKey={forceOpenKey}
+      headerAction={
+        <SectionAiUpdateButton
+          sectionId="process"
+          sectionLabel="Process"
+          data={data}
+          setData={setData}
+        />
+      }
     >
       <Field label="Heading">
         <Input
