@@ -47,7 +47,7 @@ function serializeKey(
 }
 
 export async function GET(req: NextRequest) {
-  if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
+  if (!(await isAuthorized(req))) return new NextResponse("Unauthorized", { status: 401 });
 
   await ensureSettingRow();
   const [setting, keys] = await Promise.all([
@@ -67,7 +67,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
+  if (!(await isAuthorized(req))) return new NextResponse("Unauthorized", { status: 401 });
 
   try {
     const json = await req.json();
@@ -130,7 +130,7 @@ export async function POST(req: NextRequest) {
 }
 
 export async function PATCH(req: NextRequest) {
-  if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
+  if (!(await isAuthorized(req))) return new NextResponse("Unauthorized", { status: 401 });
 
   try {
     const json = await req.json();
@@ -186,7 +186,7 @@ export async function PATCH(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
-  if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
+  if (!(await isAuthorized(req))) return new NextResponse("Unauthorized", { status: 401 });
 
   try {
     const json = await req.json().catch(() => ({}));

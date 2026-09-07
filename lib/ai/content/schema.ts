@@ -10,7 +10,7 @@ export const SiteContentAgentOutputSchema = z.object({
   reply: z
     .string()
     .describe(
-      "Message shown to the admin. Questions when clarifying; short confirmation when applying."
+      "Markdown message for the admin (headings, lists, bold). Questions when clarifying; short confirmation when applying."
     ),
   patch: z
     .record(z.string(), z.unknown())

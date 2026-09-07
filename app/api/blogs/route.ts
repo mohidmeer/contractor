@@ -42,7 +42,7 @@ async function generateUniqueSlug(baseSlug: string): Promise<string> {
 
 export async function POST(req: NextRequest) {
 
-  if (!isAuthorized(req)) {
+  if (!(await isAuthorized(req))) {
     return new NextResponse("Unauthorized", {
       status: 401,
     });
@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
-  if (!isAuthorized(req)) {
+  if (!(await isAuthorized(req))) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
 

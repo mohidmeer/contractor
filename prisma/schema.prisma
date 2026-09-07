@@ -186,3 +186,16 @@ model SiteContent {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+/// Singleton Site Content AI admin chat (one active thread; messages only).
+model SiteContentAiChat {
+  id           Int      @id @default(1)
+  messages     Json     @default("[]")
+  pending      Boolean  @default(false)
+  /// Snapshot of editor draft used by the in-flight AI job
+  draftContent Json?
+  /// Last apply payload for the client to merge after reconnect
+  lastApply    Json?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}

@@ -8,7 +8,7 @@ import {
 } from "@/lib/revalidateCatalog";
 
 export async function POST(req: NextRequest) {
-  if (!isAuthorized(req)) {
+  if (!(await isAuthorized(req))) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
 

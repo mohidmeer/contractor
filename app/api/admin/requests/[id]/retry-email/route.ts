@@ -9,7 +9,7 @@ type Props = {
 };
 
 export async function POST(req: NextRequest, { params }: Props) {
-  if (!isAuthorized(req)) {
+  if (!(await isAuthorized(req))) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
 

@@ -13,7 +13,7 @@ type Props = {
 };
 
 export async function GET(req: NextRequest, { params }: Props) {
-  if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
+  if (!(await isAuthorized(req))) return new NextResponse("Unauthorized", { status: 401 });
 
   const { id } = await params;
   const category = await prisma.category.findUnique({
@@ -25,7 +25,7 @@ export async function GET(req: NextRequest, { params }: Props) {
 }
 
 export async function PATCH(req: NextRequest, { params }: Props) {
-  if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
+  if (!(await isAuthorized(req))) return new NextResponse("Unauthorized", { status: 401 });
 
   const { id } = await params;
 
@@ -63,7 +63,7 @@ export async function PATCH(req: NextRequest, { params }: Props) {
 }
 
 export async function DELETE(req: NextRequest, { params }: Props) {
-  if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
+  if (!(await isAuthorized(req))) return new NextResponse("Unauthorized", { status: 401 });
 
   const { id } = await params;
 

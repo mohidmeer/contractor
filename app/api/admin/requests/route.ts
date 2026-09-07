@@ -7,7 +7,7 @@ import {
 } from "@/lib/formRequestSchema";
 
 export async function GET(req: NextRequest) {
-  if (!isAuthorized(req)) {
+  if (!(await isAuthorized(req))) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
 

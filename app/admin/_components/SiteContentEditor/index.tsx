@@ -113,7 +113,7 @@ export default function SiteContentEditor() {
   return (
     <div>
       {dirty ? (
-        <div className="sticky top-0 z-50 -mx-4 mb-4 w-[calc(100%+2rem)] sm:-mx-6 sm:mb-5 sm:w-[calc(100%+3rem)]">
+        <div className="sticky top-0 z-40 -mx-4 mb-4 w-[calc(100%+2rem)] sm:-mx-6 sm:mb-5 sm:w-[calc(100%+3rem)]">
           <div className="flex w-full items-start gap-2.5 border-b-2 border-amber-500 bg-amber-400 px-4 py-3 text-amber-950 shadow-md sm:px-6">
             <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-950" />
             <div className="min-w-0">
@@ -134,15 +134,6 @@ export default function SiteContentEditor() {
         description="Static marketing content stored in the database. Changes apply after save (cache refreshes automatically)."
       />
 
-      <div className="mx-auto mb-4 max-w-5xl">
-        <SiteContentAiChat
-          content={data}
-          onApplyMerged={(merged) => {
-            setData(merged);
-          }}
-        />
-      </div>
-
       <p className="mx-auto mb-4 max-w-5xl text-sm text-muted-foreground">
         Open a section to edit. Brand starts expanded; everything else is
         collapsed until you need it.
@@ -161,6 +152,13 @@ export default function SiteContentEditor() {
         <TestimonialsSection {...sectionProps} />
         <ServiceAreasSection {...sectionProps} />
       </div>
+
+      <SiteContentAiChat
+        content={data}
+        onApplyMerged={(merged) => {
+          setData(merged);
+        }}
+      />
 
       <div className="sticky bottom-4 z-20 mx-auto max-w-5xl">
         <div

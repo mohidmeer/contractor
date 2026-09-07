@@ -6,7 +6,7 @@ import { toMediaPath } from "@/lib/media";
 import { generateUniqueSlug, slugify } from "@/lib/slug";
 
 export async function GET(req: NextRequest) {
-  if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
+  if (!(await isAuthorized(req))) return new NextResponse("Unauthorized", { status: 401 });
 
   const { searchParams } = new URL(req.url);
   const take = Number(searchParams.get("take") ?? 20);
@@ -49,7 +49,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
+  if (!(await isAuthorized(req))) return new NextResponse("Unauthorized", { status: 401 });
 
   try {
     const json = await req.json();

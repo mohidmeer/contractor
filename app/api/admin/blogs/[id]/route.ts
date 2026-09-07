@@ -17,7 +17,7 @@ export async function GET(
   req: NextRequest,
   { params }: Props
 ) {
-  if (!isAuthorized(req)) {
+  if (!(await isAuthorized(req))) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
 
@@ -50,7 +50,7 @@ export async function PATCH(
   req: NextRequest,
   { params }: Props
 ) {
-  if (!isAuthorized(req)) {
+  if (!(await isAuthorized(req))) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
   const { id } = await params
@@ -88,7 +88,7 @@ export async function DELETE(
   req: NextRequest,
   { params }: Props
 ) {
-  if (!isAuthorized(req)) {
+  if (!(await isAuthorized(req))) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
   const { id } = await params

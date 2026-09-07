@@ -8,7 +8,7 @@ import {
 import { revalidateCategoriesCache } from "@/lib/revalidateCatalog";
 
 export async function GET(req: NextRequest) {
-  if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
+  if (!(await isAuthorized(req))) return new NextResponse("Unauthorized", { status: 401 });
 
   const { searchParams } = new URL(req.url);
   const take = Number(searchParams.get("take") ?? 100);
@@ -42,7 +42,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
+  if (!(await isAuthorized(req))) return new NextResponse("Unauthorized", { status: 401 });
 
   try {
     const json = await req.json();

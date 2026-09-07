@@ -3,7 +3,7 @@ import { isAuthorized } from "@/lib/auth";
 import { generateProjectWithAi } from "@/lib/ai/projects";
 
 export async function POST(req: NextRequest) {
-  if (!isAuthorized(req)) {
+  if (!(await isAuthorized(req))) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
 

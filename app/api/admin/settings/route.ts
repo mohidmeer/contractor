@@ -57,7 +57,7 @@ const emptySmtp = {
 };
 
 export async function GET(req: NextRequest) {
-  if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
+  if (!(await isAuthorized(req))) return new NextResponse("Unauthorized", { status: 401 });
 
   await ensureSettingRow();
   const setting = await prisma.setting.findUnique({
@@ -72,7 +72,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
-  if (!isAuthorized(req)) return new NextResponse("Unauthorized", { status: 401 });
+  if (!(await isAuthorized(req))) return new NextResponse("Unauthorized", { status: 401 });
 
   try {
     const json = await req.json();
