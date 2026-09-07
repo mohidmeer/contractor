@@ -4,12 +4,15 @@ import {
   recordAnthropicMessageUsage,
 } from "@/lib/ai/clients";
 import type { SiteContent } from "@/lib/siteContent/schema";
+import type { BulkEntityType } from "@/lib/ai/bulkMap";
 import {
   ALLOWLIST_PROMPT,
+  describePatchSectionIds,
   describePatchSections,
   sanitizeSiteContentPatch,
 } from "./allowlist";
 import { mergeSiteContentPatch } from "./merge";
+import { normalizeSiteContentPatch } from "./normalizePatch";
 import {
   SiteContentAgentOutputSchema,
   type SiteContentAgentOutput,
@@ -18,6 +21,16 @@ import {
 
 const MAX_HISTORY = 12;
 const MAX_MESSAGE_LEN = 2000;
+
+const PATCH_FAIL_REPLY = `I couldn't apply that to the editor — the content patch was empty or not allowlisted.
+
+For the homepage hero carousel, patch must look like:
+\`\`\`json
+{ "hero2": { "slides": [{ "tagline": "...", "title": "...", "description": "..." }] } }
+\`\`\`
+(Use the full slides array. Images stay locked.)
+
+Other sections use keys like \`faqs\`, \`getToKnow\`, \`ourProcessData\`, \`WhyUSData\`, \`landingPage.seo\`. Say which section to update and I'll try again.`;
 
 export function normalizeChatHistory(
   history: unknown
@@ -43,40 +56,42 @@ export function normalizeChatHistory(
 }
 
 function buildSystemPrompt(siteName: string) {
-  return `You are an admin assistant for "${siteName}" Site Content editing.
+  return `You are an admin assistant for "${siteName}".
 
-Your job: help the admin update marketing and SEO copy on the public site.
-You ONLY edit Site Content (homepage/marketing JSON). Never blogs, services, projects, or estimates.
+You have TWO jobs:
+1) Site Content — update allowlisted marketing/SEO copy on the public site (homepage JSON).
+2) Bulk write — create DRAFT database records for blogs, services, projects, or estimates from a list of prompts.
 
-Workflow:
-1. If the request is vague, set intent to "clarify" and ask short questions: which sections, tone, what to change vs leave alone.
-2. When scope is clear, set intent to "apply", put a sparse JSON patch in "patch", and confirm briefly in "reply".
-3. Prefer small targeted patches. For array sections (faqs, slides, process steps, why-us, testimonials, service areas), return the FULL array for that section when editing it, with only allowlisted fields filled; locked fields are restored server-side.
-4. Never invent phones, emails, addresses, URLs, image paths, icons, analytics IDs, or slugs.
-
-Formatting:
-- Write "reply" in Markdown (headings, bold, bullet lists, numbered lists, short paragraphs).
-- Keep replies scannable for an admin — not walls of plain text.
+=== Site Content (intent: apply | clarify) ===
+- Prefer intent "apply" when the admin asked for concrete copy changes and scope is clear enough. Put a sparse allowlisted JSON patch in "patch". Set bulkWrite to null.
+- Use "clarify" ONLY when you need a real follow-up question (which sections, tone, what to change).
+- CRITICAL: Never claim you updated the editor or say "Hit Save All" unless "patch" is a non-empty allowlisted object. The UI only updates forms when sanitize accepts the patch.
+- Homepage hero = hero2.slides (carousel). There is NO landingPage.hero. For "hero headline" requests, patch hero2.slides.
+- Prefer small targeted patches. For array sections (faqs, slides, process steps, why-us, testimonials, service areas), return the FULL array for that section when editing it, with only allowlisted fields filled; locked fields are restored server-side.
+- Never invent phones, emails, addresses, URLs, image paths, icons, analytics IDs, or slugs.
 
 ${ALLOWLIST_PROMPT}
 
-When intent is "clarify", patch must be null.
-When intent is "apply", patch must be a non-empty object using the same top-level keys as Site Content (landingPage, faqs, etc.).`;
+=== Bulk write (intent: bulk_write) ===
+- When the admin wants new blogs/services/projects/estimates created as drafts, use intent "bulk_write".
+- Set patch to null. Set bulkWrite.entityType and bulkWrite.prompts (one concrete generation brief per draft).
+- If entity type or the list of items is unclear, use "clarify" instead.
+- Do not use bulk_write for homepage/marketing Site Content edits.
+
+=== Output rules ===
+- Write "reply" in Markdown (headings, bold, lists). Keep it scannable.
+- clarify → patch null, bulkWrite null
+- apply → non-empty allowlisted patch, bulkWrite null; reply confirms what was applied to the editor (admin still clicks Save all)
+- bulk_write → patch null, non-empty bulkWrite.prompts`;
 }
 
 function summarizeContentForPrompt(content: SiteContent) {
-  // Compact summary so the model knows current copy without huge token waste
   return {
     siteName: content.siteName,
     landingPage: {
       seo: {
         title: content.landingPage.seo.title,
         description: content.landingPage.seo.description,
-      },
-      hero: {
-        title: content.landingPage.hero.title,
-        description: content.landingPage.hero.description,
-        ctaText: content.landingPage.hero.ctaText,
       },
       services: content.landingPage.services,
       projects: content.landingPage.projects,
@@ -131,12 +146,25 @@ function summarizeContentForPrompt(content: SiteContent) {
   };
 }
 
+function trySanitizePatch(raw: unknown): Record<string, unknown> | null {
+  const normalized = normalizeSiteContentPatch(raw);
+  if (!normalized) return null;
+  return sanitizeSiteContentPatch(normalized);
+}
+
+export type SiteContentAgentBulkWrite = {
+  entityType: BulkEntityType;
+  prompts: string[];
+};
+
 export type SiteContentAgentResult = {
-  intent: "clarify" | "apply";
+  intent: "clarify" | "apply" | "bulk_write";
   reply: string;
   patch: Record<string, unknown> | null;
+  bulkWrite: SiteContentAgentBulkWrite | null;
   merged: SiteContent | null;
   sections: string[];
+  sectionIds: string[];
   history: SiteContentChatMessage[];
 };
 
@@ -177,51 +205,126 @@ ${message}`,
 
   await recordAnthropicMessageUsage(apiKeyId, response.usage);
 
-  const parsed = response.parsed_output as SiteContentAgentOutput | null;
+  let parsed = response.parsed_output as SiteContentAgentOutput | null;
   if (!parsed) {
     throw new Error("AI returned empty response");
   }
 
-  const nextHistory: SiteContentChatMessage[] = [
-    ...history,
-    { role: "user" as const, content: message },
-    { role: "assistant" as const, content: parsed.reply },
-  ].slice(-MAX_HISTORY);
+  const withHistory = (reply: string): SiteContentChatMessage[] =>
+    [
+      ...history,
+      { role: "user" as const, content: message },
+      { role: "assistant" as const, content: reply },
+    ].slice(-MAX_HISTORY);
 
-  if (parsed.intent === "clarify" || !parsed.patch) {
+  const clarify = (reply: string): SiteContentAgentResult => ({
+    intent: "clarify",
+    reply,
+    patch: null,
+    bulkWrite: null,
+    merged: null,
+    sections: [],
+    sectionIds: [],
+    history: withHistory(reply),
+  });
+
+  if (parsed.intent === "bulk_write") {
+    const entityType = parsed.bulkWrite?.entityType;
+    const prompts = (parsed.bulkWrite?.prompts ?? [])
+      .map((p) => p.trim())
+      .filter(Boolean)
+      .slice(0, 20);
+
+    if (
+      !entityType ||
+      !["blogs", "services", "projects", "estimates"].includes(entityType) ||
+      prompts.length === 0
+    ) {
+      return clarify(
+        "I need a clear entity type and at least one prompt to bulk-write drafts. Which should I create — blogs, services, projects, or estimates — and what should each cover?"
+      );
+    }
+
     return {
-      intent: "clarify",
+      intent: "bulk_write",
       reply: parsed.reply,
       patch: null,
+      bulkWrite: { entityType, prompts },
       merged: null,
       sections: [],
-      history: nextHistory,
+      sectionIds: [],
+      history: withHistory(parsed.reply),
     };
   }
 
-  const sanitized = sanitizeSiteContentPatch(parsed.patch);
+  if (parsed.intent === "clarify" || !parsed.patch) {
+    return clarify(parsed.reply);
+  }
+
+  let sanitized = trySanitizePatch(parsed.patch);
+
+  // One repair retry if apply patch was empty after normalize+sanitize
   if (!sanitized) {
-    return {
-      intent: "clarify",
-      reply:
-        parsed.reply +
-        "\n\n(I could not produce an allowed content patch yet. Please specify which marketing sections to update.)",
-      patch: null,
-      merged: null,
-      sections: [],
-      history: nextHistory,
-    };
+    const rejected = JSON.stringify(parsed.patch).slice(0, 4000);
+    const repair = await client.messages.parse({
+      model: "claude-sonnet-4-6",
+      max_tokens: 8192,
+      system: buildSystemPrompt(options.content.siteName),
+      messages: [
+        ...messages,
+        {
+          role: "assistant",
+          content: JSON.stringify({
+            intent: parsed.intent,
+            reply: parsed.reply,
+            patch: parsed.patch,
+            bulkWrite: null,
+          }),
+        },
+        {
+          role: "user",
+          content: `Your previous patch was rejected (empty after allowlist sanitize). Rewrite with intent "apply" and a valid allowlisted patch only.
+
+Rejected patch JSON:
+${rejected}
+
+Rules:
+- Homepage hero → hero2.slides with FULL array of { tagline, title, description }
+- Never landingPage.hero
+- Never claim success without a valid patch
+- Set bulkWrite to null`,
+        },
+      ],
+      output_config: {
+        format: zodOutputFormat(SiteContentAgentOutputSchema),
+      },
+    });
+
+    await recordAnthropicMessageUsage(apiKeyId, repair.usage);
+    const repaired = repair.parsed_output as SiteContentAgentOutput | null;
+    if (repaired?.intent === "apply" && repaired.patch) {
+      parsed = repaired;
+      sanitized = trySanitizePatch(repaired.patch);
+    }
+  }
+
+  if (!sanitized) {
+    return clarify(PATCH_FAIL_REPLY);
   }
 
   const merged = mergeSiteContentPatch(options.content, sanitized);
   const sections = describePatchSections(sanitized);
+  const sectionIds = describePatchSectionIds(sanitized);
+  const reply = parsed.reply.trim() || `Updated: ${sections.join(", ") || "site content"}. Review the forms and click Save all.`;
 
   return {
     intent: "apply",
-    reply: parsed.reply,
+    reply,
     patch: sanitized,
+    bulkWrite: null,
     merged,
     sections,
-    history: nextHistory,
+    sectionIds,
+    history: withHistory(reply),
   };
 }

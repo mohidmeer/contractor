@@ -235,7 +235,7 @@ export default function ApiKeysPanel() {
               <div className="min-w-0 space-y-1">
                 <h3 className="text-sm font-semibold tracking-tight">API Keys</h3>
                 <p className="text-xs text-muted-foreground">
-                  Used for the landing chatbot, Bulk write, and Fill with AI.
+                  Used for the landing chatbot, Bulk write (Site Content), and Fill with AI.
                 </p>
                 {active ? (
                   <p className="pt-1 text-xs text-foreground">

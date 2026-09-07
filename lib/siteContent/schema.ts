@@ -48,13 +48,6 @@ export const SiteContentSchema = z.object({
 
   landingPage: z.object({
     seo: seoSchema,
-    hero: z.object({
-      title: z.string(),
-      description: z.string(),
-      backgroundImage: z.string(),
-      ctaText: z.string(),
-      ctaLink: z.string(),
-    }),
     services: z.object({ heading: z.string() }),
     projects: z.object({ heading: z.string() }),
   }),

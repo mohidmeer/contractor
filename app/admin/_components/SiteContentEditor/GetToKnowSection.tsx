@@ -31,6 +31,8 @@ const IMAGE_LABELS: Record<ImageKey, string> = {
 export default function GetToKnowSection({
   data,
   setData,
+  forceOpenSections,
+  forceOpenKey,
 }: SiteContentSectionProps) {
   const [uploadingKey, setUploadingKey] = useState<ImageKey | null>(null);
   const fileInputRefs = useRef<
@@ -71,6 +73,8 @@ export default function GetToKnowSection({
       title="Get to know"
       description="About blurb, key points, and gallery images"
       icon={Info}
+      forceOpen={forceOpenSections?.has("get-to-know")}
+      forceOpenKey={forceOpenKey}
     >
       <div className="grid items-start gap-5 lg:grid-cols-2 lg:gap-6">
         {/* Left: copy + key points (landing-like) */}

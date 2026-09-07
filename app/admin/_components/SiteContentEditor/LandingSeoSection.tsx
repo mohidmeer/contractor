@@ -11,12 +11,16 @@ import { Textarea } from "@/components/ui/textarea";
 export default function LandingSeoSection({
   data,
   setData,
+  forceOpenSections,
+  forceOpenKey,
 }: SiteContentSectionProps) {
   return (
     <CollapsibleSection
-      title="Landing SEO & hero"
-      description="Homepage SEO, hero copy, section headings"
+      title="Landing SEO"
+      description="Homepage SEO and services / projects section headings"
       icon={Search}
+      forceOpen={forceOpenSections?.has("landing-seo")}
+      forceOpenKey={forceOpenKey}
     >
       <Field label="SEO title">
         <Input
@@ -64,39 +68,6 @@ export default function LandingSeoSection({
           })
         }
       />
-      <Field label="Hero title">
-        <Input
-          className={fieldClass}
-          value={data.landingPage.hero.title}
-          onChange={(e) =>
-            setData({
-              ...data,
-              landingPage: {
-                ...data.landingPage,
-                hero: { ...data.landingPage.hero, title: e.target.value },
-              },
-            })
-          }
-        />
-      </Field>
-      <Field label="Hero description">
-        <Textarea
-          className={areaClass}
-          value={data.landingPage.hero.description}
-          onChange={(e) =>
-            setData({
-              ...data,
-              landingPage: {
-                ...data.landingPage,
-                hero: {
-                  ...data.landingPage.hero,
-                  description: e.target.value,
-                },
-              },
-            })
-          }
-        />
-      </Field>
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Services heading">
           <Input

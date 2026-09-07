@@ -7,12 +7,19 @@ import { Field, fieldClass, areaClass } from "../formUi";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function AboutSection({ data, setData }: SiteContentSectionProps) {
+export default function AboutSection({
+  data,
+  setData,
+  forceOpenSections,
+  forceOpenKey,
+}: SiteContentSectionProps) {
   return (
     <CollapsibleSection
       title="About page"
       description="About SEO title and body copy"
       icon={FileText}
+      forceOpen={forceOpenSections?.has("about")}
+      forceOpenKey={forceOpenKey}
     >
       <Field label="About SEO title">
         <Input

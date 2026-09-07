@@ -8,12 +8,19 @@ import { Field, fieldClass, areaClass } from "../formUi";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function WhyUsSection({ data, setData }: SiteContentSectionProps) {
+export default function WhyUsSection({
+  data,
+  setData,
+  forceOpenSections,
+  forceOpenKey,
+}: SiteContentSectionProps) {
   return (
     <CollapsibleSection
       title="Why us & stats"
       description="Differentiators and accomplishment numbers"
       icon={Sparkles}
+      forceOpen={forceOpenSections?.has("why-us")}
+      forceOpenKey={forceOpenKey}
     >
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {data.WhyUSData.map((item, index) => (

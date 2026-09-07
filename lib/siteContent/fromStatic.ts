@@ -40,7 +40,6 @@ export function siteContentFromStaticModule(
   const phoneRaw = (contactRaw.phone ?? {}) as Record<string, unknown>;
   const socialRaw = (mod.socialLinks ?? {}) as Record<string, unknown>;
   const landingRaw = (mod.landingPage ?? {}) as Record<string, unknown>;
-  const heroRaw = (landingRaw.hero ?? {}) as Record<string, unknown>;
   const servicesHeading = (landingRaw.services ?? {}) as Record<string, unknown>;
   const projectsHeading = (landingRaw.projects ?? {}) as Record<string, unknown>;
   const hero2Raw = (mod.hero2 ?? {}) as Record<string, unknown>;
@@ -97,13 +96,6 @@ export function siteContentFromStaticModule(
 
     landingPage: {
       seo: asSeo(landingRaw.seo, siteUrl),
-      hero: {
-        title: asString(heroRaw.title),
-        description: asString(heroRaw.description),
-        backgroundImage: asString(heroRaw.backgroundImage),
-        ctaText: asString(heroRaw.ctaText),
-        ctaLink: asString(heroRaw.ctaLink, "/contact"),
-      },
       services: { heading: asString(servicesHeading.heading, "Services") },
       projects: { heading: asString(projectsHeading.heading, "Projects") },
     },

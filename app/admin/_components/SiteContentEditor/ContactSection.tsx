@@ -10,12 +10,16 @@ import { Textarea } from "@/components/ui/textarea";
 export default function ContactSection({
   data,
   setData,
+  forceOpenSections,
+  forceOpenKey,
 }: SiteContentSectionProps) {
   return (
     <CollapsibleSection
       title="Contact"
       description="Phone, email, address, hours, and map link"
       icon={Phone}
+      forceOpen={forceOpenSections?.has("contact")}
+      forceOpenKey={forceOpenKey}
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Email">

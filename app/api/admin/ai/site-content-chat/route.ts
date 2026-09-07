@@ -2,6 +2,7 @@ import { after } from "next/server";
 import { NextRequest, NextResponse } from "next/server";
 import { isAuthorized } from "@/lib/auth";
 import { runSiteContentAgent } from "@/lib/ai/content";
+import { runBulkAiWrite } from "@/lib/ai/runBulkWrite";
 import {
   ackLastApply,
   appendUserMessageAndStartJob,
@@ -33,11 +34,27 @@ async function processPendingJob() {
       content: ctx.content,
     });
 
+    if (result.intent === "bulk_write" && result.bulkWrite) {
+      const bulk = await runBulkAiWrite(result.bulkWrite);
+      const reply = [result.reply.trim(), "", bulk.summary]
+        .filter(Boolean)
+        .join("\n");
+      await completeAiJob({
+        assistantMessage: reply,
+        lastApply: null,
+      });
+      return;
+    }
+
     await completeAiJob({
       assistantMessage: result.reply,
       lastApply:
         result.intent === "apply" && result.merged
-          ? { merged: result.merged, sections: result.sections }
+          ? {
+              merged: result.merged,
+              sections: result.sections,
+              sectionIds: result.sectionIds,
+            }
           : null,
     });
   } catch (error: unknown) {

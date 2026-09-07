@@ -56,6 +56,8 @@ function cityMapEmbedUrl(cityName: string) {
 export default function ServiceAreasSection({
   data,
   setData,
+  forceOpenSections,
+  forceOpenKey,
 }: SiteContentSectionProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [deleteIndex, setDeleteIndex] = useState<number | null>(null);
@@ -125,6 +127,8 @@ export default function ServiceAreasSection({
       title="Service areas"
       description="Click a city to edit · path updates from the city name"
       icon={MapPinned}
+      forceOpen={forceOpenSections?.has("service-areas")}
+      forceOpenKey={forceOpenKey}
     >
       <div className="flex justify-end">
         <Button type="button" size="sm" onClick={addArea}>

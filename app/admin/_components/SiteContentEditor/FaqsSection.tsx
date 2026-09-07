@@ -91,12 +91,19 @@ function FaqItem({
   );
 }
 
-export default function FaqsSection({ data, setData }: SiteContentSectionProps) {
+export default function FaqsSection({
+  data,
+  setData,
+  forceOpenSections,
+  forceOpenKey,
+}: SiteContentSectionProps) {
   return (
     <CollapsibleSection
       title="FAQs"
       description="Homepage frequently asked questions"
       icon={CircleHelp}
+      forceOpen={forceOpenSections?.has("faqs")}
+      forceOpenKey={forceOpenKey}
     >
       <div className="space-y-3">
         {data.faqs.map((faq, index) => (

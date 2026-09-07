@@ -24,8 +24,10 @@ import {
 import { cn } from "@/lib/utils";
 
 type LastApply = {
+  id: string;
   merged: SiteContent;
   sections: string[];
+  sectionIds?: string[];
 };
 
 function AssistantMarkdown({ content }: { content: string }) {
@@ -55,7 +57,11 @@ function AssistantMarkdown({ content }: { content: string }) {
 
 type Props = {
   content: SiteContent;
-  onApplyMerged: (merged: SiteContent, sections: string[]) => void;
+  onApplyMerged: (
+    merged: SiteContent,
+    sections: string[],
+    sectionIds: string[]
+  ) => void;
 };
 
 export default function SiteContentAiChat({ content, onApplyMerged }: Props) {
@@ -68,10 +74,21 @@ export default function SiteContentAiChat({ content, onApplyMerged }: Props) {
   const bottomRef = useRef<HTMLDivElement>(null);
   const onApplyMergedRef = useRef(onApplyMerged);
   onApplyMergedRef.current = onApplyMerged;
+  const appliedIdsRef = useRef<Set<string>>(new Set());
+  const prevPendingRef = useRef(false);
+  const contentRef = useRef(content);
+  contentRef.current = content;
 
   const applyLastApply = useCallback(async (lastApply: LastApply | null) => {
-    if (!lastApply?.merged) return;
-    onApplyMergedRef.current(lastApply.merged, lastApply.sections ?? []);
+    if (!lastApply?.merged || !lastApply.id) return;
+    if (appliedIdsRef.current.has(lastApply.id)) return;
+    appliedIdsRef.current.add(lastApply.id);
+
+    onApplyMergedRef.current(
+      lastApply.merged,
+      lastApply.sections ?? [],
+      lastApply.sectionIds ?? []
+    );
     toast.success(
       lastApply.sections?.length
         ? `AI updated: ${lastApply.sections.join(", ")} — review and Save all`
@@ -84,9 +101,26 @@ export default function SiteContentAiChat({ content, onApplyMerged }: Props) {
         body: JSON.stringify({ action: "ack-apply" }),
       });
     } catch {
-      // non-fatal
+      // non-fatal — keep lastApply until next successful ack
     }
   }, []);
+
+  const maybeToastBulk = useCallback(
+    (prevLen: number, nextHistory: SiteContentChatMessage[]) => {
+      if (nextHistory.length <= prevLen) return;
+      const last = nextHistory[nextHistory.length - 1];
+      if (last?.role !== "assistant") return;
+      if (!last.content.includes("### Bulk write")) return;
+      const match = last.content.match(/Created \*\*(\d+)\*\*/);
+      const n = match ? Number(match[1]) : 0;
+      if (n > 0) {
+        toast.success(
+          `Created ${n} draft${n === 1 ? "" : "s"} — check Blogs / Services / Projects / Estimates`
+        );
+      }
+    },
+    []
+  );
 
   const loadChat = useCallback(async () => {
     const res = await fetch("/api/admin/ai/site-content-chat");
@@ -95,13 +129,32 @@ export default function SiteContentAiChat({ content, onApplyMerged }: Props) {
     const nextHistory = Array.isArray(json.history)
       ? (json.history as SiteContentChatMessage[])
       : [];
-    setHistory(nextHistory);
-    setPending(Boolean(json.pending));
+    setHistory((prev) => {
+      maybeToastBulk(prev.length, nextHistory);
+      return nextHistory;
+    });
+    const nextPending = Boolean(json.pending);
+    const wasPending = prevPendingRef.current;
+    prevPendingRef.current = nextPending;
+    setPending(nextPending);
+
     if (json.lastApply?.merged) {
       await applyLastApply(json.lastApply as LastApply);
+    } else if (wasPending && !nextPending) {
+      // Job just finished — one more GET in case lastApply landed after this response
+      try {
+        const again = await fetch("/api/admin/ai/site-content-chat");
+        const againJson = await again.json();
+        if (again.ok && againJson.lastApply?.merged) {
+          await applyLastApply(againJson.lastApply as LastApply);
+        }
+      } catch {
+        // ignore
+      }
     }
-    return { pending: Boolean(json.pending), history: nextHistory };
-  }, [applyLastApply]);
+
+    return { pending: nextPending, history: nextHistory };
+  }, [applyLastApply, maybeToastBulk]);
 
   useEffect(() => {
     void (async () => {
@@ -150,6 +203,7 @@ export default function SiteContentAiChat({ content, onApplyMerged }: Props) {
       setInput("");
       setPending(false);
       setSending(false);
+      appliedIdsRef.current.clear();
       toast.success("Chat cleared — starting a new conversation");
     } catch (error) {
       toast.error(error instanceof Error ? error.message : "Clear failed");
@@ -163,6 +217,7 @@ export default function SiteContentAiChat({ content, onApplyMerged }: Props) {
     setInput("");
     setSending(true);
     setPending(true);
+    prevPendingRef.current = true;
     setHistory((prev) => [...prev, { role: "user", content: message }]);
 
     try {
@@ -171,7 +226,7 @@ export default function SiteContentAiChat({ content, onApplyMerged }: Props) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message,
-          content,
+          content: contentRef.current,
         }),
       });
       const json = await res.json();
@@ -190,6 +245,7 @@ export default function SiteContentAiChat({ content, onApplyMerged }: Props) {
     } catch (error) {
       setSending(false);
       setPending(false);
+      prevPendingRef.current = false;
       toast.error(error instanceof Error ? error.message : "Agent failed");
       try {
         await loadChat();
@@ -235,8 +291,8 @@ export default function SiteContentAiChat({ content, onApplyMerged }: Props) {
                     Site content assistant
                   </DialogTitle>
                   <DialogDescription className="mt-1 text-xs leading-relaxed text-muted-foreground sm:text-[13px]">
-                    Saved in the database — closing the page won’t drop the
-                    reply. Marketing copy only.
+                    Edits site content forms (Save all to publish) or bulk-writes
+                    draft blogs, services, projects, and estimates.
                   </DialogDescription>
                 </div>
               </div>
@@ -271,8 +327,9 @@ export default function SiteContentAiChat({ content, onApplyMerged }: Props) {
                       Ask what to update
                     </p>
                     <p className="text-xs leading-relaxed text-muted-foreground">
-                      e.g. rewrite FAQ answers more clearly, or refresh the hero
-                      and process copy for commercial restoration.
+                      e.g. refresh hero carousel slide titles, rewrite FAQ
+                      answers, or create three blog drafts about commercial
+                      restoration.
                     </p>
                   </div>
                 </div>

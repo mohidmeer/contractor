@@ -2,9 +2,12 @@ export {
   ALLOWED_LEAF_PATHS,
   ALLOWED_ARRAY_FIELDS,
   ALLOWLIST_PROMPT,
+  PATCH_KEY_TO_SECTION_ID,
   sanitizeSiteContentPatch,
   describePatchSections,
+  describePatchSectionIds,
 } from "./allowlist";
+export { normalizeSiteContentPatch } from "./normalizePatch";
 export {
   mergeSiteContentPatch,
   reinjectLockedArrayFields,

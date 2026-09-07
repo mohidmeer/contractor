@@ -11,12 +11,16 @@ import { Textarea } from "@/components/ui/textarea";
 export default function ProcessSection({
   data,
   setData,
+  forceOpenSections,
+  forceOpenKey,
 }: SiteContentSectionProps) {
   return (
     <CollapsibleSection
       title="Process"
       description="Our process steps and icons"
       icon={ListOrdered}
+      forceOpen={forceOpenSections?.has("process")}
+      forceOpenKey={forceOpenKey}
     >
       <Field label="Heading">
         <Input

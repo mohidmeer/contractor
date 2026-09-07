@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ComponentType } from "react";
+import { useEffect, useState, type ComponentType } from "react";
 import { ChevronDown } from "lucide-react";
 import {
   Collapsible,
@@ -16,15 +16,25 @@ export default function CollapsibleSection({
   description,
   icon: Icon,
   defaultOpen = false,
+  forceOpen = false,
+  forceOpenKey = 0,
   children,
 }: {
   title: string;
   description?: string;
   icon: ComponentType<IconProps>;
   defaultOpen?: boolean;
+  /** When true (e.g. after AI apply), expand this section. */
+  forceOpen?: boolean;
+  /** Bumps when AI applies again so forceOpen re-triggers. */
+  forceOpenKey?: number;
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState(defaultOpen);
+
+  useEffect(() => {
+    if (forceOpen) setOpen(true);
+  }, [forceOpen, forceOpenKey]);
 
   return (
     <Collapsible

@@ -8,8 +8,10 @@ export const SITE_CONTENT_AI_CHAT_ID = 1;
 const MAX_STORED_MESSAGES = 40;
 
 export type SiteContentAiChatLastApply = {
+  id: string;
   merged: SiteContent;
   sections: string[];
+  sectionIds: string[];
 };
 
 export type SiteContentAiChatState = {
@@ -18,18 +20,34 @@ export type SiteContentAiChatState = {
   lastApply: SiteContentAiChatLastApply | null;
 };
 
+function newApplyId() {
+  return `apply-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+}
+
 function parseMessages(raw: unknown): SiteContentChatMessage[] {
   return normalizeChatHistory(raw).slice(-MAX_STORED_MESSAGES);
 }
 
 function parseLastApply(raw: unknown): SiteContentAiChatLastApply | null {
   if (!raw || typeof raw !== "object") return null;
-  const rec = raw as { merged?: unknown; sections?: unknown };
+  const rec = raw as {
+    id?: unknown;
+    merged?: unknown;
+    sections?: unknown;
+    sectionIds?: unknown;
+  };
   if (!rec.merged || typeof rec.merged !== "object") return null;
   return {
+    id:
+      typeof rec.id === "string" && rec.id.trim()
+        ? rec.id
+        : newApplyId(),
     merged: rec.merged as SiteContent,
     sections: Array.isArray(rec.sections)
       ? rec.sections.filter((s): s is string => typeof s === "string")
+      : [],
+    sectionIds: Array.isArray(rec.sectionIds)
+      ? rec.sectionIds.filter((s): s is string => typeof s === "string")
       : [],
   };
 }
@@ -88,7 +106,7 @@ export async function appendUserMessageAndStartJob(options: {
 
 export async function completeAiJob(options: {
   assistantMessage: string;
-  lastApply?: SiteContentAiChatLastApply | null;
+  lastApply?: Omit<SiteContentAiChatLastApply, "id"> | SiteContentAiChatLastApply | null;
 }): Promise<SiteContentAiChatState> {
   const row = await ensureSiteContentAiChat();
   const messages = [
@@ -96,14 +114,27 @@ export async function completeAiJob(options: {
     { role: "assistant" as const, content: options.assistantMessage },
   ].slice(-MAX_STORED_MESSAGES);
 
+  const lastApplyPayload =
+    options.lastApply && options.lastApply.merged
+      ? ({
+          id:
+            "id" in options.lastApply && typeof options.lastApply.id === "string"
+              ? options.lastApply.id
+              : newApplyId(),
+          merged: options.lastApply.merged,
+          sections: options.lastApply.sections ?? [],
+          sectionIds: options.lastApply.sectionIds ?? [],
+        } satisfies SiteContentAiChatLastApply)
+      : null;
+
   const updated = await prisma.siteContentAiChat.update({
     where: { id: SITE_CONTENT_AI_CHAT_ID },
     data: {
       messages,
       pending: false,
       draftContent: Prisma.JsonNull,
-      lastApply: options.lastApply
-        ? (options.lastApply as unknown as Prisma.InputJsonValue)
+      lastApply: lastApplyPayload
+        ? (lastApplyPayload as unknown as Prisma.InputJsonValue)
         : Prisma.JsonNull,
     },
   });

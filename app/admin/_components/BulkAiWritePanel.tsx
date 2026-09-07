@@ -22,13 +22,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
-import {
-  type BulkEntityType,
-  getBulkAiEndpoint,
-  getBulkCreateEndpoint,
-  mapAiResultToCreatePayload,
-  parseBulkPrompts,
-} from "@/lib/ai/bulkMap";
+import { type BulkEntityType, parseBulkPrompts } from "@/lib/ai/bulkMap";
 
 type ProgressStatus =
   | "idle"
@@ -189,7 +183,6 @@ export default function BulkAiWritePanel() {
     cancelRef.current = false;
     setRunning(true);
 
-    // Reset statuses for cards that will run
     setCards((prev) =>
       prev.map((card) =>
         card.text.trim()
@@ -198,12 +191,8 @@ export default function BulkAiWritePanel() {
       )
     );
 
-    const aiUrl = getBulkAiEndpoint(entityType);
-    const createUrl = getBulkCreateEndpoint(entityType);
     let doneCount = 0;
     let failCount = 0;
-
-    // Work from a snapshot of ids with non-empty prompts
     const queue = active.map((c) => ({ id: c.id, prompt: c.text.trim() }));
 
     for (const item of queue) {
@@ -223,42 +212,27 @@ export default function BulkAiWritePanel() {
       updateCard(item.id, { status: "generating", error: undefined });
 
       try {
-        const aiRes = await fetch(aiUrl, {
+        const res = await fetch("/api/admin/ai/bulk-write", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ prompt: item.prompt, existing: null }),
+          body: JSON.stringify({
+            entityType,
+            prompts: [item.prompt],
+          }),
         });
-        const aiJson = await aiRes.json().catch(() => ({}));
-        if (!aiRes.ok) {
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok) {
           throw new Error(
-            typeof aiJson.error === "string"
-              ? aiJson.error
-              : `AI failed (${aiRes.status})`
+            typeof json.error === "string"
+              ? json.error
+              : `Bulk write failed (${res.status})`
           );
         }
 
-        if (cancelRef.current) {
-          updateCard(item.id, { status: "cancelled" });
-          break;
-        }
-
-        updateCard(item.id, { status: "saving" });
-        const payload = mapAiResultToCreatePayload(
-          entityType,
-          (aiJson.data ?? {}) as Record<string, unknown>
-        );
-
-        const createRes = await fetch(createUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        const createJson = await createRes.json().catch(() => ({}));
-        if (!createRes.ok) {
+        const first = Array.isArray(json.results) ? json.results[0] : null;
+        if (first && first.ok === false) {
           throw new Error(
-            typeof createJson.error === "string"
-              ? createJson.error
-              : `Save failed (${createRes.status})`
+            typeof first.error === "string" ? first.error : "Failed"
           );
         }
 

@@ -7,9 +7,6 @@
 export const ALLOWED_LEAF_PATHS = new Set([
   "landingPage.seo.title",
   "landingPage.seo.description",
-  "landingPage.hero.title",
-  "landingPage.hero.description",
-  "landingPage.hero.ctaText",
   "landingPage.services.heading",
   "landingPage.projects.heading",
 
@@ -53,18 +50,23 @@ export const ALLOWED_ARRAY_FIELDS: Record<string, Set<string>> = {
 };
 
 export const ALLOWLIST_PROMPT = `Editable fields (ONLY these):
-- landingPage.seo.title/description; landingPage.hero.title/description/ctaText; services/projects headings
+- landingPage.seo.title/description; services/projects headings
 - Page SEO title/description for services, projects, about, contact, blog, serviceArea (never ogImage or canonical)
 - aboutPage.content; contactPage.form.heading/messagePlaceholder
 - getToKnow title/heading/description/keyPoints (title+desc only)
-- faqs (question+answer); hero2.slides (tagline/title/description only)
+- faqs (question+answer)
+- Homepage hero carousel is hero2.slides (tagline/title/description only). There is NO landingPage.hero.
+  Example patch:
+  { "hero2": { "slides": [{ "tagline": "...", "title": "...", "description": "..." }] } }
+  Return the FULL slides array when editing carousel copy. Images/backgroundImage are locked server-side.
 - heroBarData labels only; ourProcessData heading/description/list title+description
 - WhyUSData title+description; accomplishmentData titles only (never numbers)
 - FooterData.tagline; serviceAreasData title/description/content; testimonialsData feedback only
 
 NEVER change: siteName, siteUrl, siteLogo, analytics IDs, justCall, enable_estimates,
 contactInfo (phone/email/address/map/hours), socialLinks, licenses, any images/URLs/canonicals,
-icons, service area name/href/image, testimonial name/role, accomplishment numbers, static_assets, bussinessType.`;
+icons, service area name/href/image, testimonial name/role, accomplishment numbers, static_assets, bussinessType.
+NEVER use landingPage.hero (removed). Use hero2.slides for homepage hero headlines.`;
 
 function isPlainObject(value: unknown): value is Record<string, unknown> {
   return !!value && typeof value === "object" && !Array.isArray(value);
@@ -167,6 +169,26 @@ export function sanitizeSiteContentPatch(
   return walk(patch, "");
 }
 
+/** Top-level Site Content keys → editor CollapsibleSection ids. */
+export const PATCH_KEY_TO_SECTION_ID: Record<string, string> = {
+  heroBarData: "landing-seo",
+  servicesPage: "landing-seo",
+  projectsPage: "landing-seo",
+  blogPage: "landing-seo",
+  serviceAreaPage: "landing-seo",
+  contactPage: "landing-seo",
+  hero2: "hero-carousel",
+  getToKnow: "get-to-know",
+  faqs: "faqs",
+  ourProcessData: "process",
+  WhyUSData: "why-us",
+  accomplishmentData: "why-us",
+  aboutPage: "about",
+  testimonialsData: "testimonials",
+  serviceAreasData: "service-areas",
+  FooterData: "brand",
+};
+
 /** Human-readable section names touched by a sanitized patch. */
 export function describePatchSections(
   patch: Record<string, unknown> | null
@@ -174,7 +196,6 @@ export function describePatchSections(
   if (!patch) return [];
   const labels: string[] = [];
   const map: Record<string, string> = {
-    landingPage: "Landing / hero",
     hero2: "Hero carousel",
     heroBarData: "Hero bar",
     getToKnow: "Get to know",
@@ -192,8 +213,33 @@ export function describePatchSections(
     testimonialsData: "Testimonials",
     FooterData: "Footer",
   };
+
   for (const key of Object.keys(patch)) {
+    if (key === "landingPage" && isPlainObject(patch.landingPage)) {
+      const lp = patch.landingPage;
+      if ("seo" in lp || "services" in lp || "projects" in lp) {
+        labels.push("Landing SEO");
+      }
+      continue;
+    }
     labels.push(map[key] ?? key);
   }
   return labels;
+}
+
+/** Unique CollapsibleSection ids to expand after an AI apply. */
+export function describePatchSectionIds(
+  patch: Record<string, unknown> | null
+): string[] {
+  if (!patch) return [];
+  const ids = new Set<string>();
+  for (const key of Object.keys(patch)) {
+    if (key === "landingPage" && isPlainObject(patch.landingPage)) {
+      ids.add("landing-seo");
+      continue;
+    }
+    const id = PATCH_KEY_TO_SECTION_ID[key];
+    if (id) ids.add(id);
+  }
+  return [...ids];
 }

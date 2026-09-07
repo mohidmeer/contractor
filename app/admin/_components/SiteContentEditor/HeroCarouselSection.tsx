@@ -23,6 +23,8 @@ import { cn } from "@/lib/utils";
 export default function HeroCarouselSection({
   data,
   setData,
+  forceOpenSections,
+  forceOpenKey,
 }: SiteContentSectionProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [uploading, setUploading] = useState(false);
@@ -67,6 +69,8 @@ export default function HeroCarouselSection({
       title="Hero carousel"
       description="Click a slide to edit image, title, and description"
       icon={Images}
+      forceOpen={forceOpenSections?.has("hero-carousel")}
+      forceOpenKey={forceOpenKey}
     >
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         {data.hero2.slides.map((slide, index) => {

@@ -27,6 +27,8 @@ const EMPTY_TESTIMONIAL = {
 export default function TestimonialsSection({
   data,
   setData,
+  forceOpenSections,
+  forceOpenKey,
 }: SiteContentSectionProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [deleteIndex, setDeleteIndex] = useState<number | null>(null);
@@ -66,6 +68,8 @@ export default function TestimonialsSection({
       title="Testimonials"
       description="Click a card to edit · add or remove quotes"
       icon={MessageSquareQuote}
+      forceOpen={forceOpenSections?.has("testimonials")}
+      forceOpenKey={forceOpenKey}
     >
       <div className="flex justify-end">
         <Button type="button" size="sm" onClick={addTestimonial}>
