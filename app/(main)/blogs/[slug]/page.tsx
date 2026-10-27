@@ -219,7 +219,7 @@ export default async function Page({ params }: Props) {
               </div>
             </article>
 
-            <aside className="hidden h-fit flex-col gap-5 lg:sticky lg:top-28 lg:flex">
+            <aside className="flex h-fit flex-col gap-5 lg:sticky lg:top-28">
               <SideBar />
             </aside>
           </div>

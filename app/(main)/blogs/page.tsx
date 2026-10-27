@@ -173,7 +173,7 @@ const page = async ({ searchParams }: Props) => {
               )}
             </div>
 
-            <aside className="hidden h-fit flex-col gap-5 lg:flex lg:sticky lg:top-28">
+            <aside className="flex h-fit flex-col gap-5 lg:sticky lg:top-28">
               <SideBar />
             </aside>
           </div>
