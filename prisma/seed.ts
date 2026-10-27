@@ -10,6 +10,19 @@ import { SITE_CONTENT_ID } from "../lib/siteContent/schema";
 
 const prisma = new PrismaClient();
 
+/** Prisma treats `notIn: []` as "delete nothing", so an empty brand list must delete all. */
+async function deleteSlugsNotIn(
+  model: "service" | "project" | "category",
+  slugs: string[]
+) {
+  if (slugs.length === 0) {
+    return prisma[model].deleteMany();
+  }
+  return prisma[model].deleteMany({
+    where: { slug: { notIn: slugs } },
+  });
+}
+
 function loadEnvFile() {
   const envPath = path.join(process.cwd(), ".env");
   if (!fs.existsSync(envPath)) return;
@@ -62,7 +75,7 @@ type StaticProject = {
   materials: string[];
 };
 
-async function seedBrand(mod: Record<string, unknown>) {
+async function seedBrand(mod: Record<string, unknown>, brand: string) {
   const categoriesData = mod.categoriesData as StaticCategory[] | undefined;
   const servicesData = mod.servicesData as
     | Record<string, StaticService>
@@ -107,9 +120,12 @@ async function seedBrand(mod: Record<string, unknown>) {
 
   if (servicesData) {
     const keepSlugs = Object.keys(servicesData);
-    await prisma.service.deleteMany({
-      where: { slug: { notIn: keepSlugs } },
-    });
+    const removedServices = await deleteSlugsNotIn("service", keepSlugs);
+    if (removedServices.count) {
+      console.log(
+        `[seed] Removed ${removedServices.count} services not in data/${brand}`
+      );
+    }
 
     let sortOrder = 0;
     for (const [slug, service] of Object.entries(servicesData)) {
@@ -159,7 +175,27 @@ async function seedBrand(mod: Record<string, unknown>) {
     }
   }
 
+  if (categoriesData) {
+    const removedCategories = await deleteSlugsNotIn(
+      "category",
+      categoriesData.map((cat) => cat.slug)
+    );
+    if (removedCategories.count) {
+      console.log(
+        `[seed] Removed ${removedCategories.count} categories not in data/${brand}`
+      );
+    }
+  }
+
   if (projectsData) {
+    const keepProjectSlugs = Object.keys(projectsData);
+    const removedProjects = await deleteSlugsNotIn("project", keepProjectSlugs);
+    if (removedProjects.count) {
+      console.log(
+        `[seed] Removed ${removedProjects.count} projects not in data/${brand}`
+      );
+    }
+
     let sortOrder = 0;
     for (const [slug, project] of Object.entries(projectsData)) {
       const image = await resolveImagePathForSeed(project.image);
@@ -197,19 +233,18 @@ async function seedBrand(mod: Record<string, unknown>) {
     }
   }
 
-  // Marketing / site config singleton
-  try {
-    const built = siteContentFromStaticModule(mod);
-    const withUploads = await migrateSiteContentImages(built);
-    await prisma.siteContent.upsert({
-      where: { id: SITE_CONTENT_ID },
-      create: { id: SITE_CONTENT_ID, data: withUploads },
-      update: { data: withUploads },
-    });
-    console.log("[seed] SiteContent upserted");
-  } catch (error) {
-    console.warn("[seed] SiteContent seed skipped:", error);
-  }
+  // One site document for this brand, including hero2.slides. A failure here
+  // stops the seed instead of leaving the previous brand's content in place.
+  const built = siteContentFromStaticModule(mod);
+  const withUploads = await migrateSiteContentImages(built);
+  await prisma.siteContent.upsert({
+    where: { id: SITE_CONTENT_ID },
+    create: { id: SITE_CONTENT_ID, data: withUploads },
+    update: { data: withUploads },
+  });
+  console.log(
+    `[seed] SiteContent upserted (${withUploads.hero2.slides.length} hero slides)`
+  );
 }
 
 async function main() {
@@ -231,7 +266,9 @@ async function main() {
     );
   }
 
-  console.log(`[seed] Seeding brand from DATA=${brand}`);
+  console.log(
+    `[seed] Seeding only data/${brand}. Other data folders are not loaded.`
+  );
 
   const modulePath = pathToFileURL(indexPath).href;
   const mod = (await import(modulePath)) as Record<string, unknown>;
@@ -245,7 +282,7 @@ async function main() {
     }
   }
 
-  await seedBrand(mod);
+  await seedBrand(mod, brand);
 
   // Bust Next.js data cache so nav / listings pick up seeded rows
   try {
