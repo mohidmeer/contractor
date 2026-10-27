@@ -11,16 +11,16 @@ import { SITE_CONTENT_ID } from "../lib/siteContent/schema";
 const prisma = new PrismaClient();
 
 /** Prisma treats `notIn: []` as "delete nothing", so an empty brand list must delete all. */
-async function deleteSlugsNotIn(
-  model: "service" | "project" | "category",
-  slugs: string[]
-) {
-  if (slugs.length === 0) {
-    return prisma[model].deleteMany();
+function deleteSlugsNotIn(model: "service" | "project" | "category", slugs: string[]) {
+  const where = slugs.length === 0 ? undefined : { slug: { notIn: slugs } };
+  switch (model) {
+    case "service":
+      return where ? prisma.service.deleteMany({ where }) : prisma.service.deleteMany();
+    case "project":
+      return where ? prisma.project.deleteMany({ where }) : prisma.project.deleteMany();
+    case "category":
+      return where ? prisma.category.deleteMany({ where }) : prisma.category.deleteMany();
   }
-  return prisma[model].deleteMany({
-    where: { slug: { notIn: slugs } },
-  });
 }
 
 function loadEnvFile() {
