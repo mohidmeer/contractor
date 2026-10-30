@@ -91,6 +91,18 @@ export default async function RootLayout({
       "@type": "City",
       name: city.name,
     })),
+    ...(site.licenses.some((license) => license.number.trim())
+      ? {
+          hasCredential: site.licenses
+            .filter((license) => license.number.trim())
+            .map((license) => ({
+              "@type": "EducationalOccupationalCredential",
+              credentialCategory: "Professional License",
+              name: license.label,
+              identifier: license.number,
+            })),
+        }
+      : {}),
   };
 
   return (

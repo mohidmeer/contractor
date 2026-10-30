@@ -8,6 +8,7 @@ import AdminPageHeader from "../AdminPageHeader";
 import { Button } from "@/components/ui/button";
 import BrandSection from "./BrandSection";
 import ContactSection from "./ContactSection";
+import LicensesSection from "./LicensesSection";
 import LandingSeoSection from "./LandingSeoSection";
 import HeroCarouselSection from "./HeroCarouselSection";
 import GetToKnowSection from "./GetToKnowSection";
@@ -140,12 +141,13 @@ export default function SiteContentEditor() {
 
       <p className="mx-auto mb-4 max-w-5xl text-sm text-muted-foreground">
         Open a section to edit. Use Update with AI on a section for copy changes,
-        then Save all. Brand and Contact stay manual (locked fields).
+        then Save all. Brand, Contact, and Licenses stay manual (locked fields).
       </p>
 
       <div className="mx-auto max-w-5xl space-y-3 pb-24">
         <BrandSection {...sectionProps} />
         <ContactSection {...sectionProps} />
+        <LicensesSection {...sectionProps} />
         <LandingSeoSection {...sectionProps} />
         <HeroCarouselSection {...sectionProps} />
         <GetToKnowSection {...sectionProps} />

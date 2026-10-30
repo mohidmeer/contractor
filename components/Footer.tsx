@@ -19,7 +19,16 @@ import type { NavItem } from "@/types";
 const FOOTER_LINK_LIMIT = 6;
 
 const Footer = ({ items }: { items: NavItem[] }) => {
-  const { contactInfo, FooterData, siteName, socialLinks } = useSiteContent();
+  const { contactInfo, FooterData, licenses, siteName, socialLinks } =
+    useSiteContent();
+  const licenseLine = licenses
+    .filter((license) => license.number.trim())
+    .map((license) =>
+      license.label.trim()
+        ? `${license.number.trim()} (${license.label.trim()})`
+        : license.number.trim()
+    )
+    .join(", ");
   const services = flattenNavLeaves(
     items.find(
       (item) =>
@@ -196,10 +205,11 @@ const Footer = ({ items }: { items: NavItem[] }) => {
         </div>
 
         <div className="mt-10 flex flex-col gap-2 border-t border-white/15 pt-5 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-white/85">
-            License #: CCC1336268 (Roofing), CGC1535671 (General Contractor) |
-            Insured
-          </p>
+          {licenseLine ? (
+            <p className="text-sm text-white/85">
+              License #: {licenseLine} | Insured
+            </p>
+          ) : null}
           <p className="text-sm font-medium text-white/90">
             © {new Date().getFullYear()} {siteName}
           </p>
